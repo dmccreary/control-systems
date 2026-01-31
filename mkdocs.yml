@@ -12,9 +12,22 @@ nav:
 
   - Chapters:
     - List of Chapters: chapters/index.md
-    - 1. Chapter 1 Title: 
-      - Content: chapters/01-name/index.md
-      - Quiz: chapters/01-name/quiz.md
+    - 1. Introduction to Control Systems: chapters/01-intro-to-control-systems/index.md
+    - 2. Dynamic System Properties: chapters/02-dynamic-system-properties/index.md
+    - 3. Time-Domain Response: chapters/03-time-domain-response/index.md
+    - 4. Transient Response Specs: chapters/04-transient-response-specs/index.md
+    - 5. Laplace Transform Methods: chapters/05-laplace-transform-methods/index.md
+    - 6. Poles, Zeros, and System Analysis: chapters/06-poles-zeros-system-analysis/index.md
+    - 7. Physical System Modeling: chapters/07-physical-system-modeling/index.md
+    - 8. Linearization and Nonlinear Effects: chapters/08-linearization-nonlinear-effects/index.md
+    - 9. Block Diagrams and Signal Flow: chapters/09-block-diagrams-signal-flow/index.md
+    - 10. Stability and Routh-Hurwitz: chapters/10-stability-routh-hurwitz/index.md
+    - 11. Root Locus Analysis: chapters/11-root-locus-analysis-design/index.md
+    - 12. Frequency Response and Bode: chapters/12-frequency-response-bode-plots/index.md
+    - 13. Nyquist and Stability Margins: chapters/13-nyquist-stability-margins/index.md
+    - 14. Steady-State Error Analysis: chapters/14-steady-state-error-analysis/index.md
+    - 15. PID Control and Tuning: chapters/15-pid-control-tuning/index.md
+    - 16. Compensator Design: chapters/16-compensator-design-performance/index.md
 
   
   - Sims:
@@ -54,8 +67,8 @@ theme:
   name: material
   extra_css:
     - styles/custom.css
-  #logo: img/logo.jpg
-  #favicon: img/favicon.ico
+  logo: img/logo.png
+  favicon: img/favicon.ico
   palette:
     primary: 'maroon'
     accent: 'gold'
