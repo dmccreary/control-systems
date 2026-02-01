@@ -10,6 +10,17 @@ This is an MkDocs Material intelligent textbook for a Control Systems college co
 - KaTeX for LaTeX equation rendering
 - Taxonomy-based concept classification
 
+## Open Source Tools Only
+
+This course uses only free, open-source tools. We do not reference or recommend MATLAB.
+
+**Rationale:** Our audience is worldwide students who may not have access to expensive commercial software. While many US colleges and universities provide MATLAB licenses for free, students in other countries, self-learners, and those at institutions without site licenses would be excluded. By using Python with open-source libraries (such as python-control, NumPy, SciPy, and Matplotlib), we ensure every student can fully participate regardless of their economic situation or institutional affiliation.
+
+**In practice:**
+- Use Python examples, not MATLAB
+- Reference python-control library for control systems analysis
+- Never suggest MATLAB as an alternative
+- MicroSims use JavaScript (p5.js, vis-network) which runs in any browser
 
 ## Tone and Content Guidelines
 

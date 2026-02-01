@@ -31,7 +31,7 @@ Here is a list of the specific mathematical and technical skills students are ex
 - Linear algebra (vectors, matrices, eigenvalues and eigenvectors at a conceptual level)  
 - Complex numbers (rectangular and polar forms, magnitude and phase)  
 - Signals and systems concepts (LTI systems recommended)  
-- Basic programming or scripting experience (MATLAB, Python, or equivalent)  
+- Basic programming or scripting experience (Python or equivalent)  
 
 ## Detailed Topics Covered
 

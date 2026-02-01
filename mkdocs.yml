@@ -53,6 +53,7 @@ nav:
     - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
     - Glossary Quality Report: learning-graph/glossary-quality-report.md
     - FAQ Quality Report: learning-graph/faq-quality-report.md
+    - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
     - Book Metrics: learning-graph/book-metrics.md
     - Chapter Metrics: learning-graph/chapter-metrics.md
     - Diagram Details: learning-graph/diagram-details.md
