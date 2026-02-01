@@ -12,10 +12,10 @@
         <link rel="canonical" href="https://dmccreary.github.io/control-systems/chapters/03-time-domain-response/">
       
       
-        <link rel="prev" href="../02-dynamic-system-properties/">
+        <link rel="prev" href="../02-dynamic-system-properties/quiz/">
       
       
-        <link rel="next" href="../04-transient-response-specs/">
+        <link rel="next" href="quiz/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -317,67 +317,35 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
         
       
     
@@ -426,16 +394,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../01-intro-to-control-systems/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../01-intro-to-control-systems/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     1. Introduction to Control Systems
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -447,16 +442,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../02-dynamic-system-properties/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../02-dynamic-system-properties/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     2. Dynamic System Properties
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -470,360 +492,53 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3. Time-Domain Response
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    3. Time-Domain Response
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    
       
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concepts-covered" class="md-nav__link">
-    <span class="md-ellipsis">
-      Concepts Covered
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-system-responses-in-time" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding System Responses in Time
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-order-of-a-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Order of a System
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Order of a System">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#diagram-system-order-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: System Order Classification
-    </span>
-  </a>
-  
-</li>
+          
         
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#initial-conditions-where-the-story-begins" class="md-nav__link">
-    <span class="md-ellipsis">
-      Initial Conditions: Where the Story Begins
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#natural-response-and-forced-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Natural Response and Forced Response
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Natural Response and Forced Response">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#diagram-natural-vs-forced-response-decomposition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: Natural vs. Forced Response Decomposition
-    </span>
-  </a>
-  
-</li>
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zero-input-and-zero-state-responses" class="md-nav__link">
-    <span class="md-ellipsis">
-      Zero-Input and Zero-State Responses
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transient-response-and-steady-state-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transient Response and Steady-State Response
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-order-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      First-Order Systems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="First-Order Systems">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#diagram-first-order-step-response-explorer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: First-Order Step Response Explorer
-    </span>
-  </a>
-  
-</li>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
         
-      </ul>
-    </nav>
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#second-order-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Second-Order Systems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#natural-frequency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Natural Frequency
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#damping-ratio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Damping Ratio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#damped-frequency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Damped Frequency
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Damped Frequency">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram-damping-ratio-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: Damping Ratio Classification
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#undamped-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Undamped Systems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#underdamped-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Underdamped Systems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#critically-damped-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Critically Damped Systems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overdamped-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overdamped Systems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Overdamped Systems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram-second-order-response-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: Second-Order Response Comparison
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#higher-order-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Higher-Order Systems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Higher-Order Systems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram-dominant-poles-visualization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: Dominant Poles Visualization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#time-constant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Time Constant
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#putting-it-all-together-the-total-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Putting It All Together: The Total Response
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Putting It All Together: The Total Response">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram-response-analysis-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagram: Response Analysis Workflow
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
+  <span class="md-ellipsis">
+    3. Time-Domain Response
+  </span>
   
 
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Time-Domain Response
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
             
               
@@ -833,15 +548,71 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-transient-response-specs/" class="md-nav__link">
+      <a href="quiz/" class="md-nav__link">
         
+  
+  <span class="md-ellipsis">
+    Quiz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../04-transient-response-specs/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     4. Transient Response Specs
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -853,16 +624,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../05-laplace-transform-methods/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../05-laplace-transform-methods/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     5. Laplace Transform Methods
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -874,16 +672,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../06-poles-zeros-system-analysis/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../06-poles-zeros-system-analysis/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     6. Poles, Zeros, and System Analysis
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -895,16 +720,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../07-physical-system-modeling/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../07-physical-system-modeling/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     7. Physical System Modeling
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -916,16 +768,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../08-linearization-nonlinear-effects/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../08-linearization-nonlinear-effects/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     8. Linearization and Nonlinear Effects
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -937,16 +816,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../09-block-diagrams-signal-flow/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../09-block-diagrams-signal-flow/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     9. Block Diagrams and Signal Flow
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -958,16 +864,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../10-stability-routh-hurwitz/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../10-stability-routh-hurwitz/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     10. Stability and Routh-Hurwitz
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -979,16 +912,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../11-root-locus-analysis-design/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../11-root-locus-analysis-design/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     11. Root Locus Analysis
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1000,16 +960,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../12-frequency-response-bode-plots/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../12-frequency-response-bode-plots/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     12. Frequency Response and Bode
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1021,16 +1008,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../13-nyquist-stability-margins/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13-nyquist-stability-margins/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     13. Nyquist and Stability Margins
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1042,16 +1056,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../14-steady-state-error-analysis/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../14-steady-state-error-analysis/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     14. Steady-State Error Analysis
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1063,16 +1104,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../15-pid-control-tuning/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../15-pid-control-tuning/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     15. PID Control and Tuning
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1084,16 +1152,43 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../16-compensator-design-performance/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../16-compensator-design-performance/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     16. Compensator Design
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1235,6 +1330,8 @@
       
         
           
+        
+      
         
       
         
@@ -2648,7 +2745,7 @@ Bloom Verb: execute, implement</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../02-dynamic-system-properties/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. Dynamic System Properties">
+          <a href="../02-dynamic-system-properties/quiz/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quiz">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2658,20 +2755,20 @@ Bloom Verb: execute, implement</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                2. Dynamic System Properties
+                Quiz
               </div>
             </div>
           </a>
         
         
           
-          <a href="../04-transient-response-specs/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Transient Response Specs">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                4. Transient Response Specs
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">
