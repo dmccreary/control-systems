@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Control Systems</title>
+
+    <!-- vis-timeline CSS -->
+    <link href="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.css" rel="stylesheet">
+    <!-- Local styles -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="timeline-header">
+        <h1>History of Control Systems</h1>
+        <p>From Ancient Water Clocks to AI-Enhanced Control (300 BCE - 2023 CE)</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+        <span class="filter-label">Filter by Era:</span>
+        <button class="filter-btn active" data-category="all" onclick="filterCategory('all')">All Events</button>
+        <button class="filter-btn" data-category="classical" onclick="filterCategory('classical')">Classical Control</button>
+        <button class="filter-btn" data-category="modern" onclick="filterCategory('modern')">Modern Control</button>
+        <button class="filter-btn" data-category="consumer" onclick="filterCategory('consumer')">Consumer Products</button>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="panLeft()">◀ Pan Left</button>
+        <button class="nav-btn" onclick="zoomIn()">+ Zoom In</button>
+        <button class="nav-btn" onclick="zoomOut()">− Zoom Out</button>
+        <button class="nav-btn" onclick="panRight()">Pan Right ▶</button>
+        <button class="nav-btn" onclick="fitAll()">Fit All</button>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        Click and drag to pan • Click an event to see details below • Use buttons above to zoom and navigate
+    </div>
+
+    <!-- Timeline Container -->
+    <div id="timeline"></div>
+
+    <!-- Info Panel -->
+    <div class="info-panel">
+        <!-- Legend -->
+        <div class="legend">
+            <h3>Categories</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #2E7D32;"></div>
+                <span>Classical Control</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #1565C0;"></div>
+                <span>Modern Control</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FF8F00;"></div>
+                <span>Consumer Products</span>
+            </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="event-details" id="eventDetails">
+            <p class="placeholder">Click on any event in the timeline to see its full details here.</p>
+        </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="back-link">
+        <a href=".">Back to Documentation</a>
+    </div>
+
+    <!-- vis-timeline JavaScript -->
+    <script src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
+
+    <script>
+        // Category colors matching the CSS
+        const categoryColors = {
+            'classical': '#2E7D32',
+            'modern': '#1565C0',
+            'consumer': '#FF8F00'
+        };
+
+        const categoryLabels = {
+            'classical': 'Classical Control',
+            'modern': 'Modern Control',
+            'consumer': 'Consumer Products'
+        };
+
+        // Global variables
+        let timeline;
+        let timelineData;
+        let allItems = [];
+        let groups;
+
+        // Load data and initialize timeline
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                initializeTimeline(data);
+            })
+            .catch(error => {
+                console.error('Error loading timeline data:', error);
+                document.getElementById('timeline').innerHTML =
+                    '<p style="padding: 20px; color: red;">Error loading timeline data. Please check the console.</p>';
+            });
+
+        function initializeTimeline(data) {
+            // Create groups dataset
+            groups = new vis.DataSet(data.groups);
+
+            // Transform items to vis-timeline format with colors
+            allItems = data.items.map(item => ({
+                id: item.id,
+                content: item.content,
+                start: parseDate(item.start),
+                group: item.group,
+                title: item.title,  // Used for tooltip
+                category: item.group,
+                style: `background-color: ${categoryColors[item.group]}; color: white; border-color: ${categoryColors[item.group]};`
+            }));
+
+            // Create DataSet for items
+            timelineData = new vis.DataSet(allItems);
+
+            // Timeline options
+            const options = {
+                width: '100%',
+                height: '400px',
+                margin: {
+                    item: { horizontal: 50, vertical: 10 },
+                    axis: 40
+                },
+                orientation: 'top',
+                zoomMin: 1000 * 60 * 60 * 24 * 365 * 20,    // 20 years minimum zoom
+                zoomMax: 1000 * 60 * 60 * 24 * 365 * 2500,  // 2500 years maximum zoom
+                min: new Date(-500, 0, 1),   // 500 BCE
+                max: new Date(2030, 0, 1),   // 2030 CE
+                tooltip: {
+                    followMouse: true
+                },
+                stack: true,
+                stackSubgroups: true,
+                selectable: true,
+                showCurrentTime: false,
+                moveable: true,
+                zoomable: false,  // Disable scroll wheel zoom to avoid page scroll issues
+                align: 'center'
+            };
+
+            // Create the timeline
+            const container = document.getElementById('timeline');
+            timeline = new vis.Timeline(container, timelineData, groups, options);
+
+            // Set initial window with padding
+            setWindowWithPadding(allItems);
+
+            // Event listener for item selection
+            timeline.on('select', function(properties) {
+                if (properties.items.length > 0) {
+                    const itemId = properties.items[0];
+                    const item = allItems.find(i => i.id === itemId);
+                    if (item) {
+                        showEventDetails(item);
+                    }
+                }
+            });
+        }
+
+        function parseDate(dateStr) {
+            // Handle dates like "0300-01-01" (300 CE) or negative years for BCE
+            const parts = dateStr.split('-');
+            let year = parseInt(parts[0]);
+            const month = parseInt(parts[1]) - 1; // JavaScript months are 0-indexed
+            const day = parseInt(parts[2]);
+
+            // Handle ancient dates (before year 100)
+            if (year < 100 && year >= 0) {
+                const date = new Date(0);
+                date.setFullYear(year, month, day);
+                return date;
+            }
+
+            return new Date(year, month, day);
+        }
+
+        function setWindowWithPadding(items) {
+            if (items.length === 0) return;
+
+            const dates = items.map(item => item.start.getTime());
+            const minDate = Math.min(...dates);
+            const maxDate = Math.max(...dates);
+
+            // Add 50 years padding on each side
+            const fiftyYears = 50 * 365 * 24 * 60 * 60 * 1000;
+            timeline.setWindow(
+                new Date(minDate - fiftyYears),
+                new Date(maxDate + fiftyYears),
+                { animation: false }
+            );
+        }
+
+        function filterCategory(category) {
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            // Filter items
+            if (category === 'all') {
+                timelineData.clear();
+                timelineData.add(allItems);
+                // Show all groups
+                groups.forEach(g => groups.update({ id: g.id, visible: true }));
+            } else {
+                const filtered = allItems.filter(item => item.category === category);
+                timelineData.clear();
+                timelineData.add(filtered);
+                // Show only the selected group
+                groups.forEach(g => {
+                    groups.update({ id: g.id, visible: g.id === category });
+                });
+            }
+
+            // Fit to show filtered items with padding
+            const visibleItems = category === 'all' ? allItems : allItems.filter(item => item.category === category);
+            setWindowWithPadding(visibleItems);
+
+            // Clear event details
+            document.getElementById('eventDetails').innerHTML =
+                '<p class="placeholder">Click on any event in the timeline to see its full details here.</p>';
+        }
+
+        function showEventDetails(item) {
+            const year = item.start.getFullYear();
+            const yearDisplay = year < 0 ? `${Math.abs(year)} BCE` : `${year} CE`;
+
+            const html = `
+                <h3>${item.content}</h3>
+                <div class="event-date">${yearDisplay}</div>
+                <span class="event-category" style="background-color: ${categoryColors[item.category]};">
+                    ${categoryLabels[item.category]}
+                </span>
+                <p class="event-description">${item.title}</p>
+            `;
+
+            document.getElementById('eventDetails').innerHTML = html;
+        }
+
+        // Navigation functions
+        function panLeft() {
+            const range = timeline.getWindow();
+            const interval = (range.end - range.start) * 0.3;
+            timeline.setWindow(range.start - interval, range.end - interval);
+        }
+
+        function panRight() {
+            const range = timeline.getWindow();
+            const interval = (range.end - range.start) * 0.3;
+            timeline.setWindow(range.start + interval, range.end + interval);
+        }
+
+        function zoomIn() {
+            const range = timeline.getWindow();
+            const center = (range.start.getTime() + range.end.getTime()) / 2;
+            const newInterval = (range.end - range.start) * 0.5;
+            timeline.setWindow(center - newInterval / 2, center + newInterval / 2);
+        }
+
+        function zoomOut() {
+            const range = timeline.getWindow();
+            const center = (range.start.getTime() + range.end.getTime()) / 2;
+            const newInterval = (range.end - range.start) * 2;
+            timeline.setWindow(center - newInterval / 2, center + newInterval / 2);
+        }
+
+        function fitAll() {
+            // Get currently visible items based on filter
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.category;
+            const visibleItems = activeFilter === 'all' ? allItems : allItems.filter(item => item.category === activeFilter);
+            setWindowWithPadding(visibleItems);
+        }
+    </script>
+</body>
+</html>

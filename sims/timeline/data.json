@@ -1,0 +1,228 @@
+{
+  "groups": [
+    {
+      "id": "classical",
+      "content": "Classical Control"
+    },
+    {
+      "id": "modern",
+      "content": "Modern Control"
+    },
+    {
+      "id": "consumer",
+      "content": "Consumer Products"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "content": "Water Clocks (Clepsydra)",
+      "start": "0300-01-01",
+      "group": "classical",
+      "title": "Ancient Greek and Egyptian water clocks used float-based feedback mechanisms to regulate water flow and maintain a roughly constant rate of timekeeping. These are among the earliest known examples of feedback control systems."
+    },
+    {
+      "id": 2,
+      "content": "Ktesibios Float Regulator",
+      "start": "0250-01-01",
+      "group": "classical",
+      "title": "Ktesibios of Alexandria introduced a float regulator for water clocks, explicitly using negative feedback to maintain constant water levels, establishing a foundational control principle."
+    },
+    {
+      "id": 3,
+      "content": "Medieval Windmill Governors",
+      "start": "1200-01-01",
+      "group": "classical",
+      "title": "Early windmills employed mechanical regulation mechanisms to prevent overspeed under high winds, an early application of feedback for safety and stability."
+    },
+    {
+      "id": 4,
+      "content": "Drebbel Thermostat",
+      "start": "1620-01-01",
+      "group": "classical",
+      "title": "Cornelis Drebbel demonstrated a temperature-regulated furnace using feedback, one of the first documented thermostatic control systems."
+    },
+    {
+      "id": 5,
+      "content": "Watt Steam Engine Governor",
+      "start": "1788-01-01",
+      "group": "classical",
+      "title": "James Watt’s centrifugal flyball governor automatically regulated engine speed, becoming the canonical example of mechanical feedback control."
+    },
+    {
+      "id": 6,
+      "content": "Laplace Transform",
+      "start": "1815-01-01",
+      "group": "classical",
+      "title": "Laplace’s transform later became a central mathematical tool for modeling and analyzing linear time-invariant control systems."
+    },
+    {
+      "id": 7,
+      "content": "Maxwell Stability Analysis",
+      "start": "1868-01-01",
+      "group": "classical",
+      "title": "James Clerk Maxwell published the first formal stability analysis of feedback systems, linking physical governors to differential equations."
+    },
+    {
+      "id": 8,
+      "content": "Routh Stability Criterion",
+      "start": "1877-01-01",
+      "group": "classical",
+      "title": "Edward Routh introduced an algebraic test for system stability without solving characteristic equations."
+    },
+    {
+      "id": 9,
+      "content": "Lyapunov Stability Theory",
+      "start": "1892-01-01",
+      "group": "classical",
+      "title": "Aleksandr Lyapunov developed a general framework for analyzing stability of nonlinear dynamical systems."
+    },
+    {
+      "id": 10,
+      "content": "Feedback Amplifiers",
+      "start": "1912-01-01",
+      "group": "classical",
+      "title": "Early telephone engineers explored negative feedback to improve amplifier stability and linearity."
+    },
+    {
+      "id": 11,
+      "content": "Nyquist Criterion",
+      "start": "1932-01-01",
+      "group": "classical",
+      "title": "Harry Nyquist introduced a frequency-domain stability test for feedback systems."
+    },
+    {
+      "id": 12,
+      "content": "PID Control",
+      "start": "1939-01-01",
+      "group": "classical",
+      "title": "PID control was formalized for industrial use and became the most widely deployed control strategy in history."
+    },
+    {
+      "id": 13,
+      "content": "Bode Plots",
+      "start": "1945-01-01",
+      "group": "classical",
+      "title": "Hendrik Bode introduced logarithmic frequency plots, enabling intuitive control design."
+    },
+    {
+      "id": 14,
+      "content": "WWII Servomechanisms",
+      "start": "1945-01-01",
+      "group": "classical",
+      "title": "Military needs accelerated the development of high-performance feedback systems for tracking and targeting."
+    },
+    {
+      "id": 15,
+      "content": "Root Locus",
+      "start": "1948-01-01",
+      "group": "classical",
+      "title": "Walter R. Evans developed the root locus method to visualize pole movement as feedback gain changes."
+    },
+    {
+      "id": 16,
+      "content": "State-Space Theory",
+      "start": "1960-01-01",
+      "group": "modern",
+      "title": "State-space methods unified multivariable and time-domain control design."
+    },
+    {
+      "id": 17,
+      "content": "Kalman Filter",
+      "start": "1960-01-01",
+      "group": "modern",
+      "title": "Rudolf Kalman introduced optimal state estimation under noise, revolutionizing navigation and control."
+    },
+    {
+      "id": 18,
+      "content": "Optimal Control",
+      "start": "1962-01-01",
+      "group": "modern",
+      "title": "Pontryagin’s Maximum Principle formalized optimal control under constraints."
+    },
+    {
+      "id": 19,
+      "content": "Apollo Guidance Computer",
+      "start": "1969-01-01",
+      "group": "modern",
+      "title": "Demonstrated real-time digital control and estimation in safety-critical aerospace systems."
+    },
+    {
+      "id": 20,
+      "content": "Robust Control (H∞)",
+      "start": "1980-01-01",
+      "group": "modern",
+      "title": "Robust control explicitly addressed uncertainty and worst-case performance."
+    },
+    {
+      "id": 21,
+      "content": "Industrial PLCs",
+      "start": "1985-01-01",
+      "group": "modern",
+      "title": "PLCs embedded control theory into factory automation worldwide."
+    },
+    {
+      "id": 22,
+      "content": "Model Predictive Control",
+      "start": "1995-01-01",
+      "group": "modern",
+      "title": "MPC enabled optimization-based control with constraints in real time."
+    },
+    {
+      "id": 23,
+      "content": "Anti-lock Braking Systems",
+      "start": "1990-01-01",
+      "group": "consumer",
+      "title": "ABS brought feedback control into consumer vehicles, improving safety."
+    },
+    {
+      "id": 24,
+      "content": "Fly-by-Wire Aircraft",
+      "start": "1992-01-01",
+      "group": "consumer",
+      "title": "Commercial aircraft relied entirely on digital control laws for stability."
+    },
+    {
+      "id": 25,
+      "content": "Segway",
+      "start": "2001-01-01",
+      "group": "consumer",
+      "title": "The Segway popularized inverted-pendulum control in a consumer product."
+    },
+    {
+      "id": 26,
+      "content": "Robotic Vacuums",
+      "start": "2002-01-01",
+      "group": "consumer",
+      "title": "Autonomous household robots embedded sensing, control, and planning."
+    },
+    {
+      "id": 27,
+      "content": "Quadrotor Drones",
+      "start": "2010-01-01",
+      "group": "consumer",
+      "title": "Low-cost drones showcased nonlinear, multivariable control to the public."
+    },
+    {
+      "id": 28,
+      "content": "Autonomous Vehicles",
+      "start": "2015-01-01",
+      "group": "consumer",
+      "title": "Control theory became central to self-driving vehicle technology."
+    },
+    {
+      "id": 29,
+      "content": "Learning-Based Control",
+      "start": "2018-01-01",
+      "group": "modern",
+      "title": "Machine learning began augmenting classical feedback and model-based control."
+    },
+    {
+      "id": 30,
+      "content": "AI-Enhanced Control",
+      "start": "2023-01-01",
+      "group": "modern",
+      "title": "Modern cyber-physical systems integrate classical control, optimization, and AI."
+    }
+  ]
+}

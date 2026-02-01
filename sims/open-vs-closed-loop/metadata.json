@@ -1,0 +1,81 @@
+{
+  "$schema": "https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json",
+  "title": "Open-Loop vs Closed-Loop Comparison",
+  "description": "Interactive side-by-side comparison demonstrating how feedback control enables superior disturbance rejection compared to open-loop systems. Students apply disturbances and observe how each architecture responds.",
+  "creator": "Claude AI",
+  "subject": ["Control Systems", "Feedback Control", "Engineering"],
+  "date": "2026-02-01",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY 4.0",
+  "educationalLevel": "Undergraduate",
+  "subjectArea": "Engineering",
+  "topic": "Feedback Control and Disturbance Rejection",
+  "learningObjectives": [
+    "Differentiate between open-loop and closed-loop control architectures",
+    "Analyze why feedback enables automatic disturbance rejection",
+    "Predict how controller gain affects disturbance rejection capability"
+  ],
+  "bloomsTaxonomyLevel": "Analyze",
+  "duration": "10-15 minutes",
+  "prerequisites": [
+    "Basic understanding of control system terminology",
+    "Familiarity with block diagrams"
+  ],
+  "framework": "p5.js",
+  "canvasDimensions": "750x500",
+  "responsive": "Width-responsive",
+  "dependencies": ["p5.js CDN v1.11.10"],
+  "accessibility": {
+    "screenReaderDescription": true,
+    "keyboardNav": false
+  },
+  "controls": [
+    {
+      "type": "button",
+      "label": "Apply Disturbance",
+      "description": "Applies a step disturbance at t = 3 seconds to both systems"
+    },
+    {
+      "type": "button",
+      "label": "Reset Both",
+      "description": "Resets simulation to initial conditions"
+    },
+    {
+      "type": "slider",
+      "label": "Disturbance d",
+      "range": "-0.5 to 0.5",
+      "default": 0.3,
+      "description": "Sets the magnitude of the step disturbance"
+    },
+    {
+      "type": "slider",
+      "label": "CL Gain K",
+      "range": "1 to 10",
+      "default": 5,
+      "description": "Sets the controller gain for the closed-loop system"
+    }
+  ],
+  "modelType": "First-order dynamic system with proportional control",
+  "variables": [
+    "K - Controller gain",
+    "tau - Plant time constant",
+    "d - Disturbance magnitude"
+  ],
+  "equations": [
+    "Plant: G_p(s) = 1/(tau*s + 1)",
+    "Closed-loop: G_cl(s) = K/(tau*s + 1 + K)",
+    "Disturbance attenuation: 1/(1+K)"
+  ],
+  "assumptions": [
+    "Linear time-invariant plant",
+    "Unity feedback sensor",
+    "Step disturbance at output"
+  ],
+  "limitations": [
+    "Does not show transient oscillations",
+    "Only proportional control (no integral or derivative action)",
+    "Simplified first-order dynamics"
+  ]
+}
