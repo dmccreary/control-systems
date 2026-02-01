@@ -1,5 +1,10 @@
 # Learning Graph Viewer
 
+
+<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
+
+[Open Learning Graph Viewer Fullscreen (recommended)](./main.html){ .md-button .md-button--primary }
+
 This interactive viewer allows you to explore the learning graph for the Control Systems course.
 
 ## Features
@@ -28,8 +33,4 @@ This interactive viewer allows you to explore the learning graph for the Control
 - **Advanced Concepts** (right side): Topics that build on multiple prerequisites
 - **Edges**: Arrows point from a concept to its prerequisites
 
-## Launch the Viewer
 
-[Open Learning Graph Viewer](./main.html){ .md-button .md-button--primary }
-
-<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
