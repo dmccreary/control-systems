@@ -1,0 +1,3550 @@
+{
+  "metadata": {
+    "title": "Control Systems Learning Graph",
+    "description": "A comprehensive learning graph for classical control systems covering feedback control, system modeling, stability analysis, frequency response, and controller design.",
+    "creator": "Dan McCreary",
+    "date": "2026-01-31",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "LightCoral",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PROP": {
+      "classifierName": "System Properties",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "TIME": {
+      "classifierName": "Time Response",
+      "color": "LightYellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LAPL": {
+      "classifierName": "Laplace Methods",
+      "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MODEL": {
+      "classifierName": "Physical Modeling",
+      "color": "PaleTurquoise",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LINEAR": {
+      "classifierName": "Linearization",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "BLOCK": {
+      "classifierName": "Block Diagrams",
+      "color": "LavenderBlush",
+      "font": {
+        "color": "black"
+      }
+    },
+    "STAB": {
+      "classifierName": "Stability Analysis",
+      "color": "MistyRose",
+      "font": {
+        "color": "black"
+      }
+    },
+    "RLOC": {
+      "classifierName": "Root Locus",
+      "color": "PaleGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "FREQ": {
+      "classifierName": "Frequency Response",
+      "color": "PowderBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ERROR": {
+      "classifierName": "Steady-State Error",
+      "color": "Plum",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CTRL": {
+      "classifierName": "Controller Design",
+      "color": "Aquamarine",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PERF": {
+      "classifierName": "Performance",
+      "color": "LightPink",
+      "font": {
+        "color": "black"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Control System",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Feedback",
+      "group": "FOUND"
+    },
+    {
+      "id": 3,
+      "label": "Open-Loop Control",
+      "group": "FOUND"
+    },
+    {
+      "id": 4,
+      "label": "Closed-Loop Control",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "Plant",
+      "group": "FOUND"
+    },
+    {
+      "id": 6,
+      "label": "Controller",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "Actuator",
+      "group": "FOUND"
+    },
+    {
+      "id": 8,
+      "label": "Sensor",
+      "group": "FOUND"
+    },
+    {
+      "id": 9,
+      "label": "Reference Input",
+      "group": "FOUND"
+    },
+    {
+      "id": 10,
+      "label": "Error Signal",
+      "group": "FOUND"
+    },
+    {
+      "id": 11,
+      "label": "Disturbance",
+      "group": "FOUND"
+    },
+    {
+      "id": 12,
+      "label": "System Response",
+      "group": "FOUND"
+    },
+    {
+      "id": 13,
+      "label": "Dynamic System",
+      "group": "PROP"
+    },
+    {
+      "id": 14,
+      "label": "Linear System",
+      "group": "PROP"
+    },
+    {
+      "id": 15,
+      "label": "Time-Invariant System",
+      "group": "PROP"
+    },
+    {
+      "id": 16,
+      "label": "LTI System",
+      "group": "PROP"
+    },
+    {
+      "id": 17,
+      "label": "Superposition Principle",
+      "group": "PROP"
+    },
+    {
+      "id": 18,
+      "label": "Homogeneity",
+      "group": "PROP"
+    },
+    {
+      "id": 19,
+      "label": "Causality",
+      "group": "PROP"
+    },
+    {
+      "id": 20,
+      "label": "Differential Equation",
+      "group": "PROP"
+    },
+    {
+      "id": 21,
+      "label": "First-Order System",
+      "group": "TIME"
+    },
+    {
+      "id": 22,
+      "label": "Second-Order System",
+      "group": "TIME"
+    },
+    {
+      "id": 23,
+      "label": "Higher-Order System",
+      "group": "TIME"
+    },
+    {
+      "id": 24,
+      "label": "Order of a System",
+      "group": "TIME"
+    },
+    {
+      "id": 25,
+      "label": "Initial Conditions",
+      "group": "TIME"
+    },
+    {
+      "id": 26,
+      "label": "Natural Response",
+      "group": "TIME"
+    },
+    {
+      "id": 27,
+      "label": "Forced Response",
+      "group": "TIME"
+    },
+    {
+      "id": 28,
+      "label": "Total Response",
+      "group": "TIME"
+    },
+    {
+      "id": 29,
+      "label": "Zero-Input Response",
+      "group": "TIME"
+    },
+    {
+      "id": 30,
+      "label": "Zero-State Response",
+      "group": "TIME"
+    },
+    {
+      "id": 31,
+      "label": "Transient Response",
+      "group": "TIME"
+    },
+    {
+      "id": 32,
+      "label": "Steady-State Response",
+      "group": "TIME"
+    },
+    {
+      "id": 33,
+      "label": "Time Constant",
+      "group": "TIME"
+    },
+    {
+      "id": 34,
+      "label": "Damping Ratio",
+      "group": "TIME"
+    },
+    {
+      "id": 35,
+      "label": "Natural Frequency",
+      "group": "TIME"
+    },
+    {
+      "id": 36,
+      "label": "Damped Frequency",
+      "group": "TIME"
+    },
+    {
+      "id": 37,
+      "label": "Undamped System",
+      "group": "TIME"
+    },
+    {
+      "id": 38,
+      "label": "Underdamped System",
+      "group": "TIME"
+    },
+    {
+      "id": 39,
+      "label": "Critically Damped System",
+      "group": "TIME"
+    },
+    {
+      "id": 40,
+      "label": "Overdamped System",
+      "group": "TIME"
+    },
+    {
+      "id": 41,
+      "label": "Overshoot",
+      "group": "TIME"
+    },
+    {
+      "id": 42,
+      "label": "Percent Overshoot",
+      "group": "TIME"
+    },
+    {
+      "id": 43,
+      "label": "Settling Time",
+      "group": "TIME"
+    },
+    {
+      "id": 44,
+      "label": "Rise Time",
+      "group": "TIME"
+    },
+    {
+      "id": 45,
+      "label": "Peak Time",
+      "group": "TIME"
+    },
+    {
+      "id": 46,
+      "label": "Delay Time",
+      "group": "TIME"
+    },
+    {
+      "id": 47,
+      "label": "Step Input",
+      "group": "TIME"
+    },
+    {
+      "id": 48,
+      "label": "Impulse Input",
+      "group": "TIME"
+    },
+    {
+      "id": 49,
+      "label": "Ramp Input",
+      "group": "TIME"
+    },
+    {
+      "id": 50,
+      "label": "Parabolic Input",
+      "group": "TIME"
+    },
+    {
+      "id": 51,
+      "label": "Sinusoidal Input",
+      "group": "TIME"
+    },
+    {
+      "id": 52,
+      "label": "Unit Step Response",
+      "group": "TIME"
+    },
+    {
+      "id": 53,
+      "label": "Impulse Response",
+      "group": "TIME"
+    },
+    {
+      "id": 54,
+      "label": "Ramp Response",
+      "group": "TIME"
+    },
+    {
+      "id": 55,
+      "label": "Standard Test Inputs",
+      "group": "TIME"
+    },
+    {
+      "id": 56,
+      "label": "Transfer Function",
+      "group": "LAPL"
+    },
+    {
+      "id": 57,
+      "label": "Laplace Transform",
+      "group": "LAPL"
+    },
+    {
+      "id": 58,
+      "label": "Inverse Laplace Transform",
+      "group": "LAPL"
+    },
+    {
+      "id": 59,
+      "label": "S-Domain",
+      "group": "LAPL"
+    },
+    {
+      "id": 60,
+      "label": "Time Domain",
+      "group": "LAPL"
+    },
+    {
+      "id": 61,
+      "label": "Frequency Domain",
+      "group": "LAPL"
+    },
+    {
+      "id": 62,
+      "label": "Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 63,
+      "label": "Zeros",
+      "group": "LAPL"
+    },
+    {
+      "id": 64,
+      "label": "Pole-Zero Plot",
+      "group": "LAPL"
+    },
+    {
+      "id": 65,
+      "label": "Pole-Zero Cancellation",
+      "group": "LAPL"
+    },
+    {
+      "id": 66,
+      "label": "Dominant Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 67,
+      "label": "Pole Locations",
+      "group": "LAPL"
+    },
+    {
+      "id": 68,
+      "label": "Complex Conjugate Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 69,
+      "label": "Real Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 70,
+      "label": "Repeated Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 71,
+      "label": "Simple Poles",
+      "group": "LAPL"
+    },
+    {
+      "id": 72,
+      "label": "Pole at Origin",
+      "group": "LAPL"
+    },
+    {
+      "id": 73,
+      "label": "Poles in Left Half Plane",
+      "group": "LAPL"
+    },
+    {
+      "id": 74,
+      "label": "Poles in Right Half Plane",
+      "group": "LAPL"
+    },
+    {
+      "id": 75,
+      "label": "Poles on Imaginary Axis",
+      "group": "LAPL"
+    },
+    {
+      "id": 76,
+      "label": "Initial Value Theorem",
+      "group": "LAPL"
+    },
+    {
+      "id": 77,
+      "label": "Final Value Theorem",
+      "group": "LAPL"
+    },
+    {
+      "id": 78,
+      "label": "Partial Fraction Expansion",
+      "group": "LAPL"
+    },
+    {
+      "id": 79,
+      "label": "Residue Calculation",
+      "group": "LAPL"
+    },
+    {
+      "id": 80,
+      "label": "Cover-Up Method",
+      "group": "LAPL"
+    },
+    {
+      "id": 81,
+      "label": "Convolution Integral",
+      "group": "LAPL"
+    },
+    {
+      "id": 82,
+      "label": "Convolution in S-Domain",
+      "group": "LAPL"
+    },
+    {
+      "id": 83,
+      "label": "System Order",
+      "group": "LAPL"
+    },
+    {
+      "id": 84,
+      "label": "Proper Transfer Function",
+      "group": "LAPL"
+    },
+    {
+      "id": 85,
+      "label": "Strictly Proper Function",
+      "group": "LAPL"
+    },
+    {
+      "id": 86,
+      "label": "DC Gain",
+      "group": "LAPL"
+    },
+    {
+      "id": 87,
+      "label": "Electrical Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 88,
+      "label": "Mechanical Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 89,
+      "label": "Translational Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 90,
+      "label": "Rotational Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 91,
+      "label": "Electromechanical Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 92,
+      "label": "Motor Model",
+      "group": "MODEL"
+    },
+    {
+      "id": 93,
+      "label": "DC Motor",
+      "group": "MODEL"
+    },
+    {
+      "id": 94,
+      "label": "Armature-Controlled Motor",
+      "group": "MODEL"
+    },
+    {
+      "id": 95,
+      "label": "Field-Controlled Motor",
+      "group": "MODEL"
+    },
+    {
+      "id": 96,
+      "label": "Motor Transfer Function",
+      "group": "MODEL"
+    },
+    {
+      "id": 97,
+      "label": "RLC Circuit",
+      "group": "MODEL"
+    },
+    {
+      "id": 98,
+      "label": "RC Circuit",
+      "group": "MODEL"
+    },
+    {
+      "id": 99,
+      "label": "RL Circuit",
+      "group": "MODEL"
+    },
+    {
+      "id": 100,
+      "label": "Op-Amp Circuits",
+      "group": "MODEL"
+    },
+    {
+      "id": 101,
+      "label": "Mass-Spring-Damper",
+      "group": "MODEL"
+    },
+    {
+      "id": 102,
+      "label": "Pendulum System",
+      "group": "MODEL"
+    },
+    {
+      "id": 103,
+      "label": "Gear Train",
+      "group": "MODEL"
+    },
+    {
+      "id": 104,
+      "label": "Lever System",
+      "group": "MODEL"
+    },
+    {
+      "id": 105,
+      "label": "Fluid Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 106,
+      "label": "Thermal Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 107,
+      "label": "Analogous Systems",
+      "group": "MODEL"
+    },
+    {
+      "id": 108,
+      "label": "Impedance Analogy",
+      "group": "MODEL"
+    },
+    {
+      "id": 109,
+      "label": "Mobility Analogy",
+      "group": "MODEL"
+    },
+    {
+      "id": 110,
+      "label": "Force-Voltage Analogy",
+      "group": "MODEL"
+    },
+    {
+      "id": 111,
+      "label": "Force-Current Analogy",
+      "group": "MODEL"
+    },
+    {
+      "id": 112,
+      "label": "Linearization",
+      "group": "LINEAR"
+    },
+    {
+      "id": 113,
+      "label": "Operating Point",
+      "group": "LINEAR"
+    },
+    {
+      "id": 114,
+      "label": "Equilibrium Point",
+      "group": "LINEAR"
+    },
+    {
+      "id": 115,
+      "label": "Small Signal Analysis",
+      "group": "LINEAR"
+    },
+    {
+      "id": 116,
+      "label": "Taylor Series Expansion",
+      "group": "LINEAR"
+    },
+    {
+      "id": 117,
+      "label": "Nonlinear System",
+      "group": "LINEAR"
+    },
+    {
+      "id": 118,
+      "label": "Saturation",
+      "group": "LINEAR"
+    },
+    {
+      "id": 119,
+      "label": "Dead Zone",
+      "group": "LINEAR"
+    },
+    {
+      "id": 120,
+      "label": "Backlash",
+      "group": "LINEAR"
+    },
+    {
+      "id": 121,
+      "label": "Hysteresis",
+      "group": "LINEAR"
+    },
+    {
+      "id": 122,
+      "label": "Block Diagram",
+      "group": "BLOCK"
+    },
+    {
+      "id": 123,
+      "label": "Summing Junction",
+      "group": "BLOCK"
+    },
+    {
+      "id": 124,
+      "label": "Pickoff Point",
+      "group": "BLOCK"
+    },
+    {
+      "id": 125,
+      "label": "Cascade Connection",
+      "group": "BLOCK"
+    },
+    {
+      "id": 126,
+      "label": "Parallel Connection",
+      "group": "BLOCK"
+    },
+    {
+      "id": 127,
+      "label": "Feedback Connection",
+      "group": "BLOCK"
+    },
+    {
+      "id": 128,
+      "label": "Block Diagram Reduction",
+      "group": "BLOCK"
+    },
+    {
+      "id": 129,
+      "label": "Block Diagram Algebra",
+      "group": "BLOCK"
+    },
+    {
+      "id": 130,
+      "label": "Forward Path",
+      "group": "BLOCK"
+    },
+    {
+      "id": 131,
+      "label": "Feedback Path",
+      "group": "BLOCK"
+    },
+    {
+      "id": 132,
+      "label": "Loop",
+      "group": "BLOCK"
+    },
+    {
+      "id": 133,
+      "label": "Inner Loop",
+      "group": "BLOCK"
+    },
+    {
+      "id": 134,
+      "label": "Outer Loop",
+      "group": "BLOCK"
+    },
+    {
+      "id": 135,
+      "label": "Loop Gain",
+      "group": "BLOCK"
+    },
+    {
+      "id": 136,
+      "label": "Closed-Loop Transfer",
+      "group": "BLOCK"
+    },
+    {
+      "id": 137,
+      "label": "Open-Loop Transfer",
+      "group": "BLOCK"
+    },
+    {
+      "id": 138,
+      "label": "Unity Feedback",
+      "group": "BLOCK"
+    },
+    {
+      "id": 139,
+      "label": "Non-Unity Feedback",
+      "group": "BLOCK"
+    },
+    {
+      "id": 140,
+      "label": "Signal Flow Graph",
+      "group": "BLOCK"
+    },
+    {
+      "id": 141,
+      "label": "Node",
+      "group": "BLOCK"
+    },
+    {
+      "id": 142,
+      "label": "Branch",
+      "group": "BLOCK"
+    },
+    {
+      "id": 143,
+      "label": "Branch Gain",
+      "group": "BLOCK"
+    },
+    {
+      "id": 144,
+      "label": "Mason's Gain Formula",
+      "group": "BLOCK"
+    },
+    {
+      "id": 145,
+      "label": "Forward Path Gain",
+      "group": "BLOCK"
+    },
+    {
+      "id": 146,
+      "label": "Loop Gain Calculation",
+      "group": "BLOCK"
+    },
+    {
+      "id": 147,
+      "label": "Non-Touching Loops",
+      "group": "BLOCK"
+    },
+    {
+      "id": 148,
+      "label": "Graph Determinant",
+      "group": "BLOCK"
+    },
+    {
+      "id": 149,
+      "label": "Cofactor",
+      "group": "BLOCK"
+    },
+    {
+      "id": 150,
+      "label": "Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 151,
+      "label": "BIBO Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 152,
+      "label": "Internal Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 153,
+      "label": "Asymptotic Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 154,
+      "label": "Marginal Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 155,
+      "label": "Unstable System",
+      "group": "STAB"
+    },
+    {
+      "id": 156,
+      "label": "Bounded Input",
+      "group": "STAB"
+    },
+    {
+      "id": 157,
+      "label": "Bounded Output",
+      "group": "STAB"
+    },
+    {
+      "id": 158,
+      "label": "Characteristic Equation",
+      "group": "STAB"
+    },
+    {
+      "id": 159,
+      "label": "Characteristic Polynomial",
+      "group": "STAB"
+    },
+    {
+      "id": 160,
+      "label": "Characteristic Roots",
+      "group": "STAB"
+    },
+    {
+      "id": 161,
+      "label": "Routh-Hurwitz Criterion",
+      "group": "STAB"
+    },
+    {
+      "id": 162,
+      "label": "Routh Array",
+      "group": "STAB"
+    },
+    {
+      "id": 163,
+      "label": "Routh Array Construction",
+      "group": "STAB"
+    },
+    {
+      "id": 164,
+      "label": "Special Cases Routh",
+      "group": "STAB"
+    },
+    {
+      "id": 165,
+      "label": "Zero in First Column",
+      "group": "STAB"
+    },
+    {
+      "id": 166,
+      "label": "Row of Zeros",
+      "group": "STAB"
+    },
+    {
+      "id": 167,
+      "label": "Auxiliary Polynomial",
+      "group": "STAB"
+    },
+    {
+      "id": 168,
+      "label": "Stability Boundary",
+      "group": "STAB"
+    },
+    {
+      "id": 169,
+      "label": "Relative Stability",
+      "group": "STAB"
+    },
+    {
+      "id": 170,
+      "label": "Root Locus",
+      "group": "RLOC"
+    },
+    {
+      "id": 171,
+      "label": "Root Locus Rules",
+      "group": "RLOC"
+    },
+    {
+      "id": 172,
+      "label": "Starting Points",
+      "group": "RLOC"
+    },
+    {
+      "id": 173,
+      "label": "Ending Points",
+      "group": "RLOC"
+    },
+    {
+      "id": 174,
+      "label": "Number of Branches",
+      "group": "RLOC"
+    },
+    {
+      "id": 175,
+      "label": "Symmetry Property",
+      "group": "RLOC"
+    },
+    {
+      "id": 176,
+      "label": "Real Axis Segments",
+      "group": "RLOC"
+    },
+    {
+      "id": 177,
+      "label": "Angle Condition",
+      "group": "RLOC"
+    },
+    {
+      "id": 178,
+      "label": "Magnitude Condition",
+      "group": "RLOC"
+    },
+    {
+      "id": 179,
+      "label": "Breakaway Point",
+      "group": "RLOC"
+    },
+    {
+      "id": 180,
+      "label": "Break-In Point",
+      "group": "RLOC"
+    },
+    {
+      "id": 181,
+      "label": "Asymptotes",
+      "group": "RLOC"
+    },
+    {
+      "id": 182,
+      "label": "Centroid",
+      "group": "RLOC"
+    },
+    {
+      "id": 183,
+      "label": "Asymptote Angles",
+      "group": "RLOC"
+    },
+    {
+      "id": 184,
+      "label": "Departure Angle",
+      "group": "RLOC"
+    },
+    {
+      "id": 185,
+      "label": "Arrival Angle",
+      "group": "RLOC"
+    },
+    {
+      "id": 186,
+      "label": "Imaginary Axis Crossing",
+      "group": "RLOC"
+    },
+    {
+      "id": 187,
+      "label": "Root Locus Gain",
+      "group": "RLOC"
+    },
+    {
+      "id": 188,
+      "label": "Gain Adjustment",
+      "group": "RLOC"
+    },
+    {
+      "id": 189,
+      "label": "Dominant Pole Design",
+      "group": "RLOC"
+    },
+    {
+      "id": 190,
+      "label": "Pole Placement",
+      "group": "RLOC"
+    },
+    {
+      "id": 191,
+      "label": "Root Locus Compensation",
+      "group": "RLOC"
+    },
+    {
+      "id": 192,
+      "label": "Frequency Response",
+      "group": "FREQ"
+    },
+    {
+      "id": 193,
+      "label": "Sinusoidal Steady State",
+      "group": "FREQ"
+    },
+    {
+      "id": 194,
+      "label": "Magnitude Response",
+      "group": "FREQ"
+    },
+    {
+      "id": 195,
+      "label": "Phase Response",
+      "group": "FREQ"
+    },
+    {
+      "id": 196,
+      "label": "Frequency Transfer Func",
+      "group": "FREQ"
+    },
+    {
+      "id": 197,
+      "label": "Substitution s=jw",
+      "group": "FREQ"
+    },
+    {
+      "id": 198,
+      "label": "Bode Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 199,
+      "label": "Bode Magnitude Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 200,
+      "label": "Bode Phase Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 201,
+      "label": "Decibel",
+      "group": "FREQ"
+    },
+    {
+      "id": 202,
+      "label": "Logarithmic Scale",
+      "group": "FREQ"
+    },
+    {
+      "id": 203,
+      "label": "Decade",
+      "group": "FREQ"
+    },
+    {
+      "id": 204,
+      "label": "Octave",
+      "group": "FREQ"
+    },
+    {
+      "id": 205,
+      "label": "Corner Frequency",
+      "group": "FREQ"
+    },
+    {
+      "id": 206,
+      "label": "Break Frequency",
+      "group": "FREQ"
+    },
+    {
+      "id": 207,
+      "label": "Asymptotic Approximation",
+      "group": "FREQ"
+    },
+    {
+      "id": 208,
+      "label": "Bode Plot Construction",
+      "group": "FREQ"
+    },
+    {
+      "id": 209,
+      "label": "First-Order Factor",
+      "group": "FREQ"
+    },
+    {
+      "id": 210,
+      "label": "Second-Order Factor",
+      "group": "FREQ"
+    },
+    {
+      "id": 211,
+      "label": "First-Order Bode Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 212,
+      "label": "Second-Order Bode Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 213,
+      "label": "Integrator Bode Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 214,
+      "label": "Differentiator Bode Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 215,
+      "label": "Constant Gain Term",
+      "group": "FREQ"
+    },
+    {
+      "id": 216,
+      "label": "Time Delay in Bode",
+      "group": "FREQ"
+    },
+    {
+      "id": 217,
+      "label": "Resonant Peak",
+      "group": "FREQ"
+    },
+    {
+      "id": 218,
+      "label": "Resonant Frequency",
+      "group": "FREQ"
+    },
+    {
+      "id": 219,
+      "label": "Quality Factor",
+      "group": "FREQ"
+    },
+    {
+      "id": 220,
+      "label": "Bandwidth",
+      "group": "FREQ"
+    },
+    {
+      "id": 221,
+      "label": "Cutoff Frequency",
+      "group": "FREQ"
+    },
+    {
+      "id": 222,
+      "label": "Half-Power Point",
+      "group": "FREQ"
+    },
+    {
+      "id": 223,
+      "label": "Low-Pass System",
+      "group": "FREQ"
+    },
+    {
+      "id": 224,
+      "label": "High-Pass System",
+      "group": "FREQ"
+    },
+    {
+      "id": 225,
+      "label": "Bandpass System",
+      "group": "FREQ"
+    },
+    {
+      "id": 226,
+      "label": "Notch Filter",
+      "group": "FREQ"
+    },
+    {
+      "id": 227,
+      "label": "Gain Margin",
+      "group": "FREQ"
+    },
+    {
+      "id": 228,
+      "label": "Phase Margin",
+      "group": "FREQ"
+    },
+    {
+      "id": 229,
+      "label": "Stability Margins",
+      "group": "FREQ"
+    },
+    {
+      "id": 230,
+      "label": "Crossover Frequency",
+      "group": "FREQ"
+    },
+    {
+      "id": 231,
+      "label": "Gain Crossover",
+      "group": "FREQ"
+    },
+    {
+      "id": 232,
+      "label": "Phase Crossover",
+      "group": "FREQ"
+    },
+    {
+      "id": 233,
+      "label": "Minimum Phase System",
+      "group": "FREQ"
+    },
+    {
+      "id": 234,
+      "label": "Non-Minimum Phase",
+      "group": "FREQ"
+    },
+    {
+      "id": 235,
+      "label": "All-Pass System",
+      "group": "FREQ"
+    },
+    {
+      "id": 236,
+      "label": "Nyquist Plot",
+      "group": "FREQ"
+    },
+    {
+      "id": 237,
+      "label": "Nyquist Diagram",
+      "group": "FREQ"
+    },
+    {
+      "id": 238,
+      "label": "Nyquist Criterion",
+      "group": "FREQ"
+    },
+    {
+      "id": 239,
+      "label": "Nyquist Contour",
+      "group": "FREQ"
+    },
+    {
+      "id": 240,
+      "label": "Encirclement",
+      "group": "FREQ"
+    },
+    {
+      "id": 241,
+      "label": "Clockwise Encirclement",
+      "group": "FREQ"
+    },
+    {
+      "id": 242,
+      "label": "Right-Half Plane Poles",
+      "group": "FREQ"
+    },
+    {
+      "id": 243,
+      "label": "Right-Half Plane Zeros",
+      "group": "FREQ"
+    },
+    {
+      "id": 244,
+      "label": "Conditionally Stable",
+      "group": "FREQ"
+    },
+    {
+      "id": 245,
+      "label": "Gain Margin from Nyquist",
+      "group": "FREQ"
+    },
+    {
+      "id": 246,
+      "label": "Phase Margin from Nyquist",
+      "group": "FREQ"
+    },
+    {
+      "id": 247,
+      "label": "Steady-State Error",
+      "group": "ERROR"
+    },
+    {
+      "id": 248,
+      "label": "Steady-State Accuracy",
+      "group": "ERROR"
+    },
+    {
+      "id": 249,
+      "label": "Error Constants",
+      "group": "ERROR"
+    },
+    {
+      "id": 250,
+      "label": "Position Error Constant",
+      "group": "ERROR"
+    },
+    {
+      "id": 251,
+      "label": "Velocity Error Constant",
+      "group": "ERROR"
+    },
+    {
+      "id": 252,
+      "label": "Acceleration Error Const",
+      "group": "ERROR"
+    },
+    {
+      "id": 253,
+      "label": "System Type",
+      "group": "ERROR"
+    },
+    {
+      "id": 254,
+      "label": "Type 0 System",
+      "group": "ERROR"
+    },
+    {
+      "id": 255,
+      "label": "Type 1 System",
+      "group": "ERROR"
+    },
+    {
+      "id": 256,
+      "label": "Type 2 System",
+      "group": "ERROR"
+    },
+    {
+      "id": 257,
+      "label": "Type Number",
+      "group": "ERROR"
+    },
+    {
+      "id": 258,
+      "label": "Error Coefficients",
+      "group": "ERROR"
+    },
+    {
+      "id": 259,
+      "label": "Disturbance Error",
+      "group": "ERROR"
+    },
+    {
+      "id": 260,
+      "label": "Proportional Control",
+      "group": "CTRL"
+    },
+    {
+      "id": 261,
+      "label": "Integral Control",
+      "group": "CTRL"
+    },
+    {
+      "id": 262,
+      "label": "Derivative Control",
+      "group": "CTRL"
+    },
+    {
+      "id": 263,
+      "label": "P Controller",
+      "group": "CTRL"
+    },
+    {
+      "id": 264,
+      "label": "PI Controller",
+      "group": "CTRL"
+    },
+    {
+      "id": 265,
+      "label": "PD Controller",
+      "group": "CTRL"
+    },
+    {
+      "id": 266,
+      "label": "PID Controller",
+      "group": "CTRL"
+    },
+    {
+      "id": 267,
+      "label": "Proportional Gain",
+      "group": "CTRL"
+    },
+    {
+      "id": 268,
+      "label": "Integral Gain",
+      "group": "CTRL"
+    },
+    {
+      "id": 269,
+      "label": "Derivative Gain",
+      "group": "CTRL"
+    },
+    {
+      "id": 270,
+      "label": "Integral Time",
+      "group": "CTRL"
+    },
+    {
+      "id": 271,
+      "label": "Derivative Time",
+      "group": "CTRL"
+    },
+    {
+      "id": 272,
+      "label": "Controller Tuning",
+      "group": "CTRL"
+    },
+    {
+      "id": 273,
+      "label": "Ziegler-Nichols Method",
+      "group": "CTRL"
+    },
+    {
+      "id": 274,
+      "label": "Reaction Curve Method",
+      "group": "CTRL"
+    },
+    {
+      "id": 275,
+      "label": "Ultimate Gain Method",
+      "group": "CTRL"
+    },
+    {
+      "id": 276,
+      "label": "Ultimate Gain",
+      "group": "CTRL"
+    },
+    {
+      "id": 277,
+      "label": "Ultimate Period",
+      "group": "CTRL"
+    },
+    {
+      "id": 278,
+      "label": "Trial and Error Tuning",
+      "group": "CTRL"
+    },
+    {
+      "id": 279,
+      "label": "Anti-Windup",
+      "group": "CTRL"
+    },
+    {
+      "id": 280,
+      "label": "Derivative Kick",
+      "group": "CTRL"
+    },
+    {
+      "id": 281,
+      "label": "Lead Compensator",
+      "group": "CTRL"
+    },
+    {
+      "id": 282,
+      "label": "Lag Compensator",
+      "group": "CTRL"
+    },
+    {
+      "id": 283,
+      "label": "Lead-Lag Compensator",
+      "group": "CTRL"
+    },
+    {
+      "id": 284,
+      "label": "Phase Lead",
+      "group": "CTRL"
+    },
+    {
+      "id": 285,
+      "label": "Phase Lag",
+      "group": "CTRL"
+    },
+    {
+      "id": 286,
+      "label": "Compensator Design",
+      "group": "CTRL"
+    },
+    {
+      "id": 287,
+      "label": "Maximum Phase Lead",
+      "group": "CTRL"
+    },
+    {
+      "id": 288,
+      "label": "Compensation Zero",
+      "group": "CTRL"
+    },
+    {
+      "id": 289,
+      "label": "Compensation Pole",
+      "group": "CTRL"
+    },
+    {
+      "id": 290,
+      "label": "Bode Design Method",
+      "group": "CTRL"
+    },
+    {
+      "id": 291,
+      "label": "Root Locus Design",
+      "group": "CTRL"
+    },
+    {
+      "id": 292,
+      "label": "Performance Specs",
+      "group": "PERF"
+    },
+    {
+      "id": 293,
+      "label": "Design Tradeoffs",
+      "group": "PERF"
+    },
+    {
+      "id": 294,
+      "label": "Speed vs Stability",
+      "group": "PERF"
+    },
+    {
+      "id": 295,
+      "label": "Robustness",
+      "group": "PERF"
+    },
+    {
+      "id": 296,
+      "label": "Sensitivity",
+      "group": "PERF"
+    },
+    {
+      "id": 297,
+      "label": "Sensitivity Function",
+      "group": "PERF"
+    },
+    {
+      "id": 298,
+      "label": "Complementary Sensitivity",
+      "group": "PERF"
+    },
+    {
+      "id": 299,
+      "label": "Disturbance Rejection",
+      "group": "PERF"
+    },
+    {
+      "id": 300,
+      "label": "Noise Attenuation",
+      "group": "PERF"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 2
+    },
+    {
+      "from": 5,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 4
+    },
+    {
+      "from": 7,
+      "to": 1
+    },
+    {
+      "from": 7,
+      "to": 5
+    },
+    {
+      "from": 8,
+      "to": 1
+    },
+    {
+      "from": 8,
+      "to": 2
+    },
+    {
+      "from": 9,
+      "to": 4
+    },
+    {
+      "from": 9,
+      "to": 6
+    },
+    {
+      "from": 10,
+      "to": 4
+    },
+    {
+      "from": 10,
+      "to": 9
+    },
+    {
+      "from": 11,
+      "to": 1
+    },
+    {
+      "from": 11,
+      "to": 5
+    },
+    {
+      "from": 12,
+      "to": 1
+    },
+    {
+      "from": 12,
+      "to": 5
+    },
+    {
+      "from": 13,
+      "to": 1
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 13
+    },
+    {
+      "from": 16,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 14
+    },
+    {
+      "from": 18,
+      "to": 14
+    },
+    {
+      "from": 19,
+      "to": 13
+    },
+    {
+      "from": 20,
+      "to": 13
+    },
+    {
+      "from": 21,
+      "to": 16
+    },
+    {
+      "from": 21,
+      "to": 20
+    },
+    {
+      "from": 22,
+      "to": 16
+    },
+    {
+      "from": 22,
+      "to": 20
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 20
+    },
+    {
+      "from": 25,
+      "to": 20
+    },
+    {
+      "from": 26,
+      "to": 20
+    },
+    {
+      "from": 26,
+      "to": 25
+    },
+    {
+      "from": 27,
+      "to": 20
+    },
+    {
+      "from": 28,
+      "to": 26
+    },
+    {
+      "from": 28,
+      "to": 27
+    },
+    {
+      "from": 29,
+      "to": 26
+    },
+    {
+      "from": 30,
+      "to": 27
+    },
+    {
+      "from": 31,
+      "to": 28
+    },
+    {
+      "from": 32,
+      "to": 28
+    },
+    {
+      "from": 33,
+      "to": 21
+    },
+    {
+      "from": 33,
+      "to": 31
+    },
+    {
+      "from": 34,
+      "to": 22
+    },
+    {
+      "from": 35,
+      "to": 22
+    },
+    {
+      "from": 36,
+      "to": 34
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 34
+    },
+    {
+      "from": 38,
+      "to": 34
+    },
+    {
+      "from": 38,
+      "to": 36
+    },
+    {
+      "from": 39,
+      "to": 34
+    },
+    {
+      "from": 40,
+      "to": 34
+    },
+    {
+      "from": 41,
+      "to": 38
+    },
+    {
+      "from": 41,
+      "to": 31
+    },
+    {
+      "from": 42,
+      "to": 41
+    },
+    {
+      "from": 42,
+      "to": 34
+    },
+    {
+      "from": 43,
+      "to": 31
+    },
+    {
+      "from": 43,
+      "to": 33
+    },
+    {
+      "from": 44,
+      "to": 31
+    },
+    {
+      "from": 45,
+      "to": 38
+    },
+    {
+      "from": 45,
+      "to": 41
+    },
+    {
+      "from": 46,
+      "to": 31
+    },
+    {
+      "from": 47,
+      "to": 12
+    },
+    {
+      "from": 48,
+      "to": 12
+    },
+    {
+      "from": 49,
+      "to": 12
+    },
+    {
+      "from": 50,
+      "to": 49
+    },
+    {
+      "from": 51,
+      "to": 12
+    },
+    {
+      "from": 52,
+      "to": 47
+    },
+    {
+      "from": 52,
+      "to": 28
+    },
+    {
+      "from": 53,
+      "to": 48
+    },
+    {
+      "from": 53,
+      "to": 28
+    },
+    {
+      "from": 54,
+      "to": 49
+    },
+    {
+      "from": 54,
+      "to": 28
+    },
+    {
+      "from": 55,
+      "to": 47
+    },
+    {
+      "from": 55,
+      "to": 48
+    },
+    {
+      "from": 55,
+      "to": 49
+    },
+    {
+      "from": 56,
+      "to": 16
+    },
+    {
+      "from": 56,
+      "to": 20
+    },
+    {
+      "from": 57,
+      "to": 20
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 57
+    },
+    {
+      "from": 60,
+      "to": 12
+    },
+    {
+      "from": 61,
+      "to": 51
+    },
+    {
+      "from": 61,
+      "to": 59
+    },
+    {
+      "from": 62,
+      "to": 56
+    },
+    {
+      "from": 62,
+      "to": 59
+    },
+    {
+      "from": 63,
+      "to": 56
+    },
+    {
+      "from": 63,
+      "to": 59
+    },
+    {
+      "from": 64,
+      "to": 62
+    },
+    {
+      "from": 64,
+      "to": 63
+    },
+    {
+      "from": 65,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 62
+    },
+    {
+      "from": 66,
+      "to": 31
+    },
+    {
+      "from": 67,
+      "to": 62
+    },
+    {
+      "from": 68,
+      "to": 67
+    },
+    {
+      "from": 68,
+      "to": 38
+    },
+    {
+      "from": 69,
+      "to": 67
+    },
+    {
+      "from": 70,
+      "to": 67
+    },
+    {
+      "from": 71,
+      "to": 67
+    },
+    {
+      "from": 72,
+      "to": 67
+    },
+    {
+      "from": 73,
+      "to": 67
+    },
+    {
+      "from": 73,
+      "to": 150
+    },
+    {
+      "from": 74,
+      "to": 67
+    },
+    {
+      "from": 74,
+      "to": 155
+    },
+    {
+      "from": 75,
+      "to": 67
+    },
+    {
+      "from": 75,
+      "to": 154
+    },
+    {
+      "from": 76,
+      "to": 57
+    },
+    {
+      "from": 76,
+      "to": 59
+    },
+    {
+      "from": 77,
+      "to": 57
+    },
+    {
+      "from": 77,
+      "to": 59
+    },
+    {
+      "from": 77,
+      "to": 32
+    },
+    {
+      "from": 78,
+      "to": 58
+    },
+    {
+      "from": 78,
+      "to": 62
+    },
+    {
+      "from": 79,
+      "to": 78
+    },
+    {
+      "from": 80,
+      "to": 79
+    },
+    {
+      "from": 81,
+      "to": 53
+    },
+    {
+      "from": 82,
+      "to": 81
+    },
+    {
+      "from": 82,
+      "to": 59
+    },
+    {
+      "from": 83,
+      "to": 24
+    },
+    {
+      "from": 83,
+      "to": 56
+    },
+    {
+      "from": 84,
+      "to": 56
+    },
+    {
+      "from": 84,
+      "to": 83
+    },
+    {
+      "from": 85,
+      "to": 84
+    },
+    {
+      "from": 86,
+      "to": 56
+    },
+    {
+      "from": 86,
+      "to": 32
+    },
+    {
+      "from": 87,
+      "to": 16
+    },
+    {
+      "from": 88,
+      "to": 16
+    },
+    {
+      "from": 89,
+      "to": 88
+    },
+    {
+      "from": 90,
+      "to": 88
+    },
+    {
+      "from": 91,
+      "to": 87
+    },
+    {
+      "from": 91,
+      "to": 88
+    },
+    {
+      "from": 92,
+      "to": 91
+    },
+    {
+      "from": 93,
+      "to": 92
+    },
+    {
+      "from": 94,
+      "to": 93
+    },
+    {
+      "from": 95,
+      "to": 93
+    },
+    {
+      "from": 96,
+      "to": 93
+    },
+    {
+      "from": 96,
+      "to": 56
+    },
+    {
+      "from": 97,
+      "to": 87
+    },
+    {
+      "from": 97,
+      "to": 22
+    },
+    {
+      "from": 98,
+      "to": 87
+    },
+    {
+      "from": 98,
+      "to": 21
+    },
+    {
+      "from": 99,
+      "to": 87
+    },
+    {
+      "from": 99,
+      "to": 21
+    },
+    {
+      "from": 100,
+      "to": 87
+    },
+    {
+      "from": 101,
+      "to": 89
+    },
+    {
+      "from": 101,
+      "to": 22
+    },
+    {
+      "from": 102,
+      "to": 90
+    },
+    {
+      "from": 103,
+      "to": 90
+    },
+    {
+      "from": 104,
+      "to": 89
+    },
+    {
+      "from": 105,
+      "to": 16
+    },
+    {
+      "from": 106,
+      "to": 16
+    },
+    {
+      "from": 106,
+      "to": 21
+    },
+    {
+      "from": 107,
+      "to": 87
+    },
+    {
+      "from": 107,
+      "to": 88
+    },
+    {
+      "from": 108,
+      "to": 107
+    },
+    {
+      "from": 109,
+      "to": 107
+    },
+    {
+      "from": 110,
+      "to": 108
+    },
+    {
+      "from": 111,
+      "to": 109
+    },
+    {
+      "from": 112,
+      "to": 117
+    },
+    {
+      "from": 113,
+      "to": 112
+    },
+    {
+      "from": 114,
+      "to": 113
+    },
+    {
+      "from": 115,
+      "to": 112
+    },
+    {
+      "from": 115,
+      "to": 114
+    },
+    {
+      "from": 116,
+      "to": 112
+    },
+    {
+      "from": 117,
+      "to": 13
+    },
+    {
+      "from": 118,
+      "to": 117
+    },
+    {
+      "from": 119,
+      "to": 117
+    },
+    {
+      "from": 120,
+      "to": 117
+    },
+    {
+      "from": 121,
+      "to": 117
+    },
+    {
+      "from": 122,
+      "to": 4
+    },
+    {
+      "from": 122,
+      "to": 56
+    },
+    {
+      "from": 123,
+      "to": 122
+    },
+    {
+      "from": 123,
+      "to": 10
+    },
+    {
+      "from": 124,
+      "to": 122
+    },
+    {
+      "from": 125,
+      "to": 122
+    },
+    {
+      "from": 125,
+      "to": 56
+    },
+    {
+      "from": 126,
+      "to": 122
+    },
+    {
+      "from": 127,
+      "to": 122
+    },
+    {
+      "from": 127,
+      "to": 2
+    },
+    {
+      "from": 128,
+      "to": 122
+    },
+    {
+      "from": 128,
+      "to": 125
+    },
+    {
+      "from": 128,
+      "to": 126
+    },
+    {
+      "from": 128,
+      "to": 127
+    },
+    {
+      "from": 129,
+      "to": 128
+    },
+    {
+      "from": 130,
+      "to": 122
+    },
+    {
+      "from": 130,
+      "to": 136
+    },
+    {
+      "from": 131,
+      "to": 122
+    },
+    {
+      "from": 131,
+      "to": 137
+    },
+    {
+      "from": 132,
+      "to": 130
+    },
+    {
+      "from": 132,
+      "to": 131
+    },
+    {
+      "from": 133,
+      "to": 132
+    },
+    {
+      "from": 134,
+      "to": 132
+    },
+    {
+      "from": 134,
+      "to": 133
+    },
+    {
+      "from": 135,
+      "to": 132
+    },
+    {
+      "from": 135,
+      "to": 56
+    },
+    {
+      "from": 136,
+      "to": 4
+    },
+    {
+      "from": 136,
+      "to": 56
+    },
+    {
+      "from": 136,
+      "to": 128
+    },
+    {
+      "from": 137,
+      "to": 3
+    },
+    {
+      "from": 137,
+      "to": 56
+    },
+    {
+      "from": 138,
+      "to": 127
+    },
+    {
+      "from": 138,
+      "to": 136
+    },
+    {
+      "from": 139,
+      "to": 127
+    },
+    {
+      "from": 139,
+      "to": 136
+    },
+    {
+      "from": 140,
+      "to": 122
+    },
+    {
+      "from": 141,
+      "to": 140
+    },
+    {
+      "from": 142,
+      "to": 140
+    },
+    {
+      "from": 143,
+      "to": 142
+    },
+    {
+      "from": 143,
+      "to": 56
+    },
+    {
+      "from": 144,
+      "to": 140
+    },
+    {
+      "from": 144,
+      "to": 145
+    },
+    {
+      "from": 144,
+      "to": 146
+    },
+    {
+      "from": 145,
+      "to": 140
+    },
+    {
+      "from": 145,
+      "to": 130
+    },
+    {
+      "from": 146,
+      "to": 140
+    },
+    {
+      "from": 146,
+      "to": 135
+    },
+    {
+      "from": 147,
+      "to": 146
+    },
+    {
+      "from": 148,
+      "to": 144
+    },
+    {
+      "from": 148,
+      "to": 147
+    },
+    {
+      "from": 149,
+      "to": 148
+    },
+    {
+      "from": 150,
+      "to": 4
+    },
+    {
+      "from": 150,
+      "to": 12
+    },
+    {
+      "from": 151,
+      "to": 150
+    },
+    {
+      "from": 151,
+      "to": 156
+    },
+    {
+      "from": 151,
+      "to": 157
+    },
+    {
+      "from": 152,
+      "to": 150
+    },
+    {
+      "from": 153,
+      "to": 150
+    },
+    {
+      "from": 153,
+      "to": 32
+    },
+    {
+      "from": 154,
+      "to": 150
+    },
+    {
+      "from": 155,
+      "to": 150
+    },
+    {
+      "from": 156,
+      "to": 47
+    },
+    {
+      "from": 156,
+      "to": 48
+    },
+    {
+      "from": 156,
+      "to": 49
+    },
+    {
+      "from": 157,
+      "to": 12
+    },
+    {
+      "from": 158,
+      "to": 56
+    },
+    {
+      "from": 158,
+      "to": 62
+    },
+    {
+      "from": 159,
+      "to": 158
+    },
+    {
+      "from": 160,
+      "to": 159
+    },
+    {
+      "from": 160,
+      "to": 62
+    },
+    {
+      "from": 161,
+      "to": 159
+    },
+    {
+      "from": 161,
+      "to": 150
+    },
+    {
+      "from": 162,
+      "to": 161
+    },
+    {
+      "from": 163,
+      "to": 162
+    },
+    {
+      "from": 164,
+      "to": 163
+    },
+    {
+      "from": 165,
+      "to": 164
+    },
+    {
+      "from": 166,
+      "to": 164
+    },
+    {
+      "from": 167,
+      "to": 166
+    },
+    {
+      "from": 168,
+      "to": 161
+    },
+    {
+      "from": 168,
+      "to": 169
+    },
+    {
+      "from": 169,
+      "to": 150
+    },
+    {
+      "from": 169,
+      "to": 66
+    },
+    {
+      "from": 170,
+      "to": 62
+    },
+    {
+      "from": 170,
+      "to": 150
+    },
+    {
+      "from": 170,
+      "to": 135
+    },
+    {
+      "from": 171,
+      "to": 170
+    },
+    {
+      "from": 172,
+      "to": 171
+    },
+    {
+      "from": 172,
+      "to": 62
+    },
+    {
+      "from": 173,
+      "to": 171
+    },
+    {
+      "from": 173,
+      "to": 63
+    },
+    {
+      "from": 174,
+      "to": 171
+    },
+    {
+      "from": 175,
+      "to": 171
+    },
+    {
+      "from": 176,
+      "to": 171
+    },
+    {
+      "from": 177,
+      "to": 171
+    },
+    {
+      "from": 178,
+      "to": 171
+    },
+    {
+      "from": 179,
+      "to": 171
+    },
+    {
+      "from": 179,
+      "to": 176
+    },
+    {
+      "from": 180,
+      "to": 171
+    },
+    {
+      "from": 180,
+      "to": 176
+    },
+    {
+      "from": 181,
+      "to": 171
+    },
+    {
+      "from": 181,
+      "to": 173
+    },
+    {
+      "from": 182,
+      "to": 181
+    },
+    {
+      "from": 183,
+      "to": 181
+    },
+    {
+      "from": 184,
+      "to": 171
+    },
+    {
+      "from": 184,
+      "to": 68
+    },
+    {
+      "from": 185,
+      "to": 171
+    },
+    {
+      "from": 185,
+      "to": 63
+    },
+    {
+      "from": 186,
+      "to": 171
+    },
+    {
+      "from": 186,
+      "to": 75
+    },
+    {
+      "from": 187,
+      "to": 170
+    },
+    {
+      "from": 187,
+      "to": 178
+    },
+    {
+      "from": 188,
+      "to": 187
+    },
+    {
+      "from": 189,
+      "to": 66
+    },
+    {
+      "from": 189,
+      "to": 170
+    },
+    {
+      "from": 190,
+      "to": 189
+    },
+    {
+      "from": 191,
+      "to": 170
+    },
+    {
+      "from": 191,
+      "to": 286
+    },
+    {
+      "from": 192,
+      "to": 61
+    },
+    {
+      "from": 192,
+      "to": 56
+    },
+    {
+      "from": 193,
+      "to": 51
+    },
+    {
+      "from": 193,
+      "to": 32
+    },
+    {
+      "from": 193,
+      "to": 192
+    },
+    {
+      "from": 194,
+      "to": 192
+    },
+    {
+      "from": 195,
+      "to": 192
+    },
+    {
+      "from": 196,
+      "to": 192
+    },
+    {
+      "from": 196,
+      "to": 56
+    },
+    {
+      "from": 197,
+      "to": 196
+    },
+    {
+      "from": 197,
+      "to": 59
+    },
+    {
+      "from": 198,
+      "to": 192
+    },
+    {
+      "from": 198,
+      "to": 201
+    },
+    {
+      "from": 198,
+      "to": 202
+    },
+    {
+      "from": 199,
+      "to": 198
+    },
+    {
+      "from": 199,
+      "to": 194
+    },
+    {
+      "from": 200,
+      "to": 198
+    },
+    {
+      "from": 200,
+      "to": 195
+    },
+    {
+      "from": 201,
+      "to": 194
+    },
+    {
+      "from": 202,
+      "to": 201
+    },
+    {
+      "from": 203,
+      "to": 202
+    },
+    {
+      "from": 204,
+      "to": 202
+    },
+    {
+      "from": 205,
+      "to": 198
+    },
+    {
+      "from": 205,
+      "to": 62
+    },
+    {
+      "from": 206,
+      "to": 205
+    },
+    {
+      "from": 207,
+      "to": 198
+    },
+    {
+      "from": 207,
+      "to": 208
+    },
+    {
+      "from": 208,
+      "to": 198
+    },
+    {
+      "from": 208,
+      "to": 209
+    },
+    {
+      "from": 208,
+      "to": 210
+    },
+    {
+      "from": 209,
+      "to": 21
+    },
+    {
+      "from": 209,
+      "to": 198
+    },
+    {
+      "from": 210,
+      "to": 22
+    },
+    {
+      "from": 210,
+      "to": 198
+    },
+    {
+      "from": 211,
+      "to": 209
+    },
+    {
+      "from": 211,
+      "to": 208
+    },
+    {
+      "from": 212,
+      "to": 210
+    },
+    {
+      "from": 212,
+      "to": 208
+    },
+    {
+      "from": 213,
+      "to": 72
+    },
+    {
+      "from": 213,
+      "to": 208
+    },
+    {
+      "from": 214,
+      "to": 63
+    },
+    {
+      "from": 214,
+      "to": 208
+    },
+    {
+      "from": 215,
+      "to": 86
+    },
+    {
+      "from": 215,
+      "to": 208
+    },
+    {
+      "from": 216,
+      "to": 198
+    },
+    {
+      "from": 217,
+      "to": 212
+    },
+    {
+      "from": 217,
+      "to": 38
+    },
+    {
+      "from": 218,
+      "to": 217
+    },
+    {
+      "from": 218,
+      "to": 35
+    },
+    {
+      "from": 219,
+      "to": 217
+    },
+    {
+      "from": 219,
+      "to": 34
+    },
+    {
+      "from": 220,
+      "to": 198
+    },
+    {
+      "from": 220,
+      "to": 221
+    },
+    {
+      "from": 221,
+      "to": 205
+    },
+    {
+      "from": 221,
+      "to": 201
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 223,
+      "to": 198
+    },
+    {
+      "from": 223,
+      "to": 221
+    },
+    {
+      "from": 224,
+      "to": 198
+    },
+    {
+      "from": 224,
+      "to": 221
+    },
+    {
+      "from": 225,
+      "to": 223
+    },
+    {
+      "from": 225,
+      "to": 224
+    },
+    {
+      "from": 226,
+      "to": 225
+    },
+    {
+      "from": 227,
+      "to": 229
+    },
+    {
+      "from": 227,
+      "to": 231
+    },
+    {
+      "from": 228,
+      "to": 229
+    },
+    {
+      "from": 228,
+      "to": 232
+    },
+    {
+      "from": 229,
+      "to": 150
+    },
+    {
+      "from": 229,
+      "to": 198
+    },
+    {
+      "from": 230,
+      "to": 231
+    },
+    {
+      "from": 230,
+      "to": 232
+    },
+    {
+      "from": 231,
+      "to": 199
+    },
+    {
+      "from": 231,
+      "to": 201
+    },
+    {
+      "from": 232,
+      "to": 200
+    },
+    {
+      "from": 233,
+      "to": 63
+    },
+    {
+      "from": 233,
+      "to": 73
+    },
+    {
+      "from": 234,
+      "to": 63
+    },
+    {
+      "from": 234,
+      "to": 74
+    },
+    {
+      "from": 235,
+      "to": 194
+    },
+    {
+      "from": 235,
+      "to": 195
+    },
+    {
+      "from": 236,
+      "to": 192
+    },
+    {
+      "from": 236,
+      "to": 239
+    },
+    {
+      "from": 237,
+      "to": 236
+    },
+    {
+      "from": 238,
+      "to": 236
+    },
+    {
+      "from": 238,
+      "to": 240
+    },
+    {
+      "from": 238,
+      "to": 150
+    },
+    {
+      "from": 239,
+      "to": 59
+    },
+    {
+      "from": 239,
+      "to": 192
+    },
+    {
+      "from": 240,
+      "to": 236
+    },
+    {
+      "from": 241,
+      "to": 240
+    },
+    {
+      "from": 242,
+      "to": 74
+    },
+    {
+      "from": 242,
+      "to": 238
+    },
+    {
+      "from": 243,
+      "to": 234
+    },
+    {
+      "from": 244,
+      "to": 238
+    },
+    {
+      "from": 244,
+      "to": 188
+    },
+    {
+      "from": 245,
+      "to": 227
+    },
+    {
+      "from": 245,
+      "to": 237
+    },
+    {
+      "from": 246,
+      "to": 228
+    },
+    {
+      "from": 246,
+      "to": 237
+    },
+    {
+      "from": 247,
+      "to": 32
+    },
+    {
+      "from": 247,
+      "to": 10
+    },
+    {
+      "from": 248,
+      "to": 247
+    },
+    {
+      "from": 249,
+      "to": 247
+    },
+    {
+      "from": 249,
+      "to": 253
+    },
+    {
+      "from": 250,
+      "to": 249
+    },
+    {
+      "from": 250,
+      "to": 254
+    },
+    {
+      "from": 251,
+      "to": 249
+    },
+    {
+      "from": 251,
+      "to": 255
+    },
+    {
+      "from": 252,
+      "to": 249
+    },
+    {
+      "from": 252,
+      "to": 256
+    },
+    {
+      "from": 253,
+      "to": 72
+    },
+    {
+      "from": 253,
+      "to": 136
+    },
+    {
+      "from": 254,
+      "to": 253
+    },
+    {
+      "from": 255,
+      "to": 253
+    },
+    {
+      "from": 256,
+      "to": 253
+    },
+    {
+      "from": 257,
+      "to": 253
+    },
+    {
+      "from": 258,
+      "to": 249
+    },
+    {
+      "from": 259,
+      "to": 247
+    },
+    {
+      "from": 259,
+      "to": 11
+    },
+    {
+      "from": 260,
+      "to": 6
+    },
+    {
+      "from": 260,
+      "to": 267
+    },
+    {
+      "from": 261,
+      "to": 6
+    },
+    {
+      "from": 261,
+      "to": 268
+    },
+    {
+      "from": 262,
+      "to": 6
+    },
+    {
+      "from": 262,
+      "to": 269
+    },
+    {
+      "from": 263,
+      "to": 260
+    },
+    {
+      "from": 264,
+      "to": 260
+    },
+    {
+      "from": 264,
+      "to": 261
+    },
+    {
+      "from": 265,
+      "to": 260
+    },
+    {
+      "from": 265,
+      "to": 262
+    },
+    {
+      "from": 266,
+      "to": 264
+    },
+    {
+      "from": 266,
+      "to": 265
+    },
+    {
+      "from": 267,
+      "to": 6
+    },
+    {
+      "from": 268,
+      "to": 6
+    },
+    {
+      "from": 269,
+      "to": 6
+    },
+    {
+      "from": 270,
+      "to": 268
+    },
+    {
+      "from": 271,
+      "to": 269
+    },
+    {
+      "from": 272,
+      "to": 266
+    },
+    {
+      "from": 273,
+      "to": 272
+    },
+    {
+      "from": 273,
+      "to": 276
+    },
+    {
+      "from": 273,
+      "to": 277
+    },
+    {
+      "from": 274,
+      "to": 272
+    },
+    {
+      "from": 274,
+      "to": 33
+    },
+    {
+      "from": 275,
+      "to": 273
+    },
+    {
+      "from": 276,
+      "to": 272
+    },
+    {
+      "from": 276,
+      "to": 154
+    },
+    {
+      "from": 277,
+      "to": 276
+    },
+    {
+      "from": 278,
+      "to": 272
+    },
+    {
+      "from": 279,
+      "to": 261
+    },
+    {
+      "from": 279,
+      "to": 118
+    },
+    {
+      "from": 280,
+      "to": 262
+    },
+    {
+      "from": 281,
+      "to": 286
+    },
+    {
+      "from": 281,
+      "to": 284
+    },
+    {
+      "from": 282,
+      "to": 286
+    },
+    {
+      "from": 282,
+      "to": 285
+    },
+    {
+      "from": 283,
+      "to": 281
+    },
+    {
+      "from": 283,
+      "to": 282
+    },
+    {
+      "from": 284,
+      "to": 195
+    },
+    {
+      "from": 284,
+      "to": 228
+    },
+    {
+      "from": 285,
+      "to": 195
+    },
+    {
+      "from": 285,
+      "to": 247
+    },
+    {
+      "from": 286,
+      "to": 6
+    },
+    {
+      "from": 286,
+      "to": 292
+    },
+    {
+      "from": 287,
+      "to": 281
+    },
+    {
+      "from": 287,
+      "to": 284
+    },
+    {
+      "from": 288,
+      "to": 281
+    },
+    {
+      "from": 288,
+      "to": 63
+    },
+    {
+      "from": 289,
+      "to": 281
+    },
+    {
+      "from": 289,
+      "to": 62
+    },
+    {
+      "from": 290,
+      "to": 286
+    },
+    {
+      "from": 290,
+      "to": 198
+    },
+    {
+      "from": 290,
+      "to": 227
+    },
+    {
+      "from": 290,
+      "to": 228
+    },
+    {
+      "from": 291,
+      "to": 286
+    },
+    {
+      "from": 291,
+      "to": 170
+    },
+    {
+      "from": 292,
+      "to": 41
+    },
+    {
+      "from": 292,
+      "to": 43
+    },
+    {
+      "from": 292,
+      "to": 44
+    },
+    {
+      "from": 292,
+      "to": 247
+    },
+    {
+      "from": 293,
+      "to": 292
+    },
+    {
+      "from": 293,
+      "to": 295
+    },
+    {
+      "from": 294,
+      "to": 293
+    },
+    {
+      "from": 294,
+      "to": 44
+    },
+    {
+      "from": 294,
+      "to": 150
+    },
+    {
+      "from": 295,
+      "to": 150
+    },
+    {
+      "from": 295,
+      "to": 296
+    },
+    {
+      "from": 296,
+      "to": 136
+    },
+    {
+      "from": 296,
+      "to": 150
+    },
+    {
+      "from": 297,
+      "to": 296
+    },
+    {
+      "from": 298,
+      "to": 297
+    },
+    {
+      "from": 299,
+      "to": 11
+    },
+    {
+      "from": 299,
+      "to": 136
+    },
+    {
+      "from": 299,
+      "to": 295
+    },
+    {
+      "from": 300,
+      "to": 8
+    },
+    {
+      "from": 300,
+      "to": 295
+    },
+    {
+      "from": 300,
+      "to": 220
+    }
+  ]
+}

@@ -1,0 +1,2664 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Understanding how systems respond to inputs over time, including natural and forced responses, transient and steady-state behavior, and first-order and second-order system characteristics">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/control-systems/chapters/03-time-domain-response/">
+      
+      
+        <link rel="prev" href="../02-dynamic-system-properties/">
+      
+      
+        <link rel="next" href="../04-transient-response-specs/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Time-Domain Response Fundamentals - Control Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="maroon" data-md-color-accent="gold">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#time-domain-response-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Control Systems" class="md-header__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Control Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Time-Domain Response Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Control Systems" class="md-nav__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    Control Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-to-control-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction to Control Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-dynamic-system-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Dynamic System Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Time-Domain Response
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Time-Domain Response
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-system-responses-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding System Responses in Time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-order-of-a-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Order of a System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Order of a System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-system-order-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: System Order Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-conditions-where-the-story-begins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Conditions: Where the Story Begins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-response-and-forced-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Response and Forced Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Natural Response and Forced Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-natural-vs-forced-response-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Natural vs. Forced Response Decomposition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero-input-and-zero-state-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero-Input and Zero-State Responses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transient-response-and-steady-state-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transient Response and Steady-State Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-first-order-step-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: First-Order Step Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Frequency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damping Ratio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damped-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damped Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Damped Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-damping-ratio-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Damping Ratio Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Undamped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#underdamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Underdamped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critically-damped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critically Damped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overdamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overdamped Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overdamped Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-second-order-response-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Second-Order Response Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#higher-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher-Order Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Higher-Order Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dominant-poles-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dominant Poles Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Constant
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-total-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Total Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together: The Total Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-response-analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Response Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-transient-response-specs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Transient Response Specs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-laplace-transform-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Laplace Transform Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-poles-zeros-system-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Poles, Zeros, and System Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-physical-system-modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Physical System Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-linearization-nonlinear-effects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Linearization and Nonlinear Effects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-block-diagrams-signal-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Block Diagrams and Signal Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-stability-routh-hurwitz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Stability and Routh-Hurwitz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-root-locus-analysis-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Root Locus Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-frequency-response-bode-plots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Frequency Response and Bode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-nyquist-stability-margins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Nyquist and Stability Margins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-steady-state-error-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Steady-State Error Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-pid-control-tuning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. PID Control and Tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-compensator-design-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Compensator Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendix/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-system-responses-in-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding System Responses in Time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-order-of-a-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Order of a System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Order of a System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-system-order-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: System Order Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-conditions-where-the-story-begins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Conditions: Where the Story Begins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-response-and-forced-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Response and Forced Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Natural Response and Forced Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-natural-vs-forced-response-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Natural vs. Forced Response Decomposition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero-input-and-zero-state-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero-Input and Zero-State Responses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transient-response-and-steady-state-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transient Response and Steady-State Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-first-order-step-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: First-Order Step Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Frequency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damping Ratio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damped-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damped Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Damped Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-damping-ratio-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Damping Ratio Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Undamped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#underdamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Underdamped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critically-damped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critically Damped Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overdamped-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overdamped Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overdamped Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-second-order-response-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Second-Order Response Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#higher-order-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher-Order Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Higher-Order Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dominant-poles-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dominant Poles Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Constant
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-total-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Total Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together: The Total Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-response-analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Response Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="time-domain-response-fundamentals">Time-Domain Response Fundamentals</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter is all about watching systems evolve over time—the drama, the oscillations, and the eventual calm. You'll learn to distinguish between natural and forced responses, transient and steady-state behavior, and the personalities of first-order and second-order systems. We'll introduce the key parameters that control engineers obsess over: time constant, damping ratio, and natural frequency. By the end, you'll be able to look at a system and predict whether it'll be smooth and boring, or oscillate like it's had too much coffee. These concepts are essential for predicting and specifying system performance—and for impressing your colleagues at technical meetings.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<ol>
+<li>First-Order System</li>
+<li>Second-Order System</li>
+<li>Higher-Order System</li>
+<li>Order of a System</li>
+<li>Initial Conditions</li>
+<li>Natural Response</li>
+<li>Forced Response</li>
+<li>Total Response</li>
+<li>Zero-Input Response</li>
+<li>Zero-State Response</li>
+<li>Transient Response</li>
+<li>Steady-State Response</li>
+<li>Time Constant</li>
+<li>Damping Ratio</li>
+<li>Natural Frequency</li>
+<li>Damped Frequency</li>
+<li>Undamped System</li>
+<li>Underdamped System</li>
+<li>Critically Damped System</li>
+<li>Overdamped System</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-to-control-systems/">Chapter 1: Introduction to Control Systems</a></li>
+<li><a href="../02-dynamic-system-properties/">Chapter 2: Dynamic System Properties</a></li>
+</ul>
+<hr />
+<h2 id="understanding-system-responses-in-time">Understanding System Responses in Time</h2>
+<p>Flick a light switch and the light appears to turn on instantly. Step on your car's accelerator, though, and you won't teleport to highway speed—you'll accelerate gradually until you settle at the velocity you wanted. This difference in behavior is the essence of <strong>time-domain response</strong>: how systems evolve from one state to another as the clock ticks.</p>
+<p>Here's the thing: <em>every</em> dynamic system takes time to respond to changes. Whether you're designing a temperature controller for a chemical reactor or tuning the suspension on a race car (or just wondering why your shower takes forever to get hot), understanding <em>how fast</em> and <em>in what manner</em> a system responds is crucial. Will it be smooth and graceful, or will it oscillate like a caffeinated hummingbird before settling down? These are the questions that keep control engineers employed—and that we'll tackle in this chapter.</p>
+<p>The time-domain perspective gives us something precious: an intuitive, physical understanding of system behavior. Unlike frequency-domain methods (patience—we'll get there), time-domain analysis lets us directly <em>watch</em> what happens to a system's output as the seconds tick by. It's like having a front-row seat to the drama of transient phenomena. And when your boss asks "how long until this thing settles down?"—you'll have an answer.</p>
+<h2 id="the-order-of-a-system">The Order of a System</h2>
+<p>The <strong>order of a system</strong> is one of the most fundamental classifications in control theory—think of it as the system's "complexity rating." It tells us how intricate the dynamics will be and is determined by the highest power of the differentiation operator (or equivalently, the highest power of <span class="arithmatex">\(s\)</span> in the denominator of the transfer function).</p>
+<p>Here's the beautiful part: a system's order corresponds to three equivalent things:</p>
+<ul>
+<li>The number of independent energy storage elements</li>
+<li>The highest derivative in the governing differential equation</li>
+<li>The number of initial conditions needed to specify the system's state</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>System Order</th>
+<th>Energy Storage Elements</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First-order</td>
+<td>1 (capacitor OR inductor)</td>
+<td>RC circuit, thermal mass</td>
+</tr>
+<tr>
+<td>Second-order</td>
+<td>2 (capacitor AND inductor)</td>
+<td>RLC circuit, mass-spring-damper</td>
+</tr>
+<tr>
+<td>Higher-order</td>
+<td>3 or more</td>
+<td>Complex mechanical systems</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding system order helps you predict response complexity: first-order systems exhibit simple exponential behavior (the reliable workhorse), while second-order systems can oscillate (the dramatic performer). <strong>Higher-order systems</strong> (order 3 and above) exhibit increasingly complex dynamics—but here's the good news: they can often be approximated by lower-order models for design purposes. Nature may be complex, but we engineers are clever simplifiers.</p>
+<h4 id="diagram-system-order-classification">Diagram: System Order Classification</h4>
+<iframe src="../../sims/system-order-classification/main.html" width="100%" height="450px" scrolling="no"></iframe>
+
+<details>
+<summary>System Order Classification</summary>
+<p>Type: infographic</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: classify, identify</p>
+<p>Learning Objective: Students will classify systems by their order based on the number of energy storage elements and understand the implications for response complexity.</p>
+<p>Layout: Three columns showing first-order, second-order, and higher-order systems</p>
+<p>Column 1 - First-Order:
+- Schematic: RC circuit with single capacitor
+- Differential equation: <span class="arithmatex">\(\tau \frac{dy}{dt} + y = Ku\)</span>
+- Response sketch: Simple exponential curve
+- Characteristic: "Single energy storage element"</p>
+<p>Column 2 - Second-Order:
+- Schematic: Mass-spring-damper system
+- Differential equation: <span class="arithmatex">\(m\frac{d^2y}{dt^2} + b\frac{dy}{dt} + ky = F\)</span>
+- Response sketch: Oscillatory decay curve
+- Characteristic: "Two energy storage elements"</p>
+<p>Column 3 - Higher-Order:
+- Schematic: Cascaded tanks or multi-mass system
+- Note: "Order ≥ 3"
+- Response sketch: Complex multi-mode response
+- Characteristic: "Three or more storage elements"</p>
+<p>Interactive elements:
+- Hover over each schematic to see physical interpretation
+- Click to reveal example transfer functions</p>
+<p>Visual style: Clean engineering diagrams with equations, color-coded by order (blue for 1st, green for 2nd, orange for higher)</p>
+<p>Instructional Rationale: Classification infographic helps students build mental categories for system types before diving into detailed analysis.</p>
+<p>Implementation: HTML/CSS/JavaScript with SVG schematics</p>
+</details>
+<h2 id="initial-conditions-where-the-story-begins">Initial Conditions: Where the Story Begins</h2>
+<p><strong>Initial conditions</strong> describe the state of a system at time <span class="arithmatex">\(t = 0\)</span>—the instant before we apply an input or begin our analysis. For a capacitor, this is the initial voltage; for a mass in motion, it's the initial position and velocity. Think of initial conditions as the system's "backstory"—the history encoded in its energy storage elements.</p>
+<p>Why do initial conditions matter? Consider approaching a traffic light in your car. Whether you're cruising at 30 mph or racing at 60 mph when the light turns red <em>completely</em> changes how hard you must brake and how long it takes to stop. The initial velocity is an initial condition, and it profoundly affects everything that follows. (Also, maybe slow down a bit.)</p>
+<p>For an <span class="arithmatex">\(n\)</span>th-order system, we need <span class="arithmatex">\(n\)</span> initial conditions to uniquely determine the solution:</p>
+<ul>
+<li>First-order systems: 1 initial condition (e.g., <span class="arithmatex">\(y(0)\)</span>)</li>
+<li>Second-order systems: 2 initial conditions (e.g., <span class="arithmatex">\(y(0)\)</span> and <span class="arithmatex">\(\dot{y}(0)\)</span>)</li>
+<li><span class="arithmatex">\(n\)</span>th-order systems: <span class="arithmatex">\(n\)</span> initial conditions</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Engineering Intuition</p>
+<p>Initial conditions represent energy already stored in the system. A charged capacitor, a compressed spring, or a moving mass all carry energy that will influence how the system responds—even with no external input. The system doesn't care whether you're paying attention; it's going to release that energy regardless.</p>
+</div>
+<h2 id="natural-response-and-forced-response">Natural Response and Forced Response</h2>
+<p>Here's where things get interesting. A system's total behavior can be decomposed into two distinct components: the <strong>natural response</strong> and the <strong>forced response</strong>. This decomposition is one of our most powerful analytical superpowers—divide and conquer at its finest.</p>
+<p>The <strong>natural response</strong> (also called the homogeneous response) is how the system behaves due solely to its initial conditions, with no external input applied. Imagine pushing a child on a swing and then letting go—the swing continues to oscillate, gradually losing amplitude until it stops. That decaying oscillation is a natural response, arising purely from the initial energy you imparted. You've stopped participating, but the system hasn't stopped performing.</p>
+<p>The <strong>forced response</strong> (also called the particular response) is how the system reacts to external inputs, assuming zero initial conditions. If you rhythmically push the swing in time with its natural period, the resulting motion is the forced response to your periodic input. Now <em>you're</em> driving the show.</p>
+<table>
+<thead>
+<tr>
+<th>Response Type</th>
+<th>Caused By</th>
+<th>Physical Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Natural Response</td>
+<td>Initial conditions</td>
+<td>Release of stored energy</td>
+</tr>
+<tr>
+<td>Forced Response</td>
+<td>External input</td>
+<td>System tracking the input</td>
+</tr>
+<tr>
+<td>Total Response</td>
+<td>Both combined</td>
+<td>What actually happens</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>total response</strong> is simply the sum of these two components—a direct consequence of the superposition principle for linear systems:</p>
+<div class="arithmatex">\[y(t) = y_{\text{natural}}(t) + y_{\text{forced}}(t)\]</div>
+<h4 id="diagram-natural-vs-forced-response-decomposition">Diagram: Natural vs. Forced Response Decomposition</h4>
+<iframe src="../../sims/response-decomposition/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Natural vs. Forced Response Decomposition</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain how total response combines natural and forced components by observing concrete examples with adjustable parameters.</p>
+<p>Canvas layout:
+- Top section (60%): Three stacked time-response plots
+- Bottom section (40%): Controls and parameter display</p>
+<p>Visual elements:
+- Plot 1: Natural response (blue curve) with label "Natural Response (from initial conditions)"
+- Plot 2: Forced response (green curve) with label "Forced Response (from input)"
+- Plot 3: Total response (red/magenta curve) with label "Total Response = Natural + Forced"
+- Vertical dashed line at t=0
+- Grid lines for reference
+- Axis labels with units</p>
+<p>Interactive controls:
+- Slider: Initial condition y(0) from -2 to 2 (default: 1)
+- Slider: Initial velocity dy/dt(0) from -5 to 5 (default: 0)
+- Slider: Step input amplitude from 0 to 2 (default: 1)
+- Dropdown: System type (first-order, underdamped second-order)
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Show numerical values of initial conditions next to sliders
+- Display the current time constant or damping ratio
+- Show steady-state value on the total response plot
+- Annotate key features (peak, settling)</p>
+<p>Behavior:
+- When parameters change, all three plots update simultaneously
+- Natural response shows exponential decay (1st order) or damped oscillation (2nd order)
+- Forced response shows system responding from rest to input
+- Total response clearly shows sum of components
+- Color-coded to match the decomposition equation</p>
+<p>Instructional Rationale: Seeing natural and forced responses separated then summed builds intuition for superposition. Adjustable parameters let students explore how each component contributes.</p>
+<p>Implementation: p5.js with canvas-based sliders and dropdown</p>
+</details>
+<h2 id="zero-input-and-zero-state-responses">Zero-Input and Zero-State Responses</h2>
+<p>"Wait," you might be thinking, "didn't we just cover this?" Not quite. Here's an alternative but equivalent decomposition that splits the total response into <strong>zero-input response</strong> and <strong>zero-state response</strong>. Same math, different perspective.</p>
+<p>The <strong>zero-input response</strong> is the system's output when the input is zero (hence the name) but initial conditions are non-zero. This is identical to the natural response—it's what the system does on its own, releasing stored energy like a wound-up toy.</p>
+<p>The <strong>zero-state response</strong> is the output when initial conditions are all zero (the system starts in a "zero state") but an input is applied. This matches the forced response—it's how the system responds to external stimulation starting from rest.</p>
+<p>So why do we have two names for the same concepts? Because engineers love precision (and sometimes redundancy). The terminology serves different purposes:</p>
+<ul>
+<li><strong>Natural/Forced</strong>: Emphasizes the physical origin (internal energy vs. external driving)</li>
+<li><strong>Zero-Input/Zero-State</strong>: Emphasizes the mathematical conditions (which term is "zeroed out")</li>
+</ul>
+<p>Both lead to the same total response through superposition:</p>
+<div class="arithmatex">\[y(t) = y_{\text{zero-input}}(t) + y_{\text{zero-state}}(t)\]</div>
+<table>
+<thead>
+<tr>
+<th>Terminology</th>
+<th>What's Zero?</th>
+<th>What Drives the Response?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-Input Response</td>
+<td>Input <span class="arithmatex">\(u(t) = 0\)</span></td>
+<td>Initial conditions only</td>
+</tr>
+<tr>
+<td>Zero-State Response</td>
+<td>All <span class="arithmatex">\(y^{(k)}(0) = 0\)</span></td>
+<td>External input only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transient-response-and-steady-state-response">Transient Response and Steady-State Response</h2>
+<p>While natural/forced decomposition separates responses by <em>cause</em>, <strong>transient</strong> and <strong>steady-state</strong> decomposition separates them by <em>time behavior</em>. This perspective is often more useful when your boss asks, "When will this thing settle down?"</p>
+<p>The <strong>transient response</strong> is the portion of the output that eventually dies out as time marches toward infinity. It represents the system "settling down" from initial disturbances or adjusting to new inputs. Think of it as the drama phase—the oscillations, overshoots, and adjustments that characterize the system's journey to equilibrium. Eventually, the drama ends.</p>
+<p>The <strong>steady-state response</strong> is what remains after all transient effects have vanished. It's the long-term behavior—the value (or pattern) the output approaches as <span class="arithmatex">\(t \to \infty\)</span>. For a step input, the steady-state response is typically a constant value. For a sinusoidal input, it's a sinusoid at the same frequency (though possibly with different amplitude and phase). This is where the system finally chills out.</p>
+<p>Consider the eternal battle of office thermostat wars—you set it to 72°F:</p>
+<ul>
+<li><strong>Transient response</strong>: The temperature climbs (possibly overshoots to 74°F), then settles</li>
+<li><strong>Steady-state response</strong>: The temperature stabilizes at 72°F (with minor fluctuations from the on-off controller)</li>
+</ul>
+<p>The total response combines both:</p>
+<div class="arithmatex">\[y(t) = y_{\text{transient}}(t) + y_{\text{steady-state}}(t)\]</div>
+<p>where <span class="arithmatex">\(\lim_{t \to \infty} y_{\text{transient}}(t) = 0\)</span> for stable systems.</p>
+<div class="admonition note">
+<p class="admonition-title">For Stable Systems Only</p>
+<p>The transient response decays to zero only for stable systems. Unstable systems have transient components that grow without bound—a critical distinction we'll explore in the stability chapter.</p>
+</div>
+<h2 id="first-order-systems">First-Order Systems</h2>
+<p>A <strong>first-order system</strong> is the simplest dynamic system you'll encounter—characterized by a single energy storage element and governed by a first-order differential equation. If systems were coffee drinks, first-order would be black coffee: straightforward, dependable, no frills.</p>
+<p>The standard form of a first-order transfer function is:</p>
+<div class="arithmatex">\[G(s) = \frac{K}{\tau s + 1}\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is the DC gain (steady-state output per unit input)</li>
+<li><span class="arithmatex">\(\tau\)</span> (tau) is the <strong>time constant</strong> (with units of time)</li>
+</ul>
+<p>The step response of a first-order system is elegantly simple—memorize this one:</p>
+<div class="arithmatex">\[y(t) = K \cdot (1 - e^{-t/\tau})\]</div>
+<p>This exponential approach to the final value <span class="arithmatex">\(K\)</span> is the hallmark of first-order behavior. There's no oscillation, no overshoot, no drama—just a smooth, monotonic rise (or fall). It's the Steady Eddie of system responses.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Output Value</th>
+<th>Percentage of Final</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(t = \tau\)</span></td>
+<td><span class="arithmatex">\(0.632K\)</span></td>
+<td>63.2%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t = 2\tau\)</span></td>
+<td><span class="arithmatex">\(0.865K\)</span></td>
+<td>86.5%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t = 3\tau\)</span></td>
+<td><span class="arithmatex">\(0.950K\)</span></td>
+<td>95.0%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t = 4\tau\)</span></td>
+<td><span class="arithmatex">\(0.982K\)</span></td>
+<td>98.2%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t = 5\tau\)</span></td>
+<td><span class="arithmatex">\(0.993K\)</span></td>
+<td>99.3%</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span> has several equivalent interpretations:</p>
+<ul>
+<li>Time to reach 63.2% of the final value</li>
+<li>Time it would take to reach the final value if the initial rate of change continued</li>
+<li>The reciprocal of the pole location (pole at <span class="arithmatex">\(s = -1/\tau\)</span>)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">The Rule of Five Tau</p>
+<p>Engineers live by the "5τ rule": a first-order system is considered to have reached steady state after approximately <span class="arithmatex">\(5\tau\)</span> seconds, when it's within 1% of the final value. Commit this to memory—it'll serve you well in exams and in life.</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>Gyra's time constant determines how quickly she responds to disturbances. A small <span class="arithmatex">\(\tau\)</span> means she reacts fast—great for quick corrections, but potentially twitchy. A large <span class="arithmatex">\(\tau\)</span> means she responds slowly—smooth and graceful, but maybe too slow to catch herself when pushed. When we tune Gyra's controller, we're effectively choosing her time constant. The 5τ rule tells us how long to wait after a disturbance before we can say "okay, she's settled." If <span class="arithmatex">\(\tau = 0.2\)</span> seconds, Gyra settles in about 1 second. If <span class="arithmatex">\(\tau = 2\)</span> seconds, we're waiting 10 seconds. For a robot fighting gravity, that difference matters!</p>
+</div>
+<h4 id="diagram-first-order-step-response-explorer">Diagram: First-Order Step Response Explorer</h4>
+<iframe src="../../sims/first-order-response/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>First-Order Step Response Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, calculate</p>
+<p>Learning Objective: Students will predict and verify first-order step response behavior by adjusting the time constant and observing the effect on response speed.</p>
+<p>Canvas layout:
+- Left side (65%): Time response plot with animated curve
+- Right side (35%): Control panel and key values display</p>
+<p>Visual elements:
+- Step response curve (blue line)
+- Horizontal dashed line at final value K
+- Vertical dashed lines at τ, 2τ, 3τ, 4τ, 5τ
+- Dots marking 63.2%, 86.5%, 95%, 98.2%, 99.3% points
+- Tangent line at t=0 showing initial slope
+- Axis labels: "Time (seconds)" and "Output y(t)"</p>
+<p>Interactive controls:
+- Slider: Time constant τ from 0.1 to 5 seconds (default: 1.0)
+- Slider: DC gain K from 0.5 to 3 (default: 1.0)
+- Button: "Animate Response" - draws curve progressively
+- Button: "Reset"
+- Toggle: Show/hide construction lines (tangent, tau markers)</p>
+<p>Data Visibility Requirements:
+- Display current τ and K values
+- Show "Time to 63.2%: τ = [value] s"
+- Show "Time to 95%: 3τ = [value] s"
+- Show "Approximate settling time: 5τ = [value] s"
+- Display pole location: "Pole at s = [value]"</p>
+<p>Behavior:
+- Curve updates in real-time as sliders change
+- Animate mode draws the curve left-to-right to show temporal evolution
+- Tangent line at origin extends to intersect final value line at t=τ
+- Grid snaps to τ units for easy reading</p>
+<p>Instructional Rationale: Direct manipulation of τ with immediate visual feedback builds intuition for the relationship between time constant and response speed. Showing multiple τ markers reinforces the "rule of five tau."</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="second-order-systems">Second-Order Systems</h2>
+<p>Now we're getting to the good stuff. <strong>Second-order systems</strong> are the workhorses of control systems analysis—the Swiss Army knife of dynamic modeling. With two energy storage elements, they exhibit richer dynamics than first-order systems, including the possibility of oscillation. If first-order systems are black coffee, second-order systems are espresso with a twist: more complex, more interesting, and occasionally capable of surprising you.</p>
+<p>The standard form of a second-order transfer function is beautifully compact:</p>
+<div class="arithmatex">\[G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\]</div>
+<p>This elegant formulation introduces two crucial parameters—learn to love them:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_n\)</span>: the <strong>natural frequency</strong> (rad/s)</li>
+<li><span class="arithmatex">\(\zeta\)</span> (zeta): the <strong>damping ratio</strong> (dimensionless)</li>
+</ul>
+<p>These two parameters <em>completely</em> characterize the dynamic behavior of any second-order system. That's it. Two numbers tell the whole story. The natural frequency <span class="arithmatex">\(\omega_n\)</span> determines how fast the system responds, while the damping ratio <span class="arithmatex">\(\zeta\)</span> determines whether the response oscillates and how quickly those oscillations decay.</p>
+<p>The characteristic equation <span class="arithmatex">\(s^2 + 2\zeta\omega_n s + \omega_n^2 = 0\)</span> has roots:</p>
+<div class="arithmatex">\[s_{1,2} = -\zeta\omega_n \pm \omega_n\sqrt{\zeta^2 - 1}\]</div>
+<p>The nature of these roots—whether real or complex—depends entirely on <span class="arithmatex">\(\zeta\)</span>. And that's where the fun begins.</p>
+<h2 id="natural-frequency">Natural Frequency</h2>
+<p>The <strong>natural frequency</strong> <span class="arithmatex">\(\omega_n\)</span> represents the frequency at which the system <em>would</em> oscillate if there were no damping whatsoever. It's called "natural" because it's an intrinsic property of the system, determined purely by its physical parameters—like how some people are naturally morning people (and some of us aren't).</p>
+<p>For a mass-spring system:
+<span class="arithmatex">\(<span class="arithmatex">\(\omega_n = \sqrt{\frac{k}{m}}\)</span>\)</span></p>
+<p>where <span class="arithmatex">\(k\)</span> is the spring stiffness and <span class="arithmatex">\(m\)</span> is the mass. Stiffer spring or lighter mass? Higher natural frequency—the system oscillates faster. It's intuitive once you think about it: a trampoline bounces at a different frequency than a car suspension.</p>
+<p>For an LC circuit:
+<span class="arithmatex">\(<span class="arithmatex">\(\omega_n = \frac{1}{\sqrt{LC}}\)</span>\)</span></p>
+<p>The natural frequency has units of radians per second (rad/s). To convert to hertz (cycles per second), divide by <span class="arithmatex">\(2\pi\)</span>:</p>
+<div class="arithmatex">\[f_n = \frac{\omega_n}{2\pi} \text{ Hz}\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Natural ≠ Actual</p>
+<p>Here's a common gotcha: the natural frequency <span class="arithmatex">\(\omega_n\)</span> is the oscillation frequency only for undamped systems. Real systems with damping oscillate at the damped frequency <span class="arithmatex">\(\omega_d\)</span>, which is always less than <span class="arithmatex">\(\omega_n\)</span>. Reality, it seems, is always a bit slower than the ideal.</p>
+</div>
+<h2 id="damping-ratio">Damping Ratio</h2>
+<p>The <strong>damping ratio</strong> <span class="arithmatex">\(\zeta\)</span> (that's the Greek letter "zeta"—you'll be writing it a lot) quantifies how much energy dissipation exists relative to the energy storage in the system. It's a dimensionless number, which means it's the same whether you're measuring in metric or imperial, and it determines the <em>qualitative</em> nature of the system's response.</p>
+<p>For a mass-spring-damper:
+<span class="arithmatex">\(<span class="arithmatex">\(\zeta = \frac{b}{2\sqrt{km}}\)</span>\)</span></p>
+<p>where <span class="arithmatex">\(b\)</span> is the damping coefficient. The denominator <span class="arithmatex">\(2\sqrt{km}\)</span> represents the <strong>critical damping</strong> value—the exact amount of damping that separates oscillatory from non-oscillatory behavior. Think of it as the Goldilocks point: not too bouncy, not too sluggish.</p>
+<p>The damping ratio creates a classification scheme for second-order systems—and this table is worth memorizing:</p>
+<table>
+<thead>
+<tr>
+<th>Damping Ratio</th>
+<th>Classification</th>
+<th>Pole Type</th>
+<th>Response Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\zeta = 0\)</span></td>
+<td>Undamped</td>
+<td>Purely imaginary</td>
+<td>Perpetual oscillation</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span></td>
+<td>Underdamped</td>
+<td>Complex conjugate</td>
+<td>Decaying oscillation</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\zeta = 1\)</span></td>
+<td>Critically damped</td>
+<td>Repeated real</td>
+<td>Fastest non-oscillatory</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\zeta &gt; 1\)</span></td>
+<td>Overdamped</td>
+<td>Distinct real</td>
+<td>Sluggish, no oscillation</td>
+</tr>
+</tbody>
+</table>
+<p>This classification is fundamental—it tells us whether a system will ring like a bell, how fast it will settle, and whether it will overshoot its target. Master this table, and you've got a superpower for predicting system behavior.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>Gyra lives and breathes damping ratio. When her controller is <strong>underdamped</strong>, she wobbles back and forth before settling—annoying but eventually stable. When she's <strong>overdamped</strong>, she corrects so sluggishly that a gust of wind might knock her over before she finishes responding. But when she's <strong>critically damped</strong>? That's the sweet spot. She returns to upright quickly without any wobble. Finding Gyra's "just right" damping is one of our main jobs as her control engineers. Too twitchy? Lower the gain. Too sluggish? Speed her up. Goldilocks would approve.</p>
+</div>
+<h2 id="damped-frequency">Damped Frequency</h2>
+<p>For underdamped systems (<span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>), oscillations occur at the <strong>damped frequency</strong> <span class="arithmatex">\(\omega_d\)</span>, not the natural frequency <span class="arithmatex">\(\omega_n\)</span>. The damped frequency is:</p>
+<div class="arithmatex">\[\omega_d = \omega_n\sqrt{1 - \zeta^2}\]</div>
+<p>Since <span class="arithmatex">\(\sqrt{1-\zeta^2} &lt; 1\)</span> for any <span class="arithmatex">\(\zeta &gt; 0\)</span>, we always have <span class="arithmatex">\(\omega_d &lt; \omega_n\)</span>. Damping slows down the oscillation.</p>
+<p>The relationship is geometric: if we plot <span class="arithmatex">\(\omega_n\)</span> as the hypotenuse of a right triangle, then <span class="arithmatex">\(\omega_d\)</span> is one leg and <span class="arithmatex">\(\zeta\omega_n\)</span> (the real part of the poles) is the other.</p>
+<p>For small damping ratios, <span class="arithmatex">\(\omega_d \approx \omega_n\)</span>. For example:</p>
+<ul>
+<li><span class="arithmatex">\(\zeta = 0.1\)</span>: <span class="arithmatex">\(\omega_d = 0.995\omega_n\)</span> (only 0.5% reduction)</li>
+<li><span class="arithmatex">\(\zeta = 0.5\)</span>: <span class="arithmatex">\(\omega_d = 0.866\omega_n\)</span> (13.4% reduction)</li>
+<li><span class="arithmatex">\(\zeta = 0.9\)</span>: <span class="arithmatex">\(\omega_d = 0.436\omega_n\)</span> (56.4% reduction)</li>
+</ul>
+<h4 id="diagram-damping-ratio-classification">Diagram: Damping Ratio Classification</h4>
+<iframe src="../../sims/damping-classification/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Damping Ratio Classification</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, compare</p>
+<p>Learning Objective: Students will differentiate between underdamped, critically damped, and overdamped responses by observing how changing the damping ratio transforms the step response.</p>
+<p>Canvas layout:
+- Left side (60%): Time response plot
+- Right side (40%): S-plane pole plot and controls</p>
+<p>Visual elements:
+Time Response Plot:
+- Step response curve (color changes based on damping classification)
+- Horizontal line at steady-state value
+- Envelope curves for underdamped case (showing exponential decay)
+- Grid with labeled axes</p>
+<p>S-Plane Plot:
+- Unit circle (dashed)
+- Real and imaginary axes
+- Poles marked with X symbols (color-coded)
+- Constant damping ratio lines (radial lines from origin)
+- Constant natural frequency arcs (circles centered at origin)</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ from 0 to 2 (default: 0.5)
+- Slider: Natural frequency ωn from 0.5 to 5 rad/s (default: 2)
+- Buttons: Preset values for ζ = 0.1, 0.5, 0.707, 1.0, 2.0
+- Toggle: Show/hide envelope curves</p>
+<p>Data Visibility Requirements:
+- Display current ζ and ωn values
+- Show classification label: "Underdamped", "Critically Damped", or "Overdamped"
+- For underdamped: show ωd = [value] rad/s
+- Show pole locations: s₁,₂ = [values]
+- Display percent overshoot (for underdamped)</p>
+<p>Behavior:
+- Response curve color: blue for underdamped, green for critically damped, orange for overdamped
+- Poles move smoothly on s-plane as ζ changes
+- At ζ=1, two poles merge on real axis
+- For ζ&gt;1, poles split apart on real axis
+- Classification label updates dynamically</p>
+<p>Instructional Rationale: Side-by-side view of time response and pole locations connects abstract s-plane concepts to concrete response behavior. Smooth slider interaction reveals the continuous nature of the transition between damping regimes.</p>
+<p>Implementation: p5.js with dual canvas areas and canvas-based controls</p>
+</details>
+<h2 id="undamped-systems">Undamped Systems</h2>
+<p>An <strong>undamped system</strong> has <span class="arithmatex">\(\zeta = 0\)</span>, meaning there is zero energy dissipation. The poles lie exactly on the imaginary axis at <span class="arithmatex">\(s = \pm j\omega_n\)</span>, and the system oscillates forever at the natural frequency. Forever. Like that song stuck in your head.</p>
+<p>The step response for an undamped system is:</p>
+<div class="arithmatex">\[y(t) = K(1 - \cos(\omega_n t))\]</div>
+<p>This represents perpetual oscillation between 0 and <span class="arithmatex">\(2K\)</span>, with the output <em>never</em> settling to a steady value. While theoretically interesting (and great for exam problems), truly undamped systems are rare in practice—there's almost always some mechanism for energy loss. The universe, it turns out, is full of friction.</p>
+<p>Real-world examples that <em>approximate</em> undamped behavior:</p>
+<ul>
+<li>A pendulum in a vacuum (no air resistance)</li>
+<li>A frictionless mass on an ideal spring (good luck finding one)</li>
+<li>An LC circuit with superconducting components (now we're talking)</li>
+</ul>
+<h2 id="underdamped-systems">Underdamped Systems</h2>
+<p><strong>Underdamped systems</strong> (<span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>) are the most common in practice—and often the most fun to analyze. They exhibit damped oscillations: the response overshoots the target, oscillates back and forth like it can't make up its mind, and gradually settles to the steady-state value.</p>
+<p>The step response for an underdamped second-order system is:</p>
+<div class="arithmatex">\[y(t) = K\left[1 - \frac{e^{-\zeta\omega_n t}}{\sqrt{1-\zeta^2}}\sin(\omega_d t + \phi)\right]\]</div>
+<p>where <span class="arithmatex">\(\phi = \cos^{-1}(\zeta)\)</span> and <span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span>.</p>
+<p>Key features of the underdamped response—watch for these:</p>
+<ul>
+<li><strong>Overshoot</strong>: The response exceeds the final value before settling (sometimes dramatically)</li>
+<li><strong>Ringing</strong>: Multiple oscillations occur before settling (the system is indecisive)</li>
+<li><strong>Exponential envelope</strong>: Oscillation amplitude decays as <span class="arithmatex">\(e^{-\zeta\omega_n t}\)</span> (eventually, calm prevails)</li>
+</ul>
+<p>The complex conjugate poles at <span class="arithmatex">\(s = -\zeta\omega_n \pm j\omega_d\)</span> lie in the left half of the s-plane (for stability), with:</p>
+<ul>
+<li>Real part <span class="arithmatex">\(-\zeta\omega_n\)</span> determining decay rate</li>
+<li>Imaginary part <span class="arithmatex">\(\omega_d\)</span> determining oscillation frequency</li>
+</ul>
+<p>Here's a practical insight: many engineered systems are <em>deliberately</em> designed to be slightly underdamped (<span class="arithmatex">\(\zeta \approx 0.4\)</span> to <span class="arithmatex">\(0.7\)</span>) because this provides a sweet spot—fast response with acceptable overshoot. It's a conscious design choice, not a failure.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>When Gyra overshoots, she leans past vertical, catches herself, swings back, overshoots the other way, and gradually settles down. It looks like she's panicking, but she's actually following the math perfectly—this is underdamped second-order behavior in action. The overshoot percentage tells us how far past vertical she'll swing. The ringing frequency tells us how fast she'll wobble. Once you can predict these from <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span>, you can tune her controller to minimize the drama while keeping her responsive. A little wobble is often acceptable; falling over is not.</p>
+</div>
+<h2 id="critically-damped-systems">Critically Damped Systems</h2>
+<p>A <strong>critically damped system</strong> has <span class="arithmatex">\(\zeta = 1\)</span>, representing the boundary between oscillatory and non-oscillatory behavior—the knife's edge. The characteristic equation has a repeated real root at <span class="arithmatex">\(s = -\omega_n\)</span>.</p>
+<p>The step response for a critically damped system is:</p>
+<div class="arithmatex">\[y(t) = K[1 - (1 + \omega_n t)e^{-\omega_n t}]\]</div>
+<p>Critical damping is special—it's the Goldilocks of damping:</p>
+<ul>
+<li>It's the <em>fastest</em> response that doesn't overshoot</li>
+<li>Any less damping would cause oscillation</li>
+<li>Any more damping would slow the response</li>
+</ul>
+<p>This makes critically damped systems ideal for applications where overshoot is unacceptable but fast response is still desired—such as the needle on an analog measuring instrument or a door closer mechanism. When precision matters and you can't afford any "oops, went too far," critical damping is your friend.</p>
+<div class="admonition example">
+<p class="admonition-title">The Door Closer Analogy</p>
+<p>A well-adjusted door closer is critically damped: the door swings closed quickly without bouncing back. An underdamped closer would let the door swing past closed and oscillate (bang-bang-bang). An overdamped closer would close the door so slowly you'd grow old waiting. Next time you're at a well-designed building, appreciate the engineering.</p>
+</div>
+<h2 id="overdamped-systems">Overdamped Systems</h2>
+<p><strong>Overdamped systems</strong> (<span class="arithmatex">\(\zeta &gt; 1\)</span>) have two distinct real poles, both in the left half-plane. The response is a sum of two decaying exponentials with no oscillation whatsoever—it's the slow-and-steady approach to life.</p>
+<p>The step response involves two time constants:</p>
+<div class="arithmatex">\[y(t) = K\left[1 - \frac{\tau_1}{\tau_1-\tau_2}e^{-t/\tau_1} + \frac{\tau_2}{\tau_1-\tau_2}e^{-t/\tau_2}\right]\]</div>
+<p>where <span class="arithmatex">\(\tau_1\)</span> and <span class="arithmatex">\(\tau_2\)</span> are related to the two pole locations.</p>
+<p>Characteristics of overdamped response:</p>
+<ul>
+<li>No overshoot (monotonic approach to final value—boring but reliable)</li>
+<li>Slower than critically damped for the same <span class="arithmatex">\(\omega_n\)</span></li>
+<li>Response dominated by the slower pole (the slowpoke sets the pace)</li>
+</ul>
+<p>Overdamped systems are often used when oscillation must be absolutely prevented, even at the cost of slower response. Sometimes "boring" is exactly what you want:</p>
+<ul>
+<li>Heavy vehicle suspensions (smooth ride priority over sporty handling)</li>
+<li>Some thermal systems (gradual temperature changes preferred—no thermal shock)</li>
+<li>Systems where oscillation could cause mechanical damage or operator discomfort</li>
+</ul>
+<h4 id="diagram-second-order-response-comparison">Diagram: Second-Order Response Comparison</h4>
+<iframe src="../../sims/second-order-comparison/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Second-Order Response Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, contrast</p>
+<p>Learning Objective: Students will compare and contrast underdamped, critically damped, and overdamped step responses by viewing them simultaneously on the same axes.</p>
+<p>Canvas layout:
+- Main area (75%): Time response plot with multiple curves
+- Right panel (25%): Controls and legend</p>
+<p>Visual elements:
+- Three step response curves plotted simultaneously:
+  - Blue: Underdamped (ζ &lt; 1)
+  - Green: Critically damped (ζ = 1)
+  - Orange: Overdamped (ζ &gt; 1)
+- Horizontal dashed line at final value
+- Time axis marked with τ units where τ = 1/ωn
+- Clear legend identifying each curve</p>
+<p>Interactive controls:
+- Slider: Natural frequency ωn from 1 to 5 rad/s (default: 2)
+- Slider: Underdamped ζ from 0.1 to 0.9 (default: 0.5)
+- Slider: Overdamped ζ from 1.1 to 3.0 (default: 1.5)
+- Toggle: Show/hide individual curves
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Display settling time for each response
+- Show percent overshoot for underdamped case
+- Display rise time for each response
+- Show pole locations for each case</p>
+<p>Behavior:
+- All three curves share the same ωn (only damping differs)
+- Curves update in real-time as ωn changes
+- Underdamped and overdamped curves update as their respective ζ sliders change
+- Critical damping curve always shows ζ = 1</p>
+<p>Instructional Rationale: Direct visual comparison on the same axes makes the trade-offs between response types immediately apparent. Students can see that critical damping is the "goldilocks" case—fastest without overshoot.</p>
+<p>Implementation: p5.js with canvas-based controls and multi-curve plotting</p>
+</details>
+<h2 id="higher-order-systems">Higher-Order Systems</h2>
+<p>Real-world systems often have more than two energy storage elements, leading to <strong>higher-order systems</strong> (order 3 and above). Don't panic. While the mathematical analysis becomes more complex, the fundamental concepts of transient and steady-state response still apply—you've already learned the hard parts.</p>
+<p>A third-order system, for example, might have three poles arranged as:</p>
+<ul>
+<li>One real pole plus a complex conjugate pair</li>
+<li>Three distinct real poles</li>
+<li>One real pole plus a repeated pair</li>
+</ul>
+<p>Here's the good news (and it's really good): higher-order systems can often be approximated by lower-order models. The key insight is the concept of <strong>dominant poles</strong>—the poles that contribute most significantly to the response.</p>
+<p>Think of it this way: poles far to the left in the s-plane (large negative real parts) correspond to fast-decaying transients that die out quickly—blink and you'll miss them. The poles closest to the imaginary axis decay slowest and therefore dominate the long-term behavior. It's like a race where the slowest runner determines when the group finishes.</p>
+<table>
+<thead>
+<tr>
+<th>Pole Location</th>
+<th>Decay Rate</th>
+<th>Impact on Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Near imaginary axis</td>
+<td>Slow</td>
+<td>Dominates transient</td>
+</tr>
+<tr>
+<td>Far left in s-plane</td>
+<td>Fast</td>
+<td>Quickly negligible</td>
+</tr>
+<tr>
+<td>Very far left</td>
+<td>Very fast</td>
+<td>Often ignored</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">The Factor of 5-10 Rule</p>
+<p>If a pole is 5-10 times farther from the imaginary axis than the dominant poles, its contribution decays so fast that it can often be neglected for design purposes. This is engineering pragmatism at its finest—ignore the details that don't matter.</p>
+</div>
+<h4 id="diagram-dominant-poles-visualization">Diagram: Dominant Poles Visualization</h4>
+<iframe src="../../sims/dominant-poles/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Dominant Poles Visualization</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, attribute</p>
+<p>Learning Objective: Students will identify dominant poles in a higher-order system by observing how individual pole contributions combine to form the total response.</p>
+<p>Canvas layout:
+- Left (50%): S-plane showing multiple poles
+- Right (50%): Time response showing individual and total responses</p>
+<p>Visual elements:
+S-Plane:
+- Complex plane with real and imaginary axes
+- Three poles (one pair complex conjugate, one real) marked with X
+- Draggable poles
+- Region shading showing "dominant" vs "fast" zones</p>
+<p>Time Response:
+- Individual contributions from each pole/pair (thin dashed lines)
+- Total response (thick solid line)
+- Axis labels and grid</p>
+<p>Interactive controls:
+- Drag poles on s-plane to reposition them
+- Toggle: Show/hide individual contributions
+- Button: Reset to default configuration
+- Button: "Make pole dominant" (moves selected pole toward imaginary axis)</p>
+<p>Data Visibility Requirements:
+- Show pole values (real and imaginary parts)
+- Display time constants for each pole
+- Indicate which pole(s) are currently "dominant"
+- Show percentage contribution to total response at t=settling</p>
+<p>Behavior:
+- As poles are dragged, time responses update in real-time
+- Poles farther left contribute faster-decaying exponentials
+- Visual highlighting when a pole becomes dominant (closest to imaginary axis)
+- Total response clearly shows sum of individual components</p>
+<p>Instructional Rationale: Interactive pole placement with decomposed responses demonstrates why certain poles dominate. Students develop intuition for which poles matter most without complex mathematics.</p>
+<p>Implementation: p5.js with draggable elements and multi-curve plotting</p>
+</details>
+<h2 id="time-constant">Time Constant</h2>
+<p>The <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span> is a fundamental parameter for characterizing response speed—and one of those concepts that pops up everywhere in engineering. For first-order systems, it's beautifully simple:</p>
+<div class="arithmatex">\[\tau = \frac{1}{|p|}\]</div>
+<p>where <span class="arithmatex">\(p\)</span> is the pole location. For higher-order systems, each pole contributes its own time constant.</p>
+<p>Here's what makes the time constant so satisfying—it has profound physical meaning across completely different domains:</p>
+<ul>
+<li>In an RC circuit: <span class="arithmatex">\(\tau = RC\)</span> (resistance × capacitance)</li>
+<li>In a thermal system: <span class="arithmatex">\(\tau = \rho C_p V / hA\)</span> (thermal mass / heat transfer rate)</li>
+<li>In a mechanical system: <span class="arithmatex">\(\tau = m/b\)</span> (mass / damping coefficient)</li>
+</ul>
+<p>For second-order underdamped systems, the concept extends through the <strong>decay time constant</strong>:</p>
+<div class="arithmatex">\[\tau_d = \frac{1}{\zeta\omega_n}\]</div>
+<p>This is the time constant of the exponential envelope that bounds the oscillations. After <span class="arithmatex">\(5\tau_d\)</span> seconds, the oscillations have decayed to less than 1% of their initial amplitude.</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Time Constant Formula</th>
+<th>Physical Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First-order</td>
+<td>$\tau = 1/</td>
+<td>p</td>
+</tr>
+<tr>
+<td>Underdamped 2nd-order</td>
+<td><span class="arithmatex">\(\tau_d = 1/(\zeta\omega_n)\)</span></td>
+<td>Envelope decay rate</td>
+</tr>
+<tr>
+<td>Overdamped 2nd-order</td>
+<td><span class="arithmatex">\(\tau_1, \tau_2\)</span></td>
+<td>Two decay rates</td>
+</tr>
+</tbody>
+</table>
+<h2 id="putting-it-all-together-the-total-response">Putting It All Together: The Total Response</h2>
+<p>Now let's step back and see the big picture. The concepts in this chapter combine to give us a complete analytical framework for system behavior. For any linear time-invariant system, here's your game plan:</p>
+<ol>
+<li><strong>Classify</strong> the system by order and damping</li>
+<li><strong>Identify</strong> initial conditions and inputs</li>
+<li><strong>Decompose</strong> the response:</li>
+<li>Natural + Forced (or Zero-Input + Zero-State)</li>
+<li>Transient + Steady-State</li>
+<li><strong>Characterize</strong> using key parameters (<span class="arithmatex">\(\tau\)</span>, <span class="arithmatex">\(\zeta\)</span>, <span class="arithmatex">\(\omega_n\)</span>, <span class="arithmatex">\(\omega_d\)</span>)</li>
+<li><strong>Predict</strong> qualitative and quantitative behavior</li>
+</ol>
+<p>This framework applies whether you're analyzing a simple RC circuit or a complex multi-degree-of-freedom mechanical system. The mathematical details differ, but the conceptual structure remains the same. Learn this once, use it forever—that's the beauty of classical control theory.</p>
+<h4 id="diagram-response-analysis-workflow">Diagram: Response Analysis Workflow</h4>
+<iframe src="../../sims/response-workflow/main.html" width="100%" height="450px" scrolling="no"></iframe>
+
+<details>
+<summary>Response Analysis Workflow</summary>
+<p>Type: workflow</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute, implement</p>
+<p>Learning Objective: Students will apply the systematic workflow for analyzing time-domain response of a given system.</p>
+<p>Purpose: Show the step-by-step process for analyzing any system's time response</p>
+<p>Visual style: Flowchart with decision diamonds and process rectangles</p>
+<p>Steps:
+1. Start: "Given: System G(s), Input u(t), Initial Conditions"
+   Hover text: "Start with transfer function, input signal, and initial state"</p>
+<ol>
+<li>
+<p>Process: "Determine System Order"
+   Hover text: "Find highest power of s in denominator"</p>
+</li>
+<li>
+<p>Decision: "Order = ?"
+   Hover text: "Branch based on system order"</p>
+</li>
+</ol>
+<p>4a. Process: "First-Order Analysis" (if Order = 1)
+    Hover text: "Find τ and K, calculate y(t) = K(1-e^(-t/τ))"</p>
+<p>4b. Process: "Second-Order Analysis" (if Order = 2)
+    Hover text: "Calculate ζ and ωn from characteristic equation"</p>
+<p>4c. Process: "Higher-Order Analysis" (if Order ≥ 3)
+    Hover text: "Identify dominant poles, approximate if appropriate"</p>
+<ol>
+<li>
+<p>Decision: "ζ &lt; 1, = 1, or &gt; 1?" (for second-order)
+   Hover text: "Classify damping type"</p>
+</li>
+<li>
+<p>Process: "Calculate Response Parameters"
+   Hover text: "Determine overshoot, settling time, rise time, etc."</p>
+</li>
+<li>
+<p>Process: "Decompose Response"
+   Hover text: "Separate natural/forced and transient/steady-state"</p>
+</li>
+<li>
+<p>End: "Complete Response y(t)"
+   Hover text: "Total response with all characteristics identified"</p>
+</li>
+</ol>
+<p>Color coding:
+- Blue: Classification steps
+- Green: Analysis steps
+- Yellow: Decision points
+- Purple: Parameter calculation</p>
+<p>Interactive elements:
+- Hover over each box for detailed explanation
+- Click to expand with example calculations</p>
+<p>Implementation: HTML/CSS/JavaScript with SVG flowchart</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>Congratulations—you've just acquired a powerful toolkit for understanding how systems behave over time. Here's what you can now do:</p>
+<ul>
+<li>
+<p><strong>System order</strong> determines the complexity of response behavior—more energy storage elements mean more complex dynamics (but don't panic about higher orders)</p>
+</li>
+<li>
+<p>The <strong>natural response</strong> arises from initial conditions; the <strong>forced response</strong> arises from external inputs; their sum gives the <strong>total response</strong>. Divide and conquer!</p>
+</li>
+<li>
+<p><strong>Transient response</strong> is the drama that eventually dies out; <strong>steady-state response</strong> is the calm that remains after transients decay</p>
+</li>
+<li>
+<p><strong>First-order systems</strong> exhibit simple exponential behavior characterized by a single <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span>—remember the 5τ rule!</p>
+</li>
+<li>
+<p><strong>Second-order systems</strong> are characterized by <strong>natural frequency</strong> <span class="arithmatex">\(\omega_n\)</span> and <strong>damping ratio</strong> <span class="arithmatex">\(\zeta\)</span>, which together tell the whole story of oscillation and decay</p>
+</li>
+<li>
+<p>The damping ratio classifies second-order systems (memorize this!):</p>
+</li>
+<li><span class="arithmatex">\(\zeta = 0\)</span>: Undamped (perpetual oscillation)</li>
+<li><span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>: Underdamped (damped oscillation—the common case)</li>
+<li><span class="arithmatex">\(\zeta = 1\)</span>: Critically damped (fastest non-oscillatory—the Goldilocks case)</li>
+<li>
+<p><span class="arithmatex">\(\zeta &gt; 1\)</span>: Overdamped (sluggish, no oscillation—slow but steady)</p>
+</li>
+<li>
+<p><strong>Higher-order systems</strong> can often be approximated by focusing on <strong>dominant poles</strong>—those closest to the imaginary axis. Simplify wisely!</p>
+</li>
+</ul>
+<p>These concepts form the vocabulary and mental models that control engineers use daily. When you see <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span> in someone's notes, you'll know exactly what they're talking about. In the next chapter, we'll apply this understanding to analyze standard test inputs and define precise performance specifications—because "fast enough" isn't a spec.</p>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, see if you can answer these without peeking at the chapter:</p>
+<ol>
+<li>A system has poles at <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -10\)</span>. Which pole dominates the response? (Hint: think about which one decays slower)</li>
+<li>For a second-order system with <span class="arithmatex">\(\zeta = 0.6\)</span> and <span class="arithmatex">\(\omega_n = 5\)</span> rad/s, what is the damped frequency <span class="arithmatex">\(\omega_d\)</span>?</li>
+<li>True or false: A critically damped system reaches steady-state faster than an underdamped system with the same natural frequency. (This one's trickier than it looks!)</li>
+<li>What happens to the step response if you double the time constant of a first-order system?</li>
+</ol>
+<p>If you got all four, you're ready for the next chapter. If not, that's what the MicroSims are for—play with them!</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../02-dynamic-system-properties/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. Dynamic System Properties">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. Dynamic System Properties
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-transient-response-specs/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Transient Response Specs">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. Transient Response Specs
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,301 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Control System,,FOUND
+2,Feedback,1,FOUND
+3,Open-Loop Control,1,FOUND
+4,Closed-Loop Control,1|2,FOUND
+5,Plant,1,FOUND
+6,Controller,1|4,FOUND
+7,Actuator,1|5,FOUND
+8,Sensor,1|2,FOUND
+9,Reference Input,4|6,FOUND
+10,Error Signal,4|9,FOUND
+11,Disturbance,1|5,FOUND
+12,System Response,1|5,FOUND
+13,Dynamic System,1,PROP
+14,Linear System,13,PROP
+15,Time-Invariant System,13,PROP
+16,LTI System,14|15,PROP
+17,Superposition Principle,14,PROP
+18,Homogeneity,14,PROP
+19,Causality,13,PROP
+20,Differential Equation,13,PROP
+21,First-Order System,16|20,TIME
+22,Second-Order System,16|20,TIME
+23,Higher-Order System,22,TIME
+24,Order of a System,20,TIME
+25,Initial Conditions,20,TIME
+26,Natural Response,20|25,TIME
+27,Forced Response,20,TIME
+28,Total Response,26|27,TIME
+29,Zero-Input Response,26,TIME
+30,Zero-State Response,27,TIME
+31,Transient Response,28,TIME
+32,Steady-State Response,28,TIME
+33,Time Constant,21|31,TIME
+34,Damping Ratio,22,TIME
+35,Natural Frequency,22,TIME
+36,Damped Frequency,34|35,TIME
+37,Undamped System,34,TIME
+38,Underdamped System,34|36,TIME
+39,Critically Damped System,34,TIME
+40,Overdamped System,34,TIME
+41,Overshoot,38|31,TIME
+42,Percent Overshoot,41|34,TIME
+43,Settling Time,31|33,TIME
+44,Rise Time,31,TIME
+45,Peak Time,38|41,TIME
+46,Delay Time,31,TIME
+47,Step Input,12,TIME
+48,Impulse Input,12,TIME
+49,Ramp Input,12,TIME
+50,Parabolic Input,49,TIME
+51,Sinusoidal Input,12,TIME
+52,Unit Step Response,47|28,TIME
+53,Impulse Response,48|28,TIME
+54,Ramp Response,49|28,TIME
+55,Standard Test Inputs,47|48|49,TIME
+56,Transfer Function,16|20,LAPL
+57,Laplace Transform,20,LAPL
+58,Inverse Laplace Transform,57,LAPL
+59,S-Domain,57,LAPL
+60,Time Domain,12,LAPL
+61,Frequency Domain,51|59,LAPL
+62,Poles,56|59,LAPL
+63,Zeros,56|59,LAPL
+64,Pole-Zero Plot,62|63,LAPL
+65,Pole-Zero Cancellation,64,LAPL
+66,Dominant Poles,62|31,LAPL
+67,Pole Locations,62,LAPL
+68,Complex Conjugate Poles,67|38,LAPL
+69,Real Poles,67,LAPL
+70,Repeated Poles,67,LAPL
+71,Simple Poles,67,LAPL
+72,Pole at Origin,67,LAPL
+73,Poles in Left Half Plane,67|150,LAPL
+74,Poles in Right Half Plane,67|155,LAPL
+75,Poles on Imaginary Axis,67|154,LAPL
+76,Initial Value Theorem,57|59,LAPL
+77,Final Value Theorem,57|59|32,LAPL
+78,Partial Fraction Expansion,58|62,LAPL
+79,Residue Calculation,78,LAPL
+80,Cover-Up Method,79,LAPL
+81,Convolution Integral,53,LAPL
+82,Convolution in S-Domain,81|59,LAPL
+83,System Order,24|56,LAPL
+84,Proper Transfer Function,56|83,LAPL
+85,Strictly Proper Function,84,LAPL
+86,DC Gain,56|32,LAPL
+87,Electrical Systems,16,MODEL
+88,Mechanical Systems,16,MODEL
+89,Translational Systems,88,MODEL
+90,Rotational Systems,88,MODEL
+91,Electromechanical Systems,87|88,MODEL
+92,Motor Model,91,MODEL
+93,DC Motor,92,MODEL
+94,Armature-Controlled Motor,93,MODEL
+95,Field-Controlled Motor,93,MODEL
+96,Motor Transfer Function,93|56,MODEL
+97,RLC Circuit,87|22,MODEL
+98,RC Circuit,87|21,MODEL
+99,RL Circuit,87|21,MODEL
+100,Op-Amp Circuits,87,MODEL
+101,Mass-Spring-Damper,89|22,MODEL
+102,Pendulum System,90,MODEL
+103,Gear Train,90,MODEL
+104,Lever System,89,MODEL
+105,Fluid Systems,16,MODEL
+106,Thermal Systems,16|21,MODEL
+107,Analogous Systems,87|88,MODEL
+108,Impedance Analogy,107,MODEL
+109,Mobility Analogy,107,MODEL
+110,Force-Voltage Analogy,108,MODEL
+111,Force-Current Analogy,109,MODEL
+112,Linearization,117,LINEAR
+113,Operating Point,112,LINEAR
+114,Equilibrium Point,113,LINEAR
+115,Small Signal Analysis,112|114,LINEAR
+116,Taylor Series Expansion,112,LINEAR
+117,Nonlinear System,13,LINEAR
+118,Saturation,117,LINEAR
+119,Dead Zone,117,LINEAR
+120,Backlash,117,LINEAR
+121,Hysteresis,117,LINEAR
+122,Block Diagram,4|56,BLOCK
+123,Summing Junction,122|10,BLOCK
+124,Pickoff Point,122,BLOCK
+125,Cascade Connection,122|56,BLOCK
+126,Parallel Connection,122,BLOCK
+127,Feedback Connection,122|2,BLOCK
+128,Block Diagram Reduction,122|125|126|127,BLOCK
+129,Block Diagram Algebra,128,BLOCK
+130,Forward Path,122|136,BLOCK
+131,Feedback Path,122|137,BLOCK
+132,Loop,130|131,BLOCK
+133,Inner Loop,132,BLOCK
+134,Outer Loop,132|133,BLOCK
+135,Loop Gain,132|56,BLOCK
+136,Closed-Loop Transfer,4|56|128,BLOCK
+137,Open-Loop Transfer,3|56,BLOCK
+138,Unity Feedback,127|136,BLOCK
+139,Non-Unity Feedback,127|136,BLOCK
+140,Signal Flow Graph,122,BLOCK
+141,Node,140,BLOCK
+142,Branch,140,BLOCK
+143,Branch Gain,142|56,BLOCK
+144,Mason's Gain Formula,140|145|146,BLOCK
+145,Forward Path Gain,140|130,BLOCK
+146,Loop Gain Calculation,140|135,BLOCK
+147,Non-Touching Loops,146,BLOCK
+148,Graph Determinant,144|147,BLOCK
+149,Cofactor,148,BLOCK
+150,Stability,4|12,STAB
+151,BIBO Stability,150|156|157,STAB
+152,Internal Stability,150,STAB
+153,Asymptotic Stability,150|32,STAB
+154,Marginal Stability,150,STAB
+155,Unstable System,150,STAB
+156,Bounded Input,47|48|49,STAB
+157,Bounded Output,12,STAB
+158,Characteristic Equation,56|62,STAB
+159,Characteristic Polynomial,158,STAB
+160,Characteristic Roots,159|62,STAB
+161,Routh-Hurwitz Criterion,159|150,STAB
+162,Routh Array,161,STAB
+163,Routh Array Construction,162,STAB
+164,Special Cases Routh,163,STAB
+165,Zero in First Column,164,STAB
+166,Row of Zeros,164,STAB
+167,Auxiliary Polynomial,166,STAB
+168,Stability Boundary,161|169,STAB
+169,Relative Stability,150|66,STAB
+170,Root Locus,62|150|135,RLOC
+171,Root Locus Rules,170,RLOC
+172,Starting Points,171|62,RLOC
+173,Ending Points,171|63,RLOC
+174,Number of Branches,171,RLOC
+175,Symmetry Property,171,RLOC
+176,Real Axis Segments,171,RLOC
+177,Angle Condition,171,RLOC
+178,Magnitude Condition,171,RLOC
+179,Breakaway Point,171|176,RLOC
+180,Break-In Point,171|176,RLOC
+181,Asymptotes,171|173,RLOC
+182,Centroid,181,RLOC
+183,Asymptote Angles,181,RLOC
+184,Departure Angle,171|68,RLOC
+185,Arrival Angle,171|63,RLOC
+186,Imaginary Axis Crossing,171|75,RLOC
+187,Root Locus Gain,170|178,RLOC
+188,Gain Adjustment,187,RLOC
+189,Dominant Pole Design,66|170,RLOC
+190,Pole Placement,189,RLOC
+191,Root Locus Compensation,170|286,RLOC
+192,Frequency Response,61|56,FREQ
+193,Sinusoidal Steady State,51|32|192,FREQ
+194,Magnitude Response,192,FREQ
+195,Phase Response,192,FREQ
+196,Frequency Transfer Func,192|56,FREQ
+197,Substitution s=jw,196|59,FREQ
+198,Bode Plot,192|201|202,FREQ
+199,Bode Magnitude Plot,198|194,FREQ
+200,Bode Phase Plot,198|195,FREQ
+201,Decibel,194,FREQ
+202,Logarithmic Scale,201,FREQ
+203,Decade,202,FREQ
+204,Octave,202,FREQ
+205,Corner Frequency,198|62,FREQ
+206,Break Frequency,205,FREQ
+207,Asymptotic Approximation,198|208,FREQ
+208,Bode Plot Construction,198|209|210,FREQ
+209,First-Order Factor,21|198,FREQ
+210,Second-Order Factor,22|198,FREQ
+211,First-Order Bode Plot,209|208,FREQ
+212,Second-Order Bode Plot,210|208,FREQ
+213,Integrator Bode Plot,72|208,FREQ
+214,Differentiator Bode Plot,63|208,FREQ
+215,Constant Gain Term,86|208,FREQ
+216,Time Delay in Bode,198,FREQ
+217,Resonant Peak,212|38,FREQ
+218,Resonant Frequency,217|35,FREQ
+219,Quality Factor,217|34,FREQ
+220,Bandwidth,198|221,FREQ
+221,Cutoff Frequency,205|201,FREQ
+222,Half-Power Point,221,FREQ
+223,Low-Pass System,198|221,FREQ
+224,High-Pass System,198|221,FREQ
+225,Bandpass System,223|224,FREQ
+226,Notch Filter,225,FREQ
+227,Gain Margin,229|231,FREQ
+228,Phase Margin,229|232,FREQ
+229,Stability Margins,150|198,FREQ
+230,Crossover Frequency,231|232,FREQ
+231,Gain Crossover,199|201,FREQ
+232,Phase Crossover,200,FREQ
+233,Minimum Phase System,63|73,FREQ
+234,Non-Minimum Phase,63|74,FREQ
+235,All-Pass System,194|195,FREQ
+236,Nyquist Plot,192|239,FREQ
+237,Nyquist Diagram,236,FREQ
+238,Nyquist Criterion,236|240|150,FREQ
+239,Nyquist Contour,59|192,FREQ
+240,Encirclement,236,FREQ
+241,Clockwise Encirclement,240,FREQ
+242,Right-Half Plane Poles,74|238,FREQ
+243,Right-Half Plane Zeros,234,FREQ
+244,Conditionally Stable,238|188,FREQ
+245,Gain Margin from Nyquist,227|237,FREQ
+246,Phase Margin from Nyquist,228|237,FREQ
+247,Steady-State Error,32|10,ERROR
+248,Steady-State Accuracy,247,ERROR
+249,Error Constants,247|253,ERROR
+250,Position Error Constant,249|254,ERROR
+251,Velocity Error Constant,249|255,ERROR
+252,Acceleration Error Const,249|256,ERROR
+253,System Type,72|136,ERROR
+254,Type 0 System,253,ERROR
+255,Type 1 System,253,ERROR
+256,Type 2 System,253,ERROR
+257,Type Number,253,ERROR
+258,Error Coefficients,249,ERROR
+259,Disturbance Error,247|11,ERROR
+260,Proportional Control,6|267,CTRL
+261,Integral Control,6|268,CTRL
+262,Derivative Control,6|269,CTRL
+263,P Controller,260,CTRL
+264,PI Controller,260|261,CTRL
+265,PD Controller,260|262,CTRL
+266,PID Controller,264|265,CTRL
+267,Proportional Gain,6,CTRL
+268,Integral Gain,6,CTRL
+269,Derivative Gain,6,CTRL
+270,Integral Time,268,CTRL
+271,Derivative Time,269,CTRL
+272,Controller Tuning,266,CTRL
+273,Ziegler-Nichols Method,272|276|277,CTRL
+274,Reaction Curve Method,272|33,CTRL
+275,Ultimate Gain Method,273,CTRL
+276,Ultimate Gain,272|154,CTRL
+277,Ultimate Period,276,CTRL
+278,Trial and Error Tuning,272,CTRL
+279,Anti-Windup,261|118,CTRL
+280,Derivative Kick,262,CTRL
+281,Lead Compensator,286|284,CTRL
+282,Lag Compensator,286|285,CTRL
+283,Lead-Lag Compensator,281|282,CTRL
+284,Phase Lead,195|228,CTRL
+285,Phase Lag,195|247,CTRL
+286,Compensator Design,6|292,CTRL
+287,Maximum Phase Lead,281|284,CTRL
+288,Compensation Zero,281|63,CTRL
+289,Compensation Pole,281|62,CTRL
+290,Bode Design Method,286|198|227|228,CTRL
+291,Root Locus Design,286|170,CTRL
+292,Performance Specs,41|43|44|247,PERF
+293,Design Tradeoffs,292|295,PERF
+294,Speed vs Stability,293|44|150,PERF
+295,Robustness,150|296,PERF
+296,Sensitivity,136|150,PERF
+297,Sensitivity Function,296,PERF
+298,Complementary Sensitivity,297,PERF
+299,Disturbance Rejection,11|136|295,PERF
+300,Noise Attenuation,8|295|220,PERF

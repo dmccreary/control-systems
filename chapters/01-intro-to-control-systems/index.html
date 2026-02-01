@@ -1,0 +1,2297 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fundamental vocabulary and building blocks of control systems including feedback, open-loop and closed-loop control, and key system components">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/control-systems/chapters/01-intro-to-control-systems/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-dynamic-system-properties/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Introduction to Control Systems - Control Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="maroon" data-md-color-accent="gold">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-control-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Control Systems" class="md-header__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Control Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to Control Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Control Systems" class="md-nav__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    Control Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Introduction to Control Systems
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction to Control Systems
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meet-gyra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meet Gyra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-control-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Control System?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is a Control System?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-control-system-examples-in-daily-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Control System Examples in Daily Life
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closed-loop-control-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Control and Feedback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-standard-feedback-control-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Feedback Control Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Standard Feedback Control Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standard-feedback-control-loop-block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standard Feedback Control Loop Block Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-summing-junction-and-error-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Summing Junction and Error Signal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-feedback-loop-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Feedback Loop Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disturbances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-open-loop-and-closed-loop-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Open-Loop and Closed-Loop Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparing Open-Loop and Closed-Loop Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-open-loop-vs-closed-loop-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Open-Loop vs Closed-Loop Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-control-system-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Control System Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Control System Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automotive-cruise-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automotive Cruise Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvac-temperature-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      HVAC Temperature Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flight-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flight Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Verification Checklist
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-dynamic-system-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Dynamic System Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-time-domain-response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time-Domain Response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-transient-response-specs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Transient Response Specs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-laplace-transform-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Laplace Transform Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-poles-zeros-system-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Poles, Zeros, and System Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-physical-system-modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Physical System Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-linearization-nonlinear-effects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Linearization and Nonlinear Effects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-block-diagrams-signal-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Block Diagrams and Signal Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-stability-routh-hurwitz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Stability and Routh-Hurwitz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-root-locus-analysis-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Root Locus Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-frequency-response-bode-plots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Frequency Response and Bode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-nyquist-stability-margins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Nyquist and Stability Margins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-steady-state-error-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Steady-State Error Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-pid-control-tuning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. PID Control and Tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-compensator-design-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Compensator Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendix/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meet-gyra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meet Gyra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-control-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Control System?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is a Control System?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-control-system-examples-in-daily-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Control System Examples in Daily Life
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closed-loop-control-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Control and Feedback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-standard-feedback-control-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Feedback Control Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Standard Feedback Control Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standard-feedback-control-loop-block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standard Feedback Control Loop Block Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-summing-junction-and-error-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Summing Junction and Error Signal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-feedback-loop-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Feedback Loop Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disturbances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-open-loop-and-closed-loop-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Open-Loop and Closed-Loop Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparing Open-Loop and Closed-Loop Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-open-loop-vs-closed-loop-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Open-Loop vs Closed-Loop Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-control-system-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Control System Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Control System Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automotive-cruise-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automotive Cruise Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvac-temperature-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      HVAC Temperature Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flight-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flight Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Verification Checklist
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="introduction-to-control-systems">Introduction to Control Systems</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces the fundamental vocabulary and building blocks of control systems. Students will learn the difference between open-loop and closed-loop (feedback) control, and understand the roles of key system components including the plant, controller, actuator, and sensor. By the end of this chapter, students will be able to identify and describe the basic elements of any control system and explain how feedback enables systems to regulate their behavior.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Control System</li>
+<li>Feedback</li>
+<li>Open-Loop Control</li>
+<li>Closed-Loop Control</li>
+<li>Plant</li>
+<li>Controller</li>
+<li>Actuator</li>
+<li>Sensor</li>
+<li>Reference Input</li>
+<li>Error Signal</li>
+<li>Disturbance</li>
+<li>System Response</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<h2 id="welcome">Welcome!</h2>
+<p><img alt="" src="mip-in-classroom.png" /></p>
+<details>
+<summary>Image generation prompt</summary>
+Generate a wide landscape image of junior high school kids playing with the MIP two-wheel self-balancing robot. Make the image 1.91:1 w/h ratio and make it 1200 pixels wide. The kids are in a brightly lit school with fun robotics parts around the room. The kids are smiling and laughing and having a great time. The kids are from a diverse gender and race profile.
+</details>
+
+<p>Welcome to the wonderful world of control systems—where physics meets finesse, and math becomes magic! If you've ever wondered how a Segway stays upright, how a drone hovers in place, or how your car's cruise control keeps you at exactly 65 mph even going uphill, you're about to peek behind the curtain.</p>
+<p>Consider the MIP robot—that delightful little self-balancing toy that zooms around on two wheels like a tiny, determined penguin. MIP (Mobile Inverted Pendulum) looks simple: just a round body perched on two wheels. But here's the thing—balancing on two wheels is <em>really hard</em>. Try standing a broomstick on your palm. Now imagine doing that while the broomstick is also trying to drive somewhere. That's MIP's life, every millisecond of every day.</p>
+<p>Without control systems, MIP would face-plant immediately. But thanks to clever sensors measuring tilt angle, a microcontroller running control algorithms, and motors responding dozens of times per second, MIP doesn't just balance—it dances, spins, and even plays games. The "secret sauce" is a feedback control loop that constantly asks: "Am I falling? Which way? How fast?" and responds with precisely the right motor commands to stay upright. It's like having superhuman reflexes, except the superhuman is math.</p>
+<p>Here's the exciting part: the same principles that make MIP balance also guide spacecraft to Mars, keep power grids stable, regulate your body temperature, and enable robots to perform surgery. Control systems are <em>everywhere</em>, hiding in plain sight, quietly making the modern world possible.</p>
+<p>By the end of this course, you'll understand how these systems work—and more importantly, how to design them yourself. Think of it as becoming a Jedi Knight of engineering. The Force? That's feedback. Your lightsaber? Transfer functions and Bode plots. Your enemies? Instability and steady-state error. (Don't worry, we'll defeat them.)</p>
+<p>Mastering control systems theory is like gaining a superpower. It doesn't just help you understand the world around you—from thermostats to Tesla autopilots—it empowers you to <em>create</em> innovative products that seemed impossible before. Ready to begin? Let's go!</p>
+<h2 id="meet-gyra">Meet Gyra</h2>
+<p><img alt="" src="meet-gyra-notext.png" /></p>
+<p>Gyra is a two-wheel, self-balancing robot who lives at the edge of stability. Left on her own, she wobbles, overcorrects, and eventually tips over—not because she is broken, but because physics is unforgiving. Gyra responds to the world through sensors, motors, and feedback, and every choice made in her controller shapes how she behaves. Throughout this course, you will take on the role of Gyra’s control engineer. Many concepts you learn will help her react faster, overshoot less, and recover more gracefully when disturbances occur. By the end of the book, Gyra may still lean and hum quietly as she balances, but she will do so with confidence—because you designed the system that keeps her upright.</p>
+<h2 id="what-is-a-control-system">What Is a Control System?</h2>
+<p>A <strong>control system</strong> is an interconnection of components designed to achieve a desired behavior or output. Control systems are everywhere in engineering—from the thermostat in your home that maintains a comfortable temperature to the autopilot systems that guide aircraft through complex flight paths. The fundamental purpose of any control system is to make a physical process behave in a predictable, desired manner, even in the presence of external disturbances or internal uncertainties.</p>
+<p>Control systems can be characterized by how they respond to commands and disturbances. At the most basic level, engineers distinguish between two fundamental architectures:</p>
+<ul>
+<li><strong>Open-loop control systems</strong> that execute pre-planned actions without monitoring the result</li>
+<li><strong>Closed-loop control systems</strong> (also called feedback control systems) that continuously measure the output and adjust their behavior accordingly</li>
+</ul>
+<p>Understanding this distinction forms the foundation for everything that follows in control systems engineering.</p>
+<h4 id="diagram-control-system-examples-in-daily-life">Diagram: Control System Examples in Daily Life</h4>
+<iframe src="../../sims/control-system-examples/main.html" width="100%" height="450px" scrolling="no"></iframe>
+
+<details>
+<summary>Control System Examples in Daily Life</summary>
+<p>Type: infographic</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: identify, exemplify</p>
+<p>Learning Objective: Students will identify control systems in everyday contexts and classify them as open-loop or closed-loop, building intuition before formal definitions.</p>
+<p>Layout: Interactive grid of 6-8 clickable icons representing common systems</p>
+<p>Examples to include:</p>
+<ol>
+<li>Toaster (open-loop) - timer-based, no measurement of bread color</li>
+<li>Thermostat/HVAC (closed-loop) - temperature sensor provides feedback</li>
+<li>Washing machine timer (open-loop) - fixed cycle regardless of cleanliness</li>
+<li>Cruise control (closed-loop) - speedometer provides feedback to throttle</li>
+<li>Traffic light with fixed timing (open-loop) - no traffic measurement</li>
+<li>Traffic light with sensors (closed-loop) - detects vehicles waiting</li>
+</ol>
+<p>Interactive elements:
+- Click on each icon to reveal: system name, input, output, whether feedback is present
+- Hover shows brief description
+- Color coding: blue border for closed-loop, orange border for open-loop</p>
+<p>Visual style: Clean icons with modern flat design, arranged in 2 rows of 3-4</p>
+<p>Implementation: HTML/CSS/JavaScript with click handlers revealing info panels</p>
+</details>
+<p>For a longer list of consumer products that use control theory see
+our Appendix: <a href="../../appendix/consumer-products-that-use-control-theory/">Consumer Products that Use Control Theory</a></p>
+<h2 id="open-loop-control">Open-Loop Control</h2>
+<p>An <strong>open-loop control system</strong> operates without measuring or using information about its actual output. The controller generates a command signal based solely on the input and a predetermined relationship (often a model or calibration) between input and expected output. Because there is no feedback path from the output to the input, the system cannot automatically compensate for disturbances or modeling errors.</p>
+<p>Consider a simple toaster as an example of open-loop control. You set a timer (the input), and the heating element runs for that duration regardless of whether the bread is actually toasted to your preference. If the bread is thicker than usual or the starting temperature is different, the output quality varies—but the toaster has no way to detect or correct for these conditions. This is why we've all experienced the tragedy of charcoal bread or the disappointment of warm, pale slices that still dream of becoming toast.</p>
+<p>The block diagram for an open-loop system is straightforward:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Input</td>
+<td>The desired setpoint or command</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td>Converts the reference into an actuation signal</td>
+</tr>
+<tr>
+<td>Plant</td>
+<td>The physical system being controlled</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>The actual system response</td>
+</tr>
+</tbody>
+</table>
+<p>Open-loop systems are simpler and less expensive than closed-loop alternatives. However, they are vulnerable to:</p>
+<ul>
+<li>Disturbances that push the output away from the desired value</li>
+<li>Model inaccuracies where the assumed input-output relationship is imperfect</li>
+<li>Parameter variations as system characteristics change over time</li>
+</ul>
+<p>Open-loop control is appropriate when disturbances are small, the system model is accurate and stable, and precision requirements are modest.</p>
+<h2 id="closed-loop-control-and-feedback">Closed-Loop Control and Feedback</h2>
+<p>The key innovation of <strong>closed-loop control</strong> is the addition of <strong>feedback</strong>—a measurement of the actual output that is compared to the desired reference input. This comparison produces an <strong>error signal</strong>, which the controller uses to adjust its output and drive the system toward the desired behavior.</p>
+<p>Feedback is the defining characteristic of closed-loop control. By continuously measuring the output and comparing it to the reference, the system can:</p>
+<ul>
+<li>Reject disturbances by automatically compensating for their effects</li>
+<li>Reduce sensitivity to parameter variations and modeling errors</li>
+<li>Track changing reference inputs more accurately</li>
+</ul>
+<p>The concept of feedback appears throughout nature and engineering. Biological systems use feedback extensively—your body regulates temperature, blood sugar, and countless other variables through feedback mechanisms. Engineers have formalized these principles to create robust control systems for industrial, aerospace, automotive, and consumer applications.</p>
+<div class="admonition tip">
+<p class="admonition-title">Why Feedback Matters</p>
+<p>Feedback allows a control system to be "self-correcting." Even if the controller doesn't have a perfect model of the plant, or if unexpected disturbances occur, the feedback loop enables the system to detect and reduce errors automatically.</p>
+</div>
+<h2 id="the-standard-feedback-control-loop">The Standard Feedback Control Loop</h2>
+<p>The standard closed-loop feedback system consists of several interconnected components, each with a specific role. Understanding these components and how they interact is essential for analyzing and designing control systems.</p>
+<h4 id="diagram-standard-feedback-control-loop-block-diagram">Diagram: Standard Feedback Control Loop Block Diagram</h4>
+<iframe src="../../sims/feedback-loop-block-diagram/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Standard Feedback Control Loop Block Diagram</summary>
+<p>Type: diagram</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, describe</p>
+<p>Learning Objective: Students will trace signal flow through a complete feedback control system, identifying each component's role and how signals transform as they propagate through the loop.</p>
+<p>Components to show (left to right):
+1. Reference Input r(t) - arrow entering from left
+2. Summing Junction (circle with +/- signs) - where error is computed
+3. Error Signal e(t) = r(t) - y(t) - arrow from summing junction
+4. Controller block - labeled "Controller G_c(s)"
+5. Control signal u(t) - arrow from controller
+6. Actuator block - labeled "Actuator"
+7. Actuator output - arrow to plant
+8. Plant block - labeled "Plant G_p(s)"
+9. Output y(t) - arrow to right (system response)
+10. Disturbance d(t) - arrow entering at plant (from above)
+11. Sensor block - labeled "Sensor H(s)" - in feedback path
+12. Measured output - arrow from sensor back to summing junction (negative input)</p>
+<p>Signal labels at each connection point with clear notation.</p>
+<p>Visual style: Clean block diagram with:
+- Rectangular blocks for components
+- Circular summing junction with + at reference input, - at feedback
+- Arrows showing signal direction
+- Labels for all signals: r(t), e(t), u(t), d(t), y(t)</p>
+<p>Color scheme:
+- Reference/command path: blue
+- Feedback path: green
+- Disturbance: red
+- Plant/actuator: gray</p>
+<p>Interactive features:
+- Hover over any block to see detailed description
+- Hover over any signal arrow to see what that signal represents
+- Click on blocks to highlight the signal path through that component</p>
+<p>Implementation: vis-network or custom SVG with JavaScript hover handlers
+Canvas size: 800x400px, responsive width</p>
+</details>
+<h3 id="reference-input">Reference Input</h3>
+<p>The <strong>reference input</strong> <span class="arithmatex">\(r(t)\)</span> represents the desired output or setpoint of the control system. In engineering notation, this signal specifies what we want the system output to be. For a temperature control system, the reference input would be the desired temperature setting. For a motor speed controller, it would be the commanded velocity.</p>
+<p>The reference input may be:</p>
+<ul>
+<li>A constant value (regulation problem)</li>
+<li>A time-varying trajectory (tracking problem)</li>
+<li>A step change from one setpoint to another</li>
+<li>A complex profile such as a ramp or sinusoidal pattern</li>
+</ul>
+<h3 id="the-summing-junction-and-error-signal">The Summing Junction and Error Signal</h3>
+<p>The <strong>summing junction</strong> compares the reference input with the measured output to produce the <strong>error signal</strong> <span class="arithmatex">\(e(t)\)</span>. Mathematically:</p>
+<div class="arithmatex">\[e(t) = r(t) - y_m(t)\]</div>
+<p>where <span class="arithmatex">\(y_m(t)\)</span> is the measured output from the sensor. The error signal quantifies the difference between what we want (the reference) and what we have (the measured output). The controller's job is to drive this error toward zero.</p>
+<p>The summing junction is represented in block diagrams as a circle with plus and minus signs indicating how the inputs combine. The reference input enters with a positive sign, while the feedback signal enters with a negative sign, hence the term "negative feedback." (Don't worry—unlike the kind you might get on a group project, this type of negative feedback is actually helpful!)</p>
+<h3 id="controller">Controller</h3>
+<p>The <strong>controller</strong> (sometimes called the compensator) processes the error signal and generates a command to the actuator. The controller embodies the control strategy—the algorithm or transfer function that determines how the system should respond to errors. If the plant is the star of the show, the controller is the director—making sure everything hits its mark and the performance goes smoothly.</p>
+<p>Controllers range from simple proportional amplifiers to sophisticated algorithms that incorporate:</p>
+<ul>
+<li>Proportional action (responding to current error)</li>
+<li>Integral action (responding to accumulated error)</li>
+<li>Derivative action (responding to rate of change of error)</li>
+<li>More advanced structures covered in later chapters</li>
+</ul>
+<p>The controller transfer function is often denoted <span class="arithmatex">\(G_c(s)\)</span> in the Laplace domain, where <span class="arithmatex">\(s\)</span> is the complex frequency variable.</p>
+<h3 id="actuator">Actuator</h3>
+<p>The <strong>actuator</strong> converts the controller's command signal into physical action on the plant. Actuators bridge the gap between the electrical signals in the control system and the mechanical, thermal, or other physical quantities being controlled. They're the "muscle" of the operation—all the controller's brilliant ideas mean nothing if the actuator can't make them happen in the real world.</p>
+<p>Common actuator examples include:</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Actuator Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motor control</td>
+<td>Power amplifier and electric motor</td>
+</tr>
+<tr>
+<td>Valve control</td>
+<td>Pneumatic or hydraulic servo</td>
+</tr>
+<tr>
+<td>Thermal control</td>
+<td>Heating element or cooling fan</td>
+</tr>
+<tr>
+<td>Flight control</td>
+<td>Hydraulic servo driving control surfaces</td>
+</tr>
+<tr>
+<td>Robotic arm</td>
+<td>Electric servomotor at each joint</td>
+</tr>
+</tbody>
+</table>
+<p>In many analyses, the actuator dynamics are combined with the plant dynamics, but for high-performance systems, actuator limitations (bandwidth, saturation, slew rate) must be modeled explicitly.</p>
+<h3 id="plant">Plant</h3>
+<p>The <strong>plant</strong> is the physical system or process being controlled. (And no, we're not talking about your succulent on the windowsill—though keeping <em>that</em> alive is its own control challenge!) The plant is what we ultimately want to regulate or manipulate. Everything else in the control loop—controller, actuator, sensor—exists to make the plant behave as desired.</p>
+<p>The plant transfer function <span class="arithmatex">\(G_p(s)\)</span> characterizes how the plant output responds to its input. This mathematical model captures the plant's dynamics: how fast it responds, whether it oscillates, and how it settles to steady state.</p>
+<p>Examples of plants include:</p>
+<ul>
+<li>A DC motor (input: voltage, output: angular position or velocity)</li>
+<li>A heating system (input: power, output: temperature)</li>
+<li>An aircraft (input: control surface deflection, output: pitch angle)</li>
+<li>A chemical reactor (input: reactant flow rate, output: product concentration)</li>
+</ul>
+<h3 id="sensor">Sensor</h3>
+<p>The <strong>sensor</strong> measures the plant output and converts it to a form suitable for comparison with the reference input. Sensors close the feedback loop by providing information about the actual system state. Think of the sensor as the system's eyes and ears—constantly watching, always reporting. It's the control system equivalent of that friend who notices <em>everything</em>.</p>
+<p>Real sensors introduce their own dynamics and imperfections:</p>
+<ul>
+<li><strong>Measurement noise</strong>: Random fluctuations in the measured signal</li>
+<li><strong>Bias errors</strong>: Systematic offsets between true and measured values</li>
+<li><strong>Dynamic response</strong>: Finite bandwidth limiting how fast changes can be tracked</li>
+<li><strong>Quantization</strong>: Discrete steps when using digital sensors</li>
+</ul>
+<p>The sensor transfer function <span class="arithmatex">\(H(s)\)</span> captures these dynamics. In ideal analyses, <span class="arithmatex">\(H(s) = 1\)</span> (perfect measurement), but practical design must account for sensor limitations.</p>
+<h2 id="system-response">System Response</h2>
+<p>The <strong>system response</strong> <span class="arithmatex">\(y(t)\)</span> is the actual output of the plant—the quantity we are trying to control. The goal of the feedback control system is to make this response track the reference input as closely as possible, despite disturbances and model uncertainties.</p>
+<p>System response characteristics include:</p>
+<ul>
+<li><strong>Transient response</strong>: How the output behaves as it moves from one state to another</li>
+<li><strong>Steady-state response</strong>: The final value the output settles to</li>
+<li><strong>Tracking accuracy</strong>: How well the output follows a changing reference</li>
+<li><strong>Disturbance rejection</strong>: How effectively the system suppresses unwanted inputs</li>
+</ul>
+<p>Later chapters will develop quantitative measures for these characteristics, but the fundamental goal remains the same: make <span class="arithmatex">\(y(t)\)</span> follow <span class="arithmatex">\(r(t)\)</span> as closely as possible.</p>
+<h4 id="diagram-interactive-feedback-loop-simulator">Diagram: Interactive Feedback Loop Simulator</h4>
+<iframe src="../../sims/feedback-loop-simulator/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Interactive Feedback Loop Simulator</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, execute</p>
+<p>Learning Objective: Students will observe how changing the controller gain affects closed-loop system response, developing intuition for the relationship between controller parameters and performance.</p>
+<p>Instructional Rationale: This Apply-level objective benefits from parameter exploration where students actively adjust the controller gain and observe the resulting system response in real-time, building intuition about feedback control behavior.</p>
+<p>Canvas layout:
+- Left side (500px): Time-domain plot showing reference input and system output
+- Right side (200px): Control panel with sliders and displays</p>
+<p>Visual elements:
+- Time-domain plot with:
+  - X-axis: Time (0-10 seconds)
+  - Y-axis: Amplitude (0-2)
+  - Blue dashed line: Reference input r(t) (step from 0 to 1 at t=1)
+  - Orange solid line: System output y(t)
+  - Shaded error region between reference and output
+- Block diagram schematic (small, at top) showing where gain K fits</p>
+<p>Interactive controls:
+- Slider: Controller gain K (range 0.5 to 10, default 2)
+- Slider: Plant time constant τ (range 0.5 to 3, default 1)
+- Button: "Run Simulation"
+- Button: "Reset"
+- Checkbox: "Show error signal"
+- Display: Final steady-state error value
+- Display: Approximate settling time</p>
+<p>Plant model: First-order system <span class="arithmatex">\(G_p(s) = \frac{1}{\tau s + 1}\)</span>
+Controller: Proportional controller <span class="arithmatex">\(G_c(s) = K\)</span>
+Closed-loop transfer function: <span class="arithmatex">\(\frac{K}{(\tau s + 1) + K} = \frac{K}{\tau s + (1 + K)}\)</span></p>
+<p>Default parameters:
+- K = 2
+- τ = 1 second
+- Reference step magnitude = 1</p>
+<p>Behavior:
+- When "Run Simulation" clicked, animate the step response
+- Show how increasing K reduces steady-state error but may increase overshoot (for this first-order system, no overshoot, but faster response)
+- Display calculated steady-state error: <span class="arithmatex">\(e_{ss} = \frac{1}{1+K}\)</span>
+- Update settling time estimate as parameters change</p>
+<p>Data visibility requirements:
+- Show K value prominently
+- Show calculated closed-loop time constant: <span class="arithmatex">\(\tau_{CL} = \frac{\tau}{1+K}\)</span>
+- Show steady-state value: <span class="arithmatex">\(y_{ss} = \frac{K}{1+K}\)</span></p>
+<p>Implementation: p5.js with canvas-based controls
+Canvas size: 700x400px, responsive width</p>
+</details>
+<h2 id="disturbances">Disturbances</h2>
+<p>A <strong>disturbance</strong> <span class="arithmatex">\(d(t)\)</span> is any unwanted input that affects the system output without being commanded by the controller. In other words, disturbances are the universe's way of saying "not so fast!" to your carefully designed system. Disturbances represent the primary reason why feedback control is necessary—if there were no disturbances and our plant model were perfect, open-loop control would suffice. But this is reality, and reality loves to throw curveballs.</p>
+<p>Disturbances can enter the system at various points:</p>
+<ul>
+<li><strong>Load disturbances</strong>: External forces or demands acting on the plant</li>
+<li><strong>Process disturbances</strong>: Internal variations in plant parameters</li>
+<li><strong>Measurement noise</strong>: Corrupting the feedback signal</li>
+<li><strong>Command disturbances</strong>: Errors in the reference input</li>
+</ul>
+<p>For the temperature control example, disturbances include:</p>
+<ul>
+<li>Opening a window (heat loss)</li>
+<li>Adding occupants to a room (heat gain)</li>
+<li>Changes in outdoor temperature</li>
+<li>Solar radiation through windows</li>
+</ul>
+<p>One of the key advantages of feedback control is <strong>disturbance rejection</strong>—the ability to maintain the desired output despite disturbances. The feedback loop detects the effect of disturbances on the output and automatically adjusts the control action to compensate.</p>
+<h2 id="comparing-open-loop-and-closed-loop-systems">Comparing Open-Loop and Closed-Loop Systems</h2>
+<p>The table below summarizes the key differences between open-loop and closed-loop control architectures:</p>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Open-Loop Control</th>
+<th>Closed-Loop Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feedback</td>
+<td>None</td>
+<td>Output is measured and compared to reference</td>
+</tr>
+<tr>
+<td>Disturbance handling</td>
+<td>Cannot compensate</td>
+<td>Automatically rejects disturbances</td>
+</tr>
+<tr>
+<td>Accuracy</td>
+<td>Depends entirely on model accuracy</td>
+<td>Less sensitive to model errors</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Simpler</td>
+<td>More complex</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Generally lower</td>
+<td>Generally higher</td>
+</tr>
+<tr>
+<td>Stability concerns</td>
+<td>Inherently stable if plant is stable</td>
+<td>Can become unstable if poorly designed</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Toaster, washing machine timer</td>
+<td>Thermostat, cruise control</td>
+</tr>
+</tbody>
+</table>
+<p>The choice between open-loop and closed-loop control depends on the application requirements:</p>
+<ul>
+<li><strong>Choose open-loop</strong> when the plant model is accurate, disturbances are minimal, precision requirements are modest, and cost is a primary constraint</li>
+<li><strong>Choose closed-loop</strong> when high precision is required, significant disturbances are present, plant parameters vary, and the increased complexity is justified</li>
+</ul>
+<p>Most industrial and high-performance systems use closed-loop control because the benefits of disturbance rejection and robustness outweigh the added complexity. In the eternal battle between simplicity and capability, feedback usually wins—it's worth the extra effort to have a system that actually knows what it's doing!</p>
+<h4 id="diagram-open-loop-vs-closed-loop-comparison">Diagram: Open-Loop vs Closed-Loop Comparison</h4>
+<iframe src="../../sims/open-vs-closed-loop/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Open-Loop vs Closed-Loop Comparison Simulator</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, differentiate</p>
+<p>Learning Objective: Students will compare the behavior of open-loop and closed-loop systems when subjected to the same disturbance, analyzing why feedback provides superior disturbance rejection.</p>
+<p>Instructional Rationale: This Analyze-level objective requires students to observe both systems under identical conditions and identify the structural difference (feedback) that causes the performance difference. Side-by-side comparison enables direct differentiation.</p>
+<p>Canvas layout:
+- Top half: Two parallel system plots (Open-Loop left, Closed-Loop right)
+- Bottom: Shared control panel</p>
+<p>Visual elements for each system:
+- Time-domain plot showing output y(t)
+- Reference line at y = 1 (dashed blue)
+- Output trajectory (solid orange for open-loop, solid green for closed-loop)
+- Disturbance indicator showing when d(t) is applied</p>
+<p>Interactive controls:
+- Button: "Apply Step Disturbance" - adds disturbance at t = 3 seconds
+- Slider: Disturbance magnitude (range -0.5 to +0.5, default 0.3)
+- Button: "Reset Both Systems"
+- Slider: Controller gain K for closed-loop system (range 1 to 10, default 5)</p>
+<p>Plant model for both: <span class="arithmatex">\(G_p(s) = \frac{1}{s + 1}\)</span></p>
+<p>Open-loop controller: Fixed gain <span class="arithmatex">\(G_c = 1\)</span> (calibrated for unity output with no disturbance)</p>
+<p>Closed-loop controller: Proportional gain <span class="arithmatex">\(G_c = K\)</span></p>
+<p>Behavior:
+- Initially, both systems are at steady state with output ≈ 1
+- When disturbance is applied, open-loop output shifts by the disturbance amount and stays there
+- Closed-loop output is deflected but recovers toward the reference
+- Show steady-state error for each system after disturbance</p>
+<p>Data visibility:
+- Steady-state error displayed numerically for each system
+- Percent reduction in error for closed-loop vs open-loop</p>
+<p>Implementation: p5.js with dual canvas regions
+Canvas size: 750x450px, responsive width</p>
+</details>
+<h2 id="real-world-control-system-examples">Real-World Control System Examples</h2>
+<p>Control systems appear in virtually every domain of engineering. Understanding these examples helps ground abstract concepts in practical applications.</p>
+<h3 id="automotive-cruise-control">Automotive Cruise Control</h3>
+<p>Cruise control maintains vehicle speed at a driver-selected setpoint. The components map directly to our control system framework:</p>
+<ul>
+<li><strong>Reference input</strong>: Desired speed set by driver</li>
+<li><strong>Controller</strong>: Electronic control unit (ECU) implementing the control law</li>
+<li><strong>Actuator</strong>: Throttle servo adjusting engine power</li>
+<li><strong>Plant</strong>: Vehicle dynamics (engine, transmission, vehicle mass)</li>
+<li><strong>Sensor</strong>: Wheel speed sensor or GPS-based speedometer</li>
+<li><strong>Disturbances</strong>: Hills, wind, road surface changes</li>
+</ul>
+<p>When driving uphill, the vehicle tends to slow down. The feedback loop detects the speed reduction (error becomes positive) and commands more throttle to maintain the setpoint. It's like having a very attentive co-pilot who never gets tired, never gets distracted by good music, and definitely won't eat your road trip snacks.</p>
+<h3 id="hvac-temperature-control">HVAC Temperature Control</h3>
+<p>Building climate control is a classic feedback control application:</p>
+<ul>
+<li><strong>Reference input</strong>: Thermostat setpoint</li>
+<li><strong>Controller</strong>: Thermostat logic (often with hysteresis or PID)</li>
+<li><strong>Actuator</strong>: Furnace, air conditioner, or heat pump</li>
+<li><strong>Plant</strong>: Building thermal dynamics</li>
+<li><strong>Sensor</strong>: Temperature sensor</li>
+<li><strong>Disturbances</strong>: Outdoor temperature, occupancy, solar gain, appliance heat</li>
+</ul>
+<p>The large thermal mass of buildings makes temperature dynamics relatively slow, with time constants measured in minutes to hours depending on construction. This explains why cranking the thermostat to 85°F won't heat your house any faster—a fact that has sparked countless roommate arguments and family "thermostat wars" throughout history.</p>
+<h3 id="flight-control">Flight Control</h3>
+<p>Aircraft autopilot systems control attitude, altitude, heading, and speed:</p>
+<ul>
+<li><strong>Reference input</strong>: Commanded pitch angle, roll angle, or altitude</li>
+<li><strong>Controller</strong>: Flight control computer</li>
+<li><strong>Actuators</strong>: Hydraulic servos driving control surfaces (elevator, ailerons, rudder)</li>
+<li><strong>Plant</strong>: Aircraft dynamics</li>
+<li><strong>Sensors</strong>: Gyroscopes, accelerometers, air data sensors, GPS</li>
+<li><strong>Disturbances</strong>: Wind gusts, turbulence, changes in aircraft weight</li>
+</ul>
+<p>Flight control systems often include multiple nested feedback loops—inner loops for attitude stabilization and outer loops for navigation. It's loops within loops, like engineering <em>Inception</em>. And just like that movie, the deeper you go, the more interesting it gets!</p>
+<h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>This chapter introduced the fundamental concepts of control systems that will be developed throughout this textbook.</p>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li>A <strong>control system</strong> is an interconnection of components designed to achieve a desired output behavior</li>
+<li><strong>Open-loop control</strong> operates without feedback and cannot automatically compensate for disturbances</li>
+<li><strong>Closed-loop control</strong> uses <strong>feedback</strong> to measure the output and adjust the control action accordingly</li>
+<li>The <strong>error signal</strong> is the difference between the reference input and the measured output</li>
+<li>Key components include the <strong>controller</strong>, <strong>actuator</strong>, <strong>plant</strong>, and <strong>sensor</strong></li>
+<li><strong>Disturbances</strong> are unwanted inputs that affect system output; feedback enables disturbance rejection</li>
+<li>The <strong>system response</strong> characterizes how the output behaves over time</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Looking Ahead</p>
+<p>Subsequent chapters will develop mathematical tools for modeling and analyzing control systems, including transfer functions, block diagrams, time-domain specifications, stability analysis, and controller design methods.</p>
+</div>
+<h2 id="concept-verification-checklist">Concept Verification Checklist</h2>
+<p>All 12 concepts from this chapter have been covered:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Control System - Defined in opening section</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Feedback - Explained as the defining characteristic of closed-loop systems</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Open-Loop Control - Described with examples and limitations</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Closed-Loop Control - Explained with block diagram and signal flow</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Plant - Defined as the physical system being controlled</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Controller - Described as the component implementing the control strategy</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Actuator - Explained as the bridge between controller signals and physical action</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Sensor - Defined as the measurement device closing the feedback loop</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Reference Input - Described as the desired setpoint</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Error Signal - Defined mathematically and conceptually</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Disturbance - Explained with examples and relationship to feedback</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> System Response - Defined and characterized</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Chapters">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-dynamic-system-properties/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Dynamic System Properties">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Dynamic System Properties
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

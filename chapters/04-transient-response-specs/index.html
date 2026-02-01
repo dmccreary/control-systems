@@ -1,0 +1,2792 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Quantitative metrics for specifying and evaluating transient response performance, including overshoot, settling time, rise time, and standard test inputs">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/control-systems/chapters/04-transient-response-specs/">
+      
+      
+        <link rel="prev" href="../03-time-domain-response/">
+      
+      
+        <link rel="next" href="../05-laplace-transform-methods/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Transient Response Specifications - Control Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="maroon" data-md-color-accent="gold">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transient-response-specifications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Control Systems" class="md-header__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Control Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transient Response Specifications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Control Systems" class="md-nav__button md-logo" aria-label="Control Systems" data-md-component="logo">
+      
+  <img src="../../img/gyra-cropped.png" alt="logo">
+
+    </a>
+    Control Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/control-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-to-control-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction to Control Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-dynamic-system-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Dynamic System Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-time-domain-response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time-Domain Response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. Transient Response Specs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. Transient Response Specs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-qualitative-to-quantitative-specifying-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Qualitative to Quantitative: Specifying Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-test-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Test Inputs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Test Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standard-test-input-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standard Test Input Signals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-step-input-and-unit-step-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Step Input and Unit Step Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Step Input and Unit Step Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-unit-step-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Unit Step Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-annotated-step-response-with-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Annotated Step Response with Specifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overshoot-and-percent-overshoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overshoot and Percent Overshoot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overshoot and Percent Overshoot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percent-overshoot-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percent Overshoot Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percent-overshoot-vs-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percent Overshoot vs. Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-damping-ratio-from-overshoot-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Damping Ratio from Overshoot Spec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-percent-overshoot-vs-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Percent Overshoot vs. Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peak-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peak Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peak Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peak-time-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peak Time Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rise-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rise Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rise-time-approximation-10-90" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time Approximation (10%-90%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rise-time-formula-0-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time Formula (0%-100%)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delay Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delay-time-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Time Approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settling-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settling Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settling Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settling-time-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settling Time Formulas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-settling-time-and-tolerance-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Settling Time and Tolerance Bands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-impulse-input-and-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Impulse Input and Impulse Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Impulse Input and Impulse Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impulse-response-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impulse Response Relationship
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-impulse-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-Impulse Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ramp-input-and-ramp-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Ramp Input and Ramp Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Ramp Input and Ramp Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-ramp-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Ramp Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-parabolic-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Parabolic Input
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sinusoidal-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Sinusoidal Input
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sinusoidal Input">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-test-input-response-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Test Input Response Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-complete-picture-relating-specifications-to-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Picture: Relating Specifications to Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Picture: Relating Specifications to Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-trade-off-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Specification Trade-off Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-specifications-to-system-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Specifications to System Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-measurement-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Measurement Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-laplace-transform-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Laplace Transform Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-poles-zeros-system-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Poles, Zeros, and System Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-physical-system-modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Physical System Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-linearization-nonlinear-effects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Linearization and Nonlinear Effects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-block-diagrams-signal-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Block Diagrams and Signal Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-stability-routh-hurwitz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Stability and Routh-Hurwitz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-root-locus-analysis-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Root Locus Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-frequency-response-bode-plots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Frequency Response and Bode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-nyquist-stability-margins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Nyquist and Stability Margins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-steady-state-error-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Steady-State Error Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-pid-control-tuning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. PID Control and Tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-compensator-design-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Compensator Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendix/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-qualitative-to-quantitative-specifying-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Qualitative to Quantitative: Specifying Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-test-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Test Inputs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Test Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standard-test-input-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standard Test Input Signals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-step-input-and-unit-step-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Step Input and Unit Step Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Step Input and Unit Step Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-unit-step-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Unit Step Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-annotated-step-response-with-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Annotated Step Response with Specifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overshoot-and-percent-overshoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overshoot and Percent Overshoot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overshoot and Percent Overshoot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percent-overshoot-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percent Overshoot Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percent-overshoot-vs-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percent Overshoot vs. Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-damping-ratio-from-overshoot-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Damping Ratio from Overshoot Spec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-percent-overshoot-vs-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Percent Overshoot vs. Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peak-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peak Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peak Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peak-time-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peak Time Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rise-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rise Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rise-time-approximation-10-90" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time Approximation (10%-90%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rise-time-formula-0-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rise Time Formula (0%-100%)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delay Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delay-time-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Time Approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settling-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settling Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settling Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settling-time-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settling Time Formulas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-settling-time-and-tolerance-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Settling Time and Tolerance Bands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-impulse-input-and-impulse-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Impulse Input and Impulse Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Impulse Input and Impulse Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impulse-response-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impulse Response Relationship
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-impulse-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-Impulse Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ramp-input-and-ramp-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Ramp Input and Ramp Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Ramp Input and Ramp Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-ramp-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Ramp Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-parabolic-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Parabolic Input
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sinusoidal-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Sinusoidal Input
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sinusoidal Input">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-test-input-response-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Test Input Response Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-complete-picture-relating-specifications-to-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Picture: Relating Specifications to Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Picture: Relating Specifications to Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-trade-off-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Specification Trade-off Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-specifications-to-system-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Specifications to System Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-measurement-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Measurement Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="transient-response-specifications">Transient Response Specifications</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter focuses on quantitative measures used to specify and evaluate transient response performance. Students will learn to calculate and interpret key metrics including overshoot, percent overshoot, settling time, rise time, peak time, and delay time. The chapter also introduces the standard test inputs (step, impulse, ramp, parabolic, and sinusoidal) used throughout control systems analysis. By the end of this chapter, students will be able to specify performance requirements and evaluate whether a system meets those requirements.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 15 concepts from the learning graph:</p>
+<ol>
+<li>Overshoot</li>
+<li>Percent Overshoot</li>
+<li>Settling Time</li>
+<li>Rise Time</li>
+<li>Peak Time</li>
+<li>Delay Time</li>
+<li>Step Input</li>
+<li>Impulse Input</li>
+<li>Ramp Input</li>
+<li>Parabolic Input</li>
+<li>Sinusoidal Input</li>
+<li>Unit Step Response</li>
+<li>Impulse Response</li>
+<li>Ramp Response</li>
+<li>Standard Test Inputs</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-time-domain-response/">Chapter 3: Time-Domain Response Fundamentals</a></li>
+</ul>
+<hr />
+<h2 id="from-qualitative-to-quantitative-specifying-performance">From Qualitative to Quantitative: Specifying Performance</h2>
+<p>In the previous chapter, we watched systems respond to inputs—some oscillated, some crept smoothly toward their targets, and some charged forward with varying degrees of enthusiasm. We learned to classify systems by their damping ratio and natural frequency. But here's the thing: "underdamped" and "oscillatory" are <em>descriptions</em>, not <em>specifications</em>. Your boss doesn't want to hear "it oscillates a bit and then settles down eventually." They want numbers.</p>
+<p>Welcome to the world of transient response specifications—the engineering language for describing exactly how a system should behave. These metrics let us write precise requirements ("percent overshoot shall not exceed 10%") and verify that our designs meet them. They transform vague notions like "responsive but stable" into testable criteria that can be put into contracts, verified in testing, and argued about in meetings.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"When my engineers say 'settle down faster,' I have no idea what that means. But when they say 'settling time under 0.5 seconds with less than 5% overshoot'—<em>that</em> I can work with. Give me numbers, and I'll give you results."</p>
+</div>
+<p>The metrics we'll cover in this chapter are standard across industries—from aerospace to automotive to biomedical systems. Learn them once, and you'll speak the universal language of control system performance.</p>
+<h2 id="standard-test-inputs">Standard Test Inputs</h2>
+<p>Before we can measure system performance, we need to agree on <em>what</em> we're measuring the response to. This is where <strong>standard test inputs</strong> come in—a collection of mathematically simple signals that serve as benchmarks for system analysis. Using standardized inputs allows engineers worldwide to compare systems fairly: my step response and your step response should mean the same thing.</p>
+<p>Why these particular inputs? Because they represent fundamental classes of real-world disturbances and commands, and because they have convenient mathematical properties (especially in the Laplace domain). Each reveals different aspects of system behavior.</p>
+<table>
+<thead>
+<tr>
+<th>Test Input</th>
+<th>Time Domain</th>
+<th>Laplace Transform</th>
+<th>What It Reveals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Impulse</td>
+<td><span class="arithmatex">\(\delta(t)\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td>Natural dynamics, stability</td>
+</tr>
+<tr>
+<td>Step</td>
+<td><span class="arithmatex">\(u(t)\)</span></td>
+<td><span class="arithmatex">\(1/s\)</span></td>
+<td>Tracking, steady-state error</td>
+</tr>
+<tr>
+<td>Ramp</td>
+<td><span class="arithmatex">\(t \cdot u(t)\)</span></td>
+<td><span class="arithmatex">\(1/s^2\)</span></td>
+<td>Velocity tracking error</td>
+</tr>
+<tr>
+<td>Parabolic</td>
+<td><span class="arithmatex">\(\frac{1}{2}t^2 \cdot u(t)\)</span></td>
+<td><span class="arithmatex">\(1/s^3\)</span></td>
+<td>Acceleration tracking error</td>
+</tr>
+<tr>
+<td>Sinusoidal</td>
+<td><span class="arithmatex">\(\sin(\omega t)\)</span></td>
+<td><span class="arithmatex">\(\omega/(s^2 + \omega^2)\)</span></td>
+<td>Frequency response</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-standard-test-input-signals">Diagram: Standard Test Input Signals</h4>
+<iframe src="../../sims/standard-test-inputs/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Standard Test Input Signals</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Remember (L1)
+Bloom Verb: identify, recognize</p>
+<p>Learning Objective: Students will identify and distinguish between the five standard test inputs by their characteristic shapes and mathematical representations.</p>
+<p>Canvas layout:
+- Main area (70%): Plot area showing selected input signal
+- Right panel (30%): Input selector and information display</p>
+<p>Visual elements:
+- Time-domain plot with clearly labeled axes
+- Input signal displayed with thick colored line
+- Mathematical expression shown above or beside plot
+- Laplace transform shown in info panel
+- Grid lines for reference</p>
+<p>Interactive controls:
+- Radio buttons or dropdown: Select input type (Impulse, Step, Ramp, Parabolic, Sinusoidal)
+- Slider (for sinusoidal only): Frequency ω from 0.5 to 5 rad/s
+- Button: "Compare All" - shows all inputs on same axes with different colors/scales</p>
+<p>Data Visibility Requirements:
+- Display time-domain expression: u(t), t·u(t), etc.
+- Display Laplace transform: 1/s, 1/s², etc.
+- For sinusoidal: show current frequency value
+- Annotation: Key feature of each signal (e.g., "Instantaneous spike at t=0" for impulse)</p>
+<p>Behavior:
+- When input type changes, plot updates smoothly
+- Impulse shown as tall narrow spike at t=0 (with note that it's theoretically infinite)
+- Step shows clean transition from 0 to 1 at t=0
+- Ramp shows linear increase starting at t=0
+- Parabolic shows curved increase (t² shape)
+- Sinusoidal oscillates with adjustable frequency
+- Compare mode overlays scaled versions for shape comparison</p>
+<p>Instructional Rationale: Visual identification builds pattern recognition for test inputs that students will encounter throughout the course. Direct comparison helps distinguish similar-looking signals.</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="the-step-input-and-unit-step-response">The Step Input and Unit Step Response</h2>
+<p>The <strong>step input</strong> is the workhorse of control systems testing—and for good reason. It represents an instantaneous change in setpoint or command, which is exactly what happens when you flip a switch, punch in a new temperature setting, or stomp on the gas pedal. It's mathematically simple (a jump from 0 to 1 at <span class="arithmatex">\(t = 0\)</span>), yet it exercises the system's dynamics thoroughly.</p>
+<h4 id="the-unit-step-function">The Unit Step Function</h4>
+<p>The unit step function <span class="arithmatex">\(u(t)\)</span> is defined as:</p>
+<p><span class="arithmatex">\(u(t) = \begin{cases} 0, &amp; t &lt; 0 \\ 1, &amp; t \geq 0 \end{cases}\)</span></p>
+<p>In the Laplace domain:</p>
+<p><span class="arithmatex">\(\mathcal{L}\{u(t)\} = \frac{1}{s}\)</span></p>
+<p>The <strong>unit step response</strong> is the system's output when a unit step is applied as the input, typically assuming zero initial conditions. This single response curve contains a wealth of information about system dynamics—it's like a system's fingerprint.</p>
+<p>Why is the step response so popular?</p>
+<ul>
+<li>It tests both transient and steady-state behavior</li>
+<li>It's easy to apply experimentally (flip a switch!)</li>
+<li>The response directly reveals key performance metrics</li>
+<li>Most transient specifications are defined in terms of step response</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Practical Note</p>
+<p>In the real world, a "perfect" step is impossible—every physical actuator has finite slew rate. But if the input transition is much faster than the system's response, it's effectively a step. And when testing real hardware, you'll often see engineers use a square wave and analyze the rising edges as repeated step inputs.</p>
+</div>
+<h4 id="diagram-annotated-step-response-with-specifications">Diagram: Annotated Step Response with Specifications</h4>
+<iframe src="../../sims/step-response-specs/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Annotated Step Response with Specifications</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: interpret, explain</p>
+<p>Learning Objective: Students will explain how each transient specification (overshoot, settling time, rise time, peak time, delay time) is defined and measured from a step response curve.</p>
+<p>Canvas layout:
+- Left side (65%): Step response plot with annotations
+- Right side (35%): Specification values and definitions</p>
+<p>Visual elements:
+- Step response curve for second-order underdamped system
+- Horizontal dashed lines at: 0, 10%, 50%, 90%, 100% (final value), overshoot peak, ±2% settling bands
+- Vertical dashed lines at: delay time, rise time, peak time, settling time
+- Color-coded annotations linking lines to specification names
+- Final value clearly marked as y_ss
+- Input step shown as separate small plot or overlay</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ from 0.1 to 1.0 (default: 0.5)
+- Slider: Natural frequency ωn from 1 to 5 rad/s (default: 2)
+- Checkboxes: Show/hide each specification annotation
+- Button: "Show All" / "Hide All" toggle</p>
+<p>Data Visibility Requirements:
+- Display numerical values for each specification:
+  - Rise time: tr = [value] s
+  - Peak time: tp = [value] s
+  - Settling time (2%): ts = [value] s
+  - Delay time: td = [value] s
+  - Percent overshoot: %OS = [value]%
+  - Peak value: Mp = [value]
+- Show formulas relating specs to ζ and ωn</p>
+<p>Behavior:
+- Annotations update dynamically as ζ and ωn change
+- Hovering over an annotation highlights its definition in the side panel
+- Toggling checkboxes shows/hides individual annotations
+- Color coding consistent throughout (e.g., red for overshoot, blue for rise time)</p>
+<p>Instructional Rationale: Seeing all specifications on a single annotated plot clarifies what each metric measures. Interactive adjustment reveals how damping and frequency affect each specification differently.</p>
+<p>Implementation: p5.js with canvas-based controls and annotation rendering</p>
+</details>
+<h2 id="overshoot-and-percent-overshoot">Overshoot and Percent Overshoot</h2>
+<p><strong>Overshoot</strong> is exactly what it sounds like: the system "overshoots" its target before settling down. For underdamped systems responding to a step input, the output exceeds the final steady-state value before oscillating back. It's like arriving at a stop sign and sliding a bit past it before backing up. (Please don't actually do this.)</p>
+<p>The <strong>percent overshoot</strong> (%OS) quantifies this behavior as a percentage of the final value:</p>
+<h4 id="percent-overshoot-formula">Percent Overshoot Formula</h4>
+<p><span class="arithmatex">\(\%OS = \frac{M_p - y_{ss}}{y_{ss}} \times 100\%\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(M_p\)</span> is the peak value (maximum overshoot)</li>
+<li><span class="arithmatex">\(y_{ss}\)</span> is the steady-state (final) value</li>
+</ul>
+<p>For a standard second-order underdamped system, percent overshoot depends only on the damping ratio:</p>
+<h4 id="percent-overshoot-vs-damping-ratio">Percent Overshoot vs. Damping Ratio</h4>
+<p><span class="arithmatex">\(\%OS = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio (must be <span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>)</li>
+</ul>
+<p>This elegant formula reveals a key insight: <strong>percent overshoot is determined entirely by damping ratio</strong>, independent of natural frequency. A system with <span class="arithmatex">\(\zeta = 0.5\)</span> will have the same percent overshoot whether <span class="arithmatex">\(\omega_n\)</span> is 1 rad/s or 100 rad/s—the oscillations will just happen faster in the latter case.</p>
+<table>
+<thead>
+<tr>
+<th>Damping Ratio <span class="arithmatex">\(\zeta\)</span></th>
+<th>Percent Overshoot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>72.9%</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>37.2%</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>16.3%</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>4.6%</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>0.2%</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>0% (critically damped)</td>
+</tr>
+</tbody>
+</table>
+<p>The inverse relationship is also useful—given a desired percent overshoot, you can calculate the required damping ratio:</p>
+<h4 id="required-damping-ratio-from-overshoot-spec">Required Damping Ratio from Overshoot Spec</h4>
+<p><span class="arithmatex">\(\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\%OS\)</span> is the desired percent overshoot (as a percentage, e.g., 10 for 10%)</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>Overshoot is Gyra's "overreaction coefficient." When she corrects a tilt, a high overshoot means she swings <em>past</em> vertical to the other side—sometimes dramatically. With 50% overshoot, if she was tilted 10° forward, she'd correct past vertical and end up 5° backward before swinging back. That's alarming! With 5% overshoot, that 10° forward tilt only produces a 0.5° backward swing. Much calmer. Setting Gyra's overshoot specification is about choosing how dramatic we'll allow her corrections to be.</p>
+</div>
+<h4 id="diagram-percent-overshoot-vs-damping-ratio">Diagram: Percent Overshoot vs. Damping Ratio</h4>
+<iframe src="../../sims/overshoot-damping/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Percent Overshoot vs. Damping Ratio</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, use</p>
+<p>Learning Objective: Students will calculate damping ratio from a given percent overshoot specification and verify the relationship graphically.</p>
+<p>Canvas layout:
+- Left side (50%): Step response plot
+- Right side (50%): %OS vs. ζ curve with current point highlighted</p>
+<p>Visual elements:
+Left plot:
+- Step response curve with overshoot clearly marked
+- Horizontal line at final value
+- Vertical measurement showing overshoot amount
+- Peak labeled with Mp value</p>
+<p>Right plot:
+- Exponential decay curve showing %OS vs. ζ (from ζ=0 to ζ=1)
+- Current operating point marked with dot
+- Crosshairs or guidelines to axes
+- Axis labels: "Damping Ratio ζ" and "Percent Overshoot %"</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ from 0.05 to 0.99 (default: 0.5)
+- Number input: Target %OS with "Calculate ζ" button
+- Toggle: Show formula overlay</p>
+<p>Data Visibility Requirements:
+- Display current ζ value
+- Display calculated %OS for current ζ
+- When target %OS entered, display required ζ
+- Show the formula: %OS = exp(-πζ/√(1-ζ²)) × 100%</p>
+<p>Behavior:
+- Moving ζ slider updates both plots simultaneously
+- Point on %OS curve moves along the curve as ζ changes
+- Entering target %OS and clicking calculate: highlights required ζ on curve and updates slider
+- Real-time calculation as slider moves</p>
+<p>Instructional Rationale: Dual visualization connects the abstract formula to concrete step response. Bidirectional calculation (ζ→%OS and %OS→ζ) reinforces practical design use.</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="peak-time">Peak Time</h2>
+<p><strong>Peak time</strong> (<span class="arithmatex">\(t_p\)</span>) is the time required for the response to reach its first (and largest) peak—the moment of maximum overshoot. For underdamped systems, this is when the response hits <span class="arithmatex">\(M_p\)</span> before beginning to oscillate back toward the final value.</p>
+<h4 id="peak-time-formula">Peak Time Formula</h4>
+<p><span class="arithmatex">\(t_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_d\)</span> is the damped frequency</li>
+<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+</ul>
+<p>Notice that peak time is one half-period of the damped oscillation frequency—which makes physical sense. The response starts at zero, rises through the final value, and reaches its peak when it has completed half of its first oscillation cycle.</p>
+<p>Key observations about peak time:</p>
+<ul>
+<li>Peak time decreases as <span class="arithmatex">\(\omega_n\)</span> increases (faster systems peak sooner)</li>
+<li>Peak time increases as <span class="arithmatex">\(\zeta\)</span> increases (more damping slows the approach)</li>
+<li>Peak time is inversely proportional to <span class="arithmatex">\(\omega_d\)</span></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter Change</th>
+<th>Effect on Peak Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increase <span class="arithmatex">\(\omega_n\)</span></td>
+<td>Decreases <span class="arithmatex">\(t_p\)</span></td>
+</tr>
+<tr>
+<td>Increase <span class="arithmatex">\(\zeta\)</span></td>
+<td>Increases <span class="arithmatex">\(t_p\)</span></td>
+</tr>
+<tr>
+<td>Increase both equally</td>
+<td>Complex interaction</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Critically and Overdamped Systems</p>
+<p>Peak time is undefined for critically damped (<span class="arithmatex">\(\zeta = 1\)</span>) and overdamped (<span class="arithmatex">\(\zeta &gt; 1\)</span>) systems because they don't overshoot—they approach the final value monotonically. No overshoot means no peak beyond the final value to time.</p>
+</div>
+<h2 id="rise-time">Rise Time</h2>
+<p><strong>Rise time</strong> (<span class="arithmatex">\(t_r\)</span>) measures how quickly the response rises from a low value to a high value. There are two common definitions—make sure you know which one is being used in any given context:</p>
+<ul>
+<li><strong>10% to 90% definition</strong> (most common): Time to go from 10% to 90% of the final value</li>
+<li><strong>0% to 100% definition</strong>: Time to first reach 100% of the final value</li>
+</ul>
+<p>The 10%-90% definition is preferred for practical measurements because it avoids sensitivity to initial transients (near 0%) and overshoot behavior (near 100%).</p>
+<p>For a second-order underdamped system, an approximate formula using the 10%-90% definition is:</p>
+<h4 id="rise-time-approximation-10-90">Rise Time Approximation (10%-90%)</h4>
+<p><span class="arithmatex">\(t_r \approx \frac{1.8}{\omega_n}\)</span></p>
+<p>This approximation works well for damping ratios in the range <span class="arithmatex">\(0.3 &lt; \zeta &lt; 0.8\)</span>, which covers most practical designs.</p>
+<p>A more accurate (but more complex) formula that accounts for damping ratio:</p>
+<h4 id="rise-time-formula-0-100">Rise Time Formula (0%-100%)</h4>
+<p><span class="arithmatex">\(t_r = \frac{1}{\omega_d}\left(\pi - \tan^{-1}\frac{\omega_d}{\zeta\omega_n}\right)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span> is the damped frequency</li>
+<li>The inverse tangent is in radians</li>
+</ul>
+<p>Rise time is particularly important for systems where rapid response to setpoint changes is critical—think flight control systems, anti-lock brakes, or any application where "getting there quickly" matters.</p>
+<h2 id="delay-time">Delay Time</h2>
+<p><strong>Delay time</strong> (<span class="arithmatex">\(t_d\)</span>) is the time required for the response to reach 50% of its final value. It provides a measure of how long the system "hesitates" before substantially responding to the input.</p>
+<p>For a second-order underdamped system, delay time can be approximated as:</p>
+<h4 id="delay-time-approximation">Delay Time Approximation</h4>
+<p><span class="arithmatex">\(t_d \approx \frac{1 + 0.7\zeta}{\omega_n}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+</ul>
+<p>Delay time is less commonly specified than rise time or settling time, but it's useful for characterizing the initial phase of system response. In some applications—like human-machine interfaces—perceived "lag" correlates strongly with delay time.</p>
+<p>The relationship between delay time and rise time is worth noting: for a typical underdamped system, <span class="arithmatex">\(t_d\)</span> is roughly half of <span class="arithmatex">\(t_r\)</span> (though the exact ratio depends on <span class="arithmatex">\(\zeta\)</span>).</p>
+<h2 id="settling-time">Settling Time</h2>
+<p><strong>Settling time</strong> (<span class="arithmatex">\(t_s\)</span>) is the time required for the response to settle within a specified tolerance band around the final value and <em>stay there</em>. It's perhaps the most practically important specification because it tells you when the transient is "done" and the system has effectively reached steady state.</p>
+<p>Common tolerance bands are:</p>
+<ul>
+<li><strong>2% settling time</strong>: Response stays within <span class="arithmatex">\(\pm 2\%\)</span> of final value</li>
+<li><strong>5% settling time</strong>: Response stays within <span class="arithmatex">\(\pm 5\%\)</span> of final value</li>
+</ul>
+<h4 id="settling-time-formulas">Settling Time Formulas</h4>
+<p>For 2% settling time:</p>
+<p><span class="arithmatex">\(t_s \approx \frac{4}{\zeta\omega_n}\)</span></p>
+<p>For 5% settling time:</p>
+<p><span class="arithmatex">\(t_s \approx \frac{3}{\zeta\omega_n}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+</ul>
+<p>These formulas arise from the exponential envelope <span class="arithmatex">\(e^{-\zeta\omega_n t}\)</span> that bounds the oscillations. When this envelope decays to 2% (about 4 time constants) or 5% (about 3 time constants), the oscillations are within the tolerance band.</p>
+<p>Key insights about settling time:</p>
+<ul>
+<li>Settling time depends on the product <span class="arithmatex">\(\zeta\omega_n\)</span> (the real part of the poles)</li>
+<li>Increasing <span class="arithmatex">\(\zeta\)</span> <em>decreases</em> settling time (more damping = faster decay)</li>
+<li>Increasing <span class="arithmatex">\(\omega_n\)</span> <em>decreases</em> settling time (faster overall dynamics)</li>
+<li>There's a trade-off with rise time: faster rise often means longer settling</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>2% Criterion</th>
+<th>5% Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of time constants</td>
+<td>~4</td>
+<td>~3</td>
+</tr>
+<tr>
+<td>Settling time formula</td>
+<td><span class="arithmatex">\(4/(\zeta\omega_n)\)</span></td>
+<td><span class="arithmatex">\(3/(\zeta\omega_n)\)</span></td>
+</tr>
+<tr>
+<td>Residual error</td>
+<td>≤2%</td>
+<td>≤5%</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">The Settling Time Trap</p>
+<p>Be careful with lightly damped systems! If <span class="arithmatex">\(\zeta\)</span> is very small, the oscillations decay slowly even as the system initially responds quickly. You might have fast rise time but terrible settling time. This is why control design often involves trade-offs—you can't optimize everything at once.</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"Settling time is my patience test. Sure, I might correct quickly when pushed—but how long do I keep wobbling before I'm <em>actually</em> stable? A long settling time means I'm standing there oscillating like I can't make up my mind. Embarrassing. My engineers aim for settling time under a second—because nobody wants to watch a robot wobble for five seconds wondering if it's going to fall over."</p>
+</div>
+<h4 id="diagram-settling-time-and-tolerance-bands">Diagram: Settling Time and Tolerance Bands</h4>
+<iframe src="../../sims/settling-time-bands/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Settling Time and Tolerance Bands</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, calculate</p>
+<p>Learning Objective: Students will determine settling time by identifying when the step response enters and remains within specified tolerance bands.</p>
+<p>Canvas layout:
+- Main area (70%): Step response with tolerance bands
+- Right panel (30%): Controls and settling time display</p>
+<p>Visual elements:
+- Step response curve
+- Shaded tolerance band around final value (2% or 5%)
+- Vertical line marking settling time
+- Exponential envelope curves (dashed) showing decay bound
+- Time axis with settling time marked
+- Horizontal line at final value</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ from 0.2 to 1.0 (default: 0.5)
+- Slider: Natural frequency ωn from 1 to 5 rad/s (default: 2)
+- Radio buttons: 2% or 5% tolerance band
+- Toggle: Show/hide exponential envelope</p>
+<p>Data Visibility Requirements:
+- Display settling time: ts = [value] s
+- Display formula used: ts = 4/(ζωn) or ts = 3/(ζωn)
+- Show tolerance band limits: ±[2 or 5]% of final value
+- Display real part of poles: σ = ζωn = [value]</p>
+<p>Behavior:
+- Tolerance band visually updates when switching between 2% and 5%
+- Settling time marker moves as ζ or ωn change
+- Envelope curves show why the formulas work (decay to tolerance level)
+- Highlight moment when response enters and stays in band</p>
+<p>Instructional Rationale: Visualizing tolerance bands demystifies the settling time definition. Connecting to the exponential envelope builds intuition for the formula derivation.</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="the-impulse-input-and-impulse-response">The Impulse Input and Impulse Response</h2>
+<p>The <strong>impulse input</strong> <span class="arithmatex">\(\delta(t)\)</span> is theoretically a signal of infinite amplitude and zero duration, with unit area—a mathematical idealization that represents an instantaneous "kick" to the system. In the Laplace domain, it's beautifully simple:</p>
+<p><span class="arithmatex">\(\mathcal{L}\{\delta(t)\} = 1\)</span></p>
+<p>This simplicity is precisely why the impulse is so important: the <strong>impulse response</strong> <span class="arithmatex">\(h(t)\)</span> is the system output when the input is an impulse, and it equals the <em>inverse Laplace transform of the transfer function itself</em>:</p>
+<h4 id="impulse-response-relationship">Impulse Response Relationship</h4>
+<p><span class="arithmatex">\(h(t) = \mathcal{L}^{-1}\{G(s)\}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(h(t)\)</span> is the impulse response</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the transfer function</li>
+</ul>
+<p>The impulse response reveals the system's natural dynamics directly—it's the system's "signature" when excited and left alone. Every pole and zero of the transfer function manifests in the shape of <span class="arithmatex">\(h(t)\)</span>.</p>
+<p>For a first-order system with transfer function <span class="arithmatex">\(G(s) = K/(τs + 1)\)</span>:</p>
+<p><span class="arithmatex">\(h(t) = \frac{K}{\tau}e^{-t/\tau}\)</span></p>
+<p>For a second-order underdamped system:</p>
+<p><span class="arithmatex">\(h(t) = \frac{\omega_n}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin(\omega_d t)\)</span></p>
+<div class="admonition info">
+<p class="admonition-title">Practical Impulses</p>
+<p>A true impulse is impossible to generate physically, but we can approximate it with a short, sharp pulse. If the pulse duration is much shorter than the system's time constant, the response will closely match the theoretical impulse response. Striking a tuning fork, firing a spark plug, or tapping a microphone are all practical impulse-like excitations.</p>
+</div>
+<p>The impulse response and step response are intimately related:</p>
+<h4 id="step-impulse-relationship">Step-Impulse Relationship</h4>
+<p><span class="arithmatex">\(y_{step}(t) = \int_0^t h(\tau) d\tau\)</span></p>
+<p>and conversely:</p>
+<p><span class="arithmatex">\(h(t) = \frac{d}{dt}y_{step}(t)\)</span></p>
+<p>This relationship is crucial: if you can measure one, you can compute the other.</p>
+<h2 id="the-ramp-input-and-ramp-response">The Ramp Input and Ramp Response</h2>
+<p>A <strong>ramp input</strong> increases linearly with time, representing a commanded velocity or a steadily changing setpoint:</p>
+<p><span class="arithmatex">\(r(t) = t \cdot u(t)\)</span></p>
+<p>In the Laplace domain:</p>
+<p><span class="arithmatex">\(\mathcal{L}\{t \cdot u(t)\} = \frac{1}{s^2}\)</span></p>
+<p>The <strong>ramp response</strong> reveals how well a system can track a constantly changing reference. This is critical for servo systems, motor drives, and any application where the system must follow a moving target.</p>
+<p>For a first-order system with DC gain <span class="arithmatex">\(K\)</span> and time constant <span class="arithmatex">\(\tau\)</span>:</p>
+<h4 id="first-order-ramp-response">First-Order Ramp Response</h4>
+<p><span class="arithmatex">\(y(t) = K\left(t - \tau + \tau e^{-t/\tau}\right)\)</span></p>
+<p>As <span class="arithmatex">\(t \to \infty\)</span>, the response approaches:</p>
+<p><span class="arithmatex">\(y(t) \approx K(t - \tau)\)</span></p>
+<p>This reveals a <strong>steady-state velocity error</strong>: the output tracks the ramp but lags behind by <span class="arithmatex">\(K\tau\)</span> seconds. The system is always "behind" the reference by a fixed amount. This lag is the <strong>velocity error</strong> that we'll explore more in the chapter on steady-state error.</p>
+<p>For second-order systems, the ramp response is more complex, but the key insight remains: systems with limited bandwidth cannot perfectly track a changing reference—there will always be some lag.</p>
+<h2 id="the-parabolic-input">The Parabolic Input</h2>
+<p>A <strong>parabolic input</strong> represents constant acceleration:</p>
+<p><span class="arithmatex">\(r(t) = \frac{1}{2}t^2 \cdot u(t)\)</span></p>
+<p>In the Laplace domain:</p>
+<p><span class="arithmatex">\(\mathcal{L}\left\{\frac{1}{2}t^2 \cdot u(t)\right\} = \frac{1}{s^3}\)</span></p>
+<p>Parabolic inputs test a system's ability to track accelerating references—think of a missile interceptor tracking a maneuvering target, or a telescope tracking a celestial object with varying angular rate.</p>
+<p>The parabolic response reveals the <strong>acceleration error coefficient</strong> and becomes important when analyzing higher-order system types. Most basic control systems cannot track a parabolic input without growing error; this limitation motivates the design of higher-type controllers.</p>
+<h2 id="the-sinusoidal-input">The Sinusoidal Input</h2>
+<p>The <strong>sinusoidal input</strong> is fundamentally different from the others—it's a <em>steady-state</em> test signal rather than a transient one:</p>
+<p><span class="arithmatex">\(r(t) = A\sin(\omega t)\)</span></p>
+<p>In the Laplace domain:</p>
+<p><span class="arithmatex">\(\mathcal{L}\{A\sin(\omega t)\} = \frac{A\omega}{s^2 + \omega^2}\)</span></p>
+<p>When a sinusoidal input is applied to a stable linear system, the output eventually settles into a sinusoid at the <em>same frequency</em> but potentially with different amplitude and phase. This behavior is the foundation of <strong>frequency response analysis</strong>, which we'll explore in later chapters.</p>
+<p>Key properties of sinusoidal steady-state response:</p>
+<ul>
+<li>Output frequency equals input frequency (no frequency change for LTI systems)</li>
+<li>Amplitude ratio depends on <span class="arithmatex">\(|G(j\omega)|\)</span></li>
+<li>Phase shift depends on <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+<li>Transients die out; sinusoidal pattern persists</li>
+</ul>
+<h4 id="diagram-test-input-response-comparison">Diagram: Test Input Response Comparison</h4>
+<iframe src="../../sims/input-response-comparison/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Test Input Response Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, differentiate</p>
+<p>Learning Objective: Students will compare how a given system responds differently to step, impulse, ramp, and sinusoidal inputs, identifying the distinct information revealed by each.</p>
+<p>Canvas layout:
+- Top row: Two plots side by side (input and output)
+- Bottom section: Controls and system parameters</p>
+<p>Visual elements:
+- Left plot: Selected input signal
+- Right plot: System response to that input
+- Clear axis labels with units
+- Legend identifying signal type</p>
+<p>Interactive controls:
+- Radio buttons: Select input type (Step, Impulse, Ramp, Sinusoidal)
+- Slider (for sinusoidal): Input frequency from 0.5 to 5 rad/s
+- Slider: System damping ratio ζ from 0.3 to 0.9
+- Slider: System natural frequency ωn from 1 to 5 rad/s
+- Button: "Animate" - shows response evolving over time</p>
+<p>Data Visibility Requirements:
+- Display input type and parameters
+- Display system parameters (ζ, ωn)
+- For step: show overshoot and settling time
+- For impulse: show peak value and decay
+- For ramp: show steady-state error
+- For sinusoidal: show amplitude ratio and phase shift</p>
+<p>Behavior:
+- Switching input type updates both plots
+- System parameters affect response shape but not input
+- Animation mode shows response building up over time
+- For sinusoidal, steady-state is reached after transients decay</p>
+<p>Instructional Rationale: Direct comparison of responses to different inputs reveals what each test signal uniquely probes. Students see that the same system behaves very differently depending on what you ask it to do.</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="the-complete-picture-relating-specifications-to-design">The Complete Picture: Relating Specifications to Design</h2>
+<p>Now that we've defined all the key specifications, let's see how they connect to form a coherent design framework. The beauty of second-order system analysis is that <em>just two parameters</em>—<span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span>—determine all transient specifications.</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>Formula</th>
+<th>Depends On</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Percent Overshoot</td>
+<td><span class="arithmatex">\(e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%\)</span></td>
+<td><span class="arithmatex">\(\zeta\)</span> only</td>
+</tr>
+<tr>
+<td>Peak Time</td>
+<td><span class="arithmatex">\(\pi/(\omega_n\sqrt{1-\zeta^2})\)</span></td>
+<td><span class="arithmatex">\(\omega_n\)</span> and <span class="arithmatex">\(\zeta\)</span></td>
+</tr>
+<tr>
+<td>Rise Time (approx)</td>
+<td><span class="arithmatex">\(1.8/\omega_n\)</span></td>
+<td>Primarily <span class="arithmatex">\(\omega_n\)</span></td>
+</tr>
+<tr>
+<td>Settling Time (2%)</td>
+<td><span class="arithmatex">\(4/(\zeta\omega_n)\)</span></td>
+<td><span class="arithmatex">\(\zeta\omega_n\)</span> product</td>
+</tr>
+<tr>
+<td>Delay Time (approx)</td>
+<td><span class="arithmatex">\((1 + 0.7\zeta)/\omega_n\)</span></td>
+<td><span class="arithmatex">\(\omega_n\)</span> and <span class="arithmatex">\(\zeta\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>This table reveals important trade-offs:</p>
+<ul>
+<li><strong>Overshoot vs. Settling Time</strong>: Lower <span class="arithmatex">\(\zeta\)</span> means more overshoot but can mean faster settling (if <span class="arithmatex">\(\omega_n\)</span> is high enough). It's complicated.</li>
+<li><strong>Rise Time vs. Overshoot</strong>: Faster rise (higher <span class="arithmatex">\(\omega_n\)</span>) doesn't directly affect overshoot, but systems designed for very fast rise often end up underdamped.</li>
+<li><strong>Speed vs. Stability</strong>: Aggressive designs (low <span class="arithmatex">\(\zeta\)</span>, high <span class="arithmatex">\(\omega_n\)</span>) are fast but oscillatory; conservative designs are slow but smooth.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">The Magical Number 0.707</p>
+<p>The damping ratio <span class="arithmatex">\(\zeta = 1/\sqrt{2} \approx 0.707\)</span> is special. At this value, the second-order system achieves a good balance: about 4.3% overshoot with relatively fast settling. This is often called <strong>optimal damping</strong> or <strong>Butterworth damping</strong> and appears frequently in filter design and control specifications. When in doubt, 0.7 is a reasonable starting point.</p>
+</div>
+<h4 id="diagram-specification-trade-off-explorer">Diagram: Specification Trade-off Explorer</h4>
+<iframe src="../../sims/spec-tradeoff-explorer/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Specification Trade-off Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: assess, judge</p>
+<p>Learning Objective: Students will assess the trade-offs between different transient specifications by observing how changing one specification affects others.</p>
+<p>Canvas layout:
+- Left (55%): Step response plot with all specifications annotated
+- Right (45%): Radar/spider chart showing normalized specifications plus controls</p>
+<p>Visual elements:
+Step response plot:
+- Response curve with overshoot, settling time, rise time marked
+- Tolerance bands
+- Peak time marker
+- All annotations color-coded</p>
+<p>Radar chart:
+- Five axes: Rise Time, Peak Time, Settling Time, %OS, Delay Time
+- Normalized values (smaller = better for time specs; smaller = better for overshoot)
+- Filled area showing current "performance profile"
+- Reference circle for comparison</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ from 0.2 to 1.0 (default: 0.5)
+- Slider: Natural frequency ωn from 1 to 5 rad/s (default: 2)
+- Preset buttons: "Fast Response", "Low Overshoot", "Balanced (ζ=0.707)"
+- Toggle: Lock overshoot at [value]% while adjusting ωn</p>
+<p>Data Visibility Requirements:
+- Display all five specification values numerically
+- Show current ζ and ωn
+- Highlight which specs improve/worsen as parameters change
+- Display trade-off hints (e.g., "Lower ζ: faster rise but more overshoot")</p>
+<p>Behavior:
+- Moving sliders updates both plots in real-time
+- Radar chart shape changes to show trade-off profile
+- Preset buttons jump to specific parameter combinations
+- Lock mode demonstrates how specs can be adjusted independently (partially)</p>
+<p>Instructional Rationale: The radar chart visualization makes multi-objective trade-offs tangible. Students can "see" the shape of a design choice and understand why no single design optimizes everything.</p>
+<p>Implementation: p5.js with canvas-based radar chart and response plot</p>
+</details>
+<h2 id="design-specifications-to-system-parameters">Design Specifications to System Parameters</h2>
+<p>In practice, design often works backward: you're given specifications and must determine the system parameters that achieve them. Here's the systematic approach:</p>
+<p><strong>Given</strong>: Desired %OS and settling time <span class="arithmatex">\(t_s\)</span></p>
+<p><strong>Find</strong>: Required <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span></p>
+<p><strong>Step 1</strong>: From %OS, calculate required <span class="arithmatex">\(\zeta\)</span>:</p>
+<p><span class="arithmatex">\(\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}\)</span></p>
+<p><strong>Step 2</strong>: From settling time and <span class="arithmatex">\(\zeta\)</span>, calculate required <span class="arithmatex">\(\omega_n\)</span>:</p>
+<p><span class="arithmatex">\(\omega_n = \frac{4}{\zeta \cdot t_s}\)</span> (for 2% criterion)</p>
+<p><strong>Step 3</strong>: Verify other specifications are acceptable:</p>
+<ul>
+<li>Calculate <span class="arithmatex">\(t_r\)</span>, <span class="arithmatex">\(t_p\)</span>, <span class="arithmatex">\(t_d\)</span> using formulas above</li>
+<li>Check that all specs meet requirements</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Design Example</p>
+<p><strong>Requirement</strong>: %OS ≤ 10%, settling time (2%) ≤ 1 second</p>
+<p><strong>Step 1</strong>: From 10% overshoot:
+<span class="arithmatex">\(\zeta = \frac{-\ln(0.10)}{\sqrt{\pi^2 + \ln^2(0.10)}} = \frac{2.303}{\sqrt{9.87 + 5.30}} = 0.591\)</span></p>
+<p><strong>Step 2</strong>: From <span class="arithmatex">\(t_s = 1\)</span> second:
+<span class="arithmatex">\(\omega_n = \frac{4}{0.591 \times 1} = 6.77\)</span> rad/s</p>
+<p><strong>Step 3</strong>: Verify rise time:
+<span class="arithmatex">\(t_r \approx \frac{1.8}{6.77} = 0.27\)</span> seconds (acceptable)</p>
+</div>
+<p>This design methodology is the bread and butter of control engineering. Given performance requirements, you can immediately determine what pole locations are needed—which then informs your controller design.</p>
+<h2 id="practical-measurement-considerations">Practical Measurement Considerations</h2>
+<p>In the laboratory or in the field, measuring transient specifications from real data requires some care. Here are practical considerations:</p>
+<p><strong>Noise and Ripple</strong>: Real signals are noisy. Settling time measurements are particularly sensitive—a noisy signal may repeatedly exit and re-enter the tolerance band. Filtering or averaging may be needed.</p>
+<p><strong>Initial Conditions</strong>: For valid step response measurements, ensure the system starts at true steady state. Any residual dynamics from previous tests will contaminate results.</p>
+<p><strong>Input Fidelity</strong>: Real step inputs have finite rise time. If the input transition time is comparable to the system's rise time, your measurements will be affected. Use the fastest actuator available.</p>
+<p><strong>Sampling Rate</strong>: For accurate peak time and overshoot measurements, sample fast enough to capture the peak. A rule of thumb: sample at least 10× the expected oscillation frequency.</p>
+<p><strong>Steady-State Identification</strong>: Settling time requires knowing the final value. In practice, wait several settling times and average the output, or use the DC gain if known.</p>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Noise obscuring peaks</td>
+<td>Low-pass filter before analysis</td>
+</tr>
+<tr>
+<td>Slow input rise</td>
+<td>Use faster actuator or deconvolve</td>
+</tr>
+<tr>
+<td>Non-zero initial conditions</td>
+<td>Wait for true steady state before test</td>
+</tr>
+<tr>
+<td>Unknown final value</td>
+<td>Estimate from long-time average</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>You've now mastered the vocabulary and mathematics of transient response specifications—the quantitative tools that turn qualitative observations into engineering requirements.</p>
+<p><strong>Standard Test Inputs</strong> provide benchmarks for system evaluation:</p>
+<ul>
+<li>Step input: workhorse of transient testing, reveals tracking and overshoot</li>
+<li>Impulse input: reveals natural dynamics directly</li>
+<li>Ramp input: tests velocity tracking capability</li>
+<li>Parabolic input: tests acceleration tracking</li>
+<li>Sinusoidal input: foundation of frequency response analysis</li>
+</ul>
+<p><strong>Transient Specifications</strong> quantify step response behavior:</p>
+<ul>
+<li><strong>Percent Overshoot</strong>: How far past the target? Determined by <span class="arithmatex">\(\zeta\)</span> alone.</li>
+<li><strong>Peak Time</strong>: When does max overshoot occur? Depends on <span class="arithmatex">\(\omega_d\)</span>.</li>
+<li><strong>Rise Time</strong>: How fast to get there? Roughly <span class="arithmatex">\(1.8/\omega_n\)</span>.</li>
+<li><strong>Settling Time</strong>: When is the drama over? Approximately <span class="arithmatex">\(4/(\zeta\omega_n)\)</span> for 2%.</li>
+<li><strong>Delay Time</strong>: Initial responsiveness. About <span class="arithmatex">\((1+0.7\zeta)/\omega_n\)</span>.</li>
+</ul>
+<p><strong>Key Relationships</strong>:</p>
+<ul>
+<li>Only two parameters (<span class="arithmatex">\(\zeta\)</span>, <span class="arithmatex">\(\omega_n\)</span>) determine all second-order specs</li>
+<li>Trade-offs are unavoidable: you can't optimize everything simultaneously</li>
+<li><span class="arithmatex">\(\zeta \approx 0.7\)</span> often provides a good balance</li>
+<li>Design works backward: specs → <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span> → pole placement</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Gyra's Design Summary</p>
+<p>"My engineers don't say 'make me stable.' They say: 'percent overshoot under 5%, settling time under 0.8 seconds, rise time under 0.3 seconds.' Now <em>those</em> are specs I can work with. And when I meet them? That's when I know I'm properly tuned."</p>
+</div>
+<p>In the next chapter, we'll explore what happens when the transient is over—steady-state behavior and the errors that persist even after all the oscillations have died away. Because getting <em>close</em> to your target isn't the same as getting <em>exactly</em> there.</p>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, see if you can answer these:</p>
+<ol>
+<li>A system has 20% overshoot. What is its approximate damping ratio?</li>
+<li>If you double <span class="arithmatex">\(\omega_n\)</span> while keeping <span class="arithmatex">\(\zeta\)</span> constant, what happens to: (a) percent overshoot, (b) settling time, (c) rise time?</li>
+<li>Two systems have the same settling time but different overshoot. Which has higher <span class="arithmatex">\(\omega_n\)</span>—the one with more overshoot or less? (Think carefully!)</li>
+<li>You measure a step response and see that the output first reaches the final value at <span class="arithmatex">\(t = 0.5\)</span> seconds, then overshoots to 110% of final at <span class="arithmatex">\(t = 0.8\)</span> seconds. Estimate the damping ratio and natural frequency.</li>
+</ol>
+<p>Work through these before checking your answers with the MicroSims!</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../03-time-domain-response/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Time-Domain Response">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3. Time-Domain Response
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-laplace-transform-methods/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Laplace Transform Methods">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5. Laplace Transform Methods
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

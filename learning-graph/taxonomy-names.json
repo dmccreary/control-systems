@@ -1,0 +1,15 @@
+{
+  "FOUND": "Foundation Concepts",
+  "PROP": "System Properties",
+  "TIME": "Time Response",
+  "LAPL": "Laplace Methods",
+  "MODEL": "Physical Modeling",
+  "LINEAR": "Linearization",
+  "BLOCK": "Block Diagrams",
+  "STAB": "Stability Analysis",
+  "RLOC": "Root Locus",
+  "FREQ": "Frequency Response",
+  "ERROR": "Steady-State Error",
+  "CTRL": "Controller Design",
+  "PERF": "Performance"
+}
