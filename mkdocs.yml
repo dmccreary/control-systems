@@ -158,8 +158,12 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
   # enable KaTeX LaTeX equation rendering
+  # Using \(...\) for inline math to avoid conflicts with currency $
+  # Block math uses $$ or \[...\]
   - pymdownx.arithmatex:
       generic: true
+      inline_syntax: ['round']
+      block_syntax: ['dollar', 'square']
 
 extra_css:
   - css/extra.css

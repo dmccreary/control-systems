@@ -69,7 +69,7 @@ By offloading these mechanical tasks to scripts, Claude can focus on creative wo
 
 ### The Cost Reality
 
-We developed this textbook using Anthropic's **Max plan** (currently around \$100/month), 
+We developed this textbook using Anthropic's **Max plan** (currently around $100/month), 
 which provides generous token limits for intensive development work. 
 However, a key design goal is making textbook creation accessible 
 to educators on the **Pro plan** ($20/month).

@@ -89,8 +89,8 @@ These are pages and files that support the entire textbook rather than individua
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| Glossary | :x: | Medium | Searchable definitions (~300 terms) following ISO 11179 metadata standards for precise, non-circular definitions |
-| FAQ page | :x: | Medium | Answers to common student questions (~50-100 Q&As) |
+| Glossary | :white_check_mark: | Medium | 300 terms with ISO 11179 compliant definitions |
+| FAQ page | :white_check_mark: | Medium | Answers to common student questions |
 | References page | :x: | Medium | Curated bibliography with links per chapter or site-wide |
 | Custom CSS styling | :white_check_mark: | Low | Override theme colors, fonts, and layouts |
 | Custom JavaScript | :white_check_mark: | Low | Add interactivity beyond built-in features |
