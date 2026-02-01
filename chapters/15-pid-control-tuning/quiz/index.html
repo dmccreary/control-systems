@@ -1253,7 +1253,7 @@
         <li class="md-nav__item">
   <a href="#10-the-integral-time-t_i-in-a-pid-controller-is-related-to-the-integral-gain-by" class="md-nav__link">
     <span class="md-ellipsis">
-      10. The integral time \(T_i\) in a PID controller is related to the integral gain by:
+      10. The integral time $T_i$ in a PID controller is related to the integral gain by:
     </span>
   </a>
   
@@ -1797,7 +1797,7 @@
         <li class="md-nav__item">
   <a href="#10-the-integral-time-t_i-in-a-pid-controller-is-related-to-the-integral-gain-by" class="md-nav__link">
     <span class="md-ellipsis">
-      10. The integral time \(T_i\) in a PID controller is related to the integral gain by:
+      10. The integral time $T_i$ in a PID controller is related to the integral gain by:
     </span>
   </a>
   
@@ -1835,7 +1835,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>C</strong>. Proportional control produces output <span class="arithmatex">\(u = K_p \cdot e(t)\)</span>, directly proportional to the current error. Large error produces large correction; small error produces small correction. This is the most intuitive control action.</p>
+<p>The correct answer is <strong>C</strong>. Proportional control produces output $u = K_p \cdot e(t)$, directly proportional to the current error. Large error produces large correction; small error produces small correction. This is the most intuitive control action.</p>
 <p><strong>Concept Tested:</strong> Proportional Control, Proportional Gain</p>
 </details>
 <hr>
@@ -1850,7 +1850,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. Integral action accumulates error over time: <span class="arithmatex">\(u_I = K_i \int e(t)dt\)</span>. Even a small persistent error will cause the integral to grow, eventually driving the output to eliminate steady-state error. This is why PI and PID controllers can achieve zero steady-state error to step inputs.</p>
+<p>The correct answer is <strong>B</strong>. Integral action accumulates error over time: $u_I = K_i \int e(t)dt$. Even a small persistent error will cause the integral to grow, eventually driving the output to eliminate steady-state error. This is why PI and PID controllers can achieve zero steady-state error to step inputs.</p>
 <p><strong>Concept Tested:</strong> Integral Control</p>
 </details>
 <hr>
@@ -1865,7 +1865,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>C</strong>. Derivative action produces output proportional to <span class="arithmatex">\(de/dt\)</span>: <span class="arithmatex">\(u_D = K_d \cdot (de/dt)\)</span>. It "anticipates" where the error is heading and provides braking action when error is decreasing rapidly, reducing overshoot.</p>
+<p>The correct answer is <strong>C</strong>. Derivative action produces output proportional to $de/dt$: $u_D = K_d \cdot (de/dt)$. It "anticipates" where the error is heading and provides braking action when error is decreasing rapidly, reducing overshoot.</p>
 <p><strong>Concept Tested:</strong> Derivative Control, Derivative Gain</p>
 </details>
 <hr>
@@ -1880,7 +1880,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. The ultimate gain method increases proportional gain until the closed-loop system exhibits sustained oscillations at the stability boundary. This critical gain <span class="arithmatex">\(K_u\)</span> and the oscillation period <span class="arithmatex">\(T_u\)</span> are then used in Ziegler-Nichols formulas to calculate PID gains.</p>
+<p>The correct answer is <strong>B</strong>. The ultimate gain method increases proportional gain until the closed-loop system exhibits sustained oscillations at the stability boundary. This critical gain $K_u$ and the oscillation period $T_u$ are then used in Ziegler-Nichols formulas to calculate PID gains.</p>
 <p><strong>Concept Tested:</strong> Ultimate Gain Method, Ultimate Gain</p>
 </details>
 <hr>
@@ -1910,7 +1910,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. A PI controller uses proportional and integral actions: <span class="arithmatex">\(u = K_p e + K_i \int e \, dt\)</span>. It provides zero steady-state error (from integral) with reasonable transient performance (from proportional). PI is very common in industrial practice.</p>
+<p>The correct answer is <strong>B</strong>. A PI controller uses proportional and integral actions: $u = K_p e + K_i \int e \, dt$. It provides zero steady-state error (from integral) with reasonable transient performance (from proportional). PI is very common in industrial practice.</p>
 <p><strong>Concept Tested:</strong> PI Controller</p>
 </details>
 <hr>
@@ -1959,18 +1959,18 @@
 <p><strong>Concept Tested:</strong> PD Controller, Derivative Control</p>
 </details>
 <hr>
-<h4 id="10-the-integral-time-t_i-in-a-pid-controller-is-related-to-the-integral-gain-by">10. The integral time <span class="arithmatex">\(T_i\)</span> in a PID controller is related to the integral gain by:</h4>
+<h4 id="10-the-integral-time-t_i-in-a-pid-controller-is-related-to-the-integral-gain-by">10. The integral time $T_i$ in a PID controller is related to the integral gain by:</h4>
 <div class="upper-alpha">
 <ol>
-<li><span class="arithmatex">\(T_i = K_i\)</span></li>
-<li><span class="arithmatex">\(T_i = 1/K_i\)</span> (or <span class="arithmatex">\(K_i = K_p/T_i\)</span> in standard form)</li>
-<li><span class="arithmatex">\(T_i = K_i^2\)</span></li>
-<li><span class="arithmatex">\(T_i = K_p \cdot K_i\)</span></li>
+<li>$T_i = K_i$</li>
+<li>$T_i = 1/K_i$ (or $K_i = K_p/T_i$ in standard form)</li>
+<li>$T_i = K_i^2$</li>
+<li>$T_i = K_p \cdot K_i$</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. In the standard PID form <span class="arithmatex">\(K_p(1 + 1/(T_i s) + T_d s)\)</span>, integral time <span class="arithmatex">\(T_i\)</span> is the reciprocal of the "integral rate." Larger <span class="arithmatex">\(T_i\)</span> means weaker integral action; smaller <span class="arithmatex">\(T_i\)</span> means stronger integral action. The relationship is <span class="arithmatex">\(K_i = K_p/T_i\)</span>.</p>
+<p>The correct answer is <strong>B</strong>. In the standard PID form $K_p(1 + 1/(T_i s) + T_d s)$, integral time $T_i$ is the reciprocal of the "integral rate." Larger $T_i$ means weaker integral action; smaller $T_i$ means stronger integral action. The relationship is $K_i = K_p/T_i$.</p>
 <p><strong>Concept Tested:</strong> Integral Time, Integral Gain</p>
 </details>
 <hr>

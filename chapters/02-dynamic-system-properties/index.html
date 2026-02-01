@@ -1862,7 +1862,7 @@
 <p>This chapter introduces the key properties that separate "nice" systems (ones we can analyze) from "wild" systems (ones that make mathematicians weep). By the end, you'll understand why the phrase "LTI system" makes control engineers smile with relief.</p>
 <h2 id="what-is-a-dynamic-system">What Is a Dynamic System?</h2>
 <p>A <strong>dynamic system</strong> is any system whose output depends not only on the current input but also on the history of inputs and the system's internal state. In other words, dynamic systems have <em>memory</em>—what happened in the past affects what happens now.</p>
-<p>Compare this to a simple resistor, where the current depends only on the voltage applied <em>right now</em> (Ohm's law: <span class="arithmatex">\(I = V/R\)</span>). That's a <em>static</em> or <em>memoryless</em> system. But consider a capacitor: the voltage across it depends on how much charge has accumulated over time. The capacitor "remembers" all the current that has flowed through it. That's dynamic behavior!</p>
+<p>Compare this to a simple resistor, where the current depends only on the voltage applied <em>right now</em> (Ohm's law: $I = V/R$). That's a <em>static</em> or <em>memoryless</em> system. But consider a capacitor: the voltage across it depends on how much charge has accumulated over time. The capacitor "remembers" all the current that has flowed through it. That's dynamic behavior!</p>
 <table>
 <thead>
 <tr>
@@ -1891,12 +1891,12 @@
 </div>
 <h2 id="differential-equations-the-language-of-dynamics">Differential Equations: The Language of Dynamics</h2>
 <p><strong>Differential equations</strong> are the mathematical language we use to describe dynamic systems. They relate the input, output, and their various derivatives (rates of change) to each other.</p>
-<p>For a simple RC circuit, the relationship between input voltage <span class="arithmatex">\(v_{in}(t)\)</span> and output voltage <span class="arithmatex">\(v_{out}(t)\)</span> across the capacitor is:</p>
+<p>For a simple RC circuit, the relationship between input voltage $v_{in}(t)$ and output voltage $v_{out}(t)$ across the capacitor is:</p>
 <div class="arithmatex">\[RC\frac{dv_{out}}{dt} + v_{out} = v_{in}\]</div>
-<p>This is a first-order ordinary differential equation (ODE). The "order" refers to the highest derivative present—in this case, the first derivative <span class="arithmatex">\(dv_{out}/dt\)</span>.</p>
-<p>For a mass-spring-damper system with mass <span class="arithmatex">\(m\)</span>, damping coefficient <span class="arithmatex">\(b\)</span>, and spring constant <span class="arithmatex">\(k\)</span>:</p>
+<p>This is a first-order ordinary differential equation (ODE). The "order" refers to the highest derivative present—in this case, the first derivative $dv_{out}/dt$.</p>
+<p>For a mass-spring-damper system with mass $m$, damping coefficient $b$, and spring constant $k$:</p>
 <div class="arithmatex">\[m\frac{d^2y}{dt^2} + b\frac{dy}{dt} + ky = F(t)\]</div>
-<p>This is a second-order ODE because it contains a second derivative <span class="arithmatex">\(d^2y/dt^2\)</span>.</p>
+<p>This is a second-order ODE because it contains a second derivative $d^2y/dt^2$.</p>
 <p>The order of the differential equation tells us something important about the system's complexity:</p>
 <ul>
 <li><strong>First-order systems</strong>: One energy storage element (like a capacitor or thermal mass)</li>
@@ -1915,17 +1915,17 @@ Bloom Verb: classify, compare</p>
 <p>Learning Objective: Students will classify differential equations by their order and identify corresponding physical systems.</p>
 <p>Layout: Three columns showing first-order, second-order, and general nth-order forms</p>
 <p>Column 1 - First-Order:
-- General form: <span class="arithmatex">\(a_1\frac{dy}{dt} + a_0 y = b_0 u\)</span>
+- General form: $a_1\frac{dy}{dt} + a_0 y = b_0 u$
 - Physical examples: RC circuit, thermal system, fluid tank
 - Schematic: Simple RC circuit diagram
 - Key feature: "One energy storage element"</p>
 <p>Column 2 - Second-Order:
-- General form: <span class="arithmatex">\(a_2\frac{d^2y}{dt^2} + a_1\frac{dy}{dt} + a_0 y = b_0 u\)</span>
+- General form: $a_2\frac{d^2y}{dt^2} + a_1\frac{dy}{dt} + a_0 y = b_0 u$
 - Physical examples: RLC circuit, mass-spring-damper
 - Schematic: Mass-spring-damper diagram
 - Key feature: "Two energy storage elements"</p>
 <p>Column 3 - Higher-Order:
-- General form: <span class="arithmatex">\(\sum_{k=0}^{n} a_k\frac{d^k y}{dt^k} = \sum_{j=0}^{m} b_j\frac{d^j u}{dt^j}\)</span>
+- General form: $\sum_{k=0}^{n} a_k\frac{d^k y}{dt^k} = \sum_{j=0}^{m} b_j\frac{d^j u}{dt^j}$
 - Physical examples: Cascaded systems, complex mechanisms
 - Schematic: Cascaded tanks diagram
 - Key feature: "n energy storage elements"</p>
@@ -1941,12 +1941,12 @@ Color coding: Blue for first-order, green for second-order, orange for higher-or
 <p>A <strong>linear system</strong> is one that satisfies two fundamental properties: <strong>additivity</strong> and <strong>homogeneity</strong>. Together, these properties enable the powerful <strong>superposition principle</strong>, which is arguably the most useful concept in all of control systems analysis.</p>
 <p>Before diving into the formal definitions, here's the intuitive version: in a linear system, effects add up in a predictable, proportional way. Double the input, double the output. Add two inputs together, get the sum of their individual outputs. No surprises, no weird interactions, no chaos. Linear systems are the "well-behaved children" of the mathematical world—they do what you expect!</p>
 <h3 id="homogeneity-scaling-property">Homogeneity (Scaling Property)</h3>
-<p><strong>Homogeneity</strong> means that if you scale the input by a constant factor, the output scales by the same factor. Mathematically, if input <span class="arithmatex">\(u(t)\)</span> produces output <span class="arithmatex">\(y(t)\)</span>, then input <span class="arithmatex">\(\alpha u(t)\)</span> produces output <span class="arithmatex">\(\alpha y(t)\)</span> for any constant <span class="arithmatex">\(\alpha\)</span>.</p>
+<p><strong>Homogeneity</strong> means that if you scale the input by a constant factor, the output scales by the same factor. Mathematically, if input $u(t)$ produces output $y(t)$, then input $\alpha u(t)$ produces output $\alpha y(t)$ for any constant $\alpha$.</p>
 <div class="arithmatex">\[\text{If } u(t) \rightarrow y(t), \text{ then } \alpha u(t) \rightarrow \alpha y(t)\]</div>
 <p>In plain English: if you push twice as hard, you get twice the response. If you apply half the voltage, you get half the current (in a linear resistor). This is incredibly useful because it means we can analyze a system's response to a "unit" input and then scale the result for any input magnitude.</p>
-<p>Real-world example: An ideal amplifier with gain <span class="arithmatex">\(K\)</span> satisfies homogeneity—input 1 volt, get <span class="arithmatex">\(K\)</span> volts out; input 2 volts, get <span class="arithmatex">\(2K\)</span> volts out. But a real amplifier eventually saturates (clips), violating homogeneity. When you crank your guitar amp to 11, the output doesn't scale linearly anymore—you get that glorious distortion. Great for rock music, terrible for control systems!</p>
+<p>Real-world example: An ideal amplifier with gain $K$ satisfies homogeneity—input 1 volt, get $K$ volts out; input 2 volts, get $2K$ volts out. But a real amplifier eventually saturates (clips), violating homogeneity. When you crank your guitar amp to 11, the output doesn't scale linearly anymore—you get that glorious distortion. Great for rock music, terrible for control systems!</p>
 <h3 id="additivity-superposition-of-inputs">Additivity (Superposition of Inputs)</h3>
-<p><strong>Additivity</strong> means that the response to a sum of inputs equals the sum of the individual responses. If input <span class="arithmatex">\(u_1(t)\)</span> produces output <span class="arithmatex">\(y_1(t)\)</span> and input <span class="arithmatex">\(u_2(t)\)</span> produces output <span class="arithmatex">\(y_2(t)\)</span>, then input <span class="arithmatex">\(u_1(t) + u_2(t)\)</span> produces output <span class="arithmatex">\(y_1(t) + y_2(t)\)</span>.</p>
+<p><strong>Additivity</strong> means that the response to a sum of inputs equals the sum of the individual responses. If input $u_1(t)$ produces output $y_1(t)$ and input $u_2(t)$ produces output $y_2(t)$, then input $u_1(t) + u_2(t)$ produces output $y_1(t) + y_2(t)$.</p>
 <div class="arithmatex">\[\text{If } u_1(t) \rightarrow y_1(t) \text{ and } u_2(t) \rightarrow y_2(t), \text{ then } u_1(t) + u_2(t) \rightarrow y_1(t) + y_2(t)\]</div>
 <p>This means effects don't interfere with each other in unexpected ways. You can analyze each input separately and then add up the results. Divide and conquer!</p>
 <h3 id="the-superposition-principle">The Superposition Principle</h3>
@@ -2006,7 +2006,7 @@ Bloom Verb: demonstrate, apply</p>
 <p>How do you determine whether a system is linear? The formal test involves checking both homogeneity and additivity. However, there's a practical shortcut for systems described by differential equations.</p>
 <p>A system is linear if its governing differential equation has the form:</p>
 <div class="arithmatex">\[a_n\frac{d^n y}{dt^n} + a_{n-1}\frac{d^{n-1} y}{dt^{n-1}} + \cdots + a_1\frac{dy}{dt} + a_0 y = b_m\frac{d^m u}{dt^m} + \cdots + b_1\frac{du}{dt} + b_0 u\]</div>
-<p>where the coefficients <span class="arithmatex">\(a_i\)</span> and <span class="arithmatex">\(b_j\)</span> depend only on time (or are constants), NOT on <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(u\)</span>, or their derivatives.</p>
+<p>where the coefficients $a_i$ and $b_j$ depend only on time (or are constants), NOT on $y$, $u$, or their derivatives.</p>
 <p><strong>Red flags for nonlinearity:</strong></p>
 <table>
 <thead>
@@ -2019,22 +2019,22 @@ Bloom Verb: demonstrate, apply</p>
 <tbody>
 <tr>
 <td>Products of variables</td>
-<td><span class="arithmatex">\(y \cdot \frac{dy}{dt}\)</span></td>
+<td>$y \cdot \frac{dy}{dt}$</td>
 <td>Output appears multiplicatively</td>
 </tr>
 <tr>
 <td>Powers other than 1</td>
-<td><span class="arithmatex">\(y^2\)</span>, <span class="arithmatex">\(\sqrt{y}\)</span></td>
+<td>$y^2$, $\sqrt{y}$</td>
 <td>Scaling doesn't preserve the power</td>
 </tr>
 <tr>
 <td>Transcendental functions</td>
-<td><span class="arithmatex">\(\sin(y)\)</span>, <span class="arithmatex">\(e^y\)</span></td>
+<td>$\sin(y)$, $e^y$</td>
 <td>These don't scale linearly</td>
 </tr>
 <tr>
 <td>Variable coefficients depending on output</td>
-<td><span class="arithmatex">\((1+y)\frac{dy}{dt}\)</span></td>
+<td>$(1+y)\frac{dy}{dt}$</td>
 <td>Coefficient changes with output</td>
 </tr>
 </tbody>
@@ -2049,7 +2049,7 @@ Bloom Verb: demonstrate, apply</p>
 </div>
 <h2 id="time-invariant-systems-the-same-today-as-tomorrow">Time-Invariant Systems: The Same Today as Tomorrow</h2>
 <p>A <strong>time-invariant system</strong> (also called a <em>shift-invariant</em> system) is one whose behavior doesn't change over time. If you apply the same input today, tomorrow, or next year, you get the same output (shifted in time accordingly).</p>
-<p>Mathematically, if input <span class="arithmatex">\(u(t)\)</span> produces output <span class="arithmatex">\(y(t)\)</span>, then the delayed input <span class="arithmatex">\(u(t - T)\)</span> produces the delayed output <span class="arithmatex">\(y(t - T)\)</span> for any time shift <span class="arithmatex">\(T\)</span>.</p>
+<p>Mathematically, if input $u(t)$ produces output $y(t)$, then the delayed input $u(t - T)$ produces the delayed output $y(t - T)$ for any time shift $T$.</p>
 <div class="arithmatex">\[\text{If } u(t) \rightarrow y(t), \text{ then } u(t-T) \rightarrow y(t-T)\]</div>
 <p>In plain English: the system doesn't "know" what time it is. It doesn't behave differently on Tuesdays or during leap years. It responds to inputs based purely on their shape, not when they occur.</p>
 <p><strong>Examples of time-invariant systems:</strong></p>
@@ -2110,7 +2110,7 @@ Time-varying example: System with τ(t) = τ₀(1 + 0.2t), where time constant i
 <ol>
 <li><strong>Superposition applies</strong>: We can decompose complex inputs and add up the responses</li>
 <li><strong>Time-shift invariance applies</strong>: The system behaves consistently regardless of when we observe it</li>
-<li><strong>Transfer functions exist</strong>: We can characterize the entire system with a single rational function of <span class="arithmatex">\(s\)</span></li>
+<li><strong>Transfer functions exist</strong>: We can characterize the entire system with a single rational function of $s$</li>
 <li><strong>Convolution works</strong>: Output is the convolution of input with the impulse response</li>
 <li><strong>Frequency response is meaningful</strong>: Sinusoids in → sinusoids out (same frequency, different amplitude and phase)</li>
 </ol>
@@ -2346,7 +2346,7 @@ Bloom Verb: classify, organize</p>
 <summary>Self-Check: Can You Answer These?</summary>
 <ol>
 <li>What two properties must a system satisfy to be classified as linear?</li>
-<li>If a system's output at time <span class="arithmatex">\(t\)</span> depends on the input at time <span class="arithmatex">\(t+1\)</span>, is the system causal?</li>
+<li>If a system's output at time $t$ depends on the input at time $t+1$, is the system causal?</li>
 <li>A motor's resistance increases as it heats up during operation. Is this system time-invariant?</li>
 <li>Why is the superposition principle so valuable for analyzing complex inputs?</li>
 <li>You discover that doubling the input to your system more than doubles the output. Is the system linear?</li>

@@ -1716,7 +1716,7 @@
           <li class="md-nav__item">
   <a href="#position-error-constant-k_p" class="md-nav__link">
     <span class="md-ellipsis">
-      Position Error Constant \(K_p\)
+      Position Error Constant $K_p$
     </span>
   </a>
   
@@ -1725,7 +1725,7 @@
           <li class="md-nav__item">
   <a href="#velocity-error-constant-k_v" class="md-nav__link">
     <span class="md-ellipsis">
-      Velocity Error Constant \(K_v\)
+      Velocity Error Constant $K_v$
     </span>
   </a>
   
@@ -1734,11 +1734,11 @@
           <li class="md-nav__item">
   <a href="#acceleration-error-constant-k_a" class="md-nav__link">
     <span class="md-ellipsis">
-      Acceleration Error Constant \(K_a\)
+      Acceleration Error Constant $K_a$
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Acceleration Error Constant \(K_a\)">
+    <nav class="md-nav" aria-label="Acceleration Error Constant $K_a$">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2037,10 +2037,10 @@
 <p>This is the domain of <strong>steady-state error analysis</strong>—figuring out how accurately a control system tracks its reference input once all transient behavior has disappeared. It's the difference between a thermostat that eventually settles at 72°F (zero error) and one that insists on stopping at 71°F no matter what you do (persistent error). That one-degree gap might not sound like much, but in precision manufacturing, robotic surgery, or satellite pointing, even tiny steady-state errors can be catastrophic.</p>
 <p>The good news? Steady-state error isn't mysterious or unpredictable. It depends on just a few structural properties of the system—properties we can identify by inspection and design around systematically. By the end of this chapter, you'll be able to look at a control system block diagram and predict its steady-state accuracy for different types of inputs. That's a powerful design tool.</p>
 <h2 id="what-is-steady-state-error">What Is Steady-State Error?</h2>
-<p>The <strong>steady-state error</strong> <span class="arithmatex">\(e_{ss}\)</span> is the difference between the reference input and the actual output as time approaches infinity, after all transient components have decayed:</p>
+<p>The <strong>steady-state error</strong> $e_{ss}$ is the difference between the reference input and the actual output as time approaches infinity, after all transient components have decayed:</p>
 <div class="arithmatex">\[e_{ss} = \lim_{t \to \infty} e(t) = \lim_{t \to \infty} [r(t) - y(t)]\]</div>
 <p>For a stable system, this limit exists and is finite. If the system is unstable, talking about steady-state error is meaningless—the output is diverging, not settling.</p>
-<p>Here's the conceptual picture: you command the system to do something (the reference input <span class="arithmatex">\(r(t)\)</span>), and the system tries to follow. The error signal <span class="arithmatex">\(e(t)\)</span> is the instantaneous gap between what you wanted and what you got. During transients, this error bounces around as the system adjusts. Eventually, for stable systems, the error settles to some constant value—and that's the steady-state error.</p>
+<p>Here's the conceptual picture: you command the system to do something (the reference input $r(t)$), and the system tries to follow. The error signal $e(t)$ is the instantaneous gap between what you wanted and what you got. During transients, this error bounces around as the system adjusts. Eventually, for stable systems, the error settles to some constant value—and that's the steady-state error.</p>
 <table>
 <thead>
 <tr>
@@ -2051,17 +2051,17 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(e_{ss} = 0\)</span></td>
+<td>$e_{ss} = 0$</td>
 <td>Perfect tracking</td>
 <td>System reaches exact desired value</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(e_{ss} &gt; 0\)</span></td>
+<td>$e_{ss} &gt; 0$</td>
 <td>Positive error</td>
 <td>Output falls short of reference</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(e_{ss} &lt; 0\)</span></td>
+<td>$e_{ss} &lt; 0$</td>
 <td>Negative error</td>
 <td>Output overshoots reference</td>
 </tr>
@@ -2069,7 +2069,7 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Sign Convention</p>
-<p>The definition <span class="arithmatex">\(e(t) = r(t) - y(t)\)</span> means positive error indicates the output is <em>below</em> the reference. Some textbooks define error as <span class="arithmatex">\(y(t) - r(t)\)</span>, which flips the sign. Always check the convention being used, especially when reading data sheets or papers.</p>
+<p>The definition $e(t) = r(t) - y(t)$ means positive error indicates the output is <em>below</em> the reference. Some textbooks define error as $y(t) - r(t)$, which flips the sign. Always check the convention being used, especially when reading data sheets or papers.</p>
 </div>
 <h2 id="steady-state-accuracy">Steady-State Accuracy</h2>
 <p>While steady-state error is the absolute difference, <strong>steady-state accuracy</strong> refers to how close the system gets to perfect tracking—it's the complement of error. A system with zero steady-state error has perfect steady-state accuracy. A system with 5% steady-state error has 95% steady-state accuracy.</p>
@@ -2097,16 +2097,16 @@
 </code></pre></div></td></tr></tbody></table></div>
 <p>In this configuration:</p>
 <ul>
-<li><span class="arithmatex">\(r(t)\)</span> is the reference input</li>
-<li><span class="arithmatex">\(e(t) = r(t) - y(t)\)</span> is the error signal</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the open-loop transfer function (controller + plant combined)</li>
-<li><span class="arithmatex">\(y(t)\)</span> is the output, which is fed back directly (hence "unity" feedback)</li>
+<li>$r(t)$ is the reference input</li>
+<li>$e(t) = r(t) - y(t)$ is the error signal</li>
+<li>$G(s)$ is the open-loop transfer function (controller + plant combined)</li>
+<li>$y(t)$ is the output, which is fed back directly (hence "unity" feedback)</li>
 </ul>
 <p>The closed-loop transfer function is:</p>
 <div class="arithmatex">\[T(s) = \frac{G(s)}{1 + G(s)}\]</div>
 <p>And the error transfer function is:</p>
 <div class="arithmatex">\[\frac{E(s)}{R(s)} = \frac{1}{1 + G(s)}\]</div>
-<p>This relationship is the key to our analysis. The steady-state error depends on both the input <span class="arithmatex">\(R(s)\)</span> and the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>.</p>
+<p>This relationship is the key to our analysis. The steady-state error depends on both the input $R(s)$ and the open-loop transfer function $G(s)$.</p>
 <h4 id="diagram-unity-feedback-system-structure">Diagram: Unity Feedback System Structure</h4>
 <iframe src="../../sims/unity-feedback-structure/main.html" width="100%" height="400px" scrolling="no"></iframe>
 
@@ -2132,8 +2132,8 @@ Bloom Verb: explain, interpret</p>
 - Toggle: Show transfer function equations</p>
 <p>Data Visibility Requirements:
 - Show numerical values of all signals
-- Display <span class="arithmatex">\(T(s) = G(s)/(1+G(s))\)</span> formula
-- Display <span class="arithmatex">\(E(s)/R(s) = 1/(1+G(s))\)</span> formula
+- Display $T(s) = G(s)/(1+G(s))$ formula
+- Display $E(s)/R(s) = 1/(1+G(s))$ formula
 - Animate signal flow with moving dots</p>
 <p>Instructional Rationale: Visual representation of signal flow with real-time values helps students understand how error emerges from the feedback structure.</p>
 <p>Implementation: p5.js with canvas-based controls and animation</p>
@@ -2141,18 +2141,18 @@ Bloom Verb: explain, interpret</p>
 <h2 id="the-final-value-theorem-approach">The Final Value Theorem Approach</h2>
 <p>The workhorse for steady-state error calculations is the <strong>Final Value Theorem</strong> from Laplace transform theory:</p>
 <div class="arithmatex">\[\lim_{t \to \infty} f(t) = \lim_{s \to 0} sF(s)\]</div>
-<p>This theorem is valid only when <span class="arithmatex">\(f(t)\)</span> has a finite limit as <span class="arithmatex">\(t \to \infty\)</span>—meaning the system must be stable and the input must allow a steady state to exist.</p>
+<p>This theorem is valid only when $f(t)$ has a finite limit as $t \to \infty$—meaning the system must be stable and the input must allow a steady state to exist.</p>
 <p>For our unity feedback system:</p>
 <div class="arithmatex">\[e_{ss} = \lim_{t \to \infty} e(t) = \lim_{s \to 0} sE(s) = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G(s)}\]</div>
 <p>This elegant formula shows that steady-state error depends on two things:</p>
 <ol>
-<li><strong>The input</strong> <span class="arithmatex">\(R(s)\)</span>—what are we asking the system to track?</li>
-<li><strong>The open-loop transfer function</strong> <span class="arithmatex">\(G(s)\)</span>—what resources does the system have to track it?</li>
+<li><strong>The input</strong> $R(s)$—what are we asking the system to track?</li>
+<li><strong>The open-loop transfer function</strong> $G(s)$—what resources does the system have to track it?</li>
 </ol>
 <p>The interplay between these factors determines whether the steady-state error is zero, finite, or infinite.</p>
 <div class="admonition warning">
 <p class="admonition-title">Validity Check</p>
-<p>Before applying the Final Value Theorem, verify that all poles of <span class="arithmatex">\(sE(s)\)</span> are in the left half-plane (except possibly a simple pole at the origin). If the closed-loop system is unstable, the FVT gives meaningless results.</p>
+<p>Before applying the Final Value Theorem, verify that all poles of $sE(s)$ are in the left half-plane (except possibly a simple pole at the origin). If the closed-loop system is unstable, the FVT gives meaningless results.</p>
 </div>
 <h2 id="standard-test-inputs">Standard Test Inputs</h2>
 <p>We analyze steady-state error for three canonical input types, each representing a class of real-world tracking demands:</p>
@@ -2168,20 +2168,20 @@ Bloom Verb: explain, interpret</p>
 <tbody>
 <tr>
 <td>Step</td>
-<td><span class="arithmatex">\(r(t) = R_0\)</span></td>
-<td><span class="arithmatex">\(R(s) = R_0/s\)</span></td>
+<td>$r(t) = R_0$</td>
+<td>$R(s) = R_0/s$</td>
 <td>Set-point change, position command</td>
 </tr>
 <tr>
 <td>Ramp</td>
-<td><span class="arithmatex">\(r(t) = R_0 t\)</span></td>
-<td><span class="arithmatex">\(R(s) = R_0/s^2\)</span></td>
+<td>$r(t) = R_0 t$</td>
+<td>$R(s) = R_0/s^2$</td>
 <td>Constant velocity, linear increase</td>
 </tr>
 <tr>
 <td>Parabolic</td>
-<td><span class="arithmatex">\(r(t) = R_0 t^2/2\)</span></td>
-<td><span class="arithmatex">\(R(s) = R_0/s^3\)</span></td>
+<td>$r(t) = R_0 t^2/2$</td>
+<td>$R(s) = R_0/s^3$</td>
 <td>Constant acceleration</td>
 </tr>
 </tbody>
@@ -2196,17 +2196,17 @@ Bloom Verb: explain, interpret</p>
 </ul>
 </div>
 <h2 id="system-type-counting-integrators">System Type: Counting Integrators</h2>
-<p>Here's where the magic happens. The <strong>system type</strong> is defined as the number of poles at the origin in the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>. This is equivalent to the number of integrators in the forward path.</p>
+<p>Here's where the magic happens. The <strong>system type</strong> is defined as the number of poles at the origin in the open-loop transfer function $G(s)$. This is equivalent to the number of integrators in the forward path.</p>
 <p>A general open-loop transfer function can be written as:</p>
 <div class="arithmatex">\[G(s) = \frac{K(s + z_1)(s + z_2)\cdots(s + z_m)}{s^n(s + p_1)(s + p_2)\cdots(s + p_q)}\]</div>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the open-loop gain (also called the Bode gain)</li>
-<li><span class="arithmatex">\(n\)</span> is the <strong>system type</strong> (number of integrators, or poles at origin)</li>
-<li>The <span class="arithmatex">\(z_i\)</span> are the finite zeros</li>
-<li>The <span class="arithmatex">\(p_i\)</span> are the finite poles</li>
+<li>$K$ is the open-loop gain (also called the Bode gain)</li>
+<li>$n$ is the <strong>system type</strong> (number of integrators, or poles at origin)</li>
+<li>The $z_i$ are the finite zeros</li>
+<li>The $p_i$ are the finite poles</li>
 </ul>
-<p>The system type <span class="arithmatex">\(n\)</span> has profound implications for steady-state accuracy:</p>
+<p>The system type $n$ has profound implications for steady-state accuracy:</p>
 <table>
 <thead>
 <tr>
@@ -2223,18 +2223,18 @@ Bloom Verb: explain, interpret</p>
 </tr>
 <tr>
 <td>Type 1</td>
-<td>One (<span class="arithmatex">\(1/s\)</span>)</td>
+<td>One ($1/s$)</td>
 <td>One integrator in loop</td>
 </tr>
 <tr>
 <td>Type 2</td>
-<td>Two (<span class="arithmatex">\(1/s^2\)</span>)</td>
+<td>Two ($1/s^2$)</td>
 <td>Two integrators in loop</td>
 </tr>
 <tr>
 <td>Type N</td>
-<td><span class="arithmatex">\(N\)</span> (<span class="arithmatex">\(1/s^n\)</span>)</td>
-<td><span class="arithmatex">\(N\)</span> integrators in loop</td>
+<td>$N$ ($1/s^n$)</td>
+<td>$N$ integrators in loop</td>
 </tr>
 </tbody>
 </table>
@@ -2255,17 +2255,17 @@ Bloom Verb: classify, identify</p>
 <p>Layout: Three columns showing Type 0, Type 1, and Type 2 systems</p>
 <p>Column 1 - Type 0:
 - Block diagram with no integrators
-- Example: <span class="arithmatex">\(G(s) = K/(s+a)\)</span>
+- Example: $G(s) = K/(s+a)$
 - Pole-zero plot showing no poles at origin
 - Label: "No integrators"</p>
 <p>Column 2 - Type 1:
 - Block diagram with one integrator block
-- Example: <span class="arithmatex">\(G(s) = K/[s(s+a)]\)</span>
+- Example: $G(s) = K/[s(s+a)]$
 - Pole-zero plot showing one pole at origin
 - Label: "One integrator"</p>
 <p>Column 3 - Type 2:
 - Block diagram with two integrator blocks
-- Example: <span class="arithmatex">\(G(s) = K/[s^2(s+a)]\)</span>
+- Example: $G(s) = K/[s^2(s+a)]$
 - Pole-zero plot showing two poles at origin
 - Label: "Two integrators"</p>
 <p>Interactive elements:
@@ -2277,99 +2277,99 @@ Bloom Verb: classify, identify</p>
 <p>Implementation: HTML/CSS/JavaScript with interactive reveals</p>
 </details>
 <h2 id="error-constants-the-tracking-currency">Error Constants: The Tracking Currency</h2>
-<p>To quantify steady-state error, we define three <strong>error constants</strong> that characterize the system's tracking capability. These constants are determined solely by the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>.</p>
-<h3 id="position-error-constant-k_p">Position Error Constant <span class="arithmatex">\(K_p\)</span></h3>
+<p>To quantify steady-state error, we define three <strong>error constants</strong> that characterize the system's tracking capability. These constants are determined solely by the open-loop transfer function $G(s)$.</p>
+<h3 id="position-error-constant-k_p">Position Error Constant $K_p$</h3>
 <p>The <strong>position error constant</strong> measures the system's ability to track a step input:</p>
 <div class="arithmatex">\[K_p = \lim_{s \to 0} G(s)\]</div>
-<p>For a step input <span class="arithmatex">\(R(s) = R_0/s\)</span>, the steady-state error is:</p>
+<p>For a step input $R(s) = R_0/s$, the steady-state error is:</p>
 <div class="arithmatex">\[e_{ss} = \frac{R_0}{1 + K_p}\]</div>
 <table>
 <thead>
 <tr>
 <th>System Type</th>
-<th><span class="arithmatex">\(K_p\)</span> Value</th>
+<th>$K_p$ Value</th>
 <th>Steady-State Error to Step</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Type 0</td>
-<td>Finite (<span class="arithmatex">\(K_p\)</span>)</td>
-<td><span class="arithmatex">\(R_0/(1 + K_p)\)</span> — finite error</td>
+<td>Finite ($K_p$)</td>
+<td>$R_0/(1 + K_p)$ — finite error</td>
 </tr>
 <tr>
 <td>Type 1</td>
-<td><span class="arithmatex">\(\infty\)</span></td>
-<td><span class="arithmatex">\(0\)</span> — zero error</td>
+<td>$\infty$</td>
+<td>$0$ — zero error</td>
 </tr>
 <tr>
 <td>Type 2</td>
-<td><span class="arithmatex">\(\infty\)</span></td>
-<td><span class="arithmatex">\(0\)</span> — zero error</td>
+<td>$\infty$</td>
+<td>$0$ — zero error</td>
 </tr>
 </tbody>
 </table>
-<p>A Type 0 system can <em>never</em> have zero steady-state error to a step—it will always stop short of the target by an amount that depends on the gain <span class="arithmatex">\(K_p\)</span>. The only way to eliminate this error is to add an integrator to the loop.</p>
-<h3 id="velocity-error-constant-k_v">Velocity Error Constant <span class="arithmatex">\(K_v\)</span></h3>
+<p>A Type 0 system can <em>never</em> have zero steady-state error to a step—it will always stop short of the target by an amount that depends on the gain $K_p$. The only way to eliminate this error is to add an integrator to the loop.</p>
+<h3 id="velocity-error-constant-k_v">Velocity Error Constant $K_v$</h3>
 <p>The <strong>velocity error constant</strong> measures the system's ability to track a ramp input:</p>
 <div class="arithmatex">\[K_v = \lim_{s \to 0} sG(s)\]</div>
-<p>For a ramp input <span class="arithmatex">\(R(s) = R_0/s^2\)</span>, the steady-state error is:</p>
+<p>For a ramp input $R(s) = R_0/s^2$, the steady-state error is:</p>
 <div class="arithmatex">\[e_{ss} = \frac{R_0}{K_v}\]</div>
 <table>
 <thead>
 <tr>
 <th>System Type</th>
-<th><span class="arithmatex">\(K_v\)</span> Value</th>
+<th>$K_v$ Value</th>
 <th>Steady-State Error to Ramp</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Type 0</td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+<td>$0$</td>
+<td>$\infty$ — cannot track</td>
 </tr>
 <tr>
 <td>Type 1</td>
-<td>Finite (<span class="arithmatex">\(K_v\)</span>)</td>
-<td><span class="arithmatex">\(R_0/K_v\)</span> — finite error</td>
+<td>Finite ($K_v$)</td>
+<td>$R_0/K_v$ — finite error</td>
 </tr>
 <tr>
 <td>Type 2</td>
-<td><span class="arithmatex">\(\infty\)</span></td>
-<td><span class="arithmatex">\(0\)</span> — zero error</td>
+<td>$\infty$</td>
+<td>$0$ — zero error</td>
 </tr>
 </tbody>
 </table>
-<p>The name "velocity" error constant makes sense: a ramp input represents constant velocity motion, and <span class="arithmatex">\(K_v\)</span> tells us how well the system can follow. A Type 0 system cannot track a ramp at all—the error grows without bound. A Type 1 system tracks with a finite lag. Only Type 2 or higher can track a ramp perfectly.</p>
-<h3 id="acceleration-error-constant-k_a">Acceleration Error Constant <span class="arithmatex">\(K_a\)</span></h3>
+<p>The name "velocity" error constant makes sense: a ramp input represents constant velocity motion, and $K_v$ tells us how well the system can follow. A Type 0 system cannot track a ramp at all—the error grows without bound. A Type 1 system tracks with a finite lag. Only Type 2 or higher can track a ramp perfectly.</p>
+<h3 id="acceleration-error-constant-k_a">Acceleration Error Constant $K_a$</h3>
 <p>The <strong>acceleration error constant</strong> measures the system's ability to track a parabolic input:</p>
 <div class="arithmatex">\[K_a = \lim_{s \to 0} s^2G(s)\]</div>
-<p>For a parabolic input <span class="arithmatex">\(R(s) = R_0/s^3\)</span>, the steady-state error is:</p>
+<p>For a parabolic input $R(s) = R_0/s^3$, the steady-state error is:</p>
 <div class="arithmatex">\[e_{ss} = \frac{R_0}{K_a}\]</div>
 <table>
 <thead>
 <tr>
 <th>System Type</th>
-<th><span class="arithmatex">\(K_a\)</span> Value</th>
+<th>$K_a$ Value</th>
 <th>Steady-State Error to Parabolic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Type 0</td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+<td>$0$</td>
+<td>$\infty$ — cannot track</td>
 </tr>
 <tr>
 <td>Type 1</td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+<td>$0$</td>
+<td>$\infty$ — cannot track</td>
 </tr>
 <tr>
 <td>Type 2</td>
-<td>Finite (<span class="arithmatex">\(K_a\)</span>)</td>
-<td><span class="arithmatex">\(R_0/K_a\)</span> — finite error</td>
+<td>Finite ($K_a$)</td>
+<td>$R_0/K_a$ — finite error</td>
 </tr>
 </tbody>
 </table>
@@ -2382,7 +2382,7 @@ Bloom Verb: classify, identify</p>
 <p>Type: microsim</p>
 <p>Bloom Taxonomy: Apply (L3)
 Bloom Verb: calculate, use</p>
-<p>Learning Objective: Students will calculate error constants (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) from a given transfer function and determine steady-state errors for different input types.</p>
+<p>Learning Objective: Students will calculate error constants ($K_p$, $K_v$, $K_a$) from a given transfer function and determine steady-state errors for different input types.</p>
 <p>Canvas layout:
 - Top (30%): Transfer function input and display
 - Middle (40%): Error constants calculation with step-by-step work
@@ -2391,21 +2391,21 @@ Bloom Verb: calculate, use</p>
 - Transfer function input field with numerator and denominator coefficient entry
 - Parsed transfer function displayed in standard form
 - Limit calculations shown step-by-step:
-  - <span class="arithmatex">\(K_p = \lim_{s \to 0} G(s) = ?\)</span>
-  - <span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s) = ?\)</span>
-  - <span class="arithmatex">\(K_a = \lim_{s \to 0} s^2G(s) = ?\)</span>
+  - $K_p = \lim_{s \to 0} G(s) = ?$
+  - $K_v = \lim_{s \to 0} sG(s) = ?$
+  - $K_a = \lim_{s \to 0} s^2G(s) = ?$
 - Results displayed in formatted table</p>
 <p>Interactive controls:
 - Text inputs for transfer function coefficients
 - Dropdown: Select preset examples (Type 0, 1, 2 systems)
-- Slider: Input amplitude <span class="arithmatex">\(R_0\)</span>
+- Slider: Input amplitude $R_0$
 - Dropdown: Input type (step, ramp, parabolic)
 - Button: Calculate
 - Button: Show work / Hide work toggle</p>
 <p>Data Visibility Requirements:
 - Display system type (detected from G(s))
 - Show each limit calculation with substitution
-- Display error constant values: <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>
+- Display error constant values: $K_p$, $K_v$, $K_a$
 - Show steady-state error formula and result
 - Indicate whether error is zero, finite, or infinite</p>
 <p>Behavior:
@@ -2423,37 +2423,37 @@ Bloom Verb: calculate, use</p>
 <thead>
 <tr>
 <th>System Type</th>
-<th>Step (<span class="arithmatex">\(1/s\)</span>)</th>
-<th>Ramp (<span class="arithmatex">\(1/s^2\)</span>)</th>
-<th>Parabolic (<span class="arithmatex">\(1/s^3\)</span>)</th>
+<th>Step ($1/s$)</th>
+<th>Ramp ($1/s^2$)</th>
+<th>Parabolic ($1/s^3$)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Type 0</strong></td>
-<td><span class="arithmatex">\(\frac{R_0}{1+K_p}\)</span> (finite)</td>
-<td><span class="arithmatex">\(\infty\)</span></td>
-<td><span class="arithmatex">\(\infty\)</span></td>
+<td>$\frac{R_0}{1+K_p}$ (finite)</td>
+<td>$\infty$</td>
+<td>$\infty$</td>
 </tr>
 <tr>
 <td><strong>Type 1</strong></td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(\frac{R_0}{K_v}\)</span> (finite)</td>
-<td><span class="arithmatex">\(\infty\)</span></td>
+<td>$0$</td>
+<td>$\frac{R_0}{K_v}$ (finite)</td>
+<td>$\infty$</td>
 </tr>
 <tr>
 <td><strong>Type 2</strong></td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(0\)</span></td>
-<td><span class="arithmatex">\(\frac{R_0}{K_a}\)</span> (finite)</td>
+<td>$0$</td>
+<td>$0$</td>
+<td>$\frac{R_0}{K_a}$ (finite)</td>
 </tr>
 </tbody>
 </table>
 <p>The pattern is elegant:</p>
 <ul>
-<li>A Type <span class="arithmatex">\(n\)</span> system has zero steady-state error to inputs up to order <span class="arithmatex">\(n\)</span></li>
-<li>It has finite error to inputs of order <span class="arithmatex">\(n+1\)</span></li>
-<li>It has infinite error (cannot track) for inputs of order <span class="arithmatex">\(n+2\)</span> and higher</li>
+<li>A Type $n$ system has zero steady-state error to inputs up to order $n$</li>
+<li>It has finite error to inputs of order $n+1$</li>
+<li>It has infinite error (cannot track) for inputs of order $n+2$ and higher</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Memory Device</p>
@@ -2465,7 +2465,7 @@ Bloom Verb: calculate, use</p>
 <div class="arithmatex">\[K_p = \lim_{s \to 0} G(s)\]</div>
 <div class="arithmatex">\[K_v = \lim_{s \to 0} sG(s)\]</div>
 <div class="arithmatex">\[K_a = \lim_{s \to 0} s^2G(s)\]</div>
-<p>These coefficients are the currency of steady-state accuracy: higher coefficients mean smaller errors. When you specify that a system must have <span class="arithmatex">\(e_{ss} &lt; 0.01\)</span> for a unit ramp, you're implicitly requiring <span class="arithmatex">\(K_v &gt; 100\)</span>.</p>
+<p>These coefficients are the currency of steady-state accuracy: higher coefficients mean smaller errors. When you specify that a system must have $e_{ss} &lt; 0.01$ for a unit ramp, you're implicitly requiring $K_v &gt; 100$.</p>
 <h2 id="type-0-systems-the-proportional-controller-case">Type 0 Systems: The Proportional Controller Case</h2>
 <p>A <strong>Type 0 system</strong> has no integrators in the open-loop transfer function. The simplest example is a proportional controller with a first-order plant:</p>
 <div class="arithmatex">\[G(s) = \frac{K}{s + a}\]</div>
@@ -2473,7 +2473,7 @@ Bloom Verb: calculate, use</p>
 <div class="arithmatex">\[K_p = \lim_{s \to 0} \frac{K}{s + a} = \frac{K}{a}\]</div>
 <p>For a unit step input, the steady-state error is:</p>
 <div class="arithmatex">\[e_{ss} = \frac{1}{1 + K/a}\]</div>
-<p>This error can be made smaller by increasing the gain <span class="arithmatex">\(K\)</span>—but it can never be made zero, no matter how large <span class="arithmatex">\(K\)</span> becomes. There's always a finite gap between where you want to be and where the system settles.</p>
+<p>This error can be made smaller by increasing the gain $K$—but it can never be made zero, no matter how large $K$ becomes. There's always a finite gap between where you want to be and where the system settles.</p>
 <div class="admonition example">
 <p class="admonition-title">The Cruise Control Analogy</p>
 <p>Imagine a car with cruise control that uses only proportional feedback. If you set the target speed to 60 mph and encounter a hill, the controller needs some speed error to generate the extra throttle. On a steep uphill, you might only be able to maintain 57 mph—the 3 mph error is the proportional signal driving the extra power. This is steady-state error in action.</p>
@@ -2494,7 +2494,7 @@ Bloom Verb: demonstrate, predict</p>
 - Reference step input (dashed black line at height 1)
 - System output response (blue curve)
 - Steady-state error highlighted (red shaded gap)
-- Annotation showing <span class="arithmatex">\(e_{ss}\)</span> value
+- Annotation showing $e_{ss}$ value
 - Asymptotic line at final value</p>
 <p>Interactive controls:
 - Slider: Open-loop gain K from 1 to 100 (default: 10)
@@ -2502,15 +2502,15 @@ Bloom Verb: demonstrate, predict</p>
 - Toggle: Show/hide transient
 - Button: Reset</p>
 <p>Data Visibility Requirements:
-- Display <span class="arithmatex">\(G(s) = K/(s+a)\)</span> with current values
-- Show <span class="arithmatex">\(K_p = K/a = [value]\)</span>
-- Show <span class="arithmatex">\(e_{ss} = 1/(1+K_p) = [value]\)</span>
+- Display $G(s) = K/(s+a)$ with current values
+- Show $K_p = K/a = [value]$
+- Show $e_{ss} = 1/(1+K_p) = [value]$
 - Display percentage error
-- Show how <span class="arithmatex">\(e_{ss}\)</span> changes as K increases</p>
+- Show how $e_{ss}$ changes as K increases</p>
 <p>Behavior:
 - Response curve updates in real-time as sliders change
 - Steady-state error gap shrinks as K increases but never reaches zero
-- Display approaches <span class="arithmatex">\(y_{ss} = K_p/(1+K_p)\)</span> as t → ∞
+- Display approaches $y_{ss} = K_p/(1+K_p)$ as t → ∞
 - Color intensity of error region indicates error magnitude</p>
 <p>Instructional Rationale: Interactive gain adjustment reveals that no finite gain eliminates steady-state error for Type 0 systems—students discover this limitation experientially.</p>
 <p>Implementation: p5.js with canvas-based controls</p>
@@ -2526,7 +2526,7 @@ Bloom Verb: demonstrate, predict</p>
 <p>This gives us:</p>
 <ul>
 <li><strong>Zero</strong> steady-state error to a step input</li>
-<li><strong>Finite</strong> steady-state error to a ramp input: <span class="arithmatex">\(e_{ss} = R_0 a/K\)</span></li>
+<li><strong>Finite</strong> steady-state error to a ramp input: $e_{ss} = R_0 a/K$</li>
 <li><strong>Infinite</strong> steady-state error to a parabolic input (cannot track)</li>
 </ul>
 <p>The integrator "keeps score" of accumulated error. Even if the instantaneous error is tiny, the integrator output keeps growing until the error is exactly zero—at least for step inputs. For ramp inputs, the integrator can maintain pace but with a constant lag.</p>
@@ -2544,7 +2544,7 @@ Bloom Verb: demonstrate, predict</p>
 <ul>
 <li><strong>Zero</strong> steady-state error to step inputs</li>
 <li><strong>Zero</strong> steady-state error to ramp inputs</li>
-<li><strong>Finite</strong> steady-state error to parabolic inputs: <span class="arithmatex">\(e_{ss} = R_0 a/K\)</span></li>
+<li><strong>Finite</strong> steady-state error to parabolic inputs: $e_{ss} = R_0 a/K$</li>
 </ul>
 <p>The extra integrator eliminates ramp tracking error but introduces additional phase lag. Type 2 systems can be challenging to stabilize—the double integration contributes 180° of phase lag at all frequencies, eating into your phase margin before the controller even starts.</p>
 <table>
@@ -2585,39 +2585,39 @@ Bloom Verb: demonstrate, predict</p>
 <p>Let's work through several examples to build procedural fluency.</p>
 <h3 id="example-1-type-1-system-with-step-input">Example 1: Type 1 System with Step Input</h3>
 <p>Given:
-<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{10}{s(s+2)}\)</span>\)</span></p>
+$$G(s) = \frac{10}{s(s+2)}$$</p>
 <p>Find the steady-state error for a unit step input.</p>
 <p><strong>Step 1:</strong> Identify system type.
-The denominator has <span class="arithmatex">\(s^1\)</span> in the factored form, so this is a <strong>Type 1</strong> system.</p>
-<p><strong>Step 2:</strong> For a step input, we need <span class="arithmatex">\(K_p\)</span>.
-<span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} G(s) = \lim_{s \to 0} \frac{10}{s(s+2)} = \infty\)</span>\)</span></p>
+The denominator has $s^1$ in the factored form, so this is a <strong>Type 1</strong> system.</p>
+<p><strong>Step 2:</strong> For a step input, we need $K_p$.
+$$K_p = \lim_{s \to 0} G(s) = \lim_{s \to 0} \frac{10}{s(s+2)} = \infty$$</p>
 <p><strong>Step 3:</strong> Calculate steady-state error.
-<span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \frac{R_0}{1 + K_p} = \frac{1}{1 + \infty} = 0\)</span>\)</span></p>
+$$e_{ss} = \frac{R_0}{1 + K_p} = \frac{1}{1 + \infty} = 0$$</p>
 <p>The steady-state error is <strong>zero</strong>. Type 1 systems always have zero error to step inputs.</p>
 <h3 id="example-2-type-1-system-with-ramp-input">Example 2: Type 1 System with Ramp Input</h3>
 <p>Same system:
-<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{10}{s(s+2)}\)</span>\)</span></p>
-<p>Find the steady-state error for a unit ramp input (<span class="arithmatex">\(R_0 = 1\)</span>).</p>
+$$G(s) = \frac{10}{s(s+2)}$$</p>
+<p>Find the steady-state error for a unit ramp input ($R_0 = 1$).</p>
 <p><strong>Step 1:</strong> System is Type 1 (from above).</p>
-<p><strong>Step 2:</strong> For a ramp input, we need <span class="arithmatex">\(K_v\)</span>.
-<span class="arithmatex">\(<span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s) = \lim_{s \to 0} \frac{10s}{s(s+2)} = \lim_{s \to 0} \frac{10}{s+2} = \frac{10}{2} = 5\)</span>\)</span></p>
+<p><strong>Step 2:</strong> For a ramp input, we need $K_v$.
+$$K_v = \lim_{s \to 0} sG(s) = \lim_{s \to 0} \frac{10s}{s(s+2)} = \lim_{s \to 0} \frac{10}{s+2} = \frac{10}{2} = 5$$</p>
 <p><strong>Step 3:</strong> Calculate steady-state error.
-<span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \frac{R_0}{K_v} = \frac{1}{5} = 0.2\)</span>\)</span></p>
+$$e_{ss} = \frac{R_0}{K_v} = \frac{1}{5} = 0.2$$</p>
 <p>The steady-state error is <strong>0.2 units</strong>. The output ramp lags the input ramp by 0.2 units at all times after transients settle.</p>
 <h3 id="example-3-type-0-system">Example 3: Type 0 System</h3>
 <p>Given:
-<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{20}{(s+1)(s+4)}\)</span>\)</span></p>
-<p>Find steady-state errors for step, ramp, and parabolic inputs (<span class="arithmatex">\(R_0 = 1\)</span>).</p>
+$$G(s) = \frac{20}{(s+1)(s+4)}$$</p>
+<p>Find steady-state errors for step, ramp, and parabolic inputs ($R_0 = 1$).</p>
 <p><strong>Step 1:</strong> System type—no poles at origin, so <strong>Type 0</strong>.</p>
 <p><strong>Step 2:</strong> Calculate error constants.
-<span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} \frac{20}{(s+1)(s+4)} = \frac{20}{(1)(4)} = 5\)</span>\)</span></p>
+$$K_p = \lim_{s \to 0} \frac{20}{(s+1)(s+4)} = \frac{20}{(1)(4)} = 5$$</p>
 <div class="arithmatex">\[K_v = \lim_{s \to 0} \frac{20s}{(s+1)(s+4)} = 0\]</div>
 <div class="arithmatex">\[K_a = \lim_{s \to 0} \frac{20s^2}{(s+1)(s+4)} = 0\]</div>
 <p><strong>Step 3:</strong> Steady-state errors.</p>
 <ul>
-<li>Step: <span class="arithmatex">\(e_{ss} = \frac{1}{1+5} = \frac{1}{6} \approx 0.167\)</span></li>
-<li>Ramp: <span class="arithmatex">\(e_{ss} = \frac{1}{0} = \infty\)</span></li>
-<li>Parabolic: <span class="arithmatex">\(e_{ss} = \frac{1}{0} = \infty\)</span></li>
+<li>Step: $e_{ss} = \frac{1}{1+5} = \frac{1}{6} \approx 0.167$</li>
+<li>Ramp: $e_{ss} = \frac{1}{0} = \infty$</li>
+<li>Parabolic: $e_{ss} = \frac{1}{0} = \infty$</li>
 </ul>
 <p>The Type 0 system has finite error to a step but cannot track ramps or parabolic inputs.</p>
 <h4 id="diagram-steady-state-error-comparison">Diagram: Steady-State Error Comparison</h4>
@@ -2649,9 +2649,9 @@ Each of three plots shows:
 - Button: Reset to defaults</p>
 <p>Data Visibility Requirements:
 - Display transfer function for each system type
-- Show <span class="arithmatex">\(e_{ss}\)</span> value for each system
+- Show $e_{ss}$ value for each system
 - Indicate "Cannot track" where applicable
-- Display error constants (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) for each</p>
+- Display error constants ($K_p$, $K_v$, $K_a$) for each</p>
 <p>Behavior:
 - All three responses animate simultaneously
 - For step input: Type 0 shows finite error, Type 1 and 2 show zero
@@ -2662,7 +2662,7 @@ Each of three plots shows:
 </details>
 <h2 id="disturbance-error">Disturbance Error</h2>
 <p>So far, we've focused on tracking error—the gap between reference and output. But control systems also face <strong>disturbances</strong>: unwanted inputs that push the system away from its desired operating point. The steady-state error due to disturbances is equally important in practice.</p>
-<p>Consider a system with a disturbance <span class="arithmatex">\(D(s)\)</span> entering at the plant output:</p>
+<p>Consider a system with a disturbance $D(s)$ entering at the plant output:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2673,9 +2673,9 @@ Each of three plots shows:
 </code></pre></div></td></tr></tbody></table></div>
 <p>The output is affected by both the reference and the disturbance:</p>
 <div class="arithmatex">\[Y(s) = \frac{G_c(s)G_p(s)}{1 + G_c(s)G_p(s)}R(s) + \frac{1}{1 + G_c(s)G_p(s)}D(s)\]</div>
-<p>The steady-state error due to a step disturbance <span class="arithmatex">\(D(s) = D_0/s\)</span> is:</p>
+<p>The steady-state error due to a step disturbance $D(s) = D_0/s$ is:</p>
 <div class="arithmatex">\[e_{ss,d} = \lim_{s \to 0} \frac{s \cdot D_0/s}{1 + G_c(s)G_p(s)} = \frac{D_0}{1 + \lim_{s \to 0}G_c(s)G_p(s)}\]</div>
-<p>If the loop gain at DC is high (large <span class="arithmatex">\(K_p\)</span>), the disturbance effect is attenuated. If the controller includes an integrator, the disturbance error goes to zero—the integrator "notices" the persistent error and keeps adjusting until it's eliminated.</p>
+<p>If the loop gain at DC is high (large $K_p$), the disturbance effect is attenuated. If the controller includes an integrator, the disturbance error goes to zero—the integrator "notices" the persistent error and keeps adjusting until it's eliminated.</p>
 <div class="admonition tip">
 <p class="admonition-title">Disturbance Rejection Design</p>
 <p>To achieve good disturbance rejection:
@@ -2713,7 +2713,7 @@ Each plot shows:
 - Button: Reset</p>
 <p>Data Visibility Requirements:
 - Display controller type for each plot ("P control" vs "PI control")
-- Show <span class="arithmatex">\(e_{ss}\)</span> before and after disturbance
+- Show $e_{ss}$ before and after disturbance
 - Display the disturbance attenuation factor
 - Annotate the steady-state error difference</p>
 <p>Behavior:
@@ -2728,9 +2728,9 @@ Each plot shows:
 <h2 id="improving-steady-state-accuracy">Improving Steady-State Accuracy</h2>
 <p>Now that we understand what determines steady-state error, how do we reduce it? Here are the main strategies:</p>
 <h3 id="strategy-1-increase-loop-gain">Strategy 1: Increase Loop Gain</h3>
-<p>For a Type 0 system, increasing the gain <span class="arithmatex">\(K\)</span> reduces steady-state error:</p>
+<p>For a Type 0 system, increasing the gain $K$ reduces steady-state error:</p>
 <div class="arithmatex">\[e_{ss} = \frac{R_0}{1 + K_p}\]</div>
-<p>Doubling <span class="arithmatex">\(K_p\)</span> roughly halves the error. But there's a limit—increasing gain typically reduces stability margins. You can't just crank the gain to infinity; the system will become oscillatory or unstable.</p>
+<p>Doubling $K_p$ roughly halves the error. But there's a limit—increasing gain typically reduces stability margins. You can't just crank the gain to infinity; the system will become oscillatory or unstable.</p>
 <h3 id="strategy-2-add-integration">Strategy 2: Add Integration</h3>
 <p>This is the most powerful approach. Adding an integrator to the controller:</p>
 <ul>
@@ -2774,7 +2774,7 @@ Each plot shows:
 <p>A proportional-only cruise control has finite speed error on hills. Adding an integral term (making it PI control) eliminates this error—the integrator accumulates the speed deficit until the throttle is strong enough to maintain exactly the set speed. This is why modern cruise control systems use at least PI control.</p>
 </div>
 <h2 id="non-unity-feedback-systems">Non-Unity Feedback Systems</h2>
-<p>The analysis we've developed assumes unity feedback (the feedback path is just a wire with gain 1). Real systems often have a sensor or feedback element with its own transfer function <span class="arithmatex">\(H(s)\)</span>:</p>
+<p>The analysis we've developed assumes unity feedback (the feedback path is just a wire with gain 1). Real systems often have a sensor or feedback element with its own transfer function $H(s)$:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2783,13 +2783,13 @@ Each plot shows:
               -↑                              │
                └────[ H(s) ]&lt;─────────────────┘
 </code></pre></div></td></tr></tbody></table></div>
-<p>For this configuration, the error is <span class="arithmatex">\(e(t) = r(t) - H(s)y(t)\)</span>, and the analysis becomes more complex.</p>
+<p>For this configuration, the error is $e(t) = r(t) - H(s)y(t)$, and the analysis becomes more complex.</p>
 <p>The closed-loop transfer function is:</p>
 <div class="arithmatex">\[T(s) = \frac{G(s)}{1 + G(s)H(s)}\]</div>
-<p>And the steady-state error requires considering both <span class="arithmatex">\(G(s)\)</span> and <span class="arithmatex">\(H(s)\)</span> together. The system type is determined by poles at the origin in <span class="arithmatex">\(G(s)H(s)\)</span>, not just <span class="arithmatex">\(G(s)\)</span>.</p>
+<p>And the steady-state error requires considering both $G(s)$ and $H(s)$ together. The system type is determined by poles at the origin in $G(s)H(s)$, not just $G(s)$.</p>
 <div class="admonition note">
 <p class="admonition-title">Practical Consideration</p>
-<p>When <span class="arithmatex">\(H(s) \neq 1\)</span>, we often define error with respect to the sensor output rather than the actual physical output. This is fine for most purposes, but be aware that the "error" you're minimizing is in sensor coordinates, not necessarily physical coordinates. If the sensor has bias or nonlinearity, that shows up in the actual performance.</p>
+<p>When $H(s) \neq 1$, we often define error with respect to the sensor output rather than the actual physical output. This is fine for most purposes, but be aware that the "error" you're minimizing is in sensor coordinates, not necessarily physical coordinates. If the sensor has bias or nonlinearity, that shows up in the actual performance.</p>
 </div>
 <h2 id="connecting-error-to-performance-specifications">Connecting Error to Performance Specifications</h2>
 <p>In practice, steady-state error is one of several specifications that define acceptable system performance. The complete picture typically includes:</p>
@@ -2852,8 +2852,8 @@ Time Response:
 <p><strong>Steady-state error</strong> is the persistent gap between reference and output after transients settle—it represents the system's DC accuracy</p>
 </li>
 <li>
-<p>The <strong>Final Value Theorem</strong> lets us calculate <span class="arithmatex">\(e_{ss}\)</span> from the Laplace domain:
-  <span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G(s)}\)</span>\)</span></p>
+<p>The <strong>Final Value Theorem</strong> lets us calculate $e_{ss}$ from the Laplace domain:
+  $$e_{ss} = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G(s)}$$</p>
 </li>
 <li>
 <p><strong>System type</strong> (number of integrators in the open-loop transfer function) determines which input types can be tracked with zero error:</p>
@@ -2864,8 +2864,8 @@ Time Response:
 <p>Type 2: Zero error to step and ramp, finite to parabolic</p>
 </li>
 <li>
-<p><strong>Error constants</strong> (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) quantify tracking capability:
-  <span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} G(s), \quad K_v = \lim_{s \to 0} sG(s), \quad K_a = \lim_{s \to 0} s^2G(s)\)</span>\)</span></p>
+<p><strong>Error constants</strong> ($K_p$, $K_v$, $K_a$) quantify tracking capability:
+  $$K_p = \lim_{s \to 0} G(s), \quad K_v = \lim_{s \to 0} sG(s), \quad K_a = \lim_{s \to 0} s^2G(s)$$</p>
 </li>
 <li>
 <p><strong>Disturbance rejection</strong> follows similar principles—integrators in the loop drive disturbance errors to zero</p>
@@ -2877,19 +2877,19 @@ Time Response:
 <p>There are always <strong>trade-offs</strong>—improving steady-state accuracy often comes at the cost of transient performance or stability margins</p>
 </li>
 </ul>
-<p>This framework gives you the vocabulary to specify accuracy requirements ("I need Type 1 performance with <span class="arithmatex">\(K_v &gt; 100\)</span>") and the tools to verify that a design meets them. When you encounter a control problem in practice, one of your first questions should be: "What system type do I need to achieve my accuracy requirements?"</p>
+<p>This framework gives you the vocabulary to specify accuracy requirements ("I need Type 1 performance with $K_v &gt; 100$") and the tools to verify that a design meets them. When you encounter a control problem in practice, one of your first questions should be: "What system type do I need to achieve my accuracy requirements?"</p>
 <details class="question">
 <summary>Self-Check: Test Your Understanding</summary>
 <p>Before moving on, try these without looking back:</p>
 <ol>
 <li>
-<p>A system has <span class="arithmatex">\(G(s) = \frac{50}{s(s+5)(s+10)}\)</span>. What is the system type? What is the steady-state error for a unit ramp input?</p>
+<p>A system has $G(s) = \frac{50}{s(s+5)(s+10)}$. What is the system type? What is the steady-state error for a unit ramp input?</p>
 </li>
 <li>
 <p>You need zero steady-state error for a constant-velocity tracking problem. What is the minimum system type required?</p>
 </li>
 <li>
-<p>For a Type 0 system with <span class="arithmatex">\(K_p = 19\)</span>, what is the steady-state error for a unit step input? How could you eliminate this error?</p>
+<p>For a Type 0 system with $K_p = 19$, what is the steady-state error for a unit step input? How could you eliminate this error?</p>
 </li>
 <li>
 <p>Why might a designer choose a Type 1 system over a Type 2 system, even though Type 2 has better tracking performance?</p>

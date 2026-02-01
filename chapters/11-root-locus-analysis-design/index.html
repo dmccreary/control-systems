@@ -2294,10 +2294,10 @@
 <hr>
 <h2 id="from-stability-boundaries-to-pole-trajectories">From Stability Boundaries to Pole Trajectories</h2>
 <p>In Chapter 10, you learned to answer the binary question: "Is this system stable?" The Routh-Hurwitz criterion tells you whether poles are in the left or right half-plane, and it identifies the stability boundary—the critical gain where poles cross the imaginary axis. That's powerful, but it leaves you wanting more. <em>Where exactly are those poles?</em> How do they move as gain changes? If I want faster response, which way should I push the gain?</p>
-<p>The <strong>root locus</strong> answers all of these questions with a single elegant diagram. It's a graphical technique that shows the complete trajectory of closed-loop poles as a parameter (usually gain <span class="arithmatex">\(K\)</span>) varies from zero to infinity. One glance at a root locus plot tells you:</p>
+<p>The <strong>root locus</strong> answers all of these questions with a single elegant diagram. It's a graphical technique that shows the complete trajectory of closed-loop poles as a parameter (usually gain $K$) varies from zero to infinity. One glance at a root locus plot tells you:</p>
 <ul>
-<li>Where the poles start (when <span class="arithmatex">\(K = 0\)</span>)</li>
-<li>Where they end (as <span class="arithmatex">\(K \to \infty\)</span>)</li>
+<li>Where the poles start (when $K = 0$)</li>
+<li>Where they end (as $K \to \infty$)</li>
 <li>How they travel between these endpoints</li>
 <li>When they cross into the unstable region</li>
 <li>What gain values yield specific pole locations</li>
@@ -2313,20 +2313,20 @@
 <h4 id="standard-feedback-system">Standard Feedback System</h4>
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../img/standard-feedback.png" data-desc-position="bottom"><img alt="Standard Feedback Configuration" src="../../img/standard-feedback.png"></a></p>
 <p>The closed-loop transfer function is:</p>
-<p><span class="arithmatex">\(T(s) = \frac{KG(s)}{1 + KG(s)H(s)}\)</span></p>
+<p>$T(s) = \frac{KG(s)}{1 + KG(s)H(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the adjustable gain</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the forward path (plant) transfer function</li>
-<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+<li>$K$ is the adjustable gain</li>
+<li>$G(s)$ is the forward path (plant) transfer function</li>
+<li>$H(s)$ is the feedback path transfer function</li>
 </ul>
 <p>The closed-loop poles are the roots of the characteristic equation:</p>
 <h4 id="characteristic-equation">Characteristic Equation</h4>
-<p><span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span></p>
+<p>$1 + KG(s)H(s) = 0$</p>
 <p>This can be rewritten as:</p>
-<p><span class="arithmatex">\(KG(s)H(s) = -1\)</span></p>
-<p>As <span class="arithmatex">\(K\)</span> varies from 0 to ∞, the roots of this equation trace out curves in the s-plane. These curves constitute the root locus.</p>
-<p>Here's the key insight: when <span class="arithmatex">\(K = 0\)</span>, the characteristic equation becomes <span class="arithmatex">\(1 = 0\)</span>, which is never satisfied—except at the poles of <span class="arithmatex">\(G(s)H(s)\)</span>, where the loop gain becomes infinite. As <span class="arithmatex">\(K\)</span> increases, the roots migrate away from the open-loop poles. As <span class="arithmatex">\(K \to \infty\)</span>, the roots approach the zeros of <span class="arithmatex">\(G(s)H(s)\)</span> or head off to infinity along asymptotes.</p>
+<p>$KG(s)H(s) = -1$</p>
+<p>As $K$ varies from 0 to ∞, the roots of this equation trace out curves in the s-plane. These curves constitute the root locus.</p>
+<p>Here's the key insight: when $K = 0$, the characteristic equation becomes $1 = 0$, which is never satisfied—except at the poles of $G(s)H(s)$, where the loop gain becomes infinite. As $K$ increases, the roots migrate away from the open-loop poles. As $K \to \infty$, the roots approach the zeros of $G(s)H(s)$ or head off to infinity along asymptotes.</p>
 <table>
 <thead>
 <tr>
@@ -2336,56 +2336,56 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(K = 0\)</span></td>
+<td>$K = 0$</td>
 <td>At open-loop poles</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K &gt; 0\)</span> (small)</td>
+<td>$K &gt; 0$ (small)</td>
 <td>Near open-loop poles</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = K_{critical}\)</span></td>
+<td>$K = K_{critical}$</td>
 <td>On stability boundary</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K \to \infty\)</span></td>
+<td>$K \to \infty$</td>
 <td>At open-loop zeros or infinity</td>
 </tr>
 </tbody>
 </table>
 <h2 id="the-angle-and-magnitude-conditions">The Angle and Magnitude Conditions</h2>
-<p>The characteristic equation <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span> can be written as:</p>
-<p><span class="arithmatex">\(G(s)H(s) = -\frac{1}{K}\)</span></p>
-<p>For a point <span class="arithmatex">\(s\)</span> to lie on the root locus, two conditions must be satisfied simultaneously.</p>
+<p>The characteristic equation $1 + KG(s)H(s) = 0$ can be written as:</p>
+<p>$G(s)H(s) = -\frac{1}{K}$</p>
+<p>For a point $s$ to lie on the root locus, two conditions must be satisfied simultaneously.</p>
 <h4 id="angle-condition">Angle Condition</h4>
-<p><span class="arithmatex">\(\angle G(s)H(s) = (2k+1) \times 180°\)</span></p>
+<p>$\angle G(s)H(s) = (2k+1) \times 180°$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\angle G(s)H(s)\)</span> is the angle of the complex number <span class="arithmatex">\(G(s)H(s)\)</span></li>
-<li><span class="arithmatex">\(k\)</span> is any integer (0, 1, 2, ...)</li>
+<li>$\angle G(s)H(s)$ is the angle of the complex number $G(s)H(s)$</li>
+<li>$k$ is any integer (0, 1, 2, ...)</li>
 </ul>
 <p>This is the <strong>angle condition</strong>—the phase of the open-loop transfer function at any point on the root locus must be an odd multiple of 180°.</p>
 <h4 id="magnitude-condition">Magnitude Condition</h4>
-<p><span class="arithmatex">\(|G(s)H(s)| = \frac{1}{K}\)</span></p>
+<p>$|G(s)H(s)| = \frac{1}{K}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(|G(s)H(s)|\)</span> is the magnitude of <span class="arithmatex">\(G(s)H(s)\)</span> at point <span class="arithmatex">\(s\)</span></li>
-<li><span class="arithmatex">\(K\)</span> is the gain that places a closed-loop pole at <span class="arithmatex">\(s\)</span></li>
+<li>$|G(s)H(s)|$ is the magnitude of $G(s)H(s)$ at point $s$</li>
+<li>$K$ is the gain that places a closed-loop pole at $s$</li>
 </ul>
-<p>The <strong>magnitude condition</strong> tells us the value of <span class="arithmatex">\(K\)</span> required to place a pole at any specific point on the root locus.</p>
+<p>The <strong>magnitude condition</strong> tells us the value of $K$ required to place a pole at any specific point on the root locus.</p>
 <p>The angle condition determines <em>which</em> points are on the root locus. The magnitude condition determines <em>what gain</em> corresponds to each point. This separation is powerful: we can first sketch the locus using angle criteria alone, then find gains as needed using the magnitude condition.</p>
-<p>To compute angles, express <span class="arithmatex">\(G(s)H(s)\)</span> in factored form:</p>
-<p><span class="arithmatex">\(G(s)H(s) = \frac{K \prod_{i=1}^{m}(s-z_i)}{\prod_{j=1}^{n}(s-p_j)}\)</span></p>
+<p>To compute angles, express $G(s)H(s)$ in factored form:</p>
+<p>$G(s)H(s) = \frac{K \prod_{i=1}^{m}(s-z_i)}{\prod_{j=1}^{n}(s-p_j)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(z_i\)</span> are the open-loop zeros</li>
-<li><span class="arithmatex">\(p_j\)</span> are the open-loop poles</li>
-<li><span class="arithmatex">\(m\)</span> is the number of zeros</li>
-<li><span class="arithmatex">\(n\)</span> is the number of poles</li>
+<li>$z_i$ are the open-loop zeros</li>
+<li>$p_j$ are the open-loop poles</li>
+<li>$m$ is the number of zeros</li>
+<li>$n$ is the number of poles</li>
 </ul>
-<p>The angle at any point <span class="arithmatex">\(s\)</span> is:</p>
+<p>The angle at any point $s$ is:</p>
 <h4 id="angle-calculation">Angle Calculation</h4>
-<p><span class="arithmatex">\(\angle G(s)H(s) = \sum_{i=1}^{m}\angle(s-z_i) - \sum_{j=1}^{n}\angle(s-p_j)\)</span></p>
+<p>$\angle G(s)H(s) = \sum_{i=1}^{m}\angle(s-z_i) - \sum_{j=1}^{n}\angle(s-p_j)$</p>
 <p>Sum of angles from zeros minus sum of angles from poles. For a point to be on the root locus, this difference must equal ±180°, ±540°, etc.</p>
 <h4 id="diagram-angle-condition-visualizer">Diagram: Angle Condition Visualizer</h4>
 <iframe src="../../sims/angle-condition/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -2439,12 +2439,12 @@ S-Plane:
 <h2 id="root-locus-construction-rules">Root Locus Construction Rules</h2>
 <p>While modern software generates root locus plots instantly, understanding the construction rules provides crucial insight into system behavior. These rules allow you to sketch the qualitative shape of the root locus by hand and, more importantly, to predict how design changes will affect the locus.</p>
 <h3 id="rule-1-number-of-branches">Rule 1: Number of Branches</h3>
-<p>The root locus has <span class="arithmatex">\(n\)</span> branches, where <span class="arithmatex">\(n\)</span> is the number of open-loop poles (the order of the characteristic equation). Each branch starts at an open-loop pole and represents the trajectory of one closed-loop pole.</p>
+<p>The root locus has $n$ branches, where $n$ is the number of open-loop poles (the order of the characteristic equation). Each branch starts at an open-loop pole and represents the trajectory of one closed-loop pole.</p>
 <h4 id="number-of-branches">Number of Branches</h4>
-<p><span class="arithmatex">\(\text{Number of branches} = n = \text{number of open-loop poles}\)</span></p>
+<p>$\text{Number of branches} = n = \text{number of open-loop poles}$</p>
 <h3 id="rule-2-starting-points-and-ending-points">Rule 2: Starting Points and Ending Points</h3>
-<p><strong>Starting points</strong> (<span class="arithmatex">\(K = 0\)</span>): Each branch begins at an open-loop pole. When <span class="arithmatex">\(K = 0\)</span>, the closed-loop poles equal the open-loop poles.</p>
-<p><strong>Ending points</strong> (<span class="arithmatex">\(K \to \infty\)</span>): Branches end at open-loop zeros or at infinity. There are <span class="arithmatex">\(m\)</span> zeros (counting any at infinity). The <span class="arithmatex">\(m\)</span> branches approaching finite zeros terminate there; the remaining <span class="arithmatex">\((n-m)\)</span> branches head to infinity along asymptotes.</p>
+<p><strong>Starting points</strong> ($K = 0$): Each branch begins at an open-loop pole. When $K = 0$, the closed-loop poles equal the open-loop poles.</p>
+<p><strong>Ending points</strong> ($K \to \infty$): Branches end at open-loop zeros or at infinity. There are $m$ zeros (counting any at infinity). The $m$ branches approaching finite zeros terminate there; the remaining $(n-m)$ branches head to infinity along asymptotes.</p>
 <table>
 <thead>
 <tr>
@@ -2456,17 +2456,17 @@ S-Plane:
 <tbody>
 <tr>
 <td>Open-loop poles</td>
-<td><span class="arithmatex">\(n\)</span></td>
+<td>$n$</td>
 <td>Start</td>
 </tr>
 <tr>
 <td>Open-loop zeros</td>
-<td><span class="arithmatex">\(m\)</span></td>
+<td>$m$</td>
 <td>End (finite)</td>
 </tr>
 <tr>
 <td>Zeros at infinity</td>
-<td><span class="arithmatex">\(n-m\)</span></td>
+<td>$n-m$</td>
 <td>End (along asymptotes)</td>
 </tr>
 </tbody>
@@ -2483,40 +2483,40 @@ S-Plane:
 </ul>
 <p>For the total angle to be ±180°, we need an odd count from the right.</p>
 <h4 id="real-axis-segment-example">Real-Axis Segment Example</h4>
-<p>Consider a system with poles at <span class="arithmatex">\(s = 0\)</span>, <span class="arithmatex">\(s = -2\)</span>, <span class="arithmatex">\(s = -4\)</span> and a zero at <span class="arithmatex">\(s = -3\)</span>.</p>
+<p>Consider a system with poles at $s = 0$, $s = -2$, $s = -4$ and a zero at $s = -3$.</p>
 <ul>
-<li>From <span class="arithmatex">\(s = 0\)</span> to <span class="arithmatex">\(s = -2\)</span>: One pole to the right → ON locus</li>
-<li>From <span class="arithmatex">\(s = -2\)</span> to <span class="arithmatex">\(s = -3\)</span>: Two poles to the right → OFF locus</li>
-<li>From <span class="arithmatex">\(s = -3\)</span> to <span class="arithmatex">\(s = -4\)</span>: Two poles + one zero to the right (3 total) → ON locus</li>
-<li>To the left of <span class="arithmatex">\(s = -4\)</span>: All four singularities to the right (4 total) → OFF locus</li>
+<li>From $s = 0$ to $s = -2$: One pole to the right → ON locus</li>
+<li>From $s = -2$ to $s = -3$: Two poles to the right → OFF locus</li>
+<li>From $s = -3$ to $s = -4$: Two poles + one zero to the right (3 total) → ON locus</li>
+<li>To the left of $s = -4$: All four singularities to the right (4 total) → OFF locus</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Quick Real-Axis Check</p>
 <p>Count poles and zeros on the real axis. Shade segments that have an odd count to their right. The root locus exists on these shaded segments.</p>
 </div>
 <h3 id="rule-5-asymptotes">Rule 5: Asymptotes</h3>
-<p>As <span class="arithmatex">\(K \to \infty\)</span>, the <span class="arithmatex">\((n-m)\)</span> branches that don't end at finite zeros go to infinity along straight-line asymptotes. These asymptotes radiate from a common point (the centroid) at specific angles.</p>
+<p>As $K \to \infty$, the $(n-m)$ branches that don't end at finite zeros go to infinity along straight-line asymptotes. These asymptotes radiate from a common point (the centroid) at specific angles.</p>
 <h4 id="asymptote-angles">Asymptote Angles</h4>
-<p><span class="arithmatex">\(\phi_k = \frac{(2k+1) \times 180°}{n-m}\)</span></p>
+<p>$\phi_k = \frac{(2k+1) \times 180°}{n-m}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\phi_k\)</span> is the angle of the <span class="arithmatex">\(k\)</span>th asymptote</li>
-<li><span class="arithmatex">\(k = 0, 1, 2, \ldots, (n-m-1)\)</span></li>
-<li><span class="arithmatex">\(n\)</span> is the number of poles</li>
-<li><span class="arithmatex">\(m\)</span> is the number of zeros</li>
+<li>$\phi_k$ is the angle of the $k$th asymptote</li>
+<li>$k = 0, 1, 2, \ldots, (n-m-1)$</li>
+<li>$n$ is the number of poles</li>
+<li>$m$ is the number of zeros</li>
 </ul>
 <h4 id="centroid">Centroid</h4>
-<p><span class="arithmatex">\(\sigma_c = \frac{\sum \text{poles} - \sum \text{zeros}}{n-m}\)</span></p>
+<p>$\sigma_c = \frac{\sum \text{poles} - \sum \text{zeros}}{n-m}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\sigma_c\)</span> is the real-axis intersection of all asymptotes</li>
+<li>$\sigma_c$ is the real-axis intersection of all asymptotes</li>
 <li>The sums are over the real parts of poles and zeros</li>
 </ul>
-<p>The centroid is a single point on the real axis where all asymptotes meet. The asymptotes then extend at angles <span class="arithmatex">\(\phi_k\)</span> from this point.</p>
+<p>The centroid is a single point on the real axis where all asymptotes meet. The asymptotes then extend at angles $\phi_k$ from this point.</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(n-m\)</span></th>
+<th>$n-m$</th>
 <th>Asymptote Angles</th>
 </tr>
 </thead>
@@ -2588,23 +2588,23 @@ S-Plane:
 </details>
 <h3 id="rule-6-breakaway-and-break-in-points">Rule 6: Breakaway and Break-In Points</h3>
 <p><strong>Breakaway points</strong> are locations where root locus branches leave the real axis and become complex. <strong>Break-in points</strong> are where complex branches return to the real axis.</p>
-<p>These occur on real-axis segments of the root locus, between poles (breakaway) or between zeros (break-in), at points where <span class="arithmatex">\(K\)</span> reaches a local maximum or minimum.</p>
+<p>These occur on real-axis segments of the root locus, between poles (breakaway) or between zeros (break-in), at points where $K$ reaches a local maximum or minimum.</p>
 <p>To find breakaway/break-in points:</p>
 <h4 id="breakaway-point-condition">Breakaway Point Condition</h4>
-<p><span class="arithmatex">\(\frac{dK}{ds} = 0\)</span></p>
-<p>Equivalently, from <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span>, solve:</p>
-<p><span class="arithmatex">\(\frac{d}{ds}\left[\frac{-1}{G(s)H(s)}\right] = 0\)</span></p>
+<p>$\frac{dK}{ds} = 0$</p>
+<p>Equivalently, from $1 + KG(s)H(s) = 0$, solve:</p>
+<p>$\frac{d}{ds}\left[\frac{-1}{G(s)H(s)}\right] = 0$</p>
 <p>For simple cases with real poles and zeros:</p>
-<p><span class="arithmatex">\(\sum_{j=1}^{n} \frac{1}{s-p_j} = \sum_{i=1}^{m} \frac{1}{s-z_i}\)</span></p>
-<p>Solve for <span class="arithmatex">\(s\)</span> on real-axis segments of the locus.</p>
+<p>$\sum_{j=1}^{n} \frac{1}{s-p_j} = \sum_{i=1}^{m} \frac{1}{s-z_i}$</p>
+<p>Solve for $s$ on real-axis segments of the locus.</p>
 <h4 id="breakaway-point-example">Breakaway Point Example</h4>
-<p>For <span class="arithmatex">\(G(s) = \frac{K}{s(s+4)}\)</span> (poles at 0 and -4, no finite zeros):</p>
+<p>For $G(s) = \frac{K}{s(s+4)}$ (poles at 0 and -4, no finite zeros):</p>
 <p>The real-axis segment from 0 to -4 is on the locus. Setting:</p>
-<p><span class="arithmatex">\(\frac{1}{s} + \frac{1}{s+4} = 0\)</span></p>
-<p><span class="arithmatex">\((s+4) + s = 0\)</span></p>
-<p><span class="arithmatex">\(2s + 4 = 0\)</span></p>
-<p><span class="arithmatex">\(s = -2\)</span></p>
-<p>The breakaway point is at <span class="arithmatex">\(s = -2\)</span>. At this point, the two branches meet on the real axis and then depart at ±90° into the complex plane.</p>
+<p>$\frac{1}{s} + \frac{1}{s+4} = 0$</p>
+<p>$(s+4) + s = 0$</p>
+<p>$2s + 4 = 0$</p>
+<p>$s = -2$</p>
+<p>The breakaway point is at $s = -2$. At this point, the two branches meet on the real axis and then depart at ±90° into the complex plane.</p>
 <div class="admonition quote">
 <p class="admonition-title">Helping Gyra</p>
 <p>"Breakaway points are where my poles say goodbye to the real axis and head into complex territory. Below my breakaway gain, I have two distinct real poles—overdamped, sluggish. Above it, I have complex conjugate poles—oscillation appears! The breakaway point is my transition from 'boring but stable' to 'responsive but bouncy.'"</p>
@@ -2612,38 +2612,38 @@ S-Plane:
 <h3 id="rule-7-departure-and-arrival-angles">Rule 7: Departure and Arrival Angles</h3>
 <p>When the root locus leaves a complex pole or arrives at a complex zero, it does so at a specific angle. These angles are crucial for accurately sketching the locus near complex singularities.</p>
 <h4 id="departure-angle">Departure Angle</h4>
-<p><span class="arithmatex">\(\theta_{dep} = 180° - \sum(\text{angles from other poles}) + \sum(\text{angles from all zeros})\)</span></p>
+<p>$\theta_{dep} = 180° - \sum(\text{angles from other poles}) + \sum(\text{angles from all zeros})$</p>
 <p>All angles measured from the complex pole in question to other poles and zeros.</p>
 <h4 id="arrival-angle">Arrival Angle</h4>
-<p><span class="arithmatex">\(\phi_{arr} = 180° - \sum(\text{angles from all poles}) + \sum(\text{angles from other zeros})\)</span></p>
+<p>$\phi_{arr} = 180° - \sum(\text{angles from all poles}) + \sum(\text{angles from other zeros})$</p>
 <p>All angles measured from the complex zero in question.</p>
 <h4 id="departure-angle-example">Departure Angle Example</h4>
-<p>Consider <span class="arithmatex">\(G(s)H(s) = \frac{K}{(s+1)(s^2+2s+2)}\)</span></p>
-<p>The quadratic factor has roots at <span class="arithmatex">\(s = -1 \pm j1\)</span> (complex conjugate poles).</p>
-<p>For the pole at <span class="arithmatex">\(s = -1 + j\)</span>:</p>
+<p>Consider $G(s)H(s) = \frac{K}{(s+1)(s^2+2s+2)}$</p>
+<p>The quadratic factor has roots at $s = -1 \pm j1$ (complex conjugate poles).</p>
+<p>For the pole at $s = -1 + j$:</p>
 <ul>
-<li>Angle from pole at <span class="arithmatex">\(s = -1\)</span>: <span class="arithmatex">\(\angle[(-1+j) - (-1)] = \angle[j] = 90°\)</span></li>
-<li>Angle from conjugate pole at <span class="arithmatex">\(s = -1-j\)</span>: <span class="arithmatex">\(\angle[(-1+j) - (-1-j)] = \angle[2j] = 90°\)</span></li>
+<li>Angle from pole at $s = -1$: $\angle[(-1+j) - (-1)] = \angle[j] = 90°$</li>
+<li>Angle from conjugate pole at $s = -1-j$: $\angle[(-1+j) - (-1-j)] = \angle[2j] = 90°$</li>
 </ul>
-<p>Departure angle: <span class="arithmatex">\(\theta_{dep} = 180° - 90° - 90° = 0°\)</span></p>
+<p>Departure angle: $\theta_{dep} = 180° - 90° - 90° = 0°$</p>
 <p>The locus departs horizontally from this pole (toward the left, as it turns out).</p>
 <h3 id="rule-8-imaginary-axis-crossing">Rule 8: Imaginary Axis Crossing</h3>
 <p>The imaginary axis crossing determines the critical gain for stability—the same boundary we found with Routh-Hurwitz in Chapter 10. There are two methods:</p>
 <p><strong>Method 1: Routh-Hurwitz</strong>
-Set the first-column element that goes to zero equal to zero and solve for <span class="arithmatex">\(K\)</span>. The auxiliary polynomial gives the crossing frequency.</p>
+Set the first-column element that goes to zero equal to zero and solve for $K$. The auxiliary polynomial gives the crossing frequency.</p>
 <p><strong>Method 2: Direct Substitution</strong>
-Substitute <span class="arithmatex">\(s = j\omega\)</span> into the characteristic equation and set real and imaginary parts separately to zero. Solve for <span class="arithmatex">\(\omega\)</span> and <span class="arithmatex">\(K\)</span>.</p>
+Substitute $s = j\omega$ into the characteristic equation and set real and imaginary parts separately to zero. Solve for $\omega$ and $K$.</p>
 <h4 id="imaginary-axis-crossing-example">Imaginary Axis Crossing Example</h4>
-<p>For <span class="arithmatex">\(1 + \frac{K}{s(s+2)(s+4)} = 0\)</span></p>
-<p>Characteristic equation: <span class="arithmatex">\(s^3 + 6s^2 + 8s + K = 0\)</span></p>
-<p>Substitute <span class="arithmatex">\(s = j\omega\)</span>:</p>
-<p><span class="arithmatex">\((j\omega)^3 + 6(j\omega)^2 + 8(j\omega) + K = 0\)</span></p>
-<p><span class="arithmatex">\(-j\omega^3 - 6\omega^2 + 8j\omega + K = 0\)</span></p>
-<p>Real part: <span class="arithmatex">\(-6\omega^2 + K = 0 \Rightarrow K = 6\omega^2\)</span></p>
-<p>Imaginary part: <span class="arithmatex">\(-\omega^3 + 8\omega = 0 \Rightarrow \omega(\omega^2 - 8) = 0\)</span></p>
-<p>So <span class="arithmatex">\(\omega = \sqrt{8} = 2\sqrt{2}\)</span> rad/s (ignoring <span class="arithmatex">\(\omega = 0\)</span>)</p>
-<p>And <span class="arithmatex">\(K = 6 \times 8 = 48\)</span></p>
-<p>The root locus crosses the imaginary axis at <span class="arithmatex">\(s = \pm j2\sqrt{2}\)</span> when <span class="arithmatex">\(K = 48\)</span>.</p>
+<p>For $1 + \frac{K}{s(s+2)(s+4)} = 0$</p>
+<p>Characteristic equation: $s^3 + 6s^2 + 8s + K = 0$</p>
+<p>Substitute $s = j\omega$:</p>
+<p>$(j\omega)^3 + 6(j\omega)^2 + 8(j\omega) + K = 0$</p>
+<p>$-j\omega^3 - 6\omega^2 + 8j\omega + K = 0$</p>
+<p>Real part: $-6\omega^2 + K = 0 \Rightarrow K = 6\omega^2$</p>
+<p>Imaginary part: $-\omega^3 + 8\omega = 0 \Rightarrow \omega(\omega^2 - 8) = 0$</p>
+<p>So $\omega = \sqrt{8} = 2\sqrt{2}$ rad/s (ignoring $\omega = 0$)</p>
+<p>And $K = 6 \times 8 = 48$</p>
+<p>The root locus crosses the imaginary axis at $s = \pm j2\sqrt{2}$ when $K = 48$.</p>
 <h4 id="diagram-complete-root-locus-constructor">Diagram: Complete Root Locus Constructor</h4>
 <iframe src="../../sims/root-locus-constructor/main.html" width="100%" height="650px" scrolling="no"></iframe>
 
@@ -2702,44 +2702,44 @@ S-Plane:
 <p>Let's work through a complete example to demonstrate all the construction rules working together.</p>
 <p>Consider the open-loop transfer function:</p>
 <h4 id="complete-example">Complete Example</h4>
-<p><span class="arithmatex">\(G(s)H(s) = \frac{K(s+3)}{s(s+1)(s+2)}\)</span></p>
+<p>$G(s)H(s) = \frac{K(s+3)}{s(s+1)(s+2)}$</p>
 <p>where:</p>
 <ul>
-<li>Poles at <span class="arithmatex">\(s = 0, -1, -2\)</span> (three poles, <span class="arithmatex">\(n = 3\)</span>)</li>
-<li>Zero at <span class="arithmatex">\(s = -3\)</span> (one zero, <span class="arithmatex">\(m = 1\)</span>)</li>
+<li>Poles at $s = 0, -1, -2$ (three poles, $n = 3$)</li>
+<li>Zero at $s = -3$ (one zero, $m = 1$)</li>
 </ul>
 <p><strong>Step 1: Number of Branches</strong></p>
-<p><span class="arithmatex">\(n = 3\)</span> branches</p>
+<p>$n = 3$ branches</p>
 <p><strong>Step 2: Starting and Ending Points</strong></p>
 <ul>
-<li>Start: <span class="arithmatex">\(s = 0, -1, -2\)</span> (the three poles)</li>
-<li>End: One branch ends at <span class="arithmatex">\(s = -3\)</span> (the zero); two branches go to infinity</li>
+<li>Start: $s = 0, -1, -2$ (the three poles)</li>
+<li>End: One branch ends at $s = -3$ (the zero); two branches go to infinity</li>
 </ul>
 <p><strong>Step 3: Real-Axis Segments</strong></p>
 <p>Count poles and zeros to the right of test points:</p>
 <ul>
-<li>Right of <span class="arithmatex">\(s = 0\)</span>: 0 singularities → OFF (even)</li>
-<li>Between <span class="arithmatex">\(s = 0\)</span> and <span class="arithmatex">\(s = -1\)</span>: 1 pole → ON (odd)</li>
-<li>Between <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -2\)</span>: 2 poles → OFF (even)</li>
-<li>Between <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -3\)</span>: 3 poles → ON (odd)</li>
-<li>Left of <span class="arithmatex">\(s = -3\)</span>: 3 poles + 1 zero = 4 → OFF (even)</li>
+<li>Right of $s = 0$: 0 singularities → OFF (even)</li>
+<li>Between $s = 0$ and $s = -1$: 1 pole → ON (odd)</li>
+<li>Between $s = -1$ and $s = -2$: 2 poles → OFF (even)</li>
+<li>Between $s = -2$ and $s = -3$: 3 poles → ON (odd)</li>
+<li>Left of $s = -3$: 3 poles + 1 zero = 4 → OFF (even)</li>
 </ul>
-<p>Root locus on real axis: <span class="arithmatex">\([-1, 0]\)</span> and <span class="arithmatex">\([-3, -2]\)</span></p>
+<p>Root locus on real axis: $[-1, 0]$ and $[-3, -2]$</p>
 <p><strong>Step 4: Asymptotes</strong></p>
-<p><span class="arithmatex">\(n - m = 3 - 1 = 2\)</span> asymptotes</p>
-<p>Angles: <span class="arithmatex">\(\phi_0 = \frac{180°}{2} = 90°\)</span>, <span class="arithmatex">\(\phi_1 = \frac{540°}{2} = 270° = -90°\)</span></p>
-<p>Centroid: <span class="arithmatex">\(\sigma_c = \frac{(0 + (-1) + (-2)) - (-3)}{2} = \frac{-3 + 3}{2} = 0\)</span></p>
-<p>The asymptotes are vertical lines at <span class="arithmatex">\(\sigma = 0\)</span>, going straight up and down.</p>
+<p>$n - m = 3 - 1 = 2$ asymptotes</p>
+<p>Angles: $\phi_0 = \frac{180°}{2} = 90°$, $\phi_1 = \frac{540°}{2} = 270° = -90°$</p>
+<p>Centroid: $\sigma_c = \frac{(0 + (-1) + (-2)) - (-3)}{2} = \frac{-3 + 3}{2} = 0$</p>
+<p>The asymptotes are vertical lines at $\sigma = 0$, going straight up and down.</p>
 <p><strong>Step 5: Breakaway Point</strong></p>
-<p>On the segment <span class="arithmatex">\([-1, 0]\)</span>:</p>
-<p><span class="arithmatex">\(\frac{1}{s} + \frac{1}{s+1} + \frac{1}{s+2} = \frac{1}{s+3}\)</span></p>
-<p>Solving numerically: <span class="arithmatex">\(s \approx -0.42\)</span></p>
+<p>On the segment $[-1, 0]$:</p>
+<p>$\frac{1}{s} + \frac{1}{s+1} + \frac{1}{s+2} = \frac{1}{s+3}$</p>
+<p>Solving numerically: $s \approx -0.42$</p>
 <p><strong>Step 6: Departure Angles</strong></p>
 <p>All poles are real, so no departure angle calculation needed.</p>
 <p><strong>Step 7: Imaginary Axis Crossing</strong></p>
-<p>Use the characteristic equation: <span class="arithmatex">\(s(s+1)(s+2) + K(s+3) = 0\)</span></p>
-<p><span class="arithmatex">\(s^3 + 3s^2 + 2s + Ks + 3K = 0\)</span></p>
-<p><span class="arithmatex">\(s^3 + 3s^2 + (2+K)s + 3K = 0\)</span></p>
+<p>Use the characteristic equation: $s(s+1)(s+2) + K(s+3) = 0$</p>
+<p>$s^3 + 3s^2 + 2s + Ks + 3K = 0$</p>
+<p>$s^3 + 3s^2 + (2+K)s + 3K = 0$</p>
 <p>Routh array:</p>
 <table>
 <thead>
@@ -2751,28 +2751,28 @@ S-Plane:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>1</td>
-<td><span class="arithmatex">\(2+K\)</span></td>
+<td>$2+K$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
+<td>$s^2$</td>
 <td>3</td>
-<td><span class="arithmatex">\(3K\)</span></td>
+<td>$3K$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(\frac{3(2+K) - 3K}{3} = 2\)</span></td>
+<td>$s^1$</td>
+<td>$\frac{3(2+K) - 3K}{3} = 2$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
-<td><span class="arithmatex">\(3K\)</span></td>
+<td>$s^0$</td>
+<td>$3K$</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
-<p>The <span class="arithmatex">\(s^1\)</span> row is always 2 (positive)—the locus never crosses the imaginary axis for positive <span class="arithmatex">\(K\)</span>! This system is stable for all <span class="arithmatex">\(K &gt; 0\)</span>. The zero at <span class="arithmatex">\(s = -3\)</span> "pulls" the locus to the left, preventing instability.</p>
+<p>The $s^1$ row is always 2 (positive)—the locus never crosses the imaginary axis for positive $K$! This system is stable for all $K &gt; 0$. The zero at $s = -3$ "pulls" the locus to the left, preventing instability.</p>
 <table>
 <thead>
 <tr>
@@ -2820,36 +2820,36 @@ S-Plane:
 <p>Adding a zero to the left of all poles can "stabilize" the root locus—the zero pulls branches leftward, potentially keeping them in the LHP for all gains. This is the principle behind <strong>lead compensation</strong>.</p>
 </div>
 <h2 id="the-magnitude-condition-and-gain-calculation">The Magnitude Condition and Gain Calculation</h2>
-<p>Once you know a point is on the root locus (via the angle condition), the magnitude condition tells you the value of <span class="arithmatex">\(K\)</span> that places a closed-loop pole there.</p>
+<p>Once you know a point is on the root locus (via the angle condition), the magnitude condition tells you the value of $K$ that places a closed-loop pole there.</p>
 <h4 id="magnitude-condition-gain-formula">Magnitude Condition (Gain Formula)</h4>
-<p><span class="arithmatex">\(K = \frac{1}{|G(s)H(s)|} = \frac{\prod |s - p_j|}{\prod |s - z_i|}\)</span></p>
+<p>$K = \frac{1}{|G(s)H(s)|} = \frac{\prod |s - p_j|}{\prod |s - z_i|}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(|s - p_j|\)</span> is the distance from test point <span class="arithmatex">\(s\)</span> to pole <span class="arithmatex">\(p_j\)</span></li>
-<li><span class="arithmatex">\(|s - z_i|\)</span> is the distance from test point <span class="arithmatex">\(s\)</span> to zero <span class="arithmatex">\(z_i\)</span></li>
+<li>$|s - p_j|$ is the distance from test point $s$ to pole $p_j$</li>
+<li>$|s - z_i|$ is the distance from test point $s$ to zero $z_i$</li>
 </ul>
 <p>In words: <strong>Gain equals product of distances to poles divided by product of distances to zeros</strong>.</p>
 <p>This is remarkably convenient for graphical analysis. Measure distances on your root locus plot, multiply the pole distances, divide by zero distances, and you have the gain.</p>
 <h4 id="gain-calculation-example">Gain Calculation Example</h4>
-<p>For <span class="arithmatex">\(G(s)H(s) = \frac{K}{s(s+4)}\)</span>, find <span class="arithmatex">\(K\)</span> when poles are at <span class="arithmatex">\(s = -2 \pm j2\)</span>.</p>
-<p>Test point: <span class="arithmatex">\(s = -2 + j2\)</span></p>
-<p>Distance to pole at <span class="arithmatex">\(s = 0\)</span>: <span class="arithmatex">\(|-2 + j2| = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}\)</span></p>
-<p>Distance to pole at <span class="arithmatex">\(s = -4\)</span>: <span class="arithmatex">\(|-2 + j2 - (-4)| = |2 + j2| = \sqrt{4 + 4} = 2\sqrt{2}\)</span></p>
-<p><span class="arithmatex">\(K = 2\sqrt{2} \times 2\sqrt{2} = 8\)</span></p>
-<p>When <span class="arithmatex">\(K = 8\)</span>, the closed-loop poles are at <span class="arithmatex">\(s = -2 \pm j2\)</span>, giving:</p>
+<p>For $G(s)H(s) = \frac{K}{s(s+4)}$, find $K$ when poles are at $s = -2 \pm j2$.</p>
+<p>Test point: $s = -2 + j2$</p>
+<p>Distance to pole at $s = 0$: $|-2 + j2| = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$</p>
+<p>Distance to pole at $s = -4$: $|-2 + j2 - (-4)| = |2 + j2| = \sqrt{4 + 4} = 2\sqrt{2}$</p>
+<p>$K = 2\sqrt{2} \times 2\sqrt{2} = 8$</p>
+<p>When $K = 8$, the closed-loop poles are at $s = -2 \pm j2$, giving:</p>
 <ul>
-<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{(-2)^2 + 2^2} = \sqrt{8} = 2\sqrt{2}\)</span> rad/s</li>
-<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} \approx 0.707\)</span></li>
+<li>Natural frequency: $\omega_n = \sqrt{(-2)^2 + 2^2} = \sqrt{8} = 2\sqrt{2}$ rad/s</li>
+<li>Damping ratio: $\zeta = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} \approx 0.707$</li>
 </ul>
 <p>This is the well-known "optimal" damping ratio—significant overshoot but fast settling.</p>
 <h2 id="root-locus-gain-and-system-performance">Root Locus Gain and System Performance</h2>
-<p>The parameter <span class="arithmatex">\(K\)</span> in the root locus isn't just a mathematical variable—it's a tuning knob with real consequences. Understanding how <span class="arithmatex">\(K\)</span> affects performance is essential for design.</p>
-<p>As <span class="arithmatex">\(K\)</span> increases along the root locus:</p>
+<p>The parameter $K$ in the root locus isn't just a mathematical variable—it's a tuning knob with real consequences. Understanding how $K$ affects performance is essential for design.</p>
+<p>As $K$ increases along the root locus:</p>
 <table>
 <thead>
 <tr>
 <th>Performance Aspect</th>
-<th>Effect of Increasing <span class="arithmatex">\(K\)</span></th>
+<th>Effect of Increasing $K$</th>
 </tr>
 </thead>
 <tbody>
@@ -2935,8 +2935,8 @@ Root Locus:
 <h4 id="design-procedure">Design Procedure</h4>
 <ol>
 <li>Translate specifications into desired pole locations</li>
-<li><span class="arithmatex">\(\zeta\)</span> specifies a line: <span class="arithmatex">\(\cos(\theta) = \zeta\)</span> where <span class="arithmatex">\(\theta\)</span> is angle from negative real axis</li>
-<li><span class="arithmatex">\(\omega_n\)</span> specifies a circle of radius <span class="arithmatex">\(\omega_n\)</span></li>
+<li>$\zeta$ specifies a line: $\cos(\theta) = \zeta$ where $\theta$ is angle from negative real axis</li>
+<li>$\omega_n$ specifies a circle of radius $\omega_n$</li>
 <li>Settling time → minimum distance from imaginary axis</li>
 <li>
 <p>Maximum overshoot → minimum damping ratio</p>
@@ -2952,30 +2952,30 @@ Root Locus:
 </li>
 </ol>
 <h4 id="design-example-meeting-a-damping-requirement">Design Example: Meeting a Damping Requirement</h4>
-<p>Given: <span class="arithmatex">\(G(s) = \frac{K}{s(s+6)}\)</span></p>
-<p>Requirement: Closed-loop damping ratio <span class="arithmatex">\(\zeta = 0.5\)</span></p>
-<p>The angle for <span class="arithmatex">\(\zeta = 0.5\)</span> is <span class="arithmatex">\(\theta = \cos^{-1}(0.5) = 60°\)</span> from the negative real axis.</p>
+<p>Given: $G(s) = \frac{K}{s(s+6)}$</p>
+<p>Requirement: Closed-loop damping ratio $\zeta = 0.5$</p>
+<p>The angle for $\zeta = 0.5$ is $\theta = \cos^{-1}(0.5) = 60°$ from the negative real axis.</p>
 <p>The root locus for this system:</p>
 <ul>
-<li>Starts at <span class="arithmatex">\(s = 0, -6\)</span></li>
-<li>Asymptotes at ±90° from centroid at <span class="arithmatex">\(\sigma_c = -3\)</span></li>
-<li>Breakaway at <span class="arithmatex">\(s = -3\)</span></li>
+<li>Starts at $s = 0, -6$</li>
+<li>Asymptotes at ±90° from centroid at $\sigma_c = -3$</li>
+<li>Breakaway at $s = -3$</li>
 </ul>
-<p>The locus departs vertically from <span class="arithmatex">\(s = -3\)</span>. The <span class="arithmatex">\(\zeta = 0.5\)</span> lines intersect the locus at <span class="arithmatex">\(s = -3 \pm j3\sqrt{3}\)</span>.</p>
+<p>The locus departs vertically from $s = -3$. The $\zeta = 0.5$ lines intersect the locus at $s = -3 \pm j3\sqrt{3}$.</p>
 <p>Gain at this point:</p>
-<p><span class="arithmatex">\(K = |s| \cdot |s + 6| = |-3 + j3\sqrt{3}| \cdot |3 + j3\sqrt{3}|\)</span></p>
-<p><span class="arithmatex">\(K = 6 \times 6 = 36\)</span></p>
-<p>With <span class="arithmatex">\(K = 36\)</span>, the closed-loop poles are at <span class="arithmatex">\(s = -3 \pm j5.2\)</span>, giving <span class="arithmatex">\(\zeta = 0.5\)</span> exactly.</p>
+<p>$K = |s| \cdot |s + 6| = |-3 + j3\sqrt{3}| \cdot |3 + j3\sqrt{3}|$</p>
+<p>$K = 6 \times 6 = 36$</p>
+<p>With $K = 36$, the closed-loop poles are at $s = -3 \pm j5.2$, giving $\zeta = 0.5$ exactly.</p>
 <h2 id="dominant-pole-design">Dominant Pole Design</h2>
 <p>Real systems often have more than two poles. A third-order system has three poles; higher-order systems have even more. Analyzing all poles is complex, but the <strong>dominant pole</strong> concept simplifies matters.</p>
 <p><strong>Dominant poles</strong> are the closed-loop poles closest to the imaginary axis. They have the slowest decay rates and thus contribute most to the response for the longest time. If the dominant poles are well-separated from the other poles (at least 5× farther from the imaginary axis), the system behaves approximately like a second-order system defined by the dominant poles alone.</p>
 <h4 id="dominant-pole-criterion">Dominant Pole Criterion</h4>
-<p><span class="arithmatex">\(|\text{Re}(p_{non-dominant})| &gt; 5 |\text{Re}(p_{dominant})|\)</span></p>
+<p>$|\text{Re}(p_{non-dominant})| &gt; 5 |\text{Re}(p_{dominant})|$</p>
 <p>When this condition holds, the contribution from non-dominant poles decays so quickly that it becomes negligible within the rise time of the dominant response.</p>
 <h4 id="dominant-pole-design-example">Dominant Pole Design Example</h4>
-<p>Consider <span class="arithmatex">\(G(s) = \frac{K}{s(s+1)(s+10)}\)</span></p>
-<p>For small <span class="arithmatex">\(K\)</span>, poles are near 0, -1, -10. As <span class="arithmatex">\(K\)</span> increases, the poles at 0 and -1 become complex and dominate the response—they're much closer to the imaginary axis than the pole near -10.</p>
-<p>If we design for the dominant pair to have <span class="arithmatex">\(\zeta = 0.707\)</span> and <span class="arithmatex">\(\omega_n = 1\)</span>, the dominant poles would be at <span class="arithmatex">\(s = -0.707 \pm j0.707\)</span>. The third pole should remain near <span class="arithmatex">\(s = -10\)</span>. Since <span class="arithmatex">\(10 &gt; 5 \times 0.707\)</span>, the dominance condition is satisfied.</p>
+<p>Consider $G(s) = \frac{K}{s(s+1)(s+10)}$</p>
+<p>For small $K$, poles are near 0, -1, -10. As $K$ increases, the poles at 0 and -1 become complex and dominate the response—they're much closer to the imaginary axis than the pole near -10.</p>
+<p>If we design for the dominant pair to have $\zeta = 0.707$ and $\omega_n = 1$, the dominant poles would be at $s = -0.707 \pm j0.707$. The third pole should remain near $s = -10$. Since $10 &gt; 5 \times 0.707$, the dominance condition is satisfied.</p>
 <div class="admonition warning">
 <p class="admonition-title">Validity of Dominant Pole Assumption</p>
 <p>The dominant pole approximation fails when:</p>
@@ -2998,16 +2998,16 @@ Root Locus:
 </thead>
 <tbody>
 <tr>
-<td>Settling time <span class="arithmatex">\(t_s\)</span></td>
-<td><span class="arithmatex">\(\text{Re}(s) &lt; -\frac{4}{t_s}\)</span> (2% criterion)</td>
+<td>Settling time $t_s$</td>
+<td>$\text{Re}(s) &lt; -\frac{4}{t_s}$ (2% criterion)</td>
 </tr>
 <tr>
-<td>Peak overshoot <span class="arithmatex">\(M_p\)</span>%</td>
-<td>Damping ratio <span class="arithmatex">\(\zeta\)</span> on specific line</td>
+<td>Peak overshoot $M_p$%</td>
+<td>Damping ratio $\zeta$ on specific line</td>
 </tr>
 <tr>
-<td>Rise time <span class="arithmatex">\(t_r\)</span></td>
-<td>Natural frequency <span class="arithmatex">\(\omega_n &gt; \frac{1.8}{t_r}\)</span></td>
+<td>Rise time $t_r$</td>
+<td>Natural frequency $\omega_n &gt; \frac{1.8}{t_r}$</td>
 </tr>
 <tr>
 <td>Steady-state error</td>
@@ -3015,7 +3015,7 @@ Root Locus:
 </tr>
 </tbody>
 </table>
-<p>The root locus shows you where poles can go as <span class="arithmatex">\(K\)</span> varies. If the locus passes through your desired region, you're in luck—just set the appropriate gain. If it doesn't, you'll need compensation (additional poles and zeros) to reshape the locus.</p>
+<p>The root locus shows you where poles can go as $K$ varies. If the locus passes through your desired region, you're in luck—just set the appropriate gain. If it doesn't, you'll need compensation (additional poles and zeros) to reshape the locus.</p>
 <h4 id="diagram-pole-placement-designer">Diagram: Pole Placement Designer</h4>
 <iframe src="../../sims/pole-placement/main.html" width="100%" height="600px" scrolling="no"></iframe>
 
@@ -3074,11 +3074,11 @@ S-Plane:
 <h3 id="lead-compensation">Lead Compensation</h3>
 <p>A <strong>lead compensator</strong> adds a zero to the left of a pole:</p>
 <h4 id="lead-compensator">Lead Compensator</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \frac{s + z}{s + p}\)</span></p>
+<p>$G_c(s) = K_c \frac{s + z}{s + p}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(z &lt; p\)</span> (zero closer to origin than pole)</li>
-<li>Both <span class="arithmatex">\(z\)</span> and <span class="arithmatex">\(p\)</span> are positive real numbers</li>
+<li>$z &lt; p$ (zero closer to origin than pole)</li>
+<li>Both $z$ and $p$ are positive real numbers</li>
 </ul>
 <p>The zero "pulls" the root locus to the left, improving stability margins and potentially allowing higher gains. The pole is placed far to the left so it doesn't interfere much.</p>
 <p>Effects of lead compensation:</p>
@@ -3091,10 +3091,10 @@ S-Plane:
 <h3 id="lag-compensation">Lag Compensation</h3>
 <p>A <strong>lag compensator</strong> adds a pole to the left of a zero (both near the origin):</p>
 <h4 id="lag-compensator">Lag Compensator</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \frac{s + z}{s + p}\)</span></p>
+<p>$G_c(s) = K_c \frac{s + z}{s + p}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(p &lt; z\)</span> (pole closer to origin than zero)</li>
+<li>$p &lt; z$ (pole closer to origin than zero)</li>
 <li>Both small (near the origin)</li>
 </ul>
 <p>The lag compensator doesn't significantly change the root locus shape but increases DC gain, reducing steady-state error.</p>
@@ -3108,7 +3108,7 @@ S-Plane:
 <h3 id="lead-lag-compensation">Lead-Lag Compensation</h3>
 <p>For demanding specifications, combine lead and lag:</p>
 <h4 id="lead-lag-compensator">Lead-Lag Compensator</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \frac{(s + z_1)(s + z_2)}{(s + p_1)(s + p_2)}\)</span></p>
+<p>$G_c(s) = K_c \frac{(s + z_1)(s + z_2)}{(s + p_1)(s + p_2)}$</p>
 <p>where:</p>
 <ul>
 <li>One zero-pole pair provides lead (transient improvement)</li>
@@ -3193,8 +3193,8 @@ Original Root Locus:
 </details>
 <h2 id="connecting-root-locus-to-previous-concepts">Connecting Root Locus to Previous Concepts</h2>
 <p>The root locus method ties together many concepts from earlier chapters:</p>
-<p><strong>From Chapter 6 (Poles and Zeros)</strong>: The root locus shows how open-loop poles and zeros determine closed-loop pole trajectories. Zeros attract branches; poles repel them (at <span class="arithmatex">\(K = 0\)</span>).</p>
-<p><strong>From Chapter 9 (Block Diagrams)</strong>: The characteristic equation <span class="arithmatex">\(1 + GH = 0\)</span> comes from the closed-loop transfer function of negative feedback systems.</p>
+<p><strong>From Chapter 6 (Poles and Zeros)</strong>: The root locus shows how open-loop poles and zeros determine closed-loop pole trajectories. Zeros attract branches; poles repel them (at $K = 0$).</p>
+<p><strong>From Chapter 9 (Block Diagrams)</strong>: The characteristic equation $1 + GH = 0$ comes from the closed-loop transfer function of negative feedback systems.</p>
 <p><strong>From Chapter 10 (Routh-Hurwitz)</strong>: The stability boundary from Routh-Hurwitz corresponds to imaginary axis crossings on the root locus. Both methods find the critical gain, but root locus shows the complete trajectory.</p>
 <p><strong>Looking Ahead to Frequency Methods</strong>: The root locus is a time-domain/s-plane technique. Bode plots and Nyquist diagrams (upcoming chapters) analyze the same systems from a frequency-domain perspective. The connections are deep:</p>
 <ul>
@@ -3235,10 +3235,10 @@ Original Root Locus:
 <h2 id="summary-the-root-locus-toolkit">Summary: The Root Locus Toolkit</h2>
 <p>The root locus method provides a complete graphical analysis of closed-loop pole movement. Here's your quick reference:</p>
 <p><strong>Purpose</strong>: Visualize how closed-loop poles move as gain varies; design gain for desired pole locations.</p>
-<p><strong>Foundation</strong>: The characteristic equation <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span></p>
+<p><strong>Foundation</strong>: The characteristic equation $1 + KG(s)H(s) = 0$</p>
 <ul>
-<li>Angle condition: <span class="arithmatex">\(\angle GH = \pm 180°\)</span> determines locus points</li>
-<li>Magnitude condition: <span class="arithmatex">\(K = 1/|GH|\)</span> gives gain at each point</li>
+<li>Angle condition: $\angle GH = \pm 180°$ determines locus points</li>
+<li>Magnitude condition: $K = 1/|GH|$ gives gain at each point</li>
 </ul>
 <p><strong>Construction Rules Summary</strong>:</p>
 <table>
@@ -3250,16 +3250,16 @@ Original Root Locus:
 </thead>
 <tbody>
 <tr>
-<td>Branches = <span class="arithmatex">\(n\)</span></td>
+<td>Branches = $n$</td>
 <td>Number of trajectories</td>
 </tr>
 <tr>
 <td>Start at poles</td>
-<td>Initial points (<span class="arithmatex">\(K = 0\)</span>)</td>
+<td>Initial points ($K = 0$)</td>
 </tr>
 <tr>
 <td>End at zeros/∞</td>
-<td>Final points (<span class="arithmatex">\(K → ∞\)</span>)</td>
+<td>Final points ($K → ∞$)</td>
 </tr>
 <tr>
 <td>Real axis test</td>
@@ -3307,15 +3307,15 @@ Original Root Locus:
 <p>This chapter has equipped you with the root locus method for control system analysis and design:</p>
 <ul>
 <li>
-<p>The <strong>root locus</strong> is the set of all possible closed-loop pole locations as gain <span class="arithmatex">\(K\)</span> varies from 0 to ∞.</p>
+<p>The <strong>root locus</strong> is the set of all possible closed-loop pole locations as gain $K$ varies from 0 to ∞.</p>
 </li>
 <li>
-<p>The <strong>angle condition</strong> (<span class="arithmatex">\(\angle GH = ±180°\)</span>) determines which points are on the locus. The <strong>magnitude condition</strong> (<span class="arithmatex">\(K = 1/|GH|\)</span>) gives the gain at each point.</p>
+<p>The <strong>angle condition</strong> ($\angle GH = ±180°$) determines which points are on the locus. The <strong>magnitude condition</strong> ($K = 1/|GH|$) gives the gain at each point.</p>
 </li>
 <li>
 <p><strong>Construction rules</strong> enable systematic sketching:</p>
 </li>
-<li><span class="arithmatex">\(n\)</span> branches start at open-loop poles, end at zeros or infinity</li>
+<li>$n$ branches start at open-loop poles, end at zeros or infinity</li>
 <li>Real-axis segments with odd number of singularities to the right</li>
 <li>Asymptotes at specific angles from the centroid</li>
 <li>Breakaway points where branches leave the real axis</li>
@@ -3343,7 +3343,7 @@ Original Root Locus:
 <p>A system has 4 poles and 1 zero. How many root locus branches are there? How many go to infinity?</p>
 </li>
 <li>
-<p>For <span class="arithmatex">\(G(s)H(s) = \frac{K}{s(s+4)(s+6)}\)</span>, what are the asymptote angles and centroid?</p>
+<p>For $G(s)H(s) = \frac{K}{s(s+4)(s+6)}$, what are the asymptote angles and centroid?</p>
 </li>
 <li>
 <p>Why does the root locus exist on a real-axis segment only if there's an odd number of singularities to its right?</p>
@@ -3355,7 +3355,7 @@ Original Root Locus:
 <p>What is the primary difference between lead and lag compensation in terms of root locus effect?</p>
 </li>
 </ol>
-<p>Answers: (1) 4 branches; 3 go to infinity. (2) Asymptotes at ±60°, 180°; centroid at <span class="arithmatex">\(\sigma_c = (0-4-6)/3 = -10/3 ≈ -3.33\)</span>. (3) Complex singularities contribute conjugate angles that cancel; real singularities to the right each contribute 180°, so odd count gives net ±180°. (4) System is stable for all K &gt; 0. (5) Lead adds a zero that pulls the locus left (improves transient); lag adds a pole-zero pair near the origin that doesn't change the shape much but increases DC gain (reduces steady-state error).</p>
+<p>Answers: (1) 4 branches; 3 go to infinity. (2) Asymptotes at ±60°, 180°; centroid at $\sigma_c = (0-4-6)/3 = -10/3 ≈ -3.33$. (3) Complex singularities contribute conjugate angles that cancel; real singularities to the right each contribute 180°, so odd count gives net ±180°. (4) System is stable for all K &gt; 0. (5) Lead adds a zero that pulls the locus left (improves transient); lag adds a pole-zero pair near the origin that doesn't change the shape much but increases DC gain (reduces steady-state error).</p>
 </details>
 
 

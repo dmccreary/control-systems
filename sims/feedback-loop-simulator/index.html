@@ -1249,11 +1249,11 @@
 <p>This interactive simulator demonstrates how proportional controller gain affects the step response of a first-order closed-loop system. Students can adjust parameters and observe real-time changes in system behavior.</p>
 <h3 id="system-model">System Model</h3>
 <p><strong>Plant:</strong> First-order system
-<span class="arithmatex">\(<span class="arithmatex">\(G_p(s) = \frac{1}{\tau s + 1}\)</span>\)</span></p>
+$$G_p(s) = \frac{1}{\tau s + 1}$$</p>
 <p><strong>Controller:</strong> Proportional gain
-<span class="arithmatex">\(<span class="arithmatex">\(G_c(s) = K\)</span>\)</span></p>
+$$G_c(s) = K$$</p>
 <p><strong>Closed-Loop Transfer Function:</strong>
-<span class="arithmatex">\(<span class="arithmatex">\(G_{CL}(s) = \frac{K}{\tau s + 1 + K} = \frac{K/(1+K)}{(\tau/(1+K))s + 1}\)</span>\)</span></p>
+$$G_{CL}(s) = \frac{K}{\tau s + 1 + K} = \frac{K/(1+K)}{(\tau/(1+K))s + 1}$$</p>
 <h3 id="key-relationships">Key Relationships</h3>
 <table>
 <thead>
@@ -1266,22 +1266,22 @@
 <tbody>
 <tr>
 <td>Steady-State Output</td>
-<td><span class="arithmatex">\(y_{ss} = \frac{K}{1+K}\)</span></td>
+<td>$y_{ss} = \frac{K}{1+K}$</td>
 <td>Approaches 1 (reference)</td>
 </tr>
 <tr>
 <td>Steady-State Error</td>
-<td><span class="arithmatex">\(e_{ss} = \frac{1}{1+K}\)</span></td>
+<td>$e_{ss} = \frac{1}{1+K}$</td>
 <td>Decreases toward 0</td>
 </tr>
 <tr>
 <td>Closed-Loop Time Constant</td>
-<td><span class="arithmatex">\(\tau_{CL} = \frac{\tau}{1+K}\)</span></td>
+<td>$\tau_{CL} = \frac{\tau}{1+K}$</td>
 <td>Faster response</td>
 </tr>
 <tr>
 <td>Settling Time (2%)</td>
-<td><span class="arithmatex">\(t_s \approx 4\tau_{CL}\)</span></td>
+<td>$t_s \approx 4\tau_{CL}$</td>
 <td>Faster settling</td>
 </tr>
 </tbody>
@@ -1352,7 +1352,7 @@
 <h2 id="key-insight">Key Insight</h2>
 <div class="admonition tip">
 <p class="admonition-title">The Proportional Control Limitation</p>
-<p>With proportional control alone, the steady-state error <span class="arithmatex">\(e_{ss} = \frac{1}{1+K}\)</span> can never reach zero, no matter how large K becomes. This fundamental limitation motivates the introduction of <strong>integral action</strong> in PID controllers.</p>
+<p>With proportional control alone, the steady-state error $e_{ss} = \frac{1}{1+K}$ can never reach zero, no matter how large K becomes. This fundamental limitation motivates the introduction of <strong>integral action</strong> in PID controllers.</p>
 </div>
 <h2 id="references">References</h2>
 <ul>

@@ -2479,26 +2479,26 @@
 </table>
 <p>Let's examine each element in detail.</p>
 <h3 id="blocks-and-transfer-functions">Blocks and Transfer Functions</h3>
-<p>The rectangular <strong>block</strong> is the workhorse of block diagrams. Each block contains a transfer function—typically written as <span class="arithmatex">\(G(s)\)</span>, <span class="arithmatex">\(H(s)\)</span>, or with subscripts like <span class="arithmatex">\(G_1(s)\)</span>—that describes how the input signal is transformed to produce the output.</p>
+<p>The rectangular <strong>block</strong> is the workhorse of block diagrams. Each block contains a transfer function—typically written as $G(s)$, $H(s)$, or with subscripts like $G_1(s)$—that describes how the input signal is transformed to produce the output.</p>
 <h4 id="transfer-function-block-relationship">Transfer Function Block Relationship</h4>
-<p><span class="arithmatex">\(Y(s) = G(s) \cdot X(s)\)</span></p>
+<p>$Y(s) = G(s) \cdot X(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(Y(s)\)</span> is the output signal in the s-domain</li>
-<li><span class="arithmatex">\(X(s)\)</span> is the input signal in the s-domain</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the transfer function of the block</li>
+<li>$Y(s)$ is the output signal in the s-domain</li>
+<li>$X(s)$ is the input signal in the s-domain</li>
+<li>$G(s)$ is the transfer function of the block</li>
 </ul>
-<p>The transfer function encapsulates all the dynamics of that subsystem—poles, zeros, gain, and frequency response. When you look at a block labeled <span class="arithmatex">\(G(s)\)</span>, you're seeing a complete dynamic system condensed into a single symbol.</p>
+<p>The transfer function encapsulates all the dynamics of that subsystem—poles, zeros, gain, and frequency response. When you look at a block labeled $G(s)$, you're seeing a complete dynamic system condensed into a single symbol.</p>
 <h3 id="the-summing-junction">The Summing Junction</h3>
 <p>The <strong>summing junction</strong> combines multiple signals through addition or subtraction. It's drawn as a circle with signs (+ or −) next to each input arrow indicating whether that signal is added or subtracted.</p>
-<p>The summing junction is where error signals are born. When a reference input <span class="arithmatex">\(R(s)\)</span> enters with a positive sign and measured output <span class="arithmatex">\(Y(s)\)</span> enters with a negative sign, the result is the error:</p>
+<p>The summing junction is where error signals are born. When a reference input $R(s)$ enters with a positive sign and measured output $Y(s)$ enters with a negative sign, the result is the error:</p>
 <h4 id="error-signal-computation">Error Signal Computation</h4>
-<p><span class="arithmatex">\(E(s) = R(s) - Y(s)\)</span></p>
+<p>$E(s) = R(s) - Y(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(E(s)\)</span> is the error signal</li>
-<li><span class="arithmatex">\(R(s)\)</span> is the reference (desired) input</li>
-<li><span class="arithmatex">\(Y(s)\)</span> is the measured output (fed back through the sensor)</li>
+<li>$E(s)$ is the error signal</li>
+<li>$R(s)$ is the reference (desired) input</li>
+<li>$Y(s)$ is the measured output (fed back through the sensor)</li>
 </ul>
 <p>Summing junctions can have more than two inputs—disturbances, multiple feedback signals, and feedforward paths might all meet at a single junction. The key rule: signals are simply added algebraically according to their signs.</p>
 <h3 id="the-pickoff-point">The Pickoff Point</h3>
@@ -2547,45 +2547,45 @@ Canvas size: Responsive, minimum 800x500px</p>
 <p>When multiple blocks appear in a system, they're connected in specific patterns. Three fundamental connection types cover nearly every configuration you'll encounter: cascade (series), parallel, and feedback.</p>
 <h3 id="cascade-connection">Cascade Connection</h3>
 <p>A <strong>cascade connection</strong> (or series connection) occurs when the output of one block feeds directly into the input of another. The blocks are "in line," like train cars coupled together.</p>
-<p>For two blocks <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> in cascade:</p>
+<p>For two blocks $G_1(s)$ and $G_2(s)$ in cascade:</p>
 <h4 id="cascade-transfer-function">Cascade Transfer Function</h4>
-<p><span class="arithmatex">\(G_{cascade}(s) = G_1(s) \cdot G_2(s)\)</span></p>
+<p>$G_{cascade}(s) = G_1(s) \cdot G_2(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(G_{cascade}(s)\)</span> is the equivalent transfer function of the cascade</li>
-<li><span class="arithmatex">\(G_1(s)\)</span> is the first block in the chain</li>
-<li><span class="arithmatex">\(G_2(s)\)</span> is the second block in the chain</li>
+<li>$G_{cascade}(s)$ is the equivalent transfer function of the cascade</li>
+<li>$G_1(s)$ is the first block in the chain</li>
+<li>$G_2(s)$ is the second block in the chain</li>
 </ul>
-<p>The rule extends to any number of blocks: multiply all the transfer functions together. This makes intuitive sense—each block multiplies the signal by its transfer function, so chaining <span class="arithmatex">\(n\)</span> blocks multiplies by all <span class="arithmatex">\(n\)</span> transfer functions.</p>
-<p>Order matters for physical interpretation (signals flow through <span class="arithmatex">\(G_1\)</span> before <span class="arithmatex">\(G_2\)</span>), but mathematically, multiplication is commutative: <span class="arithmatex">\(G_1(s) \cdot G_2(s) = G_2(s) \cdot G_1(s)\)</span>.</p>
+<p>The rule extends to any number of blocks: multiply all the transfer functions together. This makes intuitive sense—each block multiplies the signal by its transfer function, so chaining $n$ blocks multiplies by all $n$ transfer functions.</p>
+<p>Order matters for physical interpretation (signals flow through $G_1$ before $G_2$), but mathematically, multiplication is commutative: $G_1(s) \cdot G_2(s) = G_2(s) \cdot G_1(s)$.</p>
 <h3 id="parallel-connection">Parallel Connection</h3>
 <p>A <strong>parallel connection</strong> occurs when a signal splits into multiple paths, each path passes through a different block, and the results combine at a summing junction.</p>
-<p>For two blocks <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> in parallel (both added):</p>
+<p>For two blocks $G_1(s)$ and $G_2(s)$ in parallel (both added):</p>
 <h4 id="parallel-transfer-function">Parallel Transfer Function</h4>
-<p><span class="arithmatex">\(G_{parallel}(s) = G_1(s) + G_2(s)\)</span></p>
+<p>$G_{parallel}(s) = G_1(s) + G_2(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(G_{parallel}(s)\)</span> is the equivalent transfer function of the parallel combination</li>
-<li><span class="arithmatex">\(G_1(s)\)</span> is the upper parallel path</li>
-<li><span class="arithmatex">\(G_2(s)\)</span> is the lower parallel path</li>
+<li>$G_{parallel}(s)$ is the equivalent transfer function of the parallel combination</li>
+<li>$G_1(s)$ is the upper parallel path</li>
+<li>$G_2(s)$ is the lower parallel path</li>
 </ul>
 <p>If one path has a negative sign at the summing junction, you subtract instead of add. Parallel connections are common when multiple effects contribute to a single output—perhaps a feedforward path alongside the main control path, or multiple disturbances entering the plant.</p>
 <h3 id="feedback-connection">Feedback Connection</h3>
-<p>The <strong>feedback connection</strong> is the heart of closed-loop control. The output of a forward path block <span class="arithmatex">\(G(s)\)</span> is fed back through a feedback block <span class="arithmatex">\(H(s)\)</span> and subtracted (for negative feedback) from the input.</p>
+<p>The <strong>feedback connection</strong> is the heart of closed-loop control. The output of a forward path block $G(s)$ is fed back through a feedback block $H(s)$ and subtracted (for negative feedback) from the input.</p>
 <p>For negative feedback:</p>
 <h4 id="closed-loop-transfer-function">Closed-Loop Transfer Function</h4>
-<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 + G(s)H(s)}\)</span></p>
+<p>$T(s) = \frac{G(s)}{1 + G(s)H(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(T(s)\)</span> is the closed-loop transfer function</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
-<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
-<li><span class="arithmatex">\(G(s)H(s)\)</span> is the loop transfer function (open-loop transfer function)</li>
+<li>$T(s)$ is the closed-loop transfer function</li>
+<li>$G(s)$ is the forward path transfer function</li>
+<li>$H(s)$ is the feedback path transfer function</li>
+<li>$G(s)H(s)$ is the loop transfer function (open-loop transfer function)</li>
 </ul>
 <p>This formula is so fundamental that you should commit it to memory. It appears constantly in control systems analysis and design.</p>
 <p>For positive feedback (when the fed-back signal is added rather than subtracted):</p>
 <h4 id="positive-feedback-transfer-function">Positive Feedback Transfer Function</h4>
-<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 - G(s)H(s)}\)</span></p>
+<p>$T(s) = \frac{G(s)}{1 - G(s)H(s)}$</p>
 <p>where:</p>
 <ul>
 <li>The denominator has a minus sign instead of plus</li>
@@ -2593,7 +2593,7 @@ Canvas size: Responsive, minimum 800x500px</p>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">The Sign Matters!</p>
-<p>The difference between <span class="arithmatex">\(1 + G(s)H(s)\)</span> (negative feedback) and <span class="arithmatex">\(1 - G(s)H(s)\)</span> (positive feedback) is critical. Most control systems use negative feedback because it's inherently stabilizing. The denominator <span class="arithmatex">\(1 + G(s)H(s)\)</span> is called the <strong>characteristic polynomial</strong>—its roots determine system stability.</p>
+<p>The difference between $1 + G(s)H(s)$ (negative feedback) and $1 - G(s)H(s)$ (positive feedback) is critical. Most control systems use negative feedback because it's inherently stabilizing. The denominator $1 + G(s)H(s)$ is called the <strong>characteristic polynomial</strong>—its roots determine system stability.</p>
 </div>
 <table>
 <thead>
@@ -2607,22 +2607,22 @@ Canvas size: Responsive, minimum 800x500px</p>
 <tr>
 <td>Cascade</td>
 <td>Blocks in series</td>
-<td><span class="arithmatex">\(G_1 \cdot G_2\)</span></td>
+<td>$G_1 \cdot G_2$</td>
 </tr>
 <tr>
 <td>Parallel</td>
 <td>Blocks in parallel, summed</td>
-<td><span class="arithmatex">\(G_1 + G_2\)</span></td>
+<td>$G_1 + G_2$</td>
 </tr>
 <tr>
 <td>Negative Feedback</td>
 <td>Forward and feedback paths</td>
-<td><span class="arithmatex">\(\frac{G}{1 + GH}\)</span></td>
+<td>$\frac{G}{1 + GH}$</td>
 </tr>
 <tr>
 <td>Positive Feedback</td>
 <td>Forward path, added feedback</td>
-<td><span class="arithmatex">\(\frac{G}{1 - GH}\)</span></td>
+<td>$\frac{G}{1 - GH}$</td>
 </tr>
 </tbody>
 </table>
@@ -2640,19 +2640,19 @@ Bloom Verb: compare, contrast</p>
 - Right panel (70%): Visual block diagram that updates based on selection</p>
 <p>Visual elements:
 - Three connection configurations shown graphically
-- Block <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> with adjustable gains
-- Input arrow <span class="arithmatex">\(R(s)\)</span> and output arrow <span class="arithmatex">\(Y(s)\)</span>
+- Block $G_1(s)$ and $G_2(s)$ with adjustable gains
+- Input arrow $R(s)$ and output arrow $Y(s)$
 - Formula display showing equivalent transfer function
 - Pole-zero plot or Bode magnitude sketch for each configuration</p>
 <p>Interactive controls:
 - Radio buttons: Select "Cascade", "Parallel", or "Feedback"
-- Slider: <span class="arithmatex">\(G_1\)</span> gain (0.1 to 10, default 2)
-- Slider: <span class="arithmatex">\(G_2\)</span> gain (0.1 to 10, default 3)
+- Slider: $G_1$ gain (0.1 to 10, default 2)
+- Slider: $G_2$ gain (0.1 to 10, default 3)
 - Checkbox: Show equivalent single-block representation
 - Button: Reset to defaults</p>
 <p>Default parameters:
 - Connection type: Cascade
-- <span class="arithmatex">\(G_1 = 2\)</span>, <span class="arithmatex">\(G_2 = 3\)</span>
+- $G_1 = 2$, $G_2 = 3$
 - Transfer functions shown as simple gains for clarity</p>
 <p>Behavior:
 - When connection type changes, diagram reconfigures smoothly
@@ -2671,23 +2671,23 @@ Canvas size: Responsive, 800x550px minimum</p>
 <h2 id="understanding-forward-and-feedback-paths">Understanding Forward and Feedback Paths</h2>
 <p>Before we can reduce complex block diagrams, we need precise vocabulary for describing the routes signals take through a system.</p>
 <h3 id="forward-path">Forward Path</h3>
-<p>A <strong>forward path</strong> is any path from the input <span class="arithmatex">\(R(s)\)</span> to the output <span class="arithmatex">\(Y(s)\)</span> that traverses signals only in the forward direction (following the arrows) and doesn't pass through any node more than once.</p>
-<p>In a simple feedback system, there's typically one forward path: from <span class="arithmatex">\(R(s)\)</span> through the controller, through the plant, to <span class="arithmatex">\(Y(s)\)</span>. Complex systems may have multiple forward paths—perhaps a direct feedforward path alongside the main control path.</p>
+<p>A <strong>forward path</strong> is any path from the input $R(s)$ to the output $Y(s)$ that traverses signals only in the forward direction (following the arrows) and doesn't pass through any node more than once.</p>
+<p>In a simple feedback system, there's typically one forward path: from $R(s)$ through the controller, through the plant, to $Y(s)$. Complex systems may have multiple forward paths—perhaps a direct feedforward path alongside the main control path.</p>
 <h3 id="feedback-path">Feedback Path</h3>
-<p>The <strong>feedback path</strong> is the route from the output back to the summing junction at the input. This path typically includes the sensor and any signal conditioning. The feedback path contains the block <span class="arithmatex">\(H(s)\)</span> in our standard notation.</p>
+<p>The <strong>feedback path</strong> is the route from the output back to the summing junction at the input. This path typically includes the sensor and any signal conditioning. The feedback path contains the block $H(s)$ in our standard notation.</p>
 <p>The feedback path is what makes closed-loop control possible. Without it, the system has no way to compare actual output to desired output.</p>
 <h3 id="the-loop">The Loop</h3>
-<p>A <strong>loop</strong> is a closed path starting and ending at the same point, following signal directions around the circuit. The most important loop in control systems is the main feedback loop—from the summing junction, through <span class="arithmatex">\(G(s)\)</span>, out to the output, back through <span class="arithmatex">\(H(s)\)</span>, and returning to the summing junction.</p>
+<p>A <strong>loop</strong> is a closed path starting and ending at the same point, following signal directions around the circuit. The most important loop in control systems is the main feedback loop—from the summing junction, through $G(s)$, out to the output, back through $H(s)$, and returning to the summing junction.</p>
 <p>The product of all transfer functions around a loop is called the <strong>loop gain</strong> or <strong>loop transfer function</strong>:</p>
 <h4 id="loop-transfer-function">Loop Transfer Function</h4>
-<p><span class="arithmatex">\(L(s) = G(s)H(s)\)</span></p>
+<p>$L(s) = G(s)H(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(L(s)\)</span> is the loop transfer function</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
-<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+<li>$L(s)$ is the loop transfer function</li>
+<li>$G(s)$ is the forward path transfer function</li>
+<li>$H(s)$ is the feedback path transfer function</li>
 </ul>
-<p>Loop gain is central to stability analysis. The roots of <span class="arithmatex">\(1 + L(s) = 0\)</span> determine whether the closed-loop system is stable.</p>
+<p>Loop gain is central to stability analysis. The roots of $1 + L(s) = 0$ determine whether the closed-loop system is stable.</p>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
 <p>"My main feedback loop goes like this: My tilt angle gets measured by my IMU, compared to 'zero' (the reference), the error goes to my controller, the controller drives my motors, the motors push me, and that changes my tilt angle—which gets measured again. Around and around, dozens of times per second. That loop is my heartbeat."</p>
@@ -2712,16 +2712,16 @@ Bloom Verb: differentiate, organize</p>
 <p>Learning Objective: Students will differentiate between inner and outer loops in a nested feedback structure and trace the signal flow through each loop independently.</p>
 <p>Purpose: Visualize the hierarchical structure of nested feedback loops commonly found in cascade control systems</p>
 <p>Components to show:
-- Outer loop reference input <span class="arithmatex">\(R(s)\)</span>
+- Outer loop reference input $R(s)$
 - Outer loop summing junction
-- Outer loop controller <span class="arithmatex">\(G_{c1}(s)\)</span>
+- Outer loop controller $G_{c1}(s)$
 - Inner loop reference (output of outer controller)
 - Inner loop summing junction
-- Inner loop controller <span class="arithmatex">\(G_{c2}(s)\)</span>
-- Plant <span class="arithmatex">\(G_p(s)\)</span>
-- Inner loop sensor <span class="arithmatex">\(H_2(s)\)</span>
-- Outer loop sensor <span class="arithmatex">\(H_1(s)\)</span>
-- Output <span class="arithmatex">\(Y(s)\)</span></p>
+- Inner loop controller $G_{c2}(s)$
+- Plant $G_p(s)$
+- Inner loop sensor $H_2(s)$
+- Outer loop sensor $H_1(s)$
+- Output $Y(s)$</p>
 <p>Visual layout:
 - Inner loop highlighted with light blue background
 - Outer loop highlighted with light green background
@@ -2743,46 +2743,46 @@ Canvas size: 900x500px, responsive</p>
 <h2 id="open-loop-and-closed-loop-transfer-functions">Open-Loop and Closed-Loop Transfer Functions</h2>
 <p>Two transfer functions are fundamental to control system analysis: the <strong>open-loop transfer function</strong> and the <strong>closed-loop transfer function</strong>. Understanding the relationship between them is crucial.</p>
 <h3 id="open-loop-transfer-function">Open-Loop Transfer Function</h3>
-<p>The <strong>open-loop transfer function</strong> <span class="arithmatex">\(G_{OL}(s)\)</span> describes the system behavior when the feedback loop is "broken"—when the measured output is not connected back to the summing junction. It's the product of all transfer functions around the loop:</p>
+<p>The <strong>open-loop transfer function</strong> $G_{OL}(s)$ describes the system behavior when the feedback loop is "broken"—when the measured output is not connected back to the summing junction. It's the product of all transfer functions around the loop:</p>
 <h4 id="open-loop-transfer-function-definition">Open-Loop Transfer Function Definition</h4>
-<p><span class="arithmatex">\(G_{OL}(s) = G(s)H(s)\)</span></p>
+<p>$G_{OL}(s) = G(s)H(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(G_{OL}(s)\)</span> is the open-loop transfer function</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
-<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+<li>$G_{OL}(s)$ is the open-loop transfer function</li>
+<li>$G(s)$ is the forward path transfer function</li>
+<li>$H(s)$ is the feedback path transfer function</li>
 </ul>
 <p>The open-loop transfer function is what you measure if you open the loop (break the feedback connection) and inject a signal at one point while measuring at another. It's essential for stability analysis using Bode plots and Nyquist diagrams.</p>
 <h3 id="closed-loop-transfer-function_1">Closed-Loop Transfer Function</h3>
-<p>The <strong>closed-loop transfer function</strong> <span class="arithmatex">\(T(s)\)</span> describes the overall input-output relationship when the feedback loop is closed:</p>
+<p>The <strong>closed-loop transfer function</strong> $T(s)$ describes the overall input-output relationship when the feedback loop is closed:</p>
 <h4 id="closed-loop-transfer-function-definition">Closed-Loop Transfer Function Definition</h4>
-<p><span class="arithmatex">\(T(s) = \frac{Y(s)}{R(s)} = \frac{G(s)}{1 + G(s)H(s)}\)</span></p>
+<p>$T(s) = \frac{Y(s)}{R(s)} = \frac{G(s)}{1 + G(s)H(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(T(s)\)</span> is the closed-loop transfer function</li>
-<li><span class="arithmatex">\(Y(s)\)</span> is the output</li>
-<li><span class="arithmatex">\(R(s)\)</span> is the reference input</li>
-<li>The denominator <span class="arithmatex">\(1 + G(s)H(s)\)</span> is called the characteristic polynomial</li>
+<li>$T(s)$ is the closed-loop transfer function</li>
+<li>$Y(s)$ is the output</li>
+<li>$R(s)$ is the reference input</li>
+<li>The denominator $1 + G(s)H(s)$ is called the characteristic polynomial</li>
 </ul>
-<p>The poles of <span class="arithmatex">\(T(s)\)</span>—the roots of <span class="arithmatex">\(1 + G(s)H(s) = 0\)</span>—determine closed-loop stability and transient response.</p>
+<p>The poles of $T(s)$—the roots of $1 + G(s)H(s) = 0$—determine closed-loop stability and transient response.</p>
 <h3 id="unity-feedback-systems">Unity Feedback Systems</h3>
-<p>A <strong>unity feedback</strong> system is the special case where <span class="arithmatex">\(H(s) = 1\)</span>. The sensor is "ideal"—it perfectly measures the output without any dynamics or gain. This simplifies the closed-loop transfer function:</p>
+<p>A <strong>unity feedback</strong> system is the special case where $H(s) = 1$. The sensor is "ideal"—it perfectly measures the output without any dynamics or gain. This simplifies the closed-loop transfer function:</p>
 <h4 id="unity-feedback-transfer-function">Unity Feedback Transfer Function</h4>
-<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 + G(s)}\)</span></p>
+<p>$T(s) = \frac{G(s)}{1 + G(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(H(s) = 1\)</span> (unity feedback)</li>
-<li>The open-loop transfer function equals the forward path: <span class="arithmatex">\(G_{OL}(s) = G(s)\)</span></li>
+<li>$H(s) = 1$ (unity feedback)</li>
+<li>The open-loop transfer function equals the forward path: $G_{OL}(s) = G(s)$</li>
 </ul>
-<p>Unity feedback is a common assumption in textbook problems and serves as a useful starting point for design. Real sensors have dynamics, but at frequencies of interest, <span class="arithmatex">\(H(s) \approx 1\)</span> is often a reasonable approximation.</p>
+<p>Unity feedback is a common assumption in textbook problems and serves as a useful starting point for design. Real sensors have dynamics, but at frequencies of interest, $H(s) \approx 1$ is often a reasonable approximation.</p>
 <h3 id="non-unity-feedback-systems">Non-Unity Feedback Systems</h3>
-<p>When <span class="arithmatex">\(H(s) \neq 1\)</span>, the system has <strong>non-unity feedback</strong>. The sensor might have:</p>
+<p>When $H(s) \neq 1$, the system has <strong>non-unity feedback</strong>. The sensor might have:</p>
 <ul>
 <li>Gain different from 1 (e.g., a tachometer outputting volts per rad/s)</li>
 <li>Dynamics (e.g., sensor bandwidth limitations)</li>
 <li>Filtering (e.g., to remove noise)</li>
 </ul>
-<p>For non-unity feedback, you must include <span class="arithmatex">\(H(s)\)</span> explicitly in all calculations. A common transformation is to convert a non-unity feedback system to an equivalent unity feedback form for analysis, but this requires care with the transfer function definitions.</p>
+<p>For non-unity feedback, you must include $H(s)$ explicitly in all calculations. A common transformation is to convert a non-unity feedback system to an equivalent unity feedback form for analysis, but this requires care with the transfer function definitions.</p>
 <table>
 <thead>
 <tr>
@@ -2795,27 +2795,27 @@ Canvas size: 900x500px, responsive</p>
 <tbody>
 <tr>
 <td>Unity Feedback</td>
-<td><span class="arithmatex">\(H(s) = 1\)</span></td>
-<td><span class="arithmatex">\(\frac{G}{1+G}\)</span></td>
-<td><span class="arithmatex">\(G(s)\)</span></td>
+<td>$H(s) = 1$</td>
+<td>$\frac{G}{1+G}$</td>
+<td>$G(s)$</td>
 </tr>
 <tr>
 <td>Non-Unity Feedback</td>
-<td><span class="arithmatex">\(H(s) \neq 1\)</span></td>
-<td><span class="arithmatex">\(\frac{G}{1+GH}\)</span></td>
-<td><span class="arithmatex">\(G(s)H(s)\)</span></td>
+<td>$H(s) \neq 1$</td>
+<td>$\frac{G}{1+GH}$</td>
+<td>$G(s)H(s)$</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Deriving the Closed-Loop Transfer Function</p>
-<p>You can derive <span class="arithmatex">\(T(s) = \frac{G}{1+GH}\)</span> from first principles:</p>
+<p>You can derive $T(s) = \frac{G}{1+GH}$ from first principles:</p>
 <ol>
-<li>Write <span class="arithmatex">\(E = R - HY\)</span> (error = reference minus fed-back output)</li>
-<li>Write <span class="arithmatex">\(Y = GE\)</span> (output = forward path times error)</li>
-<li>Substitute: <span class="arithmatex">\(Y = G(R - HY) = GR - GHY\)</span></li>
-<li>Rearrange: <span class="arithmatex">\(Y + GHY = GR\)</span>, so <span class="arithmatex">\(Y(1 + GH) = GR\)</span></li>
-<li>Solve: <span class="arithmatex">\(T = \frac{Y}{R} = \frac{G}{1+GH}\)</span></li>
+<li>Write $E = R - HY$ (error = reference minus fed-back output)</li>
+<li>Write $Y = GE$ (output = forward path times error)</li>
+<li>Substitute: $Y = G(R - HY) = GR - GHY$</li>
+<li>Rearrange: $Y + GHY = GR$, so $Y(1 + GH) = GR$</li>
+<li>Solve: $T = \frac{Y}{R} = \frac{G}{1+GH}$</li>
 </ol>
 </div>
 <h2 id="block-diagram-reduction">Block Diagram Reduction</h2>
@@ -2833,14 +2833,14 @@ Canvas size: 900x500px, responsive</p>
 </ol>
 <p>Let's examine the compensation rules in detail.</p>
 <h3 id="moving-a-pickoff-point-past-a-block">Moving a Pickoff Point Past a Block</h3>
-<p>If you need to move a pickoff point from the output of block <span class="arithmatex">\(G(s)\)</span> to its input, you must add a compensating block <span class="arithmatex">\(G(s)\)</span> in the path that was picked off:</p>
-<p><strong>Moving pickoff point backward (toward input):</strong> Insert <span class="arithmatex">\(G(s)\)</span> in the picked-off path</p>
-<p><strong>Moving pickoff point forward (toward output):</strong> Insert <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in the picked-off path</p>
+<p>If you need to move a pickoff point from the output of block $G(s)$ to its input, you must add a compensating block $G(s)$ in the path that was picked off:</p>
+<p><strong>Moving pickoff point backward (toward input):</strong> Insert $G(s)$ in the picked-off path</p>
+<p><strong>Moving pickoff point forward (toward output):</strong> Insert $\frac{1}{G(s)}$ in the picked-off path</p>
 <p>This compensation ensures that the signal in the picked-off path has the same value as before the move.</p>
 <h3 id="moving-a-summing-junction-past-a-block">Moving a Summing Junction Past a Block</h3>
 <p>Similarly, moving a summing junction past a block requires compensation:</p>
-<p><strong>Moving summing junction backward:</strong> Insert <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in paths entering the junction</p>
-<p><strong>Moving summing junction forward:</strong> Insert <span class="arithmatex">\(G(s)\)</span> in paths entering the junction</p>
+<p><strong>Moving summing junction backward:</strong> Insert $\frac{1}{G(s)}$ in paths entering the junction</p>
+<p><strong>Moving summing junction forward:</strong> Insert $G(s)$ in paths entering the junction</p>
 <p>These rules are the "legal moves" in the game of block diagram reduction. Master them, and you can systematically simplify any block diagram.</p>
 <table>
 <thead>
@@ -2851,20 +2851,20 @@ Canvas size: 900x500px, responsive</p>
 </thead>
 <tbody>
 <tr>
-<td>Move pickoff point backward past <span class="arithmatex">\(G(s)\)</span></td>
-<td>Add <span class="arithmatex">\(G(s)\)</span> in picked-off path</td>
+<td>Move pickoff point backward past $G(s)$</td>
+<td>Add $G(s)$ in picked-off path</td>
 </tr>
 <tr>
-<td>Move pickoff point forward past <span class="arithmatex">\(G(s)\)</span></td>
-<td>Add <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in picked-off path</td>
+<td>Move pickoff point forward past $G(s)$</td>
+<td>Add $\frac{1}{G(s)}$ in picked-off path</td>
 </tr>
 <tr>
-<td>Move summing junction backward past <span class="arithmatex">\(G(s)\)</span></td>
-<td>Add <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in entering paths</td>
+<td>Move summing junction backward past $G(s)$</td>
+<td>Add $\frac{1}{G(s)}$ in entering paths</td>
 </tr>
 <tr>
-<td>Move summing junction forward past <span class="arithmatex">\(G(s)\)</span></td>
-<td>Add <span class="arithmatex">\(G(s)\)</span> in entering paths</td>
+<td>Move summing junction forward past $G(s)$</td>
+<td>Add $G(s)$ in entering paths</td>
 </tr>
 </tbody>
 </table>
@@ -2894,9 +2894,9 @@ Bloom Verb: execute, apply</p>
 - Dropdown: Select example problem (3 different diagrams of varying complexity)</p>
 <p>Default example:
 - System with inner and outer loops
-- Forward path: <span class="arithmatex">\(G_1(s)G_2(s)G_3(s)\)</span>
-- Inner feedback: <span class="arithmatex">\(H_1(s)\)</span> around <span class="arithmatex">\(G_2(s)G_3(s)\)</span>
-- Outer feedback: <span class="arithmatex">\(H_2(s)\)</span> around entire system</p>
+- Forward path: $G_1(s)G_2(s)G_3(s)$
+- Inner feedback: $H_1(s)$ around $G_2(s)G_3(s)$
+- Outer feedback: $H_2(s)$ around entire system</p>
 <p>Reduction sequence:
 Step 1: Identify inner loop
 Step 2: Apply feedback formula to inner loop, replace with equivalent block
@@ -2932,16 +2932,16 @@ Canvas size: 900x600px, responsive</p>
 <p>A <strong>branch</strong> connects two nodes and has an associated gain—the transfer function by which the source node's value is multiplied to contribute to the destination node's value. Branches have direction, shown by arrows.</p>
 <p>The key relationship: the value at any node equals the sum of all incoming branch gains times their source node values:</p>
 <h4 id="node-value-equation">Node Value Equation</h4>
-<p><span class="arithmatex">\(X_j = \sum_i T_{ij} X_i\)</span></p>
+<p>$X_j = \sum_i T_{ij} X_i$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(X_j\)</span> is the value at node <span class="arithmatex">\(j\)</span></li>
-<li><span class="arithmatex">\(X_i\)</span> is the value at source node <span class="arithmatex">\(i\)</span></li>
-<li><span class="arithmatex">\(T_{ij}\)</span> is the branch gain from node <span class="arithmatex">\(i\)</span> to node <span class="arithmatex">\(j\)</span></li>
-<li>The sum is over all branches entering node <span class="arithmatex">\(j\)</span></li>
+<li>$X_j$ is the value at node $j$</li>
+<li>$X_i$ is the value at source node $i$</li>
+<li>$T_{ij}$ is the branch gain from node $i$ to node $j$</li>
+<li>The sum is over all branches entering node $j$</li>
 </ul>
 <h3 id="branch-gain">Branch Gain</h3>
-<p>The <strong>branch gain</strong> is simply the transfer function written along the branch arrow. For a branch from node <span class="arithmatex">\(X_i\)</span> to node <span class="arithmatex">\(X_j\)</span> with gain <span class="arithmatex">\(G(s)\)</span>, the contribution to <span class="arithmatex">\(X_j\)</span> is <span class="arithmatex">\(G(s) \cdot X_i\)</span>.</p>
+<p>The <strong>branch gain</strong> is simply the transfer function written along the branch arrow. For a branch from node $X_i$ to node $X_j$ with gain $G(s)$, the contribution to $X_j$ is $G(s) \cdot X_i$.</p>
 <p>Signal flow graphs are drawn with input nodes on the left (sources, with only outgoing branches), output nodes on the right (sinks, with only incoming branches), and intermediate nodes in between.</p>
 <h3 id="converting-block-diagrams-to-signal-flow-graphs">Converting Block Diagrams to Signal Flow Graphs</h3>
 <p>The conversion is straightforward:</p>
@@ -2998,21 +2998,21 @@ Canvas size: 800x500px, responsive</p>
 <h3 id="forward-path-gain">Forward Path Gain</h3>
 <p>A <strong>forward path</strong> in a signal flow graph is any path from the input node to the output node that doesn't pass through any node more than once. Each forward path has an associated <strong>forward path gain</strong>—the product of all branch gains along that path.</p>
 <h4 id="forward-path-gain-definition">Forward Path Gain Definition</h4>
-<p><span class="arithmatex">\(P_k = \prod_{\text{branches in path } k} T_i\)</span></p>
+<p>$P_k = \prod_{\text{branches in path } k} T_i$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(P_k\)</span> is the gain of the <span class="arithmatex">\(k\)</span>th forward path</li>
-<li><span class="arithmatex">\(T_i\)</span> are the individual branch gains along the path</li>
+<li>$P_k$ is the gain of the $k$th forward path</li>
+<li>$T_i$ are the individual branch gains along the path</li>
 </ul>
 <p>Many systems have only one forward path, but complex systems with feedforward or multiple routes from input to output may have several.</p>
 <h3 id="loop-gain-calculation">Loop Gain Calculation</h3>
 <p>A <strong>loop</strong> in a signal flow graph is a closed path that starts and ends at the same node, traversing each intermediate node only once. Each loop has a <strong>loop gain</strong>—the product of all branch gains around the loop.</p>
 <h4 id="loop-gain-definition">Loop Gain Definition</h4>
-<p><span class="arithmatex">\(L_i = \prod_{\text{branches in loop } i} T_j\)</span></p>
+<p>$L_i = \prod_{\text{branches in loop } i} T_j$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(L_i\)</span> is the gain of the <span class="arithmatex">\(i\)</span>th loop</li>
-<li><span class="arithmatex">\(T_j\)</span> are the branch gains around the loop</li>
+<li>$L_i$ is the gain of the $i$th loop</li>
+<li>$T_j$ are the branch gains around the loop</li>
 </ul>
 <h3 id="non-touching-loops">Non-Touching Loops</h3>
 <p>Two loops are <strong>non-touching</strong> if they share no common nodes. Non-touching loops don't interact directly—a signal can't travel through both loops in a single trip around the graph.</p>
@@ -3024,35 +3024,35 @@ Canvas size: 800x500px, responsive</p>
 <li>And so on...</li>
 </ul>
 <h3 id="the-graph-determinant">The Graph Determinant</h3>
-<p>The <strong>graph determinant</strong> <span class="arithmatex">\(\Delta\)</span> (also called the system determinant) summarizes all the loop structure:</p>
+<p>The <strong>graph determinant</strong> $\Delta$ (also called the system determinant) summarizes all the loop structure:</p>
 <h4 id="graph-determinant-formula">Graph Determinant Formula</h4>
-<p><span class="arithmatex">\(\Delta = 1 - \sum L_i + \sum L_i L_j - \sum L_i L_j L_k + \cdots\)</span></p>
+<p>$\Delta = 1 - \sum L_i + \sum L_i L_j - \sum L_i L_j L_k + \cdots$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\sum L_i\)</span> is the sum of all individual loop gains</li>
-<li><span class="arithmatex">\(\sum L_i L_j\)</span> is the sum of products of all pairs of non-touching loops</li>
-<li><span class="arithmatex">\(\sum L_i L_j L_k\)</span> is the sum of products of all triplets of non-touching loops</li>
+<li>$\sum L_i$ is the sum of all individual loop gains</li>
+<li>$\sum L_i L_j$ is the sum of products of all pairs of non-touching loops</li>
+<li>$\sum L_i L_j L_k$ is the sum of products of all triplets of non-touching loops</li>
 <li>The pattern continues with alternating signs</li>
 </ul>
 <p>For many practical systems, especially those with touching loops, only the first few terms are non-zero.</p>
 <h3 id="cofactors">Cofactors</h3>
-<p>The <strong>cofactor</strong> <span class="arithmatex">\(\Delta_k\)</span> for the <span class="arithmatex">\(k\)</span>th forward path is the graph determinant evaluated with all loops that touch that forward path removed:</p>
+<p>The <strong>cofactor</strong> $\Delta_k$ for the $k$th forward path is the graph determinant evaluated with all loops that touch that forward path removed:</p>
 <h4 id="cofactor-definition">Cofactor Definition</h4>
-<p><span class="arithmatex">\(\Delta_k = 1 - \sum L_i^{(k)} + \sum L_i^{(k)} L_j^{(k)} - \cdots\)</span></p>
+<p>$\Delta_k = 1 - \sum L_i^{(k)} + \sum L_i^{(k)} L_j^{(k)} - \cdots$</p>
 <p>where:</p>
 <ul>
-<li>The superscript <span class="arithmatex">\((k)\)</span> indicates only loops that don't touch forward path <span class="arithmatex">\(k\)</span></li>
-<li>If all loops touch forward path <span class="arithmatex">\(k\)</span>, then <span class="arithmatex">\(\Delta_k = 1\)</span></li>
+<li>The superscript $(k)$ indicates only loops that don't touch forward path $k$</li>
+<li>If all loops touch forward path $k$, then $\Delta_k = 1$</li>
 </ul>
 <h3 id="the-complete-formula">The Complete Formula</h3>
 <p>Mason's gain formula gives the transfer function as:</p>
 <h4 id="masons-gain-formula_1">Mason's Gain Formula</h4>
-<p><span class="arithmatex">\(T(s) = \frac{Y(s)}{R(s)} = \frac{\sum_k P_k \Delta_k}{\Delta}\)</span></p>
+<p>$T(s) = \frac{Y(s)}{R(s)} = \frac{\sum_k P_k \Delta_k}{\Delta}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(P_k\)</span> is the gain of the <span class="arithmatex">\(k\)</span>th forward path</li>
-<li><span class="arithmatex">\(\Delta_k\)</span> is the cofactor for the <span class="arithmatex">\(k\)</span>th forward path</li>
-<li><span class="arithmatex">\(\Delta\)</span> is the graph determinant</li>
+<li>$P_k$ is the gain of the $k$th forward path</li>
+<li>$\Delta_k$ is the cofactor for the $k$th forward path</li>
+<li>$\Delta$ is the graph determinant</li>
 <li>The sum is over all forward paths</li>
 </ul>
 <p>This formula directly gives the closed-loop transfer function without any intermediate reduction steps.</p>
@@ -3067,23 +3067,23 @@ Canvas size: 800x500px, responsive</p>
 <tbody>
 <tr>
 <td>Forward path gain</td>
-<td><span class="arithmatex">\(P_k\)</span></td>
-<td>Product of branch gains along forward path <span class="arithmatex">\(k\)</span></td>
+<td>$P_k$</td>
+<td>Product of branch gains along forward path $k$</td>
 </tr>
 <tr>
 <td>Loop gain</td>
-<td><span class="arithmatex">\(L_i\)</span></td>
-<td>Product of branch gains around loop <span class="arithmatex">\(i\)</span></td>
+<td>$L_i$</td>
+<td>Product of branch gains around loop $i$</td>
 </tr>
 <tr>
 <td>Graph determinant</td>
-<td><span class="arithmatex">\(\Delta\)</span></td>
-<td><span class="arithmatex">\(1 - \sum L_i + \sum L_iL_j - \cdots\)</span></td>
+<td>$\Delta$</td>
+<td>$1 - \sum L_i + \sum L_iL_j - \cdots$</td>
 </tr>
 <tr>
 <td>Cofactor</td>
-<td><span class="arithmatex">\(\Delta_k\)</span></td>
-<td>Graph determinant with path-<span class="arithmatex">\(k\)</span>-touching loops removed</td>
+<td>$\Delta_k$</td>
+<td>Graph determinant with path-$k$-touching loops removed</td>
 </tr>
 </tbody>
 </table>
@@ -3132,26 +3132,26 @@ Canvas size: 900x650px, responsive</p>
 <h3 id="worked-example-applying-masons-formula">Worked Example: Applying Mason's Formula</h3>
 <p>Consider a signal flow graph with:</p>
 <ul>
-<li>Input node <span class="arithmatex">\(R\)</span>, intermediate nodes <span class="arithmatex">\(X_1\)</span>, <span class="arithmatex">\(X_2\)</span>, and output node <span class="arithmatex">\(Y\)</span></li>
-<li>Forward path: <span class="arithmatex">\(R \to X_1 \to X_2 \to Y\)</span> with gains <span class="arithmatex">\(G_1\)</span>, <span class="arithmatex">\(G_2\)</span>, <span class="arithmatex">\(G_3\)</span></li>
-<li>Loop 1: <span class="arithmatex">\(X_1 \to X_2 \to X_1\)</span> with gain <span class="arithmatex">\(-G_2 H_1\)</span> (self-loop through feedback)</li>
-<li>Loop 2: <span class="arithmatex">\(X_2 \to Y \to X_2\)</span> with gain <span class="arithmatex">\(-G_3 H_2\)</span></li>
+<li>Input node $R$, intermediate nodes $X_1$, $X_2$, and output node $Y$</li>
+<li>Forward path: $R \to X_1 \to X_2 \to Y$ with gains $G_1$, $G_2$, $G_3$</li>
+<li>Loop 1: $X_1 \to X_2 \to X_1$ with gain $-G_2 H_1$ (self-loop through feedback)</li>
+<li>Loop 2: $X_2 \to Y \to X_2$ with gain $-G_3 H_2$</li>
 </ul>
 <p><strong>Step 1: Identify forward paths</strong></p>
-<p>There's one forward path with gain <span class="arithmatex">\(P_1 = G_1 G_2 G_3\)</span></p>
+<p>There's one forward path with gain $P_1 = G_1 G_2 G_3$</p>
 <p><strong>Step 2: Identify loops and their gains</strong></p>
 <ul>
-<li><span class="arithmatex">\(L_1 = -G_2 H_1\)</span></li>
-<li><span class="arithmatex">\(L_2 = -G_3 H_2\)</span></li>
+<li>$L_1 = -G_2 H_1$</li>
+<li>$L_2 = -G_3 H_2$</li>
 </ul>
 <p><strong>Step 3: Identify non-touching loops</strong></p>
-<p>Do loops 1 and 2 share any nodes? Loop 1 involves <span class="arithmatex">\(X_1, X_2\)</span>. Loop 2 involves <span class="arithmatex">\(X_2, Y\)</span>. They share <span class="arithmatex">\(X_2\)</span>, so they're <em>touching</em>. No non-touching pairs exist.</p>
+<p>Do loops 1 and 2 share any nodes? Loop 1 involves $X_1, X_2$. Loop 2 involves $X_2, Y$. They share $X_2$, so they're <em>touching</em>. No non-touching pairs exist.</p>
 <p><strong>Step 4: Calculate the graph determinant</strong></p>
-<p><span class="arithmatex">\(\Delta = 1 - (L_1 + L_2) + 0 = 1 + G_2 H_1 + G_3 H_2\)</span></p>
+<p>$\Delta = 1 - (L_1 + L_2) + 0 = 1 + G_2 H_1 + G_3 H_2$</p>
 <p><strong>Step 5: Calculate cofactors</strong></p>
-<p>Does the forward path touch all loops? Path goes through <span class="arithmatex">\(X_1, X_2, Y\)</span>. Both loops touch this path (they share nodes with it). So <span class="arithmatex">\(\Delta_1 = 1\)</span>.</p>
+<p>Does the forward path touch all loops? Path goes through $X_1, X_2, Y$. Both loops touch this path (they share nodes with it). So $\Delta_1 = 1$.</p>
 <p><strong>Step 6: Apply Mason's formula</strong></p>
-<p><span class="arithmatex">\(T(s) = \frac{P_1 \Delta_1}{\Delta} = \frac{G_1 G_2 G_3}{1 + G_2 H_1 + G_3 H_2}\)</span></p>
+<p>$T(s) = \frac{P_1 \Delta_1}{\Delta} = \frac{G_1 G_2 G_3}{1 + G_2 H_1 + G_3 H_2}$</p>
 <div class="admonition tip">
 <p class="admonition-title">When to Use Mason's Formula</p>
 <p>Mason's gain formula shines when:</p>
@@ -3160,7 +3160,7 @@ Canvas size: 900x650px, responsive</p>
 <li>There are many loops, some non-touching</li>
 <li>Block diagram reduction would require many steps</li>
 </ul>
-<p>For simple single-loop systems, direct application of <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span> is usually faster.</p>
+<p>For simple single-loop systems, direct application of $T = \frac{G}{1+GH}$ is usually faster.</p>
 </div>
 <h2 id="practical-examples-gyras-control-loops">Practical Examples: Gyra's Control Loops</h2>
 <p>Let's apply these techniques to a realistic scenario: Gyra's cascade position control system. This example illustrates nested loops, multiple transfer functions, and the power of systematic reduction.</p>
@@ -3174,14 +3174,14 @@ Canvas size: 900x650px, responsive</p>
 <p>Each loop operates at a different speed, with inner loops responding much faster than outer loops. This hierarchical structure improves performance and makes tuning easier.</p>
 <p>The transfer functions are:</p>
 <ul>
-<li><span class="arithmatex">\(G_c(s)\)</span> - Position controller (outer)</li>
-<li><span class="arithmatex">\(G_v(s)\)</span> - Velocity controller (middle)</li>
-<li><span class="arithmatex">\(G_i(s)\)</span> - Current controller (inner)</li>
-<li><span class="arithmatex">\(G_m(s)\)</span> - Motor dynamics</li>
-<li><span class="arithmatex">\(G_p(s)\)</span> - Gyra's mechanical dynamics</li>
-<li><span class="arithmatex">\(H_i(s)\)</span> - Current sensor</li>
-<li><span class="arithmatex">\(H_v(s)\)</span> - Velocity sensor (derived from gyroscope)</li>
-<li><span class="arithmatex">\(H_p(s)\)</span> - Position sensor (from accelerometer)</li>
+<li>$G_c(s)$ - Position controller (outer)</li>
+<li>$G_v(s)$ - Velocity controller (middle)</li>
+<li>$G_i(s)$ - Current controller (inner)</li>
+<li>$G_m(s)$ - Motor dynamics</li>
+<li>$G_p(s)$ - Gyra's mechanical dynamics</li>
+<li>$H_i(s)$ - Current sensor</li>
+<li>$H_v(s)$ - Velocity sensor (derived from gyroscope)</li>
+<li>$H_p(s)$ - Position sensor (from accelerometer)</li>
 </ul>
 <h4 id="diagram-gyras-cascade-control-block-diagram">Diagram: Gyra's Cascade Control Block Diagram</h4>
 <iframe src="../../sims/gyra-cascade-control/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -3229,14 +3229,14 @@ Canvas size: 900x550px, responsive</p>
 <h3 id="reducing-gyras-control-structure">Reducing Gyra's Control Structure</h3>
 <p>To find the overall transfer function from desired angle to actual angle, we reduce inside-out:</p>
 <p><strong>Step 1: Reduce the inner (current) loop</strong></p>
-<p><span class="arithmatex">\(T_i(s) = \frac{G_i(s) G_m(s)}{1 + G_i(s) G_m(s) H_i(s)}\)</span></p>
+<p>$T_i(s) = \frac{G_i(s) G_m(s)}{1 + G_i(s) G_m(s) H_i(s)}$</p>
 <p>This represents the "controlled motor" that delivers current proportional to command.</p>
 <p><strong>Step 2: Reduce the middle (velocity) loop</strong></p>
-<p>The forward path is now <span class="arithmatex">\(G_v(s) T_i(s) G_p(s)\)</span>. With velocity feedback:</p>
-<p><span class="arithmatex">\(T_v(s) = \frac{G_v(s) T_i(s) G_p(s)}{1 + G_v(s) T_i(s) G_p(s) H_v(s)}\)</span></p>
+<p>The forward path is now $G_v(s) T_i(s) G_p(s)$. With velocity feedback:</p>
+<p>$T_v(s) = \frac{G_v(s) T_i(s) G_p(s)}{1 + G_v(s) T_i(s) G_p(s) H_v(s)}$</p>
 <p><strong>Step 3: Reduce the outer (position) loop</strong></p>
 <p>Finally, with position feedback:</p>
-<p><span class="arithmatex">\(T(s) = \frac{G_c(s) T_v(s)}{1 + G_c(s) T_v(s) H_p(s)}\)</span></p>
+<p>$T(s) = \frac{G_c(s) T_v(s)}{1 + G_c(s) T_v(s) H_p(s)}$</p>
 <p>Substituting backwards gives the complete transfer function—which would be extremely messy if written out fully, but the structured approach keeps it manageable.</p>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
@@ -3244,9 +3244,9 @@ Canvas size: 900x550px, responsive</p>
 </div>
 <h2 id="loop-gain-and-stability-preview">Loop Gain and Stability Preview</h2>
 <p>While detailed stability analysis comes in later chapters, block diagrams provide immediate insight into a crucial stability quantity: the <strong>loop gain</strong>.</p>
-<p>The loop gain <span class="arithmatex">\(L(s) = G(s)H(s)\)</span> determines system stability. Specifically, the closed-loop system is stable if and only if all roots of the characteristic equation:</p>
+<p>The loop gain $L(s) = G(s)H(s)$ determines system stability. Specifically, the closed-loop system is stable if and only if all roots of the characteristic equation:</p>
 <h4 id="characteristic-equation">Characteristic Equation</h4>
-<p><span class="arithmatex">\(1 + L(s) = 0\)</span></p>
+<p>$1 + L(s) = 0$</p>
 <p>have negative real parts (lie in the left half of the s-plane).</p>
 <p>Block diagrams make the loop gain visually apparent—just multiply the transfer functions around any feedback loop. This connection between graphical representation and stability is one of the great insights of classical control theory.</p>
 <h2 id="summary_1">Summary</h2>
@@ -3256,7 +3256,7 @@ Canvas size: 900x550px, responsive</p>
 <li>Built from blocks, summing junctions, and pickoff points</li>
 <li>Cascade connections multiply transfer functions</li>
 <li>Parallel connections add transfer functions</li>
-<li>Feedback connections use <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span></li>
+<li>Feedback connections use $T = \frac{G}{1+GH}$</li>
 <li>Reduction follows inside-out strategy for nested loops</li>
 <li>Block diagram algebra enables systematic simplification</li>
 </ul>
@@ -3277,34 +3277,34 @@ Canvas size: 900x550px, responsive</p>
 <tbody>
 <tr>
 <td>Closed-loop transfer (negative feedback)</td>
-<td><span class="arithmatex">\(T = \frac{G}{1+GH}\)</span></td>
+<td>$T = \frac{G}{1+GH}$</td>
 </tr>
 <tr>
 <td>Closed-loop transfer (positive feedback)</td>
-<td><span class="arithmatex">\(T = \frac{G}{1-GH}\)</span></td>
+<td>$T = \frac{G}{1-GH}$</td>
 </tr>
 <tr>
 <td>Open-loop transfer function</td>
-<td><span class="arithmatex">\(L = GH\)</span></td>
+<td>$L = GH$</td>
 </tr>
 <tr>
 <td>Characteristic equation</td>
-<td><span class="arithmatex">\(1 + GH = 0\)</span></td>
+<td>$1 + GH = 0$</td>
 </tr>
 <tr>
 <td>Mason's gain formula</td>
-<td><span class="arithmatex">\(T = \frac{\sum P_k \Delta_k}{\Delta}\)</span></td>
+<td>$T = \frac{\sum P_k \Delta_k}{\Delta}$</td>
 </tr>
 </tbody>
 </table>
 <p>These graphical tools transform abstract mathematical relationships into visible structures that reveal system architecture, signal flow, and the critical feedback loops that determine behavior. Whether you're designing a new controller for Gyra or analyzing an industrial process control system, block diagrams and signal flow graphs are indispensable companions.</p>
 <details class="question">
 <summary>Check Your Understanding: What happens to the closed-loop transfer function if feedback is removed (H = 0)?</summary>
-<p>When <span class="arithmatex">\(H(s) = 0\)</span> (no feedback), the closed-loop formula <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span> becomes <span class="arithmatex">\(T = \frac{G}{1+0} = G\)</span>. The system becomes open-loop—output equals input times forward gain, with no error correction. This is exactly what we'd expect: removing feedback converts a closed-loop system into an open-loop system.</p>
+<p>When $H(s) = 0$ (no feedback), the closed-loop formula $T = \frac{G}{1+GH}$ becomes $T = \frac{G}{1+0} = G$. The system becomes open-loop—output equals input times forward gain, with no error correction. This is exactly what we'd expect: removing feedback converts a closed-loop system into an open-loop system.</p>
 </details>
 <details class="question">
 <summary>Check Your Understanding: In Mason's formula, what is the cofactor for a forward path that touches all loops?</summary>
-<p>If a forward path touches all loops in the graph, then when we remove those loops to calculate the cofactor, no loops remain. The cofactor formula <span class="arithmatex">\(\Delta_k = 1 - \sum L_i^{(k)} + \cdots\)</span> has all terms zero except the 1, so <span class="arithmatex">\(\Delta_k = 1\)</span>. This is the most common case in simple systems.</p>
+<p>If a forward path touches all loops in the graph, then when we remove those loops to calculate the cofactor, no loops remain. The cofactor formula $\Delta_k = 1 - \sum L_i^{(k)} + \cdots$ has all terms zero except the 1, so $\Delta_k = 1$. This is the most common case in simple systems.</p>
 </details>
 
 

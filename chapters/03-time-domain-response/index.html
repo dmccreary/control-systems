@@ -1943,7 +1943,7 @@
 <p>Here's the thing: <em>every</em> dynamic system takes time to respond to changes. Whether you're designing a temperature controller for a chemical reactor or tuning the suspension on a race car (or just wondering why your shower takes forever to get hot), understanding <em>how fast</em> and <em>in what manner</em> a system responds is crucial. Will it be smooth and graceful, or will it oscillate like a caffeinated hummingbird before settling down? These are the questions that keep control engineers employed—and that we'll tackle in this chapter.</p>
 <p>The time-domain perspective gives us something precious: an intuitive, physical understanding of system behavior. Unlike frequency-domain methods (patience—we'll get there), time-domain analysis lets us directly <em>watch</em> what happens to a system's output as the seconds tick by. It's like having a front-row seat to the drama of transient phenomena. And when your boss asks "how long until this thing settles down?"—you'll have an answer.</p>
 <h2 id="the-order-of-a-system">The Order of a System</h2>
-<p>The <strong>order of a system</strong> is one of the most fundamental classifications in control theory—think of it as the system's "complexity rating." It tells us how intricate the dynamics will be and is determined by the highest power of the differentiation operator (or equivalently, the highest power of <span class="arithmatex">\(s\)</span> in the denominator of the transfer function).</p>
+<p>The <strong>order of a system</strong> is one of the most fundamental classifications in control theory—think of it as the system's "complexity rating." It tells us how intricate the dynamics will be and is determined by the highest power of the differentiation operator (or equivalently, the highest power of $s$ in the denominator of the transfer function).</p>
 <p>Here's the beautiful part: a system's order corresponds to three equivalent things:</p>
 <ul>
 <li>The number of independent energy storage elements</li>
@@ -1989,12 +1989,12 @@ Bloom Verb: classify, identify</p>
 <p>Layout: Three columns showing first-order, second-order, and higher-order systems</p>
 <p>Column 1 - First-Order:
 - Schematic: RC circuit with single capacitor
-- Differential equation: <span class="arithmatex">\(\tau \frac{dy}{dt} + y = Ku\)</span>
+- Differential equation: $\tau \frac{dy}{dt} + y = Ku$
 - Response sketch: Simple exponential curve
 - Characteristic: "Single energy storage element"</p>
 <p>Column 2 - Second-Order:
 - Schematic: Mass-spring-damper system
-- Differential equation: <span class="arithmatex">\(m\frac{d^2y}{dt^2} + b\frac{dy}{dt} + ky = F\)</span>
+- Differential equation: $m\frac{d^2y}{dt^2} + b\frac{dy}{dt} + ky = F$
 - Response sketch: Oscillatory decay curve
 - Characteristic: "Two energy storage elements"</p>
 <p>Column 3 - Higher-Order:
@@ -2010,13 +2010,13 @@ Bloom Verb: classify, identify</p>
 <p>Implementation: HTML/CSS/JavaScript with SVG schematics</p>
 </details>
 <h2 id="initial-conditions-where-the-story-begins">Initial Conditions: Where the Story Begins</h2>
-<p><strong>Initial conditions</strong> describe the state of a system at time <span class="arithmatex">\(t = 0\)</span>—the instant before we apply an input or begin our analysis. For a capacitor, this is the initial voltage; for a mass in motion, it's the initial position and velocity. Think of initial conditions as the system's "backstory"—the history encoded in its energy storage elements.</p>
+<p><strong>Initial conditions</strong> describe the state of a system at time $t = 0$—the instant before we apply an input or begin our analysis. For a capacitor, this is the initial voltage; for a mass in motion, it's the initial position and velocity. Think of initial conditions as the system's "backstory"—the history encoded in its energy storage elements.</p>
 <p>Why do initial conditions matter? Consider approaching a traffic light in your car. Whether you're cruising at 30 mph or racing at 60 mph when the light turns red <em>completely</em> changes how hard you must brake and how long it takes to stop. The initial velocity is an initial condition, and it profoundly affects everything that follows. (Also, maybe slow down a bit.)</p>
-<p>For an <span class="arithmatex">\(n\)</span>th-order system, we need <span class="arithmatex">\(n\)</span> initial conditions to uniquely determine the solution:</p>
+<p>For an $n$th-order system, we need $n$ initial conditions to uniquely determine the solution:</p>
 <ul>
-<li>First-order systems: 1 initial condition (e.g., <span class="arithmatex">\(y(0)\)</span>)</li>
-<li>Second-order systems: 2 initial conditions (e.g., <span class="arithmatex">\(y(0)\)</span> and <span class="arithmatex">\(\dot{y}(0)\)</span>)</li>
-<li><span class="arithmatex">\(n\)</span>th-order systems: <span class="arithmatex">\(n\)</span> initial conditions</li>
+<li>First-order systems: 1 initial condition (e.g., $y(0)$)</li>
+<li>Second-order systems: 2 initial conditions (e.g., $y(0)$ and $\dot{y}(0)$)</li>
+<li>$n$th-order systems: $n$ initial conditions</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Engineering Intuition</p>
@@ -2115,12 +2115,12 @@ Bloom Verb: explain, interpret</p>
 <tbody>
 <tr>
 <td>Zero-Input Response</td>
-<td>Input <span class="arithmatex">\(u(t) = 0\)</span></td>
+<td>Input $u(t) = 0$</td>
 <td>Initial conditions only</td>
 </tr>
 <tr>
 <td>Zero-State Response</td>
-<td>All <span class="arithmatex">\(y^{(k)}(0) = 0\)</span></td>
+<td>All $y^{(k)}(0) = 0$</td>
 <td>External input only</td>
 </tr>
 </tbody>
@@ -2128,7 +2128,7 @@ Bloom Verb: explain, interpret</p>
 <h2 id="transient-response-and-steady-state-response">Transient Response and Steady-State Response</h2>
 <p>While natural/forced decomposition separates responses by <em>cause</em>, <strong>transient</strong> and <strong>steady-state</strong> decomposition separates them by <em>time behavior</em>. This perspective is often more useful when your boss asks, "When will this thing settle down?"</p>
 <p>The <strong>transient response</strong> is the portion of the output that eventually dies out as time marches toward infinity. It represents the system "settling down" from initial disturbances or adjusting to new inputs. Think of it as the drama phase—the oscillations, overshoots, and adjustments that characterize the system's journey to equilibrium. Eventually, the drama ends.</p>
-<p>The <strong>steady-state response</strong> is what remains after all transient effects have vanished. It's the long-term behavior—the value (or pattern) the output approaches as <span class="arithmatex">\(t \to \infty\)</span>. For a step input, the steady-state response is typically a constant value. For a sinusoidal input, it's a sinusoid at the same frequency (though possibly with different amplitude and phase). This is where the system finally chills out.</p>
+<p>The <strong>steady-state response</strong> is what remains after all transient effects have vanished. It's the long-term behavior—the value (or pattern) the output approaches as $t \to \infty$. For a step input, the steady-state response is typically a constant value. For a sinusoidal input, it's a sinusoid at the same frequency (though possibly with different amplitude and phase). This is where the system finally chills out.</p>
 <p>Consider the eternal battle of office thermostat wars—you set it to 72°F:</p>
 <ul>
 <li><strong>Transient response</strong>: The temperature climbs (possibly overshoots to 74°F), then settles</li>
@@ -2136,7 +2136,7 @@ Bloom Verb: explain, interpret</p>
 </ul>
 <p>The total response combines both:</p>
 <div class="arithmatex">\[y(t) = y_{\text{transient}}(t) + y_{\text{steady-state}}(t)\]</div>
-<p>where <span class="arithmatex">\(\lim_{t \to \infty} y_{\text{transient}}(t) = 0\)</span> for stable systems.</p>
+<p>where $\lim_{t \to \infty} y_{\text{transient}}(t) = 0$ for stable systems.</p>
 <div class="admonition note">
 <p class="admonition-title">For Stable Systems Only</p>
 <p>The transient response decays to zero only for stable systems. Unstable systems have transient components that grow without bound—a critical distinction we'll explore in the stability chapter.</p>
@@ -2147,12 +2147,12 @@ Bloom Verb: explain, interpret</p>
 <div class="arithmatex">\[G(s) = \frac{K}{\tau s + 1}\]</div>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the DC gain (steady-state output per unit input)</li>
-<li><span class="arithmatex">\(\tau\)</span> (tau) is the <strong>time constant</strong> (with units of time)</li>
+<li>$K$ is the DC gain (steady-state output per unit input)</li>
+<li>$\tau$ (tau) is the <strong>time constant</strong> (with units of time)</li>
 </ul>
 <p>The step response of a first-order system is elegantly simple—memorize this one:</p>
 <div class="arithmatex">\[y(t) = K \cdot (1 - e^{-t/\tau})\]</div>
-<p>This exponential approach to the final value <span class="arithmatex">\(K\)</span> is the hallmark of first-order behavior. There's no oscillation, no overshoot, no drama—just a smooth, monotonic rise (or fall). It's the Steady Eddie of system responses.</p>
+<p>This exponential approach to the final value $K$ is the hallmark of first-order behavior. There's no oscillation, no overshoot, no drama—just a smooth, monotonic rise (or fall). It's the Steady Eddie of system responses.</p>
 <table>
 <thead>
 <tr>
@@ -2163,45 +2163,45 @@ Bloom Verb: explain, interpret</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(t = \tau\)</span></td>
-<td><span class="arithmatex">\(0.632K\)</span></td>
+<td>$t = \tau$</td>
+<td>$0.632K$</td>
 <td>63.2%</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(t = 2\tau\)</span></td>
-<td><span class="arithmatex">\(0.865K\)</span></td>
+<td>$t = 2\tau$</td>
+<td>$0.865K$</td>
 <td>86.5%</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(t = 3\tau\)</span></td>
-<td><span class="arithmatex">\(0.950K\)</span></td>
+<td>$t = 3\tau$</td>
+<td>$0.950K$</td>
 <td>95.0%</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(t = 4\tau\)</span></td>
-<td><span class="arithmatex">\(0.982K\)</span></td>
+<td>$t = 4\tau$</td>
+<td>$0.982K$</td>
 <td>98.2%</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(t = 5\tau\)</span></td>
-<td><span class="arithmatex">\(0.993K\)</span></td>
+<td>$t = 5\tau$</td>
+<td>$0.993K$</td>
 <td>99.3%</td>
 </tr>
 </tbody>
 </table>
-<p>The <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span> has several equivalent interpretations:</p>
+<p>The <strong>time constant</strong> $\tau$ has several equivalent interpretations:</p>
 <ul>
 <li>Time to reach 63.2% of the final value</li>
 <li>Time it would take to reach the final value if the initial rate of change continued</li>
-<li>The reciprocal of the pole location (pole at <span class="arithmatex">\(s = -1/\tau\)</span>)</li>
+<li>The reciprocal of the pole location (pole at $s = -1/\tau$)</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">The Rule of Five Tau</p>
-<p>Engineers live by the "5τ rule": a first-order system is considered to have reached steady state after approximately <span class="arithmatex">\(5\tau\)</span> seconds, when it's within 1% of the final value. Commit this to memory—it'll serve you well in exams and in life.</p>
+<p>Engineers live by the "5τ rule": a first-order system is considered to have reached steady state after approximately $5\tau$ seconds, when it's within 1% of the final value. Commit this to memory—it'll serve you well in exams and in life.</p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Helping Gyra</p>
-<p>Gyra's time constant determines how quickly she responds to disturbances. A small <span class="arithmatex">\(\tau\)</span> means she reacts fast—great for quick corrections, but potentially twitchy. A large <span class="arithmatex">\(\tau\)</span> means she responds slowly—smooth and graceful, but maybe too slow to catch herself when pushed. When we tune Gyra's controller, we're effectively choosing her time constant. The 5τ rule tells us how long to wait after a disturbance before we can say "okay, she's settled." If <span class="arithmatex">\(\tau = 0.2\)</span> seconds, Gyra settles in about 1 second. If <span class="arithmatex">\(\tau = 2\)</span> seconds, we're waiting 10 seconds. For a robot fighting gravity, that difference matters!</p>
+<p>Gyra's time constant determines how quickly she responds to disturbances. A small $\tau$ means she reacts fast—great for quick corrections, but potentially twitchy. A large $\tau$ means she responds slowly—smooth and graceful, but maybe too slow to catch herself when pushed. When we tune Gyra's controller, we're effectively choosing her time constant. The 5τ rule tells us how long to wait after a disturbance before we can say "okay, she's settled." If $\tau = 0.2$ seconds, Gyra settles in about 1 second. If $\tau = 2$ seconds, we're waiting 10 seconds. For a robot fighting gravity, that difference matters!</p>
 </div>
 <h4 id="diagram-first-order-step-response-explorer">Diagram: First-Order Step Response Explorer</h4>
 <iframe src="../../sims/first-order-response/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -2248,31 +2248,31 @@ Bloom Verb: demonstrate, calculate</p>
 <div class="arithmatex">\[G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\]</div>
 <p>This elegant formulation introduces two crucial parameters—learn to love them:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_n\)</span>: the <strong>natural frequency</strong> (rad/s)</li>
-<li><span class="arithmatex">\(\zeta\)</span> (zeta): the <strong>damping ratio</strong> (dimensionless)</li>
+<li>$\omega_n$: the <strong>natural frequency</strong> (rad/s)</li>
+<li>$\zeta$ (zeta): the <strong>damping ratio</strong> (dimensionless)</li>
 </ul>
-<p>These two parameters <em>completely</em> characterize the dynamic behavior of any second-order system. That's it. Two numbers tell the whole story. The natural frequency <span class="arithmatex">\(\omega_n\)</span> determines how fast the system responds, while the damping ratio <span class="arithmatex">\(\zeta\)</span> determines whether the response oscillates and how quickly those oscillations decay.</p>
-<p>The characteristic equation <span class="arithmatex">\(s^2 + 2\zeta\omega_n s + \omega_n^2 = 0\)</span> has roots:</p>
+<p>These two parameters <em>completely</em> characterize the dynamic behavior of any second-order system. That's it. Two numbers tell the whole story. The natural frequency $\omega_n$ determines how fast the system responds, while the damping ratio $\zeta$ determines whether the response oscillates and how quickly those oscillations decay.</p>
+<p>The characteristic equation $s^2 + 2\zeta\omega_n s + \omega_n^2 = 0$ has roots:</p>
 <div class="arithmatex">\[s_{1,2} = -\zeta\omega_n \pm \omega_n\sqrt{\zeta^2 - 1}\]</div>
-<p>The nature of these roots—whether real or complex—depends entirely on <span class="arithmatex">\(\zeta\)</span>. And that's where the fun begins.</p>
+<p>The nature of these roots—whether real or complex—depends entirely on $\zeta$. And that's where the fun begins.</p>
 <h2 id="natural-frequency">Natural Frequency</h2>
-<p>The <strong>natural frequency</strong> <span class="arithmatex">\(\omega_n\)</span> represents the frequency at which the system <em>would</em> oscillate if there were no damping whatsoever. It's called "natural" because it's an intrinsic property of the system, determined purely by its physical parameters—like how some people are naturally morning people (and some of us aren't).</p>
+<p>The <strong>natural frequency</strong> $\omega_n$ represents the frequency at which the system <em>would</em> oscillate if there were no damping whatsoever. It's called "natural" because it's an intrinsic property of the system, determined purely by its physical parameters—like how some people are naturally morning people (and some of us aren't).</p>
 <p>For a mass-spring system:
-<span class="arithmatex">\(<span class="arithmatex">\(\omega_n = \sqrt{\frac{k}{m}}\)</span>\)</span></p>
-<p>where <span class="arithmatex">\(k\)</span> is the spring stiffness and <span class="arithmatex">\(m\)</span> is the mass. Stiffer spring or lighter mass? Higher natural frequency—the system oscillates faster. It's intuitive once you think about it: a trampoline bounces at a different frequency than a car suspension.</p>
+$$\omega_n = \sqrt{\frac{k}{m}}$$</p>
+<p>where $k$ is the spring stiffness and $m$ is the mass. Stiffer spring or lighter mass? Higher natural frequency—the system oscillates faster. It's intuitive once you think about it: a trampoline bounces at a different frequency than a car suspension.</p>
 <p>For an LC circuit:
-<span class="arithmatex">\(<span class="arithmatex">\(\omega_n = \frac{1}{\sqrt{LC}}\)</span>\)</span></p>
-<p>The natural frequency has units of radians per second (rad/s). To convert to hertz (cycles per second), divide by <span class="arithmatex">\(2\pi\)</span>:</p>
+$$\omega_n = \frac{1}{\sqrt{LC}}$$</p>
+<p>The natural frequency has units of radians per second (rad/s). To convert to hertz (cycles per second), divide by $2\pi$:</p>
 <div class="arithmatex">\[f_n = \frac{\omega_n}{2\pi} \text{ Hz}\]</div>
 <div class="admonition warning">
 <p class="admonition-title">Natural ≠ Actual</p>
-<p>Here's a common gotcha: the natural frequency <span class="arithmatex">\(\omega_n\)</span> is the oscillation frequency only for undamped systems. Real systems with damping oscillate at the damped frequency <span class="arithmatex">\(\omega_d\)</span>, which is always less than <span class="arithmatex">\(\omega_n\)</span>. Reality, it seems, is always a bit slower than the ideal.</p>
+<p>Here's a common gotcha: the natural frequency $\omega_n$ is the oscillation frequency only for undamped systems. Real systems with damping oscillate at the damped frequency $\omega_d$, which is always less than $\omega_n$. Reality, it seems, is always a bit slower than the ideal.</p>
 </div>
 <h2 id="damping-ratio">Damping Ratio</h2>
-<p>The <strong>damping ratio</strong> <span class="arithmatex">\(\zeta\)</span> (that's the Greek letter "zeta"—you'll be writing it a lot) quantifies how much energy dissipation exists relative to the energy storage in the system. It's a dimensionless number, which means it's the same whether you're measuring in metric or imperial, and it determines the <em>qualitative</em> nature of the system's response.</p>
+<p>The <strong>damping ratio</strong> $\zeta$ (that's the Greek letter "zeta"—you'll be writing it a lot) quantifies how much energy dissipation exists relative to the energy storage in the system. It's a dimensionless number, which means it's the same whether you're measuring in metric or imperial, and it determines the <em>qualitative</em> nature of the system's response.</p>
 <p>For a mass-spring-damper:
-<span class="arithmatex">\(<span class="arithmatex">\(\zeta = \frac{b}{2\sqrt{km}}\)</span>\)</span></p>
-<p>where <span class="arithmatex">\(b\)</span> is the damping coefficient. The denominator <span class="arithmatex">\(2\sqrt{km}\)</span> represents the <strong>critical damping</strong> value—the exact amount of damping that separates oscillatory from non-oscillatory behavior. Think of it as the Goldilocks point: not too bouncy, not too sluggish.</p>
+$$\zeta = \frac{b}{2\sqrt{km}}$$</p>
+<p>where $b$ is the damping coefficient. The denominator $2\sqrt{km}$ represents the <strong>critical damping</strong> value—the exact amount of damping that separates oscillatory from non-oscillatory behavior. Think of it as the Goldilocks point: not too bouncy, not too sluggish.</p>
 <p>The damping ratio creates a classification scheme for second-order systems—and this table is worth memorizing:</p>
 <table>
 <thead>
@@ -2285,25 +2285,25 @@ Bloom Verb: demonstrate, calculate</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\zeta = 0\)</span></td>
+<td>$\zeta = 0$</td>
 <td>Undamped</td>
 <td>Purely imaginary</td>
 <td>Perpetual oscillation</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span></td>
+<td>$0 &lt; \zeta &lt; 1$</td>
 <td>Underdamped</td>
 <td>Complex conjugate</td>
 <td>Decaying oscillation</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\zeta = 1\)</span></td>
+<td>$\zeta = 1$</td>
 <td>Critically damped</td>
 <td>Repeated real</td>
 <td>Fastest non-oscillatory</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\zeta &gt; 1\)</span></td>
+<td>$\zeta &gt; 1$</td>
 <td>Overdamped</td>
 <td>Distinct real</td>
 <td>Sluggish, no oscillation</td>
@@ -2316,15 +2316,15 @@ Bloom Verb: demonstrate, calculate</p>
 <p>Gyra lives and breathes damping ratio. When her controller is <strong>underdamped</strong>, she wobbles back and forth before settling—annoying but eventually stable. When she's <strong>overdamped</strong>, she corrects so sluggishly that a gust of wind might knock her over before she finishes responding. But when she's <strong>critically damped</strong>? That's the sweet spot. She returns to upright quickly without any wobble. Finding Gyra's "just right" damping is one of our main jobs as her control engineers. Too twitchy? Lower the gain. Too sluggish? Speed her up. Goldilocks would approve.</p>
 </div>
 <h2 id="damped-frequency">Damped Frequency</h2>
-<p>For underdamped systems (<span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>), oscillations occur at the <strong>damped frequency</strong> <span class="arithmatex">\(\omega_d\)</span>, not the natural frequency <span class="arithmatex">\(\omega_n\)</span>. The damped frequency is:</p>
+<p>For underdamped systems ($0 &lt; \zeta &lt; 1$), oscillations occur at the <strong>damped frequency</strong> $\omega_d$, not the natural frequency $\omega_n$. The damped frequency is:</p>
 <div class="arithmatex">\[\omega_d = \omega_n\sqrt{1 - \zeta^2}\]</div>
-<p>Since <span class="arithmatex">\(\sqrt{1-\zeta^2} &lt; 1\)</span> for any <span class="arithmatex">\(\zeta &gt; 0\)</span>, we always have <span class="arithmatex">\(\omega_d &lt; \omega_n\)</span>. Damping slows down the oscillation.</p>
-<p>The relationship is geometric: if we plot <span class="arithmatex">\(\omega_n\)</span> as the hypotenuse of a right triangle, then <span class="arithmatex">\(\omega_d\)</span> is one leg and <span class="arithmatex">\(\zeta\omega_n\)</span> (the real part of the poles) is the other.</p>
-<p>For small damping ratios, <span class="arithmatex">\(\omega_d \approx \omega_n\)</span>. For example:</p>
+<p>Since $\sqrt{1-\zeta^2} &lt; 1$ for any $\zeta &gt; 0$, we always have $\omega_d &lt; \omega_n$. Damping slows down the oscillation.</p>
+<p>The relationship is geometric: if we plot $\omega_n$ as the hypotenuse of a right triangle, then $\omega_d$ is one leg and $\zeta\omega_n$ (the real part of the poles) is the other.</p>
+<p>For small damping ratios, $\omega_d \approx \omega_n$. For example:</p>
 <ul>
-<li><span class="arithmatex">\(\zeta = 0.1\)</span>: <span class="arithmatex">\(\omega_d = 0.995\omega_n\)</span> (only 0.5% reduction)</li>
-<li><span class="arithmatex">\(\zeta = 0.5\)</span>: <span class="arithmatex">\(\omega_d = 0.866\omega_n\)</span> (13.4% reduction)</li>
-<li><span class="arithmatex">\(\zeta = 0.9\)</span>: <span class="arithmatex">\(\omega_d = 0.436\omega_n\)</span> (56.4% reduction)</li>
+<li>$\zeta = 0.1$: $\omega_d = 0.995\omega_n$ (only 0.5% reduction)</li>
+<li>$\zeta = 0.5$: $\omega_d = 0.866\omega_n$ (13.4% reduction)</li>
+<li>$\zeta = 0.9$: $\omega_d = 0.436\omega_n$ (56.4% reduction)</li>
 </ul>
 <h4 id="diagram-damping-ratio-classification">Diagram: Damping Ratio Classification</h4>
 <iframe src="../../sims/damping-classification/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -2371,10 +2371,10 @@ Time Response Plot:
 <p>Implementation: p5.js with dual canvas areas and canvas-based controls</p>
 </details>
 <h2 id="undamped-systems">Undamped Systems</h2>
-<p>An <strong>undamped system</strong> has <span class="arithmatex">\(\zeta = 0\)</span>, meaning there is zero energy dissipation. The poles lie exactly on the imaginary axis at <span class="arithmatex">\(s = \pm j\omega_n\)</span>, and the system oscillates forever at the natural frequency. Forever. Like that song stuck in your head.</p>
+<p>An <strong>undamped system</strong> has $\zeta = 0$, meaning there is zero energy dissipation. The poles lie exactly on the imaginary axis at $s = \pm j\omega_n$, and the system oscillates forever at the natural frequency. Forever. Like that song stuck in your head.</p>
 <p>The step response for an undamped system is:</p>
 <div class="arithmatex">\[y(t) = K(1 - \cos(\omega_n t))\]</div>
-<p>This represents perpetual oscillation between 0 and <span class="arithmatex">\(2K\)</span>, with the output <em>never</em> settling to a steady value. While theoretically interesting (and great for exam problems), truly undamped systems are rare in practice—there's almost always some mechanism for energy loss. The universe, it turns out, is full of friction.</p>
+<p>This represents perpetual oscillation between 0 and $2K$, with the output <em>never</em> settling to a steady value. While theoretically interesting (and great for exam problems), truly undamped systems are rare in practice—there's almost always some mechanism for energy loss. The universe, it turns out, is full of friction.</p>
 <p>Real-world examples that <em>approximate</em> undamped behavior:</p>
 <ul>
 <li>A pendulum in a vacuum (no air resistance)</li>
@@ -2382,28 +2382,28 @@ Time Response Plot:
 <li>An LC circuit with superconducting components (now we're talking)</li>
 </ul>
 <h2 id="underdamped-systems">Underdamped Systems</h2>
-<p><strong>Underdamped systems</strong> (<span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>) are the most common in practice—and often the most fun to analyze. They exhibit damped oscillations: the response overshoots the target, oscillates back and forth like it can't make up its mind, and gradually settles to the steady-state value.</p>
+<p><strong>Underdamped systems</strong> ($0 &lt; \zeta &lt; 1$) are the most common in practice—and often the most fun to analyze. They exhibit damped oscillations: the response overshoots the target, oscillates back and forth like it can't make up its mind, and gradually settles to the steady-state value.</p>
 <p>The step response for an underdamped second-order system is:</p>
 <div class="arithmatex">\[y(t) = K\left[1 - \frac{e^{-\zeta\omega_n t}}{\sqrt{1-\zeta^2}}\sin(\omega_d t + \phi)\right]\]</div>
-<p>where <span class="arithmatex">\(\phi = \cos^{-1}(\zeta)\)</span> and <span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span>.</p>
+<p>where $\phi = \cos^{-1}(\zeta)$ and $\omega_d = \omega_n\sqrt{1-\zeta^2}$.</p>
 <p>Key features of the underdamped response—watch for these:</p>
 <ul>
 <li><strong>Overshoot</strong>: The response exceeds the final value before settling (sometimes dramatically)</li>
 <li><strong>Ringing</strong>: Multiple oscillations occur before settling (the system is indecisive)</li>
-<li><strong>Exponential envelope</strong>: Oscillation amplitude decays as <span class="arithmatex">\(e^{-\zeta\omega_n t}\)</span> (eventually, calm prevails)</li>
+<li><strong>Exponential envelope</strong>: Oscillation amplitude decays as $e^{-\zeta\omega_n t}$ (eventually, calm prevails)</li>
 </ul>
-<p>The complex conjugate poles at <span class="arithmatex">\(s = -\zeta\omega_n \pm j\omega_d\)</span> lie in the left half of the s-plane (for stability), with:</p>
+<p>The complex conjugate poles at $s = -\zeta\omega_n \pm j\omega_d$ lie in the left half of the s-plane (for stability), with:</p>
 <ul>
-<li>Real part <span class="arithmatex">\(-\zeta\omega_n\)</span> determining decay rate</li>
-<li>Imaginary part <span class="arithmatex">\(\omega_d\)</span> determining oscillation frequency</li>
+<li>Real part $-\zeta\omega_n$ determining decay rate</li>
+<li>Imaginary part $\omega_d$ determining oscillation frequency</li>
 </ul>
-<p>Here's a practical insight: many engineered systems are <em>deliberately</em> designed to be slightly underdamped (<span class="arithmatex">\(\zeta \approx 0.4\)</span> to <span class="arithmatex">\(0.7\)</span>) because this provides a sweet spot—fast response with acceptable overshoot. It's a conscious design choice, not a failure.</p>
+<p>Here's a practical insight: many engineered systems are <em>deliberately</em> designed to be slightly underdamped ($\zeta \approx 0.4$ to $0.7$) because this provides a sweet spot—fast response with acceptable overshoot. It's a conscious design choice, not a failure.</p>
 <div class="admonition quote">
 <p class="admonition-title">Helping Gyra</p>
-<p>When Gyra overshoots, she leans past vertical, catches herself, swings back, overshoots the other way, and gradually settles down. It looks like she's panicking, but she's actually following the math perfectly—this is underdamped second-order behavior in action. The overshoot percentage tells us how far past vertical she'll swing. The ringing frequency tells us how fast she'll wobble. Once you can predict these from <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span>, you can tune her controller to minimize the drama while keeping her responsive. A little wobble is often acceptable; falling over is not.</p>
+<p>When Gyra overshoots, she leans past vertical, catches herself, swings back, overshoots the other way, and gradually settles down. It looks like she's panicking, but she's actually following the math perfectly—this is underdamped second-order behavior in action. The overshoot percentage tells us how far past vertical she'll swing. The ringing frequency tells us how fast she'll wobble. Once you can predict these from $\zeta$ and $\omega_n$, you can tune her controller to minimize the drama while keeping her responsive. A little wobble is often acceptable; falling over is not.</p>
 </div>
 <h2 id="critically-damped-systems">Critically Damped Systems</h2>
-<p>A <strong>critically damped system</strong> has <span class="arithmatex">\(\zeta = 1\)</span>, representing the boundary between oscillatory and non-oscillatory behavior—the knife's edge. The characteristic equation has a repeated real root at <span class="arithmatex">\(s = -\omega_n\)</span>.</p>
+<p>A <strong>critically damped system</strong> has $\zeta = 1$, representing the boundary between oscillatory and non-oscillatory behavior—the knife's edge. The characteristic equation has a repeated real root at $s = -\omega_n$.</p>
 <p>The step response for a critically damped system is:</p>
 <div class="arithmatex">\[y(t) = K[1 - (1 + \omega_n t)e^{-\omega_n t}]\]</div>
 <p>Critical damping is special—it's the Goldilocks of damping:</p>
@@ -2418,14 +2418,14 @@ Time Response Plot:
 <p>A well-adjusted door closer is critically damped: the door swings closed quickly without bouncing back. An underdamped closer would let the door swing past closed and oscillate (bang-bang-bang). An overdamped closer would close the door so slowly you'd grow old waiting. Next time you're at a well-designed building, appreciate the engineering.</p>
 </div>
 <h2 id="overdamped-systems">Overdamped Systems</h2>
-<p><strong>Overdamped systems</strong> (<span class="arithmatex">\(\zeta &gt; 1\)</span>) have two distinct real poles, both in the left half-plane. The response is a sum of two decaying exponentials with no oscillation whatsoever—it's the slow-and-steady approach to life.</p>
+<p><strong>Overdamped systems</strong> ($\zeta &gt; 1$) have two distinct real poles, both in the left half-plane. The response is a sum of two decaying exponentials with no oscillation whatsoever—it's the slow-and-steady approach to life.</p>
 <p>The step response involves two time constants:</p>
 <div class="arithmatex">\[y(t) = K\left[1 - \frac{\tau_1}{\tau_1-\tau_2}e^{-t/\tau_1} + \frac{\tau_2}{\tau_1-\tau_2}e^{-t/\tau_2}\right]\]</div>
-<p>where <span class="arithmatex">\(\tau_1\)</span> and <span class="arithmatex">\(\tau_2\)</span> are related to the two pole locations.</p>
+<p>where $\tau_1$ and $\tau_2$ are related to the two pole locations.</p>
 <p>Characteristics of overdamped response:</p>
 <ul>
 <li>No overshoot (monotonic approach to final value—boring but reliable)</li>
-<li>Slower than critically damped for the same <span class="arithmatex">\(\omega_n\)</span></li>
+<li>Slower than critically damped for the same $\omega_n$</li>
 <li>Response dominated by the slower pole (the slowpoke sets the pace)</li>
 </ul>
 <p>Overdamped systems are often used when oscillation must be absolutely prevented, even at the cost of slower response. Sometimes "boring" is exactly what you want:</p>
@@ -2554,18 +2554,18 @@ S-Plane:
 <p>Implementation: p5.js with draggable elements and multi-curve plotting</p>
 </details>
 <h2 id="time-constant">Time Constant</h2>
-<p>The <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span> is a fundamental parameter for characterizing response speed—and one of those concepts that pops up everywhere in engineering. For first-order systems, it's beautifully simple:</p>
+<p>The <strong>time constant</strong> $\tau$ is a fundamental parameter for characterizing response speed—and one of those concepts that pops up everywhere in engineering. For first-order systems, it's beautifully simple:</p>
 <div class="arithmatex">\[\tau = \frac{1}{|p|}\]</div>
-<p>where <span class="arithmatex">\(p\)</span> is the pole location. For higher-order systems, each pole contributes its own time constant.</p>
+<p>where $p$ is the pole location. For higher-order systems, each pole contributes its own time constant.</p>
 <p>Here's what makes the time constant so satisfying—it has profound physical meaning across completely different domains:</p>
 <ul>
-<li>In an RC circuit: <span class="arithmatex">\(\tau = RC\)</span> (resistance × capacitance)</li>
-<li>In a thermal system: <span class="arithmatex">\(\tau = \rho C_p V / hA\)</span> (thermal mass / heat transfer rate)</li>
-<li>In a mechanical system: <span class="arithmatex">\(\tau = m/b\)</span> (mass / damping coefficient)</li>
+<li>In an RC circuit: $\tau = RC$ (resistance × capacitance)</li>
+<li>In a thermal system: $\tau = \rho C_p V / hA$ (thermal mass / heat transfer rate)</li>
+<li>In a mechanical system: $\tau = m/b$ (mass / damping coefficient)</li>
 </ul>
 <p>For second-order underdamped systems, the concept extends through the <strong>decay time constant</strong>:</p>
 <div class="arithmatex">\[\tau_d = \frac{1}{\zeta\omega_n}\]</div>
-<p>This is the time constant of the exponential envelope that bounds the oscillations. After <span class="arithmatex">\(5\tau_d\)</span> seconds, the oscillations have decayed to less than 1% of their initial amplitude.</p>
+<p>This is the time constant of the exponential envelope that bounds the oscillations. After $5\tau_d$ seconds, the oscillations have decayed to less than 1% of their initial amplitude.</p>
 <table>
 <thead>
 <tr>
@@ -2582,12 +2582,12 @@ S-Plane:
 </tr>
 <tr>
 <td>Underdamped 2nd-order</td>
-<td><span class="arithmatex">\(\tau_d = 1/(\zeta\omega_n)\)</span></td>
+<td>$\tau_d = 1/(\zeta\omega_n)$</td>
 <td>Envelope decay rate</td>
 </tr>
 <tr>
 <td>Overdamped 2nd-order</td>
-<td><span class="arithmatex">\(\tau_1, \tau_2\)</span></td>
+<td>$\tau_1, \tau_2$</td>
 <td>Two decay rates</td>
 </tr>
 </tbody>
@@ -2600,7 +2600,7 @@ S-Plane:
 <li><strong>Decompose</strong> the response:</li>
 <li>Natural + Forced (or Zero-Input + Zero-State)</li>
 <li>Transient + Steady-State</li>
-<li><strong>Characterize</strong> using key parameters (<span class="arithmatex">\(\tau\)</span>, <span class="arithmatex">\(\zeta\)</span>, <span class="arithmatex">\(\omega_n\)</span>, <span class="arithmatex">\(\omega_d\)</span>)</li>
+<li><strong>Characterize</strong> using key parameters ($\tau$, $\zeta$, $\omega_n$, $\omega_d$)</li>
 <li><strong>Predict</strong> qualitative and quantitative behavior</li>
 </ol>
 <p>This framework applies whether you're analyzing a simple RC circuit or a complex multi-degree-of-freedom mechanical system. The mathematical details differ, but the conceptual structure remains the same. Learn this once, use it forever—that's the beauty of classical control theory.</p>
@@ -2675,31 +2675,31 @@ Bloom Verb: execute, implement</p>
 <p><strong>Transient response</strong> is the drama that eventually dies out; <strong>steady-state response</strong> is the calm that remains after transients decay</p>
 </li>
 <li>
-<p><strong>First-order systems</strong> exhibit simple exponential behavior characterized by a single <strong>time constant</strong> <span class="arithmatex">\(\tau\)</span>—remember the 5τ rule!</p>
+<p><strong>First-order systems</strong> exhibit simple exponential behavior characterized by a single <strong>time constant</strong> $\tau$—remember the 5τ rule!</p>
 </li>
 <li>
-<p><strong>Second-order systems</strong> are characterized by <strong>natural frequency</strong> <span class="arithmatex">\(\omega_n\)</span> and <strong>damping ratio</strong> <span class="arithmatex">\(\zeta\)</span>, which together tell the whole story of oscillation and decay</p>
+<p><strong>Second-order systems</strong> are characterized by <strong>natural frequency</strong> $\omega_n$ and <strong>damping ratio</strong> $\zeta$, which together tell the whole story of oscillation and decay</p>
 </li>
 <li>
 <p>The damping ratio classifies second-order systems (memorize this!):</p>
 </li>
-<li><span class="arithmatex">\(\zeta = 0\)</span>: Undamped (perpetual oscillation)</li>
-<li><span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>: Underdamped (damped oscillation—the common case)</li>
-<li><span class="arithmatex">\(\zeta = 1\)</span>: Critically damped (fastest non-oscillatory—the Goldilocks case)</li>
+<li>$\zeta = 0$: Undamped (perpetual oscillation)</li>
+<li>$0 &lt; \zeta &lt; 1$: Underdamped (damped oscillation—the common case)</li>
+<li>$\zeta = 1$: Critically damped (fastest non-oscillatory—the Goldilocks case)</li>
 <li>
-<p><span class="arithmatex">\(\zeta &gt; 1\)</span>: Overdamped (sluggish, no oscillation—slow but steady)</p>
+<p>$\zeta &gt; 1$: Overdamped (sluggish, no oscillation—slow but steady)</p>
 </li>
 <li>
 <p><strong>Higher-order systems</strong> can often be approximated by focusing on <strong>dominant poles</strong>—those closest to the imaginary axis. Simplify wisely!</p>
 </li>
 </ul>
-<p>These concepts form the vocabulary and mental models that control engineers use daily. When you see <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span> in someone's notes, you'll know exactly what they're talking about. In the next chapter, we'll apply this understanding to analyze standard test inputs and define precise performance specifications—because "fast enough" isn't a spec.</p>
+<p>These concepts form the vocabulary and mental models that control engineers use daily. When you see $\zeta$ and $\omega_n$ in someone's notes, you'll know exactly what they're talking about. In the next chapter, we'll apply this understanding to analyze standard test inputs and define precise performance specifications—because "fast enough" isn't a spec.</p>
 <details class="question">
 <summary>Self-Check: Test Your Understanding</summary>
 <p>Before moving on, see if you can answer these without peeking at the chapter:</p>
 <ol>
-<li>A system has poles at <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -10\)</span>. Which pole dominates the response? (Hint: think about which one decays slower)</li>
-<li>For a second-order system with <span class="arithmatex">\(\zeta = 0.6\)</span> and <span class="arithmatex">\(\omega_n = 5\)</span> rad/s, what is the damped frequency <span class="arithmatex">\(\omega_d\)</span>?</li>
+<li>A system has poles at $s = -2$ and $s = -10$. Which pole dominates the response? (Hint: think about which one decays slower)</li>
+<li>For a second-order system with $\zeta = 0.6$ and $\omega_n = 5$ rad/s, what is the damped frequency $\omega_d$?</li>
 <li>True or false: A critically damped system reaches steady-state faster than an underdamped system with the same natural frequency. (This one's trickier than it looks!)</li>
 <li>What happens to the step response if you double the time constant of a first-order system?</li>
 </ol>

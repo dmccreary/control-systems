@@ -2216,14 +2216,14 @@
 </thead>
 <tbody>
 <tr>
-<td>Zero at <span class="arithmatex">\(s = -z\)</span></td>
+<td>Zero at $s = -z$</td>
 <td>Adds up to +90°</td>
-<td>+20 dB/decade above <span class="arithmatex">\(\omega = z\)</span></td>
+<td>+20 dB/decade above $\omega = z$</td>
 </tr>
 <tr>
-<td>Pole at <span class="arithmatex">\(s = -p\)</span></td>
+<td>Pole at $s = -p$</td>
 <td>Subtracts up to -90°</td>
-<td>-20 dB/decade above <span class="arithmatex">\(\omega = p\)</span></td>
+<td>-20 dB/decade above $\omega = p$</td>
 </tr>
 </tbody>
 </table>
@@ -2233,31 +2233,31 @@
 <h3 id="lead-compensator-transfer-function">Lead Compensator Transfer Function</h3>
 <p>The standard form of a lead compensator is:</p>
 <h4 id="lead-compensator-transfer-function_1">Lead Compensator Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}\)</span></p>
+<p>$G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_c\)</span> is the compensator gain</li>
-<li><span class="arithmatex">\(z\)</span> is the zero location (magnitude)</li>
-<li><span class="arithmatex">\(p\)</span> is the pole location (magnitude)</li>
-<li>For lead: <span class="arithmatex">\(z &lt; p\)</span> (zero is closer to origin than pole)</li>
+<li>$K_c$ is the compensator gain</li>
+<li>$z$ is the zero location (magnitude)</li>
+<li>$p$ is the pole location (magnitude)</li>
+<li>For lead: $z &lt; p$ (zero is closer to origin than pole)</li>
 </ul>
-<p>The ratio <span class="arithmatex">\(\alpha = z/p &lt; 1\)</span> is called the <strong>lead ratio</strong>. A smaller <span class="arithmatex">\(\alpha\)</span> means more separation between zero and pole, producing more phase lead.</p>
+<p>The ratio $\alpha = z/p &lt; 1$ is called the <strong>lead ratio</strong>. A smaller $\alpha$ means more separation between zero and pole, producing more phase lead.</p>
 <h3 id="phase-lead-from-a-lead-compensator">Phase Lead from a Lead Compensator</h3>
 <p>The phase contribution of the lead compensator at any frequency is:</p>
 <h4 id="phase-lead-equation">Phase Lead Equation</h4>
-<p><span class="arithmatex">\(\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p)\)</span></p>
+<p>$\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p)$</p>
 <p>The maximum phase lead occurs at the geometric mean of the zero and pole frequencies:</p>
 <h4 id="maximum-phase-lead-frequency">Maximum Phase Lead Frequency</h4>
-<p><span class="arithmatex">\(\omega_m = \sqrt{z \cdot p}\)</span></p>
+<p>$\omega_m = \sqrt{z \cdot p}$</p>
 <p>At this frequency, the <strong>maximum phase lead</strong> is:</p>
 <h4 id="maximum-phase-lead">Maximum Phase Lead</h4>
-<p><span class="arithmatex">\(\phi_{max} = \sin^{-1}\left(\frac{1 - \alpha}{1 + \alpha}\right)\)</span></p>
-<p>where <span class="arithmatex">\(\alpha = z/p\)</span>.</p>
+<p>$\phi_{max} = \sin^{-1}\left(\frac{1 - \alpha}{1 + \alpha}\right)$</p>
+<p>where $\alpha = z/p$.</p>
 <table>
 <thead>
 <tr>
-<th>Lead Ratio <span class="arithmatex">\(\alpha\)</span></th>
-<th>Maximum Phase Lead <span class="arithmatex">\(\phi_{max}\)</span></th>
+<th>Lead Ratio $\alpha$</th>
+<th>Maximum Phase Lead $\phi_{max}$</th>
 </tr>
 </thead>
 <tbody>
@@ -2285,7 +2285,7 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Practical Limit</p>
-<p>While smaller <span class="arithmatex">\(\alpha\)</span> gives more phase lead, it also means greater high-frequency gain. In practice, <span class="arithmatex">\(\alpha\)</span> values below 0.1 are rarely used because the noise amplification becomes problematic. If you need more than about 55-60° of phase lead, use two cascaded lead compensators rather than one extreme compensator.</p>
+<p>While smaller $\alpha$ gives more phase lead, it also means greater high-frequency gain. In practice, $\alpha$ values below 0.1 are rarely used because the noise amplification becomes problematic. If you need more than about 55-60° of phase lead, use two cascaded lead compensators rather than one extreme compensator.</p>
 </div>
 <h3 id="why-lead-improves-performance">Why Lead Improves Performance</h3>
 <p>Lead compensation works by adding phase near the crossover frequency. This directly increases phase margin, which:</p>
@@ -2295,7 +2295,7 @@
 <li>Allows higher crossover frequency (faster response)</li>
 <li>Increases robustness to model uncertainty</li>
 </ul>
-<p>The tradeoff: lead compensators amplify high-frequency signals, which can be problematic with noisy measurements. The pole at <span class="arithmatex">\(s = -p\)</span> limits this amplification but doesn't eliminate it.</p>
+<p>The tradeoff: lead compensators amplify high-frequency signals, which can be problematic with noisy measurements. The pole at $s = -p$ limits this amplification but doesn't eliminate it.</p>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
 <p>"Phase lead is like getting a heads-up before trouble arrives. My gyroscope gives me rate information—the derivative of my angle. A lead compensator does something similar in the frequency domain: it shifts the timing of my response so I act <em>before</em> things get bad. The earlier I can react, the less I have to overcorrect."</p>
@@ -2345,24 +2345,24 @@ Bloom Verb: explain, interpret</p>
 <h3 id="lag-compensator-transfer-function">Lag Compensator Transfer Function</h3>
 <p>The standard form of a lag compensator is:</p>
 <h4 id="lag-compensator-transfer-function_1">Lag Compensator Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}\)</span></p>
+<p>$G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_c\)</span> is the compensator gain</li>
-<li><span class="arithmatex">\(z\)</span> is the zero location</li>
-<li><span class="arithmatex">\(p\)</span> is the pole location</li>
-<li>For lag: <span class="arithmatex">\(z &gt; p\)</span> (zero is farther from origin than pole)</li>
+<li>$K_c$ is the compensator gain</li>
+<li>$z$ is the zero location</li>
+<li>$p$ is the pole location</li>
+<li>For lag: $z &gt; p$ (zero is farther from origin than pole)</li>
 </ul>
-<p>Wait—the transfer function looks identical to the lead compensator! The only difference is the relationship between <span class="arithmatex">\(z\)</span> and <span class="arithmatex">\(p\)</span>. For lag compensators, <span class="arithmatex">\(z &gt; p\)</span>, which inverts the phase behavior.</p>
+<p>Wait—the transfer function looks identical to the lead compensator! The only difference is the relationship between $z$ and $p$. For lag compensators, $z &gt; p$, which inverts the phase behavior.</p>
 <h3 id="phase-lag-from-a-lag-compensator">Phase Lag from a Lag Compensator</h3>
-<p>With <span class="arithmatex">\(z &gt; p\)</span>, the phase contribution is negative (phase lag):</p>
+<p>With $z &gt; p$, the phase contribution is negative (phase lag):</p>
 <h4 id="phase-lag-equation">Phase Lag Equation</h4>
-<p><span class="arithmatex">\(\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p) &lt; 0\)</span></p>
+<p>$\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p) &lt; 0$</p>
 <p>This phase lag is the price we pay for increased low-frequency gain. The key to successful lag compensation is placing the zero and pole at frequencies <em>below</em> the crossover frequency, so the phase lag doesn't affect stability margins.</p>
 <h3 id="why-lag-improves-steady-state-accuracy">Why Lag Improves Steady-State Accuracy</h3>
 <p>At very low frequencies, the lag compensator gain approaches:</p>
-<p><span class="arithmatex">\(G_c(0) = K_c \cdot \frac{z}{p}\)</span></p>
-<p>Since <span class="arithmatex">\(z &gt; p\)</span>, this ratio is greater than 1, boosting the DC gain. Higher DC gain means smaller position error constant <span class="arithmatex">\(K_p\)</span> denominators and reduced steady-state error.</p>
+<p>$G_c(0) = K_c \cdot \frac{z}{p}$</p>
+<p>Since $z &gt; p$, this ratio is greater than 1, boosting the DC gain. Higher DC gain means smaller position error constant $K_p$ denominators and reduced steady-state error.</p>
 <table>
 <thead>
 <tr>
@@ -2449,11 +2449,11 @@ Bloom Verb: explain, compare</p>
 <p>When you need both improved transient response <em>and</em> reduced steady-state error, a single compensator won't suffice. The solution: a <strong>lead-lag compensator</strong> that combines both functions.</p>
 <h3 id="lead-lag-compensator-transfer-function">Lead-Lag Compensator Transfer Function</h3>
 <h4 id="lead-lag-compensator-transfer-function_1">Lead-Lag Compensator Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{(s + z_{lead})(s + z_{lag})}{(s + p_{lead})(s + p_{lag})}\)</span></p>
+<p>$G_c(s) = K_c \cdot \frac{(s + z_{lead})(s + z_{lag})}{(s + p_{lead})(s + p_{lag})}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(z_{lead} &lt; p_{lead}\)</span> (lead section)</li>
-<li><span class="arithmatex">\(z_{lag} &gt; p_{lag}\)</span> (lag section)</li>
+<li>$z_{lead} &lt; p_{lead}$ (lead section)</li>
+<li>$z_{lag} &gt; p_{lag}$ (lag section)</li>
 <li>The lead section operates near crossover, the lag section operates at low frequencies</li>
 </ul>
 <p>In practice, you can design the lead and lag sections separately, then combine them. The key is keeping them in different frequency ranges so they don't interfere with each other.</p>
@@ -2490,22 +2490,22 @@ Bloom Verb: explain, compare</p>
 </ul>
 <p><strong>Design procedure for lead compensation (Bode method):</strong></p>
 <ol>
-<li>Determine the required phase margin increase <span class="arithmatex">\(\Delta\phi\)</span></li>
+<li>Determine the required phase margin increase $\Delta\phi$</li>
 <li>Add a safety margin (typically 5-12°) to account for phase reduction from lead compensator gain increase</li>
-<li>Calculate the required <span class="arithmatex">\(\alpha\)</span>: <span class="arithmatex">\(\alpha = \frac{1 - \sin(\phi_{max})}{1 + \sin(\phi_{max})}\)</span></li>
-<li>Find the new crossover frequency <span class="arithmatex">\(\omega_c\)</span> where the uncompensated system has magnitude <span class="arithmatex">\(-10\log_{10}(\alpha)\)</span> dB</li>
-<li>Place the maximum phase at this crossover: <span class="arithmatex">\(\omega_m = \omega_c\)</span></li>
-<li>Calculate zero and pole: <span class="arithmatex">\(z = \omega_c\sqrt{\alpha}\)</span>, <span class="arithmatex">\(p = \omega_c/\sqrt{\alpha}\)</span></li>
+<li>Calculate the required $\alpha$: $\alpha = \frac{1 - \sin(\phi_{max})}{1 + \sin(\phi_{max})}$</li>
+<li>Find the new crossover frequency $\omega_c$ where the uncompensated system has magnitude $-10\log_{10}(\alpha)$ dB</li>
+<li>Place the maximum phase at this crossover: $\omega_m = \omega_c$</li>
+<li>Calculate zero and pole: $z = \omega_c\sqrt{\alpha}$, $p = \omega_c/\sqrt{\alpha}$</li>
 <li>Set compensator gain to maintain desired crossover</li>
 </ol>
 <p>This procedure systematically places the phase lead exactly where it's needed—at the new crossover frequency.</p>
 <p><strong>Design procedure for lag compensation (Bode method):</strong></p>
 <ol>
-<li>Set the gain <span class="arithmatex">\(K_c\)</span> to achieve the desired crossover frequency and phase margin (ignoring steady-state error for now)</li>
+<li>Set the gain $K_c$ to achieve the desired crossover frequency and phase margin (ignoring steady-state error for now)</li>
 <li>Determine how much additional DC gain is needed to meet the steady-state error specification</li>
 <li>Select the lag ratio: $z/p = $ (required DC gain increase)</li>
-<li>Place the lag zero at least one decade below crossover: <span class="arithmatex">\(z \leq \omega_c/10\)</span></li>
-<li>Calculate the pole: <span class="arithmatex">\(p = z \cdot (\text{required ratio})^{-1}\)</span></li>
+<li>Place the lag zero at least one decade below crossover: $z \leq \omega_c/10$</li>
+<li>Calculate the pole: $p = z \cdot (\text{required ratio})^{-1}$</li>
 <li>Verify that phase margin hasn't been significantly reduced</li>
 </ol>
 <h3 id="the-root-locus-design-method">The Root Locus Design Method</h3>
@@ -2521,7 +2521,7 @@ Bloom Verb: explain, compare</p>
 <li>Calculate the angle deficiency: the angle needed from the compensator zero and pole to make the desired point a valid root locus point</li>
 <li>Position the compensator zero and pole to provide this angle</li>
 <li>A common approach: place the zero directly below the desired pole, then find the pole location that provides the correct total angle</li>
-<li>Calculate the gain <span class="arithmatex">\(K\)</span> at the desired pole location</li>
+<li>Calculate the gain $K$ at the desired pole location</li>
 </ol>
 <p>The root locus method gives direct control over closed-loop pole locations but requires more geometric construction than the Bode method.</p>
 <table>
@@ -2618,17 +2618,17 @@ Bloom Verb: calculate, implement</p>
 </tr>
 <tr>
 <td>Settling time</td>
-<td><span class="arithmatex">\(t_s\)</span></td>
+<td>$t_s$</td>
 <td>Dominant pole real part</td>
 </tr>
 <tr>
 <td>Rise time</td>
-<td><span class="arithmatex">\(t_r\)</span></td>
+<td>$t_r$</td>
 <td>Bandwidth, crossover frequency</td>
 </tr>
 <tr>
 <td>Steady-state error</td>
-<td><span class="arithmatex">\(e_{ss}\)</span></td>
+<td>$e_{ss}$</td>
 <td>DC gain, error constants</td>
 </tr>
 <tr>
@@ -2643,7 +2643,7 @@ Bloom Verb: calculate, implement</p>
 </tr>
 <tr>
 <td>Bandwidth</td>
-<td><span class="arithmatex">\(\omega_{BW}\)</span></td>
+<td>$\omega_{BW}$</td>
 <td>Speed of response</td>
 </tr>
 </tbody>
@@ -2661,20 +2661,20 @@ Bloom Verb: calculate, implement</p>
 <h2 id="sensitivity-and-robustness">Sensitivity and Robustness</h2>
 <p>The real world doesn't match our models perfectly. Components vary, parameters drift, and disturbances appear that we didn't anticipate. <strong>Robustness</strong> is the ability of a control system to maintain acceptable performance despite these uncertainties.</p>
 <h3 id="the-sensitivity-function">The Sensitivity Function</h3>
-<p>The <strong>sensitivity function</strong> <span class="arithmatex">\(S(s)\)</span> measures how disturbances and model errors affect the output:</p>
+<p>The <strong>sensitivity function</strong> $S(s)$ measures how disturbances and model errors affect the output:</p>
 <h4 id="sensitivity-function">Sensitivity Function</h4>
-<p><span class="arithmatex">\(S(s) = \frac{1}{1 + G(s)H(s)}\)</span></p>
+<p>$S(s) = \frac{1}{1 + G(s)H(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(G(s)H(s)\)</span> is the loop transfer function</li>
-<li><span class="arithmatex">\(S(s)\)</span> relates disturbances at the output to their effect on the output</li>
+<li>$G(s)H(s)$ is the loop transfer function</li>
+<li>$S(s)$ relates disturbances at the output to their effect on the output</li>
 </ul>
-<p>The sensitivity function tells us how much the closed-loop transfer function changes when the plant changes. A low sensitivity (small <span class="arithmatex">\(|S(j\omega)|\)</span>) means the system is robust to plant variations at that frequency.</p>
+<p>The sensitivity function tells us how much the closed-loop transfer function changes when the plant changes. A low sensitivity (small $|S(j\omega)|$) means the system is robust to plant variations at that frequency.</p>
 <h3 id="the-complementary-sensitivity-function">The Complementary Sensitivity Function</h3>
-<p>The <strong>complementary sensitivity function</strong> <span class="arithmatex">\(T(s)\)</span> relates the reference input to the output:</p>
+<p>The <strong>complementary sensitivity function</strong> $T(s)$ relates the reference input to the output:</p>
 <h4 id="complementary-sensitivity-function">Complementary Sensitivity Function</h4>
-<p><span class="arithmatex">\(T(s) = \frac{G(s)H(s)}{1 + G(s)H(s)}\)</span></p>
-<p>Notice that <span class="arithmatex">\(S(s) + T(s) = 1\)</span>. This is the fundamental constraint that limits what any linear controller can achieve.</p>
+<p>$T(s) = \frac{G(s)H(s)}{1 + G(s)H(s)}$</p>
+<p>Notice that $S(s) + T(s) = 1$. This is the fundamental constraint that limits what any linear controller can achieve.</p>
 <table>
 <thead>
 <tr>
@@ -2685,12 +2685,12 @@ Bloom Verb: calculate, implement</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(S(s)\)</span></td>
+<td>$S(s)$</td>
 <td>Good disturbance rejection</td>
 <td>Poor disturbance rejection</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(T(s)\)</span></td>
+<td>$T(s)$</td>
 <td>Poor reference tracking</td>
 <td>Good reference tracking</td>
 </tr>
@@ -2698,9 +2698,9 @@ Bloom Verb: calculate, implement</p>
 </table>
 <p>Since they sum to 1, we can't have both low sensitivity and high complementary sensitivity at the same frequency. This is the mathematical expression of the speed-vs-robustness tradeoff.</p>
 <h3 id="disturbance-rejection">Disturbance Rejection</h3>
-<p><strong>Disturbance rejection</strong> measures how well the control system suppresses unwanted inputs. For disturbances entering at the plant output, the effect is governed by <span class="arithmatex">\(S(s)\)</span>.</p>
+<p><strong>Disturbance rejection</strong> measures how well the control system suppresses unwanted inputs. For disturbances entering at the plant output, the effect is governed by $S(s)$.</p>
 <p>To reject low-frequency disturbances (like constant biases or slow drifts):
-- Make <span class="arithmatex">\(|S(j\omega)|\)</span> small at low frequencies
+- Make $|S(j\omega)|$ small at low frequencies
 - This requires high loop gain at low frequencies
 - Lag compensation or integral action achieves this</p>
 <h4 id="diagram-sensitivity-and-complementary-sensitivity">Diagram: Sensitivity and Complementary Sensitivity</h4>
@@ -2742,13 +2742,13 @@ Bloom Verb: analyze, differentiate</p>
 <p>Implementation: p5.js with transfer function evaluation and constraint visualization</p>
 </details>
 <h3 id="noise-attenuation">Noise Attenuation</h3>
-<p><strong>Noise attenuation</strong> refers to the system's ability to reject high-frequency noise from sensors. This is governed by <span class="arithmatex">\(T(s)\)</span> at high frequencies.</p>
+<p><strong>Noise attenuation</strong> refers to the system's ability to reject high-frequency noise from sensors. This is governed by $T(s)$ at high frequencies.</p>
 <p>For good noise attenuation:
-- Make <span class="arithmatex">\(|T(j\omega)|\)</span> small at high frequencies
+- Make $|T(j\omega)|$ small at high frequencies
 - This means the loop gain should roll off at high frequencies
 - Lead compensation increases high-frequency gain—potentially problematic for noise</p>
 <p>This creates another tradeoff: lead compensation improves phase margin but can amplify sensor noise. The pole in the lead compensator helps, but careful design is still required.</p>
-<p>| Frequency Range | Want Low <span class="arithmatex">\(|S|\)</span> | Want Low <span class="arithmatex">\(|T|\)</span> | Benefit |
+<p>| Frequency Range | Want Low $|S|$ | Want Low $|T|$ | Benefit |
 |-----------------|----------------|----------------|---------|
 | Low frequencies | Yes | No | Disturbance rejection |
 | Crossover | (crossover) | (crossover) | — |
@@ -2760,15 +2760,15 @@ Bloom Verb: analyze, differentiate</p>
 - At higher frequencies, the plant typically has more phase lag
 - Less phase margin means less stability and more overshoot
 - Eventually, instability</p>
-<p>Lead compensation can add phase, but practical limits on <span class="arithmatex">\(\alpha\)</span> constrain how much. The fundamental tradeoff remains.</p>
+<p>Lead compensation can add phase, but practical limits on $\alpha$ constrain how much. The fundamental tradeoff remains.</p>
 <h3 id="accuracy-vs-noise-rejection">Accuracy vs. Noise Rejection</h3>
 <p>High DC gain (from lag compensation or integral action) improves steady-state accuracy. But:
 - High gain amplifies low-frequency disturbances
 - If the low-frequency disturbances include sensor bias, this is problematic</p>
 <h3 id="disturbance-rejection-vs-noise-sensitivity">Disturbance Rejection vs. Noise Sensitivity</h3>
-<p>To reject output disturbances, make <span class="arithmatex">\(|S|\)</span> small, which requires high loop gain. But high loop gain also makes <span class="arithmatex">\(|T|\)</span> approach 1 more closely at those frequencies, passing more sensor noise to the output.</p>
+<p>To reject output disturbances, make $|S|$ small, which requires high loop gain. But high loop gain also makes $|T|$ approach 1 more closely at those frequencies, passing more sensor noise to the output.</p>
 <h3 id="the-waterbed-effect">The Waterbed Effect</h3>
-<p>There's a mathematical result called the <strong>waterbed effect</strong>: if you push sensitivity down in one frequency range, it must come up somewhere else. You can't have <span class="arithmatex">\(|S(j\omega)| &lt; 1\)</span> everywhere—the integral of <span class="arithmatex">\(\ln|S|\)</span> over all frequencies is constrained by the number of RHP poles and zeros.</p>
+<p>There's a mathematical result called the <strong>waterbed effect</strong>: if you push sensitivity down in one frequency range, it must come up somewhere else. You can't have $|S(j\omega)| &lt; 1$ everywhere—the integral of $\ln|S|$ over all frequencies is constrained by the number of RHP poles and zeros.</p>
 <p>This means there's no free lunch. Improving disturbance rejection at low frequencies typically worsens it at high frequencies, or vice versa.</p>
 <div class="admonition warning">
 <p class="admonition-title">No Universal Best Design</p>
@@ -2867,13 +2867,13 @@ Bloom Verb: evaluate, prioritize</p>
 <p><strong>Lead compensators:</strong>
 - Add positive phase (phase lead)
 - Improve transient response and stability margins
-- Place zero closer to origin than pole (<span class="arithmatex">\(z &lt; p\)</span>)
-- Maximum phase occurs at <span class="arithmatex">\(\omega_m = \sqrt{zp}\)</span>
+- Place zero closer to origin than pole ($z &lt; p$)
+- Maximum phase occurs at $\omega_m = \sqrt{zp}$
 - Practical limit around 55-60° per stage</p>
 <p><strong>Lag compensators:</strong>
 - Contribute negative phase (phase lag)
 - Increase low-frequency gain for better steady-state accuracy
-- Place zero farther from origin than pole (<span class="arithmatex">\(z &gt; p\)</span>)
+- Place zero farther from origin than pole ($z &gt; p$)
 - Must be placed well below crossover to avoid destabilizing</p>
 <p><strong>Lead-lag compensators:</strong>
 - Combine both functions
@@ -2885,10 +2885,10 @@ Bloom Verb: evaluate, prioritize</p>
 <p><strong>Fundamental tradeoffs:</strong>
 - Speed vs. stability (you can't have infinite bandwidth)
 - Accuracy vs. robustness (high gain amplifies uncertainty)
-- Disturbance rejection vs. noise attenuation (<span class="arithmatex">\(S + T = 1\)</span>)</p>
+- Disturbance rejection vs. noise attenuation ($S + T = 1$)</p>
 <p><strong>Sensitivity functions:</strong>
-- <span class="arithmatex">\(S(s) = 1/(1 + GH)\)</span>: disturbance response, model sensitivity
-- <span class="arithmatex">\(T(s) = GH/(1 + GH)\)</span>: reference tracking, noise transmission
+- $S(s) = 1/(1 + GH)$: disturbance response, model sensitivity
+- $T(s) = GH/(1 + GH)$: reference tracking, noise transmission
 - Their sum equals 1, constraining what's achievable</p>
 <p>Every control design is a compromise. The engineer's skill lies in understanding the tradeoffs and finding the best balance for the specific application.</p>
 <div class="admonition quote">
@@ -2900,7 +2900,7 @@ Bloom Verb: evaluate, prioritize</p>
 <ol>
 <li>For a lead compensator, which is larger: the zero or the pole?</li>
 <li>Why must a lag compensator's zero and pole be placed well below the crossover frequency?</li>
-<li>What does the sensitivity function <span class="arithmatex">\(S(s)\)</span> measure?</li>
+<li>What does the sensitivity function $S(s)$ measure?</li>
 <li>Why does improving disturbance rejection at low frequencies often worsen noise rejection at high frequencies?</li>
 <li>If you need both improved transient response and reduced steady-state error, what type of compensator should you consider?</li>
 </ol>

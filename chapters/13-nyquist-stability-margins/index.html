@@ -2354,13 +2354,13 @@
 </ol>
 <p>The <strong>gain margin</strong> measures how much gain increase the system can tolerate. The <strong>phase margin</strong> measures how much additional phase lag is acceptable. Together, these <strong>stability margins</strong> quantify robustness.</p>
 <h3 id="the-critical-point">The Critical Point</h3>
-<p>For a standard negative feedback system with loop transfer function <span class="arithmatex">\(L(s) = G(s)H(s)\)</span>, the closed-loop characteristic equation is:</p>
+<p>For a standard negative feedback system with loop transfer function $L(s) = G(s)H(s)$, the closed-loop characteristic equation is:</p>
 <h4 id="characteristic-equation">Characteristic Equation</h4>
-<p><span class="arithmatex">\(1 + L(s) = 0\)</span></p>
+<p>$1 + L(s) = 0$</p>
 <p>or equivalently:</p>
-<p><span class="arithmatex">\(L(s) = -1\)</span></p>
-<p>The point <span class="arithmatex">\(-1 + j0\)</span> in the complex plane is called the <strong>critical point</strong>. If the loop transfer function ever equals <span class="arithmatex">\(-1\)</span> at some real frequency, the closed-loop system is on the verge of instability—it will oscillate at that frequency with constant amplitude.</p>
-<p>Why <span class="arithmatex">\(-1\)</span>? Consider what happens at a frequency <span class="arithmatex">\(\omega\)</span> where <span class="arithmatex">\(|L(j\omega)| = 1\)</span> and <span class="arithmatex">\(\angle L(j\omega) = -180°\)</span>:</p>
+<p>$L(s) = -1$</p>
+<p>The point $-1 + j0$ in the complex plane is called the <strong>critical point</strong>. If the loop transfer function ever equals $-1$ at some real frequency, the closed-loop system is on the verge of instability—it will oscillate at that frequency with constant amplitude.</p>
+<p>Why $-1$? Consider what happens at a frequency $\omega$ where $|L(j\omega)| = 1$ and $\angle L(j\omega) = -180°$:</p>
 <ul>
 <li>The magnitude is unity, so signals neither grow nor decay</li>
 <li>The phase is -180°, so the negative feedback becomes positive feedback</li>
@@ -2376,15 +2376,15 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(L(j\omega) = -1\)</span></td>
+<td>$L(j\omega) = -1$</td>
 <td>On the edge of instability</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\|L(j\omega)\| &lt; 1\)</span> when <span class="arithmatex">\(\angle L = -180°\)</span></td>
+<td>$|L(j\omega)| &lt; 1$ when $\angle L = -180°$</td>
 <td>Gain margin exists</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\angle L(j\omega) &gt; -180°\)</span> when <span class="arithmatex">\(\|L\| = 1\)</span></td>
+<td>$\angle L(j\omega) &gt; -180°$ when $|L| = 1$</td>
 <td>Phase margin exists</td>
 </tr>
 </tbody>
@@ -2392,25 +2392,25 @@
 <h2 id="gain-margin">Gain Margin</h2>
 <p>The <strong>gain margin</strong> (GM) is the factor by which the loop gain can be increased before the system becomes unstable. It's measured at the <strong>phase crossover frequency</strong>—the frequency where the phase equals -180°.</p>
 <h4 id="gain-margin-definition">Gain Margin Definition</h4>
-<p><span class="arithmatex">\(GM = \frac{1}{|L(j\omega_{pc})|}\)</span></p>
+<p>$GM = \frac{1}{|L(j\omega_{pc})|}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_{pc}\)</span> is the phase crossover frequency</li>
-<li><span class="arithmatex">\(|L(j\omega_{pc})|\)</span> is the magnitude at that frequency</li>
+<li>$\omega_{pc}$ is the phase crossover frequency</li>
+<li>$|L(j\omega_{pc})|$ is the magnitude at that frequency</li>
 </ul>
 <p>In decibels:</p>
-<p><span class="arithmatex">\(GM_{dB} = -20\log_{10}|L(j\omega_{pc})| = -|L(j\omega_{pc})|_{dB}\)</span></p>
+<p>$GM_{dB} = -20\log_{10}|L(j\omega_{pc})| = -|L(j\omega_{pc})|_{dB}$</p>
 <p>If the magnitude at phase crossover is -12 dB, the gain margin is +12 dB—you can increase the gain by a factor of 4 before instability.</p>
 <h3 id="phase-crossover-frequency">Phase Crossover Frequency</h3>
-<p>The <strong>phase crossover frequency</strong> <span class="arithmatex">\(\omega_{pc}\)</span> is where the loop transfer function has a phase of exactly -180°:</p>
+<p>The <strong>phase crossover frequency</strong> $\omega_{pc}$ is where the loop transfer function has a phase of exactly -180°:</p>
 <h4 id="phase-crossover">Phase Crossover</h4>
-<p><span class="arithmatex">\(\angle L(j\omega_{pc}) = -180°\)</span></p>
+<p>$\angle L(j\omega_{pc}) = -180°$</p>
 <p>At this frequency, the feedback signal is exactly inverted—negative feedback has become positive feedback. If the gain is less than unity here, the system is stable because signals still decay around the loop.</p>
 <p>On a Bode plot, find where the phase curve crosses -180°. Read the magnitude at that frequency. The gain margin is the distance (in dB) from that magnitude to 0 dB.</p>
 <table>
 <thead>
 <tr>
-<th>Magnitude at <span class="arithmatex">\(\omega_{pc}\)</span></th>
+<th>Magnitude at $\omega_{pc}$</th>
 <th>Gain Margin</th>
 <th>Stability</th>
 </tr>
@@ -2442,23 +2442,23 @@
 <h2 id="phase-margin">Phase Margin</h2>
 <p>The <strong>phase margin</strong> (PM) is the additional phase lag that would bring the system to instability. It's measured at the <strong>gain crossover frequency</strong>—the frequency where the magnitude equals unity (0 dB).</p>
 <h4 id="phase-margin-definition">Phase Margin Definition</h4>
-<p><span class="arithmatex">\(PM = 180° + \angle L(j\omega_{gc})\)</span></p>
+<p>$PM = 180° + \angle L(j\omega_{gc})$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_{gc}\)</span> is the gain crossover frequency</li>
-<li><span class="arithmatex">\(\angle L(j\omega_{gc})\)</span> is the phase at that frequency</li>
+<li>$\omega_{gc}$ is the gain crossover frequency</li>
+<li>$\angle L(j\omega_{gc})$ is the phase at that frequency</li>
 </ul>
-<p>If the phase at gain crossover is -135°, the phase margin is <span class="arithmatex">\(180° - 135° = 45°\)</span>. The system could tolerate an additional 45° of phase lag before becoming unstable.</p>
+<p>If the phase at gain crossover is -135°, the phase margin is $180° - 135° = 45°$. The system could tolerate an additional 45° of phase lag before becoming unstable.</p>
 <h3 id="gain-crossover-frequency">Gain Crossover Frequency</h3>
-<p>The <strong>gain crossover frequency</strong> <span class="arithmatex">\(\omega_{gc}\)</span> is where the loop transfer function has unity magnitude:</p>
+<p>The <strong>gain crossover frequency</strong> $\omega_{gc}$ is where the loop transfer function has unity magnitude:</p>
 <h4 id="gain-crossover">Gain Crossover</h4>
-<p><span class="arithmatex">\(|L(j\omega_{gc})| = 1\)</span> (or 0 dB)</p>
-<p>This is the most important frequency for closed-loop behavior. At frequencies well below <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain is high and the closed-loop system tracks commands well. At frequencies well above <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain is low and the system attenuates disturbances. Near <span class="arithmatex">\(\omega_{gc}\)</span>, the transition occurs—and if there's not enough phase margin, oscillations result.</p>
+<p>$|L(j\omega_{gc})| = 1$ (or 0 dB)</p>
+<p>This is the most important frequency for closed-loop behavior. At frequencies well below $\omega_{gc}$, the loop gain is high and the closed-loop system tracks commands well. At frequencies well above $\omega_{gc}$, the loop gain is low and the system attenuates disturbances. Near $\omega_{gc}$, the transition occurs—and if there's not enough phase margin, oscillations result.</p>
 <p>On a Bode plot, find where the magnitude curve crosses 0 dB. Read the phase at that frequency. The phase margin is how far that phase is above -180°.</p>
 <table>
 <thead>
 <tr>
-<th>Phase at <span class="arithmatex">\(\omega_{gc}\)</span></th>
+<th>Phase at $\omega_{gc}$</th>
 <th>Phase Margin</th>
 <th>Character</th>
 </tr>
@@ -2580,38 +2580,38 @@ Magnitude Plot:
 </table>
 <p>There's a rough relationship between phase margin and closed-loop damping ratio:</p>
 <h4 id="phase-margin-to-damping-ratio">Phase Margin to Damping Ratio</h4>
-<p><span class="arithmatex">\(\zeta \approx \frac{PM}{100}\)</span> (for PM in degrees, 30° &lt; PM &lt; 70°)</p>
-<p>A 45° phase margin corresponds to roughly <span class="arithmatex">\(\zeta \approx 0.45\)</span>, which gives about 20% overshoot. A 60° phase margin gives <span class="arithmatex">\(\zeta \approx 0.6\)</span> and about 10% overshoot.</p>
+<p>$\zeta \approx \frac{PM}{100}$ (for PM in degrees, 30° &lt; PM &lt; 70°)</p>
+<p>A 45° phase margin corresponds to roughly $\zeta \approx 0.45$, which gives about 20% overshoot. A 60° phase margin gives $\zeta \approx 0.6$ and about 10% overshoot.</p>
 <div class="admonition tip">
 <p class="admonition-title">The 45° Rule of Thumb</p>
 <p>For most control systems, aim for 45° phase margin as a starting point. This provides good balance between response speed and stability robustness. Increase margin if the plant model is uncertain; you may accept less margin if the model is very accurate and speed is critical.</p>
 </div>
 <h2 id="the-crossover-frequency-and-bandwidth">The Crossover Frequency and Bandwidth</h2>
-<p>The <strong>crossover frequency</strong> <span class="arithmatex">\(\omega_{gc}\)</span> (gain crossover) is closely related to the closed-loop bandwidth. For many systems:</p>
+<p>The <strong>crossover frequency</strong> $\omega_{gc}$ (gain crossover) is closely related to the closed-loop bandwidth. For many systems:</p>
 <h4 id="crossover-and-bandwidth-relationship">Crossover and Bandwidth Relationship</h4>
-<p><span class="arithmatex">\(\omega_{BW} \approx \omega_{gc}\)</span> (within a factor of 2)</p>
-<p>This makes the gain crossover frequency a key design parameter. Want faster response? Push <span class="arithmatex">\(\omega_{gc}\)</span> higher. But as you increase crossover frequency:</p>
+<p>$\omega_{BW} \approx \omega_{gc}$ (within a factor of 2)</p>
+<p>This makes the gain crossover frequency a key design parameter. Want faster response? Push $\omega_{gc}$ higher. But as you increase crossover frequency:</p>
 <ul>
 <li>Phase margin typically decreases (more phase lag accumulates)</li>
 <li>Noise sensitivity increases (high-frequency gain is higher)</li>
 <li>Plant dynamics become more limiting</li>
 </ul>
-<p>The crossover frequency represents the frequency range where your controller is actively regulating the system. Below <span class="arithmatex">\(\omega_{gc}\)</span>, you have good command following and disturbance rejection. Above <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain drops and control authority diminishes.</p>
+<p>The crossover frequency represents the frequency range where your controller is actively regulating the system. Below $\omega_{gc}$, you have good command following and disturbance rejection. Above $\omega_{gc}$, the loop gain drops and control authority diminishes.</p>
 <h2 id="introduction-to-nyquist-plots">Introduction to Nyquist Plots</h2>
-<p>The <strong>Nyquist plot</strong> (also called <strong>Nyquist diagram</strong>) is a polar plot of the loop transfer function <span class="arithmatex">\(L(j\omega)\)</span> as frequency varies from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>. Unlike Bode plots, which show magnitude and phase separately on logarithmic frequency scales, the Nyquist plot displays the complex value of <span class="arithmatex">\(L(j\omega)\)</span> directly in the complex plane.</p>
+<p>The <strong>Nyquist plot</strong> (also called <strong>Nyquist diagram</strong>) is a polar plot of the loop transfer function $L(j\omega)$ as frequency varies from $-\infty$ to $+\infty$. Unlike Bode plots, which show magnitude and phase separately on logarithmic frequency scales, the Nyquist plot displays the complex value of $L(j\omega)$ directly in the complex plane.</p>
 <h4 id="nyquist-plot-construction">Nyquist Plot Construction</h4>
-<p><span class="arithmatex">\(L(j\omega) = |L(j\omega)| e^{j\angle L(j\omega)}\)</span></p>
+<p>$L(j\omega) = |L(j\omega)| e^{j\angle L(j\omega)}$</p>
 <p>where:</p>
 <ul>
-<li>The magnitude <span class="arithmatex">\(|L(j\omega)|\)</span> determines the distance from the origin</li>
-<li>The phase <span class="arithmatex">\(\angle L(j\omega)\)</span> determines the angle from the positive real axis</li>
+<li>The magnitude $|L(j\omega)|$ determines the distance from the origin</li>
+<li>The phase $\angle L(j\omega)$ determines the angle from the positive real axis</li>
 </ul>
-<p>For each frequency <span class="arithmatex">\(\omega\)</span>, plot the point <span class="arithmatex">\((Re[L(j\omega)], Im[L(j\omega)])\)</span>. As <span class="arithmatex">\(\omega\)</span> increases from 0 to <span class="arithmatex">\(\infty\)</span>, these points trace out a curve. The complete Nyquist plot includes both positive and negative frequencies, with the negative frequency portion being the mirror image (complex conjugate) of the positive portion.</p>
+<p>For each frequency $\omega$, plot the point $(Re[L(j\omega)], Im[L(j\omega)])$. As $\omega$ increases from 0 to $\infty$, these points trace out a curve. The complete Nyquist plot includes both positive and negative frequencies, with the negative frequency portion being the mirror image (complex conjugate) of the positive portion.</p>
 <p>Key features of Nyquist plots:</p>
 <ul>
-<li><strong>DC point</strong> (<span class="arithmatex">\(\omega = 0\)</span>): Often on the positive real axis (for type 0 systems) or at infinity (for systems with integrators)</li>
-<li><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \to \infty\)</span>): Approaches the origin for proper transfer functions</li>
-<li><strong>Critical point</strong>: The point <span class="arithmatex">\(-1 + j0\)</span> is where stability is determined</li>
+<li><strong>DC point</strong> ($\omega = 0$): Often on the positive real axis (for type 0 systems) or at infinity (for systems with integrators)</li>
+<li><strong>High-frequency asymptote</strong> ($\omega \to \infty$): Approaches the origin for proper transfer functions</li>
+<li><strong>Critical point</strong>: The point $-1 + j0$ is where stability is determined</li>
 <li><strong>Symmetry</strong>: The curve for negative frequencies is the reflection about the real axis</li>
 </ul>
 <table>
@@ -2623,23 +2623,23 @@ Magnitude Plot:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\omega = 0\)</span></td>
+<td>$\omega = 0$</td>
 <td>Right side of plot (positive real, often)</td>
 </tr>
 <tr>
-<td>Low <span class="arithmatex">\(\omega\)</span></td>
+<td>Low $\omega$</td>
 <td>Large magnitude, small negative phase</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = \omega_{gc}\)</span></td>
+<td>$\omega = \omega_{gc}$</td>
 <td>On unit circle</td>
 </tr>
 <tr>
-<td>High <span class="arithmatex">\(\omega\)</span></td>
+<td>High $\omega$</td>
 <td>Near origin</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega \to \infty\)</span></td>
+<td>$\omega \to \infty$</td>
 <td>At origin</td>
 </tr>
 </tbody>
@@ -2698,18 +2698,18 @@ Nyquist Plot:
 <p>The <strong>gain margin from Nyquist</strong> is the reciprocal of the distance from the origin to where the Nyquist curve crosses the negative real axis.</p>
 <p>When the Nyquist curve crosses the negative real axis, the phase is exactly -180° (or -540°, etc.). At that crossing, if the curve is inside the unit circle (distance from origin &lt; 1), the system is stable. The gain margin is:</p>
 <h4 id="gain-margin-from-nyquist-plot">Gain Margin from Nyquist Plot</h4>
-<p><span class="arithmatex">\(GM = \frac{1}{|L(j\omega_{pc})|}\)</span></p>
+<p>$GM = \frac{1}{|L(j\omega_{pc})|}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_{pc}\)</span> is the frequency where the curve crosses the negative real axis</li>
-<li><span class="arithmatex">\(|L(j\omega_{pc})|\)</span> is the distance from origin to that crossing point</li>
+<li>$\omega_{pc}$ is the frequency where the curve crosses the negative real axis</li>
+<li>$|L(j\omega_{pc})|$ is the distance from origin to that crossing point</li>
 </ul>
-<p>If the crossing is at distance 0.25 from the origin, <span class="arithmatex">\(GM = 4\)</span> (or 12 dB). The gain could be quadrupled before the crossing reaches the critical point.</p>
+<p>If the crossing is at distance 0.25 from the origin, $GM = 4$ (or 12 dB). The gain could be quadrupled before the crossing reaches the critical point.</p>
 <h3 id="phase-margin-from-nyquist">Phase Margin from Nyquist</h3>
 <p>The <strong>phase margin from Nyquist</strong> is the angle between the negative real axis and the point where the Nyquist curve crosses the unit circle.</p>
 <p>When the Nyquist curve crosses the unit circle, the magnitude is exactly 1 (0 dB). At that crossing:</p>
 <h4 id="phase-margin-from-nyquist-plot">Phase Margin from Nyquist Plot</h4>
-<p><span class="arithmatex">\(PM = 180° + \angle L(j\omega_{gc})\)</span></p>
+<p>$PM = 180° + \angle L(j\omega_{gc})$</p>
 <p>Geometrically, this is the angle from the negative real axis to the crossing point, measured from the origin.</p>
 <table>
 <thead>
@@ -2749,22 +2749,22 @@ Nyquist Plot:
 <p>To understand the Nyquist stability criterion, we need to consider what contour in the s-plane we're mapping through the transfer function.</p>
 <p>The <strong>Nyquist contour</strong> (also called the Nyquist path) is a closed contour in the s-plane that encircles the entire right half-plane. It consists of:</p>
 <ol>
-<li>The imaginary axis from <span class="arithmatex">\(-j\infty\)</span> to <span class="arithmatex">\(+j\infty\)</span></li>
+<li>The imaginary axis from $-j\infty$ to $+j\infty$</li>
 <li>A semicircular arc of infinite radius in the right half-plane</li>
 </ol>
-<p>This contour captures all possible RHP poles. When we evaluate <span class="arithmatex">\(L(s)\)</span> around this contour, we get the Nyquist plot.</p>
+<p>This contour captures all possible RHP poles. When we evaluate $L(s)$ around this contour, we get the Nyquist plot.</p>
 <h4 id="the-standard-nyquist-contour">The Standard Nyquist Contour</h4>
 <p>The contour is parameterized as:</p>
 <ul>
-<li>Imaginary axis: <span class="arithmatex">\(s = j\omega\)</span>, <span class="arithmatex">\(\omega\)</span> from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span></li>
-<li>Infinite semicircle: <span class="arithmatex">\(s = Re^{j\theta}\)</span>, <span class="arithmatex">\(R \to \infty\)</span>, <span class="arithmatex">\(\theta\)</span> from <span class="arithmatex">\(+90°\)</span> to <span class="arithmatex">\(-90°\)</span></li>
+<li>Imaginary axis: $s = j\omega$, $\omega$ from $-\infty$ to $+\infty$</li>
+<li>Infinite semicircle: $s = Re^{j\theta}$, $R \to \infty$, $\theta$ from $+90°$ to $-90°$</li>
 </ul>
-<p>For proper transfer functions (more poles than zeros), the infinite semicircle maps to a single point at the origin—because <span class="arithmatex">\(L(s) \to 0\)</span> as <span class="arithmatex">\(|s| \to \infty\)</span>. So the Nyquist plot is effectively just the mapping of the imaginary axis.</p>
+<p>For proper transfer functions (more poles than zeros), the infinite semicircle maps to a single point at the origin—because $L(s) \to 0$ as $|s| \to \infty$. So the Nyquist plot is effectively just the mapping of the imaginary axis.</p>
 <h3 id="handling-poles-on-the-imaginary-axis">Handling Poles on the Imaginary Axis</h3>
-<p>If <span class="arithmatex">\(L(s)\)</span> has poles on the imaginary axis (like integrators at <span class="arithmatex">\(s = 0\)</span>), the standard contour must be modified. We indent around these poles with small semicircles into the right half-plane, ensuring the contour remains closed and excludes the imaginary axis poles.</p>
-<p>For a system with one integrator (pole at <span class="arithmatex">\(s = 0\)</span>):</p>
+<p>If $L(s)$ has poles on the imaginary axis (like integrators at $s = 0$), the standard contour must be modified. We indent around these poles with small semicircles into the right half-plane, ensuring the contour remains closed and excludes the imaginary axis poles.</p>
+<p>For a system with one integrator (pole at $s = 0$):</p>
 <ul>
-<li>The small indentation around <span class="arithmatex">\(s = 0\)</span> maps to a large semicircular arc at infinity in the Nyquist plot</li>
+<li>The small indentation around $s = 0$ maps to a large semicircular arc at infinity in the Nyquist plot</li>
 <li>This arc sweeps from one end of the imaginary axis mapping to the other</li>
 <li>The direction depends on whether we indent into the RHP (counterclockwise) or LHP</li>
 </ul>
@@ -2822,47 +2822,47 @@ S-Plane:
 <h2 id="the-nyquist-stability-criterion">The Nyquist Stability Criterion</h2>
 <p>The <strong>Nyquist criterion</strong> is a powerful theorem connecting the Nyquist plot geometry to closed-loop stability. It's based on the principle of argument from complex analysis.</p>
 <h3 id="the-principle-behind-nyquist">The Principle Behind Nyquist</h3>
-<p>Consider the characteristic equation <span class="arithmatex">\(1 + L(s) = 0\)</span>. The closed-loop poles are the values of <span class="arithmatex">\(s\)</span> that satisfy this equation—equivalently, the zeros of <span class="arithmatex">\(1 + L(s)\)</span>.</p>
-<p>Now, <span class="arithmatex">\(1 + L(s)\)</span> has:</p>
+<p>Consider the characteristic equation $1 + L(s) = 0$. The closed-loop poles are the values of $s$ that satisfy this equation—equivalently, the zeros of $1 + L(s)$.</p>
+<p>Now, $1 + L(s)$ has:</p>
 <ul>
 <li>Zeros: the closed-loop poles (what we care about)</li>
-<li>Poles: the same as the poles of <span class="arithmatex">\(L(s)\)</span> (the open-loop poles)</li>
+<li>Poles: the same as the poles of $L(s)$ (the open-loop poles)</li>
 </ul>
-<p>The principle of argument states that as we traverse a closed contour in the s-plane, the net change in angle of <span class="arithmatex">\(1 + L(s)\)</span> equals <span class="arithmatex">\(2\pi(Z - P)\)</span>, where <span class="arithmatex">\(Z\)</span> is the number of zeros and <span class="arithmatex">\(P\)</span> is the number of poles inside the contour.</p>
+<p>The principle of argument states that as we traverse a closed contour in the s-plane, the net change in angle of $1 + L(s)$ equals $2\pi(Z - P)$, where $Z$ is the number of zeros and $P$ is the number of poles inside the contour.</p>
 <p>Since our Nyquist contour encircles the entire RHP:</p>
 <ul>
-<li><span class="arithmatex">\(Z\)</span> = number of closed-loop poles in RHP (zeros of <span class="arithmatex">\(1 + L(s)\)</span> in RHP)</li>
-<li><span class="arithmatex">\(P\)</span> = number of open-loop poles in RHP (poles of <span class="arithmatex">\(L(s)\)</span> in RHP)</li>
+<li>$Z$ = number of closed-loop poles in RHP (zeros of $1 + L(s)$ in RHP)</li>
+<li>$P$ = number of open-loop poles in RHP (poles of $L(s)$ in RHP)</li>
 </ul>
-<p>The number of <strong>encirclements</strong> of the origin by <span class="arithmatex">\(1 + L(s)\)</span> equals <span class="arithmatex">\(Z - P\)</span>. But mapping <span class="arithmatex">\(1 + L(s)\)</span> is the same as mapping <span class="arithmatex">\(L(s)\)</span> and then shifting by 1. So encirclements of the origin by <span class="arithmatex">\(1 + L(s)\)</span> equal encirclements of <span class="arithmatex">\(-1\)</span> by <span class="arithmatex">\(L(s)\)</span>.</p>
+<p>The number of <strong>encirclements</strong> of the origin by $1 + L(s)$ equals $Z - P$. But mapping $1 + L(s)$ is the same as mapping $L(s)$ and then shifting by 1. So encirclements of the origin by $1 + L(s)$ equal encirclements of $-1$ by $L(s)$.</p>
 <h3 id="the-nyquist-criterion-statement">The Nyquist Criterion Statement</h3>
 <h4 id="nyquist-stability-criterion">Nyquist Stability Criterion</h4>
-<p><span class="arithmatex">\(Z = N + P\)</span></p>
+<p>$Z = N + P$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(Z\)</span> = number of closed-loop poles in the RHP</li>
-<li><span class="arithmatex">\(N\)</span> = number of clockwise encirclements of <span class="arithmatex">\(-1\)</span> by the Nyquist plot</li>
-<li><span class="arithmatex">\(P\)</span> = number of open-loop poles in the RHP</li>
+<li>$Z$ = number of closed-loop poles in the RHP</li>
+<li>$N$ = number of clockwise encirclements of $-1$ by the Nyquist plot</li>
+<li>$P$ = number of open-loop poles in the RHP</li>
 </ul>
-<p>For the closed-loop system to be stable, we need <span class="arithmatex">\(Z = 0\)</span> (no closed-loop poles in RHP).</p>
-<p><strong>For stable open-loop systems</strong> (<span class="arithmatex">\(P = 0\)</span>): The closed-loop is stable if and only if the Nyquist plot does not encircle the point <span class="arithmatex">\(-1\)</span>.</p>
-<p><strong>For unstable open-loop systems</strong> (<span class="arithmatex">\(P &gt; 0\)</span>): The closed-loop is stable if and only if the Nyquist plot encircles <span class="arithmatex">\(-1\)</span> exactly <span class="arithmatex">\(P\)</span> times in the <strong>counterclockwise</strong> direction (i.e., <span class="arithmatex">\(N = -P\)</span>).</p>
+<p>For the closed-loop system to be stable, we need $Z = 0$ (no closed-loop poles in RHP).</p>
+<p><strong>For stable open-loop systems</strong> ($P = 0$): The closed-loop is stable if and only if the Nyquist plot does not encircle the point $-1$.</p>
+<p><strong>For unstable open-loop systems</strong> ($P &gt; 0$): The closed-loop is stable if and only if the Nyquist plot encircles $-1$ exactly $P$ times in the <strong>counterclockwise</strong> direction (i.e., $N = -P$).</p>
 <h3 id="counting-encirclements">Counting Encirclements</h3>
-<p>An <strong>encirclement</strong> of the critical point <span class="arithmatex">\(-1\)</span> means the Nyquist curve goes completely around that point. A <strong>clockwise encirclement</strong> is counted as <span class="arithmatex">\(+1\)</span>. A <strong>counterclockwise encirclement</strong> is counted as <span class="arithmatex">\(-1\)</span>.</p>
+<p>An <strong>encirclement</strong> of the critical point $-1$ means the Nyquist curve goes completely around that point. A <strong>clockwise encirclement</strong> is counted as $+1$. A <strong>counterclockwise encirclement</strong> is counted as $-1$.</p>
 <p>To count encirclements:</p>
 <ol>
-<li>Draw a line from <span class="arithmatex">\(-1\)</span> to infinity (typically along the negative real axis going left)</li>
+<li>Draw a line from $-1$ to infinity (typically along the negative real axis going left)</li>
 <li>Count how many times the Nyquist curve crosses this line</li>
-<li>Crossings where the curve goes from below to above (counterclockwise) count as <span class="arithmatex">\(-1\)</span></li>
-<li>Crossings where the curve goes from above to below (clockwise) count as <span class="arithmatex">\(+1\)</span></li>
-<li>Sum the crossings to get <span class="arithmatex">\(N\)</span></li>
+<li>Crossings where the curve goes from below to above (counterclockwise) count as $-1$</li>
+<li>Crossings where the curve goes from above to below (clockwise) count as $+1$</li>
+<li>Sum the crossings to get $N$</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th>Encirclement Count <span class="arithmatex">\(N\)</span></th>
-<th>Open-Loop Poles in RHP (<span class="arithmatex">\(P\)</span>)</th>
-<th>Closed-Loop Poles in RHP (<span class="arithmatex">\(Z\)</span>)</th>
+<th>Encirclement Count $N$</th>
+<th>Open-Loop Poles in RHP ($P$)</th>
+<th>Closed-Loop Poles in RHP ($Z$)</th>
 <th>Stability</th>
 </tr>
 </thead>
@@ -2895,7 +2895,7 @@ S-Plane:
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Getting the Direction Right</p>
-<p>The convention for "clockwise" uses the standard mathematical orientation: clockwise when viewed from above the complex plane (i.e., from positive imaginary). The complete Nyquist plot traverses in the direction of increasing frequency (positive <span class="arithmatex">\(\omega\)</span>) for the upper half, then the reflection for negative <span class="arithmatex">\(\omega\)</span>.</p>
+<p>The convention for "clockwise" uses the standard mathematical orientation: clockwise when viewed from above the complex plane (i.e., from positive imaginary). The complete Nyquist plot traverses in the direction of increasing frequency (positive $\omega$) for the upper half, then the reflection for negative $\omega$.</p>
 </div>
 <h4 id="diagram-nyquist-encirclement-counter">Diagram: Nyquist Encirclement Counter</h4>
 <iframe src="../../sims/nyquist-encirclement/main.html" width="100%" height="650px" scrolling="no"></iframe>
@@ -2959,23 +2959,23 @@ Nyquist Plot:
 <li>Unstable aircraft</li>
 <li>Some chemical reactors</li>
 </ul>
-<p>When <span class="arithmatex">\(P &gt; 0\)</span>, the Nyquist criterion requires encirclements of <span class="arithmatex">\(-1\)</span> to achieve closed-loop stability. This creates a <strong>non-minimum phase</strong> characteristic in the loop transfer function.</p>
-<p>An RHP pole at <span class="arithmatex">\(s = p\)</span> (where <span class="arithmatex">\(p &gt; 0\)</span>) contributes phase that starts at some value and increases toward +90° as frequency increases—opposite to the phase decrease from LHP poles. This creates challenges for control design.</p>
+<p>When $P &gt; 0$, the Nyquist criterion requires encirclements of $-1$ to achieve closed-loop stability. This creates a <strong>non-minimum phase</strong> characteristic in the loop transfer function.</p>
+<p>An RHP pole at $s = p$ (where $p &gt; 0$) contributes phase that starts at some value and increases toward +90° as frequency increases—opposite to the phase decrease from LHP poles. This creates challenges for control design.</p>
 <h3 id="right-half-plane-zeros">Right-Half-Plane Zeros</h3>
-<p><strong>Right-half-plane zeros</strong> are even more troublesome than RHP poles. An RHP zero at <span class="arithmatex">\(s = z\)</span> (where <span class="arithmatex">\(z &gt; 0\)</span>) causes:</p>
+<p><strong>Right-half-plane zeros</strong> are even more troublesome than RHP poles. An RHP zero at $s = z$ (where $z &gt; 0$) causes:</p>
 <ol>
 <li><strong>Initial inverse response</strong>: The step response starts in the wrong direction</li>
 <li><strong>Phase lag</strong>: At high frequencies, RHP zeros contribute negative phase (unlike LHP zeros which contribute positive phase)</li>
 <li><strong>Bandwidth limitation</strong>: Crossover frequency must stay below the RHP zero frequency for adequate phase margin</li>
 </ol>
 <h4 id="rhp-zero-phase-contribution">RHP Zero Phase Contribution</h4>
-<p><span class="arithmatex">\(\angle(j\omega - z) = -\arctan(\omega/z)\)</span> for RHP zero at <span class="arithmatex">\(s = z &gt; 0\)</span></p>
-<p>At low frequency, this approaches 0°. At high frequency, it approaches -90°. Compare to an LHP zero at <span class="arithmatex">\(s = -z\)</span>, which contributes +90° at high frequency.</p>
+<p>$\angle(j\omega - z) = -\arctan(\omega/z)$ for RHP zero at $s = z &gt; 0$</p>
+<p>At low frequency, this approaches 0°. At high frequency, it approaches -90°. Compare to an LHP zero at $s = -z$, which contributes +90° at high frequency.</p>
 <p>The phase lag from RHP zeros directly reduces phase margin. A common rule:</p>
 <div class="admonition warning">
 <p class="admonition-title">RHP Zero Bandwidth Limitation</p>
 <p>For acceptable stability margins, the crossover frequency should be less than about half the RHP zero frequency:</p>
-<p><span class="arithmatex">\(\omega_{gc} &lt; z_{RHP}/2\)</span></p>
+<p>$\omega_{gc} &lt; z_{RHP}/2$</p>
 <p>This severely limits achievable bandwidth when RHP zeros are present.</p>
 </div>
 <table>
@@ -2999,7 +2999,7 @@ Nyquist Plot:
 </tr>
 <tr>
 <td>RHP pole</td>
-<td>Phase increases (in <span class="arithmatex">\(L(s)\)</span>)</td>
+<td>Phase increases (in $L(s)$)</td>
 <td>Unstable open-loop</td>
 </tr>
 <tr>
@@ -3037,14 +3037,14 @@ Nyquist Plot:
 <h3 id="all-pass-system">All-Pass System</h3>
 <p>An <strong>all-pass system</strong> has magnitude of exactly 1 at all frequencies but has phase that varies with frequency. An all-pass transfer function has RHP zeros that mirror its LHP poles:</p>
 <h4 id="all-pass-transfer-function">All-Pass Transfer Function</h4>
-<p><span class="arithmatex">\(G_{ap}(s) = \frac{s - a}{s + a}\)</span> (first-order all-pass)</p>
+<p>$G_{ap}(s) = \frac{s - a}{s + a}$ (first-order all-pass)</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(a &gt; 0\)</span></li>
-<li>Zero at <span class="arithmatex">\(s = +a\)</span>, pole at <span class="arithmatex">\(s = -a\)</span></li>
+<li>$a &gt; 0$</li>
+<li>Zero at $s = +a$, pole at $s = -a$</li>
 </ul>
-<p>Magnitude: <span class="arithmatex">\(|G_{ap}(j\omega)| = 1\)</span> for all <span class="arithmatex">\(\omega\)</span></p>
-<p>Phase: <span class="arithmatex">\(\angle G_{ap}(j\omega) = -2\arctan(\omega/a)\)</span></p>
+<p>Magnitude: $|G_{ap}(j\omega)| = 1$ for all $\omega$</p>
+<p>Phase: $\angle G_{ap}(j\omega) = -2\arctan(\omega/a)$</p>
 <p>All-pass elements contribute phase lag without changing magnitude. They arise naturally in some physical systems and can be used to model pure time delays approximately.</p>
 <h4 id="diagram-minimum-vs-non-minimum-phase-comparison">Diagram: Minimum vs Non-Minimum Phase Comparison</h4>
 <iframe src="../../sims/phase-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
@@ -3099,13 +3099,13 @@ Bode Magnitude:
 <p>Implementation: p5.js with synchronized multi-plot display</p>
 </details>
 <h2 id="conditionally-stable-systems">Conditionally Stable Systems</h2>
-<p>A <strong>conditionally stable</strong> system is one that becomes unstable if the gain is either too high OR too low. This unusual behavior occurs when the Nyquist plot encircles the critical point <span class="arithmatex">\(-1\)</span> for some gain ranges but not others.</p>
+<p>A <strong>conditionally stable</strong> system is one that becomes unstable if the gain is either too high OR too low. This unusual behavior occurs when the Nyquist plot encircles the critical point $-1$ for some gain ranges but not others.</p>
 <h3 id="how-conditional-stability-occurs">How Conditional Stability Occurs</h3>
 <p>Consider a system where the Nyquist plot crosses the negative real axis multiple times. As gain increases:</p>
 <ol>
-<li>At low gain, the curve is entirely to the right of <span class="arithmatex">\(-1\)</span>: stable</li>
-<li>At moderate gain, the curve encircles <span class="arithmatex">\(-1\)</span>: unstable</li>
-<li>At higher gain, the curve might encircle <span class="arithmatex">\(-1\)</span> twice, but in opposite directions, netting zero: stable</li>
+<li>At low gain, the curve is entirely to the right of $-1$: stable</li>
+<li>At moderate gain, the curve encircles $-1$: unstable</li>
+<li>At higher gain, the curve might encircle $-1$ twice, but in opposite directions, netting zero: stable</li>
 <li>At very high gain, the encirclements may change again</li>
 </ol>
 <p>This creates "stability windows" separated by unstable regions.</p>
@@ -3247,19 +3247,19 @@ Nyquist Plot:
 <li><strong>Root locus</strong> directly shows pole locations versus gain</li>
 <li><strong>Nyquist</strong> shows whether those poles are in the RHP (via encirclements)</li>
 </ul>
-<p>For stable open-loop systems (<span class="arithmatex">\(P = 0\)</span>), the root locus shows poles migrating from open-loop poles toward zeros or infinity. The system becomes unstable when poles cross the imaginary axis—exactly when the Nyquist plot starts encircling <span class="arithmatex">\(-1\)</span>.</p>
-<p>The imaginary axis crossing on the root locus corresponds to the Nyquist plot passing through <span class="arithmatex">\(-1\)</span>. The gain at that crossing equals the reciprocal of the magnitude at the -180° phase crossing.</p>
+<p>For stable open-loop systems ($P = 0$), the root locus shows poles migrating from open-loop poles toward zeros or infinity. The system becomes unstable when poles cross the imaginary axis—exactly when the Nyquist plot starts encircling $-1$.</p>
+<p>The imaginary axis crossing on the root locus corresponds to the Nyquist plot passing through $-1$. The gain at that crossing equals the reciprocal of the magnitude at the -180° phase crossing.</p>
 <h2 id="practical-nyquist-analysis">Practical Nyquist Analysis</h2>
 <p>Here's a systematic approach to using the Nyquist criterion:</p>
 <h3 id="step-by-step-procedure">Step-by-Step Procedure</h3>
 <ol>
 <li>
-<p><strong>Identify open-loop poles</strong>: Count <span class="arithmatex">\(P\)</span>, the number in the RHP</p>
+<p><strong>Identify open-loop poles</strong>: Count $P$, the number in the RHP</p>
 </li>
 <li>
 <p><strong>Sketch or plot the Nyquist diagram</strong>:</p>
 </li>
-<li>Evaluate <span class="arithmatex">\(L(j\omega)\)</span> for <span class="arithmatex">\(\omega\)</span> from 0 to <span class="arithmatex">\(\infty\)</span></li>
+<li>Evaluate $L(j\omega)$ for $\omega$ from 0 to $\infty$</li>
 <li>Reflect about the real axis for negative frequencies</li>
 <li>
 <p>Handle imaginary axis poles with indentation arcs</p>
@@ -3267,16 +3267,16 @@ Nyquist Plot:
 <li>
 <p><strong>Count encirclements of -1</strong>:</p>
 </li>
-<li>Draw a ray from <span class="arithmatex">\(-1\)</span> to infinity</li>
+<li>Draw a ray from $-1$ to infinity</li>
 <li>
-<p>Count signed crossings to get <span class="arithmatex">\(N\)</span></p>
+<p>Count signed crossings to get $N$</p>
 </li>
 <li>
-<p><strong>Apply the criterion</strong>: <span class="arithmatex">\(Z = N + P\)</span></p>
+<p><strong>Apply the criterion</strong>: $Z = N + P$</p>
 </li>
-<li>If <span class="arithmatex">\(Z = 0\)</span>: stable</li>
+<li>If $Z = 0$: stable</li>
 <li>
-<p>If <span class="arithmatex">\(Z &gt; 0\)</span>: unstable with <span class="arithmatex">\(Z\)</span> RHP poles</p>
+<p>If $Z &gt; 0$: unstable with $Z$ RHP poles</p>
 </li>
 <li>
 <p><strong>Measure stability margins</strong>:</p>
@@ -3286,14 +3286,14 @@ Nyquist Plot:
 </ol>
 <h3 id="example-second-order-system-with-integrator">Example: Second-Order System with Integrator</h3>
 <p>Consider:</p>
-<p><span class="arithmatex">\(L(s) = \frac{K}{s(s+1)(s+2)}\)</span></p>
-<p><strong>Step 1</strong>: Open-loop poles at <span class="arithmatex">\(s = 0, -1, -2\)</span>. All in LHP or on imaginary axis, so <span class="arithmatex">\(P = 0\)</span>.</p>
+<p>$L(s) = \frac{K}{s(s+1)(s+2)}$</p>
+<p><strong>Step 1</strong>: Open-loop poles at $s = 0, -1, -2$. All in LHP or on imaginary axis, so $P = 0$.</p>
 <p><strong>Step 2</strong>: Evaluate at key frequencies:</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(\omega\)</span></th>
-<th><span class="arithmatex">\(L(j\omega)\)</span></th>
+<th>$\omega$</th>
+<th>$L(j\omega)$</th>
 <th>Magnitude</th>
 <th>Phase</th>
 </tr>
@@ -3301,43 +3301,43 @@ Nyquist Plot:
 <tbody>
 <tr>
 <td>0</td>
-<td><span class="arithmatex">\(\to \infty\)</span></td>
-<td><span class="arithmatex">\(\infty\)</span></td>
+<td>$\to \infty$</td>
+<td>$\infty$</td>
 <td>-90°</td>
 </tr>
 <tr>
 <td>0.5</td>
-<td><span class="arithmatex">\(\frac{K}{j0.5(1.12\angle 26.6°)(2.06\angle 14°)}\)</span></td>
+<td>$\frac{K}{j0.5(1.12\angle 26.6°)(2.06\angle 14°)}$</td>
 <td>Large</td>
 <td>≈ -130°</td>
 </tr>
 <tr>
 <td>1</td>
-<td><span class="arithmatex">\(\frac{K}{j(1.41\angle 45°)(2.24\angle 26.6°)}\)</span></td>
-<td><span class="arithmatex">\(\frac{K}{3.16}\)</span></td>
+<td>$\frac{K}{j(1.41\angle 45°)(2.24\angle 26.6°)}$</td>
+<td>$\frac{K}{3.16}$</td>
 <td>-162°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\sqrt{2}\)</span></td>
+<td>$\sqrt{2}$</td>
 <td></td>
 <td></td>
 <td>-180°</td>
 </tr>
 <tr>
 <td>10</td>
-<td><span class="arithmatex">\(\frac{K}{j10 \cdot 10.05 \cdot 10.2}\)</span></td>
-<td><span class="arithmatex">\(\frac{K}{1025}\)</span></td>
+<td>$\frac{K}{j10 \cdot 10.05 \cdot 10.2}$</td>
+<td>$\frac{K}{1025}$</td>
 <td>-262°</td>
 </tr>
 </tbody>
 </table>
-<p>The curve starts at <span class="arithmatex">\(-90°\)</span> (pointing down from infinity along negative imaginary axis), spirals toward the origin, crossing the negative real axis somewhere.</p>
-<p><strong>Step 3</strong>: For <span class="arithmatex">\(K\)</span> small, no encirclement. As <span class="arithmatex">\(K\)</span> increases, the curve expands, eventually encircling <span class="arithmatex">\(-1\)</span>.</p>
-<p><strong>Step 4</strong>: For stability: <span class="arithmatex">\(N = 0\)</span> required (since <span class="arithmatex">\(P = 0\)</span>).</p>
-<p><strong>Step 5</strong>: The phase crosses -180° at <span class="arithmatex">\(\omega = \sqrt{2}\)</span> rad/s. At that frequency:</p>
-<p><span class="arithmatex">\(|L(j\sqrt{2})| = \frac{K}{\sqrt{2} \cdot \sqrt{3} \cdot \sqrt{6}} = \frac{K}{6}\)</span></p>
-<p>For <span class="arithmatex">\(|L| &lt; 1\)</span> at -180° phase (stable), need <span class="arithmatex">\(K &lt; 6\)</span>.</p>
-<p>Gain margin at <span class="arithmatex">\(K = 1\)</span>: <span class="arithmatex">\(GM = 1/(1/6) = 6\)</span> or about 15.6 dB.</p>
+<p>The curve starts at $-90°$ (pointing down from infinity along negative imaginary axis), spirals toward the origin, crossing the negative real axis somewhere.</p>
+<p><strong>Step 3</strong>: For $K$ small, no encirclement. As $K$ increases, the curve expands, eventually encircling $-1$.</p>
+<p><strong>Step 4</strong>: For stability: $N = 0$ required (since $P = 0$).</p>
+<p><strong>Step 5</strong>: The phase crosses -180° at $\omega = \sqrt{2}$ rad/s. At that frequency:</p>
+<p>$|L(j\sqrt{2})| = \frac{K}{\sqrt{2} \cdot \sqrt{3} \cdot \sqrt{6}} = \frac{K}{6}$</p>
+<p>For $|L| &lt; 1$ at -180° phase (stable), need $K &lt; 6$.</p>
+<p>Gain margin at $K = 1$: $GM = 1/(1/6) = 6$ or about 15.6 dB.</p>
 <h2 id="summary-the-nyquist-toolkit">Summary: The Nyquist Toolkit</h2>
 <p>You now have a complete set of tools for frequency-domain stability analysis:</p>
 <p><strong>Stability Margins</strong>:</p>
@@ -3348,16 +3348,16 @@ Nyquist Plot:
 </ul>
 <p><strong>Nyquist Plot</strong>:</p>
 <ul>
-<li>Polar plot of <span class="arithmatex">\(L(j\omega)\)</span> in the complex plane</li>
-<li>Critical point at <span class="arithmatex">\(-1 + j0\)</span></li>
+<li>Polar plot of $L(j\omega)$ in the complex plane</li>
+<li>Critical point at $-1 + j0$</li>
 <li>Shows how far from instability the system operates</li>
 </ul>
 <p><strong>Nyquist Criterion</strong>:</p>
 <ul>
-<li><span class="arithmatex">\(Z = N + P\)</span> where <span class="arithmatex">\(Z\)</span> = closed-loop RHP poles, <span class="arithmatex">\(N\)</span> = clockwise encirclements, <span class="arithmatex">\(P\)</span> = open-loop RHP poles</li>
-<li>For stability: <span class="arithmatex">\(Z = 0\)</span></li>
-<li>For stable open-loop (<span class="arithmatex">\(P = 0\)</span>): need <span class="arithmatex">\(N = 0\)</span> (no encirclement)</li>
-<li>For unstable open-loop (<span class="arithmatex">\(P &gt; 0\)</span>): need <span class="arithmatex">\(N = -P\)</span> (counterclockwise encirclements)</li>
+<li>$Z = N + P$ where $Z$ = closed-loop RHP poles, $N$ = clockwise encirclements, $P$ = open-loop RHP poles</li>
+<li>For stability: $Z = 0$</li>
+<li>For stable open-loop ($P = 0$): need $N = 0$ (no encirclement)</li>
+<li>For unstable open-loop ($P &gt; 0$): need $N = -P$ (counterclockwise encirclements)</li>
 </ul>
 <p><strong>System Classifications</strong>:</p>
 <table>
@@ -3411,13 +3411,13 @@ Nyquist Plot:
 <p><strong>Phase margin</strong> is measured at the gain crossover frequency where magnitude = 0 dB. It's the additional phase lag that would cause instability.</p>
 </li>
 <li>
-<p>The <strong>crossover frequency</strong> (<span class="arithmatex">\(\omega_{gc}\)</span>) approximately equals the closed-loop bandwidth and represents the control system's speed of response.</p>
+<p>The <strong>crossover frequency</strong> ($\omega_{gc}$) approximately equals the closed-loop bandwidth and represents the control system's speed of response.</p>
 </li>
 <li>
-<p>The <strong>Nyquist plot</strong> displays <span class="arithmatex">\(L(j\omega)\)</span> in the complex plane. The <strong>critical point</strong> <span class="arithmatex">\(-1 + j0\)</span> is key to stability determination.</p>
+<p>The <strong>Nyquist plot</strong> displays $L(j\omega)$ in the complex plane. The <strong>critical point</strong> $-1 + j0$ is key to stability determination.</p>
 </li>
 <li>
-<p>The <strong>Nyquist criterion</strong> states <span class="arithmatex">\(Z = N + P\)</span>: closed-loop RHP poles = encirclements + open-loop RHP poles.</p>
+<p>The <strong>Nyquist criterion</strong> states $Z = N + P$: closed-loop RHP poles = encirclements + open-loop RHP poles.</p>
 </li>
 <li>
 <p><strong>Minimum phase systems</strong> have all poles and zeros in the LHP. <strong>Non-minimum phase systems</strong> have RHP zeros, which add phase lag and limit bandwidth.</p>
@@ -3449,7 +3449,7 @@ Nyquist Plot:
 <p>A system has gain margin at two different frequencies: +6 dB at one and -4 dB at another. What does this indicate?</p>
 </li>
 </ol>
-<p>Answers: (1) GM = 8 dB (positive, stable with margin). (2) PM = 180° - 150° = 30°. (3) Yes: <span class="arithmatex">\(N = -2\)</span>, <span class="arithmatex">\(P = 2\)</span>, so <span class="arithmatex">\(Z = -2 + 2 = 0\)</span> closed-loop RHP poles. (4) RHP zeros contribute phase lag at high frequencies, reducing phase margin if crossover is pushed too high. (5) Conditionally stable system—stable only for a limited gain range.</p>
+<p>Answers: (1) GM = 8 dB (positive, stable with margin). (2) PM = 180° - 150° = 30°. (3) Yes: $N = -2$, $P = 2$, so $Z = -2 + 2 = 0$ closed-loop RHP poles. (4) RHP zeros contribute phase lag at high frequencies, reducing phase margin if crossover is pushed too high. (5) Conditionally stable system—stable only for a limited gain range.</p>
 </details>
 
 

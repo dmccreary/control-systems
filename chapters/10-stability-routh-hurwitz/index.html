@@ -2143,11 +2143,11 @@
 <p>Before defining stability formally, we need to clarify what "bounded" means.</p>
 <p>A <strong>bounded input</strong> is a signal that remains finite for all time. Mathematically:</p>
 <h4 id="bounded-input-definition">Bounded Input Definition</h4>
-<p><span class="arithmatex">\(|u(t)| \leq M_u &lt; \infty \text{ for all } t \geq 0\)</span></p>
+<p>$|u(t)| \leq M_u &lt; \infty \text{ for all } t \geq 0$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(u(t)\)</span> is the input signal</li>
-<li><span class="arithmatex">\(M_u\)</span> is some finite constant</li>
+<li>$u(t)$ is the input signal</li>
+<li>$M_u$ is some finite constant</li>
 </ul>
 <p>Common bounded inputs include:</p>
 <ul>
@@ -2157,11 +2157,11 @@
 </ul>
 <p>A <strong>bounded output</strong> follows the same pattern—a signal that remains finite:</p>
 <h4 id="bounded-output-definition">Bounded Output Definition</h4>
-<p><span class="arithmatex">\(|y(t)| \leq M_y &lt; \infty \text{ for all } t \geq 0\)</span></p>
+<p>$|y(t)| \leq M_y &lt; \infty \text{ for all } t \geq 0$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(y(t)\)</span> is the output signal</li>
-<li><span class="arithmatex">\(M_y\)</span> is some finite constant</li>
+<li>$y(t)$ is the output signal</li>
+<li>$M_y$ is some finite constant</li>
 </ul>
 <table>
 <thead>
@@ -2173,27 +2173,27 @@
 </thead>
 <tbody>
 <tr>
-<td>Step: <span class="arithmatex">\(u(t) = 1\)</span></td>
+<td>Step: $u(t) = 1$</td>
 <td>Yes</td>
 <td>Constant, finite</td>
 </tr>
 <tr>
-<td>Sine: <span class="arithmatex">\(u(t) = \sin(\omega t)\)</span></td>
+<td>Sine: $u(t) = \sin(\omega t)$</td>
 <td>Yes</td>
 <td>Always between -1 and 1</td>
 </tr>
 <tr>
-<td>Ramp: <span class="arithmatex">\(u(t) = t\)</span></td>
+<td>Ramp: $u(t) = t$</td>
 <td>No</td>
 <td>Grows without bound</td>
 </tr>
 <tr>
-<td>Exponential: <span class="arithmatex">\(u(t) = e^{t}\)</span></td>
+<td>Exponential: $u(t) = e^{t}$</td>
 <td>No</td>
 <td>Grows without bound</td>
 </tr>
 <tr>
-<td>Decaying: <span class="arithmatex">\(u(t) = e^{-t}\)</span></td>
+<td>Decaying: $u(t) = e^{-t}$</td>
 <td>Yes</td>
 <td>Decays to zero</td>
 </tr>
@@ -2204,12 +2204,12 @@
 <p><strong>BIBO stability</strong> (Bounded-Input, Bounded-Output stability) is the most intuitive stability definition. A system is BIBO stable if every bounded input produces a bounded output.</p>
 <h4 id="bibo-stability-definition">BIBO Stability Definition</h4>
 <p>A system is BIBO stable if and only if:</p>
-<p>For every bounded input <span class="arithmatex">\(u(t)\)</span>, the output <span class="arithmatex">\(y(t)\)</span> is also bounded.</p>
+<p>For every bounded input $u(t)$, the output $y(t)$ is also bounded.</p>
 <p>This is an input-output view of stability—we only care about what goes in and what comes out. We don't look "inside" the system at internal state variables.</p>
 <p>For linear time-invariant (LTI) systems described by transfer functions, BIBO stability has a clean characterization:</p>
 <div class="admonition success">
 <p class="admonition-title">BIBO Stability Criterion</p>
-<p>A transfer function <span class="arithmatex">\(G(s)\)</span> is BIBO stable if and only if all its poles have negative real parts—that is, all poles lie in the open left half-plane (LHP).</p>
+<p>A transfer function $G(s)$ is BIBO stable if and only if all its poles have negative real parts—that is, all poles lie in the open left half-plane (LHP).</p>
 </div>
 <p>This connects directly to what we learned in Chapter 6. Each pole contributes a mode to the response:</p>
 <ul>
@@ -2248,7 +2248,7 @@
 <p><strong>Asymptotic stability</strong> looks at what happens to the system's response as time goes to infinity, specifically starting from any initial condition with zero input.</p>
 <h4 id="asymptotic-stability-definition">Asymptotic Stability Definition</h4>
 <p>A system is asymptotically stable if:</p>
-<p><span class="arithmatex">\(\lim_{t \to \infty} y(t) = 0\)</span></p>
+<p>$\lim_{t \to \infty} y(t) = 0$</p>
 <p>for any initial conditions and zero input.</p>
 <p>In words: disturb the system from equilibrium and then leave it alone. If it returns to equilibrium, it's asymptotically stable.</p>
 <p>For LTI systems, asymptotic stability and BIBO stability are essentially equivalent when the transfer function captures all system dynamics. A system is asymptotically stable if and only if all poles are in the open LHP.</p>
@@ -2266,7 +2266,7 @@
 <li>All poles are in the LHP or on the imaginary axis</li>
 <li>Poles on the imaginary axis are simple (not repeated)</li>
 </ul>
-<p>A pole at <span class="arithmatex">\(s = j\omega\)</span> produces a sustained sinusoid at frequency <span class="arithmatex">\(\omega\)</span>. A pole at <span class="arithmatex">\(s = 0\)</span> produces a constant offset. These don't decay, but they don't grow either—as long as they're simple poles.</p>
+<p>A pole at $s = j\omega$ produces a sustained sinusoid at frequency $\omega$. A pole at $s = 0$ produces a constant offset. These don't decay, but they don't grow either—as long as they're simple poles.</p>
 <table>
 <thead>
 <tr>
@@ -2301,8 +2301,8 @@
 <p><strong>Internal stability</strong> goes beyond input-output behavior to examine what happens to all internal state variables. A system can be BIBO stable (bounded output for bounded input) while having internal variables that grow without bound—a dangerous hidden instability.</p>
 <p>This can happen when unstable poles are cancelled by zeros in the transfer function. Consider:</p>
 <h4 id="hidden-instability-example">Hidden Instability Example</h4>
-<p><span class="arithmatex">\(G(s) = \frac{s - 2}{(s + 1)(s - 2)} = \frac{1}{s + 1}\)</span></p>
-<p>The transfer function simplifies to a stable first-order system. But the pole at <span class="arithmatex">\(s = +2\)</span> still exists in the original system—it's just invisible in the input-output relationship. Any disturbance or initial condition can excite this hidden mode, causing an internal state to grow exponentially while the output appears well-behaved.</p>
+<p>$G(s) = \frac{s - 2}{(s + 1)(s - 2)} = \frac{1}{s + 1}$</p>
+<p>The transfer function simplifies to a stable first-order system. But the pole at $s = +2$ still exists in the original system—it's just invisible in the input-output relationship. Any disturbance or initial condition can excite this hidden mode, causing an internal state to grow exponentially while the output appears well-behaved.</p>
 <p>A system is <strong>internally stable</strong> if all modes decay, including those cancelled by zeros. For practical control design:</p>
 <div class="admonition danger">
 <p class="admonition-title">Never Cancel Unstable Poles</p>
@@ -2327,22 +2327,22 @@
 <p>The <strong>characteristic polynomial</strong> is the denominator of the closed-loop transfer function, and the <strong>characteristic equation</strong> is that polynomial set equal to zero.</p>
 <p>For a transfer function:</p>
 <h4 id="characteristic-polynomial">Characteristic Polynomial</h4>
-<p><span class="arithmatex">\(G(s) = \frac{N(s)}{D(s)}\)</span></p>
-<p>The characteristic polynomial is <span class="arithmatex">\(D(s)\)</span>, and the characteristic equation is:</p>
-<p><span class="arithmatex">\(D(s) = 0\)</span></p>
-<p>For a standard negative feedback system with forward gain <span class="arithmatex">\(G(s)\)</span> and feedback <span class="arithmatex">\(H(s)\)</span>:</p>
+<p>$G(s) = \frac{N(s)}{D(s)}$</p>
+<p>The characteristic polynomial is $D(s)$, and the characteristic equation is:</p>
+<p>$D(s) = 0$</p>
+<p>For a standard negative feedback system with forward gain $G(s)$ and feedback $H(s)$:</p>
 <h4 id="closed-loop-characteristic-equation">Closed-Loop Characteristic Equation</h4>
-<p><span class="arithmatex">\(1 + G(s)H(s) = 0\)</span></p>
-<p>Rearranging: the characteristic polynomial is the numerator of <span class="arithmatex">\(1 + G(s)H(s)\)</span> after combining over a common denominator.</p>
+<p>$1 + G(s)H(s) = 0$</p>
+<p>Rearranging: the characteristic polynomial is the numerator of $1 + G(s)H(s)$ after combining over a common denominator.</p>
 <p>The <strong>characteristic roots</strong> are the solutions to the characteristic equation—these are the closed-loop poles. The stability of the system depends entirely on the locations of these roots.</p>
 <p>Consider a closed-loop system with:</p>
-<p><span class="arithmatex">\(G(s) = \frac{K}{s(s+2)(s+5)}\)</span>, <span class="arithmatex">\(H(s) = 1\)</span></p>
+<p>$G(s) = \frac{K}{s(s+2)(s+5)}$, $H(s) = 1$</p>
 <p>The characteristic equation is:</p>
-<p><span class="arithmatex">\(1 + G(s)H(s) = 1 + \frac{K}{s(s+2)(s+5)} = 0\)</span></p>
+<p>$1 + G(s)H(s) = 1 + \frac{K}{s(s+2)(s+5)} = 0$</p>
 <p>Multiplying through:</p>
-<p><span class="arithmatex">\(s(s+2)(s+5) + K = 0\)</span></p>
-<p><span class="arithmatex">\(s^3 + 7s^2 + 10s + K = 0\)</span></p>
-<p>This is a cubic polynomial. For small <span class="arithmatex">\(K\)</span>, the roots are near <span class="arithmatex">\(s = 0, -2, -5\)</span> (stable). As <span class="arithmatex">\(K\)</span> increases, the roots move. At some critical <span class="arithmatex">\(K\)</span>, roots may cross into the RHP, causing instability. The Routh-Hurwitz criterion will tell us exactly when.</p>
+<p>$s(s+2)(s+5) + K = 0$</p>
+<p>$s^3 + 7s^2 + 10s + K = 0$</p>
+<p>This is a cubic polynomial. For small $K$, the roots are near $s = 0, -2, -5$ (stable). As $K$ increases, the roots move. At some critical $K$, roots may cross into the RHP, causing instability. The Routh-Hurwitz criterion will tell us exactly when.</p>
 <table>
 <thead>
 <tr>
@@ -2353,11 +2353,11 @@
 <tbody>
 <tr>
 <td>Characteristic polynomial</td>
-<td>Denominator <span class="arithmatex">\(D(s)\)</span> of closed-loop transfer function</td>
+<td>Denominator $D(s)$ of closed-loop transfer function</td>
 </tr>
 <tr>
 <td>Characteristic equation</td>
-<td><span class="arithmatex">\(D(s) = 0\)</span></td>
+<td>$D(s) = 0$</td>
 </tr>
 <tr>
 <td>Characteristic roots</td>
@@ -2371,7 +2371,7 @@
 <ul>
 <li>The algebra becomes tedious for degree 3 and 4</li>
 <li>Symbolic solutions become unwieldy</li>
-<li>We often care about stability boundaries in terms of parameters (like gain <span class="arithmatex">\(K\)</span>), not specific pole values</li>
+<li>We often care about stability boundaries in terms of parameters (like gain $K$), not specific pole values</li>
 </ul>
 <p>The <strong>Routh-Hurwitz criterion</strong> provides an elegant solution: determine whether all roots of a polynomial are in the left half-plane using only the polynomial coefficients—no root finding required.</p>
 <p>The criterion was developed independently by Edward Routh (1877) and Adolf Hurwitz (1895). Routh's approach uses a tabular method (the Routh array), while Hurwitz used determinants. The results are equivalent; we'll focus on the Routh array because it's more practical for hand calculation.</p>
@@ -2404,38 +2404,38 @@ Bloom Verb: recall, identify</p>
 <h2 id="the-routh-hurwitz-criterion">The Routh-Hurwitz Criterion</h2>
 <p>The <strong>Routh-Hurwitz criterion</strong> states conditions under which a polynomial has all roots in the left half-plane. Given a polynomial:</p>
 <h4 id="general-polynomial-form">General Polynomial Form</h4>
-<p><span class="arithmatex">\(D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0\)</span></p>
+<p>$D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(a_n &gt; 0\)</span> (leading coefficient positive)</li>
-<li>All <span class="arithmatex">\(a_i\)</span> are real</li>
+<li>$a_n &gt; 0$ (leading coefficient positive)</li>
+<li>All $a_i$ are real</li>
 </ul>
 <p>The criterion has two parts:</p>
-<p><strong>Necessary Condition</strong>: All coefficients <span class="arithmatex">\(a_i\)</span> must be positive (assuming <span class="arithmatex">\(a_n &gt; 0\)</span>). If any coefficient is zero, negative, or missing, the system is either unstable or marginally stable.</p>
+<p><strong>Necessary Condition</strong>: All coefficients $a_i$ must be positive (assuming $a_n &gt; 0$). If any coefficient is zero, negative, or missing, the system is either unstable or marginally stable.</p>
 <p><strong>Necessary and Sufficient Condition</strong>: Construct the Routh array from the coefficients. All elements in the first column of the Routh array must be positive.</p>
 <div class="admonition tip">
 <p class="admonition-title">Necessary vs. Sufficient</p>
 <p>The "all coefficients positive" test is necessary but not sufficient. A polynomial can have all positive coefficients but still be unstable. The full Routh array test is both necessary and sufficient—it gives a definitive answer.</p>
 </div>
-<p>For a second-order polynomial <span class="arithmatex">\(as^2 + bs + c\)</span>, the necessary condition (all positive coefficients) is also sufficient. For third-order and higher, we need the Routh array.</p>
+<p>For a second-order polynomial $as^2 + bs + c$, the necessary condition (all positive coefficients) is also sufficient. For third-order and higher, we need the Routh array.</p>
 <h2 id="routh-array-construction">Routh Array Construction</h2>
 <p>The <strong>Routh array</strong> is a triangular table built from polynomial coefficients. The number of sign changes in the first column equals the number of roots in the right half-plane.</p>
-<p>Given a polynomial of degree <span class="arithmatex">\(n\)</span>:</p>
-<p><span class="arithmatex">\(D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0\)</span></p>
-<p>The Routh array has <span class="arithmatex">\(n+1\)</span> rows, labeled from <span class="arithmatex">\(s^n\)</span> down to <span class="arithmatex">\(s^0\)</span>.</p>
+<p>Given a polynomial of degree $n$:</p>
+<p>$D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0$</p>
+<p>The Routh array has $n+1$ rows, labeled from $s^n$ down to $s^0$.</p>
 <h4 id="routh-array-structure">Routh Array Structure</h4>
 <p><strong>First two rows</strong> come directly from the polynomial coefficients:</p>
 <ul>
-<li>Row <span class="arithmatex">\(s^n\)</span>: <span class="arithmatex">\(a_n\)</span>, <span class="arithmatex">\(a_{n-2}\)</span>, <span class="arithmatex">\(a_{n-4}\)</span>, ... (even-indexed from the top)</li>
-<li>Row <span class="arithmatex">\(s^{n-1}\)</span>: <span class="arithmatex">\(a_{n-1}\)</span>, <span class="arithmatex">\(a_{n-3}\)</span>, <span class="arithmatex">\(a_{n-5}\)</span>, ... (odd-indexed from the top)</li>
+<li>Row $s^n$: $a_n$, $a_{n-2}$, $a_{n-4}$, ... (even-indexed from the top)</li>
+<li>Row $s^{n-1}$: $a_{n-1}$, $a_{n-3}$, $a_{n-5}$, ... (odd-indexed from the top)</li>
 </ul>
 <p><strong>Subsequent rows</strong> are calculated using a determinant-like formula:</p>
-<p>For row <span class="arithmatex">\(s^{n-2}\)</span> and beyond, each element is:</p>
-<p><span class="arithmatex">\(\text{element} = -\frac{1}{\text{pivot}} \begin{vmatrix} \text{first column entry above} &amp; \text{column entry above} \\ \text{first column entry two above} &amp; \text{column entry two above} \end{vmatrix}\)</span></p>
+<p>For row $s^{n-2}$ and beyond, each element is:</p>
+<p>$\text{element} = -\frac{1}{\text{pivot}} \begin{vmatrix} \text{first column entry above} &amp; \text{column entry above} \ \text{first column entry two above} &amp; \text{column entry two above} \end{vmatrix}$</p>
 <p>Or more simply:</p>
-<p><span class="arithmatex">\(b_1 = \frac{a_{n-1} a_{n-2} - a_n a_{n-3}}{a_{n-1}}\)</span></p>
+<p>$b_1 = \frac{a_{n-1} a_{n-2} - a_n a_{n-3}}{a_{n-1}}$</p>
 <p>Let's construct the array for a fourth-order polynomial:</p>
-<p><span class="arithmatex">\(D(s) = a_4 s^4 + a_3 s^3 + a_2 s^2 + a_1 s + a_0\)</span></p>
+<p>$D(s) = a_4 s^4 + a_3 s^3 + a_2 s^2 + a_1 s + a_0$</p>
 <table>
 <thead>
 <tr>
@@ -2447,38 +2447,38 @@ Bloom Verb: recall, identify</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
-<td><span class="arithmatex">\(a_4\)</span></td>
-<td><span class="arithmatex">\(a_2\)</span></td>
-<td><span class="arithmatex">\(a_0\)</span></td>
+<td>$s^4$</td>
+<td>$a_4$</td>
+<td>$a_2$</td>
+<td>$a_0$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
-<td><span class="arithmatex">\(a_3\)</span></td>
-<td><span class="arithmatex">\(a_1\)</span></td>
+<td>$s^3$</td>
+<td>$a_3$</td>
+<td>$a_1$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
-<td><span class="arithmatex">\(b_1 = \frac{a_3 a_2 - a_4 a_1}{a_3}\)</span></td>
-<td><span class="arithmatex">\(b_2 = \frac{a_3 a_0 - a_4 \cdot 0}{a_3} = a_0\)</span></td>
+<td>$s^2$</td>
+<td>$b_1 = \frac{a_3 a_2 - a_4 a_1}{a_3}$</td>
+<td>$b_2 = \frac{a_3 a_0 - a_4 \cdot 0}{a_3} = a_0$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(c_1 = \frac{b_1 a_1 - a_3 b_2}{b_1}\)</span></td>
+<td>$s^1$</td>
+<td>$c_1 = \frac{b_1 a_1 - a_3 b_2}{b_1}$</td>
 <td>0</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
-<td><span class="arithmatex">\(a_0\)</span></td>
+<td>$s^0$</td>
+<td>$a_0$</td>
 <td>0</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
-<p>The first column is what matters: <span class="arithmatex">\(a_4, a_3, b_1, c_1, a_0\)</span>.</p>
+<p>The first column is what matters: $a_4, a_3, b_1, c_1, a_0$.</p>
 <div class="admonition success">
 <p class="admonition-title">Routh-Hurwitz Stability Test</p>
 <p><strong>The number of sign changes in the first column of the Routh array equals the number of roots in the right half-plane.</strong> For stability, all first-column elements must be positive (no sign changes).</p>
@@ -2531,9 +2531,9 @@ Input Area:
 </details>
 <h2 id="example-third-order-system-stability">Example: Third-Order System Stability</h2>
 <p>Let's apply the Routh criterion to the characteristic polynomial from our earlier feedback system:</p>
-<p><span class="arithmatex">\(D(s) = s^3 + 7s^2 + 10s + K\)</span></p>
-<p>where <span class="arithmatex">\(K\)</span> is the forward gain. We want to find the range of <span class="arithmatex">\(K\)</span> for stability.</p>
-<p><strong>Step 1</strong>: Check necessary condition. For all coefficients positive, we need <span class="arithmatex">\(K &gt; 0\)</span>.</p>
+<p>$D(s) = s^3 + 7s^2 + 10s + K$</p>
+<p>where $K$ is the forward gain. We want to find the range of $K$ for stability.</p>
+<p><strong>Step 1</strong>: Check necessary condition. For all coefficients positive, we need $K &gt; 0$.</p>
 <p><strong>Step 2</strong>: Construct the Routh array.</p>
 <table>
 <thead>
@@ -2545,22 +2545,22 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>1</td>
 <td>10</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
+<td>$s^2$</td>
 <td>7</td>
 <td>K</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(\frac{7 \cdot 10 - 1 \cdot K}{7} = \frac{70 - K}{7}\)</span></td>
+<td>$s^1$</td>
+<td>$\frac{7 \cdot 10 - 1 \cdot K}{7} = \frac{70 - K}{7}$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
+<td>$s^0$</td>
 <td>K</td>
 <td>0</td>
 </tr>
@@ -2568,16 +2568,16 @@ Input Area:
 </table>
 <p><strong>Step 3</strong>: Apply stability criterion. All first-column elements must be positive:</p>
 <ul>
-<li><span class="arithmatex">\(1 &gt; 0\)</span> ✓ (always)</li>
-<li><span class="arithmatex">\(7 &gt; 0\)</span> ✓ (always)</li>
-<li><span class="arithmatex">\(\frac{70 - K}{7} &gt; 0\)</span> → <span class="arithmatex">\(K &lt; 70\)</span></li>
-<li><span class="arithmatex">\(K &gt; 0\)</span></li>
+<li>$1 &gt; 0$ ✓ (always)</li>
+<li>$7 &gt; 0$ ✓ (always)</li>
+<li>$\frac{70 - K}{7} &gt; 0$ → $K &lt; 70$</li>
+<li>$K &gt; 0$</li>
 </ul>
-<p><strong>Stability Range</strong>: <span class="arithmatex">\(0 &lt; K &lt; 70\)</span></p>
-<p>At <span class="arithmatex">\(K = 70\)</span>, the <span class="arithmatex">\(s^1\)</span> row has a zero—this is the <strong>stability boundary</strong>. We'll handle this special case shortly.</p>
+<p><strong>Stability Range</strong>: $0 &lt; K &lt; 70$</p>
+<p>At $K = 70$, the $s^1$ row has a zero—this is the <strong>stability boundary</strong>. We'll handle this special case shortly.</p>
 <h2 id="example-fourth-order-system">Example: Fourth-Order System</h2>
 <p>Consider:</p>
-<p><span class="arithmatex">\(D(s) = s^4 + 2s^3 + 3s^2 + 4s + 5\)</span></p>
+<p>$D(s) = s^4 + 2s^3 + 3s^2 + 4s + 5$</p>
 <p><strong>Step 1</strong>: All coefficients are positive ✓</p>
 <p><strong>Step 2</strong>: Construct the Routh array.</p>
 <table>
@@ -2591,51 +2591,51 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
+<td>$s^4$</td>
 <td>1</td>
 <td>3</td>
 <td>5</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>2</td>
 <td>4</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 3 - 1 \cdot 4}{2} = 1\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 5 - 1 \cdot 0}{2} = 5\)</span></td>
+<td>$s^2$</td>
+<td>$\frac{2 \cdot 3 - 1 \cdot 4}{2} = 1$</td>
+<td>$\frac{2 \cdot 5 - 1 \cdot 0}{2} = 5$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(\frac{1 \cdot 4 - 2 \cdot 5}{1} = -6\)</span></td>
+<td>$s^1$</td>
+<td>$\frac{1 \cdot 4 - 2 \cdot 5}{1} = -6$</td>
 <td>0</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
+<td>$s^0$</td>
 <td>5</td>
 <td>0</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Step 3</strong>: Count sign changes in first column: <span class="arithmatex">\(1, 2, 1, -6, 5\)</span></p>
+<p><strong>Step 3</strong>: Count sign changes in first column: $1, 2, 1, -6, 5$</p>
 <p>Sign changes:
-- <span class="arithmatex">\(1 → 2\)</span>: no change (+→+)
-- <span class="arithmatex">\(2 → 1\)</span>: no change (+→+)
-- <span class="arithmatex">\(1 → -6\)</span>: <strong>sign change</strong> (+→−)
-- <span class="arithmatex">\(-6 → 5\)</span>: <strong>sign change</strong> (−→+)</p>
+- $1 → 2$: no change (+→+)
+- $2 → 1$: no change (+→+)
+- $1 → -6$: <strong>sign change</strong> (+→−)
+- $-6 → 5$: <strong>sign change</strong> (−→+)</p>
 <p><strong>Result</strong>: 2 sign changes → 2 poles in RHP → <strong>System is unstable</strong></p>
 <p>Even though all coefficients were positive, the system is unstable. This demonstrates why the necessary condition is not sufficient for higher-order polynomials.</p>
 <h2 id="special-case-zero-in-first-column">Special Case: Zero in First Column</h2>
 <p>Sometimes during Routh array construction, an element in the first column becomes zero while other elements in that row are nonzero. This creates a division-by-zero problem when computing the next row.</p>
-<p><strong>Solution</strong>: Replace the zero with a small positive number <span class="arithmatex">\(\epsilon\)</span> and continue the construction. After completing the array, let <span class="arithmatex">\(\epsilon → 0^+\)</span> to determine sign changes.</p>
+<p><strong>Solution</strong>: Replace the zero with a small positive number $\epsilon$ and continue the construction. After completing the array, let $\epsilon → 0^+$ to determine sign changes.</p>
 <h4 id="zero-in-first-column-example">Zero in First Column Example</h4>
 <p>Consider:</p>
-<p><span class="arithmatex">\(D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + 11s + 10\)</span></p>
+<p>$D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + 11s + 10$</p>
 <table>
 <thead>
 <tr>
@@ -2647,26 +2647,26 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^5\)</span></td>
+<td>$s^5$</td>
 <td>1</td>
 <td>2</td>
 <td>11</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
+<td>$s^4$</td>
 <td>2</td>
 <td>4</td>
 <td>10</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0\)</span> → <span class="arithmatex">\(\epsilon\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 11 - 1 \cdot 10}{2} = 6\)</span></td>
+<td>$s^3$</td>
+<td>$\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0$ → $\epsilon$</td>
+<td>$\frac{2 \cdot 11 - 1 \cdot 10}{2} = 6$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
-<td><span class="arithmatex">\(\frac{\epsilon \cdot 4 - 2 \cdot 6}{\epsilon} = 4 - \frac{12}{\epsilon}\)</span></td>
+<td>$s^2$</td>
+<td>$\frac{\epsilon \cdot 4 - 2 \cdot 6}{\epsilon} = 4 - \frac{12}{\epsilon}$</td>
 <td>...</td>
 <td></td>
 </tr>
@@ -2678,11 +2678,11 @@ Input Area:
 </tr>
 </tbody>
 </table>
-<p>As <span class="arithmatex">\(\epsilon → 0^+\)</span>, <span class="arithmatex">\(4 - \frac{12}{\epsilon} → -\infty\)</span> (large negative).</p>
-<p>The sign of the <span class="arithmatex">\(s^2\)</span> row first column is negative for small positive <span class="arithmatex">\(\epsilon\)</span>. Continue the analysis to count total sign changes.</p>
+<p>As $\epsilon → 0^+$, $4 - \frac{12}{\epsilon} → -\infty$ (large negative).</p>
+<p>The sign of the $s^2$ row first column is negative for small positive $\epsilon$. Continue the analysis to count total sign changes.</p>
 <div class="admonition tip">
 <p class="admonition-title">Epsilon Method</p>
-<p>The <span class="arithmatex">\(\epsilon\)</span> method works but can be tedious. Some textbooks teach alternative approaches like multiplying the row by a positive constant or using L'Hôpital's rule. The key insight: a zero in the first column indicates either a pole at the origin or poles symmetric about the imaginary axis.</p>
+<p>The $\epsilon$ method works but can be tedious. Some textbooks teach alternative approaches like multiplying the row by a positive constant or using L'Hôpital's rule. The key insight: a zero in the first column indicates either a pole at the origin or poles symmetric about the imaginary axis.</p>
 </div>
 <h2 id="special-case-row-of-zeros">Special Case: Row of Zeros</h2>
 <p>A more significant special case occurs when an entire row becomes zero. This indicates that the polynomial has:</p>
@@ -2698,15 +2698,15 @@ Input Area:
 <li>Continue the Routh array construction</li>
 </ol>
 <h4 id="auxiliary-polynomial">Auxiliary Polynomial</h4>
-<p>The auxiliary polynomial is formed from the row immediately above the zero row. Its degree equals the power of <span class="arithmatex">\(s\)</span> for that row.</p>
-<p>For example, if row <span class="arithmatex">\(s^4\)</span> is: <span class="arithmatex">\(2, 8, 6\)</span>, the auxiliary polynomial is:</p>
-<p><span class="arithmatex">\(A(s) = 2s^4 + 8s^2 + 6\)</span></p>
+<p>The auxiliary polynomial is formed from the row immediately above the zero row. Its degree equals the power of $s$ for that row.</p>
+<p>For example, if row $s^4$ is: $2, 8, 6$, the auxiliary polynomial is:</p>
+<p>$A(s) = 2s^4 + 8s^2 + 6$</p>
 <p>(Only even or odd powers appear because of how the Routh array alternates.)</p>
 <p>The derivative is:</p>
-<p><span class="arithmatex">\(\frac{dA}{ds} = 8s^3 + 16s\)</span></p>
-<p>Coefficients: <span class="arithmatex">\(8, 16\)</span> replace the zero row.</p>
+<p>$\frac{dA}{ds} = 8s^3 + 16s$</p>
+<p>Coefficients: $8, 16$ replace the zero row.</p>
 <h4 id="row-of-zeros-example">Row of Zeros Example</h4>
-<p><span class="arithmatex">\(D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + s + 2\)</span></p>
+<p>$D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + s + 2$</p>
 <table>
 <thead>
 <tr>
@@ -2718,29 +2718,29 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^5\)</span></td>
+<td>$s^5$</td>
 <td>1</td>
 <td>2</td>
 <td>1</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
+<td>$s^4$</td>
 <td>2</td>
 <td>4</td>
 <td>2</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 1 - 1 \cdot 2}{2} = 0\)</span></td>
+<td>$s^3$</td>
+<td>$\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0$</td>
+<td>$\frac{2 \cdot 1 - 1 \cdot 2}{2} = 0$</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
-<p>Row <span class="arithmatex">\(s^3\)</span> is entirely zero!</p>
-<p><strong>Auxiliary polynomial</strong> from row <span class="arithmatex">\(s^4\)</span>: <span class="arithmatex">\(A(s) = 2s^4 + 4s^2 + 2\)</span></p>
-<p><strong>Derivative</strong>: <span class="arithmatex">\(\frac{dA}{ds} = 8s^3 + 8s\)</span></p>
-<p>Replace zero row with coefficients: <span class="arithmatex">\(8, 8\)</span></p>
+<p>Row $s^3$ is entirely zero!</p>
+<p><strong>Auxiliary polynomial</strong> from row $s^4$: $A(s) = 2s^4 + 4s^2 + 2$</p>
+<p><strong>Derivative</strong>: $\frac{dA}{ds} = 8s^3 + 8s$</p>
+<p>Replace zero row with coefficients: $8, 8$</p>
 <table>
 <thead>
 <tr>
@@ -2752,39 +2752,39 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^5\)</span></td>
+<td>$s^5$</td>
 <td>1</td>
 <td>2</td>
 <td>1</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
+<td>$s^4$</td>
 <td>2</td>
 <td>4</td>
 <td>2</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>8</td>
 <td>8</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
-<td><span class="arithmatex">\(\frac{8 \cdot 4 - 2 \cdot 8}{8} = 2\)</span></td>
+<td>$s^2$</td>
+<td>$\frac{8 \cdot 4 - 2 \cdot 8}{8} = 2$</td>
 <td>2</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(\frac{2 \cdot 8 - 8 \cdot 2}{2} = 0\)</span></td>
+<td>$s^1$</td>
+<td>$\frac{2 \cdot 8 - 8 \cdot 2}{2} = 0$</td>
 <td>0</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
-<p>Another row of zeros at <span class="arithmatex">\(s^1\)</span>. Auxiliary polynomial from <span class="arithmatex">\(s^2\)</span>: <span class="arithmatex">\(A(s) = 2s^2 + 2\)</span></p>
-<p>Derivative: <span class="arithmatex">\(4s\)</span>, so row becomes: <span class="arithmatex">\(4, 0\)</span></p>
+<p>Another row of zeros at $s^1$. Auxiliary polynomial from $s^2$: $A(s) = 2s^2 + 2$</p>
+<p>Derivative: $4s$, so row becomes: $4, 0$</p>
 <table>
 <thead>
 <tr>
@@ -2794,33 +2794,33 @@ Input Area:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^5\)</span></td>
+<td>$s^5$</td>
 <td>1</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^4\)</span></td>
+<td>$s^4$</td>
 <td>2</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>8</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
+<td>$s^2$</td>
 <td>2</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
+<td>$s^1$</td>
 <td>4</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
+<td>$s^0$</td>
 <td>2</td>
 </tr>
 </tbody>
 </table>
 <p>First column: all positive → <strong>no sign changes → no RHP poles</strong>.</p>
-<p>But wait! The row of zeros indicates symmetric roots. The auxiliary polynomial <span class="arithmatex">\(A(s) = 2s^4 + 4s^2 + 2 = 2(s^4 + 2s^2 + 1) = 2(s^2 + 1)^2\)</span> has roots at <span class="arithmatex">\(s = \pm j\)</span> (repeated).</p>
+<p>But wait! The row of zeros indicates symmetric roots. The auxiliary polynomial $A(s) = 2s^4 + 4s^2 + 2 = 2(s^4 + 2s^2 + 1) = 2(s^2 + 1)^2$ has roots at $s = \pm j$ (repeated).</p>
 <p><strong>Conclusion</strong>: System has repeated poles on the imaginary axis → <strong>unstable</strong> (by our definition) or at best marginally stable.</p>
 <h4 id="diagram-row-of-zeros-analysis">Diagram: Row of Zeros Analysis</h4>
 <iframe src="../../sims/row-of-zeros/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -2867,18 +2867,18 @@ Routh Array:
 </details>
 <h2 id="the-stability-boundary">The Stability Boundary</h2>
 <p>The <strong>stability boundary</strong> is the surface in parameter space where the system transitions from stable to unstable. At the stability boundary, poles lie exactly on the imaginary axis.</p>
-<p>For a system with adjustable gain <span class="arithmatex">\(K\)</span>, the stability boundary occurs when:</p>
+<p>For a system with adjustable gain $K$, the stability boundary occurs when:</p>
 <ul>
 <li>A first-column element of the Routh array equals zero, or</li>
 <li>A row of zeros appears</li>
 </ul>
 <p>From our third-order example:</p>
-<p><span class="arithmatex">\(D(s) = s^3 + 7s^2 + 10s + K\)</span></p>
-<p>The first-column element in the <span class="arithmatex">\(s^1\)</span> row is <span class="arithmatex">\(\frac{70 - K}{7}\)</span>.</p>
-<p><strong>Stability boundary</strong>: <span class="arithmatex">\(\frac{70 - K}{7} = 0\)</span> → <span class="arithmatex">\(K = 70\)</span></p>
-<p>At <span class="arithmatex">\(K = 70\)</span>, we form the auxiliary polynomial from the <span class="arithmatex">\(s^2\)</span> row: <span class="arithmatex">\(A(s) = 7s^2 + 70 = 7(s^2 + 10)\)</span></p>
-<p>Roots: <span class="arithmatex">\(s = \pm j\sqrt{10} \approx \pm j3.16\)</span></p>
-<p>At the stability boundary, the system has a pair of poles on the imaginary axis at <span class="arithmatex">\(\pm j\sqrt{10}\)</span> rad/s, producing sustained oscillation at this frequency. For <span class="arithmatex">\(K &lt; 70\)</span>, these poles are in the LHP (stable). For <span class="arithmatex">\(K &gt; 70\)</span>, they're in the RHP (unstable).</p>
+<p>$D(s) = s^3 + 7s^2 + 10s + K$</p>
+<p>The first-column element in the $s^1$ row is $\frac{70 - K}{7}$.</p>
+<p><strong>Stability boundary</strong>: $\frac{70 - K}{7} = 0$ → $K = 70$</p>
+<p>At $K = 70$, we form the auxiliary polynomial from the $s^2$ row: $A(s) = 7s^2 + 70 = 7(s^2 + 10)$</p>
+<p>Roots: $s = \pm j\sqrt{10} \approx \pm j3.16$</p>
+<p>At the stability boundary, the system has a pair of poles on the imaginary axis at $\pm j\sqrt{10}$ rad/s, producing sustained oscillation at this frequency. For $K &lt; 70$, these poles are in the LHP (stable). For $K &gt; 70$, they're in the RHP (unstable).</p>
 <table>
 <thead>
 <tr>
@@ -2888,15 +2888,15 @@ Routh Array:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(0 &lt; K &lt; 70\)</span></td>
+<td>$0 &lt; K &lt; 70$</td>
 <td>Stable (all poles in LHP)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = 70\)</span></td>
+<td>$K = 70$</td>
 <td>Marginally stable (poles on imaginary axis)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K &gt; 70\)</span></td>
+<td>$K &gt; 70$</td>
 <td>Unstable (poles in RHP)</td>
 </tr>
 </tbody>
@@ -2956,16 +2956,16 @@ Routh Array:
 <p>Two measures of relative stability:</p>
 <p><strong>Distance from Imaginary Axis</strong>: Poles farther left in the s-plane have faster-decaying modes. The dominant pole (rightmost LHP pole) determines the "least stable" behavior.</p>
 <p><strong>Gain Margin and Phase Margin</strong>: How much can gain increase before instability? How much phase lag can be added? (We'll explore these in detail in the frequency response chapters.)</p>
-<p>For the Routh-Hurwitz context, we can test relative stability by shifting the stability boundary. To determine if all poles are to the left of <span class="arithmatex">\(s = -\sigma\)</span> (where <span class="arithmatex">\(\sigma &gt; 0\)</span>), substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> into the characteristic polynomial and apply the Routh criterion to the new polynomial.</p>
+<p>For the Routh-Hurwitz context, we can test relative stability by shifting the stability boundary. To determine if all poles are to the left of $s = -\sigma$ (where $\sigma &gt; 0$), substitute $s = s_1 - \sigma$ into the characteristic polynomial and apply the Routh criterion to the new polynomial.</p>
 <h4 id="relative-stability-test">Relative Stability Test</h4>
-<p>To verify all poles have real part less than <span class="arithmatex">\(-\sigma\)</span>:</p>
+<p>To verify all poles have real part less than $-\sigma$:</p>
 <ol>
-<li>Substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> into <span class="arithmatex">\(D(s)\)</span></li>
-<li>Simplify to get polynomial in <span class="arithmatex">\(s_1\)</span></li>
+<li>Substitute $s = s_1 - \sigma$ into $D(s)$</li>
+<li>Simplify to get polynomial in $s_1$</li>
 <li>Apply Routh criterion to the new polynomial</li>
-<li>If stable, all original poles are to the left of <span class="arithmatex">\(s = -\sigma\)</span></li>
+<li>If stable, all original poles are to the left of $s = -\sigma$</li>
 </ol>
-<p>This is useful when specifications require all poles to be within a certain region—for example, "all time constants less than 2 seconds" requires all poles to the left of <span class="arithmatex">\(s = -0.5\)</span>.</p>
+<p>This is useful when specifications require all poles to be within a certain region—for example, "all time constants less than 2 seconds" requires all poles to the left of $s = -0.5$.</p>
 <table>
 <thead>
 <tr>
@@ -2981,31 +2981,31 @@ Routh Array:
 <td>Basic stability</td>
 </tr>
 <tr>
-<td>All poles left of <span class="arithmatex">\(s = -1\)</span></td>
-<td><span class="arithmatex">\(s = s_1 - 1\)</span></td>
+<td>All poles left of $s = -1$</td>
+<td>$s = s_1 - 1$</td>
 <td>Fast decay (τ &lt; 1s)</td>
 </tr>
 <tr>
-<td>All poles left of <span class="arithmatex">\(s = -0.5\)</span></td>
-<td><span class="arithmatex">\(s = s_1 - 0.5\)</span></td>
+<td>All poles left of $s = -0.5$</td>
+<td>$s = s_1 - 0.5$</td>
 <td>Time constants &lt; 2s</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">When to Use Relative Stability</p>
-<p>Relative stability tests are valuable when you have settling time requirements. If the spec says "settle within 4 seconds," you need the dominant pole's real part more negative than about <span class="arithmatex">\(-1\)</span> (since settling takes roughly <span class="arithmatex">\(4\tau = 4/|Re(p)|\)</span>). Use the shifted Routh test to verify this without finding the actual poles.</p>
+<p>Relative stability tests are valuable when you have settling time requirements. If the spec says "settle within 4 seconds," you need the dominant pole's real part more negative than about $-1$ (since settling takes roughly $4\tau = 4/|Re(p)|$). Use the shifted Routh test to verify this without finding the actual poles.</p>
 </div>
 <h2 id="design-using-routh-hurwitz">Design Using Routh-Hurwitz</h2>
 <p>The Routh-Hurwitz criterion isn't just for analysis—it's a powerful design tool. Given a system with adjustable parameters, we can determine the range of parameters that maintain stability.</p>
 <h4 id="design-example-two-parameter-stability-region">Design Example: Two-Parameter Stability Region</h4>
 <p>Consider a proportional-derivative (PD) controller applied to a plant:</p>
-<p><span class="arithmatex">\(G(s) = \frac{K_p + K_d s}{s^3 + 4s^2 + 5s}\)</span></p>
+<p>$G(s) = \frac{K_p + K_d s}{s^3 + 4s^2 + 5s}$</p>
 <p>Closed-loop characteristic equation:</p>
-<p><span class="arithmatex">\(s^3 + 4s^2 + (5 + K_d)s + K_p = 0\)</span></p>
+<p>$s^3 + 4s^2 + (5 + K_d)s + K_p = 0$</p>
 <p>For stability:</p>
 <ol>
-<li>All coefficients positive: <span class="arithmatex">\(K_p &gt; 0\)</span> and <span class="arithmatex">\(5 + K_d &gt; 0\)</span> → <span class="arithmatex">\(K_d &gt; -5\)</span></li>
+<li>All coefficients positive: $K_p &gt; 0$ and $5 + K_d &gt; 0$ → $K_d &gt; -5$</li>
 <li>Routh array first column all positive</li>
 </ol>
 <p>Routh array:</p>
@@ -3019,38 +3019,38 @@ Routh Array:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s^3\)</span></td>
+<td>$s^3$</td>
 <td>1</td>
-<td><span class="arithmatex">\(5 + K_d\)</span></td>
+<td>$5 + K_d$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span></td>
+<td>$s^2$</td>
 <td>4</td>
-<td><span class="arithmatex">\(K_p\)</span></td>
+<td>$K_p$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^1\)</span></td>
-<td><span class="arithmatex">\(\frac{4(5+K_d) - K_p}{4}\)</span></td>
+<td>$s^1$</td>
+<td>$\frac{4(5+K_d) - K_p}{4}$</td>
 <td>0</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^0\)</span></td>
-<td><span class="arithmatex">\(K_p\)</span></td>
+<td>$s^0$</td>
+<td>$K_p$</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
 <p>Stability conditions:</p>
 <ul>
-<li><span class="arithmatex">\(K_p &gt; 0\)</span></li>
-<li><span class="arithmatex">\(K_d &gt; -5\)</span></li>
-<li><span class="arithmatex">\(\frac{4(5+K_d) - K_p}{4} &gt; 0\)</span> → <span class="arithmatex">\(K_p &lt; 4(5 + K_d) = 20 + 4K_d\)</span></li>
+<li>$K_p &gt; 0$</li>
+<li>$K_d &gt; -5$</li>
+<li>$\frac{4(5+K_d) - K_p}{4} &gt; 0$ → $K_p &lt; 4(5 + K_d) = 20 + 4K_d$</li>
 </ul>
-<p>The stable region in the <span class="arithmatex">\((K_d, K_p)\)</span> plane is bounded by:</p>
+<p>The stable region in the $(K_d, K_p)$ plane is bounded by:</p>
 <ul>
-<li><span class="arithmatex">\(K_p = 0\)</span> (lower boundary)</li>
-<li><span class="arithmatex">\(K_d = -5\)</span> (left boundary)</li>
-<li><span class="arithmatex">\(K_p = 20 + 4K_d\)</span> (upper boundary)</li>
+<li>$K_p = 0$ (lower boundary)</li>
+<li>$K_d = -5$ (left boundary)</li>
+<li>$K_p = 20 + 4K_d$ (upper boundary)</li>
 </ul>
 <h4 id="diagram-two-parameter-stability-region">Diagram: Two-Parameter Stability Region</h4>
 <iframe src="../../sims/stability-region/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -3106,7 +3106,7 @@ Parameter Space:
 <ol>
 <li>First two rows from coefficients (alternating)</li>
 <li>Subsequent rows by cross-multiplication formula</li>
-<li>Continue until <span class="arithmatex">\(s^0\)</span> row</li>
+<li>Continue until $s^0$ row</li>
 </ol>
 <p><strong>Stability Test</strong>: Count sign changes in first column = number of RHP poles.</p>
 <p><strong>Special Cases</strong>:</p>
@@ -3132,7 +3132,7 @@ Parameter Space:
 </tbody>
 </table>
 <p><strong>Design Use</strong>: Find stability boundaries by setting first-column elements to zero, solve for parameter values.</p>
-<p><strong>Relative Stability</strong>: Substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> to test if poles are left of <span class="arithmatex">\(s = -\sigma\)</span>.</p>
+<p><strong>Relative Stability</strong>: Substitute $s = s_1 - \sigma$ to test if poles are left of $s = -\sigma$.</p>
 <div class="admonition success">
 <p class="admonition-title">Key Insight</p>
 <p>The Routh-Hurwitz criterion transforms the question "Where are the poles?" into the question "What are the signs of these algebraic expressions?" The latter is much easier to answer, especially when parameters are unknown.</p>
@@ -3186,10 +3186,10 @@ Parameter Space:
 <p>Before moving on, try these without peeking:</p>
 <ol>
 <li>
-<p>A polynomial has coefficients <span class="arithmatex">\([1, 2, 3, 4, -5]\)</span>. Without constructing the array, is the system definitely unstable? Why?</p>
+<p>A polynomial has coefficients $[1, 2, 3, 4, -5]$. Without constructing the array, is the system definitely unstable? Why?</p>
 </li>
 <li>
-<p>For <span class="arithmatex">\(D(s) = s^3 + 3s^2 + 2s + K\)</span>, find the range of <span class="arithmatex">\(K\)</span> for stability.</p>
+<p>For $D(s) = s^3 + 3s^2 + 2s + K$, find the range of $K$ for stability.</p>
 </li>
 <li>
 <p>What does a row of zeros in the Routh array indicate about the pole locations?</p>
@@ -3198,10 +3198,10 @@ Parameter Space:
 <p>True or false: If all coefficients of a polynomial are positive, the system must be stable.</p>
 </li>
 <li>
-<p>A system has characteristic equation <span class="arithmatex">\(s^2 + 2s + K = 0\)</span>. For what values of <span class="arithmatex">\(K\)</span> is the system stable?</p>
+<p>A system has characteristic equation $s^2 + 2s + K = 0$. For what values of $K$ is the system stable?</p>
 </li>
 </ol>
-<p>Answers: (1) Yes—negative coefficient violates necessary condition. (2) <span class="arithmatex">\(0 &lt; K &lt; 6\)</span>. (3) Poles symmetric about origin (imaginary axis or symmetric RHP/LHP pairs). (4) False—necessary but not sufficient for order ≥ 3. (5) <span class="arithmatex">\(K &gt; 0\)</span>.</p>
+<p>Answers: (1) Yes—negative coefficient violates necessary condition. (2) $0 &lt; K &lt; 6$. (3) Poles symmetric about origin (imaginary axis or symmetric RHP/LHP pairs). (4) False—necessary but not sufficient for order ≥ 3. (5) $K &gt; 0$.</p>
 </details>
 
 

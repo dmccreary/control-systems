@@ -6167,20 +6167,20 @@
 <h1 id="glossary-of-control-systems-terms">Glossary of Control Systems Terms</h1>
 <p>This glossary provides definitions for the 300 concepts covered in this Control Systems course. Each definition follows ISO 11179 metadata registry standards: precise, concise, distinct, non-circular, and free of business rules.</p>
 <h4 id="acceleration-error-constant">Acceleration Error Constant</h4>
-<p>A parameter that quantifies a control system's ability to track parabolic (constant acceleration) inputs with zero steady-state error. Denoted <span class="arithmatex">\(K_a\)</span>, it equals the limit of <span class="arithmatex">\(s^2 G(s)H(s)\)</span> as <span class="arithmatex">\(s\)</span> approaches zero.</p>
-<p><strong>Example:</strong> A Type 2 system with <span class="arithmatex">\(K_a = 100\)</span> has a steady-state error of 1% when tracking a unit parabolic input.</p>
+<p>A parameter that quantifies a control system's ability to track parabolic (constant acceleration) inputs with zero steady-state error. Denoted $K_a$, it equals the limit of $s^2 G(s)H(s)$ as $s$ approaches zero.</p>
+<p><strong>Example:</strong> A Type 2 system with $K_a = 100$ has a steady-state error of 1% when tracking a unit parabolic input.</p>
 <h4 id="actuator">Actuator</h4>
 <p>A device that converts control signals into physical action on a plant. Actuators bridge the gap between the controller's commands and the physical system being controlled.</p>
 <p><strong>Example:</strong> In Gyra, the DC motors are actuators that convert voltage signals into torque to keep her balanced.</p>
 <h4 id="all-pass-system">All-Pass System</h4>
 <p>A system that passes all frequencies with unity gain but introduces frequency-dependent phase shift. The magnitude response is constant across all frequencies.</p>
-<p><strong>Example:</strong> An all-pass filter with transfer function <span class="arithmatex">\((s-1)/(s+1)\)</span> has unity gain at all frequencies but varies in phase from 0° to -180°.</p>
+<p><strong>Example:</strong> An all-pass filter with transfer function $(s-1)/(s+1)$ has unity gain at all frequencies but varies in phase from 0° to -180°.</p>
 <h4 id="analogous-systems">Analogous Systems</h4>
 <p>Physical systems from different domains (electrical, mechanical, thermal, fluid) that share identical mathematical descriptions. The differential equations governing these systems have the same form despite different physical variables.</p>
 <p><strong>Example:</strong> A mass-spring-damper system and an RLC circuit are analogous because both are described by second-order differential equations with the same structure.</p>
 <h4 id="angle-condition">Angle Condition</h4>
 <p>A requirement in root locus construction stating that a point lies on the root locus if the sum of angles from zeros minus the sum of angles from open-loop poles equals an odd multiple of 180°.</p>
-<p><strong>Example:</strong> To verify that <span class="arithmatex">\(s = -2 + j2\)</span> lies on the root locus, calculate angles from all poles and zeros to this point and check if they sum to ±180°.</p>
+<p><strong>Example:</strong> To verify that $s = -2 + j2$ lies on the root locus, calculate angles from all poles and zeros to this point and check if they sum to ±180°.</p>
 <h4 id="anti-windup">Anti-Windup</h4>
 <p>A control technique that prevents the integral term in a PID controller from accumulating excessively when the actuator reaches its physical limits. Without anti-windup, large integral buildup causes sluggish recovery when the system returns to normal operation.</p>
 <p><strong>Example:</strong> When Gyra's motors saturate at maximum torque, anti-windup freezes the integral term to prevent overshoot when she regains balance.</p>
@@ -6189,12 +6189,12 @@
 <p><strong>Example:</strong> Most hobby servo motors and robotics actuators use armature control because it provides fast, linear speed response.</p>
 <h4 id="arrival-angle">Arrival Angle</h4>
 <p>The angle at which root locus branches approach a complex zero as gain increases toward infinity. Calculated using the angle condition with all other poles and zeros.</p>
-<p><strong>Example:</strong> For a zero at <span class="arithmatex">\(s = -1 + j\)</span>, the arrival angle determines the direction from which root locus branches approach this zero.</p>
+<p><strong>Example:</strong> For a zero at $s = -1 + j$, the arrival angle determines the direction from which root locus branches approach this zero.</p>
 <h4 id="asymptotes">Asymptotes</h4>
 <p>Straight lines that root locus branches approach as they extend toward infinity. The number of asymptotes equals the number of poles minus the number of zeros in the open-loop transfer function.</p>
 <p><strong>Example:</strong> A system with 4 poles and 1 zero has 3 asymptotes, which the root locus branches follow as gain approaches infinity.</p>
 <h4 id="asymptote-angles">Asymptote Angles</h4>
-<p>The angles at which root locus asymptotes radiate from the centroid. Calculated as <span class="arithmatex">\((2k+1) \times 180°/(n-m)\)</span> where <span class="arithmatex">\(n\)</span> is the number of poles and <span class="arithmatex">\(m\)</span> is the number of zeros.</p>
+<p>The angles at which root locus asymptotes radiate from the centroid. Calculated as $(2k+1) \times 180°/(n-m)$ where $n$ is the number of poles and $m$ is the number of zeros.</p>
 <p><strong>Example:</strong> For a system with 3 poles and no zeros, asymptote angles are 60°, 180°, and 300°.</p>
 <h4 id="asymptotic-approximation">Asymptotic Approximation</h4>
 <p>A simplified representation of Bode plot curves using straight-line segments that approach the actual response at extreme frequencies. These approximations enable rapid hand-sketching of frequency response.</p>
@@ -6213,13 +6213,13 @@
 <p><strong>Example:</strong> An audio amplifier with 20 kHz bandwidth can faithfully reproduce sounds up to the upper limit of human hearing.</p>
 <h4 id="bibo-stability">BIBO Stability</h4>
 <p>Bounded-Input Bounded-Output stability, where every bounded input produces a bounded output. A system is BIBO stable if and only if all poles of its transfer function have negative real parts.</p>
-<p><strong>Example:</strong> A system with poles at <span class="arithmatex">\(s = -2 \pm j3\)</span> is BIBO stable because both poles have negative real parts (-2).</p>
+<p><strong>Example:</strong> A system with poles at $s = -2 \pm j3$ is BIBO stable because both poles have negative real parts (-2).</p>
 <h4 id="block-diagram">Block Diagram</h4>
 <p>A graphical representation of a control system showing the functional relationships between components using blocks, arrows, summing junctions, and pickoff points.</p>
 <p><strong>Example:</strong> A thermostat system's block diagram shows the desired temperature, error signal, heater, room, and temperature sensor as interconnected blocks.</p>
 <h4 id="block-diagram-algebra">Block Diagram Algebra</h4>
 <p>Mathematical rules for manipulating block diagram elements, including moving blocks across summing junctions and pickoff points, combining series and parallel blocks, and reducing feedback loops.</p>
-<p><strong>Example:</strong> Two blocks in series with gains <span class="arithmatex">\(G_1\)</span> and <span class="arithmatex">\(G_2\)</span> can be combined into a single block with gain <span class="arithmatex">\(G_1 G_2\)</span>.</p>
+<p><strong>Example:</strong> Two blocks in series with gains $G_1$ and $G_2$ can be combined into a single block with gain $G_1 G_2$.</p>
 <h4 id="block-diagram-reduction">Block Diagram Reduction</h4>
 <p>The process of simplifying a complex block diagram into a single equivalent transfer function using block diagram algebra rules systematically.</p>
 <p><strong>Example:</strong> A multi-loop feedback system can be reduced step by step, starting with the innermost loop, until only one block relating input to output remains.</p>
@@ -6228,7 +6228,7 @@
 <p><strong>Example:</strong> To increase phase margin from 30° to 50°, design a lead compensator that adds 20° of phase lead at the gain crossover frequency.</p>
 <h4 id="bode-magnitude-plot">Bode Magnitude Plot</h4>
 <p>A graph showing the logarithm of a system's magnitude response (in decibels) versus the logarithm of frequency. The logarithmic scales allow magnitude plots of cascaded systems to be added graphically.</p>
-<p><strong>Example:</strong> A system with DC gain of 100 has a Bode magnitude plot starting at 40 dB (since <span class="arithmatex">\(20 \log_{10}(100) = 40\)</span>).</p>
+<p><strong>Example:</strong> A system with DC gain of 100 has a Bode magnitude plot starting at 40 dB (since $20 \log_{10}(100) = 40$).</p>
 <h4 id="bode-phase-plot">Bode Phase Plot</h4>
 <p>A graph showing a system's phase response in degrees versus the logarithm of frequency. Combined with the magnitude plot, it completely characterizes the system's frequency response.</p>
 <p><strong>Example:</strong> A first-order lag contributes 0° phase at low frequencies, -45° at the corner frequency, and approaches -90° at high frequencies.</p>
@@ -6237,45 +6237,45 @@
 <p><strong>Example:</strong> Bode plots reveal that a system with gain crossover at 10 rad/s and phase margin of 45° will be stable with moderate overshoot.</p>
 <h4 id="bode-plot-construction">Bode Plot Construction</h4>
 <p>The systematic process of sketching Bode plots by decomposing a transfer function into basic factors (constant, integrator, first-order, second-order) and adding their individual contributions.</p>
-<p><strong>Example:</strong> To construct the Bode plot for <span class="arithmatex">\(G(s) = 10/(s+1)(s+10)\)</span>, add the individual contributions from the gain, and two first-order factors.</p>
+<p><strong>Example:</strong> To construct the Bode plot for $G(s) = 10/(s+1)(s+10)$, add the individual contributions from the gain, and two first-order factors.</p>
 <h4 id="bounded-input">Bounded Input</h4>
-<p>An input signal whose magnitude remains within finite limits for all time. Mathematically, <span class="arithmatex">\(|u(t)| \leq M\)</span> for some finite constant <span class="arithmatex">\(M\)</span> and all <span class="arithmatex">\(t \geq 0\)</span>.</p>
-<p><strong>Example:</strong> A step input of magnitude 5 is bounded because it never exceeds 5, while <span class="arithmatex">\(e^t\)</span> is unbounded.</p>
+<p>An input signal whose magnitude remains within finite limits for all time. Mathematically, $|u(t)| \leq M$ for some finite constant $M$ and all $t \geq 0$.</p>
+<p><strong>Example:</strong> A step input of magnitude 5 is bounded because it never exceeds 5, while $e^t$ is unbounded.</p>
 <h4 id="bounded-output">Bounded Output</h4>
 <p>An output signal whose magnitude remains within finite limits for all time in response to a bounded input. This is the defining characteristic of BIBO stability.</p>
 <p><strong>Example:</strong> A stable system's step response settles to a finite steady-state value, demonstrating bounded output.</p>
 <h4 id="branch">Branch</h4>
 <p>A directed line segment in a signal flow graph representing the transmission of a signal from one node to another, labeled with the corresponding transfer function or gain.</p>
-<p><strong>Example:</strong> In a signal flow graph, a branch from node <span class="arithmatex">\(X_1\)</span> to <span class="arithmatex">\(X_2\)</span> with gain <span class="arithmatex">\(G\)</span> means <span class="arithmatex">\(X_2\)</span> receives a contribution of <span class="arithmatex">\(G \cdot X_1\)</span>.</p>
+<p><strong>Example:</strong> In a signal flow graph, a branch from node $X_1$ to $X_2$ with gain $G$ means $X_2$ receives a contribution of $G \cdot X_1$.</p>
 <h4 id="branch-gain">Branch Gain</h4>
 <p>The transfer function or multiplicative factor associated with a branch in a signal flow graph. It represents how a signal is modified as it travels along that branch.</p>
-<p><strong>Example:</strong> A branch with gain <span class="arithmatex">\(1/(s+2)\)</span> multiplies its input signal by this transfer function.</p>
+<p><strong>Example:</strong> A branch with gain $1/(s+2)$ multiplies its input signal by this transfer function.</p>
 <h4 id="breakaway-point">Breakaway Point</h4>
 <p>A point on the real axis of the s-plane where root locus branches leave the real axis and become complex conjugates as gain increases. Occurs between adjacent poles on segments of the root locus.</p>
-<p><strong>Example:</strong> For a system with poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -3\)</span>, the breakaway point occurs at <span class="arithmatex">\(s = -2\)</span> on the real axis.</p>
+<p><strong>Example:</strong> For a system with poles at $s = -1$ and $s = -3$, the breakaway point occurs at $s = -2$ on the real axis.</p>
 <h4 id="break-frequency">Break Frequency</h4>
 <p>See Corner Frequency.</p>
 <h4 id="break-in-point">Break-In Point</h4>
 <p>A point on the real axis of the s-plane where complex conjugate root locus branches return to the real axis as gain increases. Occurs between adjacent zeros on segments of the root locus.</p>
-<p><strong>Example:</strong> Complex root locus branches may break into the real axis between zeros at <span class="arithmatex">\(s = -4\)</span> and <span class="arithmatex">\(s = -6\)</span>.</p>
+<p><strong>Example:</strong> Complex root locus branches may break into the real axis between zeros at $s = -4$ and $s = -6$.</p>
 <h4 id="cascade-connection">Cascade Connection</h4>
 <p>An arrangement where the output of one system connects directly to the input of the next, with the overall transfer function being the product of the individual transfer functions.</p>
 <p><strong>Example:</strong> Two amplifiers in cascade with gains of 10 and 5 produce an overall gain of 50.</p>
 <h4 id="causality">Causality</h4>
 <p>A property of physical systems where the output depends only on present and past inputs, not future inputs. All real physical systems are causal.</p>
-<p><strong>Example:</strong> A causal system's impulse response is zero for negative time: <span class="arithmatex">\(h(t) = 0\)</span> for <span class="arithmatex">\(t &lt; 0\)</span>.</p>
+<p><strong>Example:</strong> A causal system's impulse response is zero for negative time: $h(t) = 0$ for $t &lt; 0$.</p>
 <h4 id="centroid">Centroid</h4>
 <p>The point on the real axis from which root locus asymptotes radiate. Calculated as the sum of pole locations minus the sum of zero locations, divided by the number of poles minus the number of zeros.</p>
-<p><strong>Example:</strong> For poles at -1, -2, -3 and a zero at -4, the centroid is <span class="arithmatex">\([(-1-2-3) - (-4)]/(3-1) = -1\)</span>.</p>
+<p><strong>Example:</strong> For poles at -1, -2, -3 and a zero at -4, the centroid is $[(-1-2-3) - (-4)]/(3-1) = -1$.</p>
 <h4 id="characteristic-equation">Characteristic Equation</h4>
 <p>An algebraic equation whose roots determine a system's stability and dynamic behavior. Formed by setting the denominator of the closed-loop transfer function equal to zero.</p>
-<p><strong>Example:</strong> For a closed-loop system with <span class="arithmatex">\(G(s) = K/(s^2 + 3s + 2)\)</span> and unity feedback, the characteristic equation is <span class="arithmatex">\(s^2 + 3s + 2 + K = 0\)</span>.</p>
+<p><strong>Example:</strong> For a closed-loop system with $G(s) = K/(s^2 + 3s + 2)$ and unity feedback, the characteristic equation is $s^2 + 3s + 2 + K = 0$.</p>
 <h4 id="characteristic-polynomial">Characteristic Polynomial</h4>
 <p>The polynomial in the denominator of a transfer function after clearing fractions, whose roots are the system poles. Equivalently, the numerator of the characteristic equation.</p>
-<p><strong>Example:</strong> For a transfer function with denominator <span class="arithmatex">\(s^3 + 6s^2 + 11s + 6\)</span>, this is the characteristic polynomial.</p>
+<p><strong>Example:</strong> For a transfer function with denominator $s^3 + 6s^2 + 11s + 6$, this is the characteristic polynomial.</p>
 <h4 id="characteristic-roots">Characteristic Roots</h4>
 <p>The roots of the characteristic equation, which are the closed-loop poles of the system. Their locations in the s-plane determine stability and transient response characteristics.</p>
-<p><strong>Example:</strong> Characteristic roots at <span class="arithmatex">\(s = -1 \pm j2\)</span> indicate stable oscillatory behavior with frequency 2 rad/s.</p>
+<p><strong>Example:</strong> Characteristic roots at $s = -1 \pm j2$ indicate stable oscillatory behavior with frequency 2 rad/s.</p>
 <h4 id="clockwise-encirclement">Clockwise Encirclement</h4>
 <p>A path in the Nyquist plot that circles a point in the clockwise direction as frequency increases. The net number of clockwise encirclements of -1 relates to the number of unstable closed-loop poles.</p>
 <p><strong>Example:</strong> If the Nyquist plot makes two clockwise encirclements of -1 and the open-loop system has no RHP poles, there are two unstable closed-loop poles.</p>
@@ -6283,8 +6283,8 @@
 <p>A control strategy where the controller uses measurement of the actual output to compute the control action. The output is "fed back" and compared with the desired reference.</p>
 <p><strong>Example:</strong> A thermostat measures room temperature (output) and compares it to the setpoint to decide whether to turn heating on or off.</p>
 <h4 id="closed-loop-transfer">Closed-Loop Transfer</h4>
-<p>The transfer function relating the output to the reference input in a feedback control system. For unity feedback, it equals <span class="arithmatex">\(G(s)/(1 + G(s)H(s))\)</span>.</p>
-<p><strong>Example:</strong> A unity feedback system with forward gain <span class="arithmatex">\(G(s) = 10/(s+1)\)</span> has closed-loop transfer function <span class="arithmatex">\(10/(s+11)\)</span>.</p>
+<p>The transfer function relating the output to the reference input in a feedback control system. For unity feedback, it equals $G(s)/(1 + G(s)H(s))$.</p>
+<p><strong>Example:</strong> A unity feedback system with forward gain $G(s) = 10/(s+1)$ has closed-loop transfer function $10/(s+11)$.</p>
 <h4 id="cofactor">Cofactor</h4>
 <p>In Mason's gain formula, the value of the graph determinant with all loops touching a particular forward path removed. Used to weight each forward path's contribution to the overall transfer function.</p>
 <p><strong>Example:</strong> If a forward path touches all loops in a signal flow graph, its cofactor is 1.</p>
@@ -6293,22 +6293,22 @@
 <p><strong>Example:</strong> Adding a lead compensator increases phase margin, enabling higher gain for faster response while maintaining stability.</p>
 <h4 id="compensation-pole">Compensation Pole</h4>
 <p>A pole introduced by a compensator, placed to shape the system's frequency response or root locus. Lead compensator poles are placed at higher frequencies than their zeros.</p>
-<p><strong>Example:</strong> A lead compensator with zero at <span class="arithmatex">\(s = -2\)</span> might have its pole at <span class="arithmatex">\(s = -20\)</span> for a phase lead of about 55°.</p>
+<p><strong>Example:</strong> A lead compensator with zero at $s = -2$ might have its pole at $s = -20$ for a phase lead of about 55°.</p>
 <h4 id="compensation-zero">Compensation Zero</h4>
 <p>A zero introduced by a compensator, placed to cancel undesirable poles or add phase lead. Lead compensator zeros are placed at lower frequencies than their poles.</p>
-<p><strong>Example:</strong> A lag compensator zero at <span class="arithmatex">\(s = -0.1\)</span> with pole at <span class="arithmatex">\(s = -0.01\)</span> increases low-frequency gain without significantly affecting phase margin.</p>
+<p><strong>Example:</strong> A lag compensator zero at $s = -0.1$ with pole at $s = -0.01$ increases low-frequency gain without significantly affecting phase margin.</p>
 <h4 id="complementary-sensitivity">Complementary Sensitivity</h4>
-<p>The closed-loop transfer function from reference input to output, denoted <span class="arithmatex">\(T(s) = GC/(1+GC)\)</span>. Together with sensitivity <span class="arithmatex">\(S(s)\)</span>, they satisfy <span class="arithmatex">\(S + T = 1\)</span>.</p>
+<p>The closed-loop transfer function from reference input to output, denoted $T(s) = GC/(1+GC)$. Together with sensitivity $S(s)$, they satisfy $S + T = 1$.</p>
 <p><strong>Example:</strong> High complementary sensitivity at low frequencies means the system tracks references well; low values at high frequencies indicate noise rejection.</p>
 <h4 id="complex-conjugate-poles">Complex Conjugate Poles</h4>
-<p>A pair of poles with equal real parts and imaginary parts of opposite sign, appearing as <span class="arithmatex">\(s = \sigma \pm j\omega\)</span>. They produce oscillatory components in the time response.</p>
-<p><strong>Example:</strong> Poles at <span class="arithmatex">\(s = -3 \pm j4\)</span> produce an oscillating response at 4 rad/s that decays with time constant 1/3 second.</p>
+<p>A pair of poles with equal real parts and imaginary parts of opposite sign, appearing as $s = \sigma \pm j\omega$. They produce oscillatory components in the time response.</p>
+<p><strong>Example:</strong> Poles at $s = -3 \pm j4$ produce an oscillating response at 4 rad/s that decays with time constant 1/3 second.</p>
 <h4 id="conditionally-stable">Conditionally Stable</h4>
 <p>A system that is stable only for a limited range of gain values, with instability occurring for both very low and very high gains. Identified by multiple crossings of the negative real axis in the Nyquist plot.</p>
-<p><strong>Example:</strong> A conditionally stable system might be stable for <span class="arithmatex">\(2 &lt; K &lt; 10\)</span> but unstable outside this range.</p>
+<p><strong>Example:</strong> A conditionally stable system might be stable for $2 &lt; K &lt; 10$ but unstable outside this range.</p>
 <h4 id="constant-gain-term">Constant Gain Term</h4>
 <p>A frequency-independent multiplicative constant in a transfer function that shifts the Bode magnitude plot vertically without affecting the phase plot.</p>
-<p><strong>Example:</strong> A gain of <span class="arithmatex">\(K = 100\)</span> adds 40 dB to the magnitude plot at all frequencies.</p>
+<p><strong>Example:</strong> A gain of $K = 100$ adds 40 dB to the magnitude plot at all frequencies.</p>
 <h4 id="control-system">Control System</h4>
 <p>An interconnection of components designed to command, direct, or regulate the behavior of a dynamic system to achieve a desired objective.</p>
 <p><strong>Example:</strong> A cruise control system maintains vehicle speed by automatically adjusting throttle based on speed measurements.</p>
@@ -6317,21 +6317,21 @@
 <p><strong>Example:</strong> Gyra's microcontroller runs a PID algorithm that calculates motor commands based on her tilt angle error.</p>
 <h4 id="controller-tuning">Controller Tuning</h4>
 <p>The process of adjusting controller parameters (gains, time constants) to achieve desired closed-loop performance such as specified overshoot, settling time, or stability margins.</p>
-<p><strong>Example:</strong> Tuning Gyra's PID controller involves adjusting <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_i\)</span>, and <span class="arithmatex">\(K_d\)</span> until she balances smoothly without excessive wobble.</p>
+<p><strong>Example:</strong> Tuning Gyra's PID controller involves adjusting $K_p$, $K_i$, and $K_d$ until she balances smoothly without excessive wobble.</p>
 <h4 id="convolution-in-s-domain">Convolution in S-Domain</h4>
-<p>The property that convolution in the time domain corresponds to multiplication in the s-domain. If <span class="arithmatex">\(y(t) = h(t) * u(t)\)</span>, then <span class="arithmatex">\(Y(s) = H(s)U(s)\)</span>.</p>
-<p><strong>Example:</strong> The output of a system with transfer function <span class="arithmatex">\(H(s)\)</span> and input <span class="arithmatex">\(U(s)\)</span> is simply <span class="arithmatex">\(Y(s) = H(s)U(s)\)</span>.</p>
+<p>The property that convolution in the time domain corresponds to multiplication in the s-domain. If $y(t) = h(t) * u(t)$, then $Y(s) = H(s)U(s)$.</p>
+<p><strong>Example:</strong> The output of a system with transfer function $H(s)$ and input $U(s)$ is simply $Y(s) = H(s)U(s)$.</p>
 <h4 id="convolution-integral">Convolution Integral</h4>
-<p>A mathematical operation that computes a system's output by integrating the product of the input and a time-reversed, shifted impulse response: <span class="arithmatex">\(y(t) = \int_0^t h(\tau)u(t-\tau)d\tau\)</span>.</p>
-<p><strong>Example:</strong> To find the step response of a system with impulse response <span class="arithmatex">\(h(t) = e^{-t}\)</span>, evaluate the convolution of <span class="arithmatex">\(h(t)\)</span> with the unit step.</p>
+<p>A mathematical operation that computes a system's output by integrating the product of the input and a time-reversed, shifted impulse response: $y(t) = \int_0^t h(\tau)u(t-\tau)d\tau$.</p>
+<p><strong>Example:</strong> To find the step response of a system with impulse response $h(t) = e^{-t}$, evaluate the convolution of $h(t)$ with the unit step.</p>
 <h4 id="corner-frequency">Corner Frequency</h4>
 <p>The frequency at which the asymptotic approximation of a Bode plot changes slope, typically where the actual magnitude is 3 dB below the asymptote for a first-order factor. Also called break frequency.</p>
-<p><strong>Example:</strong> A first-order system <span class="arithmatex">\(G(s) = 1/(s+10)\)</span> has corner frequency at <span class="arithmatex">\(\omega = 10\)</span> rad/s.</p>
+<p><strong>Example:</strong> A first-order system $G(s) = 1/(s+10)$ has corner frequency at $\omega = 10$ rad/s.</p>
 <h4 id="cover-up-method">Cover-Up Method</h4>
 <p>A technique for finding residues in partial fraction expansion by "covering up" the factor being solved for, then evaluating the remaining expression at the corresponding pole location.</p>
-<p><strong>Example:</strong> To find the residue for the <span class="arithmatex">\((s+1)\)</span> factor in <span class="arithmatex">\(\frac{5}{(s+1)(s+2)}\)</span>, cover up <span class="arithmatex">\((s+1)\)</span> and evaluate <span class="arithmatex">\(\frac{5}{s+2}\)</span> at <span class="arithmatex">\(s = -1\)</span> to get <span class="arithmatex">\(5/1 = 5\)</span>.</p>
+<p><strong>Example:</strong> To find the residue for the $(s+1)$ factor in $\frac{5}{(s+1)(s+2)}$, cover up $(s+1)$ and evaluate $\frac{5}{s+2}$ at $s = -1$ to get $5/1 = 5$.</p>
 <h4 id="critically-damped-system">Critically Damped System</h4>
-<p>A second-order system with damping ratio <span class="arithmatex">\(\zeta = 1\)</span>, representing the boundary between oscillatory and non-oscillatory behavior. It returns to equilibrium in minimum time without overshoot.</p>
+<p>A second-order system with damping ratio $\zeta = 1$, representing the boundary between oscillatory and non-oscillatory behavior. It returns to equilibrium in minimum time without overshoot.</p>
 <p><strong>Example:</strong> A door closer mechanism is designed to be critically damped so the door closes quickly without bouncing.</p>
 <h4 id="crossover-frequency">Crossover Frequency</h4>
 <p>The frequency at which a system's open-loop magnitude crosses 0 dB (unity gain). Phase margin is measured at the gain crossover frequency.</p>
@@ -6340,14 +6340,14 @@
 <p>The frequency at which a filter's output power drops to half its maximum value (-3 dB point). Also called the half-power frequency or bandwidth limit.</p>
 <p><strong>Example:</strong> A low-pass filter with cutoff frequency of 1 kHz passes signals below 1 kHz and attenuates those above.</p>
 <h4 id="damped-frequency">Damped Frequency</h4>
-<p>The actual frequency of oscillation in an underdamped second-order system, given by <span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span>. Always less than the natural frequency.</p>
-<p><strong>Example:</strong> A system with <span class="arithmatex">\(\omega_n = 10\)</span> rad/s and <span class="arithmatex">\(\zeta = 0.6\)</span> has damped frequency <span class="arithmatex">\(\omega_d = 8\)</span> rad/s.</p>
+<p>The actual frequency of oscillation in an underdamped second-order system, given by $\omega_d = \omega_n\sqrt{1-\zeta^2}$. Always less than the natural frequency.</p>
+<p><strong>Example:</strong> A system with $\omega_n = 10$ rad/s and $\zeta = 0.6$ has damped frequency $\omega_d = 8$ rad/s.</p>
 <h4 id="damping-ratio">Damping Ratio</h4>
-<p>A dimensionless parameter, denoted <span class="arithmatex">\(\zeta\)</span>, that characterizes how oscillations decay in a second-order system. Values less than 1 produce oscillations; <span class="arithmatex">\(\zeta = 1\)</span> is critically damped; <span class="arithmatex">\(\zeta &gt; 1\)</span> is overdamped.</p>
-<p><strong>Example:</strong> Gyra's control system might be tuned for <span class="arithmatex">\(\zeta = 0.7\)</span> to provide fast response with acceptable overshoot (about 5%).</p>
+<p>A dimensionless parameter, denoted $\zeta$, that characterizes how oscillations decay in a second-order system. Values less than 1 produce oscillations; $\zeta = 1$ is critically damped; $\zeta &gt; 1$ is overdamped.</p>
+<p><strong>Example:</strong> Gyra's control system might be tuned for $\zeta = 0.7$ to provide fast response with acceptable overshoot (about 5%).</p>
 <h4 id="dc-gain">DC Gain</h4>
-<p>The ratio of output to input magnitude when the input is a constant (zero frequency). Calculated by evaluating the transfer function at <span class="arithmatex">\(s = 0\)</span>.</p>
-<p><strong>Example:</strong> A transfer function <span class="arithmatex">\(G(s) = 10/(s+2)\)</span> has DC gain of <span class="arithmatex">\(G(0) = 10/2 = 5\)</span>.</p>
+<p>The ratio of output to input magnitude when the input is a constant (zero frequency). Calculated by evaluating the transfer function at $s = 0$.</p>
+<p><strong>Example:</strong> A transfer function $G(s) = 10/(s+2)$ has DC gain of $G(0) = 10/2 = 5$.</p>
 <h4 id="dc-motor">DC Motor</h4>
 <p>An electric motor that converts direct current electrical energy into rotational mechanical energy. Characterized by torque proportional to armature current and back-EMF proportional to speed.</p>
 <p><strong>Example:</strong> Many hobby robots, including Gyra, use small DC motors as actuators for wheel propulsion.</p>
@@ -6358,35 +6358,35 @@
 <p>A factor of 10 change in frequency. Bode plot slopes are often expressed in dB/decade.</p>
 <p><strong>Example:</strong> From 1 rad/s to 10 rad/s is one decade; a -20 dB/decade slope means a tenfold frequency increase reduces gain by a factor of 10.</p>
 <h4 id="decibel">Decibel</h4>
-<p>A logarithmic unit for expressing magnitude ratios, defined as <span class="arithmatex">\(20 \log_{10}(|G|)\)</span> for voltage or amplitude ratios. Named after Alexander Graham Bell.</p>
+<p>A logarithmic unit for expressing magnitude ratios, defined as $20 \log_{10}(|G|)$ for voltage or amplitude ratios. Named after Alexander Graham Bell.</p>
 <p><strong>Example:</strong> A gain of 100 equals 40 dB; a gain of 0.1 equals -20 dB.</p>
 <h4 id="delay-time">Delay Time</h4>
 <p>The time required for the step response to reach 50% of its final value. One of several measures of system speed.</p>
 <p><strong>Example:</strong> A system with delay time of 0.2 seconds reaches half its final value 0.2 seconds after the step input is applied.</p>
 <h4 id="departure-angle">Departure Angle</h4>
 <p>The angle at which root locus branches leave a complex pole as gain increases from zero. Calculated using the angle condition with all other poles and zeros.</p>
-<p><strong>Example:</strong> For a complex pole at <span class="arithmatex">\(s = -1 + j\)</span>, the departure angle determines which direction the root locus initially heads.</p>
+<p><strong>Example:</strong> For a complex pole at $s = -1 + j$, the departure angle determines which direction the root locus initially heads.</p>
 <h4 id="derivative-control">Derivative Control</h4>
 <p>A control action proportional to the rate of change of the error signal. Derivative action anticipates future error and provides damping to reduce overshoot and oscillation.</p>
 <p><strong>Example:</strong> In Gyra's controller, derivative action detects rapid tilting and applies corrective torque before the lean becomes large.</p>
 <h4 id="derivative-gain">Derivative Gain</h4>
-<p>The multiplicative constant <span class="arithmatex">\(K_d\)</span> in a PID controller that determines how strongly the controller responds to the rate of change of error.</p>
-<p><strong>Example:</strong> Increasing <span class="arithmatex">\(K_d\)</span> makes Gyra respond more aggressively to rapid changes in tilt angle, reducing overshoot.</p>
+<p>The multiplicative constant $K_d$ in a PID controller that determines how strongly the controller responds to the rate of change of error.</p>
+<p><strong>Example:</strong> Increasing $K_d$ makes Gyra respond more aggressively to rapid changes in tilt angle, reducing overshoot.</p>
 <h4 id="derivative-kick">Derivative Kick</h4>
 <p>A sudden spike in controller output that occurs when a setpoint change creates an instantaneous jump in the error signal. Derivative action amplifies this discontinuity.</p>
 <p><strong>Example:</strong> Changing the temperature setpoint from 70°F to 72°F can cause derivative kick if the controller differentiates the error rather than just the measurement.</p>
 <h4 id="derivative-time">Derivative Time</h4>
-<p>An alternative parameterization of derivative action in PID controllers, defined as <span class="arithmatex">\(T_d = K_d/K_p\)</span>. Represents the time by which derivative action advances the controller's response.</p>
+<p>An alternative parameterization of derivative action in PID controllers, defined as $T_d = K_d/K_p$. Represents the time by which derivative action advances the controller's response.</p>
 <p><strong>Example:</strong> A derivative time of 0.1 seconds means the derivative action predicts what the proportional action would do 0.1 seconds in the future.</p>
 <h4 id="design-tradeoffs">Design Tradeoffs</h4>
 <p>The inherent compromises that must be made in controller design, where improving one performance aspect often degrades another. Common tradeoffs include speed versus overshoot and tracking versus noise rejection.</p>
 <p><strong>Example:</strong> Increasing gain for faster response also increases overshoot and sensitivity to noise—a fundamental design tradeoff.</p>
 <h4 id="differential-equation">Differential Equation</h4>
 <p>A mathematical equation relating a function to its derivatives, used to describe the dynamic behavior of physical systems in terms of rates of change.</p>
-<p><strong>Example:</strong> The differential equation <span class="arithmatex">\(m\ddot{x} + b\dot{x} + kx = F\)</span> describes a mass-spring-damper system.</p>
+<p><strong>Example:</strong> The differential equation $m\ddot{x} + b\dot{x} + kx = F$ describes a mass-spring-damper system.</p>
 <h4 id="differentiator-bode-plot">Differentiator Bode Plot</h4>
-<p>The Bode plot of a pure differentiator <span class="arithmatex">\(s\)</span>, showing magnitude that increases at +20 dB/decade and constant phase of +90°.</p>
-<p><strong>Example:</strong> A differentiator's magnitude is 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s, 20 dB at 10 rad/s, and 40 dB at 100 rad/s.</p>
+<p>The Bode plot of a pure differentiator $s$, showing magnitude that increases at +20 dB/decade and constant phase of +90°.</p>
+<p><strong>Example:</strong> A differentiator's magnitude is 0 dB at $\omega = 1$ rad/s, 20 dB at 10 rad/s, and 40 dB at 100 rad/s.</p>
 <h4 id="disturbance">Disturbance</h4>
 <p>An unwanted input that affects the system output but is not the commanded reference. Disturbances can be external (wind, load changes) or internal (parameter variations).</p>
 <p><strong>Example:</strong> A gust of wind pushing Gyra sideways is a disturbance that her controller must reject to maintain balance.</p>
@@ -6398,10 +6398,10 @@
 <p><strong>Example:</strong> Gyra's controller rejects disturbances (like being poked) by quickly adjusting motor torque to restore balance.</p>
 <h4 id="dominant-poles">Dominant Poles</h4>
 <p>The closed-loop poles that have the greatest influence on system response, typically those closest to the imaginary axis (with smallest magnitude real parts).</p>
-<p><strong>Example:</strong> A system with poles at <span class="arithmatex">\(s = -1 \pm j\)</span> and <span class="arithmatex">\(s = -20\)</span> has dominant poles at <span class="arithmatex">\(-1 \pm j\)</span>; the pole at -20 contributes a fast-decaying component that quickly becomes negligible.</p>
+<p><strong>Example:</strong> A system with poles at $s = -1 \pm j$ and $s = -20$ has dominant poles at $-1 \pm j$; the pole at -20 contributes a fast-decaying component that quickly becomes negligible.</p>
 <h4 id="dominant-pole-design">Dominant Pole Design</h4>
 <p>A design approach that places closed-loop poles so that one complex conjugate pair dominates the response, allowing the system to be approximated as second-order.</p>
-<p><strong>Example:</strong> Designing for dominant poles at <span class="arithmatex">\(s = -2 \pm j2\)</span> with other poles far to the left yields approximately 50% overshoot.</p>
+<p><strong>Example:</strong> Designing for dominant poles at $s = -2 \pm j2$ with other poles far to the left yields approximately 50% overshoot.</p>
 <h4 id="dynamic-system">Dynamic System</h4>
 <p>A system whose current output depends not only on current input but also on past inputs or states. Dynamic systems are described by differential equations and have memory.</p>
 <p><strong>Example:</strong> A water tank's level (output) depends on past inflow and outflow rates, making it a dynamic system.</p>
@@ -6420,8 +6420,8 @@
 <h4 id="error-coefficients">Error Coefficients</h4>
 <p>See Error Constants.</p>
 <h4 id="error-constants">Error Constants</h4>
-<p>Parameters (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) that characterize a system's steady-state tracking accuracy for step, ramp, and parabolic inputs respectively.</p>
-<p><strong>Example:</strong> A system with position error constant <span class="arithmatex">\(K_p = 100\)</span> has steady-state error of approximately 1% for a unit step input.</p>
+<p>Parameters ($K_p$, $K_v$, $K_a$) that characterize a system's steady-state tracking accuracy for step, ramp, and parabolic inputs respectively.</p>
+<p><strong>Example:</strong> A system with position error constant $K_p = 100$ has steady-state error of approximately 1% for a unit step input.</p>
 <h4 id="error-signal">Error Signal</h4>
 <p>The difference between the reference input (desired output) and the actual measured output. The controller acts on this signal to reduce the error.</p>
 <p><strong>Example:</strong> If the desired temperature is 72°F and the measured temperature is 68°F, the error signal is 4°F.</p>
@@ -6438,17 +6438,17 @@
 <p>A DC motor configuration where speed is controlled by varying the field winding current while keeping armature voltage constant. Less common than armature control due to slower response.</p>
 <p><strong>Example:</strong> Large industrial DC motors sometimes use field control because the field winding carries less current than the armature.</p>
 <h4 id="final-value-theorem">Final Value Theorem</h4>
-<p>A Laplace transform theorem stating that the steady-state value of a time function can be found from <span class="arithmatex">\(\lim_{t \to \infty} f(t) = \lim_{s \to 0} sF(s)\)</span>, provided the limit exists and the function is stable.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(Y(s) = 5/(s(s+2))\)</span>, the final value is <span class="arithmatex">\(\lim_{s \to 0} s \cdot 5/(s(s+2)) = 5/2 = 2.5\)</span>.</p>
+<p>A Laplace transform theorem stating that the steady-state value of a time function can be found from $\lim_{t \to \infty} f(t) = \lim_{s \to 0} sF(s)$, provided the limit exists and the function is stable.</p>
+<p><strong>Example:</strong> For $Y(s) = 5/(s(s+2))$, the final value is $\lim_{s \to 0} s \cdot 5/(s(s+2)) = 5/2 = 2.5$.</p>
 <h4 id="first-order-bode-plot">First-Order Bode Plot</h4>
-<p>The Bode plot of a first-order factor <span class="arithmatex">\((1 + s/\omega_c)^{\pm 1}\)</span>, showing a corner at <span class="arithmatex">\(\omega_c\)</span> with asymptotes of 0 and ±20 dB/decade, and phase varying from 0° to ±90°.</p>
-<p><strong>Example:</strong> A first-order lag <span class="arithmatex">\(1/(1 + s/10)\)</span> has magnitude dropping at -20 dB/decade above 10 rad/s.</p>
+<p>The Bode plot of a first-order factor $(1 + s/\omega_c)^{\pm 1}$, showing a corner at $\omega_c$ with asymptotes of 0 and ±20 dB/decade, and phase varying from 0° to ±90°.</p>
+<p><strong>Example:</strong> A first-order lag $1/(1 + s/10)$ has magnitude dropping at -20 dB/decade above 10 rad/s.</p>
 <h4 id="first-order-factor">First-Order Factor</h4>
-<p>A factor in a transfer function of the form <span class="arithmatex">\((s + a)\)</span> or <span class="arithmatex">\((1 + s/a)\)</span> that contributes one pole or zero at <span class="arithmatex">\(s = -a\)</span>.</p>
-<p><strong>Example:</strong> The transfer function <span class="arithmatex">\(G(s) = 10/(s+2)(s+5)\)</span> contains two first-order factors in the denominator.</p>
+<p>A factor in a transfer function of the form $(s + a)$ or $(1 + s/a)$ that contributes one pole or zero at $s = -a$.</p>
+<p><strong>Example:</strong> The transfer function $G(s) = 10/(s+2)(s+5)$ contains two first-order factors in the denominator.</p>
 <h4 id="first-order-system">First-Order System</h4>
 <p>A dynamic system described by a first-order differential equation, characterized by a single time constant. The step response is a simple exponential approach to steady state.</p>
-<p><strong>Example:</strong> An RC circuit is a first-order system with time constant <span class="arithmatex">\(\tau = RC\)</span>.</p>
+<p><strong>Example:</strong> An RC circuit is a first-order system with time constant $\tau = RC$.</p>
 <h4 id="fluid-systems">Fluid Systems</h4>
 <p>Dynamic systems where the variables are fluid quantities (pressure, flow rate, volume) related by fluid resistances, capacitances, and sources.</p>
 <p><strong>Example:</strong> A water tank with inlet and outlet valves is a fluid system where level depends on the flow rates.</p>
@@ -6466,7 +6466,7 @@
 <p><strong>Example:</strong> In a simple feedback loop, the forward path goes from input through the controller and plant to the output.</p>
 <h4 id="forward-path-gain">Forward Path Gain</h4>
 <p>The product of all transfer functions along a forward path from input to output in a signal flow graph.</p>
-<p><strong>Example:</strong> If a forward path passes through blocks with gains 2, <span class="arithmatex">\(1/(s+1)\)</span>, and 5, the forward path gain is <span class="arithmatex">\(10/(s+1)\)</span>.</p>
+<p><strong>Example:</strong> If a forward path passes through blocks with gains 2, $1/(s+1)$, and 5, the forward path gain is $10/(s+1)$.</p>
 <h4 id="frequency-domain">Frequency Domain</h4>
 <p>A representation of signals and systems in terms of frequency rather than time. Transfer functions and Bode plots are frequency-domain tools.</p>
 <p><strong>Example:</strong> In the frequency domain, a signal is characterized by its amplitude and phase at each frequency rather than its time waveform.</p>
@@ -6486,13 +6486,13 @@
 <p><strong>Example:</strong> A gain margin of 10 dB means the gain can be increased by a factor of about 3.16 before instability occurs.</p>
 <h4 id="gain-margin-from-nyquist">Gain Margin from Nyquist</h4>
 <p>The gain margin determined from the Nyquist plot as the reciprocal of the distance from the origin to the point where the Nyquist curve crosses the negative real axis.</p>
-<p><strong>Example:</strong> If the Nyquist plot crosses the negative real axis at -0.25, the gain margin is <span class="arithmatex">\(1/0.25 = 4\)</span> or about 12 dB.</p>
+<p><strong>Example:</strong> If the Nyquist plot crosses the negative real axis at -0.25, the gain margin is $1/0.25 = 4$ or about 12 dB.</p>
 <h4 id="gear-train">Gear Train</h4>
 <p>A mechanical system using interconnected gears to transmit motion and modify torque and speed. Gears introduce transformation ratios between connected shafts.</p>
 <p><strong>Example:</strong> A 10:1 gear reduction increases torque by a factor of 10 while reducing speed by the same factor.</p>
 <h4 id="graph-determinant">Graph Determinant</h4>
 <p>A polynomial used in Mason's gain formula, calculated from the loop gains of all loops, pairs of non-touching loops, triplets of non-touching loops, and so on.</p>
-<p><strong>Example:</strong> For a graph with two loops of gains <span class="arithmatex">\(L_1\)</span> and <span class="arithmatex">\(L_2\)</span> that touch, the determinant is <span class="arithmatex">\(1 - L_1 - L_2\)</span>.</p>
+<p><strong>Example:</strong> For a graph with two loops of gains $L_1$ and $L_2$ that touch, the determinant is $1 - L_1 - L_2$.</p>
 <h4 id="half-power-point">Half-Power Point</h4>
 <p>The frequency at which a system's output power is half its maximum value, corresponding to -3 dB in amplitude. Defines the bandwidth of many systems.</p>
 <p><strong>Example:</strong> A filter's half-power points are the lower and upper cutoff frequencies that define its bandwidth.</p>
@@ -6503,29 +6503,29 @@
 <p>A system that passes high-frequency signals while attenuating low-frequency signals. The magnitude response increases with frequency up to a corner frequency.</p>
 <p><strong>Example:</strong> A high-pass filter removes the DC component of a signal while passing rapid variations.</p>
 <h4 id="homogeneity">Homogeneity</h4>
-<p>A property of linear systems where scaling the input by a constant scales the output by the same constant. If input <span class="arithmatex">\(u\)</span> produces output <span class="arithmatex">\(y\)</span>, then input <span class="arithmatex">\(au\)</span> produces output <span class="arithmatex">\(ay\)</span>.</p>
+<p>A property of linear systems where scaling the input by a constant scales the output by the same constant. If input $u$ produces output $y$, then input $au$ produces output $ay$.</p>
 <p><strong>Example:</strong> If a system produces 10V output for 2V input, homogeneity means it produces 20V output for 4V input.</p>
 <h4 id="hysteresis">Hysteresis</h4>
 <p>A nonlinear phenomenon where the output depends not only on the current input but also on the history of past inputs. The input-output relationship differs for increasing versus decreasing inputs.</p>
 <p><strong>Example:</strong> A relay with hysteresis turns on at 25°C but doesn't turn off until temperature drops to 23°C.</p>
 <h4 id="imaginary-axis-crossing">Imaginary Axis Crossing</h4>
 <p>Points where root locus branches cross the imaginary axis of the s-plane. At these points, the system is marginally stable with sustained oscillations.</p>
-<p><strong>Example:</strong> The root locus for a system with three poles might cross the imaginary axis at <span class="arithmatex">\(s = \pm j4\)</span>, indicating oscillation at 4 rad/s for a specific gain.</p>
+<p><strong>Example:</strong> The root locus for a system with three poles might cross the imaginary axis at $s = \pm j4$, indicating oscillation at 4 rad/s for a specific gain.</p>
 <h4 id="impedance-analogy">Impedance Analogy</h4>
 <p>A method of establishing correspondence between electrical and mechanical systems based on impedance similarity. Force corresponds to voltage; velocity corresponds to current.</p>
-<p><strong>Example:</strong> Using impedance analogy, a mechanical spring (stiffness <span class="arithmatex">\(k\)</span>) corresponds to an electrical capacitor (capacitance <span class="arithmatex">\(C = 1/k\)</span>).</p>
+<p><strong>Example:</strong> Using impedance analogy, a mechanical spring (stiffness $k$) corresponds to an electrical capacitor (capacitance $C = 1/k$).</p>
 <h4 id="impulse-input">Impulse Input</h4>
-<p>A test signal that is zero everywhere except at <span class="arithmatex">\(t = 0\)</span>, where it is infinitely large with unit area. Mathematically represented by the Dirac delta function <span class="arithmatex">\(\delta(t)\)</span>.</p>
+<p>A test signal that is zero everywhere except at $t = 0$, where it is infinitely large with unit area. Mathematically represented by the Dirac delta function $\delta(t)$.</p>
 <p><strong>Example:</strong> Striking a tuning fork briefly applies approximately an impulse input; the resulting vibration is the impulse response.</p>
 <h4 id="impulse-response">Impulse Response</h4>
 <p>The output of a system when the input is an impulse function. For LTI systems, the impulse response completely characterizes system behavior and is the inverse Laplace transform of the transfer function.</p>
-<p><strong>Example:</strong> The impulse response of a first-order system <span class="arithmatex">\(1/(s+2)\)</span> is <span class="arithmatex">\(h(t) = e^{-2t}\)</span> for <span class="arithmatex">\(t \geq 0\)</span>.</p>
+<p><strong>Example:</strong> The impulse response of a first-order system $1/(s+2)$ is $h(t) = e^{-2t}$ for $t \geq 0$.</p>
 <h4 id="initial-conditions">Initial Conditions</h4>
-<p>The values of system variables and their derivatives at the starting time (usually <span class="arithmatex">\(t = 0\)</span>). Initial conditions determine the natural response component.</p>
-<p><strong>Example:</strong> A spring-mass system starting with 5 cm displacement and zero velocity has initial conditions <span class="arithmatex">\(x(0) = 5\)</span> cm, <span class="arithmatex">\(\dot{x}(0) = 0\)</span>.</p>
+<p>The values of system variables and their derivatives at the starting time (usually $t = 0$). Initial conditions determine the natural response component.</p>
+<p><strong>Example:</strong> A spring-mass system starting with 5 cm displacement and zero velocity has initial conditions $x(0) = 5$ cm, $\dot{x}(0) = 0$.</p>
 <h4 id="initial-value-theorem">Initial Value Theorem</h4>
-<p>A Laplace transform theorem stating that the initial value of a time function can be found from <span class="arithmatex">\(\lim_{t \to 0^+} f(t) = \lim_{s \to \infty} sF(s)\)</span>.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(Y(s) = (s+3)/(s^2+5s+6)\)</span>, the initial value is <span class="arithmatex">\(\lim_{s \to \infty} s(s+3)/(s^2+5s+6) = 1\)</span>.</p>
+<p>A Laplace transform theorem stating that the initial value of a time function can be found from $\lim_{t \to 0^+} f(t) = \lim_{s \to \infty} sF(s)$.</p>
+<p><strong>Example:</strong> For $Y(s) = (s+3)/(s^2+5s+6)$, the initial value is $\lim_{s \to \infty} s(s+3)/(s^2+5s+6) = 1$.</p>
 <h4 id="inner-loop">Inner Loop</h4>
 <p>A feedback loop that is nested inside a larger (outer) loop. In block diagram reduction, inner loops are typically reduced first.</p>
 <p><strong>Example:</strong> In a cascade control system, the fast inner loop might control motor current while the outer loop controls position.</p>
@@ -6533,29 +6533,29 @@
 <p>A control action proportional to the integral of the error signal over time. Integral action eliminates steady-state error but can cause overshoot and slow response.</p>
 <p><strong>Example:</strong> Gyra's integral action accumulates small persistent tilts over time, eventually generating enough torque to eliminate any steady-state lean.</p>
 <h4 id="integral-gain">Integral Gain</h4>
-<p>The multiplicative constant <span class="arithmatex">\(K_i\)</span> in a PID controller that determines how strongly the controller responds to accumulated error over time.</p>
-<p><strong>Example:</strong> Higher <span class="arithmatex">\(K_i\)</span> eliminates steady-state error faster but increases risk of overshoot and oscillation.</p>
+<p>The multiplicative constant $K_i$ in a PID controller that determines how strongly the controller responds to accumulated error over time.</p>
+<p><strong>Example:</strong> Higher $K_i$ eliminates steady-state error faster but increases risk of overshoot and oscillation.</p>
 <h4 id="integral-time">Integral Time</h4>
-<p>An alternative parameterization of integral action in PID controllers, defined as <span class="arithmatex">\(T_i = K_p/K_i\)</span>. Represents the time for integral action to repeat the proportional action.</p>
+<p>An alternative parameterization of integral action in PID controllers, defined as $T_i = K_p/K_i$. Represents the time for integral action to repeat the proportional action.</p>
 <p><strong>Example:</strong> An integral time of 2 seconds means the integral contribution matches the proportional contribution after 2 seconds of constant error.</p>
 <h4 id="integrator-bode-plot">Integrator Bode Plot</h4>
-<p>The Bode plot of a pure integrator <span class="arithmatex">\(1/s\)</span>, showing magnitude that decreases at -20 dB/decade through 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s, and constant phase of -90°.</p>
+<p>The Bode plot of a pure integrator $1/s$, showing magnitude that decreases at -20 dB/decade through 0 dB at $\omega = 1$ rad/s, and constant phase of -90°.</p>
 <p><strong>Example:</strong> An integrator's magnitude is 20 dB at 0.1 rad/s, 0 dB at 1 rad/s, and -20 dB at 10 rad/s.</p>
 <h4 id="internal-stability">Internal Stability</h4>
 <p>A more stringent form of stability requiring all signals within a control system to remain bounded, not just the input-output relationship.</p>
 <p><strong>Example:</strong> A system might have BIBO stability but lack internal stability if hidden modes grow without bound.</p>
 <h4 id="inverse-laplace-transform">Inverse Laplace Transform</h4>
 <p>The mathematical operation that recovers a time-domain function from its Laplace transform, typically computed using partial fraction expansion and transform tables.</p>
-<p><strong>Example:</strong> The inverse Laplace transform of <span class="arithmatex">\(1/(s+2)\)</span> is <span class="arithmatex">\(e^{-2t}\)</span> for <span class="arithmatex">\(t \geq 0\)</span>.</p>
+<p><strong>Example:</strong> The inverse Laplace transform of $1/(s+2)$ is $e^{-2t}$ for $t \geq 0$.</p>
 <h4 id="lag-compensator">Lag Compensator</h4>
 <p>A controller that adds a pole-zero pair with the zero at higher frequency than the pole, providing increased low-frequency gain without significantly affecting phase margin.</p>
-<p><strong>Example:</strong> A lag compensator with zero at <span class="arithmatex">\(s = -1\)</span> and pole at <span class="arithmatex">\(s = -0.1\)</span> increases low-frequency gain by a factor of 10.</p>
+<p><strong>Example:</strong> A lag compensator with zero at $s = -1$ and pole at $s = -0.1$ increases low-frequency gain by a factor of 10.</p>
 <h4 id="laplace-transform">Laplace Transform</h4>
-<p>An integral transform that converts a time-domain function into a complex frequency-domain function, defined as <span class="arithmatex">\(\mathcal{L}\{f(t)\} = \int_0^\infty f(t)e^{-st}dt\)</span>.</p>
-<p><strong>Example:</strong> The Laplace transform of <span class="arithmatex">\(e^{-2t}\)</span> is <span class="arithmatex">\(1/(s+2)\)</span>.</p>
+<p>An integral transform that converts a time-domain function into a complex frequency-domain function, defined as $\mathcal{L}{f(t)} = \int_0^\infty f(t)e^{-st}dt$.</p>
+<p><strong>Example:</strong> The Laplace transform of $e^{-2t}$ is $1/(s+2)$.</p>
 <h4 id="lead-compensator">Lead Compensator</h4>
 <p>A controller that adds a pole-zero pair with the zero at lower frequency than the pole, providing phase lead near the crossover frequency to improve stability margins.</p>
-<p><strong>Example:</strong> A lead compensator with zero at <span class="arithmatex">\(s = -2\)</span> and pole at <span class="arithmatex">\(s = -20\)</span> provides up to 55° of phase lead.</p>
+<p><strong>Example:</strong> A lead compensator with zero at $s = -2$ and pole at $s = -20$ provides up to 55° of phase lead.</p>
 <h4 id="lead-lag-compensator">Lead-Lag Compensator</h4>
 <p>A controller combining both lead and lag sections, providing both phase margin improvement and steady-state accuracy enhancement.</p>
 <p><strong>Example:</strong> A lead-lag compensator might use lead action to add 40° phase margin and lag action to reduce steady-state error by a factor of 10.</p>
@@ -6564,10 +6564,10 @@
 <p><strong>Example:</strong> A lever with 3:1 length ratio transforms 10N input force to 30N output force while reducing displacement by the same ratio.</p>
 <h4 id="linear-system">Linear System</h4>
 <p>A system that satisfies both superposition (additivity) and homogeneity (scaling). The response to a sum of inputs equals the sum of individual responses.</p>
-<p><strong>Example:</strong> If input <span class="arithmatex">\(u_1\)</span> produces output <span class="arithmatex">\(y_1\)</span> and input <span class="arithmatex">\(u_2\)</span> produces output <span class="arithmatex">\(y_2\)</span>, then input <span class="arithmatex">\(u_1 + u_2\)</span> produces output <span class="arithmatex">\(y_1 + y_2\)</span>.</p>
+<p><strong>Example:</strong> If input $u_1$ produces output $y_1$ and input $u_2$ produces output $y_2$, then input $u_1 + u_2$ produces output $y_1 + y_2$.</p>
 <h4 id="linearization">Linearization</h4>
 <p>The process of approximating a nonlinear system by a linear one, valid for small deviations from an equilibrium point. Uses Taylor series expansion truncated after the first-order terms.</p>
-<p><strong>Example:</strong> A pendulum is nonlinear, but for small angles (<span class="arithmatex">\(\sin\theta \approx \theta\)</span>), it behaves as a linear second-order system.</p>
+<p><strong>Example:</strong> A pendulum is nonlinear, but for small angles ($\sin\theta \approx \theta$), it behaves as a linear second-order system.</p>
 <h4 id="logarithmic-scale">Logarithmic Scale</h4>
 <p>A scale where equal distances represent equal ratios rather than equal differences. Used in Bode plots for both frequency and magnitude axes.</p>
 <p><strong>Example:</strong> On a logarithmic frequency scale, 1 to 10 rad/s covers the same distance as 10 to 100 rad/s.</p>
@@ -6575,11 +6575,11 @@
 <p>A closed path in a block diagram or signal flow graph that returns to its starting point, following the direction of signal flow.</p>
 <p><strong>Example:</strong> A feedback loop starts at the summing junction, passes through the controller and plant, and returns via the feedback path.</p>
 <h4 id="loop-gain">Loop Gain</h4>
-<p>The product of all transfer functions around a loop, including the negative sign at feedback summing junctions. For a simple loop, it equals <span class="arithmatex">\(G(s)H(s)\)</span>.</p>
-<p><strong>Example:</strong> In a unity feedback system with forward path <span class="arithmatex">\(G(s) = 10/(s+1)\)</span>, the loop gain is <span class="arithmatex">\(10/(s+1)\)</span>.</p>
+<p>The product of all transfer functions around a loop, including the negative sign at feedback summing junctions. For a simple loop, it equals $G(s)H(s)$.</p>
+<p><strong>Example:</strong> In a unity feedback system with forward path $G(s) = 10/(s+1)$, the loop gain is $10/(s+1)$.</p>
 <h4 id="loop-gain-calculation">Loop Gain Calculation</h4>
 <p>The process of determining the loop gain in a signal flow graph by tracing around a closed loop and multiplying all branch gains.</p>
-<p><strong>Example:</strong> A loop passing through branches with gains <span class="arithmatex">\(K\)</span>, <span class="arithmatex">\(1/s\)</span>, and <span class="arithmatex">\(-1\)</span> has loop gain <span class="arithmatex">\(-K/s\)</span>.</p>
+<p><strong>Example:</strong> A loop passing through branches with gains $K$, $1/s$, and $-1$ has loop gain $-K/s$.</p>
 <h4 id="low-pass-system">Low-Pass System</h4>
 <p>A system that passes low-frequency signals while attenuating high-frequency signals. The magnitude response decreases with frequency above the corner frequency.</p>
 <p><strong>Example:</strong> An RC circuit acts as a low-pass filter, smoothing rapid fluctuations while passing slow changes.</p>
@@ -6594,10 +6594,10 @@
 <p><strong>Example:</strong> A low-pass filter has magnitude response near 1 at low frequencies, dropping toward 0 at high frequencies.</p>
 <h4 id="marginal-stability">Marginal Stability</h4>
 <p>A stability condition where the system is on the boundary between stable and unstable, with poles on the imaginary axis. The response neither decays nor grows but sustains oscillation.</p>
-<p><strong>Example:</strong> An undamped oscillator (<span class="arithmatex">\(\zeta = 0\)</span>) with poles at <span class="arithmatex">\(\pm j\omega_n\)</span> is marginally stable, oscillating forever.</p>
+<p><strong>Example:</strong> An undamped oscillator ($\zeta = 0$) with poles at $\pm j\omega_n$ is marginally stable, oscillating forever.</p>
 <h4 id="masons-gain-formula">Mason's Gain Formula</h4>
-<p>A formula for computing the transfer function of a signal flow graph: <span class="arithmatex">\(T = \sum_k P_k \Delta_k / \Delta\)</span>, where <span class="arithmatex">\(P_k\)</span> are forward path gains, <span class="arithmatex">\(\Delta\)</span> is the graph determinant, and <span class="arithmatex">\(\Delta_k\)</span> are cofactors.</p>
-<p><strong>Example:</strong> For a single forward path with gain <span class="arithmatex">\(P_1\)</span> and no loops, Mason's formula gives <span class="arithmatex">\(T = P_1/1 = P_1\)</span>.</p>
+<p>A formula for computing the transfer function of a signal flow graph: $T = \sum_k P_k \Delta_k / \Delta$, where $P_k$ are forward path gains, $\Delta$ is the graph determinant, and $\Delta_k$ are cofactors.</p>
+<p><strong>Example:</strong> For a single forward path with gain $P_1$ and no loops, Mason's formula gives $T = P_1/1 = P_1$.</p>
 <h4 id="mass-spring-damper">Mass-Spring-Damper</h4>
 <p>A fundamental mechanical system consisting of a mass connected to a fixed point by a spring and damper in parallel. It serves as the prototype for second-order systems.</p>
 <p><strong>Example:</strong> A car's suspension is modeled as a mass-spring-damper where the spring supports weight and the damper absorbs road bumps.</p>
@@ -6609,7 +6609,7 @@
 <p><strong>Example:</strong> A vibrating beam is a mechanical system whose motion is governed by mass, stiffness, and damping properties.</p>
 <h4 id="minimum-phase-system">Minimum Phase System</h4>
 <p>A system with all poles and zeros in the left half of the s-plane. Minimum phase systems have the least phase lag for a given magnitude response.</p>
-<p><strong>Example:</strong> A system with transfer function <span class="arithmatex">\((s+1)/(s+2)\)</span> is minimum phase because both the zero at -1 and pole at -2 are in the LHP.</p>
+<p><strong>Example:</strong> A system with transfer function $(s+1)/(s+2)$ is minimum phase because both the zero at -1 and pole at -2 are in the LHP.</p>
 <h4 id="mobility-analogy">Mobility Analogy</h4>
 <p>See Force-Current Analogy.</p>
 <h4 id="motor-model">Motor Model</h4>
@@ -6617,10 +6617,10 @@
 <p><strong>Example:</strong> A DC motor's transfer function from armature voltage to angular velocity is typically first or second order.</p>
 <h4 id="motor-transfer-function">Motor Transfer Function</h4>
 <p>The transfer function of a motor, relating electrical input to mechanical output. For a DC motor, it captures electrical and mechanical dynamics.</p>
-<p><strong>Example:</strong> A simplified DC motor transfer function is <span class="arithmatex">\(\Omega(s)/V(s) = K/(s(Js + B))\)</span>, relating voltage to angular velocity.</p>
+<p><strong>Example:</strong> A simplified DC motor transfer function is $\Omega(s)/V(s) = K/(s(Js + B))$, relating voltage to angular velocity.</p>
 <h4 id="natural-frequency">Natural Frequency</h4>
-<p>The frequency at which an undamped second-order system would oscillate, denoted <span class="arithmatex">\(\omega_n\)</span>. For damped systems, the actual oscillation occurs at the damped frequency <span class="arithmatex">\(\omega_d &lt; \omega_n\)</span>.</p>
-<p><strong>Example:</strong> A second-order system with <span class="arithmatex">\(\omega_n = 10\)</span> rad/s oscillates at 10 rad/s if undamped, or slower if damped.</p>
+<p>The frequency at which an undamped second-order system would oscillate, denoted $\omega_n$. For damped systems, the actual oscillation occurs at the damped frequency $\omega_d &lt; \omega_n$.</p>
+<p><strong>Example:</strong> A second-order system with $\omega_n = 10$ rad/s oscillates at 10 rad/s if undamped, or slower if damped.</p>
 <h4 id="natural-response">Natural Response</h4>
 <p>The portion of a system's total response due to initial conditions, independent of the input. It decays to zero for stable systems.</p>
 <p><strong>Example:</strong> A spring-mass system released from a displaced position exhibits natural response—oscillation that gradually dies out.</p>
@@ -6632,7 +6632,7 @@
 <p><strong>Example:</strong> A control system with bandwidth of 10 rad/s attenuates sensor noise above this frequency.</p>
 <h4 id="non-minimum-phase">Non-Minimum Phase</h4>
 <p>A system with one or more zeros in the right half of the s-plane. Non-minimum phase systems exhibit initial response in the opposite direction of the final response.</p>
-<p><strong>Example:</strong> A system with zero at <span class="arithmatex">\(s = +1\)</span> is non-minimum phase; its step response initially moves opposite to the final direction.</p>
+<p><strong>Example:</strong> A system with zero at $s = +1$ is non-minimum phase; its step response initially moves opposite to the final direction.</p>
 <h4 id="nonlinear-system">Nonlinear System</h4>
 <p>A system that does not satisfy the superposition principle. The response to a sum of inputs is not equal to the sum of individual responses.</p>
 <p><strong>Example:</strong> A saturating amplifier is nonlinear because doubling the input does not double the output when the amplifier is saturated.</p>
@@ -6640,8 +6640,8 @@
 <p>Loops in a signal flow graph that share no common nodes. Products of non-touching loop gains appear in the graph determinant calculation.</p>
 <p><strong>Example:</strong> Two separate feedback loops with no shared signals are non-touching loops.</p>
 <h4 id="non-unity-feedback">Non-Unity Feedback</h4>
-<p>A feedback configuration where the feedback path includes a transfer function <span class="arithmatex">\(H(s) \neq 1\)</span>, typically representing sensor dynamics.</p>
-<p><strong>Example:</strong> If a position sensor has dynamics <span class="arithmatex">\(H(s) = 1/(s+10)\)</span>, this creates a non-unity feedback system.</p>
+<p>A feedback configuration where the feedback path includes a transfer function $H(s) \neq 1$, typically representing sensor dynamics.</p>
+<p><strong>Example:</strong> If a position sensor has dynamics $H(s) = 1/(s+10)$, this creates a non-unity feedback system.</p>
 <h4 id="notch-filter">Notch Filter</h4>
 <p>A filter that attenuates a narrow band of frequencies while passing all other frequencies. Used to remove specific interference signals.</p>
 <p><strong>Example:</strong> A 60 Hz notch filter removes power line interference from sensitive measurements.</p>
@@ -6650,66 +6650,66 @@
 <p><strong>Example:</strong> A system with 4 open-loop poles has a root locus with 4 branches.</p>
 <h4 id="nyquist-contour">Nyquist Contour</h4>
 <p>A closed path in the s-plane used in the Nyquist stability criterion, encircling the entire right half-plane. The open-loop transfer function is evaluated along this contour.</p>
-<p><strong>Example:</strong> The Nyquist contour follows the imaginary axis from <span class="arithmatex">\(-j\infty\)</span> to <span class="arithmatex">\(+j\infty\)</span>, closing through the right half-plane at infinite radius.</p>
+<p><strong>Example:</strong> The Nyquist contour follows the imaginary axis from $-j\infty$ to $+j\infty$, closing through the right half-plane at infinite radius.</p>
 <h4 id="nyquist-criterion">Nyquist Criterion</h4>
 <p>A graphical stability test based on the principle of the argument: the number of unstable closed-loop poles equals the number of RHP open-loop poles plus the net clockwise encirclements of -1 by the Nyquist plot.</p>
 <p><strong>Example:</strong> If the open-loop system is stable (no RHP poles) and the Nyquist plot does not encircle -1, the closed-loop system is stable.</p>
 <h4 id="nyquist-diagram">Nyquist Diagram</h4>
 <p>See Nyquist Plot.</p>
 <h4 id="nyquist-plot">Nyquist Plot</h4>
-<p>A plot of the open-loop frequency response <span class="arithmatex">\(G(j\omega)H(j\omega)\)</span> in the complex plane as frequency varies from zero to infinity. Used for Nyquist stability analysis.</p>
+<p>A plot of the open-loop frequency response $G(j\omega)H(j\omega)$ in the complex plane as frequency varies from zero to infinity. Used for Nyquist stability analysis.</p>
 <p><strong>Example:</strong> The Nyquist plot starts at the DC gain on the positive real axis and traces a curve as frequency increases.</p>
 <h4 id="octave">Octave</h4>
 <p>A factor of 2 change in frequency. An alternative to decades for expressing Bode plot slopes: -6 dB/octave equals -20 dB/decade.</p>
 <p><strong>Example:</strong> From 4 rad/s to 8 rad/s is one octave; a first-order rolloff of -20 dB/decade equals about -6 dB/octave.</p>
 <h4 id="op-amp-circuits">Op-Amp Circuits</h4>
 <p>Electronic circuits using operational amplifiers to implement various signal processing functions including amplification, integration, differentiation, and summation.</p>
-<p><strong>Example:</strong> An op-amp integrator circuit implements the transfer function <span class="arithmatex">\(-1/(RCs)\)</span>, useful for analog PID controllers.</p>
+<p><strong>Example:</strong> An op-amp integrator circuit implements the transfer function $-1/(RCs)$, useful for analog PID controllers.</p>
 <h4 id="open-loop-control">Open-Loop Control</h4>
 <p>A control strategy where the control action is determined only by the reference input, without measurement or feedback of the actual output.</p>
 <p><strong>Example:</strong> A toaster uses open-loop control—it runs for a set time regardless of how brown the toast actually becomes.</p>
 <h4 id="open-loop-transfer">Open-Loop Transfer</h4>
-<p>The transfer function of the forward path and feedback path product <span class="arithmatex">\(G(s)H(s)\)</span>, measured when the feedback loop is opened.</p>
+<p>The transfer function of the forward path and feedback path product $G(s)H(s)$, measured when the feedback loop is opened.</p>
 <p><strong>Example:</strong> The open-loop transfer function determines both the root locus shape and the Nyquist plot.</p>
 <h4 id="operating-point">Operating Point</h4>
 <p>The steady-state condition about which a system operates and linearization is performed. Variables are expressed as deviations from this point.</p>
 <p><strong>Example:</strong> Gyra's operating point is vertical with zero angular velocity; the controller handles small deviations from upright.</p>
 <h4 id="order-of-a-system">Order of a System</h4>
 <p>The order of the highest derivative in the system's differential equation, or equivalently, the degree of the denominator polynomial in the transfer function.</p>
-<p><strong>Example:</strong> A system with transfer function <span class="arithmatex">\(1/(s^3 + 2s^2 + s + 1)\)</span> is third order.</p>
+<p><strong>Example:</strong> A system with transfer function $1/(s^3 + 2s^2 + s + 1)$ is third order.</p>
 <h4 id="outer-loop">Outer Loop</h4>
 <p>A feedback loop that encloses one or more inner loops. Outer loops typically have longer time constants and broader objectives.</p>
 <p><strong>Example:</strong> In cascade control, the outer loop might control position while the inner loop controls velocity.</p>
 <h4 id="overdamped-system">Overdamped System</h4>
-<p>A second-order system with damping ratio <span class="arithmatex">\(\zeta &gt; 1\)</span>, producing a response that returns to equilibrium without oscillation but more slowly than critical damping.</p>
+<p>A second-order system with damping ratio $\zeta &gt; 1$, producing a response that returns to equilibrium without oscillation but more slowly than critical damping.</p>
 <p><strong>Example:</strong> A heavily damped door closer is overdamped—it closes very slowly without bouncing.</p>
 <h4 id="overshoot">Overshoot</h4>
 <p>The amount by which a system's step response exceeds its final steady-state value, typically expressed as a percentage of that value.</p>
-<p><strong>Example:</strong> Gyra with <span class="arithmatex">\(\zeta = 0.5\)</span> overshoots her vertical equilibrium by about 16% before settling.</p>
+<p><strong>Example:</strong> Gyra with $\zeta = 0.5$ overshoots her vertical equilibrium by about 16% before settling.</p>
 <h4 id="p-controller">P Controller</h4>
-<p>A controller that uses only proportional action, producing output proportional to the error: <span class="arithmatex">\(u = K_p e\)</span>. The simplest feedback controller.</p>
+<p>A controller that uses only proportional action, producing output proportional to the error: $u = K_p e$. The simplest feedback controller.</p>
 <p><strong>Example:</strong> A basic position servo using only proportional control will have steady-state error unless the gain is very high.</p>
 <h4 id="parabolic-input">Parabolic Input</h4>
-<p>A test input that increases as the square of time: <span class="arithmatex">\(r(t) = t^2/2\)</span> for <span class="arithmatex">\(t \geq 0\)</span>. Tests a system's ability to track accelerating references.</p>
+<p>A test input that increases as the square of time: $r(t) = t^2/2$ for $t \geq 0$. Tests a system's ability to track accelerating references.</p>
 <p><strong>Example:</strong> A radar tracking an accelerating aircraft faces a parabolic-like input; Type 2 systems are needed for zero error.</p>
 <h4 id="parallel-connection">Parallel Connection</h4>
 <p>An arrangement where the same input is applied to multiple systems and their outputs are summed. The overall transfer function is the sum of individual transfer functions.</p>
-<p><strong>Example:</strong> Two feedback paths in parallel with gains <span class="arithmatex">\(H_1\)</span> and <span class="arithmatex">\(H_2\)</span> have equivalent feedback gain <span class="arithmatex">\(H_1 + H_2\)</span>.</p>
+<p><strong>Example:</strong> Two feedback paths in parallel with gains $H_1$ and $H_2$ have equivalent feedback gain $H_1 + H_2$.</p>
 <h4 id="partial-fraction-expansion">Partial Fraction Expansion</h4>
 <p>A technique for expressing a rational function as a sum of simpler terms, each associated with a single pole. Used to invert Laplace transforms.</p>
-<p><strong>Example:</strong> <span class="arithmatex">\(\frac{5}{(s+1)(s+2)} = \frac{5}{s+1} - \frac{5}{s+2}\)</span> expresses the function as a sum of first-order terms.</p>
+<p><strong>Example:</strong> $\frac{5}{(s+1)(s+2)} = \frac{5}{s+1} - \frac{5}{s+2}$ expresses the function as a sum of first-order terms.</p>
 <h4 id="pd-controller">PD Controller</h4>
-<p>A controller combining proportional and derivative actions: <span class="arithmatex">\(u = K_p e + K_d \dot{e}\)</span>. Provides faster response than P alone but cannot eliminate steady-state error.</p>
+<p>A controller combining proportional and derivative actions: $u = K_p e + K_d \dot{e}$. Provides faster response than P alone but cannot eliminate steady-state error.</p>
 <p><strong>Example:</strong> PD control makes Gyra respond more quickly to disturbances by anticipating changes in tilt angle.</p>
 <h4 id="peak-time">Peak Time</h4>
-<p>The time required for the step response to reach its maximum (peak) value. Related to damped frequency: <span class="arithmatex">\(t_p = \pi/\omega_d\)</span>.</p>
-<p><strong>Example:</strong> A system with damped frequency of 5 rad/s has peak time of <span class="arithmatex">\(\pi/5 \approx 0.63\)</span> seconds.</p>
+<p>The time required for the step response to reach its maximum (peak) value. Related to damped frequency: $t_p = \pi/\omega_d$.</p>
+<p><strong>Example:</strong> A system with damped frequency of 5 rad/s has peak time of $\pi/5 \approx 0.63$ seconds.</p>
 <h4 id="pendulum-system">Pendulum System</h4>
 <p>A mechanical system consisting of a mass suspended from a pivot point, exhibiting oscillatory motion under gravity. A nonlinear system often linearized for small angles.</p>
 <p><strong>Example:</strong> Gyra is essentially an inverted pendulum—she must actively control her motors to avoid falling.</p>
 <h4 id="percent-overshoot">Percent Overshoot</h4>
-<p>The maximum overshoot expressed as a percentage of the final steady-state value. For second-order systems, it depends only on damping ratio: <span class="arithmatex">\(\%OS = 100 e^{-\pi\zeta/\sqrt{1-\zeta^2}}\)</span>.</p>
-<p><strong>Example:</strong> A damping ratio of <span class="arithmatex">\(\zeta = 0.7\)</span> gives percent overshoot of about 5%.</p>
+<p>The maximum overshoot expressed as a percentage of the final steady-state value. For second-order systems, it depends only on damping ratio: $\%OS = 100 e^{-\pi\zeta/\sqrt{1-\zeta^2}}$.</p>
+<p><strong>Example:</strong> A damping ratio of $\zeta = 0.7$ gives percent overshoot of about 5%.</p>
 <h4 id="performance-specs">Performance Specs</h4>
 <p>Quantitative requirements that a control system must satisfy, including rise time, settling time, overshoot, steady-state error, and stability margins.</p>
 <p><strong>Example:</strong> Typical specs might require 2% settling time &lt; 1 second, overshoot &lt; 10%, and phase margin &gt; 45°.</p>
@@ -6732,74 +6732,74 @@
 <p>The phase of a system's transfer function as a function of frequency, showing the time shift between input and output sinusoids at each frequency.</p>
 <p><strong>Example:</strong> A first-order lag has phase response that varies from 0° at low frequencies to -90° at high frequencies.</p>
 <h4 id="pi-controller">PI Controller</h4>
-<p>A controller combining proportional and integral actions: <span class="arithmatex">\(u = K_p e + K_i \int e \, dt\)</span>. Eliminates steady-state error but may increase overshoot.</p>
+<p>A controller combining proportional and integral actions: $u = K_p e + K_i \int e \, dt$. Eliminates steady-state error but may increase overshoot.</p>
 <p><strong>Example:</strong> PI control eliminates Gyra's steady-state lean but requires careful tuning to avoid oscillation.</p>
 <h4 id="pickoff-point">Pickoff Point</h4>
 <p>A location in a block diagram where a signal is tapped for use elsewhere without affecting the signal itself. Drawn as a small dot on a signal line.</p>
 <p><strong>Example:</strong> The output signal is typically picked off before the feedback block to provide both system output and feedback input.</p>
 <h4 id="pid-controller">PID Controller</h4>
-<p>A controller combining proportional, integral, and derivative actions: <span class="arithmatex">\(u = K_p e + K_i \int e \, dt + K_d \dot{e}\)</span>. The most widely used controller structure in industry.</p>
+<p>A controller combining proportional, integral, and derivative actions: $u = K_p e + K_i \int e \, dt + K_d \dot{e}$. The most widely used controller structure in industry.</p>
 <p><strong>Example:</strong> Gyra uses PID control—proportional for basic correction, integral to eliminate lean, and derivative to prevent overshoot.</p>
 <h4 id="plant">Plant</h4>
 <p>The physical system or process being controlled. The plant is typically the component that cannot be easily modified and whose behavior must be regulated.</p>
 <p><strong>Example:</strong> In Gyra's control system, the plant is her mechanical structure—wheels, motors, and body—that must be kept balanced.</p>
 <h4 id="pole-at-origin">Pole at Origin</h4>
-<p>A transfer function pole located at <span class="arithmatex">\(s = 0\)</span>, corresponding to pure integration in the time domain. Each pole at the origin increases the system type by one.</p>
+<p>A transfer function pole located at $s = 0$, corresponding to pure integration in the time domain. Each pole at the origin increases the system type by one.</p>
 <p><strong>Example:</strong> A motor position control system has a pole at the origin because position is the integral of velocity.</p>
 <h4 id="pole-locations">Pole Locations</h4>
 <p>The positions of transfer function poles in the complex s-plane. Pole locations determine system stability, oscillation frequency, and decay rate.</p>
 <p><strong>Example:</strong> Poles in the left half-plane indicate stability; poles closer to the imaginary axis produce slower responses.</p>
 <h4 id="pole-placement">Pole Placement</h4>
 <p>A design technique where controller parameters are chosen to place closed-loop poles at specified locations in the s-plane.</p>
-<p><strong>Example:</strong> To achieve <span class="arithmatex">\(\zeta = 0.7\)</span> and <span class="arithmatex">\(\omega_n = 10\)</span> rad/s, use pole placement to put closed-loop poles at <span class="arithmatex">\(s = -7 \pm j7.14\)</span>.</p>
+<p><strong>Example:</strong> To achieve $\zeta = 0.7$ and $\omega_n = 10$ rad/s, use pole placement to put closed-loop poles at $s = -7 \pm j7.14$.</p>
 <h4 id="pole-zero-cancellation">Pole-Zero Cancellation</h4>
 <p>A mathematical simplification that occurs when a pole and zero are located at the same position in the s-plane, effectively eliminating both from the transfer function.</p>
-<p><strong>Example:</strong> In <span class="arithmatex">\(G(s) = (s+2)/[(s+1)(s+2)]\)</span>, the zero at -2 cancels the pole at -2, leaving <span class="arithmatex">\(G(s) = 1/(s+1)\)</span>.</p>
+<p><strong>Example:</strong> In $G(s) = (s+2)/[(s+1)(s+2)]$, the zero at -2 cancels the pole at -2, leaving $G(s) = 1/(s+1)$.</p>
 <h4 id="pole-zero-plot">Pole-Zero Plot</h4>
 <p>A graphical representation showing the locations of all poles (marked ×) and zeros (marked ○) of a transfer function in the complex s-plane.</p>
 <p><strong>Example:</strong> A pole-zero plot instantly reveals system stability (all poles in LHP?) and dominant dynamics (poles nearest imaginary axis).</p>
 <h4 id="poles">Poles</h4>
-<p>Values of <span class="arithmatex">\(s\)</span> that make a transfer function infinite (roots of the denominator polynomial). Poles determine the natural modes of system response.</p>
-<p><strong>Example:</strong> The transfer function <span class="arithmatex">\(1/(s^2 + 3s + 2)\)</span> has poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -2\)</span>.</p>
+<p>Values of $s$ that make a transfer function infinite (roots of the denominator polynomial). Poles determine the natural modes of system response.</p>
+<p><strong>Example:</strong> The transfer function $1/(s^2 + 3s + 2)$ has poles at $s = -1$ and $s = -2$.</p>
 <h4 id="poles-in-left-half-plane">Poles in Left Half Plane</h4>
 <p>Poles with negative real parts, located in the left half of the s-plane. All poles must be in the LHP for BIBO stability.</p>
-<p><strong>Example:</strong> A stable system with poles at <span class="arithmatex">\(s = -1 \pm j2\)</span> and <span class="arithmatex">\(s = -5\)</span> has all poles in the left half-plane.</p>
+<p><strong>Example:</strong> A stable system with poles at $s = -1 \pm j2$ and $s = -5$ has all poles in the left half-plane.</p>
 <h4 id="poles-in-right-half-plane">Poles in Right Half Plane</h4>
 <p>Poles with positive real parts, located in the right half of the s-plane. Any RHP pole makes the system unstable.</p>
-<p><strong>Example:</strong> A system with a pole at <span class="arithmatex">\(s = +2\)</span> is unstable because this RHP pole causes exponentially growing response.</p>
+<p><strong>Example:</strong> A system with a pole at $s = +2$ is unstable because this RHP pole causes exponentially growing response.</p>
 <h4 id="poles-on-imaginary-axis">Poles on Imaginary Axis</h4>
 <p>Poles with zero real part, located on the boundary between stable and unstable regions. They produce sustained oscillations without growth or decay.</p>
-<p><strong>Example:</strong> Poles at <span class="arithmatex">\(s = \pm j5\)</span> produce sustained oscillation at 5 rad/s—marginally stable behavior.</p>
+<p><strong>Example:</strong> Poles at $s = \pm j5$ produce sustained oscillation at 5 rad/s—marginally stable behavior.</p>
 <h4 id="position-error-constant">Position Error Constant</h4>
-<p>A parameter that quantifies a control system's ability to track step inputs, equal to the DC loop gain <span class="arithmatex">\(K_p = \lim_{s \to 0} G(s)H(s)\)</span>. Steady-state error to unit step is <span class="arithmatex">\(1/(1+K_p)\)</span>.</p>
-<p><strong>Example:</strong> A system with position error constant <span class="arithmatex">\(K_p = 99\)</span> has 1% steady-state error for a unit step input.</p>
+<p>A parameter that quantifies a control system's ability to track step inputs, equal to the DC loop gain $K_p = \lim_{s \to 0} G(s)H(s)$. Steady-state error to unit step is $1/(1+K_p)$.</p>
+<p><strong>Example:</strong> A system with position error constant $K_p = 99$ has 1% steady-state error for a unit step input.</p>
 <h4 id="proper-transfer-function">Proper Transfer Function</h4>
 <p>A transfer function where the degree of the numerator is less than or equal to the degree of the denominator. All physical systems have proper transfer functions.</p>
-<p><strong>Example:</strong> <span class="arithmatex">\(G(s) = (s+1)/(s^2 + 3s + 2)\)</span> is proper because the numerator degree (1) is less than denominator degree (2).</p>
+<p><strong>Example:</strong> $G(s) = (s+1)/(s^2 + 3s + 2)$ is proper because the numerator degree (1) is less than denominator degree (2).</p>
 <h4 id="proportional-control">Proportional Control</h4>
 <p>A control action where the controller output is directly proportional to the error signal. The fundamental building block of feedback control.</p>
 <p><strong>Example:</strong> In proportional control, a large error produces a large corrective action; a small error produces a small action.</p>
 <h4 id="proportional-gain">Proportional Gain</h4>
-<p>The multiplicative constant <span class="arithmatex">\(K_p\)</span> in a controller that determines how strongly the controller responds to the current error.</p>
+<p>The multiplicative constant $K_p$ in a controller that determines how strongly the controller responds to the current error.</p>
 <p><strong>Example:</strong> Doubling the proportional gain doubles the control effort for any given error, generally making response faster but potentially less stable.</p>
 <h4 id="quality-factor">Quality Factor</h4>
-<p>A dimensionless parameter characterizing the sharpness of a resonance peak, related to damping ratio by <span class="arithmatex">\(Q = 1/(2\zeta)\)</span>. Higher Q means sharper resonance.</p>
-<p><strong>Example:</strong> A mechanical resonator with <span class="arithmatex">\(Q = 100\)</span> has a very sharp resonance peak and rings for a long time after excitation.</p>
+<p>A dimensionless parameter characterizing the sharpness of a resonance peak, related to damping ratio by $Q = 1/(2\zeta)$. Higher Q means sharper resonance.</p>
+<p><strong>Example:</strong> A mechanical resonator with $Q = 100$ has a very sharp resonance peak and rings for a long time after excitation.</p>
 <h4 id="ramp-input">Ramp Input</h4>
-<p>A test input that increases linearly with time: <span class="arithmatex">\(r(t) = t\)</span> for <span class="arithmatex">\(t \geq 0\)</span>. Tests a system's ability to track constant-velocity references.</p>
+<p>A test input that increases linearly with time: $r(t) = t$ for $t \geq 0$. Tests a system's ability to track constant-velocity references.</p>
 <p><strong>Example:</strong> A telescope tracking a star as it moves across the sky faces a ramp-like input in angular position.</p>
 <h4 id="ramp-response">Ramp Response</h4>
 <p>A system's output when subjected to a ramp input. Reveals how well the system can track linearly increasing references.</p>
 <p><strong>Example:</strong> A Type 1 system follows a ramp input with constant steady-state error equal to 1/Kv.</p>
 <h4 id="rc-circuit">RC Circuit</h4>
-<p>An electrical circuit containing a resistor and capacitor, exhibiting first-order dynamic behavior with time constant <span class="arithmatex">\(\tau = RC\)</span>.</p>
+<p>An electrical circuit containing a resistor and capacitor, exhibiting first-order dynamic behavior with time constant $\tau = RC$.</p>
 <p><strong>Example:</strong> An RC low-pass filter with R = 10 kΩ and C = 10 μF has time constant 0.1 seconds and corner frequency 10 rad/s.</p>
 <h4 id="reaction-curve-method">Reaction Curve Method</h4>
 <p>A PID tuning technique where the system's open-loop step response is analyzed to determine time delay and time constant, which are then used in Ziegler-Nichols tuning rules.</p>
-<p><strong>Example:</strong> From a step response showing time delay <span class="arithmatex">\(L\)</span> and time constant <span class="arithmatex">\(T\)</span>, the Ziegler-Nichols rules suggest <span class="arithmatex">\(K_p = 1.2T/L\)</span> for PID control.</p>
+<p><strong>Example:</strong> From a step response showing time delay $L$ and time constant $T$, the Ziegler-Nichols rules suggest $K_p = 1.2T/L$ for PID control.</p>
 <h4 id="real-poles">Real Poles</h4>
 <p>Transfer function poles with zero imaginary part, located on the real axis of the s-plane. They produce purely exponential (non-oscillatory) response modes.</p>
-<p><strong>Example:</strong> A pole at <span class="arithmatex">\(s = -3\)</span> produces a response component <span class="arithmatex">\(e^{-3t}\)</span> that decays exponentially.</p>
+<p><strong>Example:</strong> A pole at $s = -3$ produces a response component $e^{-3t}$ that decays exponentially.</p>
 <h4 id="reference-input">Reference Input</h4>
 <p>The desired value of the controlled variable, also called setpoint or command. The control system attempts to make the actual output equal the reference.</p>
 <p><strong>Example:</strong> Setting a thermostat to 72°F establishes the reference input for the temperature control system.</p>
@@ -6808,27 +6808,27 @@
 <p><strong>Example:</strong> Two stable systems may have very different relative stability—one might oscillate heavily while the other responds smoothly.</p>
 <h4 id="repeated-poles">Repeated Poles</h4>
 <p>Multiple poles at the same location in the s-plane. They produce response terms involving time multiplied by exponentials.</p>
-<p><strong>Example:</strong> A repeated pole at <span class="arithmatex">\(s = -2\)</span> with multiplicity 2 produces response terms <span class="arithmatex">\(e^{-2t}\)</span> and <span class="arithmatex">\(te^{-2t}\)</span>.</p>
+<p><strong>Example:</strong> A repeated pole at $s = -2$ with multiplicity 2 produces response terms $e^{-2t}$ and $te^{-2t}$.</p>
 <h4 id="residue-calculation">Residue Calculation</h4>
 <p>The process of finding the coefficients in a partial fraction expansion, either by the cover-up method or by algebraic manipulation.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(3/[(s+1)(s+2)]\)</span>, the residue at <span class="arithmatex">\(s = -1\)</span> is <span class="arithmatex">\(3/(−1+2) = 3\)</span>; at <span class="arithmatex">\(s = -2\)</span> it is <span class="arithmatex">\(3/(−2+1) = -3\)</span>.</p>
+<p><strong>Example:</strong> For $3/[(s+1)(s+2)]$, the residue at $s = -1$ is $3/(−1+2) = 3$; at $s = -2$ it is $3/(−2+1) = -3$.</p>
 <h4 id="resonant-frequency">Resonant Frequency</h4>
-<p>The frequency at which a system's magnitude response reaches its maximum value. For second-order systems, <span class="arithmatex">\(\omega_r = \omega_n\sqrt{1-2\zeta^2}\)</span> when <span class="arithmatex">\(\zeta &lt; 0.707\)</span>.</p>
+<p>The frequency at which a system's magnitude response reaches its maximum value. For second-order systems, $\omega_r = \omega_n\sqrt{1-2\zeta^2}$ when $\zeta &lt; 0.707$.</p>
 <p><strong>Example:</strong> An underdamped mechanical system resonates when driven at its resonant frequency, producing large oscillations.</p>
 <h4 id="resonant-peak">Resonant Peak</h4>
 <p>The maximum value of a system's magnitude response, occurring at the resonant frequency. Larger peaks indicate less damping.</p>
-<p><strong>Example:</strong> A system with <span class="arithmatex">\(\zeta = 0.2\)</span> has a resonant peak about 2.5 times larger than its DC gain.</p>
+<p><strong>Example:</strong> A system with $\zeta = 0.2$ has a resonant peak about 2.5 times larger than its DC gain.</p>
 <h4 id="right-half-plane-poles">Right-Half Plane Poles</h4>
 <p>Poles located in the right half of the s-plane (positive real parts), causing exponentially growing response modes. Any RHP pole makes the system unstable.</p>
-<p><strong>Example:</strong> A pole at <span class="arithmatex">\(s = 0.5\)</span> produces a response component <span class="arithmatex">\(e^{0.5t}\)</span> that grows without bound.</p>
+<p><strong>Example:</strong> A pole at $s = 0.5$ produces a response component $e^{0.5t}$ that grows without bound.</p>
 <h4 id="right-half-plane-zeros">Right-Half Plane Zeros</h4>
 <p>Zeros located in the right half of the s-plane. They cause non-minimum phase behavior including initial inverse response.</p>
-<p><strong>Example:</strong> A system with a RHP zero at <span class="arithmatex">\(s = +1\)</span> initially moves opposite to its final direction when given a step input.</p>
+<p><strong>Example:</strong> A system with a RHP zero at $s = +1$ initially moves opposite to its final direction when given a step input.</p>
 <h4 id="rise-time">Rise Time</h4>
 <p>The time required for the step response to go from 10% to 90% of its final value. A measure of system speed.</p>
 <p><strong>Example:</strong> A second-order system with rise time of 0.2 seconds transitions from 10% to 90% of its final value in 0.2 seconds.</p>
 <h4 id="rl-circuit">RL Circuit</h4>
-<p>An electrical circuit containing a resistor and inductor, exhibiting first-order dynamic behavior with time constant <span class="arithmatex">\(\tau = L/R\)</span>.</p>
+<p>An electrical circuit containing a resistor and inductor, exhibiting first-order dynamic behavior with time constant $\tau = L/R$.</p>
 <p><strong>Example:</strong> An RL circuit with R = 100 Ω and L = 1 H has time constant 0.01 seconds.</p>
 <h4 id="rlc-circuit">RLC Circuit</h4>
 <p>An electrical circuit containing a resistor, inductor, and capacitor, exhibiting second-order dynamic behavior. The prototype for electrical resonant systems.</p>
@@ -6844,10 +6844,10 @@
 <p><strong>Example:</strong> Adding a lead compensator zero attracts the root locus, potentially improving damping and stability.</p>
 <h4 id="root-locus-design">Root Locus Design</h4>
 <p>A controller design methodology that uses the root locus to select gain and compensator parameters to achieve desired closed-loop pole locations.</p>
-<p><strong>Example:</strong> Root locus design might specify dominant poles at <span class="arithmatex">\(s = -5 \pm j5\)</span> for a 45° damping line with <span class="arithmatex">\(\omega_n = 7.07\)</span> rad/s.</p>
+<p><strong>Example:</strong> Root locus design might specify dominant poles at $s = -5 \pm j5$ for a 45° damping line with $\omega_n = 7.07$ rad/s.</p>
 <h4 id="root-locus-gain">Root Locus Gain</h4>
-<p>The value of the gain parameter <span class="arithmatex">\(K\)</span> corresponding to a particular point on the root locus. Found using the magnitude condition.</p>
-<p><strong>Example:</strong> The gain that places closed-loop poles at <span class="arithmatex">\(s = -3 \pm j4\)</span> can be calculated from the root locus magnitude condition.</p>
+<p>The value of the gain parameter $K$ corresponding to a particular point on the root locus. Found using the magnitude condition.</p>
+<p><strong>Example:</strong> The gain that places closed-loop poles at $s = -3 \pm j4$ can be calculated from the root locus magnitude condition.</p>
 <h4 id="root-locus-rules">Root Locus Rules</h4>
 <p>A set of guidelines for sketching root loci by hand, including rules for starting/ending points, real axis segments, asymptotes, breakaway points, and imaginary axis crossings.</p>
 <p><strong>Example:</strong> The rule that real axis segments of the root locus exist only where the total number of real poles and zeros to the right is odd.</p>
@@ -6856,7 +6856,7 @@
 <p><strong>Example:</strong> A motor driving a load through a gearbox is a rotational system with inertia, damping, and gear ratio.</p>
 <h4 id="routh-array">Routh Array</h4>
 <p>A triangular array of numbers constructed from the coefficients of a characteristic polynomial, used to determine stability without finding the roots explicitly.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(s^3 + 6s^2 + 11s + 6 = 0\)</span>, the Routh array tests whether all roots have negative real parts.</p>
+<p><strong>Example:</strong> For $s^3 + 6s^2 + 11s + 6 = 0$, the Routh array tests whether all roots have negative real parts.</p>
 <h4 id="routh-array-construction">Routh Array Construction</h4>
 <p>The process of building a Routh array by placing polynomial coefficients in the first two rows and computing subsequent rows using a specific formula.</p>
 <p><strong>Example:</strong> Each element in a new row is computed as a 2×2 determinant divided by the first element of the row above.</p>
@@ -6865,19 +6865,19 @@
 <p><strong>Example:</strong> If the first column of the Routh array is [1, 6, 10, 6], the system is stable; if any element is negative or zero, it may be unstable.</p>
 <h4 id="row-of-zeros">Row of Zeros</h4>
 <p>A special case in Routh array construction where an entire row becomes zero, indicating factors of the characteristic polynomial on the imaginary axis.</p>
-<p><strong>Example:</strong> A row of zeros at the <span class="arithmatex">\(s^2\)</span> level indicates two roots symmetrically placed about the origin.</p>
+<p><strong>Example:</strong> A row of zeros at the $s^2$ level indicates two roots symmetrically placed about the origin.</p>
 <h4 id="s-domain">S-Domain</h4>
-<p>The complex frequency domain where Laplace transforms are defined. Transfer functions are expressed as functions of the complex variable <span class="arithmatex">\(s = \sigma + j\omega\)</span>.</p>
-<p><strong>Example:</strong> The s-domain transfer function <span class="arithmatex">\(H(s) = 1/(s+2)\)</span> represents a first-order low-pass filter.</p>
+<p>The complex frequency domain where Laplace transforms are defined. Transfer functions are expressed as functions of the complex variable $s = \sigma + j\omega$.</p>
+<p><strong>Example:</strong> The s-domain transfer function $H(s) = 1/(s+2)$ represents a first-order low-pass filter.</p>
 <h4 id="saturation">Saturation</h4>
 <p>A nonlinear effect where the output cannot exceed a maximum value regardless of input. Common in actuators that have physical limits.</p>
 <p><strong>Example:</strong> Gyra's motors saturate when she leans too far—they can only produce maximum torque, even if the controller demands more.</p>
 <h4 id="second-order-bode-plot">Second-Order Bode Plot</h4>
 <p>The Bode plot of a second-order factor showing a resonant peak (for underdamped systems) and phase variation from 0° to -180° centered at the natural frequency.</p>
-<p><strong>Example:</strong> An underdamped second-order system with <span class="arithmatex">\(\zeta = 0.3\)</span> shows a pronounced resonant peak at the natural frequency.</p>
+<p><strong>Example:</strong> An underdamped second-order system with $\zeta = 0.3$ shows a pronounced resonant peak at the natural frequency.</p>
 <h4 id="second-order-factor">Second-Order Factor</h4>
-<p>A factor in a transfer function of the form <span class="arithmatex">\(s^2 + 2\zeta\omega_n s + \omega_n^2\)</span> that contributes a complex conjugate pair of poles or zeros.</p>
-<p><strong>Example:</strong> The denominator <span class="arithmatex">\(s^2 + 6s + 25 = (s+3)^2 + 16\)</span> represents a second-order factor with <span class="arithmatex">\(\omega_n = 5\)</span> and <span class="arithmatex">\(\zeta = 0.6\)</span>.</p>
+<p>A factor in a transfer function of the form $s^2 + 2\zeta\omega_n s + \omega_n^2$ that contributes a complex conjugate pair of poles or zeros.</p>
+<p><strong>Example:</strong> The denominator $s^2 + 6s + 25 = (s+3)^2 + 16$ represents a second-order factor with $\omega_n = 5$ and $\zeta = 0.6$.</p>
 <h4 id="second-order-system">Second-Order System</h4>
 <p>A dynamic system described by a second-order differential equation, characterized by natural frequency and damping ratio. The fundamental prototype for oscillatory systems.</p>
 <p><strong>Example:</strong> Gyra is essentially a second-order system—her dynamics are characterized by natural frequency (how fast she oscillates) and damping (how quickly oscillations decay).</p>
@@ -6885,7 +6885,7 @@
 <p>The ratio of relative change in a system characteristic to relative change in a parameter. Low sensitivity indicates robustness to parameter variations.</p>
 <p><strong>Example:</strong> If a 10% change in plant gain causes only 2% change in closed-loop bandwidth, the system has low sensitivity to gain variations.</p>
 <h4 id="sensitivity-function">Sensitivity Function</h4>
-<p>The transfer function from reference input to error signal, denoted <span class="arithmatex">\(S(s) = 1/(1+GC)\)</span>. It characterizes how well the system rejects disturbances and tracks references.</p>
+<p>The transfer function from reference input to error signal, denoted $S(s) = 1/(1+GC)$. It characterizes how well the system rejects disturbances and tracks references.</p>
 <p><strong>Example:</strong> Low sensitivity function magnitude at low frequencies indicates good tracking and disturbance rejection.</p>
 <h4 id="sensor">Sensor</h4>
 <p>A device that measures the system output and converts it to a signal that can be compared with the reference. Sensors close the feedback loop.</p>
@@ -6898,19 +6898,19 @@
 <p><strong>Example:</strong> Signal flow graphs provide an alternative to block diagrams, particularly useful with Mason's gain formula.</p>
 <h4 id="simple-poles">Simple Poles</h4>
 <p>Poles that are not repeated (have multiplicity one). They produce simple exponential or sinusoidal response terms.</p>
-<p><strong>Example:</strong> The poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -3\)</span> are simple poles, each contributing one exponential term to the response.</p>
+<p><strong>Example:</strong> The poles at $s = -1$ and $s = -3$ are simple poles, each contributing one exponential term to the response.</p>
 <h4 id="sinusoidal-input">Sinusoidal Input</h4>
-<p>A test input of the form <span class="arithmatex">\(r(t) = A\sin(\omega t)\)</span> used to determine a system's frequency response at frequency <span class="arithmatex">\(\omega\)</span>.</p>
+<p>A test input of the form $r(t) = A\sin(\omega t)$ used to determine a system's frequency response at frequency $\omega$.</p>
 <p><strong>Example:</strong> Applying a 5 Hz sinusoidal input and measuring the output magnitude and phase reveals the frequency response at 5 Hz.</p>
 <h4 id="sinusoidal-steady-state">Sinusoidal Steady State</h4>
 <p>The condition where a stable linear system's response to a sinusoidal input has itself become purely sinusoidal (after transients have died out).</p>
-<p><strong>Example:</strong> In sinusoidal steady state, a system with input <span class="arithmatex">\(\sin(10t)\)</span> produces output <span class="arithmatex">\(A\sin(10t + \phi)\)</span> where <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(\phi\)</span> come from the transfer function.</p>
+<p><strong>Example:</strong> In sinusoidal steady state, a system with input $\sin(10t)$ produces output $A\sin(10t + \phi)$ where $A$ and $\phi$ come from the transfer function.</p>
 <h4 id="small-signal-analysis">Small Signal Analysis</h4>
 <p>Analysis technique that examines system behavior for small perturbations about an operating point, where nonlinear systems can be approximated as linear.</p>
-<p><strong>Example:</strong> Small signal analysis of Gyra considers only small deviations from vertical, where <span class="arithmatex">\(\sin\theta \approx \theta\)</span>.</p>
+<p><strong>Example:</strong> Small signal analysis of Gyra considers only small deviations from vertical, where $\sin\theta \approx \theta$.</p>
 <h4 id="special-cases-routh">Special Cases Routh</h4>
-<p>Situations in Routh array construction requiring special handling: zero in the first column (replaced by small <span class="arithmatex">\(\epsilon\)</span>) or row of zeros (use auxiliary polynomial).</p>
-<p><strong>Example:</strong> When a zero appears in the first column, replace it with a small positive number <span class="arithmatex">\(\epsilon\)</span> and continue, then take the limit as <span class="arithmatex">\(\epsilon \to 0\)</span>.</p>
+<p>Situations in Routh array construction requiring special handling: zero in the first column (replaced by small $\epsilon$) or row of zeros (use auxiliary polynomial).</p>
+<p><strong>Example:</strong> When a zero appears in the first column, replace it with a small positive number $\epsilon$ and continue, then take the limit as $\epsilon \to 0$.</p>
 <h4 id="speed-vs-stability">Speed vs Stability</h4>
 <p>A fundamental design tradeoff where increasing system speed (through higher gain or bandwidth) typically reduces stability margins.</p>
 <p><strong>Example:</strong> Increasing Gyra's gains makes her respond faster but also increases risk of oscillation—the classic speed vs. stability tradeoff.</p>
@@ -6927,8 +6927,8 @@
 <p>A set of canonical inputs (step, ramp, parabolic, impulse, sinusoid) used to characterize and compare system behavior.</p>
 <p><strong>Example:</strong> Standard test inputs provide a consistent basis for comparing different control system designs.</p>
 <h4 id="starting-points">Starting Points</h4>
-<p>In root locus construction, the locations where root locus branches begin (at <span class="arithmatex">\(K = 0\)</span>), which are the open-loop poles.</p>
-<p><strong>Example:</strong> For a system with open-loop poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -2\)</span>, the root locus branches start at these two points.</p>
+<p>In root locus construction, the locations where root locus branches begin (at $K = 0$), which are the open-loop poles.</p>
+<p><strong>Example:</strong> For a system with open-loop poles at $s = -1$ and $s = -2$, the root locus branches start at these two points.</p>
 <h4 id="steady-state-accuracy">Steady-State Accuracy</h4>
 <p>The closeness of the output to the reference after all transients have died out. Quantified by steady-state error.</p>
 <p><strong>Example:</strong> A system that settles to within 0.1% of the setpoint has 99.9% steady-state accuracy.</p>
@@ -6939,23 +6939,23 @@
 <p>The portion of a system's output that persists after transients have died out. For stable systems, this is the final behavior.</p>
 <p><strong>Example:</strong> The steady-state response to a step input is a constant value equal to the DC gain times the step magnitude.</p>
 <h4 id="step-input">Step Input</h4>
-<p>A test input that instantly changes from zero to a constant value at time <span class="arithmatex">\(t = 0\)</span>, remaining at that value thereafter. The most common test signal.</p>
+<p>A test input that instantly changes from zero to a constant value at time $t = 0$, remaining at that value thereafter. The most common test signal.</p>
 <p><strong>Example:</strong> Turning on a heater applies a step input to a thermal system; the room temperature's subsequent rise is the step response.</p>
 <h4 id="strictly-proper-function">Strictly Proper Function</h4>
 <p>A transfer function where the degree of the numerator is strictly less than the degree of the denominator. Most physical systems are strictly proper.</p>
-<p><strong>Example:</strong> <span class="arithmatex">\(G(s) = 5/(s^2 + 3s + 2)\)</span> is strictly proper because numerator degree (0) is less than denominator degree (2).</p>
+<p><strong>Example:</strong> $G(s) = 5/(s^2 + 3s + 2)$ is strictly proper because numerator degree (0) is less than denominator degree (2).</p>
 <h4 id="substitution-sjw">Substitution s=jw</h4>
-<p>The technique of evaluating a transfer function <span class="arithmatex">\(G(s)\)</span> at <span class="arithmatex">\(s = j\omega\)</span> to obtain the frequency response <span class="arithmatex">\(G(j\omega)\)</span>, yielding magnitude and phase at frequency <span class="arithmatex">\(\omega\)</span>.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(G(s) = 1/(s+2)\)</span>, substituting <span class="arithmatex">\(s = j10\)</span> gives <span class="arithmatex">\(G(j10) = 1/(j10+2)\)</span>, yielding magnitude and phase at 10 rad/s.</p>
+<p>The technique of evaluating a transfer function $G(s)$ at $s = j\omega$ to obtain the frequency response $G(j\omega)$, yielding magnitude and phase at frequency $\omega$.</p>
+<p><strong>Example:</strong> For $G(s) = 1/(s+2)$, substituting $s = j10$ gives $G(j10) = 1/(j10+2)$, yielding magnitude and phase at 10 rad/s.</p>
 <h4 id="summing-junction">Summing Junction</h4>
 <p>A block diagram element that algebraically adds or subtracts multiple signals, typically represented by a circle with ± signs indicating each signal's contribution.</p>
 <p><strong>Example:</strong> At the error summing junction, the feedback signal is subtracted from the reference to produce the error.</p>
 <h4 id="superposition-principle">Superposition Principle</h4>
 <p>A property of linear systems stating that the response to a sum of inputs equals the sum of the responses to each input applied separately.</p>
-<p><strong>Example:</strong> If a system's response to <span class="arithmatex">\(u_1\)</span> is <span class="arithmatex">\(y_1\)</span> and to <span class="arithmatex">\(u_2\)</span> is <span class="arithmatex">\(y_2\)</span>, then its response to <span class="arithmatex">\(u_1 + u_2\)</span> is <span class="arithmatex">\(y_1 + y_2\)</span>.</p>
+<p><strong>Example:</strong> If a system's response to $u_1$ is $y_1$ and to $u_2$ is $y_2$, then its response to $u_1 + u_2$ is $y_1 + y_2$.</p>
 <h4 id="symmetry-property">Symmetry Property</h4>
 <p>The property of root locus that it is symmetric about the real axis because complex roots of polynomials with real coefficients always occur in conjugate pairs.</p>
-<p><strong>Example:</strong> If the root locus passes through <span class="arithmatex">\(s = -2 + j3\)</span>, it must also pass through <span class="arithmatex">\(s = -2 - j3\)</span>.</p>
+<p><strong>Example:</strong> If the root locus passes through $s = -2 + j3$, it must also pass through $s = -2 - j3$.</p>
 <h4 id="system-order">System Order</h4>
 <p>The number of independent energy storage elements in a system, equal to the degree of the characteristic polynomial. Determines the number of poles.</p>
 <p><strong>Example:</strong> A system with two capacitors and one inductor is typically third order (three energy storage elements).</p>
@@ -6967,15 +6967,15 @@
 <p><strong>Example:</strong> A Type 1 system has one integrator in the loop and achieves zero steady-state error for step inputs.</p>
 <h4 id="taylor-series-expansion">Taylor Series Expansion</h4>
 <p>A mathematical technique that approximates a function as an infinite sum of terms based on derivatives at a point. Used for linearization of nonlinear systems.</p>
-<p><strong>Example:</strong> The Taylor series of <span class="arithmatex">\(\sin\theta\)</span> about <span class="arithmatex">\(\theta = 0\)</span> starts with <span class="arithmatex">\(\theta - \theta^3/6 + ...\)</span>; for small angles, <span class="arithmatex">\(\sin\theta \approx \theta\)</span>.</p>
+<p><strong>Example:</strong> The Taylor series of $\sin\theta$ about $\theta = 0$ starts with $\theta - \theta^3/6 + ...$; for small angles, $\sin\theta \approx \theta$.</p>
 <h4 id="thermal-systems">Thermal Systems</h4>
 <p>Dynamic systems where the variables are thermal quantities (temperature, heat flow) related by thermal resistances and capacitances.</p>
 <p><strong>Example:</strong> A room's temperature dynamics form a thermal system with heat input from a heater and heat loss through walls.</p>
 <h4 id="time-constant">Time Constant</h4>
 <p>A parameter characterizing the speed of a first-order system, defined as the time to reach 63.2% of the final value in a step response. Equal to the reciprocal of the pole magnitude.</p>
-<p><strong>Example:</strong> An RC circuit with <span class="arithmatex">\(\tau = 0.1\)</span> s reaches 63.2% of its final voltage 0.1 seconds after a step input.</p>
+<p><strong>Example:</strong> An RC circuit with $\tau = 0.1$ s reaches 63.2% of its final voltage 0.1 seconds after a step input.</p>
 <h4 id="time-delay-in-bode">Time Delay in Bode</h4>
-<p>The effect of pure time delay on the Bode plot: no change in magnitude but phase that decreases linearly with frequency as <span class="arithmatex">\(-\omega T_d\)</span> (in radians).</p>
+<p>The effect of pure time delay on the Bode plot: no change in magnitude but phase that decreases linearly with frequency as $-\omega T_d$ (in radians).</p>
 <p><strong>Example:</strong> A 0.1 second time delay adds -57.3° phase at 10 rad/s and -573° at 100 rad/s.</p>
 <h4 id="time-domain">Time Domain</h4>
 <p>A representation of signals and systems as functions of time. Differential equations and time responses are time-domain descriptions.</p>
@@ -6988,7 +6988,7 @@
 <p><strong>Example:</strong> A spring-mass system's total response combines the decaying oscillation from initial displacement with the forced motion from applied force.</p>
 <h4 id="transfer-function">Transfer Function</h4>
 <p>A mathematical relationship between the Laplace transforms of output and input for a linear time-invariant system, assuming zero initial conditions.</p>
-<p><strong>Example:</strong> The transfer function <span class="arithmatex">\(H(s) = 10/(s+5)\)</span> describes a first-order system with DC gain 2 and time constant 0.2 seconds.</p>
+<p><strong>Example:</strong> The transfer function $H(s) = 10/(s+5)$ describes a first-order system with DC gain 2 and time constant 0.2 seconds.</p>
 <h4 id="transient-response">Transient Response</h4>
 <p>The portion of a system's output that exists during the transition from initial conditions to steady state. Transient response decays to zero for stable systems.</p>
 <p><strong>Example:</strong> The oscillations that occur when Gyra is disturbed and returns to vertical are part of her transient response.</p>
@@ -7008,38 +7008,38 @@
 <p>A control system with two integrators in the open-loop transfer function. Has zero steady-state error for both step and ramp inputs.</p>
 <p><strong>Example:</strong> Spacecraft antenna pointing may require Type 2 systems to track moving targets without error.</p>
 <h4 id="type-number">Type Number</h4>
-<p>The number of poles at the origin (<span class="arithmatex">\(s = 0\)</span>) in the open-loop transfer function, determining the system's ability to track polynomial inputs without error.</p>
-<p><strong>Example:</strong> A system with loop transfer function <span class="arithmatex">\(K(s+2)/[s^2(s+5)]\)</span> has type number 2.</p>
+<p>The number of poles at the origin ($s = 0$) in the open-loop transfer function, determining the system's ability to track polynomial inputs without error.</p>
+<p><strong>Example:</strong> A system with loop transfer function $K(s+2)/[s^2(s+5)]$ has type number 2.</p>
 <h4 id="ultimate-gain">Ultimate Gain</h4>
 <p>The gain value at which a control system first becomes marginally stable, oscillating with constant amplitude. Used in the ultimate gain tuning method.</p>
-<p><strong>Example:</strong> If a proportional-only controller causes sustained oscillation at gain <span class="arithmatex">\(K = 50\)</span>, the ultimate gain is <span class="arithmatex">\(K_u = 50\)</span>.</p>
+<p><strong>Example:</strong> If a proportional-only controller causes sustained oscillation at gain $K = 50$, the ultimate gain is $K_u = 50$.</p>
 <h4 id="ultimate-gain-method">Ultimate Gain Method</h4>
 <p>A Ziegler-Nichols tuning method where the system is driven to marginal stability using proportional-only control, then PID parameters are calculated from the ultimate gain and period.</p>
-<p><strong>Example:</strong> With ultimate gain <span class="arithmatex">\(K_u = 50\)</span> and ultimate period <span class="arithmatex">\(P_u = 2\)</span> s, Ziegler-Nichols suggests <span class="arithmatex">\(K_p = 30\)</span>, <span class="arithmatex">\(K_i = 30\)</span>, <span class="arithmatex">\(K_d = 7.5\)</span>.</p>
+<p><strong>Example:</strong> With ultimate gain $K_u = 50$ and ultimate period $P_u = 2$ s, Ziegler-Nichols suggests $K_p = 30$, $K_i = 30$, $K_d = 7.5$.</p>
 <h4 id="ultimate-period">Ultimate Period</h4>
 <p>The period of sustained oscillation when a system is at marginal stability under proportional-only control. Used with ultimate gain for PID tuning.</p>
-<p><strong>Example:</strong> If a system oscillates at 0.5 Hz when marginally stable, the ultimate period is <span class="arithmatex">\(P_u = 2\)</span> seconds.</p>
+<p><strong>Example:</strong> If a system oscillates at 0.5 Hz when marginally stable, the ultimate period is $P_u = 2$ seconds.</p>
 <h4 id="undamped-system">Undamped System</h4>
-<p>A second-order system with damping ratio <span class="arithmatex">\(\zeta = 0\)</span>, exhibiting sustained oscillation at the natural frequency without decay.</p>
+<p>A second-order system with damping ratio $\zeta = 0$, exhibiting sustained oscillation at the natural frequency without decay.</p>
 <p><strong>Example:</strong> An ideal LC circuit with no resistance is undamped, oscillating forever once excited.</p>
 <h4 id="underdamped-system">Underdamped System</h4>
-<p>A second-order system with damping ratio <span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>, producing oscillatory response that gradually decays to steady state.</p>
-<p><strong>Example:</strong> Gyra is typically designed to be slightly underdamped (<span class="arithmatex">\(\zeta \approx 0.7\)</span>) for fast response with minimal overshoot.</p>
+<p>A second-order system with damping ratio $0 &lt; \zeta &lt; 1$, producing oscillatory response that gradually decays to steady state.</p>
+<p><strong>Example:</strong> Gyra is typically designed to be slightly underdamped ($\zeta \approx 0.7$) for fast response with minimal overshoot.</p>
 <h4 id="unit-step-response">Unit Step Response</h4>
 <p>The output of a system when the input is a unit step function. The most common characterization of system dynamics.</p>
-<p><strong>Example:</strong> A stable first-order system's unit step response is <span class="arithmatex">\(y(t) = K(1 - e^{-t/\tau})\)</span>, approaching final value <span class="arithmatex">\(K\)</span>.</p>
+<p><strong>Example:</strong> A stable first-order system's unit step response is $y(t) = K(1 - e^{-t/\tau})$, approaching final value $K$.</p>
 <h4 id="unity-feedback">Unity Feedback</h4>
-<p>A feedback configuration where the signal fed back equals the output exactly (feedback transfer function <span class="arithmatex">\(H(s) = 1\)</span>).</p>
+<p>A feedback configuration where the signal fed back equals the output exactly (feedback transfer function $H(s) = 1$).</p>
 <p><strong>Example:</strong> In unity feedback, the measured output is compared directly with the reference without any sensor dynamics.</p>
 <h4 id="unstable-system">Unstable System</h4>
 <p>A system that produces unbounded output for bounded input, due to poles in the right half of the s-plane or on the imaginary axis with multiplicity greater than one.</p>
 <p><strong>Example:</strong> Without active control, Gyra is unstable—she would fall over because her inverted pendulum dynamics have a pole in the RHP.</p>
 <h4 id="velocity-error-constant">Velocity Error Constant</h4>
-<p>A parameter quantifying a control system's ability to track ramp inputs, equal to <span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s)H(s)\)</span>. Steady-state error to unit ramp is <span class="arithmatex">\(1/K_v\)</span>.</p>
-<p><strong>Example:</strong> A Type 1 system with velocity error constant <span class="arithmatex">\(K_v = 20\)</span> has steady-state error of 5% when tracking a unit ramp.</p>
+<p>A parameter quantifying a control system's ability to track ramp inputs, equal to $K_v = \lim_{s \to 0} sG(s)H(s)$. Steady-state error to unit ramp is $1/K_v$.</p>
+<p><strong>Example:</strong> A Type 1 system with velocity error constant $K_v = 20$ has steady-state error of 5% when tracking a unit ramp.</p>
 <h4 id="zero-in-first-column">Zero in First Column</h4>
-<p>A special case in Routh array construction where the first element of a row is zero but other elements are nonzero. Handled by replacing zero with small positive <span class="arithmatex">\(\epsilon\)</span>.</p>
-<p><strong>Example:</strong> If the first column has values [1, 2, 0, 3], replace the zero with <span class="arithmatex">\(\epsilon\)</span> and continue the construction.</p>
+<p>A special case in Routh array construction where the first element of a row is zero but other elements are nonzero. Handled by replacing zero with small positive $\epsilon$.</p>
+<p><strong>Example:</strong> If the first column has values [1, 2, 0, 3], replace the zero with $\epsilon$ and continue the construction.</p>
 <h4 id="zero-input-response">Zero-Input Response</h4>
 <p>The system response when the input is zero but initial conditions are nonzero. Equals the natural response for LTI systems.</p>
 <p><strong>Example:</strong> A charged capacitor discharging through a resistor with no applied voltage exhibits zero-input response.</p>
@@ -7047,11 +7047,11 @@
 <p>The system response when initial conditions are zero, produced entirely by the input. Equals the forced response for LTI systems.</p>
 <p><strong>Example:</strong> The step response starting from rest (zero initial conditions) is a zero-state response.</p>
 <h4 id="zeros">Zeros</h4>
-<p>Values of <span class="arithmatex">\(s\)</span> that make a transfer function equal to zero (roots of the numerator polynomial). Zeros affect the shape and speed of the transient response.</p>
-<p><strong>Example:</strong> The transfer function <span class="arithmatex">\((s+3)/(s^2+5s+6)\)</span> has a zero at <span class="arithmatex">\(s = -3\)</span>.</p>
+<p>Values of $s$ that make a transfer function equal to zero (roots of the numerator polynomial). Zeros affect the shape and speed of the transient response.</p>
+<p><strong>Example:</strong> The transfer function $(s+3)/(s^2+5s+6)$ has a zero at $s = -3$.</p>
 <h4 id="ziegler-nichols-method">Ziegler-Nichols Method</h4>
 <p>A set of empirical tuning rules for PID controllers, providing initial parameter values based on either the reaction curve method or the ultimate gain method.</p>
-<p><strong>Example:</strong> Ziegler-Nichols tuning rules give starting values for <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_i\)</span>, and <span class="arithmatex">\(K_d\)</span> that typically require further fine-tuning.</p>
+<p><strong>Example:</strong> Ziegler-Nichols tuning rules give starting values for $K_p$, $K_i$, and $K_d$ that typically require further fine-tuning.</p>
 
 
 

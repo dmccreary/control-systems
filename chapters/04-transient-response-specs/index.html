@@ -2051,32 +2051,32 @@
 <tbody>
 <tr>
 <td>Impulse</td>
-<td><span class="arithmatex">\(\delta(t)\)</span></td>
-<td><span class="arithmatex">\(1\)</span></td>
+<td>$\delta(t)$</td>
+<td>$1$</td>
 <td>Natural dynamics, stability</td>
 </tr>
 <tr>
 <td>Step</td>
-<td><span class="arithmatex">\(u(t)\)</span></td>
-<td><span class="arithmatex">\(1/s\)</span></td>
+<td>$u(t)$</td>
+<td>$1/s$</td>
 <td>Tracking, steady-state error</td>
 </tr>
 <tr>
 <td>Ramp</td>
-<td><span class="arithmatex">\(t \cdot u(t)\)</span></td>
-<td><span class="arithmatex">\(1/s^2\)</span></td>
+<td>$t \cdot u(t)$</td>
+<td>$1/s^2$</td>
 <td>Velocity tracking error</td>
 </tr>
 <tr>
 <td>Parabolic</td>
-<td><span class="arithmatex">\(\frac{1}{2}t^2 \cdot u(t)\)</span></td>
-<td><span class="arithmatex">\(1/s^3\)</span></td>
+<td>$\frac{1}{2}t^2 \cdot u(t)$</td>
+<td>$1/s^3$</td>
 <td>Acceleration tracking error</td>
 </tr>
 <tr>
 <td>Sinusoidal</td>
-<td><span class="arithmatex">\(\sin(\omega t)\)</span></td>
-<td><span class="arithmatex">\(\omega/(s^2 + \omega^2)\)</span></td>
+<td>$\sin(\omega t)$</td>
+<td>$\omega/(s^2 + \omega^2)$</td>
 <td>Frequency response</td>
 </tr>
 </tbody>
@@ -2120,12 +2120,12 @@ Bloom Verb: identify, recognize</p>
 <p>Implementation: p5.js with canvas-based controls</p>
 </details>
 <h2 id="the-step-input-and-unit-step-response">The Step Input and Unit Step Response</h2>
-<p>The <strong>step input</strong> is the workhorse of control systems testing—and for good reason. It represents an instantaneous change in setpoint or command, which is exactly what happens when you flip a switch, punch in a new temperature setting, or stomp on the gas pedal. It's mathematically simple (a jump from 0 to 1 at <span class="arithmatex">\(t = 0\)</span>), yet it exercises the system's dynamics thoroughly.</p>
+<p>The <strong>step input</strong> is the workhorse of control systems testing—and for good reason. It represents an instantaneous change in setpoint or command, which is exactly what happens when you flip a switch, punch in a new temperature setting, or stomp on the gas pedal. It's mathematically simple (a jump from 0 to 1 at $t = 0$), yet it exercises the system's dynamics thoroughly.</p>
 <h4 id="the-unit-step-function">The Unit Step Function</h4>
-<p>The unit step function <span class="arithmatex">\(u(t)\)</span> is defined as:</p>
-<p><span class="arithmatex">\(u(t) = \begin{cases} 0, &amp; t &lt; 0 \\ 1, &amp; t \geq 0 \end{cases}\)</span></p>
+<p>The unit step function $u(t)$ is defined as:</p>
+<p>$u(t) = \begin{cases} 0, &amp; t &lt; 0 \ 1, &amp; t \geq 0 \end{cases}$</p>
 <p>In the Laplace domain:</p>
-<p><span class="arithmatex">\(\mathcal{L}\{u(t)\} = \frac{1}{s}\)</span></p>
+<p>$\mathcal{L}{u(t)} = \frac{1}{s}$</p>
 <p>The <strong>unit step response</strong> is the system's output when a unit step is applied as the input, typically assuming zero initial conditions. This single response curve contains a wealth of information about system dynamics—it's like a system's fingerprint.</p>
 <p>Why is the step response so popular?</p>
 <ul>
@@ -2183,24 +2183,24 @@ Bloom Verb: interpret, explain</p>
 <p><strong>Overshoot</strong> is exactly what it sounds like: the system "overshoots" its target before settling down. For underdamped systems responding to a step input, the output exceeds the final steady-state value before oscillating back. It's like arriving at a stop sign and sliding a bit past it before backing up. (Please don't actually do this.)</p>
 <p>The <strong>percent overshoot</strong> (%OS) quantifies this behavior as a percentage of the final value:</p>
 <h4 id="percent-overshoot-formula">Percent Overshoot Formula</h4>
-<p><span class="arithmatex">\(\%OS = \frac{M_p - y_{ss}}{y_{ss}} \times 100\%\)</span></p>
+<p>$\%OS = \frac{M_p - y_{ss}}{y_{ss}} \times 100\%$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(M_p\)</span> is the peak value (maximum overshoot)</li>
-<li><span class="arithmatex">\(y_{ss}\)</span> is the steady-state (final) value</li>
+<li>$M_p$ is the peak value (maximum overshoot)</li>
+<li>$y_{ss}$ is the steady-state (final) value</li>
 </ul>
 <p>For a standard second-order underdamped system, percent overshoot depends only on the damping ratio:</p>
 <h4 id="percent-overshoot-vs-damping-ratio">Percent Overshoot vs. Damping Ratio</h4>
-<p><span class="arithmatex">\(\%OS = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%\)</span></p>
+<p>$\%OS = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio (must be <span class="arithmatex">\(0 &lt; \zeta &lt; 1\)</span>)</li>
+<li>$\zeta$ is the damping ratio (must be $0 &lt; \zeta &lt; 1$)</li>
 </ul>
-<p>This elegant formula reveals a key insight: <strong>percent overshoot is determined entirely by damping ratio</strong>, independent of natural frequency. A system with <span class="arithmatex">\(\zeta = 0.5\)</span> will have the same percent overshoot whether <span class="arithmatex">\(\omega_n\)</span> is 1 rad/s or 100 rad/s—the oscillations will just happen faster in the latter case.</p>
+<p>This elegant formula reveals a key insight: <strong>percent overshoot is determined entirely by damping ratio</strong>, independent of natural frequency. A system with $\zeta = 0.5$ will have the same percent overshoot whether $\omega_n$ is 1 rad/s or 100 rad/s—the oscillations will just happen faster in the latter case.</p>
 <table>
 <thead>
 <tr>
-<th>Damping Ratio <span class="arithmatex">\(\zeta\)</span></th>
+<th>Damping Ratio $\zeta$</th>
 <th>Percent Overshoot</th>
 </tr>
 </thead>
@@ -2233,10 +2233,10 @@ Bloom Verb: interpret, explain</p>
 </table>
 <p>The inverse relationship is also useful—given a desired percent overshoot, you can calculate the required damping ratio:</p>
 <h4 id="required-damping-ratio-from-overshoot-spec">Required Damping Ratio from Overshoot Spec</h4>
-<p><span class="arithmatex">\(\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}\)</span></p>
+<p>$\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\%OS\)</span> is the desired percent overshoot (as a percentage, e.g., 10 for 10%)</li>
+<li>$\%OS$ is the desired percent overshoot (as a percentage, e.g., 10 for 10%)</li>
 </ul>
 <div class="admonition quote">
 <p class="admonition-title">Helping Gyra</p>
@@ -2283,21 +2283,21 @@ Left plot:
 <p>Implementation: p5.js with canvas-based controls</p>
 </details>
 <h2 id="peak-time">Peak Time</h2>
-<p><strong>Peak time</strong> (<span class="arithmatex">\(t_p\)</span>) is the time required for the response to reach its first (and largest) peak—the moment of maximum overshoot. For underdamped systems, this is when the response hits <span class="arithmatex">\(M_p\)</span> before beginning to oscillate back toward the final value.</p>
+<p><strong>Peak time</strong> ($t_p$) is the time required for the response to reach its first (and largest) peak—the moment of maximum overshoot. For underdamped systems, this is when the response hits $M_p$ before beginning to oscillate back toward the final value.</p>
 <h4 id="peak-time-formula">Peak Time Formula</h4>
-<p><span class="arithmatex">\(t_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}\)</span></p>
+<p>$t_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_d\)</span> is the damped frequency</li>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+<li>$\omega_d$ is the damped frequency</li>
+<li>$\omega_n$ is the natural frequency</li>
+<li>$\zeta$ is the damping ratio</li>
 </ul>
 <p>Notice that peak time is one half-period of the damped oscillation frequency—which makes physical sense. The response starts at zero, rises through the final value, and reaches its peak when it has completed half of its first oscillation cycle.</p>
 <p>Key observations about peak time:</p>
 <ul>
-<li>Peak time decreases as <span class="arithmatex">\(\omega_n\)</span> increases (faster systems peak sooner)</li>
-<li>Peak time increases as <span class="arithmatex">\(\zeta\)</span> increases (more damping slows the approach)</li>
-<li>Peak time is inversely proportional to <span class="arithmatex">\(\omega_d\)</span></li>
+<li>Peak time decreases as $\omega_n$ increases (faster systems peak sooner)</li>
+<li>Peak time increases as $\zeta$ increases (more damping slows the approach)</li>
+<li>Peak time is inversely proportional to $\omega_d$</li>
 </ul>
 <table>
 <thead>
@@ -2308,12 +2308,12 @@ Left plot:
 </thead>
 <tbody>
 <tr>
-<td>Increase <span class="arithmatex">\(\omega_n\)</span></td>
-<td>Decreases <span class="arithmatex">\(t_p\)</span></td>
+<td>Increase $\omega_n$</td>
+<td>Decreases $t_p$</td>
 </tr>
 <tr>
-<td>Increase <span class="arithmatex">\(\zeta\)</span></td>
-<td>Increases <span class="arithmatex">\(t_p\)</span></td>
+<td>Increase $\zeta$</td>
+<td>Increases $t_p$</td>
 </tr>
 <tr>
 <td>Increase both equally</td>
@@ -2323,10 +2323,10 @@ Left plot:
 </table>
 <div class="admonition note">
 <p class="admonition-title">Critically and Overdamped Systems</p>
-<p>Peak time is undefined for critically damped (<span class="arithmatex">\(\zeta = 1\)</span>) and overdamped (<span class="arithmatex">\(\zeta &gt; 1\)</span>) systems because they don't overshoot—they approach the final value monotonically. No overshoot means no peak beyond the final value to time.</p>
+<p>Peak time is undefined for critically damped ($\zeta = 1$) and overdamped ($\zeta &gt; 1$) systems because they don't overshoot—they approach the final value monotonically. No overshoot means no peak beyond the final value to time.</p>
 </div>
 <h2 id="rise-time">Rise Time</h2>
-<p><strong>Rise time</strong> (<span class="arithmatex">\(t_r\)</span>) measures how quickly the response rises from a low value to a high value. There are two common definitions—make sure you know which one is being used in any given context:</p>
+<p><strong>Rise time</strong> ($t_r$) measures how quickly the response rises from a low value to a high value. There are two common definitions—make sure you know which one is being used in any given context:</p>
 <ul>
 <li><strong>10% to 90% definition</strong> (most common): Time to go from 10% to 90% of the final value</li>
 <li><strong>0% to 100% definition</strong>: Time to first reach 100% of the final value</li>
@@ -2334,52 +2334,52 @@ Left plot:
 <p>The 10%-90% definition is preferred for practical measurements because it avoids sensitivity to initial transients (near 0%) and overshoot behavior (near 100%).</p>
 <p>For a second-order underdamped system, an approximate formula using the 10%-90% definition is:</p>
 <h4 id="rise-time-approximation-10-90">Rise Time Approximation (10%-90%)</h4>
-<p><span class="arithmatex">\(t_r \approx \frac{1.8}{\omega_n}\)</span></p>
-<p>This approximation works well for damping ratios in the range <span class="arithmatex">\(0.3 &lt; \zeta &lt; 0.8\)</span>, which covers most practical designs.</p>
+<p>$t_r \approx \frac{1.8}{\omega_n}$</p>
+<p>This approximation works well for damping ratios in the range $0.3 &lt; \zeta &lt; 0.8$, which covers most practical designs.</p>
 <p>A more accurate (but more complex) formula that accounts for damping ratio:</p>
 <h4 id="rise-time-formula-0-100">Rise Time Formula (0%-100%)</h4>
-<p><span class="arithmatex">\(t_r = \frac{1}{\omega_d}\left(\pi - \tan^{-1}\frac{\omega_d}{\zeta\omega_n}\right)\)</span></p>
+<p>$t_r = \frac{1}{\omega_d}\left(\pi - \tan^{-1}\frac{\omega_d}{\zeta\omega_n}\right)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span> is the damped frequency</li>
+<li>$\omega_d = \omega_n\sqrt{1-\zeta^2}$ is the damped frequency</li>
 <li>The inverse tangent is in radians</li>
 </ul>
 <p>Rise time is particularly important for systems where rapid response to setpoint changes is critical—think flight control systems, anti-lock brakes, or any application where "getting there quickly" matters.</p>
 <h2 id="delay-time">Delay Time</h2>
-<p><strong>Delay time</strong> (<span class="arithmatex">\(t_d\)</span>) is the time required for the response to reach 50% of its final value. It provides a measure of how long the system "hesitates" before substantially responding to the input.</p>
+<p><strong>Delay time</strong> ($t_d$) is the time required for the response to reach 50% of its final value. It provides a measure of how long the system "hesitates" before substantially responding to the input.</p>
 <p>For a second-order underdamped system, delay time can be approximated as:</p>
 <h4 id="delay-time-approximation">Delay Time Approximation</h4>
-<p><span class="arithmatex">\(t_d \approx \frac{1 + 0.7\zeta}{\omega_n}\)</span></p>
+<p>$t_d \approx \frac{1 + 0.7\zeta}{\omega_n}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+<li>$\omega_n$ is the natural frequency</li>
+<li>$\zeta$ is the damping ratio</li>
 </ul>
 <p>Delay time is less commonly specified than rise time or settling time, but it's useful for characterizing the initial phase of system response. In some applications—like human-machine interfaces—perceived "lag" correlates strongly with delay time.</p>
-<p>The relationship between delay time and rise time is worth noting: for a typical underdamped system, <span class="arithmatex">\(t_d\)</span> is roughly half of <span class="arithmatex">\(t_r\)</span> (though the exact ratio depends on <span class="arithmatex">\(\zeta\)</span>).</p>
+<p>The relationship between delay time and rise time is worth noting: for a typical underdamped system, $t_d$ is roughly half of $t_r$ (though the exact ratio depends on $\zeta$).</p>
 <h2 id="settling-time">Settling Time</h2>
-<p><strong>Settling time</strong> (<span class="arithmatex">\(t_s\)</span>) is the time required for the response to settle within a specified tolerance band around the final value and <em>stay there</em>. It's perhaps the most practically important specification because it tells you when the transient is "done" and the system has effectively reached steady state.</p>
+<p><strong>Settling time</strong> ($t_s$) is the time required for the response to settle within a specified tolerance band around the final value and <em>stay there</em>. It's perhaps the most practically important specification because it tells you when the transient is "done" and the system has effectively reached steady state.</p>
 <p>Common tolerance bands are:</p>
 <ul>
-<li><strong>2% settling time</strong>: Response stays within <span class="arithmatex">\(\pm 2\%\)</span> of final value</li>
-<li><strong>5% settling time</strong>: Response stays within <span class="arithmatex">\(\pm 5\%\)</span> of final value</li>
+<li><strong>2% settling time</strong>: Response stays within $\pm 2\%$ of final value</li>
+<li><strong>5% settling time</strong>: Response stays within $\pm 5\%$ of final value</li>
 </ul>
 <h4 id="settling-time-formulas">Settling Time Formulas</h4>
 <p>For 2% settling time:</p>
-<p><span class="arithmatex">\(t_s \approx \frac{4}{\zeta\omega_n}\)</span></p>
+<p>$t_s \approx \frac{4}{\zeta\omega_n}$</p>
 <p>For 5% settling time:</p>
-<p><span class="arithmatex">\(t_s \approx \frac{3}{\zeta\omega_n}\)</span></p>
+<p>$t_s \approx \frac{3}{\zeta\omega_n}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+<li>$\zeta$ is the damping ratio</li>
+<li>$\omega_n$ is the natural frequency</li>
 </ul>
-<p>These formulas arise from the exponential envelope <span class="arithmatex">\(e^{-\zeta\omega_n t}\)</span> that bounds the oscillations. When this envelope decays to 2% (about 4 time constants) or 5% (about 3 time constants), the oscillations are within the tolerance band.</p>
+<p>These formulas arise from the exponential envelope $e^{-\zeta\omega_n t}$ that bounds the oscillations. When this envelope decays to 2% (about 4 time constants) or 5% (about 3 time constants), the oscillations are within the tolerance band.</p>
 <p>Key insights about settling time:</p>
 <ul>
-<li>Settling time depends on the product <span class="arithmatex">\(\zeta\omega_n\)</span> (the real part of the poles)</li>
-<li>Increasing <span class="arithmatex">\(\zeta\)</span> <em>decreases</em> settling time (more damping = faster decay)</li>
-<li>Increasing <span class="arithmatex">\(\omega_n\)</span> <em>decreases</em> settling time (faster overall dynamics)</li>
+<li>Settling time depends on the product $\zeta\omega_n$ (the real part of the poles)</li>
+<li>Increasing $\zeta$ <em>decreases</em> settling time (more damping = faster decay)</li>
+<li>Increasing $\omega_n$ <em>decreases</em> settling time (faster overall dynamics)</li>
 <li>There's a trade-off with rise time: faster rise often means longer settling</li>
 </ul>
 <table>
@@ -2398,8 +2398,8 @@ Left plot:
 </tr>
 <tr>
 <td>Settling time formula</td>
-<td><span class="arithmatex">\(4/(\zeta\omega_n)\)</span></td>
-<td><span class="arithmatex">\(3/(\zeta\omega_n)\)</span></td>
+<td>$4/(\zeta\omega_n)$</td>
+<td>$3/(\zeta\omega_n)$</td>
 </tr>
 <tr>
 <td>Residual error</td>
@@ -2410,7 +2410,7 @@ Left plot:
 </table>
 <div class="admonition warning">
 <p class="admonition-title">The Settling Time Trap</p>
-<p>Be careful with lightly damped systems! If <span class="arithmatex">\(\zeta\)</span> is very small, the oscillations decay slowly even as the system initially responds quickly. You might have fast rise time but terrible settling time. This is why control design often involves trade-offs—you can't optimize everything at once.</p>
+<p>Be careful with lightly damped systems! If $\zeta$ is very small, the oscillations decay slowly even as the system initially responds quickly. You might have fast rise time but terrible settling time. This is why control design often involves trade-offs—you can't optimize everything at once.</p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
@@ -2454,62 +2454,62 @@ Bloom Verb: demonstrate, calculate</p>
 <p>Implementation: p5.js with canvas-based controls</p>
 </details>
 <h2 id="the-impulse-input-and-impulse-response">The Impulse Input and Impulse Response</h2>
-<p>The <strong>impulse input</strong> <span class="arithmatex">\(\delta(t)\)</span> is theoretically a signal of infinite amplitude and zero duration, with unit area—a mathematical idealization that represents an instantaneous "kick" to the system. In the Laplace domain, it's beautifully simple:</p>
-<p><span class="arithmatex">\(\mathcal{L}\{\delta(t)\} = 1\)</span></p>
-<p>This simplicity is precisely why the impulse is so important: the <strong>impulse response</strong> <span class="arithmatex">\(h(t)\)</span> is the system output when the input is an impulse, and it equals the <em>inverse Laplace transform of the transfer function itself</em>:</p>
+<p>The <strong>impulse input</strong> $\delta(t)$ is theoretically a signal of infinite amplitude and zero duration, with unit area—a mathematical idealization that represents an instantaneous "kick" to the system. In the Laplace domain, it's beautifully simple:</p>
+<p>$\mathcal{L}{\delta(t)} = 1$</p>
+<p>This simplicity is precisely why the impulse is so important: the <strong>impulse response</strong> $h(t)$ is the system output when the input is an impulse, and it equals the <em>inverse Laplace transform of the transfer function itself</em>:</p>
 <h4 id="impulse-response-relationship">Impulse Response Relationship</h4>
-<p><span class="arithmatex">\(h(t) = \mathcal{L}^{-1}\{G(s)\}\)</span></p>
+<p>$h(t) = \mathcal{L}^{-1}{G(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(h(t)\)</span> is the impulse response</li>
-<li><span class="arithmatex">\(G(s)\)</span> is the transfer function</li>
+<li>$h(t)$ is the impulse response</li>
+<li>$G(s)$ is the transfer function</li>
 </ul>
-<p>The impulse response reveals the system's natural dynamics directly—it's the system's "signature" when excited and left alone. Every pole and zero of the transfer function manifests in the shape of <span class="arithmatex">\(h(t)\)</span>.</p>
-<p>For a first-order system with transfer function <span class="arithmatex">\(G(s) = K/(τs + 1)\)</span>:</p>
-<p><span class="arithmatex">\(h(t) = \frac{K}{\tau}e^{-t/\tau}\)</span></p>
+<p>The impulse response reveals the system's natural dynamics directly—it's the system's "signature" when excited and left alone. Every pole and zero of the transfer function manifests in the shape of $h(t)$.</p>
+<p>For a first-order system with transfer function $G(s) = K/(τs + 1)$:</p>
+<p>$h(t) = \frac{K}{\tau}e^{-t/\tau}$</p>
 <p>For a second-order underdamped system:</p>
-<p><span class="arithmatex">\(h(t) = \frac{\omega_n}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin(\omega_d t)\)</span></p>
+<p>$h(t) = \frac{\omega_n}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin(\omega_d t)$</p>
 <div class="admonition info">
 <p class="admonition-title">Practical Impulses</p>
 <p>A true impulse is impossible to generate physically, but we can approximate it with a short, sharp pulse. If the pulse duration is much shorter than the system's time constant, the response will closely match the theoretical impulse response. Striking a tuning fork, firing a spark plug, or tapping a microphone are all practical impulse-like excitations.</p>
 </div>
 <p>The impulse response and step response are intimately related:</p>
 <h4 id="step-impulse-relationship">Step-Impulse Relationship</h4>
-<p><span class="arithmatex">\(y_{step}(t) = \int_0^t h(\tau) d\tau\)</span></p>
+<p>$y_{step}(t) = \int_0^t h(\tau) d\tau$</p>
 <p>and conversely:</p>
-<p><span class="arithmatex">\(h(t) = \frac{d}{dt}y_{step}(t)\)</span></p>
+<p>$h(t) = \frac{d}{dt}y_{step}(t)$</p>
 <p>This relationship is crucial: if you can measure one, you can compute the other.</p>
 <h2 id="the-ramp-input-and-ramp-response">The Ramp Input and Ramp Response</h2>
 <p>A <strong>ramp input</strong> increases linearly with time, representing a commanded velocity or a steadily changing setpoint:</p>
-<p><span class="arithmatex">\(r(t) = t \cdot u(t)\)</span></p>
+<p>$r(t) = t \cdot u(t)$</p>
 <p>In the Laplace domain:</p>
-<p><span class="arithmatex">\(\mathcal{L}\{t \cdot u(t)\} = \frac{1}{s^2}\)</span></p>
+<p>$\mathcal{L}{t \cdot u(t)} = \frac{1}{s^2}$</p>
 <p>The <strong>ramp response</strong> reveals how well a system can track a constantly changing reference. This is critical for servo systems, motor drives, and any application where the system must follow a moving target.</p>
-<p>For a first-order system with DC gain <span class="arithmatex">\(K\)</span> and time constant <span class="arithmatex">\(\tau\)</span>:</p>
+<p>For a first-order system with DC gain $K$ and time constant $\tau$:</p>
 <h4 id="first-order-ramp-response">First-Order Ramp Response</h4>
-<p><span class="arithmatex">\(y(t) = K\left(t - \tau + \tau e^{-t/\tau}\right)\)</span></p>
-<p>As <span class="arithmatex">\(t \to \infty\)</span>, the response approaches:</p>
-<p><span class="arithmatex">\(y(t) \approx K(t - \tau)\)</span></p>
-<p>This reveals a <strong>steady-state velocity error</strong>: the output tracks the ramp but lags behind by <span class="arithmatex">\(K\tau\)</span> seconds. The system is always "behind" the reference by a fixed amount. This lag is the <strong>velocity error</strong> that we'll explore more in the chapter on steady-state error.</p>
+<p>$y(t) = K\left(t - \tau + \tau e^{-t/\tau}\right)$</p>
+<p>As $t \to \infty$, the response approaches:</p>
+<p>$y(t) \approx K(t - \tau)$</p>
+<p>This reveals a <strong>steady-state velocity error</strong>: the output tracks the ramp but lags behind by $K\tau$ seconds. The system is always "behind" the reference by a fixed amount. This lag is the <strong>velocity error</strong> that we'll explore more in the chapter on steady-state error.</p>
 <p>For second-order systems, the ramp response is more complex, but the key insight remains: systems with limited bandwidth cannot perfectly track a changing reference—there will always be some lag.</p>
 <h2 id="the-parabolic-input">The Parabolic Input</h2>
 <p>A <strong>parabolic input</strong> represents constant acceleration:</p>
-<p><span class="arithmatex">\(r(t) = \frac{1}{2}t^2 \cdot u(t)\)</span></p>
+<p>$r(t) = \frac{1}{2}t^2 \cdot u(t)$</p>
 <p>In the Laplace domain:</p>
-<p><span class="arithmatex">\(\mathcal{L}\left\{\frac{1}{2}t^2 \cdot u(t)\right\} = \frac{1}{s^3}\)</span></p>
+<p>$\mathcal{L}\left{\frac{1}{2}t^2 \cdot u(t)\right} = \frac{1}{s^3}$</p>
 <p>Parabolic inputs test a system's ability to track accelerating references—think of a missile interceptor tracking a maneuvering target, or a telescope tracking a celestial object with varying angular rate.</p>
 <p>The parabolic response reveals the <strong>acceleration error coefficient</strong> and becomes important when analyzing higher-order system types. Most basic control systems cannot track a parabolic input without growing error; this limitation motivates the design of higher-type controllers.</p>
 <h2 id="the-sinusoidal-input">The Sinusoidal Input</h2>
 <p>The <strong>sinusoidal input</strong> is fundamentally different from the others—it's a <em>steady-state</em> test signal rather than a transient one:</p>
-<p><span class="arithmatex">\(r(t) = A\sin(\omega t)\)</span></p>
+<p>$r(t) = A\sin(\omega t)$</p>
 <p>In the Laplace domain:</p>
-<p><span class="arithmatex">\(\mathcal{L}\{A\sin(\omega t)\} = \frac{A\omega}{s^2 + \omega^2}\)</span></p>
+<p>$\mathcal{L}{A\sin(\omega t)} = \frac{A\omega}{s^2 + \omega^2}$</p>
 <p>When a sinusoidal input is applied to a stable linear system, the output eventually settles into a sinusoid at the <em>same frequency</em> but potentially with different amplitude and phase. This behavior is the foundation of <strong>frequency response analysis</strong>, which we'll explore in later chapters.</p>
 <p>Key properties of sinusoidal steady-state response:</p>
 <ul>
 <li>Output frequency equals input frequency (no frequency change for LTI systems)</li>
-<li>Amplitude ratio depends on <span class="arithmatex">\(|G(j\omega)|\)</span></li>
-<li>Phase shift depends on <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+<li>Amplitude ratio depends on $|G(j\omega)|$</li>
+<li>Phase shift depends on $\angle G(j\omega)$</li>
 <li>Transients die out; sinusoidal pattern persists</li>
 </ul>
 <h4 id="diagram-test-input-response-comparison">Diagram: Test Input Response Comparison</h4>
@@ -2551,7 +2551,7 @@ Bloom Verb: compare, differentiate</p>
 <p>Implementation: p5.js with canvas-based controls</p>
 </details>
 <h2 id="the-complete-picture-relating-specifications-to-design">The Complete Picture: Relating Specifications to Design</h2>
-<p>Now that we've defined all the key specifications, let's see how they connect to form a coherent design framework. The beauty of second-order system analysis is that <em>just two parameters</em>—<span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span>—determine all transient specifications.</p>
+<p>Now that we've defined all the key specifications, let's see how they connect to form a coherent design framework. The beauty of second-order system analysis is that <em>just two parameters</em>—$\zeta$ and $\omega_n$—determine all transient specifications.</p>
 <table>
 <thead>
 <tr>
@@ -2563,40 +2563,40 @@ Bloom Verb: compare, differentiate</p>
 <tbody>
 <tr>
 <td>Percent Overshoot</td>
-<td><span class="arithmatex">\(e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%\)</span></td>
-<td><span class="arithmatex">\(\zeta\)</span> only</td>
+<td>$e^{-\pi\zeta/\sqrt{1-\zeta^2}} \times 100\%$</td>
+<td>$\zeta$ only</td>
 </tr>
 <tr>
 <td>Peak Time</td>
-<td><span class="arithmatex">\(\pi/(\omega_n\sqrt{1-\zeta^2})\)</span></td>
-<td><span class="arithmatex">\(\omega_n\)</span> and <span class="arithmatex">\(\zeta\)</span></td>
+<td>$\pi/(\omega_n\sqrt{1-\zeta^2})$</td>
+<td>$\omega_n$ and $\zeta$</td>
 </tr>
 <tr>
 <td>Rise Time (approx)</td>
-<td><span class="arithmatex">\(1.8/\omega_n\)</span></td>
-<td>Primarily <span class="arithmatex">\(\omega_n\)</span></td>
+<td>$1.8/\omega_n$</td>
+<td>Primarily $\omega_n$</td>
 </tr>
 <tr>
 <td>Settling Time (2%)</td>
-<td><span class="arithmatex">\(4/(\zeta\omega_n)\)</span></td>
-<td><span class="arithmatex">\(\zeta\omega_n\)</span> product</td>
+<td>$4/(\zeta\omega_n)$</td>
+<td>$\zeta\omega_n$ product</td>
 </tr>
 <tr>
 <td>Delay Time (approx)</td>
-<td><span class="arithmatex">\((1 + 0.7\zeta)/\omega_n\)</span></td>
-<td><span class="arithmatex">\(\omega_n\)</span> and <span class="arithmatex">\(\zeta\)</span></td>
+<td>$(1 + 0.7\zeta)/\omega_n$</td>
+<td>$\omega_n$ and $\zeta$</td>
 </tr>
 </tbody>
 </table>
 <p>This table reveals important trade-offs:</p>
 <ul>
-<li><strong>Overshoot vs. Settling Time</strong>: Lower <span class="arithmatex">\(\zeta\)</span> means more overshoot but can mean faster settling (if <span class="arithmatex">\(\omega_n\)</span> is high enough). It's complicated.</li>
-<li><strong>Rise Time vs. Overshoot</strong>: Faster rise (higher <span class="arithmatex">\(\omega_n\)</span>) doesn't directly affect overshoot, but systems designed for very fast rise often end up underdamped.</li>
-<li><strong>Speed vs. Stability</strong>: Aggressive designs (low <span class="arithmatex">\(\zeta\)</span>, high <span class="arithmatex">\(\omega_n\)</span>) are fast but oscillatory; conservative designs are slow but smooth.</li>
+<li><strong>Overshoot vs. Settling Time</strong>: Lower $\zeta$ means more overshoot but can mean faster settling (if $\omega_n$ is high enough). It's complicated.</li>
+<li><strong>Rise Time vs. Overshoot</strong>: Faster rise (higher $\omega_n$) doesn't directly affect overshoot, but systems designed for very fast rise often end up underdamped.</li>
+<li><strong>Speed vs. Stability</strong>: Aggressive designs (low $\zeta$, high $\omega_n$) are fast but oscillatory; conservative designs are slow but smooth.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">The Magical Number 0.707</p>
-<p>The damping ratio <span class="arithmatex">\(\zeta = 1/\sqrt{2} \approx 0.707\)</span> is special. At this value, the second-order system achieves a good balance: about 4.3% overshoot with relatively fast settling. This is often called <strong>optimal damping</strong> or <strong>Butterworth damping</strong> and appears frequently in filter design and control specifications. When in doubt, 0.7 is a reasonable starting point.</p>
+<p>The damping ratio $\zeta = 1/\sqrt{2} \approx 0.707$ is special. At this value, the second-order system achieves a good balance: about 4.3% overshoot with relatively fast settling. This is often called <strong>optimal damping</strong> or <strong>Butterworth damping</strong> and appears frequently in filter design and control specifications. When in doubt, 0.7 is a reasonable starting point.</p>
 </div>
 <h4 id="diagram-specification-trade-off-explorer">Diagram: Specification Trade-off Explorer</h4>
 <iframe src="../../sims/spec-tradeoff-explorer/main.html" width="100%" height="600px" scrolling="no"></iframe>
@@ -2641,26 +2641,26 @@ Step response plot:
 </details>
 <h2 id="design-specifications-to-system-parameters">Design Specifications to System Parameters</h2>
 <p>In practice, design often works backward: you're given specifications and must determine the system parameters that achieve them. Here's the systematic approach:</p>
-<p><strong>Given</strong>: Desired %OS and settling time <span class="arithmatex">\(t_s\)</span></p>
-<p><strong>Find</strong>: Required <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span></p>
-<p><strong>Step 1</strong>: From %OS, calculate required <span class="arithmatex">\(\zeta\)</span>:</p>
-<p><span class="arithmatex">\(\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}\)</span></p>
-<p><strong>Step 2</strong>: From settling time and <span class="arithmatex">\(\zeta\)</span>, calculate required <span class="arithmatex">\(\omega_n\)</span>:</p>
-<p><span class="arithmatex">\(\omega_n = \frac{4}{\zeta \cdot t_s}\)</span> (for 2% criterion)</p>
+<p><strong>Given</strong>: Desired %OS and settling time $t_s$</p>
+<p><strong>Find</strong>: Required $\zeta$ and $\omega_n$</p>
+<p><strong>Step 1</strong>: From %OS, calculate required $\zeta$:</p>
+<p>$\zeta = \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}}$</p>
+<p><strong>Step 2</strong>: From settling time and $\zeta$, calculate required $\omega_n$:</p>
+<p>$\omega_n = \frac{4}{\zeta \cdot t_s}$ (for 2% criterion)</p>
 <p><strong>Step 3</strong>: Verify other specifications are acceptable:</p>
 <ul>
-<li>Calculate <span class="arithmatex">\(t_r\)</span>, <span class="arithmatex">\(t_p\)</span>, <span class="arithmatex">\(t_d\)</span> using formulas above</li>
+<li>Calculate $t_r$, $t_p$, $t_d$ using formulas above</li>
 <li>Check that all specs meet requirements</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Design Example</p>
 <p><strong>Requirement</strong>: %OS ≤ 10%, settling time (2%) ≤ 1 second</p>
 <p><strong>Step 1</strong>: From 10% overshoot:
-<span class="arithmatex">\(\zeta = \frac{-\ln(0.10)}{\sqrt{\pi^2 + \ln^2(0.10)}} = \frac{2.303}{\sqrt{9.87 + 5.30}} = 0.591\)</span></p>
-<p><strong>Step 2</strong>: From <span class="arithmatex">\(t_s = 1\)</span> second:
-<span class="arithmatex">\(\omega_n = \frac{4}{0.591 \times 1} = 6.77\)</span> rad/s</p>
+$\zeta = \frac{-\ln(0.10)}{\sqrt{\pi^2 + \ln^2(0.10)}} = \frac{2.303}{\sqrt{9.87 + 5.30}} = 0.591$</p>
+<p><strong>Step 2</strong>: From $t_s = 1$ second:
+$\omega_n = \frac{4}{0.591 \times 1} = 6.77$ rad/s</p>
 <p><strong>Step 3</strong>: Verify rise time:
-<span class="arithmatex">\(t_r \approx \frac{1.8}{6.77} = 0.27\)</span> seconds (acceptable)</p>
+$t_r \approx \frac{1.8}{6.77} = 0.27$ seconds (acceptable)</p>
 </div>
 <p>This design methodology is the bread and butter of control engineering. Given performance requirements, you can immediately determine what pole locations are needed—which then informs your controller design.</p>
 <h2 id="practical-measurement-considerations">Practical Measurement Considerations</h2>
@@ -2708,18 +2708,18 @@ Step response plot:
 </ul>
 <p><strong>Transient Specifications</strong> quantify step response behavior:</p>
 <ul>
-<li><strong>Percent Overshoot</strong>: How far past the target? Determined by <span class="arithmatex">\(\zeta\)</span> alone.</li>
-<li><strong>Peak Time</strong>: When does max overshoot occur? Depends on <span class="arithmatex">\(\omega_d\)</span>.</li>
-<li><strong>Rise Time</strong>: How fast to get there? Roughly <span class="arithmatex">\(1.8/\omega_n\)</span>.</li>
-<li><strong>Settling Time</strong>: When is the drama over? Approximately <span class="arithmatex">\(4/(\zeta\omega_n)\)</span> for 2%.</li>
-<li><strong>Delay Time</strong>: Initial responsiveness. About <span class="arithmatex">\((1+0.7\zeta)/\omega_n\)</span>.</li>
+<li><strong>Percent Overshoot</strong>: How far past the target? Determined by $\zeta$ alone.</li>
+<li><strong>Peak Time</strong>: When does max overshoot occur? Depends on $\omega_d$.</li>
+<li><strong>Rise Time</strong>: How fast to get there? Roughly $1.8/\omega_n$.</li>
+<li><strong>Settling Time</strong>: When is the drama over? Approximately $4/(\zeta\omega_n)$ for 2%.</li>
+<li><strong>Delay Time</strong>: Initial responsiveness. About $(1+0.7\zeta)/\omega_n$.</li>
 </ul>
 <p><strong>Key Relationships</strong>:</p>
 <ul>
-<li>Only two parameters (<span class="arithmatex">\(\zeta\)</span>, <span class="arithmatex">\(\omega_n\)</span>) determine all second-order specs</li>
+<li>Only two parameters ($\zeta$, $\omega_n$) determine all second-order specs</li>
 <li>Trade-offs are unavoidable: you can't optimize everything simultaneously</li>
-<li><span class="arithmatex">\(\zeta \approx 0.7\)</span> often provides a good balance</li>
-<li>Design works backward: specs → <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_n\)</span> → pole placement</li>
+<li>$\zeta \approx 0.7$ often provides a good balance</li>
+<li>Design works backward: specs → $\zeta$ and $\omega_n$ → pole placement</li>
 </ul>
 <div class="admonition quote">
 <p class="admonition-title">Gyra's Design Summary</p>
@@ -2731,9 +2731,9 @@ Step response plot:
 <p>Before moving on, see if you can answer these:</p>
 <ol>
 <li>A system has 20% overshoot. What is its approximate damping ratio?</li>
-<li>If you double <span class="arithmatex">\(\omega_n\)</span> while keeping <span class="arithmatex">\(\zeta\)</span> constant, what happens to: (a) percent overshoot, (b) settling time, (c) rise time?</li>
-<li>Two systems have the same settling time but different overshoot. Which has higher <span class="arithmatex">\(\omega_n\)</span>—the one with more overshoot or less? (Think carefully!)</li>
-<li>You measure a step response and see that the output first reaches the final value at <span class="arithmatex">\(t = 0.5\)</span> seconds, then overshoots to 110% of final at <span class="arithmatex">\(t = 0.8\)</span> seconds. Estimate the damping ratio and natural frequency.</li>
+<li>If you double $\omega_n$ while keeping $\zeta$ constant, what happens to: (a) percent overshoot, (b) settling time, (c) rise time?</li>
+<li>Two systems have the same settling time but different overshoot. Which has higher $\omega_n$—the one with more overshoot or less? (Think carefully!)</li>
+<li>You measure a step response and see that the output first reaches the final value at $t = 0.5$ seconds, then overshoots to 110% of final at $t = 0.8$ seconds. Estimate the damping ratio and natural frequency.</li>
 </ol>
 <p>Work through these before checking your answers with the MicroSims!</p>
 </details>

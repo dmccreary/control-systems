@@ -2040,23 +2040,23 @@
 <p>Here's the remarkable insight: two systems with completely different physical implementations—an electrical circuit and a mechanical suspension, say—will behave identically if they share the same pole and zero locations. The s-plane is the universal language of linear dynamics, transcending the specifics of springs, capacitors, or hydraulic cylinders. Master this language, and you can analyze anything.</p>
 <p>In this chapter, we'll develop the vocabulary and visual intuition to read pole-zero maps fluently. By the end, you'll be able to glance at a pole-zero plot and immediately know whether the system will be stable, how fast it will respond, whether it will oscillate, and what kind of controller might improve it. That's a genuine engineering superpower.</p>
 <h2 id="poles-where-the-action-happens">Poles: Where the Action Happens</h2>
-<p>The <strong>poles</strong> of a transfer function are the values of <span class="arithmatex">\(s\)</span> that make the denominator equal to zero—they're the roots of the characteristic equation. If you have a transfer function:</p>
+<p>The <strong>poles</strong> of a transfer function are the values of $s$ that make the denominator equal to zero—they're the roots of the characteristic equation. If you have a transfer function:</p>
 <h4 id="transfer-function-form">Transfer Function Form</h4>
-<p><span class="arithmatex">\(G(s) = \frac{N(s)}{D(s)}\)</span></p>
+<p>$G(s) = \frac{N(s)}{D(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(N(s)\)</span> is the numerator polynomial</li>
-<li><span class="arithmatex">\(D(s)\)</span> is the denominator polynomial</li>
+<li>$N(s)$ is the numerator polynomial</li>
+<li>$D(s)$ is the denominator polynomial</li>
 </ul>
-<p>Then the poles are the solutions to <span class="arithmatex">\(D(s) = 0\)</span>.</p>
+<p>Then the poles are the solutions to $D(s) = 0$.</p>
 <p>Why do we call them "poles"? If you imagine the transfer function magnitude as a surface over the s-plane, poles are points where this surface shoots up to infinity—like tent poles holding up a canvas. The mathematical term comes from complex analysis, but the visual metaphor is apt: poles are where the action is.</p>
 <p>Consider this transfer function:</p>
 <h4 id="example-transfer-function">Example Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{5}{(s+2)(s+5)}\)</span></p>
-<p>The poles are at <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -5\)</span>. At these values, the denominator becomes zero, and the transfer function theoretically "blows up." But here's the crucial point: while we never actually operate the system at its pole frequencies, the pole locations completely determine how the system responds to <em>any</em> input.</p>
+<p>$G(s) = \frac{5}{(s+2)(s+5)}$</p>
+<p>The poles are at $s = -2$ and $s = -5$. At these values, the denominator becomes zero, and the transfer function theoretically "blows up." But here's the crucial point: while we never actually operate the system at its pole frequencies, the pole locations completely determine how the system responds to <em>any</em> input.</p>
 <p>Each pole contributes a component to the natural response. For real poles:</p>
 <ul>
-<li>A pole at <span class="arithmatex">\(s = -a\)</span> contributes a term <span class="arithmatex">\(e^{-at}\)</span> to the time response</li>
+<li>A pole at $s = -a$ contributes a term $e^{-at}$ to the time response</li>
 <li>More negative poles decay faster</li>
 <li>Poles closer to the imaginary axis dominate the response</li>
 </ul>
@@ -2070,18 +2070,18 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s = -2\)</span></td>
-<td><span class="arithmatex">\(e^{-2t}\)</span></td>
+<td>$s = -2$</td>
+<td>$e^{-2t}$</td>
 <td>Decays with time constant 0.5s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = -5\)</span></td>
-<td><span class="arithmatex">\(e^{-5t}\)</span></td>
+<td>$s = -5$</td>
+<td>$e^{-5t}$</td>
 <td>Decays with time constant 0.2s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = -0.1\)</span></td>
-<td><span class="arithmatex">\(e^{-0.1t}\)</span></td>
+<td>$s = -0.1$</td>
+<td>$e^{-0.1t}$</td>
 <td>Slowly decaying (dominates!)</td>
 </tr>
 </tbody>
@@ -2091,11 +2091,11 @@
 <p>"Every pole in my transfer function is a voice in my response. The poles closest to the imaginary axis are the loudest—they're the last ones to quiet down after a disturbance. When my engineers want to speed me up, they push my poles further left. When they want me calmer, they add damping to spread the poles apart. My behavior is literally mapped on the s-plane."</p>
 </div>
 <h2 id="zeros-shaping-the-response">Zeros: Shaping the Response</h2>
-<p>While poles determine <em>what</em> response modes exist, <strong>zeros</strong> shape <em>how much</em> of each mode appears in the output. Zeros are the values of <span class="arithmatex">\(s\)</span> that make the numerator equal to zero—the roots of <span class="arithmatex">\(N(s) = 0\)</span>.</p>
+<p>While poles determine <em>what</em> response modes exist, <strong>zeros</strong> shape <em>how much</em> of each mode appears in the output. Zeros are the values of $s$ that make the numerator equal to zero—the roots of $N(s) = 0$.</p>
 <p>For the transfer function:</p>
 <h4 id="transfer-function-with-zero">Transfer Function with Zero</h4>
-<p><span class="arithmatex">\(G(s) = \frac{s+3}{(s+2)(s+5)}\)</span></p>
-<p>The zero is at <span class="arithmatex">\(s = -3\)</span>. Zeros have a remarkable property: they can suppress or enhance certain response characteristics.</p>
+<p>$G(s) = \frac{s+3}{(s+2)(s+5)}$</p>
+<p>The zero is at $s = -3$. Zeros have a remarkable property: they can suppress or enhance certain response characteristics.</p>
 <p>Here's the intuition: if you place a zero near a pole, the zero partially "cancels" that pole's contribution to the response. If you place a zero far from any poles, it has less effect on the dominant dynamics. This gives designers a tool—add zeros through controllers to reshape the response without changing the fundamental pole locations.</p>
 <p>Key effects of zeros:</p>
 <ul>
@@ -2134,8 +2134,8 @@
 <ul>
 <li><strong>Poles</strong> are marked with ✕ symbols</li>
 <li><strong>Zeros</strong> are marked with ○ symbols</li>
-<li>The horizontal axis is the real part of <span class="arithmatex">\(s\)</span> (σ)</li>
-<li>The vertical axis is the imaginary part of <span class="arithmatex">\(s\)</span> (jω)</li>
+<li>The horizontal axis is the real part of $s$ (σ)</li>
+<li>The vertical axis is the imaginary part of $s$ (jω)</li>
 </ul>
 <p>This simple diagram packs enormous information. At a glance, you can determine:</p>
 <ul>
@@ -2195,24 +2195,24 @@ S-Plane:
 <p>Implementation: p5.js with draggable elements and real-time response calculation</p>
 </details>
 <h2 id="real-poles">Real Poles</h2>
-<p><strong>Real poles</strong> lie on the real axis of the s-plane—they have no imaginary component. A real pole at <span class="arithmatex">\(s = -a\)</span> (where <span class="arithmatex">\(a &gt; 0\)</span>) contributes an exponentially decaying term <span class="arithmatex">\(Ae^{-at}\)</span> to the time response.</p>
+<p><strong>Real poles</strong> lie on the real axis of the s-plane—they have no imaginary component. A real pole at $s = -a$ (where $a &gt; 0$) contributes an exponentially decaying term $Ae^{-at}$ to the time response.</p>
 <p>The location determines everything:</p>
 <ul>
-<li><strong>Magnitude <span class="arithmatex">\(|a|\)</span></strong>: Determines decay rate (larger = faster)</li>
+<li><strong>Magnitude $|a|$</strong>: Determines decay rate (larger = faster)</li>
 <li><strong>Sign</strong>: Negative (left of origin) = stable, Positive (right) = unstable</li>
-<li><strong>Distance from origin</strong>: Time constant <span class="arithmatex">\(\tau = 1/|a|\)</span></li>
+<li><strong>Distance from origin</strong>: Time constant $\tau = 1/|a|$</li>
 </ul>
 <p>Real poles produce smooth, monotonic response components—no oscillation. A first-order system has exactly one real pole. Second-order overdamped systems have two distinct real poles.</p>
 <h4 id="real-pole-step-response">Real Pole Step Response</h4>
-<p>For a system with a single real pole at <span class="arithmatex">\(s = -a\)</span>:</p>
-<p><span class="arithmatex">\(G(s) = \frac{K \cdot a}{s + a}\)</span></p>
+<p>For a system with a single real pole at $s = -a$:</p>
+<p>$G(s) = \frac{K \cdot a}{s + a}$</p>
 <p>The step response is:</p>
-<p><span class="arithmatex">\(y(t) = K(1 - e^{-at})\)</span></p>
+<p>$y(t) = K(1 - e^{-at})$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the DC gain</li>
-<li><span class="arithmatex">\(a\)</span> is the pole magnitude (determines speed)</li>
-<li><span class="arithmatex">\(\tau = 1/a\)</span> is the time constant</li>
+<li>$K$ is the DC gain</li>
+<li>$a$ is the pole magnitude (determines speed)</li>
+<li>$\tau = 1/a$ is the time constant</li>
 </ul>
 <table>
 <thead>
@@ -2225,19 +2225,19 @@ S-Plane:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s = -1\)</span></td>
+<td>$s = -1$</td>
 <td>1 second</td>
 <td>1 s</td>
 <td>5 s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = -5\)</span></td>
+<td>$s = -5$</td>
 <td>0.2 seconds</td>
 <td>0.2 s</td>
 <td>1 s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = -0.5\)</span></td>
+<td>$s = -0.5$</td>
 <td>2 seconds</td>
 <td>2 s</td>
 <td>10 s</td>
@@ -2245,25 +2245,25 @@ S-Plane:
 </tbody>
 </table>
 <h2 id="complex-conjugate-poles">Complex Conjugate Poles</h2>
-<p><strong>Complex conjugate poles</strong> always come in pairs (for systems with real coefficients) and create oscillatory behavior. A pair at <span class="arithmatex">\(s = -\sigma \pm j\omega_d\)</span> produces a damped sinusoidal response:</p>
+<p><strong>Complex conjugate poles</strong> always come in pairs (for systems with real coefficients) and create oscillatory behavior. A pair at $s = -\sigma \pm j\omega_d$ produces a damped sinusoidal response:</p>
 <h4 id="damped-sinusoidal-response">Damped Sinusoidal Response</h4>
-<p><span class="arithmatex">\(y(t) = Ae^{-\sigma t}\sin(\omega_d t + \phi)\)</span></p>
+<p>$y(t) = Ae^{-\sigma t}\sin(\omega_d t + \phi)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\sigma = \zeta\omega_n\)</span> is the decay rate (real part magnitude)</li>
-<li><span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span> is the damped frequency</li>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+<li>$\sigma = \zeta\omega_n$ is the decay rate (real part magnitude)</li>
+<li>$\omega_d = \omega_n\sqrt{1-\zeta^2}$ is the damped frequency</li>
+<li>$\zeta$ is the damping ratio</li>
+<li>$\omega_n$ is the natural frequency</li>
 </ul>
 <p>The geometry of complex pole locations directly encodes the dynamic parameters:</p>
 <ul>
-<li><strong>Distance from origin</strong>: <span class="arithmatex">\(\omega_n = \sqrt{\sigma^2 + \omega_d^2}\)</span> (natural frequency)</li>
-<li><strong>Angle from negative real axis</strong>: <span class="arithmatex">\(\theta = \cos^{-1}(\zeta)\)</span> (damping ratio)</li>
-<li><strong>Real part magnitude</strong>: <span class="arithmatex">\(\sigma = \zeta\omega_n\)</span> (decay rate)</li>
+<li><strong>Distance from origin</strong>: $\omega_n = \sqrt{\sigma^2 + \omega_d^2}$ (natural frequency)</li>
+<li><strong>Angle from negative real axis</strong>: $\theta = \cos^{-1}(\zeta)$ (damping ratio)</li>
+<li><strong>Real part magnitude</strong>: $\sigma = \zeta\omega_n$ (decay rate)</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Reading ζ from the S-Plane</p>
-<p>Draw a line from the origin to a complex pole. The angle θ this line makes with the negative real axis relates to damping: <span class="arithmatex">\(\zeta = \cos(\theta)\)</span>. Poles at 45° have ζ = 0.707 (often considered optimal). Poles near the imaginary axis (large θ) are lightly damped. Poles near the real axis (small θ) are heavily damped.</p>
+<p>Draw a line from the origin to a complex pole. The angle θ this line makes with the negative real axis relates to damping: $\zeta = \cos(\theta)$. Poles at 45° have ζ = 0.707 (often considered optimal). Poles near the imaginary axis (large θ) are lightly damped. Poles near the real axis (small θ) are heavily damped.</p>
 </div>
 <h4 id="diagram-complex-pole-geometry">Diagram: Complex Pole Geometry</h4>
 <iframe src="../../sims/complex-pole-geometry/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -2322,16 +2322,16 @@ S-Plane:
 </div>
 <h2 id="simple-poles-vs-repeated-poles">Simple Poles vs. Repeated Poles</h2>
 <p>A <strong>simple pole</strong> is a pole of multiplicity one—it appears exactly once as a root of the characteristic equation. Most poles you'll encounter are simple poles, and they contribute straightforward exponential or oscillatory components to the response.</p>
-<p><strong>Repeated poles</strong> (also called multiple poles) occur when a root appears more than once. A pole of multiplicity <span class="arithmatex">\(m\)</span> at <span class="arithmatex">\(s = -a\)</span> appears as a factor <span class="arithmatex">\((s+a)^m\)</span> in the denominator.</p>
+<p><strong>Repeated poles</strong> (also called multiple poles) occur when a root appears more than once. A pole of multiplicity $m$ at $s = -a$ appears as a factor $(s+a)^m$ in the denominator.</p>
 <p>The key difference is in the time response:</p>
 <h4 id="simple-vs-repeated-pole-response">Simple vs Repeated Pole Response</h4>
-<p>For a simple pole at <span class="arithmatex">\(s = -a\)</span>:</p>
-<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{s+a}\right\} = e^{-at}\)</span></p>
-<p>For a repeated pole of order 2 at <span class="arithmatex">\(s = -a\)</span>:</p>
-<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{(s+a)^2}\right\} = te^{-at}\)</span></p>
+<p>For a simple pole at $s = -a$:</p>
+<p>$\mathcal{L}^{-1}\left{\frac{1}{s+a}\right} = e^{-at}$</p>
+<p>For a repeated pole of order 2 at $s = -a$:</p>
+<p>$\mathcal{L}^{-1}\left{\frac{1}{(s+a)^2}\right} = te^{-at}$</p>
 <p>For a repeated pole of order 3:</p>
-<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{(s+a)^3}\right\} = \frac{t^2}{2}e^{-at}\)</span></p>
-<p>The pattern continues: multiplicity <span class="arithmatex">\(m\)</span> contributes terms up to <span class="arithmatex">\(t^{m-1}e^{-at}\)</span>.</p>
+<p>$\mathcal{L}^{-1}\left{\frac{1}{(s+a)^3}\right} = \frac{t^2}{2}e^{-at}$</p>
+<p>The pattern continues: multiplicity $m$ contributes terms up to $t^{m-1}e^{-at}$.</p>
 <table>
 <thead>
 <tr>
@@ -2342,33 +2342,33 @@ S-Plane:
 </thead>
 <tbody>
 <tr>
-<td>Simple at <span class="arithmatex">\(-a\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{s+a}\)</span></td>
-<td><span class="arithmatex">\(e^{-at}\)</span></td>
+<td>Simple at $-a$</td>
+<td>$\frac{1}{s+a}$</td>
+<td>$e^{-at}$</td>
 </tr>
 <tr>
-<td>Double at <span class="arithmatex">\(-a\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{(s+a)^2}\)</span></td>
-<td><span class="arithmatex">\(te^{-at}\)</span></td>
+<td>Double at $-a$</td>
+<td>$\frac{1}{(s+a)^2}$</td>
+<td>$te^{-at}$</td>
 </tr>
 <tr>
-<td>Triple at <span class="arithmatex">\(-a\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{(s+a)^3}\)</span></td>
-<td><span class="arithmatex">\(\frac{t^2}{2}e^{-at}\)</span></td>
+<td>Triple at $-a$</td>
+<td>$\frac{1}{(s+a)^3}$</td>
+<td>$\frac{t^2}{2}e^{-at}$</td>
 </tr>
 </tbody>
 </table>
-<p>The polynomial factor (<span class="arithmatex">\(t\)</span>, <span class="arithmatex">\(t^2\)</span>, etc.) causes the response to initially grow before the exponential decay dominates. Critically damped second-order systems have a repeated pole—that's why their response has the form <span class="arithmatex">\((1 + \omega_n t)e^{-\omega_n t}\)</span>.</p>
+<p>The polynomial factor ($t$, $t^2$, etc.) causes the response to initially grow before the exponential decay dominates. Critically damped second-order systems have a repeated pole—that's why their response has the form $(1 + \omega_n t)e^{-\omega_n t}$.</p>
 <div class="admonition note">
 <p class="admonition-title">Repeated Poles in Practice</p>
 <p>Repeated poles are mathematically interesting but somewhat rare in physical systems. They represent a knife-edge condition—a tiny change in parameters would split the repeated pole into two nearby simple poles. In design, we often aim for repeated poles when we want critical damping.</p>
 </div>
 <h2 id="pole-at-origin">Pole at Origin</h2>
-<p>A <strong>pole at the origin</strong> (<span class="arithmatex">\(s = 0\)</span>) has special significance. It corresponds to an integrator in the system—a component that accumulates its input over time. In the time domain, a pole at <span class="arithmatex">\(s = 0\)</span> contributes a constant or a ramp, depending on the input.</p>
+<p>A <strong>pole at the origin</strong> ($s = 0$) has special significance. It corresponds to an integrator in the system—a component that accumulates its input over time. In the time domain, a pole at $s = 0$ contributes a constant or a ramp, depending on the input.</p>
 <h4 id="integrator-transfer-function">Integrator Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{1}{s}\)</span></p>
+<p>$G(s) = \frac{1}{s}$</p>
 <p>This is a pure integrator. Its step response is a ramp:</p>
-<p><span class="arithmatex">\(y(t) = t\)</span></p>
+<p>$y(t) = t$</p>
 <p>The output grows without bound—there's no decay because the pole's real part is zero.</p>
 <p>Poles at the origin are neither stable nor unstable—they're <strong>marginally stable</strong>. The system doesn't blow up, but it doesn't settle down either. This is characteristic of systems with no restoring force or inherent feedback, such as:</p>
 <ul>
@@ -2407,19 +2407,19 @@ S-Plane:
 <p>"I have something like a pole at the origin—or very close to it. When I lean forward slightly, I don't spring back automatically. Without my controller constantly applying corrective torque, I'd just keep falling. That's what an integrator does: any small disturbance accumulates into a big problem. My controller has to actively fight this tendency every millisecond. If the controller sleeps, I fall."</p>
 </div>
 <h2 id="poles-in-the-left-half-plane">Poles in the Left Half Plane</h2>
-<p><strong>Poles in the left half plane (LHP)</strong> are the hallmark of stable systems. Any pole with a negative real part (<span class="arithmatex">\(\text{Re}(s) &lt; 0\)</span>) contributes a decaying component to the time response—whether exponential decay for real poles or damped oscillation for complex poles.</p>
+<p><strong>Poles in the left half plane (LHP)</strong> are the hallmark of stable systems. Any pole with a negative real part ($\text{Re}(s) &lt; 0$) contributes a decaying component to the time response—whether exponential decay for real poles or damped oscillation for complex poles.</p>
 <p>For stability, <em>all</em> poles must be in the LHP. This is the fundamental stability criterion:</p>
 <div class="admonition success">
 <p class="admonition-title">Stability Criterion</p>
 <p>A linear time-invariant system is <strong>stable</strong> if and only if all poles of its transfer function lie in the open left half-plane (excluding the imaginary axis).</p>
 </div>
 <p>The farther a pole is to the left, the faster its contribution decays. This gives us a design principle: if we want a faster system, push the poles leftward. But there are limits—real actuators can't respond infinitely fast, and pushing poles too far left requires high gains that amplify noise.</p>
-<p>Consider a system with poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -10\)</span>:</p>
+<p>Consider a system with poles at $s = -1$ and $s = -10$:</p>
 <ul>
-<li>The pole at <span class="arithmatex">\(s = -1\)</span> has time constant <span class="arithmatex">\(\tau = 1\)</span> s</li>
-<li>The pole at <span class="arithmatex">\(s = -10\)</span> has time constant <span class="arithmatex">\(\tau = 0.1\)</span> s</li>
+<li>The pole at $s = -1$ has time constant $\tau = 1$ s</li>
+<li>The pole at $s = -10$ has time constant $\tau = 0.1$ s</li>
 </ul>
-<p>After about 0.5 seconds, the contribution from the <span class="arithmatex">\(s = -10\)</span> pole has decayed to essentially nothing, while the <span class="arithmatex">\(s = -1\)</span> pole is just getting started. The leftmost pole is "fast" and becomes negligible quickly; the rightmost pole (still in LHP) "dominates" the long-term response.</p>
+<p>After about 0.5 seconds, the contribution from the $s = -10$ pole has decayed to essentially nothing, while the $s = -1$ pole is just getting started. The leftmost pole is "fast" and becomes negligible quickly; the rightmost pole (still in LHP) "dominates" the long-term response.</p>
 <h4 id="diagram-lhp-pole-effects">Diagram: LHP Pole Effects</h4>
 <iframe src="../../sims/lhp-pole-effects/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
@@ -2463,9 +2463,9 @@ S-Plane:
 <p>Implementation: p5.js with constrained dragging and multi-curve plotting</p>
 </details>
 <h2 id="poles-in-the-right-half-plane">Poles in the Right Half Plane</h2>
-<p><strong>Poles in the right half plane (RHP)</strong> spell disaster. A pole with a positive real part (<span class="arithmatex">\(\text{Re}(s) &gt; 0\)</span>) contributes an exponentially <em>growing</em> component to the response. The system is <strong>unstable</strong>—any disturbance, no matter how small, will eventually cause the output to blow up.</p>
-<p>For a pole at <span class="arithmatex">\(s = +a\)</span> (where <span class="arithmatex">\(a &gt; 0\)</span>):</p>
-<p><span class="arithmatex">\(y(t) \propto e^{+at}\)</span></p>
+<p><strong>Poles in the right half plane (RHP)</strong> spell disaster. A pole with a positive real part ($\text{Re}(s) &gt; 0$) contributes an exponentially <em>growing</em> component to the response. The system is <strong>unstable</strong>—any disturbance, no matter how small, will eventually cause the output to blow up.</p>
+<p>For a pole at $s = +a$ (where $a &gt; 0$):</p>
+<p>$y(t) \propto e^{+at}$</p>
 <p>This grows without bound. In practice, physical systems don't actually reach infinity—they hit actuator limits, break, catch fire, or otherwise demonstrate that mathematical models have their limits. But the point stands: RHP poles must be eliminated through feedback or the system is unusable.</p>
 <div class="admonition danger">
 <p class="admonition-title">Unstable Systems</p>
@@ -2481,8 +2481,8 @@ S-Plane:
 <p>The good news: feedback control can move poles. A major goal of controller design is to take an unstable open-loop system and create a stable closed-loop system by moving RHP poles into the LHP.</p>
 <h2 id="poles-on-the-imaginary-axis">Poles on the Imaginary Axis</h2>
 <p><strong>Poles on the imaginary axis</strong> represent the boundary between stability and instability. They produce sustained oscillations that neither grow nor decay—<strong>marginal stability</strong>.</p>
-<p>A pair of complex conjugate poles at <span class="arithmatex">\(s = \pm j\omega\)</span> contributes:</p>
-<p><span class="arithmatex">\(y(t) = A\cos(\omega t + \phi)\)</span></p>
+<p>A pair of complex conjugate poles at $s = \pm j\omega$ contributes:</p>
+<p>$y(t) = A\cos(\omega t + \phi)$</p>
 <p>This oscillation continues forever at constant amplitude. There's no damping (the real part is zero), so energy is neither added nor removed.</p>
 <p>Examples of systems with imaginary-axis poles:</p>
 <ul>
@@ -2525,8 +2525,8 @@ S-Plane:
 <p>The <strong>system order</strong> is the degree of the denominator polynomial of the transfer function—equivalently, the number of poles (counting multiplicity). System order determines the maximum complexity of the response and corresponds to the number of independent energy storage elements.</p>
 <p>For a transfer function:</p>
 <h4 id="general-transfer-function">General Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{b_m s^m + b_{m-1}s^{m-1} + \cdots + b_0}{a_n s^n + a_{n-1}s^{n-1} + \cdots + a_0}\)</span></p>
-<p>The system order is <span class="arithmatex">\(n\)</span> (the degree of the denominator).</p>
+<p>$G(s) = \frac{b_m s^m + b_{m-1}s^{m-1} + \cdots + b_0}{a_n s^n + a_{n-1}s^{n-1} + \cdots + a_0}$</p>
+<p>The system order is $n$ (the degree of the denominator).</p>
 <table>
 <thead>
 <tr>
@@ -2568,13 +2568,13 @@ S-Plane:
 <h2 id="proper-and-strictly-proper-transfer-functions">Proper and Strictly Proper Transfer Functions</h2>
 <p>A transfer function's "properness" relates the degrees of its numerator and denominator. This classification has important implications for physical realizability and high-frequency behavior.</p>
 <p>A <strong>proper transfer function</strong> has:</p>
-<p><span class="arithmatex">\(\deg(N(s)) \leq \deg(D(s))\)</span></p>
+<p>$\deg(N(s)) \leq \deg(D(s))$</p>
 <p>In other words, the numerator degree is less than or equal to the denominator degree. All physically realizable systems are proper.</p>
 <p>A <strong>strictly proper transfer function</strong> has:</p>
-<p><span class="arithmatex">\(\deg(N(s)) &lt; \deg(D(s))\)</span></p>
+<p>$\deg(N(s)) &lt; \deg(D(s))$</p>
 <p>The numerator degree is strictly less than the denominator degree.</p>
 <p>An <strong>improper transfer function</strong> has:</p>
-<p><span class="arithmatex">\(\deg(N(s)) &gt; \deg(D(s))\)</span></p>
+<p>$\deg(N(s)) &gt; \deg(D(s))$</p>
 <p>Improper transfer functions are not physically realizable—they would require predicting the future or infinite bandwidth.</p>
 <table>
 <thead>
@@ -2587,25 +2587,25 @@ S-Plane:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\frac{5}{s+2}\)</span></td>
+<td>$\frac{5}{s+2}$</td>
 <td>0</td>
 <td>1</td>
 <td>Strictly proper</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{s+1}{s+2}\)</span></td>
+<td>$\frac{s+1}{s+2}$</td>
 <td>1</td>
 <td>1</td>
 <td>Proper</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{s+1}{(s+2)(s+3)}\)</span></td>
+<td>$\frac{s+1}{(s+2)(s+3)}$</td>
 <td>1</td>
 <td>2</td>
 <td>Strictly proper</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{s^2+1}{s+2}\)</span></td>
+<td>$\frac{s^2+1}{s+2}$</td>
 <td>2</td>
 <td>1</td>
 <td>Improper</td>
@@ -2618,13 +2618,13 @@ S-Plane:
 </div>
 <p>For control design, we typically work with strictly proper plants (most physical systems) and may add proper controllers. Improper controllers can sometimes arise in theory but require approximation for implementation.</p>
 <h2 id="dc-gain">DC Gain</h2>
-<p>The <strong>DC gain</strong> is the system's steady-state output-to-input ratio for a constant input—what happens when all the transients have died out and the system has fully settled. It's found by evaluating the transfer function at <span class="arithmatex">\(s = 0\)</span>:</p>
+<p>The <strong>DC gain</strong> is the system's steady-state output-to-input ratio for a constant input—what happens when all the transients have died out and the system has fully settled. It's found by evaluating the transfer function at $s = 0$:</p>
 <h4 id="dc-gain-formula">DC Gain Formula</h4>
-<p><span class="arithmatex">\(K_{DC} = G(0) = \lim_{s \to 0} G(s)\)</span></p>
+<p>$K_{DC} = G(0) = \lim_{s \to 0} G(s)$</p>
 <p>For a transfer function:</p>
-<p><span class="arithmatex">\(G(s) = \frac{5(s+3)}{(s+1)(s+2)}\)</span></p>
+<p>$G(s) = \frac{5(s+3)}{(s+1)(s+2)}$</p>
 <p>The DC gain is:</p>
-<p><span class="arithmatex">\(K_{DC} = G(0) = \frac{5(0+3)}{(0+1)(0+2)} = \frac{15}{2} = 7.5\)</span></p>
+<p>$K_{DC} = G(0) = \frac{5(0+3)}{(0+1)(0+2)} = \frac{15}{2} = 7.5$</p>
 <p>This means a unit step input produces a steady-state output of 7.5.</p>
 <p>DC gain tells you the "amplification" of the system for slowly-varying signals. It's crucial for:</p>
 <ul>
@@ -2642,39 +2642,39 @@ S-Plane:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\frac{3}{s+2}\)</span></td>
-<td><span class="arithmatex">\(3/2 = 1.5\)</span></td>
+<td>$\frac{3}{s+2}$</td>
+<td>$3/2 = 1.5$</td>
 <td>1.5</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{10}{(s+1)(s+5)}\)</span></td>
-<td><span class="arithmatex">\(10/5 = 2\)</span></td>
+<td>$\frac{10}{(s+1)(s+5)}$</td>
+<td>$10/5 = 2$</td>
 <td>2</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{s+2}{s+5}\)</span></td>
-<td><span class="arithmatex">\(2/5 = 0.4\)</span></td>
+<td>$\frac{s+2}{s+5}$</td>
+<td>$2/5 = 0.4$</td>
 <td>0.4</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Poles at Origin</p>
-<p>If the system has a pole at the origin (an integrator), the DC gain is infinite—<span class="arithmatex">\(G(0)\)</span> blows up. This makes physical sense: an integrator's response to a constant input is a ramp that grows forever. For such systems, we talk about "velocity constants" or "position constants" instead.</p>
+<p>If the system has a pole at the origin (an integrator), the DC gain is infinite—$G(0)$ blows up. This makes physical sense: an integrator's response to a constant input is a ramp that grows forever. For such systems, we talk about "velocity constants" or "position constants" instead.</p>
 </div>
 <h2 id="dominant-poles">Dominant Poles</h2>
 <p>In higher-order systems, not all poles contribute equally to the response. <strong>Dominant poles</strong> are the poles closest to the imaginary axis—they decay slowest and therefore dominate the long-term transient behavior.</p>
-<p>Consider a third-order system with poles at <span class="arithmatex">\(s = -1\)</span>, <span class="arithmatex">\(s = -2\)</span>, and <span class="arithmatex">\(s = -10\)</span>:</p>
+<p>Consider a third-order system with poles at $s = -1$, $s = -2$, and $s = -10$:</p>
 <ul>
-<li>Pole at <span class="arithmatex">\(s = -1\)</span>: time constant <span class="arithmatex">\(\tau = 1\)</span> s, contributes <span class="arithmatex">\(e^{-t}\)</span></li>
-<li>Pole at <span class="arithmatex">\(s = -2\)</span>: time constant <span class="arithmatex">\(\tau = 0.5\)</span> s, contributes <span class="arithmatex">\(e^{-2t}\)</span></li>
-<li>Pole at <span class="arithmatex">\(s = -10\)</span>: time constant <span class="arithmatex">\(\tau = 0.1\)</span> s, contributes <span class="arithmatex">\(e^{-10t}\)</span></li>
+<li>Pole at $s = -1$: time constant $\tau = 1$ s, contributes $e^{-t}$</li>
+<li>Pole at $s = -2$: time constant $\tau = 0.5$ s, contributes $e^{-2t}$</li>
+<li>Pole at $s = -10$: time constant $\tau = 0.1$ s, contributes $e^{-10t}$</li>
 </ul>
-<p>After <span class="arithmatex">\(t = 0.5\)</span> seconds:
-- <span class="arithmatex">\(e^{-10(0.5)} = e^{-5} \approx 0.007\)</span> (essentially zero)
-- <span class="arithmatex">\(e^{-2(0.5)} = e^{-1} \approx 0.37\)</span> (significant)
-- <span class="arithmatex">\(e^{-1(0.5)} = e^{-0.5} \approx 0.61\)</span> (dominant)</p>
-<p>The pole at <span class="arithmatex">\(s = -10\)</span> is effectively "invisible" after the first half-second. The pole at <span class="arithmatex">\(s = -1\)</span> dominates the settling behavior.</p>
+<p>After $t = 0.5$ seconds:
+- $e^{-10(0.5)} = e^{-5} \approx 0.007$ (essentially zero)
+- $e^{-2(0.5)} = e^{-1} \approx 0.37$ (significant)
+- $e^{-1(0.5)} = e^{-0.5} \approx 0.61$ (dominant)</p>
+<p>The pole at $s = -10$ is effectively "invisible" after the first half-second. The pole at $s = -1$ dominates the settling behavior.</p>
 <div class="admonition tip">
 <p class="admonition-title">The Factor of 5 Rule</p>
 <p>A common approximation: if a pole is more than 5 times farther from the imaginary axis than the dominant pole(s), its contribution can often be neglected for design purposes. The system can then be approximated by a lower-order model containing only the dominant poles.</p>
@@ -2725,14 +2725,14 @@ S-Plane:
 <h2 id="pole-zero-cancellation">Pole-Zero Cancellation</h2>
 <p><strong>Pole-zero cancellation</strong> occurs when a zero is located at or very near the same location as a pole. In the transfer function:</p>
 <h4 id="cancellation-example">Cancellation Example</h4>
-<p><span class="arithmatex">\(G(s) = \frac{s+2}{(s+2)(s+5)} = \frac{1}{s+5}\)</span></p>
-<p>The zero at <span class="arithmatex">\(s = -2\)</span> "cancels" the pole at <span class="arithmatex">\(s = -2\)</span>, leaving a first-order system.</p>
+<p>$G(s) = \frac{s+2}{(s+2)(s+5)} = \frac{1}{s+5}$</p>
+<p>The zero at $s = -2$ "cancels" the pole at $s = -2$, leaving a first-order system.</p>
 <p>But wait—is this really that simple? Mathematically, yes. Practically, it's more nuanced.</p>
 <p><strong>Perfect cancellation</strong> (exact match) eliminates the pole's contribution entirely. The mode associated with that pole simply doesn't appear in the transfer function output.</p>
 <p><strong>Imperfect cancellation</strong> (pole and zero close but not identical) is more realistic. Manufacturing tolerances and parameter variations mean exact cancellation is nearly impossible. A small mismatch leaves a lightly-weighted pole that may still affect transient behavior.</p>
 <div class="admonition warning">
 <p class="admonition-title">Hidden Modes</p>
-<p>Cancellation can hide dynamics but doesn't eliminate them. If a pole at <span class="arithmatex">\(s = -2\)</span> is cancelled but initial conditions excite that mode, the response will still contain <span class="arithmatex">\(e^{-2t}\)</span> components. Cancellation affects the forced response but not the natural response. This distinction matters for stability analysis and internal stability.</p>
+<p>Cancellation can hide dynamics but doesn't eliminate them. If a pole at $s = -2$ is cancelled but initial conditions excite that mode, the response will still contain $e^{-2t}$ components. Cancellation affects the forced response but not the natural response. This distinction matters for stability analysis and internal stability.</p>
 </div>
 <table>
 <thead>
@@ -2767,7 +2767,7 @@ Which poles are closest to the imaginary axis? These dominate the response.</p>
 <ul>
 <li>All real poles → No oscillation</li>
 <li>Complex conjugate poles → Oscillatory component</li>
-<li>Read damping from pole angle: <span class="arithmatex">\(\zeta = \cos(\theta)\)</span></li>
+<li>Read damping from pole angle: $\zeta = \cos(\theta)$</li>
 </ul>
 <p><strong>Step 4: Estimate Speed</strong>
 Distance from imaginary axis determines speed. Dominant pole location gives approximate time constant.</p>
@@ -2778,7 +2778,7 @@ Distance from imaginary axis determines speed. Dominant pole location gives appr
 <li>Zeros near poles may indicate cancellation</li>
 </ul>
 <p><strong>Step 6: Calculate DC Gain</strong>
-Evaluate <span class="arithmatex">\(G(0)\)</span> for steady-state behavior.</p>
+Evaluate $G(0)$ for steady-state behavior.</p>
 <h4 id="diagram-pole-zero-analysis-workflow">Diagram: Pole-Zero Analysis Workflow</h4>
 <iframe src="../../sims/pole-zero-workflow/main.html" width="100%" height="450px" scrolling="no"></iframe>
 
@@ -2856,7 +2856,7 @@ Bloom Verb: execute, implement</p>
 <p><strong>Stability</strong> requires all poles to be in the left half-plane. RHP poles mean exponential growth—unstable. Imaginary-axis poles mean sustained oscillation—marginal stability.</p>
 </li>
 <li>
-<p><strong>Real poles</strong> produce exponential decays or growths. <strong>Complex conjugate poles</strong> produce oscillations. The damping ratio <span class="arithmatex">\(\zeta = \cos(\theta)\)</span> can be read directly from the pole angle.</p>
+<p><strong>Real poles</strong> produce exponential decays or growths. <strong>Complex conjugate poles</strong> produce oscillations. The damping ratio $\zeta = \cos(\theta)$ can be read directly from the pole angle.</p>
 </li>
 <li>
 <p><strong>Repeated poles</strong> produce polynomial-times-exponential responses. Critical damping is a special case with repeated poles.</p>
@@ -2865,7 +2865,7 @@ Bloom Verb: execute, implement</p>
 <p><strong>Dominant poles</strong> are closest to the imaginary axis and determine long-term behavior. Higher-order systems can often be approximated by keeping only dominant poles.</p>
 </li>
 <li>
-<p><strong>DC gain</strong> <span class="arithmatex">\(G(0)\)</span> gives the steady-state response to a step input.</p>
+<p><strong>DC gain</strong> $G(0)$ gives the steady-state response to a step input.</p>
 </li>
 <li>
 <p><strong>Pole-zero cancellation</strong> can simplify transfer functions but can hide internal dynamics—especially dangerous if cancelling RHP poles.</p>
@@ -2879,8 +2879,8 @@ Bloom Verb: execute, implement</p>
 <summary>Self-Check: Test Your Understanding</summary>
 <p>Before moving on, see if you can answer these without peeking:</p>
 <ol>
-<li>A system has poles at <span class="arithmatex">\(s = -2 \pm j3\)</span>. What is the natural frequency <span class="arithmatex">\(\omega_n\)</span> and damping ratio <span class="arithmatex">\(\zeta\)</span>?</li>
-<li>A transfer function has poles at <span class="arithmatex">\(s = -1\)</span>, <span class="arithmatex">\(s = -10\)</span>, and <span class="arithmatex">\(s = -50\)</span>. Which pole dominates the response, and what is the approximate settling time?</li>
+<li>A system has poles at $s = -2 \pm j3$. What is the natural frequency $\omega_n$ and damping ratio $\zeta$?</li>
+<li>A transfer function has poles at $s = -1$, $s = -10$, and $s = -50$. Which pole dominates the response, and what is the approximate settling time?</li>
 <li>True or false: If you cancel an unstable pole with a zero at the same location, the system becomes stable.</li>
 <li>A system has DC gain of 5. What is the steady-state output for a unit step input?</li>
 <li>Looking at a pole at 45° from the negative real axis, what is the damping ratio?</li>

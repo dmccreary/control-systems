@@ -2245,7 +2245,7 @@
 </ul>
 <hr>
 <h2 id="from-abstract-to-concrete">From Abstract to Concrete</h2>
-<p>Up to this point, we've worked with transfer functions that appeared almost magically—given to us as ratios of polynomials in <span class="arithmatex">\(s\)</span>. But where do these transfer functions come from? How do you look at a real physical system—a circuit, a motor, a suspension system—and write down the mathematics that describes its behavior?</p>
+<p>Up to this point, we've worked with transfer functions that appeared almost magically—given to us as ratios of polynomials in $s$. But where do these transfer functions come from? How do you look at a real physical system—a circuit, a motor, a suspension system—and write down the mathematics that describes its behavior?</p>
 <p>This is the art and science of <strong>physical system modeling</strong>. It's where control engineering connects to the real world. The transfer function isn't just a mathematical abstraction; it emerges from the actual physics of the system you're trying to control.</p>
 <p>In this chapter, we'll develop systematic techniques for deriving models of three major categories of physical systems:</p>
 <ul>
@@ -2267,82 +2267,82 @@
 <th>Component</th>
 <th>Symbol</th>
 <th>Voltage-Current Relation</th>
-<th>Impedance <span class="arithmatex">\(Z(s)\)</span></th>
+<th>Impedance $Z(s)$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Resistor</td>
-<td><span class="arithmatex">\(R\)</span></td>
-<td><span class="arithmatex">\(v = iR\)</span></td>
-<td><span class="arithmatex">\(R\)</span></td>
+<td>$R$</td>
+<td>$v = iR$</td>
+<td>$R$</td>
 </tr>
 <tr>
 <td>Capacitor</td>
-<td><span class="arithmatex">\(C\)</span></td>
-<td><span class="arithmatex">\(v = \frac{1}{C}\int i \, dt\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{sC}\)</span></td>
+<td>$C$</td>
+<td>$v = \frac{1}{C}\int i \, dt$</td>
+<td>$\frac{1}{sC}$</td>
 </tr>
 <tr>
 <td>Inductor</td>
-<td><span class="arithmatex">\(L\)</span></td>
-<td><span class="arithmatex">\(v = L\frac{di}{dt}\)</span></td>
-<td><span class="arithmatex">\(sL\)</span></td>
+<td>$L$</td>
+<td>$v = L\frac{di}{dt}$</td>
+<td>$sL$</td>
 </tr>
 </tbody>
 </table>
 <p>These relationships, combined with Kirchhoff's laws, allow us to write the governing equations for any circuit. Taking the Laplace transform gives us the s-domain representation, and from there, the transfer function.</p>
-<p>The <strong>impedance</strong> concept is particularly powerful: in the s-domain, all three components obey a generalized Ohm's law <span class="arithmatex">\(V(s) = Z(s)I(s)\)</span>, where <span class="arithmatex">\(Z(s)\)</span> is the component's impedance. This means we can analyze complex circuits using the same techniques as simple resistive circuits—just with complex, frequency-dependent impedances.</p>
+<p>The <strong>impedance</strong> concept is particularly powerful: in the s-domain, all three components obey a generalized Ohm's law $V(s) = Z(s)I(s)$, where $Z(s)$ is the component's impedance. This means we can analyze complex circuits using the same techniques as simple resistive circuits—just with complex, frequency-dependent impedances.</p>
 <h3 id="rc-circuit">RC Circuit</h3>
 <p>The <strong>RC circuit</strong> is the simplest dynamic electrical circuit, consisting of a resistor and capacitor in series. It's a first-order system with a single time constant.</p>
 <h4 id="rc-circuit-schematic">RC Circuit Schematic</h4>
-<p>Consider a series RC circuit with input voltage <span class="arithmatex">\(v_{in}(t)\)</span> and output taken across the capacitor as <span class="arithmatex">\(v_{out}(t)\)</span>.</p>
+<p>Consider a series RC circuit with input voltage $v_{in}(t)$ and output taken across the capacitor as $v_{out}(t)$.</p>
 <p>Applying Kirchhoff's voltage law:</p>
-<p><span class="arithmatex">\(v_{in}(t) = v_R(t) + v_{out}(t) = Ri(t) + v_{out}(t)\)</span></p>
+<p>$v_{in}(t) = v_R(t) + v_{out}(t) = Ri(t) + v_{out}(t)$</p>
 <p>The current through the capacitor is:</p>
-<p><span class="arithmatex">\(i(t) = C\frac{dv_{out}}{dt}\)</span></p>
+<p>$i(t) = C\frac{dv_{out}}{dt}$</p>
 <p>Substituting:</p>
-<p><span class="arithmatex">\(v_{in}(t) = RC\frac{dv_{out}}{dt} + v_{out}(t)\)</span></p>
+<p>$v_{in}(t) = RC\frac{dv_{out}}{dt} + v_{out}(t)$</p>
 <p>This is a first-order linear differential equation. Taking the Laplace transform (with zero initial conditions):</p>
-<p><span class="arithmatex">\(V_{in}(s) = RCs \cdot V_{out}(s) + V_{out}(s) = (RCs + 1)V_{out}(s)\)</span></p>
+<p>$V_{in}(s) = RCs \cdot V_{out}(s) + V_{out}(s) = (RCs + 1)V_{out}(s)$</p>
 <h4 id="rc-circuit-transfer-function">RC Circuit Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{RCs + 1} = \frac{1}{\tau s + 1}\)</span></p>
+<p>$G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{RCs + 1} = \frac{1}{\tau s + 1}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\tau = RC\)</span> is the time constant</li>
-<li>The pole is at <span class="arithmatex">\(s = -1/\tau = -1/RC\)</span></li>
+<li>$\tau = RC$ is the time constant</li>
+<li>The pole is at $s = -1/\tau = -1/RC$</li>
 </ul>
-<p>The RC circuit acts as a <strong>low-pass filter</strong>: it passes low-frequency signals while attenuating high frequencies. The cutoff frequency is <span class="arithmatex">\(\omega_c = 1/RC\)</span> rad/s. At DC (s = 0), the gain is 1; at high frequencies, the gain approaches zero.</p>
+<p>The RC circuit acts as a <strong>low-pass filter</strong>: it passes low-frequency signals while attenuating high frequencies. The cutoff frequency is $\omega_c = 1/RC$ rad/s. At DC (s = 0), the gain is 1; at high frequencies, the gain approaches zero.</p>
 <p>Physical interpretation: the capacitor voltage can't change instantaneously. When the input steps up, the capacitor gradually charges through the resistor, with the charging current decreasing exponentially as the capacitor voltage approaches the input.</p>
 <h3 id="rl-circuit">RL Circuit</h3>
 <p>The <strong>RL circuit</strong> pairs a resistor with an inductor, creating another first-order system but with different characteristics than the RC circuit.</p>
 <p>For a series RL circuit with output taken across the resistor:</p>
-<p><span class="arithmatex">\(v_{in}(t) = L\frac{di}{dt} + Ri(t)\)</span></p>
-<p>The output voltage across the resistor is <span class="arithmatex">\(v_{out}(t) = Ri(t)\)</span>, so <span class="arithmatex">\(i(t) = v_{out}(t)/R\)</span>.</p>
+<p>$v_{in}(t) = L\frac{di}{dt} + Ri(t)$</p>
+<p>The output voltage across the resistor is $v_{out}(t) = Ri(t)$, so $i(t) = v_{out}(t)/R$.</p>
 <p>Taking the Laplace transform:</p>
-<p><span class="arithmatex">\(V_{in}(s) = \frac{Ls}{R}V_{out}(s) + V_{out}(s) = \left(\frac{L}{R}s + 1\right)V_{out}(s)\)</span></p>
+<p>$V_{in}(s) = \frac{Ls}{R}V_{out}(s) + V_{out}(s) = \left(\frac{L}{R}s + 1\right)V_{out}(s)$</p>
 <h4 id="rl-circuit-transfer-function">RL Circuit Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{\frac{L}{R}s + 1} = \frac{1}{\tau s + 1}\)</span></p>
+<p>$G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{\frac{L}{R}s + 1} = \frac{1}{\tau s + 1}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\tau = L/R\)</span> is the time constant</li>
-<li>The pole is at <span class="arithmatex">\(s = -R/L\)</span></li>
+<li>$\tau = L/R$ is the time constant</li>
+<li>The pole is at $s = -R/L$</li>
 </ul>
-<p>Wait—this looks identical to the RC circuit transfer function! Both are first-order systems with the form <span class="arithmatex">\(1/(\tau s + 1)\)</span>. The only difference is how <span class="arithmatex">\(\tau\)</span> is computed: <span class="arithmatex">\(RC\)</span> for the RC circuit, <span class="arithmatex">\(L/R\)</span> for the RL circuit.</p>
+<p>Wait—this looks identical to the RC circuit transfer function! Both are first-order systems with the form $1/(\tau s + 1)$. The only difference is how $\tau$ is computed: $RC$ for the RC circuit, $L/R$ for the RL circuit.</p>
 <p>This is our first hint of the deep connections between different physical systems that we'll explore in the analogous systems section.</p>
 <h3 id="rlc-circuit">RLC Circuit</h3>
 <p>The <strong>RLC circuit</strong> combines all three passive components, creating a second-order system with much richer behavior than the first-order RC or RL circuits.</p>
-<p>Consider a series RLC circuit with input voltage <span class="arithmatex">\(v_{in}(t)\)</span> and output taken across the capacitor:</p>
+<p>Consider a series RLC circuit with input voltage $v_{in}(t)$ and output taken across the capacitor:</p>
 <h4 id="rlc-circuit-differential-equation">RLC Circuit Differential Equation</h4>
-<p><span class="arithmatex">\(L\frac{d^2v_{out}}{dt^2} + R\frac{dv_{out}}{dt} + \frac{1}{C}v_{out} = \frac{1}{C}v_{in}\)</span></p>
+<p>$L\frac{d^2v_{out}}{dt^2} + R\frac{dv_{out}}{dt} + \frac{1}{C}v_{out} = \frac{1}{C}v_{in}$</p>
 <p>Taking the Laplace transform:</p>
-<p><span class="arithmatex">\(Ls^2V_{out}(s) + RsV_{out}(s) + \frac{1}{C}V_{out}(s) = \frac{1}{C}V_{in}(s)\)</span></p>
+<p>$Ls^2V_{out}(s) + RsV_{out}(s) + \frac{1}{C}V_{out}(s) = \frac{1}{C}V_{in}(s)$</p>
 <h4 id="rlc-circuit-transfer-function">RLC Circuit Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1/LC}{s^2 + \frac{R}{L}s + \frac{1}{LC}}\)</span></p>
-<p>Comparing with the standard second-order form <span class="arithmatex">\(\frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span>:</p>
+<p>$G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1/LC}{s^2 + \frac{R}{L}s + \frac{1}{LC}}$</p>
+<p>Comparing with the standard second-order form $\frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$:</p>
 <ul>
-<li>Natural frequency: <span class="arithmatex">\(\omega_n = \frac{1}{\sqrt{LC}}\)</span></li>
-<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}\)</span></li>
+<li>Natural frequency: $\omega_n = \frac{1}{\sqrt{LC}}$</li>
+<li>Damping ratio: $\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}$</li>
 </ul>
 <p>The RLC circuit can exhibit all the second-order behaviors we studied earlier: overdamped, critically damped, underdamped, or undamped oscillation—depending on the relative values of R, L, and C.</p>
 <table>
@@ -2355,23 +2355,23 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(R &gt; 2\sqrt{L/C}\)</span></td>
-<td><span class="arithmatex">\(\zeta &gt; 1\)</span></td>
+<td>$R &gt; 2\sqrt{L/C}$</td>
+<td>$\zeta &gt; 1$</td>
 <td>Overdamped (sluggish)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(R = 2\sqrt{L/C}\)</span></td>
-<td><span class="arithmatex">\(\zeta = 1\)</span></td>
+<td>$R = 2\sqrt{L/C}$</td>
+<td>$\zeta = 1$</td>
 <td>Critically damped (fastest non-oscillatory)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(R &lt; 2\sqrt{L/C}\)</span></td>
-<td><span class="arithmatex">\(\zeta &lt; 1\)</span></td>
+<td>$R &lt; 2\sqrt{L/C}$</td>
+<td>$\zeta &lt; 1$</td>
 <td>Underdamped (oscillatory)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(R = 0\)</span></td>
-<td><span class="arithmatex">\(\zeta = 0\)</span></td>
+<td>$R = 0$</td>
+<td>$\zeta = 0$</td>
 <td>Undamped (sustained oscillation)</td>
 </tr>
 </tbody>
@@ -2437,19 +2437,19 @@ Circuit Diagram:
 </ol>
 <h4 id="common-op-amp-circuits-for-control">Common Op-Amp Circuits for Control</h4>
 <p><strong>Inverting Amplifier:</strong></p>
-<p><span class="arithmatex">\(G(s) = -\frac{Z_f(s)}{Z_{in}(s)}\)</span></p>
-<p>where <span class="arithmatex">\(Z_f\)</span> is the feedback impedance and <span class="arithmatex">\(Z_{in}\)</span> is the input impedance.</p>
+<p>$G(s) = -\frac{Z_f(s)}{Z_{in}(s)}$</p>
+<p>where $Z_f$ is the feedback impedance and $Z_{in}$ is the input impedance.</p>
 <p><strong>Integrator (Inverting):</strong></p>
 <p>With resistor input and capacitor feedback:</p>
-<p><span class="arithmatex">\(G(s) = -\frac{1}{RCs}\)</span></p>
+<p>$G(s) = -\frac{1}{RCs}$</p>
 <p>This produces output proportional to the integral of the input—essential for PI and PID controllers.</p>
 <p><strong>Differentiator:</strong></p>
 <p>With capacitor input and resistor feedback:</p>
-<p><span class="arithmatex">\(G(s) = -RCs\)</span></p>
+<p>$G(s) = -RCs$</p>
 <p>This produces output proportional to the derivative—useful for PD control, though rarely used pure due to noise amplification.</p>
 <p><strong>Active Low-Pass Filter:</strong></p>
 <p>Combining an inverting amplifier with RC filtering:</p>
-<p><span class="arithmatex">\(G(s) = -\frac{R_f}{R_{in}} \cdot \frac{1}{\tau s + 1}\)</span></p>
+<p>$G(s) = -\frac{R_f}{R_{in}} \cdot \frac{1}{\tau s + 1}$</p>
 <p>This provides both filtering and gain, making it useful in many control applications.</p>
 <div class="admonition tip">
 <p class="admonition-title">Op-Amps in Control Systems</p>
@@ -2466,51 +2466,51 @@ Circuit Diagram:
 <th>Element</th>
 <th>Symbol</th>
 <th>Force Relationship</th>
-<th>Impedance <span class="arithmatex">\(Z(s)\)</span></th>
+<th>Impedance $Z(s)$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Mass</td>
-<td><span class="arithmatex">\(m\)</span></td>
-<td><span class="arithmatex">\(F = m\frac{d^2x}{dt^2}\)</span></td>
-<td><span class="arithmatex">\(ms^2\)</span></td>
+<td>$m$</td>
+<td>$F = m\frac{d^2x}{dt^2}$</td>
+<td>$ms^2$</td>
 </tr>
 <tr>
 <td>Damper</td>
-<td><span class="arithmatex">\(b\)</span></td>
-<td><span class="arithmatex">\(F = b\frac{dx}{dt}\)</span></td>
-<td><span class="arithmatex">\(bs\)</span></td>
+<td>$b$</td>
+<td>$F = b\frac{dx}{dt}$</td>
+<td>$bs$</td>
 </tr>
 <tr>
 <td>Spring</td>
-<td><span class="arithmatex">\(k\)</span></td>
-<td><span class="arithmatex">\(F = kx\)</span></td>
-<td><span class="arithmatex">\(k\)</span></td>
+<td>$k$</td>
+<td>$F = kx$</td>
+<td>$k$</td>
 </tr>
 </tbody>
 </table>
-<p>The key governing principle is Newton's second law: <span class="arithmatex">\(\sum F = ma\)</span>. For each mass in the system, we write a force balance equation, then combine these with the constitutive relations for springs and dampers.</p>
+<p>The key governing principle is Newton's second law: $\sum F = ma$. For each mass in the system, we write a force balance equation, then combine these with the constitutive relations for springs and dampers.</p>
 <h3 id="mass-spring-damper-system">Mass-Spring-Damper System</h3>
 <p>The <strong>mass-spring-damper</strong> system is the canonical second-order mechanical system, analogous to the RLC circuit in the electrical domain. It appears everywhere: vehicle suspensions, vibration isolation platforms, seismic sensors, and of course, simplified models of robots like Gyra.</p>
-<p>Consider a mass <span class="arithmatex">\(m\)</span> attached to a fixed wall via a spring <span class="arithmatex">\(k\)</span> and damper <span class="arithmatex">\(b\)</span>, with an applied force <span class="arithmatex">\(F(t)\)</span> and displacement <span class="arithmatex">\(x(t)\)</span> measured from equilibrium.</p>
+<p>Consider a mass $m$ attached to a fixed wall via a spring $k$ and damper $b$, with an applied force $F(t)$ and displacement $x(t)$ measured from equilibrium.</p>
 <p>Applying Newton's second law:</p>
-<p><span class="arithmatex">\(F(t) = m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx\)</span></p>
+<p>$F(t) = m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx$</p>
 <h4 id="mass-spring-damper-transfer-function">Mass-Spring-Damper Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{X(s)}{F(s)} = \frac{1}{ms^2 + bs + k}\)</span></p>
+<p>$G(s) = \frac{X(s)}{F(s)} = \frac{1}{ms^2 + bs + k}$</p>
 <p>This can be written in standard form:</p>
-<p><span class="arithmatex">\(G(s) = \frac{1/k}{(m/k)s^2 + (b/k)s + 1} = \frac{1/k}{\frac{s^2}{\omega_n^2} + \frac{2\zeta}{\omega_n}s + 1}\)</span></p>
+<p>$G(s) = \frac{1/k}{(m/k)s^2 + (b/k)s + 1} = \frac{1/k}{\frac{s^2}{\omega_n^2} + \frac{2\zeta}{\omega_n}s + 1}$</p>
 <p>where:</p>
 <ul>
-<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{k/m}\)</span></li>
-<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{b}{2\sqrt{km}}\)</span></li>
-<li>DC gain: <span class="arithmatex">\(1/k\)</span> (static displacement per unit force)</li>
+<li>Natural frequency: $\omega_n = \sqrt{k/m}$</li>
+<li>Damping ratio: $\zeta = \frac{b}{2\sqrt{km}}$</li>
+<li>DC gain: $1/k$ (static displacement per unit force)</li>
 </ul>
 <p>The physical interpretation is intuitive:</p>
 <ul>
-<li>A stiffer spring (larger <span class="arithmatex">\(k\)</span>) means faster oscillation (higher <span class="arithmatex">\(\omega_n\)</span>) and smaller static displacement (lower DC gain)</li>
-<li>A heavier mass (larger <span class="arithmatex">\(m\)</span>) means slower oscillation</li>
-<li>More damping (larger <span class="arithmatex">\(b\)</span>) reduces oscillation and overshoot</li>
+<li>A stiffer spring (larger $k$) means faster oscillation (higher $\omega_n$) and smaller static displacement (lower DC gain)</li>
+<li>A heavier mass (larger $m$) means slower oscillation</li>
+<li>More damping (larger $b$) reduces oscillation and overshoot</li>
 </ul>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
@@ -2577,67 +2577,67 @@ Physical Animation:
 </thead>
 <tbody>
 <tr>
-<td>Force <span class="arithmatex">\(F\)</span></td>
-<td>Torque <span class="arithmatex">\(\tau\)</span></td>
-<td><span class="arithmatex">\(\tau = Fr\)</span> (moment arm)</td>
+<td>Force $F$</td>
+<td>Torque $\tau$</td>
+<td>$\tau = Fr$ (moment arm)</td>
 </tr>
 <tr>
-<td>Mass <span class="arithmatex">\(m\)</span></td>
-<td>Moment of inertia <span class="arithmatex">\(J\)</span></td>
-<td><span class="arithmatex">\(J = mr^2\)</span> (for point mass)</td>
+<td>Mass $m$</td>
+<td>Moment of inertia $J$</td>
+<td>$J = mr^2$ (for point mass)</td>
 </tr>
 <tr>
-<td>Damping <span class="arithmatex">\(b\)</span></td>
-<td>Rotational damping <span class="arithmatex">\(B\)</span></td>
+<td>Damping $b$</td>
+<td>Rotational damping $B$</td>
 <td>Same units concept</td>
 </tr>
 <tr>
-<td>Stiffness <span class="arithmatex">\(k\)</span></td>
-<td>Torsional stiffness <span class="arithmatex">\(K\)</span></td>
+<td>Stiffness $k$</td>
+<td>Torsional stiffness $K$</td>
 <td>Same units concept</td>
 </tr>
 <tr>
-<td>Displacement <span class="arithmatex">\(x\)</span></td>
-<td>Angle <span class="arithmatex">\(\theta\)</span></td>
+<td>Displacement $x$</td>
+<td>Angle $\theta$</td>
 <td></td>
 </tr>
 <tr>
-<td>Velocity <span class="arithmatex">\(v\)</span></td>
-<td>Angular velocity <span class="arithmatex">\(\omega\)</span></td>
+<td>Velocity $v$</td>
+<td>Angular velocity $\omega$</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p>Newton's second law becomes:</p>
-<p><span class="arithmatex">\(\sum \tau = J\frac{d^2\theta}{dt^2} = J\dot{\omega}\)</span></p>
+<p>$\sum \tau = J\frac{d^2\theta}{dt^2} = J\dot{\omega}$</p>
 <p>For a rotational mass-spring-damper (e.g., a torsional pendulum):</p>
 <h4 id="rotational-second-order-system">Rotational Second-Order System</h4>
-<p><span class="arithmatex">\(G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{Js^2 + Bs + K}\)</span></p>
+<p>$G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{Js^2 + Bs + K}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(J\)</span> is the moment of inertia</li>
-<li><span class="arithmatex">\(B\)</span> is the rotational damping coefficient</li>
-<li><span class="arithmatex">\(K\)</span> is the torsional spring constant</li>
-<li><span class="arithmatex">\(\Theta(s)\)</span> is the angular displacement</li>
-<li><span class="arithmatex">\(T(s)\)</span> is the applied torque</li>
+<li>$J$ is the moment of inertia</li>
+<li>$B$ is the rotational damping coefficient</li>
+<li>$K$ is the torsional spring constant</li>
+<li>$\Theta(s)$ is the angular displacement</li>
+<li>$T(s)$ is the applied torque</li>
 </ul>
 <p>The form is identical to the translational case—only the variables and units differ.</p>
 <h3 id="pendulum-system">Pendulum System</h3>
 <p>The <strong>pendulum</strong> is a classical rotational system that introduces an important modeling concept: <strong>linearization</strong>. A simple pendulum's true dynamics are nonlinear, but for small angles, we can approximate the behavior with a linear model.</p>
-<p>For a simple pendulum of length <span class="arithmatex">\(L\)</span> and mass <span class="arithmatex">\(m\)</span>, with angle <span class="arithmatex">\(\theta\)</span> from vertical:</p>
+<p>For a simple pendulum of length $L$ and mass $m$, with angle $\theta$ from vertical:</p>
 <p>The exact equation of motion is:</p>
-<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + mgL\sin\theta = \tau_{applied}\)</span></p>
-<p>This is nonlinear because of the <span class="arithmatex">\(\sin\theta\)</span> term. However, for small angles (typically <span class="arithmatex">\(\theta &lt; 15°\)</span>), we can use the approximation <span class="arithmatex">\(\sin\theta \approx \theta\)</span>:</p>
+<p>$mL^2\frac{d^2\theta}{dt^2} + mgL\sin\theta = \tau_{applied}$</p>
+<p>This is nonlinear because of the $\sin\theta$ term. However, for small angles (typically $\theta &lt; 15°$), we can use the approximation $\sin\theta \approx \theta$:</p>
 <h4 id="linearized-pendulum-equation">Linearized Pendulum Equation</h4>
-<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + mgL\theta = \tau_{applied}\)</span></p>
-<p>Adding damping <span class="arithmatex">\(B\)</span> at the pivot:</p>
-<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + B\frac{d\theta}{dt} + mgL\theta = \tau_{applied}\)</span></p>
+<p>$mL^2\frac{d^2\theta}{dt^2} + mgL\theta = \tau_{applied}$</p>
+<p>Adding damping $B$ at the pivot:</p>
+<p>$mL^2\frac{d^2\theta}{dt^2} + B\frac{d\theta}{dt} + mgL\theta = \tau_{applied}$</p>
 <h4 id="pendulum-transfer-function">Pendulum Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{mL^2s^2 + Bs + mgL}\)</span></p>
+<p>$G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{mL^2s^2 + Bs + mgL}$</p>
 <p>This is again a second-order system with:</p>
 <ul>
-<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{g/L}\)</span> (the classic pendulum frequency)</li>
-<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{B}{2mL^2\omega_n} = \frac{B}{2L\sqrt{mgL}}\)</span></li>
+<li>Natural frequency: $\omega_n = \sqrt{g/L}$ (the classic pendulum frequency)</li>
+<li>Damping ratio: $\zeta = \frac{B}{2mL^2\omega_n} = \frac{B}{2L\sqrt{mgL}}$</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Linearization Limitations</p>
@@ -2645,7 +2645,7 @@ Physical Animation:
 </div>
 <h3 id="gear-train">Gear Train</h3>
 <p><strong>Gear trains</strong> are mechanical power transmission systems that transform speed and torque. They're essential components in motors, robotics, and machinery. From a modeling perspective, they act as transformers—similar to electrical transformers but for mechanical quantities.</p>
-<p>For an ideal gear pair with gear ratio <span class="arithmatex">\(N = N_2/N_1\)</span> (driven gear teeth / driving gear teeth):</p>
+<p>For an ideal gear pair with gear ratio $N = N_2/N_1$ (driven gear teeth / driving gear teeth):</p>
 <table>
 <thead>
 <tr>
@@ -2656,42 +2656,42 @@ Physical Animation:
 <tbody>
 <tr>
 <td>Angular velocity</td>
-<td><span class="arithmatex">\(\omega_2 = \omega_1/N\)</span></td>
+<td>$\omega_2 = \omega_1/N$</td>
 </tr>
 <tr>
 <td>Torque</td>
-<td><span class="arithmatex">\(\tau_2 = N\tau_1\)</span></td>
+<td>$\tau_2 = N\tau_1$</td>
 </tr>
 <tr>
 <td>Power</td>
-<td><span class="arithmatex">\(P_2 = P_1\)</span> (conserved)</td>
+<td>$P_2 = P_1$ (conserved)</td>
 </tr>
 </tbody>
 </table>
-<p>Gears trade speed for torque: a gear ratio <span class="arithmatex">\(N &gt; 1\)</span> reduces output speed but multiplies torque.</p>
+<p>Gears trade speed for torque: a gear ratio $N &gt; 1$ reduces output speed but multiplies torque.</p>
 <p>When reflecting inertia and damping through a gear train to a single reference shaft:</p>
 <h4 id="reflected-inertia-formula">Reflected Inertia Formula</h4>
-<p><span class="arithmatex">\(J_{reflected} = J_{load}/N^2\)</span></p>
+<p>$J_{reflected} = J_{load}/N^2$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(J_{load}\)</span> is the load inertia on the output shaft</li>
-<li><span class="arithmatex">\(N\)</span> is the gear ratio</li>
-<li><span class="arithmatex">\(J_{reflected}\)</span> is the equivalent inertia seen at the motor shaft</li>
+<li>$J_{load}$ is the load inertia on the output shaft</li>
+<li>$N$ is the gear ratio</li>
+<li>$J_{reflected}$ is the equivalent inertia seen at the motor shaft</li>
 </ul>
-<p>This <span class="arithmatex">\(N^2\)</span> relationship is crucial for motor sizing: a gear reduction makes the load appear lighter to the motor.</p>
+<p>This $N^2$ relationship is crucial for motor sizing: a gear reduction makes the load appear lighter to the motor.</p>
 <div class="admonition tip">
 <p class="admonition-title">Gear Ratio Selection</p>
 <p>Gear ratios involve tradeoffs. Higher ratios reduce the effective load inertia and increase torque but also reduce output speed and can introduce backlash and compliance. In robotics, matching the gear ratio to optimize for acceleration capability or force sensitivity is an important design decision.</p>
 </div>
 <h3 id="lever-system">Lever System</h3>
 <p><strong>Lever systems</strong> are rotational mechanical advantage devices, fundamental to tools and machines. Like gears, they transform force and displacement.</p>
-<p>For a lever with fulcrum position creating arms of length <span class="arithmatex">\(a\)</span> (input side) and <span class="arithmatex">\(b\)</span> (output side):</p>
+<p>For a lever with fulcrum position creating arms of length $a$ (input side) and $b$ (output side):</p>
 <h4 id="lever-mechanical-advantage">Lever Mechanical Advantage</h4>
-<p><span class="arithmatex">\(MA = \frac{F_{out}}{F_{in}} = \frac{a}{b}\)</span></p>
+<p>$MA = \frac{F_{out}}{F_{in}} = \frac{a}{b}$</p>
 <p>And displacement relationship:</p>
-<p><span class="arithmatex">\(\frac{x_{out}}{x_{in}} = \frac{b}{a}\)</span></p>
+<p>$\frac{x_{out}}{x_{in}} = \frac{b}{a}$</p>
 <p>The product of force and displacement is conserved (work in = work out for ideal levers):</p>
-<p><span class="arithmatex">\(F_{in} \cdot x_{in} = F_{out} \cdot x_{out}\)</span></p>
+<p>$F_{in} \cdot x_{in} = F_{out} \cdot x_{out}$</p>
 <p>Levers are first-class (fulcrum between effort and load), second-class (load between fulcrum and effort), or third-class (effort between fulcrum and load), each suited to different applications.</p>
 <h2 id="electromechanical-systems">Electromechanical Systems</h2>
 <p><strong>Electromechanical systems</strong> bridge the electrical and mechanical domains. They convert electrical energy to mechanical energy (motors) or mechanical energy to electrical energy (generators). For control systems, the <strong>DC motor</strong> is the most important electromechanical device to model.</p>
@@ -2704,59 +2704,59 @@ Physical Animation:
 </ul>
 <p>The key relationships governing DC motor behavior:</p>
 <h4 id="motor-torque-equation">Motor Torque Equation</h4>
-<p><span class="arithmatex">\(\tau = K_t i_a\)</span></p>
+<p>$\tau = K_t i_a$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\tau\)</span> is the motor torque</li>
-<li><span class="arithmatex">\(K_t\)</span> is the torque constant (N·m/A)</li>
-<li><span class="arithmatex">\(i_a\)</span> is the armature current</li>
+<li>$\tau$ is the motor torque</li>
+<li>$K_t$ is the torque constant (N·m/A)</li>
+<li>$i_a$ is the armature current</li>
 </ul>
 <h4 id="back-emf-equation">Back-EMF Equation</h4>
-<p><span class="arithmatex">\(e_b = K_e \omega\)</span></p>
+<p>$e_b = K_e \omega$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(e_b\)</span> is the back-EMF (electromotive force)</li>
-<li><span class="arithmatex">\(K_e\)</span> is the back-EMF constant (V·s/rad)</li>
-<li><span class="arithmatex">\(\omega\)</span> is the angular velocity</li>
+<li>$e_b$ is the back-EMF (electromotive force)</li>
+<li>$K_e$ is the back-EMF constant (V·s/rad)</li>
+<li>$\omega$ is the angular velocity</li>
 </ul>
-<p>For an ideal motor, <span class="arithmatex">\(K_t = K_e\)</span> when expressed in consistent units.</p>
+<p>For an ideal motor, $K_t = K_e$ when expressed in consistent units.</p>
 <p>The back-EMF is a crucial feedback mechanism: as the motor spins faster, it generates a voltage that opposes the applied voltage, naturally limiting speed.</p>
 <h3 id="armature-controlled-dc-motor">Armature-Controlled DC Motor</h3>
 <p>The <strong>armature-controlled DC motor</strong> is the most common configuration. The field is held constant (often using permanent magnets), and speed/torque are controlled by varying the armature voltage.</p>
 <p>The armature circuit equation:</p>
-<p><span class="arithmatex">\(v_a = L_a\frac{di_a}{dt} + R_ai_a + e_b = L_a\frac{di_a}{dt} + R_ai_a + K_e\omega\)</span></p>
+<p>$v_a = L_a\frac{di_a}{dt} + R_ai_a + e_b = L_a\frac{di_a}{dt} + R_ai_a + K_e\omega$</p>
 <p>The mechanical equation:</p>
-<p><span class="arithmatex">\(J\frac{d\omega}{dt} + B\omega = \tau - \tau_L = K_ti_a - \tau_L\)</span></p>
+<p>$J\frac{d\omega}{dt} + B\omega = \tau - \tau_L = K_ti_a - \tau_L$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(v_a\)</span> is the armature voltage (input)</li>
-<li><span class="arithmatex">\(L_a\)</span> and <span class="arithmatex">\(R_a\)</span> are armature inductance and resistance</li>
-<li><span class="arithmatex">\(J\)</span> is the total inertia (motor + load)</li>
-<li><span class="arithmatex">\(B\)</span> is the viscous friction coefficient</li>
-<li><span class="arithmatex">\(\tau_L\)</span> is the load torque</li>
+<li>$v_a$ is the armature voltage (input)</li>
+<li>$L_a$ and $R_a$ are armature inductance and resistance</li>
+<li>$J$ is the total inertia (motor + load)</li>
+<li>$B$ is the viscous friction coefficient</li>
+<li>$\tau_L$ is the load torque</li>
 </ul>
-<p>Taking Laplace transforms and eliminating <span class="arithmatex">\(I_a(s)\)</span>:</p>
+<p>Taking Laplace transforms and eliminating $I_a(s)$:</p>
 <h4 id="armature-controlled-dc-motor-transfer-function">Armature-Controlled DC Motor Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{\Omega(s)}{V_a(s)} = \frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}\)</span></p>
-<p>For most DC motors, the electrical time constant (<span class="arithmatex">\(L_a/R_a\)</span>) is much smaller than the mechanical time constant (<span class="arithmatex">\(J/B\)</span>), so we often neglect armature inductance:</p>
+<p>$G(s) = \frac{\Omega(s)}{V_a(s)} = \frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}$</p>
+<p>For most DC motors, the electrical time constant ($L_a/R_a$) is much smaller than the mechanical time constant ($J/B$), so we often neglect armature inductance:</p>
 <h4 id="simplified-motor-transfer-function">Simplified Motor Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{K_t/R_a}{Js + B + K_tK_e/R_a} = \frac{K_m}{\tau_m s + 1}\)</span></p>
+<p>$G(s) = \frac{K_t/R_a}{Js + B + K_tK_e/R_a} = \frac{K_m}{\tau_m s + 1}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_m = \frac{K_t}{R_aB + K_tK_e}\)</span> is the motor gain constant</li>
-<li><span class="arithmatex">\(\tau_m = \frac{JR_a}{R_aB + K_tK_e}\)</span> is the motor time constant</li>
+<li>$K_m = \frac{K_t}{R_aB + K_tK_e}$ is the motor gain constant</li>
+<li>$\tau_m = \frac{JR_a}{R_aB + K_tK_e}$ is the motor time constant</li>
 </ul>
 <p>This simplified model is a first-order system—voltage in, speed out—which is remarkably tractable for control design.</p>
 <h3 id="field-controlled-dc-motor">Field-Controlled DC Motor</h3>
 <p>The <strong>field-controlled DC motor</strong> varies the field current while keeping armature current constant. This configuration is less common but appears in some applications.</p>
-<p>With constant armature current <span class="arithmatex">\(i_a\)</span> and variable field current <span class="arithmatex">\(i_f\)</span>:</p>
-<p><span class="arithmatex">\(\tau = K'_t i_f i_a = K_f i_f\)</span> (where <span class="arithmatex">\(K_f = K'_t i_a\)</span>)</p>
+<p>With constant armature current $i_a$ and variable field current $i_f$:</p>
+<p>$\tau = K'_t i_f i_a = K_f i_f$ (where $K_f = K'_t i_a$)</p>
 <p>The field circuit equation:</p>
-<p><span class="arithmatex">\(v_f = L_f\frac{di_f}{dt} + R_fi_f\)</span></p>
+<p>$v_f = L_f\frac{di_f}{dt} + R_fi_f$</p>
 <p>The mechanical equation:</p>
-<p><span class="arithmatex">\(J\frac{d\omega}{dt} + B\omega = K_f i_f\)</span></p>
+<p>$J\frac{d\omega}{dt} + B\omega = K_f i_f$</p>
 <h4 id="field-controlled-motor-transfer-function">Field-Controlled Motor Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{\Omega(s)}{V_f(s)} = \frac{K_f}{(L_fs + R_f)(Js + B)}\)</span></p>
+<p>$G(s) = \frac{\Omega(s)}{V_f(s)} = \frac{K_f}{(L_fs + R_f)(Js + B)}$</p>
 <p>This is a second-order system—the field and mechanical dynamics each contribute a pole. The response is generally slower than armature control because of the field circuit's larger inductance.</p>
 <h3 id="motor-transfer-function-summary">Motor Transfer Function Summary</h3>
 <p>Both motor types can be expressed as transfer functions relating input voltage to output speed or position:</p>
@@ -2771,23 +2771,23 @@ Physical Animation:
 <tbody>
 <tr>
 <td>Armature-controlled (full)</td>
-<td><span class="arithmatex">\(\frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}\)</span></td>
+<td>$\frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}$</td>
 <td>Second</td>
 </tr>
 <tr>
 <td>Armature-controlled (simplified)</td>
-<td><span class="arithmatex">\(\frac{K_m}{\tau_m s + 1}\)</span></td>
+<td>$\frac{K_m}{\tau_m s + 1}$</td>
 <td>First</td>
 </tr>
 <tr>
 <td>Field-controlled</td>
-<td><span class="arithmatex">\(\frac{K_f}{(L_fs + R_f)(Js + B)}\)</span></td>
+<td>$\frac{K_f}{(L_fs + R_f)(Js + B)}$</td>
 <td>Second</td>
 </tr>
 </tbody>
 </table>
-<p>For position control, integrate the speed transfer function (multiply by <span class="arithmatex">\(1/s\)</span>):</p>
-<p><span class="arithmatex">\(G_\theta(s) = \frac{\Theta(s)}{V(s)} = \frac{G_\omega(s)}{s}\)</span></p>
+<p>For position control, integrate the speed transfer function (multiply by $1/s$):</p>
+<p>$G_\theta(s) = \frac{\Theta(s)}{V(s)} = \frac{G_\omega(s)}{s}$</p>
 <h4 id="diagram-dc-motor-model-visualization">Diagram: DC Motor Model Visualization</h4>
 <iframe src="../../sims/dc-motor-model/main.html" width="100%" height="600px" scrolling="no"></iframe>
 
@@ -2848,19 +2848,19 @@ Electrical Schematic:
 <p>While electrical, mechanical, and electromechanical systems are the primary focus of this course, two other domains appear frequently in industrial control: <strong>fluid systems</strong> and <strong>thermal systems</strong>. Understanding their models reinforces the analogous systems concept.</p>
 <h3 id="fluid-systems">Fluid Systems</h3>
 <p><strong>Fluid systems</strong> involve the flow of liquids or gases through pipes, tanks, and valves. The relevant variables are pressure (analogous to voltage), flow rate (analogous to current), and fluid volume or mass.</p>
-<p>For an incompressible liquid tank with cross-sectional area <span class="arithmatex">\(A\)</span> and outlet resistance <span class="arithmatex">\(R\)</span>:</p>
+<p>For an incompressible liquid tank with cross-sectional area $A$ and outlet resistance $R$:</p>
 <h4 id="tank-level-dynamics">Tank Level Dynamics</h4>
-<p><span class="arithmatex">\(A\frac{dh}{dt} = q_{in} - q_{out} = q_{in} - \frac{h}{R}\)</span></p>
+<p>$A\frac{dh}{dt} = q_{in} - q_{out} = q_{in} - \frac{h}{R}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(h\)</span> is the liquid height</li>
-<li><span class="arithmatex">\(q_{in}\)</span> is the inlet flow rate</li>
-<li><span class="arithmatex">\(q_{out} = h/R\)</span> assumes laminar flow through the outlet</li>
-<li><span class="arithmatex">\(R\)</span> is the fluid resistance</li>
+<li>$h$ is the liquid height</li>
+<li>$q_{in}$ is the inlet flow rate</li>
+<li>$q_{out} = h/R$ assumes laminar flow through the outlet</li>
+<li>$R$ is the fluid resistance</li>
 </ul>
 <p>This gives a first-order transfer function relating inlet flow to level:</p>
-<p><span class="arithmatex">\(G(s) = \frac{H(s)}{Q_{in}(s)} = \frac{R}{ARs + 1} = \frac{R}{\tau s + 1}\)</span></p>
-<p>where <span class="arithmatex">\(\tau = AR\)</span> is the tank time constant.</p>
+<p>$G(s) = \frac{H(s)}{Q_{in}(s)} = \frac{R}{ARs + 1} = \frac{R}{\tau s + 1}$</p>
+<p>where $\tau = AR$ is the tank time constant.</p>
 <p>Key fluid system elements:</p>
 <table>
 <thead>
@@ -2874,34 +2874,34 @@ Electrical Schematic:
 <tr>
 <td>Fluid resistance</td>
 <td>Electrical resistance</td>
-<td><span class="arithmatex">\(\Delta P = Rq\)</span> (pressure drop)</td>
+<td>$\Delta P = Rq$ (pressure drop)</td>
 </tr>
 <tr>
 <td>Tank capacitance</td>
 <td>Electrical capacitance</td>
-<td><span class="arithmatex">\(C = A\)</span> (storage capacity)</td>
+<td>$C = A$ (storage capacity)</td>
 </tr>
 <tr>
 <td>Fluid inertance</td>
 <td>Electrical inductance</td>
-<td><span class="arithmatex">\(\Delta P = I(dq/dt)\)</span> (momentum)</td>
+<td>$\Delta P = I(dq/dt)$ (momentum)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="thermal-systems">Thermal Systems</h3>
 <p><strong>Thermal systems</strong> involve heat flow and temperature. The relevant variables are temperature (analogous to voltage), heat flow rate (analogous to current), and thermal energy stored.</p>
-<p>For a body with thermal capacitance <span class="arithmatex">\(C_{th}\)</span> and thermal resistance <span class="arithmatex">\(R_{th}\)</span> to the environment at temperature <span class="arithmatex">\(T_{amb}\)</span>:</p>
+<p>For a body with thermal capacitance $C_{th}$ and thermal resistance $R_{th}$ to the environment at temperature $T_{amb}$:</p>
 <h4 id="thermal-dynamics">Thermal Dynamics</h4>
-<p><span class="arithmatex">\(C_{th}\frac{dT}{dt} = q_{in} - \frac{T - T_{amb}}{R_{th}}\)</span></p>
+<p>$C_{th}\frac{dT}{dt} = q_{in} - \frac{T - T_{amb}}{R_{th}}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(T\)</span> is the body temperature</li>
-<li><span class="arithmatex">\(q_{in}\)</span> is the heat input rate</li>
-<li><span class="arithmatex">\(R_{th}\)</span> is the thermal resistance to ambient</li>
-<li><span class="arithmatex">\(C_{th}\)</span> is the thermal capacitance (mass × specific heat)</li>
+<li>$T$ is the body temperature</li>
+<li>$q_{in}$ is the heat input rate</li>
+<li>$R_{th}$ is the thermal resistance to ambient</li>
+<li>$C_{th}$ is the thermal capacitance (mass × specific heat)</li>
 </ul>
 <p>The transfer function from heat input to temperature rise above ambient:</p>
-<p><span class="arithmatex">\(G(s) = \frac{T(s) - T_{amb}}{Q_{in}(s)} = \frac{R_{th}}{R_{th}C_{th}s + 1} = \frac{R_{th}}{\tau_{th}s + 1}\)</span></p>
+<p>$G(s) = \frac{T(s) - T_{amb}}{Q_{in}(s)} = \frac{R_{th}}{R_{th}C_{th}s + 1} = \frac{R_{th}}{\tau_{th}s + 1}$</p>
 <p>Thermal systems are typically first-order with large time constants (minutes to hours for building heating, seconds for electronics cooling).</p>
 <table>
 <thead>
@@ -2915,12 +2915,12 @@ Electrical Schematic:
 <tr>
 <td>Thermal resistance</td>
 <td>Electrical resistance</td>
-<td><span class="arithmatex">\(\Delta T = R_{th}q\)</span></td>
+<td>$\Delta T = R_{th}q$</td>
 </tr>
 <tr>
 <td>Thermal capacitance</td>
 <td>Electrical capacitance</td>
-<td><span class="arithmatex">\(C_{th} = mc_p\)</span></td>
+<td>$C_{th} = mc_p$</td>
 </tr>
 <tr>
 <td>Temperature</td>
@@ -2949,37 +2949,37 @@ Electrical Schematic:
 </thead>
 <tbody>
 <tr>
-<td>Force <span class="arithmatex">\(F\)</span></td>
-<td>Voltage <span class="arithmatex">\(v\)</span></td>
+<td>Force $F$</td>
+<td>Voltage $v$</td>
 </tr>
 <tr>
-<td>Velocity <span class="arithmatex">\(v\)</span></td>
-<td>Current <span class="arithmatex">\(i\)</span></td>
+<td>Velocity $v$</td>
+<td>Current $i$</td>
 </tr>
 <tr>
-<td>Displacement <span class="arithmatex">\(x\)</span></td>
-<td>Charge <span class="arithmatex">\(q\)</span></td>
+<td>Displacement $x$</td>
+<td>Charge $q$</td>
 </tr>
 <tr>
-<td>Mass <span class="arithmatex">\(m\)</span></td>
-<td>Inductance <span class="arithmatex">\(L\)</span></td>
+<td>Mass $m$</td>
+<td>Inductance $L$</td>
 </tr>
 <tr>
-<td>Damping <span class="arithmatex">\(b\)</span></td>
-<td>Resistance <span class="arithmatex">\(R\)</span></td>
+<td>Damping $b$</td>
+<td>Resistance $R$</td>
 </tr>
 <tr>
-<td>Stiffness <span class="arithmatex">\(k\)</span></td>
-<td>1/Capacitance <span class="arithmatex">\(1/C\)</span></td>
+<td>Stiffness $k$</td>
+<td>1/Capacitance $1/C$</td>
 </tr>
 </tbody>
 </table>
-<p>The name "impedance analogy" comes from the fact that mechanical impedance <span class="arithmatex">\(Z_m = F/v\)</span> maps to electrical impedance <span class="arithmatex">\(Z_e = V/I\)</span>.</p>
+<p>The name "impedance analogy" comes from the fact that mechanical impedance $Z_m = F/v$ maps to electrical impedance $Z_e = V/I$.</p>
 <p>Under this analogy:</p>
 <ul>
-<li>A <strong>mass</strong> (stores kinetic energy, <span class="arithmatex">\(E = \frac{1}{2}mv^2\)</span>) is analogous to an <strong>inductor</strong> (stores magnetic energy, <span class="arithmatex">\(E = \frac{1}{2}Li^2\)</span>)</li>
-<li>A <strong>spring</strong> (stores potential energy, <span class="arithmatex">\(E = \frac{1}{2}kx^2\)</span>) is analogous to a <strong>capacitor</strong> (stores electric energy, <span class="arithmatex">\(E = \frac{1}{2}Cv^2\)</span>)</li>
-<li>A <strong>damper</strong> (dissipates energy, <span class="arithmatex">\(P = bv^2\)</span>) is analogous to a <strong>resistor</strong> (dissipates energy, <span class="arithmatex">\(P = Ri^2\)</span>)</li>
+<li>A <strong>mass</strong> (stores kinetic energy, $E = \frac{1}{2}mv^2$) is analogous to an <strong>inductor</strong> (stores magnetic energy, $E = \frac{1}{2}Li^2$)</li>
+<li>A <strong>spring</strong> (stores potential energy, $E = \frac{1}{2}kx^2$) is analogous to a <strong>capacitor</strong> (stores electric energy, $E = \frac{1}{2}Cv^2$)</li>
+<li>A <strong>damper</strong> (dissipates energy, $P = bv^2$) is analogous to a <strong>resistor</strong> (dissipates energy, $P = Ri^2$)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Why Force Maps to Voltage</p>
@@ -2996,28 +2996,28 @@ Electrical Schematic:
 </thead>
 <tbody>
 <tr>
-<td>Force <span class="arithmatex">\(F\)</span></td>
-<td>Current <span class="arithmatex">\(i\)</span></td>
+<td>Force $F$</td>
+<td>Current $i$</td>
 </tr>
 <tr>
-<td>Velocity <span class="arithmatex">\(v\)</span></td>
-<td>Voltage <span class="arithmatex">\(v\)</span></td>
+<td>Velocity $v$</td>
+<td>Voltage $v$</td>
 </tr>
 <tr>
-<td>Displacement <span class="arithmatex">\(x\)</span></td>
-<td>Flux linkage <span class="arithmatex">\(\lambda\)</span></td>
+<td>Displacement $x$</td>
+<td>Flux linkage $\lambda$</td>
 </tr>
 <tr>
-<td>Mass <span class="arithmatex">\(m\)</span></td>
-<td>Capacitance <span class="arithmatex">\(C\)</span></td>
+<td>Mass $m$</td>
+<td>Capacitance $C$</td>
 </tr>
 <tr>
-<td>Damping <span class="arithmatex">\(b\)</span></td>
-<td>1/Resistance <span class="arithmatex">\(1/R\)</span></td>
+<td>Damping $b$</td>
+<td>1/Resistance $1/R$</td>
 </tr>
 <tr>
-<td>Stiffness <span class="arithmatex">\(k\)</span></td>
-<td>1/Inductance <span class="arithmatex">\(1/L\)</span></td>
+<td>Stiffness $k$</td>
+<td>1/Inductance $1/L$</td>
 </tr>
 </tbody>
 </table>
@@ -3113,33 +3113,33 @@ Mechanical System:
 <tbody>
 <tr>
 <td>Electrical</td>
-<td>Inductor (<span class="arithmatex">\(L\)</span>)</td>
-<td>Capacitor (<span class="arithmatex">\(C\)</span>)</td>
-<td>Resistor (<span class="arithmatex">\(R\)</span>)</td>
+<td>Inductor ($L$)</td>
+<td>Capacitor ($C$)</td>
+<td>Resistor ($R$)</td>
 </tr>
 <tr>
 <td>Mech. Trans.</td>
-<td>Mass (<span class="arithmatex">\(m\)</span>)</td>
-<td>Spring (<span class="arithmatex">\(1/k\)</span>)</td>
-<td>Damper (<span class="arithmatex">\(b\)</span>)</td>
+<td>Mass ($m$)</td>
+<td>Spring ($1/k$)</td>
+<td>Damper ($b$)</td>
 </tr>
 <tr>
 <td>Mech. Rot.</td>
-<td>Inertia (<span class="arithmatex">\(J\)</span>)</td>
-<td>Torsion spring (<span class="arithmatex">\(1/K\)</span>)</td>
-<td>Rot. damper (<span class="arithmatex">\(B\)</span>)</td>
+<td>Inertia ($J$)</td>
+<td>Torsion spring ($1/K$)</td>
+<td>Rot. damper ($B$)</td>
 </tr>
 <tr>
 <td>Fluid</td>
 <td>Inertance</td>
-<td>Tank (<span class="arithmatex">\(A\)</span>)</td>
-<td>Resistance (<span class="arithmatex">\(R_f\)</span>)</td>
+<td>Tank ($A$)</td>
+<td>Resistance ($R_f$)</td>
 </tr>
 <tr>
 <td>Thermal</td>
 <td>—</td>
-<td>Capacitance (<span class="arithmatex">\(C_{th}\)</span>)</td>
-<td>Resistance (<span class="arithmatex">\(R_{th}\)</span>)</td>
+<td>Capacitance ($C_{th}$)</td>
+<td>Resistance ($R_{th}$)</td>
 </tr>
 </tbody>
 </table>
@@ -3158,40 +3158,40 @@ Relate the through and across variables for each component (Ohm's law, spring la
 <p><strong>Step 5: Combine and Simplify</strong>
 Eliminate intermediate variables to get equations in terms of input(s) and output(s) only.</p>
 <p><strong>Step 6: Take Laplace Transform</strong>
-Convert differential equations to algebraic equations in <span class="arithmatex">\(s\)</span>.</p>
+Convert differential equations to algebraic equations in $s$.</p>
 <p><strong>Step 7: Solve for Transfer Function</strong>
-Express <span class="arithmatex">\(G(s) = Output(s)/Input(s)\)</span>.</p>
+Express $G(s) = Output(s)/Input(s)$.</p>
 <p><strong>Step 8: Verify</strong>
 Check units, limiting cases (DC, high frequency), and physical reasonableness. Does the model behave as expected?</p>
 <div class="admonition example">
 <p class="admonition-title">Example: Modeling a Motor-Driven Mass</p>
-<p>Consider a DC motor (armature-controlled) connected through gears to a translational mass. The input is armature voltage <span class="arithmatex">\(v_a\)</span>; the output is mass position <span class="arithmatex">\(x\)</span>.</p>
+<p>Consider a DC motor (armature-controlled) connected through gears to a translational mass. The input is armature voltage $v_a$; the output is mass position $x$.</p>
 <p><strong>Components:</strong>
-- Motor: <span class="arithmatex">\(R_a\)</span>, <span class="arithmatex">\(L_a\)</span>, <span class="arithmatex">\(K_t\)</span>, <span class="arithmatex">\(K_e\)</span>, rotor inertia <span class="arithmatex">\(J_m\)</span>, rotor damping <span class="arithmatex">\(B_m\)</span>
-- Gears: ratio <span class="arithmatex">\(N\)</span> (motor turns per output revolution)
-- Mass: <span class="arithmatex">\(m\)</span>, damping <span class="arithmatex">\(b\)</span>, plus rack-and-pinion with radius <span class="arithmatex">\(r\)</span></p>
+- Motor: $R_a$, $L_a$, $K_t$, $K_e$, rotor inertia $J_m$, rotor damping $B_m$
+- Gears: ratio $N$ (motor turns per output revolution)
+- Mass: $m$, damping $b$, plus rack-and-pinion with radius $r$</p>
 <p><strong>Analysis approach:</strong>
 1. Model motor electrically and mechanically
 2. Reflect load to motor shaft through gears
 3. Convert rotational motion to translation via rack-and-pinion
-4. Combine into single transfer function <span class="arithmatex">\(X(s)/V_a(s)\)</span></p>
+4. Combine into single transfer function $X(s)/V_a(s)$</p>
 <p>The result is a third-order system (electrical + two mechanical integrations), though often simplified by neglecting armature inductance.</p>
 </div>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <p>This chapter developed the essential skill of physical system modeling—translating real-world systems into mathematical descriptions suitable for control analysis and design.</p>
 <p><strong>Electrical Systems:</strong>
-- RC, RL circuits are first-order systems with time constants <span class="arithmatex">\(\tau = RC\)</span> or <span class="arithmatex">\(\tau = L/R\)</span>
-- RLC circuits are second-order with natural frequency <span class="arithmatex">\(\omega_n = 1/\sqrt{LC}\)</span> and damping ratio <span class="arithmatex">\(\zeta = (R/2)\sqrt{C/L}\)</span>
+- RC, RL circuits are first-order systems with time constants $\tau = RC$ or $\tau = L/R$
+- RLC circuits are second-order with natural frequency $\omega_n = 1/\sqrt{LC}$ and damping ratio $\zeta = (R/2)\sqrt{C/L}$
 - Op-amp circuits enable active operations: gain, integration, differentiation</p>
 <p><strong>Mechanical Systems:</strong>
 - Translational and rotational systems share parallel structures
 - Mass-spring-damper is the canonical second-order mechanical system
-- Gear trains transform speed and torque with ratio <span class="arithmatex">\(N\)</span>; inertia reflects by <span class="arithmatex">\(N^2\)</span>
+- Gear trains transform speed and torque with ratio $N$; inertia reflects by $N^2$
 - Nonlinear systems (like pendulums) can be linearized for small deviations</p>
 <p><strong>Electromechanical Systems:</strong>
 - DC motors couple electrical and mechanical dynamics
 - Armature-controlled motors relate voltage to speed via coupled first/second-order dynamics
-- Torque constant <span class="arithmatex">\(K_t\)</span> and back-EMF constant <span class="arithmatex">\(K_e\)</span> characterize the coupling</p>
+- Torque constant $K_t$ and back-EMF constant $K_e$ characterize the coupling</p>
 <p><strong>Analogous Systems:</strong>
 - Different physical domains obey similar mathematical structures
 - Force-voltage and force-current analogies relate mechanical to electrical systems

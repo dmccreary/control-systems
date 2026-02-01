@@ -2155,7 +2155,7 @@
 <hr>
 <h2 id="the-uncomfortable-truth-about-real-systems">The Uncomfortable Truth About Real Systems</h2>
 <p>In Chapter 2, we celebrated the Linear Time-Invariant (LTI) system as the foundation of classical control theory. In Chapter 7, we derived transfer functions for electrical, mechanical, and electromechanical systems—treating them as nice, well-behaved linear creatures. But here's the awkward confession: <strong>almost every real physical system is nonlinear</strong>.</p>
-<p>Springs stiffen at large deflections. Amplifiers saturate. Gears have backlash. Valves stick. Motors have friction that isn't purely viscous. Even the simple pendulum—that textbook favorite—follows a <span class="arithmatex">\(\sin\theta\)</span> relationship that defies linearity.</p>
+<p>Springs stiffen at large deflections. Amplifiers saturate. Gears have backlash. Valves stick. Motors have friction that isn't purely viscous. Even the simple pendulum—that textbook favorite—follows a $\sin\theta$ relationship that defies linearity.</p>
 <p>So why didn't we mention this earlier? Because there's a powerful saving grace: <strong>many nonlinear systems behave approximately linear over a limited operating range</strong>. The art of linearization is extracting a useful linear model from a fundamentally nonlinear reality, valid near a specific operating point. This isn't mathematical wishful thinking—it's a principled approximation that works remarkably well in practice.</p>
 <p>This chapter develops the tools to:</p>
 <ul>
@@ -2166,7 +2166,7 @@
 </ul>
 <div class="admonition quote">
 <p class="admonition-title">Gyra Moment</p>
-<p>"Here's my confession: I'm deeply, fundamentally nonlinear. My motors saturate when I'm falling fast. Gravity acts through <span class="arithmatex">\(\sin\theta\)</span>, not <span class="arithmatex">\(\theta\)</span>. There's friction that sticks before it slips. But here's the beautiful thing—when I'm nearly upright and things are calm, I behave <em>almost</em> linearly. That's when your LTI tools work on me. My engineers call it my 'sweet spot,' and their job is to keep me there."</p>
+<p>"Here's my confession: I'm deeply, fundamentally nonlinear. My motors saturate when I'm falling fast. Gravity acts through $\sin\theta$, not $\theta$. There's friction that sticks before it slips. But here's the beautiful thing—when I'm nearly upright and things are calm, I behave <em>almost</em> linearly. That's when your LTI tools work on me. My engineers call it my 'sweet spot,' and their job is to keep me there."</p>
 </div>
 <h2 id="nonlinear-systems-a-closer-look">Nonlinear Systems: A Closer Look</h2>
 <p>A <strong>nonlinear system</strong> is any system that doesn't satisfy the superposition principle. Recall from Chapter 2 that linear systems obey two rules: homogeneity (scale the input, scale the output proportionally) and additivity (add inputs, add outputs). Nonlinear systems violate one or both of these properties.</p>
@@ -2182,45 +2182,45 @@
 <tbody>
 <tr>
 <td>Products of variables</td>
-<td><span class="arithmatex">\(y \cdot \frac{dy}{dt}\)</span></td>
+<td>$y \cdot \frac{dy}{dt}$</td>
 <td>Velocity-dependent friction</td>
 </tr>
 <tr>
 <td>Powers other than 1</td>
-<td><span class="arithmatex">\(y^2\)</span>, <span class="arithmatex">\(\sqrt{y}\)</span></td>
+<td>$y^2$, $\sqrt{y}$</td>
 <td>Aerodynamic drag, flow through orifice</td>
 </tr>
 <tr>
 <td>Transcendental functions</td>
-<td><span class="arithmatex">\(\sin y\)</span>, <span class="arithmatex">\(e^y\)</span></td>
+<td>$\sin y$, $e^y$</td>
 <td>Pendulum angle, thermal radiation</td>
 </tr>
 <tr>
 <td>Variable coefficients</td>
-<td><span class="arithmatex">\((1+y)k\)</span></td>
+<td>$(1+y)k$</td>
 <td>Hardening spring</td>
 </tr>
 <tr>
 <td>Discontinuities</td>
-<td><span class="arithmatex">\(\text{sign}(v)\)</span></td>
+<td>$\text{sign}(v)$</td>
 <td>Coulomb friction</td>
 </tr>
 </tbody>
 </table>
 <p>Consider the simple pendulum from Chapter 7. The true equation of motion is:</p>
 <h4 id="true-pendulum-equation">True Pendulum Equation</h4>
-<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + B\frac{d\theta}{dt} + mgL\sin\theta = \tau\)</span></p>
+<p>$mL^2\frac{d^2\theta}{dt^2} + B\frac{d\theta}{dt} + mgL\sin\theta = \tau$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(m\)</span> is the pendulum mass</li>
-<li><span class="arithmatex">\(L\)</span> is the pendulum length</li>
-<li><span class="arithmatex">\(B\)</span> is the damping coefficient</li>
-<li><span class="arithmatex">\(g\)</span> is gravitational acceleration</li>
-<li><span class="arithmatex">\(\theta\)</span> is the angle from vertical</li>
-<li><span class="arithmatex">\(\tau\)</span> is the applied torque</li>
+<li>$m$ is the pendulum mass</li>
+<li>$L$ is the pendulum length</li>
+<li>$B$ is the damping coefficient</li>
+<li>$g$ is gravitational acceleration</li>
+<li>$\theta$ is the angle from vertical</li>
+<li>$\tau$ is the applied torque</li>
 </ul>
-<p>The <span class="arithmatex">\(\sin\theta\)</span> term makes this nonlinear. Doubling the initial angle does <em>not</em> double the response. Adding two angle solutions does <em>not</em> give the solution for the sum of initial angles. Superposition fails.</p>
-<p>The same pendulum equation we linearized in Chapter 7 using <span class="arithmatex">\(\sin\theta \approx \theta\)</span> is our prototype example for this chapter. That approximation isn't magic—it's a Taylor series truncation, and understanding when and why it works is essential for applying linearization to any nonlinear system.</p>
+<p>The $\sin\theta$ term makes this nonlinear. Doubling the initial angle does <em>not</em> double the response. Adding two angle solutions does <em>not</em> give the solution for the sum of initial angles. Superposition fails.</p>
+<p>The same pendulum equation we linearized in Chapter 7 using $\sin\theta \approx \theta$ is our prototype example for this chapter. That approximation isn't magic—it's a Taylor series truncation, and understanding when and why it works is essential for applying linearization to any nonlinear system.</p>
 <h4 id="diagram-linear-vs-nonlinear-response-comparison">Diagram: Linear vs Nonlinear Response Comparison</h4>
 <iframe src="../../sims/linear-vs-nonlinear/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
@@ -2269,32 +2269,32 @@ Linear System Panel:
 <h2 id="equilibrium-points-where-systems-want-to-rest">Equilibrium Points: Where Systems Want to Rest</h2>
 <p>Before linearizing a nonlinear system, we must first ask: linearize around <em>what</em>? The answer is the <strong>equilibrium point</strong> (also called a fixed point or steady-state)—a condition where the system remains at rest if undisturbed.</p>
 <p>An <strong>equilibrium point</strong> is a state where all derivatives are zero when the input is constant. For a system described by:</p>
-<p><span class="arithmatex">\(\frac{dx}{dt} = f(x, u)\)</span></p>
-<p>the equilibrium point <span class="arithmatex">\((x_e, u_e)\)</span> satisfies:</p>
+<p>$\frac{dx}{dt} = f(x, u)$</p>
+<p>the equilibrium point $(x_e, u_e)$ satisfies:</p>
 <h4 id="equilibrium-condition">Equilibrium Condition</h4>
-<p><span class="arithmatex">\(f(x_e, u_e) = 0\)</span></p>
+<p>$f(x_e, u_e) = 0$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(x_e\)</span> is the equilibrium state</li>
-<li><span class="arithmatex">\(u_e\)</span> is the constant input at equilibrium</li>
-<li><span class="arithmatex">\(f\)</span> is the system dynamics function</li>
+<li>$x_e$ is the equilibrium state</li>
+<li>$u_e$ is the constant input at equilibrium</li>
+<li>$f$ is the system dynamics function</li>
 </ul>
-<p>For the pendulum with constant torque input <span class="arithmatex">\(\tau_e\)</span>:</p>
-<p><span class="arithmatex">\(0 = -\frac{B}{mL^2}\dot{\theta} - \frac{g}{L}\sin\theta_e + \frac{\tau_e}{mL^2}\)</span></p>
-<p>With <span class="arithmatex">\(\dot{\theta} = 0\)</span> at equilibrium:</p>
-<p><span class="arithmatex">\(\sin\theta_e = \frac{\tau_e}{mgL}\)</span></p>
-<p>If <span class="arithmatex">\(\tau_e = 0\)</span> (no applied torque), then <span class="arithmatex">\(\theta_e = 0\)</span> (hanging down) or <span class="arithmatex">\(\theta_e = \pi\)</span> (balanced up) are equilibrium points. Only <span class="arithmatex">\(\theta_e = 0\)</span> is stable—small disturbances die out. At <span class="arithmatex">\(\theta_e = \pi\)</span>, the pendulum is balanced but any tiny nudge sends it falling.</p>
+<p>For the pendulum with constant torque input $\tau_e$:</p>
+<p>$0 = -\frac{B}{mL^2}\dot{\theta} - \frac{g}{L}\sin\theta_e + \frac{\tau_e}{mL^2}$</p>
+<p>With $\dot{\theta} = 0$ at equilibrium:</p>
+<p>$\sin\theta_e = \frac{\tau_e}{mgL}$</p>
+<p>If $\tau_e = 0$ (no applied torque), then $\theta_e = 0$ (hanging down) or $\theta_e = \pi$ (balanced up) are equilibrium points. Only $\theta_e = 0$ is stable—small disturbances die out. At $\theta_e = \pi$, the pendulum is balanced but any tiny nudge sends it falling.</p>
 <div class="admonition tip">
 <p class="admonition-title">Equilibrium vs Operating Point</p>
 <p>The terms "equilibrium point" and "operating point" are related but not identical. An equilibrium point is a special state where derivatives vanish—the system is truly at rest. An <strong>operating point</strong> is more general: it's any steady-state condition around which we choose to linearize, which might involve constant motion (like a motor spinning at constant speed) rather than absolute stillness.</p>
 </div>
 <h3 id="finding-equilibrium-points">Finding Equilibrium Points</h3>
 <p>For systems with multiple variables, finding equilibrium points requires solving simultaneous algebraic equations. Consider a system with two state variables:</p>
-<p><span class="arithmatex">\(\frac{dx_1}{dt} = f_1(x_1, x_2, u)\)</span></p>
-<p><span class="arithmatex">\(\frac{dx_2}{dt} = f_2(x_1, x_2, u)\)</span></p>
+<p>$\frac{dx_1}{dt} = f_1(x_1, x_2, u)$</p>
+<p>$\frac{dx_2}{dt} = f_2(x_1, x_2, u)$</p>
 <p>Setting both derivatives to zero gives:</p>
-<p><span class="arithmatex">\(f_1(x_{1e}, x_{2e}, u_e) = 0\)</span></p>
-<p><span class="arithmatex">\(f_2(x_{1e}, x_{2e}, u_e) = 0\)</span></p>
+<p>$f_1(x_{1e}, x_{2e}, u_e) = 0$</p>
+<p>$f_2(x_{1e}, x_{2e}, u_e) = 0$</p>
 <p>This system of equations may have zero, one, or multiple solutions—corresponding to no equilibrium, a unique equilibrium, or multiple equilibria (like the pendulum's up and down positions).</p>
 <table>
 <thead>
@@ -2307,49 +2307,49 @@ Linear System Panel:
 <tbody>
 <tr>
 <td>Pendulum</td>
-<td><span class="arithmatex">\(\sin\theta_e = \tau_e/(mgL)\)</span></td>
-<td><span class="arithmatex">\(\theta = 0\)</span> (stable), <span class="arithmatex">\(\theta = \pi\)</span> (unstable)</td>
+<td>$\sin\theta_e = \tau_e/(mgL)$</td>
+<td>$\theta = 0$ (stable), $\theta = \pi$ (unstable)</td>
 </tr>
 <tr>
 <td>Tank level</td>
-<td><span class="arithmatex">\(q_{in} = q_{out}(h_e)\)</span></td>
+<td>$q_{in} = q_{out}(h_e)$</td>
 <td>Level where inflow equals outflow</td>
 </tr>
 <tr>
 <td>DC motor</td>
-<td><span class="arithmatex">\(K_t i_a = B\omega_e + \tau_L\)</span></td>
+<td>$K_t i_a = B\omega_e + \tau_L$</td>
 <td>Speed where motor torque equals load</td>
 </tr>
 <tr>
 <td>Thermostat</td>
-<td><span class="arithmatex">\(q_{heating} = q_{loss}(T_e)\)</span></td>
+<td>$q_{heating} = q_{loss}(T_e)$</td>
 <td>Temperature where heat in equals heat out</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition quote">
 <p class="admonition-title">Helping Gyra</p>
-<p>"I have exactly one equilibrium point I care about: perfectly vertical at <span class="arithmatex">\(\theta = 0\)</span>. That's where I want to be. There's technically another equilibrium at <span class="arithmatex">\(\theta = \pi\)</span>—upside down—but let's not talk about that. It's unstable anyway. My control system's entire job is to keep me near my preferred equilibrium. When I drift away, the controller applies torque to bring me back. It's a constant negotiation with gravity."</p>
+<p>"I have exactly one equilibrium point I care about: perfectly vertical at $\theta = 0$. That's where I want to be. There's technically another equilibrium at $\theta = \pi$—upside down—but let's not talk about that. It's unstable anyway. My control system's entire job is to keep me near my preferred equilibrium. When I drift away, the controller applies torque to bring me back. It's a constant negotiation with gravity."</p>
 </div>
 <h2 id="operating-points-the-foundation-of-linearization">Operating Points: The Foundation of Linearization</h2>
 <p>An <strong>operating point</strong> is the steady-state condition around which we linearize a nonlinear system. For equilibrium points, this means zero derivatives. For systems in steady motion (like a motor at constant speed), the operating point includes constant rates of change.</p>
-<p>Consider a DC motor driving a load at constant speed <span class="arithmatex">\(\omega_0\)</span> with armature voltage <span class="arithmatex">\(V_0\)</span>. The operating point satisfies:</p>
+<p>Consider a DC motor driving a load at constant speed $\omega_0$ with armature voltage $V_0$. The operating point satisfies:</p>
 <h4 id="motor-operating-point">Motor Operating Point</h4>
-<p><span class="arithmatex">\(V_0 = R_a I_0 + K_e \omega_0\)</span></p>
-<p><span class="arithmatex">\(K_t I_0 = B\omega_0 + \tau_L\)</span></p>
+<p>$V_0 = R_a I_0 + K_e \omega_0$</p>
+<p>$K_t I_0 = B\omega_0 + \tau_L$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(V_0\)</span> is the steady-state armature voltage</li>
-<li><span class="arithmatex">\(I_0\)</span> is the steady-state armature current</li>
-<li><span class="arithmatex">\(\omega_0\)</span> is the steady-state angular velocity</li>
-<li><span class="arithmatex">\(\tau_L\)</span> is the constant load torque</li>
+<li>$V_0$ is the steady-state armature voltage</li>
+<li>$I_0$ is the steady-state armature current</li>
+<li>$\omega_0$ is the steady-state angular velocity</li>
+<li>$\tau_L$ is the constant load torque</li>
 </ul>
 <p>At the operating point, electrical power in equals mechanical power out plus losses. The motor is in equilibrium with its load.</p>
 <p>To linearize, we analyze small deviations from this operating point:</p>
-<p><span class="arithmatex">\(v_a(t) = V_0 + \Delta v_a(t)\)</span></p>
-<p><span class="arithmatex">\(\omega(t) = \omega_0 + \Delta \omega(t)\)</span></p>
-<p><span class="arithmatex">\(i_a(t) = I_0 + \Delta i_a(t)\)</span></p>
-<p>The deviations <span class="arithmatex">\(\Delta v_a\)</span>, <span class="arithmatex">\(\Delta \omega\)</span>, <span class="arithmatex">\(\Delta i_a\)</span> are the "small signals" we analyze. The operating point values <span class="arithmatex">\(V_0\)</span>, <span class="arithmatex">\(\omega_0\)</span>, <span class="arithmatex">\(I_0\)</span> are the "DC bias" or "quiescent point."</p>
+<p>$v_a(t) = V_0 + \Delta v_a(t)$</p>
+<p>$\omega(t) = \omega_0 + \Delta \omega(t)$</p>
+<p>$i_a(t) = I_0 + \Delta i_a(t)$</p>
+<p>The deviations $\Delta v_a$, $\Delta \omega$, $\Delta i_a$ are the "small signals" we analyze. The operating point values $V_0$, $\omega_0$, $I_0$ are the "DC bias" or "quiescent point."</p>
 <p>This separation is powerful because the small-signal dynamics are often linear even when the full system is not. We sacrifice information about the absolute values to gain the ability to use transfer functions, frequency response, and all our LTI tools.</p>
 <h4 id="diagram-operating-point-concept-visualizer">Diagram: Operating Point Concept Visualizer</h4>
 <iframe src="../../sims/operating-point-viz/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -2365,9 +2365,9 @@ Bloom Verb: explain, interpret</p>
 - Right (40%): Operating point diagram and explanation</p>
 <p>Visual elements:
 Time Plot:
-- Total signal (black solid line): <span class="arithmatex">\(x(t) = X_0 + \Delta x(t)\)</span>
-- Operating point level (blue dashed horizontal line): <span class="arithmatex">\(X_0\)</span>
-- Small signal deviation (green): <span class="arithmatex">\(\Delta x(t)\)</span>
+- Total signal (black solid line): $x(t) = X_0 + \Delta x(t)$
+- Operating point level (blue dashed horizontal line): $X_0$
+- Small signal deviation (green): $\Delta x(t)$
 - Shaded region between operating point and total signal</p>
 <p>Operating Point Diagram:
 - Vertical axis representing the signal variable
@@ -2375,7 +2375,7 @@ Time Plot:
 - Arrows showing deviation range
 - "Linear region" bracket showing valid range for linearization</p>
 <p>Interactive controls:
-- Slider: Operating point value <span class="arithmatex">\(X_0\)</span> (adjustable range)
+- Slider: Operating point value $X_0$ (adjustable range)
 - Slider: Small signal amplitude (0 to 20% of operating point)
 - Slider: Small signal frequency
 - Toggle: Show/hide components individually
@@ -2395,33 +2395,33 @@ Time Plot:
 </details>
 <h2 id="taylor-series-expansion-the-mathematical-engine">Taylor Series Expansion: The Mathematical Engine</h2>
 <p><strong>Taylor series expansion</strong> is the mathematical tool that powers linearization. It allows us to approximate any smooth function as a polynomial, with accuracy improving as we include more terms.</p>
-<p>For a function <span class="arithmatex">\(f(x)\)</span> expanded around point <span class="arithmatex">\(x_0\)</span>:</p>
+<p>For a function $f(x)$ expanded around point $x_0$:</p>
 <h4 id="taylor-series-formula">Taylor Series Formula</h4>
-<p><span class="arithmatex">\(f(x) = f(x_0) + \frac{df}{dx}\bigg|_{x_0}(x - x_0) + \frac{1}{2!}\frac{d^2f}{dx^2}\bigg|_{x_0}(x - x_0)^2 + \cdots\)</span></p>
+<p>$f(x) = f(x_0) + \frac{df}{dx}\bigg|<em x_0="x_0">{x_0}(x - x_0) + \frac{1}{2!}\frac{d^2f}{dx^2}\bigg|</em>(x - x_0)^2 + \cdots$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(f(x_0)\)</span> is the function value at the expansion point</li>
-<li><span class="arithmatex">\(\frac{df}{dx}\big|_{x_0}\)</span> is the first derivative evaluated at <span class="arithmatex">\(x_0\)</span></li>
-<li><span class="arithmatex">\((x - x_0)\)</span> is the deviation from the expansion point</li>
-<li>Higher-order terms contain higher powers of <span class="arithmatex">\((x - x_0)\)</span></li>
+<li>$f(x_0)$ is the function value at the expansion point</li>
+<li>$\frac{df}{dx}\big|_{x_0}$ is the first derivative evaluated at $x_0$</li>
+<li>$(x - x_0)$ is the deviation from the expansion point</li>
+<li>Higher-order terms contain higher powers of $(x - x_0)$</li>
 </ul>
 <p>For linearization, we truncate after the first-order term:</p>
 <h4 id="linear-approximation">Linear Approximation</h4>
-<p><span class="arithmatex">\(f(x) \approx f(x_0) + \frac{df}{dx}\bigg|_{x_0}(x - x_0)\)</span></p>
-<p>This approximation is valid when <span class="arithmatex">\((x - x_0)\)</span> is "small" so that the quadratic and higher terms are negligible.</p>
+<p>$f(x) \approx f(x_0) + \frac{df}{dx}\bigg|_{x_0}(x - x_0)$</p>
+<p>This approximation is valid when $(x - x_0)$ is "small" so that the quadratic and higher terms are negligible.</p>
 <h3 id="example-linearizing-sin">Example: Linearizing sin(θ)</h3>
-<p>The pendulum's <span class="arithmatex">\(\sin\theta\)</span> term linearizes around <span class="arithmatex">\(\theta_0 = 0\)</span>:</p>
-<p><span class="arithmatex">\(\sin\theta \approx \sin(0) + \cos(0) \cdot (\theta - 0) = 0 + 1 \cdot \theta = \theta\)</span></p>
+<p>The pendulum's $\sin\theta$ term linearizes around $\theta_0 = 0$:</p>
+<p>$\sin\theta \approx \sin(0) + \cos(0) \cdot (\theta - 0) = 0 + 1 \cdot \theta = \theta$</p>
 <p>The famous small-angle approximation! But where did it come from? The Taylor series:</p>
 <ul>
-<li><span class="arithmatex">\(f(\theta) = \sin\theta\)</span></li>
-<li><span class="arithmatex">\(f(0) = \sin(0) = 0\)</span></li>
-<li><span class="arithmatex">\(f'(0) = \cos(0) = 1\)</span></li>
-<li>Linear approximation: <span class="arithmatex">\(\sin\theta \approx \theta\)</span></li>
+<li>$f(\theta) = \sin\theta$</li>
+<li>$f(0) = \sin(0) = 0$</li>
+<li>$f'(0) = \cos(0) = 1$</li>
+<li>Linear approximation: $\sin\theta \approx \theta$</li>
 </ul>
-<p>For expansion around <span class="arithmatex">\(\theta_0 \neq 0\)</span>:</p>
-<p><span class="arithmatex">\(\sin\theta \approx \sin\theta_0 + \cos\theta_0 \cdot (\theta - \theta_0)\)</span></p>
-<p>The slope of the approximation depends on where you expand. At <span class="arithmatex">\(\theta_0 = 0\)</span>, the slope is <span class="arithmatex">\(\cos(0) = 1\)</span>. At <span class="arithmatex">\(\theta_0 = \pi/2\)</span>, the slope is <span class="arithmatex">\(\cos(\pi/2) = 0\)</span>—the function is locally flat at its peak.</p>
+<p>For expansion around $\theta_0 \neq 0$:</p>
+<p>$\sin\theta \approx \sin\theta_0 + \cos\theta_0 \cdot (\theta - \theta_0)$</p>
+<p>The slope of the approximation depends on where you expand. At $\theta_0 = 0$, the slope is $\cos(0) = 1$. At $\theta_0 = \pi/2$, the slope is $\cos(\pi/2) = 0$—the function is locally flat at its peak.</p>
 <table>
 <thead>
 <tr>
@@ -2432,34 +2432,34 @@ Time Plot:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\sin\theta\)</span></td>
-<td><span class="arithmatex">\(\theta_0 = 0\)</span></td>
-<td><span class="arithmatex">\(\theta\)</span></td>
+<td>$\sin\theta$</td>
+<td>$\theta_0 = 0$</td>
+<td>$\theta$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\cos\theta\)</span></td>
-<td><span class="arithmatex">\(\theta_0 = 0\)</span></td>
-<td><span class="arithmatex">\(1\)</span> (constant)</td>
+<td>$\cos\theta$</td>
+<td>$\theta_0 = 0$</td>
+<td>$1$ (constant)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(e^x\)</span></td>
-<td><span class="arithmatex">\(x_0 = 0\)</span></td>
-<td><span class="arithmatex">\(1 + x\)</span></td>
+<td>$e^x$</td>
+<td>$x_0 = 0$</td>
+<td>$1 + x$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\ln(1+x)\)</span></td>
-<td><span class="arithmatex">\(x_0 = 0\)</span></td>
-<td><span class="arithmatex">\(x\)</span></td>
+<td>$\ln(1+x)$</td>
+<td>$x_0 = 0$</td>
+<td>$x$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\sqrt{1+x}\)</span></td>
-<td><span class="arithmatex">\(x_0 = 0\)</span></td>
-<td><span class="arithmatex">\(1 + \frac{x}{2}\)</span></td>
+<td>$\sqrt{1+x}$</td>
+<td>$x_0 = 0$</td>
+<td>$1 + \frac{x}{2}$</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\((1+x)^n\)</span></td>
-<td><span class="arithmatex">\(x_0 = 0\)</span></td>
-<td><span class="arithmatex">\(1 + nx\)</span></td>
+<td>$(1+x)^n$</td>
+<td>$x_0 = 0$</td>
+<td>$1 + nx$</td>
 </tr>
 </tbody>
 </table>
@@ -2506,74 +2506,74 @@ Function Plot:
 <p>Implementation: p5.js with real-time function plotting and derivative calculation</p>
 </details>
 <h3 id="multivariable-taylor-expansion">Multivariable Taylor Expansion</h3>
-<p>For systems with multiple variables, we need the multivariable Taylor expansion. For a function <span class="arithmatex">\(f(x_1, x_2)\)</span> around operating point <span class="arithmatex">\((x_{10}, x_{20})\)</span>:</p>
+<p>For systems with multiple variables, we need the multivariable Taylor expansion. For a function $f(x_1, x_2)$ around operating point $(x_{10}, x_{20})$:</p>
 <h4 id="multivariable-linear-approximation">Multivariable Linear Approximation</h4>
-<p><span class="arithmatex">\(f(x_1, x_2) \approx f(x_{10}, x_{20}) + \frac{\partial f}{\partial x_1}\bigg|_0 (x_1 - x_{10}) + \frac{\partial f}{\partial x_2}\bigg|_0 (x_2 - x_{20})\)</span></p>
+<p>$f(x_1, x_2) \approx f(x_{10}, x_{20}) + \frac{\partial f}{\partial x_1}\bigg|<em 10="10">0 (x_1 - x</em>\bigg|}) + \frac{\partial f}{\partial x_2<em 20="20">0 (x_2 - x</em>)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\frac{\partial f}{\partial x_1}\big|_0\)</span> is the partial derivative with respect to <span class="arithmatex">\(x_1\)</span> at the operating point</li>
-<li><span class="arithmatex">\(\frac{\partial f}{\partial x_2}\big|_0\)</span> is the partial derivative with respect to <span class="arithmatex">\(x_2\)</span> at the operating point</li>
+<li>$\frac{\partial f}{\partial x_1}\big|_0$ is the partial derivative with respect to $x_1$ at the operating point</li>
+<li>$\frac{\partial f}{\partial x_2}\big|_0$ is the partial derivative with respect to $x_2$ at the operating point</li>
 </ul>
 <p>The partial derivatives evaluated at the operating point become the coefficients of the linearized model. This is how nonlinear coupling between variables gets "frozen" into constant coefficients for small-signal analysis.</p>
 <h2 id="linearization-procedure-a-systematic-approach">Linearization Procedure: A Systematic Approach</h2>
 <p>Linearizing a nonlinear system follows a systematic procedure. Here's the step-by-step approach:</p>
 <p><strong>Step 1: Write the Nonlinear System Equations</strong></p>
 <p>Express the system as first-order differential equations:</p>
-<p><span class="arithmatex">\(\frac{dx}{dt} = f(x, u)\)</span></p>
-<p><span class="arithmatex">\(y = g(x, u)\)</span></p>
-<p>where <span class="arithmatex">\(x\)</span> is the state, <span class="arithmatex">\(u\)</span> is the input, and <span class="arithmatex">\(y\)</span> is the output.</p>
+<p>$\frac{dx}{dt} = f(x, u)$</p>
+<p>$y = g(x, u)$</p>
+<p>where $x$ is the state, $u$ is the input, and $y$ is the output.</p>
 <p><strong>Step 2: Find the Operating Point</strong></p>
 <p>Solve for the equilibrium or steady-state condition:</p>
-<p><span class="arithmatex">\(f(x_0, u_0) = 0\)</span></p>
-<p><span class="arithmatex">\(y_0 = g(x_0, u_0)\)</span></p>
+<p>$f(x_0, u_0) = 0$</p>
+<p>$y_0 = g(x_0, u_0)$</p>
 <p><strong>Step 3: Define Deviation Variables</strong></p>
 <p>Introduce small deviations from the operating point:</p>
-<p><span class="arithmatex">\(\Delta x = x - x_0\)</span></p>
-<p><span class="arithmatex">\(\Delta u = u - u_0\)</span></p>
-<p><span class="arithmatex">\(\Delta y = y - y_0\)</span></p>
+<p>$\Delta x = x - x_0$</p>
+<p>$\Delta u = u - u_0$</p>
+<p>$\Delta y = y - y_0$</p>
 <p><strong>Step 4: Apply Taylor Series</strong></p>
 <p>Expand the nonlinear functions and keep only first-order terms:</p>
-<p><span class="arithmatex">\(f(x, u) \approx f(x_0, u_0) + \frac{\partial f}{\partial x}\bigg|_0 \Delta x + \frac{\partial f}{\partial u}\bigg|_0 \Delta u\)</span></p>
-<p>Since <span class="arithmatex">\(f(x_0, u_0) = 0\)</span> at equilibrium:</p>
-<p><span class="arithmatex">\(\frac{d(\Delta x)}{dt} = \frac{\partial f}{\partial x}\bigg|_0 \Delta x + \frac{\partial f}{\partial u}\bigg|_0 \Delta u\)</span></p>
+<p>$f(x, u) \approx f(x_0, u_0) + \frac{\partial f}{\partial x}\bigg|_0 \Delta x + \frac{\partial f}{\partial u}\bigg|_0 \Delta u$</p>
+<p>Since $f(x_0, u_0) = 0$ at equilibrium:</p>
+<p>$\frac{d(\Delta x)}{dt} = \frac{\partial f}{\partial x}\bigg|_0 \Delta x + \frac{\partial f}{\partial u}\bigg|_0 \Delta u$</p>
 <p><strong>Step 5: Write the Linearized Model</strong></p>
 <p>Define the linearized coefficients:</p>
-<p><span class="arithmatex">\(A = \frac{\partial f}{\partial x}\bigg|_0, \quad B = \frac{\partial f}{\partial u}\bigg|_0\)</span></p>
+<p>$A = \frac{\partial f}{\partial x}\bigg|_0, \quad B = \frac{\partial f}{\partial u}\bigg|_0$</p>
 <p>The linearized system is:</p>
-<p><span class="arithmatex">\(\frac{d(\Delta x)}{dt} = A \cdot \Delta x + B \cdot \Delta u\)</span></p>
+<p>$\frac{d(\Delta x)}{dt} = A \cdot \Delta x + B \cdot \Delta u$</p>
 <p><strong>Step 6: Derive the Transfer Function</strong></p>
 <p>Take the Laplace transform and solve for the transfer function:</p>
-<p><span class="arithmatex">\(s\Delta X(s) = A \cdot \Delta X(s) + B \cdot \Delta U(s)\)</span></p>
-<p><span class="arithmatex">\((s - A)\Delta X(s) = B \cdot \Delta U(s)\)</span></p>
-<p><span class="arithmatex">\(G(s) = \frac{\Delta X(s)}{\Delta U(s)} = \frac{B}{s - A}\)</span></p>
+<p>$s\Delta X(s) = A \cdot \Delta X(s) + B \cdot \Delta U(s)$</p>
+<p>$(s - A)\Delta X(s) = B \cdot \Delta U(s)$</p>
+<p>$G(s) = \frac{\Delta X(s)}{\Delta U(s)} = \frac{B}{s - A}$</p>
 <h3 id="example-linearizing-a-tank-level-system">Example: Linearizing a Tank Level System</h3>
-<p>Consider a tank with cross-sectional area <span class="arithmatex">\(A\)</span>, inlet flow rate <span class="arithmatex">\(q_{in}\)</span>, and outlet flow through an orifice where flow depends nonlinearly on height:</p>
-<p><span class="arithmatex">\(q_{out} = k\sqrt{h}\)</span></p>
+<p>Consider a tank with cross-sectional area $A$, inlet flow rate $q_{in}$, and outlet flow through an orifice where flow depends nonlinearly on height:</p>
+<p>$q_{out} = k\sqrt{h}$</p>
 <p>The governing equation is:</p>
-<p><span class="arithmatex">\(A\frac{dh}{dt} = q_{in} - k\sqrt{h}\)</span></p>
-<p>This is nonlinear due to the <span class="arithmatex">\(\sqrt{h}\)</span> term.</p>
+<p>$A\frac{dh}{dt} = q_{in} - k\sqrt{h}$</p>
+<p>This is nonlinear due to the $\sqrt{h}$ term.</p>
 <p><strong>Step 1: Nonlinear equation</strong></p>
-<p><span class="arithmatex">\(\frac{dh}{dt} = \frac{1}{A}(q_{in} - k\sqrt{h})\)</span></p>
+<p>$\frac{dh}{dt} = \frac{1}{A}(q_{in} - k\sqrt{h})$</p>
 <p><strong>Step 2: Operating point</strong></p>
-<p>At steady state with <span class="arithmatex">\(q_{in} = Q_0\)</span>:</p>
-<p><span class="arithmatex">\(0 = Q_0 - k\sqrt{h_0}\)</span></p>
-<p><span class="arithmatex">\(h_0 = (Q_0/k)^2\)</span></p>
+<p>At steady state with $q_{in} = Q_0$:</p>
+<p>$0 = Q_0 - k\sqrt{h_0}$</p>
+<p>$h_0 = (Q_0/k)^2$</p>
 <p><strong>Step 3: Deviation variables</strong></p>
-<p><span class="arithmatex">\(\Delta h = h - h_0\)</span>, <span class="arithmatex">\(\Delta q = q_{in} - Q_0\)</span></p>
+<p>$\Delta h = h - h_0$, $\Delta q = q_{in} - Q_0$</p>
 <p><strong>Step 4: Taylor series</strong></p>
-<p><span class="arithmatex">\(\sqrt{h} \approx \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}(h - h_0) = \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}\Delta h\)</span></p>
+<p>$\sqrt{h} \approx \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}(h - h_0) = \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}\Delta h$</p>
 <p>Substituting:</p>
-<p><span class="arithmatex">\(\frac{d(\Delta h)}{dt} = \frac{1}{A}\left(\Delta q - \frac{k}{2\sqrt{h_0}}\Delta h\right)\)</span></p>
+<p>$\frac{d(\Delta h)}{dt} = \frac{1}{A}\left(\Delta q - \frac{k}{2\sqrt{h_0}}\Delta h\right)$</p>
 <p><strong>Step 5: Linearized model</strong></p>
-<p>Define: <span class="arithmatex">\(R = \frac{2\sqrt{h_0}}{k} = \frac{2h_0}{Q_0}\)</span> (effective resistance)</p>
-<p><span class="arithmatex">\(\frac{d(\Delta h)}{dt} = -\frac{1}{AR}\Delta h + \frac{1}{A}\Delta q\)</span></p>
+<p>Define: $R = \frac{2\sqrt{h_0}}{k} = \frac{2h_0}{Q_0}$ (effective resistance)</p>
+<p>$\frac{d(\Delta h)}{dt} = -\frac{1}{AR}\Delta h + \frac{1}{A}\Delta q$</p>
 <p><strong>Step 6: Transfer function</strong></p>
-<p><span class="arithmatex">\(G(s) = \frac{\Delta H(s)}{\Delta Q(s)} = \frac{R}{ARs + 1} = \frac{R}{\tau s + 1}\)</span></p>
-<p>The linearized system is first-order with time constant <span class="arithmatex">\(\tau = AR\)</span> and DC gain <span class="arithmatex">\(R\)</span>. But notice: <span class="arithmatex">\(R\)</span> depends on the operating point <span class="arithmatex">\(h_0\)</span>. At higher tank levels, the effective resistance is larger, meaning the system responds more slowly. The "same" physical system has different linearized dynamics at different operating points!</p>
+<p>$G(s) = \frac{\Delta H(s)}{\Delta Q(s)} = \frac{R}{ARs + 1} = \frac{R}{\tau s + 1}$</p>
+<p>The linearized system is first-order with time constant $\tau = AR$ and DC gain $R$. But notice: $R$ depends on the operating point $h_0$. At higher tank levels, the effective resistance is larger, meaning the system responds more slowly. The "same" physical system has different linearized dynamics at different operating points!</p>
 <h2 id="small-signal-analysis-working-with-deviations">Small Signal Analysis: Working with Deviations</h2>
 <p><strong>Small signal analysis</strong> is the practice of analyzing system behavior in terms of deviations from an operating point. It's the practical application of linearization—separating the steady-state (DC) response from the dynamic (AC) response.</p>
 <p>The key insight is that the small-signal transfer function relates <em>deviations</em> in output to <em>deviations</em> in input:</p>
-<p><span class="arithmatex">\(G(s) = \frac{\Delta Y(s)}{\Delta U(s)}\)</span></p>
+<p>$G(s) = \frac{\Delta Y(s)}{\Delta U(s)}$</p>
 <p>This transfer function is computed at a specific operating point and is only valid for small excursions around that point. Large deviations invalidate the linearization.</p>
 <h3 id="validity-of-small-signal-analysis">Validity of Small Signal Analysis</h3>
 <p>How "small" is small enough? There's no universal answer—it depends on:</p>
@@ -2644,30 +2644,30 @@ Response Plot:
 <p>Implementation: p5.js with dual differential equation solvers and error computation</p>
 </details>
 <h3 id="example-small-signal-analysis-of-a-pendulum">Example: Small Signal Analysis of a Pendulum</h3>
-<p>For a pendulum linearized around <span class="arithmatex">\(\theta_0 = 0\)</span>:</p>
-<p>Nonlinear: <span class="arithmatex">\(\ddot{\theta} + \frac{B}{J}\dot{\theta} + \frac{g}{L}\sin\theta = \frac{\tau}{J}\)</span></p>
-<p>Linearized: <span class="arithmatex">\(\ddot{\theta} + \frac{B}{J}\dot{\theta} + \frac{g}{L}\theta = \frac{\tau}{J}\)</span></p>
+<p>For a pendulum linearized around $\theta_0 = 0$:</p>
+<p>Nonlinear: $\ddot{\theta} + \frac{B}{J}\dot{\theta} + \frac{g}{L}\sin\theta = \frac{\tau}{J}$</p>
+<p>Linearized: $\ddot{\theta} + \frac{B}{J}\dot{\theta} + \frac{g}{L}\theta = \frac{\tau}{J}$</p>
 <p>The small-signal transfer function from torque to angle is:</p>
-<p><span class="arithmatex">\(G(s) = \frac{\Theta(s)}{T(s)} = \frac{1/J}{s^2 + \frac{B}{J}s + \frac{g}{L}}\)</span></p>
+<p>$G(s) = \frac{\Theta(s)}{T(s)} = \frac{1/J}{s^2 + \frac{B}{J}s + \frac{g}{L}}$</p>
 <p>This is a standard second-order system with:</p>
 <ul>
-<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{g/L}\)</span></li>
-<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{B}{2J\omega_n}\)</span></li>
+<li>Natural frequency: $\omega_n = \sqrt{g/L}$</li>
+<li>Damping ratio: $\zeta = \frac{B}{2J\omega_n}$</li>
 </ul>
-<p>But this is only valid for small angles! At <span class="arithmatex">\(\theta = 30°\)</span> (0.52 rad), the error in the <span class="arithmatex">\(\sin\theta \approx \theta\)</span> approximation is:</p>
-<p><span class="arithmatex">\(\text{Error} = \frac{|\sin(0.52) - 0.52|}{|\sin(0.52)|} = \frac{|0.497 - 0.52|}{0.497} \approx 4.6\%\)</span></p>
-<p>At <span class="arithmatex">\(\theta = 60°\)</span> (1.05 rad), the error jumps to about 17%. For many engineering applications, 5% error is the threshold where the linear model becomes questionable.</p>
+<p>But this is only valid for small angles! At $\theta = 30°$ (0.52 rad), the error in the $\sin\theta \approx \theta$ approximation is:</p>
+<p>$\text{Error} = \frac{|\sin(0.52) - 0.52|}{|\sin(0.52)|} = \frac{|0.497 - 0.52|}{0.497} \approx 4.6\%$</p>
+<p>At $\theta = 60°$ (1.05 rad), the error jumps to about 17%. For many engineering applications, 5% error is the threshold where the linear model becomes questionable.</p>
 <h2 id="common-nonlinear-effects-in-real-systems">Common Nonlinear Effects in Real Systems</h2>
 <p>While linearization handles smooth nonlinearities well, certain nonlinear effects have sharp features that resist linearization. These are important to recognize because they can cause unexpected behavior in systems that otherwise appear linear.</p>
 <h3 id="saturation">Saturation</h3>
 <p><strong>Saturation</strong> occurs when a system's output reaches a physical limit and can no longer increase regardless of input. It's the most common nonlinearity in control systems.</p>
 <h4 id="saturation-characteristic">Saturation Characteristic</h4>
-<p><span class="arithmatex">\(y = \begin{cases} u_{max} &amp; \text{if } u &gt; u_{max} \\ u &amp; \text{if } -u_{max} \leq u \leq u_{max} \\ -u_{max} &amp; \text{if } u &lt; -u_{max} \end{cases}\)</span></p>
+<p>$y = \begin{cases} u_{max} &amp; \text{if } u &gt; u_{max} \ u &amp; \text{if } -u_{max} \leq u \leq u_{max} \ -u_{max} &amp; \text{if } u &lt; -u_{max} \end{cases}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(y\)</span> is the saturated output</li>
-<li><span class="arithmatex">\(u\)</span> is the input</li>
-<li><span class="arithmatex">\(u_{max}\)</span> is the saturation limit</li>
+<li>$y$ is the saturated output</li>
+<li>$u$ is the input</li>
+<li>$u_{max}$ is the saturation limit</li>
 </ul>
 <p>Examples of saturation:</p>
 <ul>
@@ -2690,13 +2690,13 @@ Response Plot:
 <h3 id="dead-zone">Dead Zone</h3>
 <p>A <strong>dead zone</strong> (or dead band) is a region of input values where the output is zero. It's the opposite of saturation—instead of limiting the output, the system ignores small inputs entirely.</p>
 <h4 id="dead-zone-characteristic">Dead Zone Characteristic</h4>
-<p><span class="arithmatex">\(y = \begin{cases} m(u - d) &amp; \text{if } u &gt; d \\ 0 &amp; \text{if } -d \leq u \leq d \\ m(u + d) &amp; \text{if } u &lt; -d \end{cases}\)</span></p>
+<p>$y = \begin{cases} m(u - d) &amp; \text{if } u &gt; d \ 0 &amp; \text{if } -d \leq u \leq d \ m(u + d) &amp; \text{if } u &lt; -d \end{cases}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(y\)</span> is the output</li>
-<li><span class="arithmatex">\(u\)</span> is the input</li>
-<li><span class="arithmatex">\(d\)</span> is the dead zone half-width</li>
-<li><span class="arithmatex">\(m\)</span> is the slope outside the dead zone</li>
+<li>$y$ is the output</li>
+<li>$u$ is the input</li>
+<li>$d$ is the dead zone half-width</li>
+<li>$m$ is the slope outside the dead zone</li>
 </ul>
 <p>Examples of dead zones:</p>
 <ul>
@@ -2716,13 +2716,13 @@ Response Plot:
 <p><strong>Backlash</strong> is the play or lost motion between mating components, most commonly in gear trains. When the direction of motion reverses, the driving gear must travel through the backlash gap before engaging the driven gear.</p>
 <h4 id="backlash-characteristic">Backlash Characteristic</h4>
 <p>The backlash relationship is history-dependent (hysteretic). If the input is increasing:</p>
-<p><span class="arithmatex">\(y = u - b\)</span> (after engaging)</p>
+<p>$y = u - b$ (after engaging)</p>
 <p>If the input is decreasing:</p>
-<p><span class="arithmatex">\(y = u + b\)</span> (after engaging)</p>
+<p>$y = u + b$ (after engaging)</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(b\)</span> is the backlash half-width</li>
-<li>The output "lags" behind the input by <span class="arithmatex">\(2b\)</span> when direction reverses</li>
+<li>$b$ is the backlash half-width</li>
+<li>The output "lags" behind the input by $2b$ when direction reverses</li>
 </ul>
 <p>Examples of backlash:</p>
 <ul>
@@ -2889,46 +2889,46 @@ Characteristic Curve (left):
 <h2 id="linearization-in-practice-a-complete-example">Linearization in Practice: A Complete Example</h2>
 <p>Let's work through a complete linearization example for a system that combines multiple concepts: a water tank with nonlinear outflow and a pump with saturation.</p>
 <h3 id="system-description">System Description</h3>
-<p>A cylindrical tank of cross-sectional area <span class="arithmatex">\(A\)</span> receives water from a pump. The pump flow rate is proportional to input voltage but saturates at <span class="arithmatex">\(q_{max}\)</span>:</p>
-<p><span class="arithmatex">\(q_{pump} = \begin{cases} k_p v &amp; \text{if } 0 \leq k_p v \leq q_{max} \\ q_{max} &amp; \text{if } k_p v &gt; q_{max} \end{cases}\)</span></p>
+<p>A cylindrical tank of cross-sectional area $A$ receives water from a pump. The pump flow rate is proportional to input voltage but saturates at $q_{max}$:</p>
+<p>$q_{pump} = \begin{cases} k_p v &amp; \text{if } 0 \leq k_p v \leq q_{max} \ q_{max} &amp; \text{if } k_p v &gt; q_{max} \end{cases}$</p>
 <p>The outlet flow depends nonlinearly on height (turbulent flow):</p>
-<p><span class="arithmatex">\(q_{out} = k_v \sqrt{h}\)</span></p>
+<p>$q_{out} = k_v \sqrt{h}$</p>
 <p>The complete system equation is:</p>
-<p><span class="arithmatex">\(A\frac{dh}{dt} = q_{pump} - k_v\sqrt{h}\)</span></p>
+<p>$A\frac{dh}{dt} = q_{pump} - k_v\sqrt{h}$</p>
 <h3 id="step-1-find-operating-point">Step 1: Find Operating Point</h3>
-<p>For nominal input voltage <span class="arithmatex">\(V_0\)</span> (assuming no saturation), steady-state gives:</p>
-<p><span class="arithmatex">\(0 = k_p V_0 - k_v\sqrt{h_0}\)</span></p>
-<p><span class="arithmatex">\(h_0 = \left(\frac{k_p V_0}{k_v}\right)^2\)</span></p>
-<p>The operating point exists if <span class="arithmatex">\(k_p V_0 \leq q_{max}\)</span> (no pump saturation at steady state).</p>
+<p>For nominal input voltage $V_0$ (assuming no saturation), steady-state gives:</p>
+<p>$0 = k_p V_0 - k_v\sqrt{h_0}$</p>
+<p>$h_0 = \left(\frac{k_p V_0}{k_v}\right)^2$</p>
+<p>The operating point exists if $k_p V_0 \leq q_{max}$ (no pump saturation at steady state).</p>
 <h3 id="step-2-linearize-around-operating-point">Step 2: Linearize Around Operating Point</h3>
-<p>Define deviations: <span class="arithmatex">\(\Delta h = h - h_0\)</span>, <span class="arithmatex">\(\Delta v = v - V_0\)</span></p>
-<p>Linearizing <span class="arithmatex">\(\sqrt{h}\)</span> around <span class="arithmatex">\(h_0\)</span>:</p>
-<p><span class="arithmatex">\(\sqrt{h} \approx \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}\Delta h\)</span></p>
+<p>Define deviations: $\Delta h = h - h_0$, $\Delta v = v - V_0$</p>
+<p>Linearizing $\sqrt{h}$ around $h_0$:</p>
+<p>$\sqrt{h} \approx \sqrt{h_0} + \frac{1}{2\sqrt{h_0}}\Delta h$</p>
 <p>The linearized system equation becomes:</p>
-<p><span class="arithmatex">\(A\frac{d(\Delta h)}{dt} = k_p \Delta v - \frac{k_v}{2\sqrt{h_0}}\Delta h\)</span></p>
+<p>$A\frac{d(\Delta h)}{dt} = k_p \Delta v - \frac{k_v}{2\sqrt{h_0}}\Delta h$</p>
 <p>Rearranging:</p>
-<p><span class="arithmatex">\(\frac{d(\Delta h)}{dt} = -\frac{k_v}{2A\sqrt{h_0}}\Delta h + \frac{k_p}{A}\Delta v\)</span></p>
+<p>$\frac{d(\Delta h)}{dt} = -\frac{k_v}{2A\sqrt{h_0}}\Delta h + \frac{k_p}{A}\Delta v$</p>
 <h3 id="step-3-transfer-function">Step 3: Transfer Function</h3>
 <p>Define parameters:</p>
-<p><span class="arithmatex">\(\tau = \frac{2A\sqrt{h_0}}{k_v} = \frac{2Ah_0}{k_p V_0}\)</span> (time constant, operating-point dependent)</p>
-<p><span class="arithmatex">\(K = \frac{2k_p\sqrt{h_0}}{k_v} = \frac{2h_0}{V_0}\)</span> (DC gain, operating-point dependent)</p>
+<p>$\tau = \frac{2A\sqrt{h_0}}{k_v} = \frac{2Ah_0}{k_p V_0}$ (time constant, operating-point dependent)</p>
+<p>$K = \frac{2k_p\sqrt{h_0}}{k_v} = \frac{2h_0}{V_0}$ (DC gain, operating-point dependent)</p>
 <p>The small-signal transfer function is:</p>
-<p><span class="arithmatex">\(G(s) = \frac{\Delta H(s)}{\Delta V(s)} = \frac{K}{\tau s + 1}\)</span></p>
+<p>$G(s) = \frac{\Delta H(s)}{\Delta V(s)} = \frac{K}{\tau s + 1}$</p>
 <h3 id="step-4-interpret-results">Step 4: Interpret Results</h3>
 <p>Key observations:</p>
 <ul>
 <li>The linearized system is first-order (one energy storage element: the tank)</li>
-<li>Both <span class="arithmatex">\(\tau\)</span> and <span class="arithmatex">\(K\)</span> depend on <span class="arithmatex">\(h_0\)</span>, which depends on <span class="arithmatex">\(V_0\)</span>—the dynamics change with operating point</li>
-<li>At higher operating levels (<span class="arithmatex">\(h_0\)</span> large), both time constant and gain increase</li>
-<li>The linearization is valid only for small <span class="arithmatex">\(\Delta v\)</span> and <span class="arithmatex">\(\Delta h\)</span></li>
-<li>Pump saturation is ignored in the linearized model—valid only when operating well below <span class="arithmatex">\(q_{max}\)</span></li>
+<li>Both $\tau$ and $K$ depend on $h_0$, which depends on $V_0$—the dynamics change with operating point</li>
+<li>At higher operating levels ($h_0$ large), both time constant and gain increase</li>
+<li>The linearization is valid only for small $\Delta v$ and $\Delta h$</li>
+<li>Pump saturation is ignored in the linearized model—valid only when operating well below $q_{max}$</li>
 </ul>
 <h3 id="step-5-check-validity">Step 5: Check Validity</h3>
 <p>For the linearization to be valid:</p>
 <ol>
-<li><span class="arithmatex">\(\Delta h \ll h_0\)</span> (square-root approximation)</li>
-<li><span class="arithmatex">\(k_p(V_0 + \Delta v) &lt; q_{max}\)</span> (no saturation)</li>
-<li><span class="arithmatex">\(h &gt; 0\)</span> (tank not empty)</li>
+<li>$\Delta h \ll h_0$ (square-root approximation)</li>
+<li>$k_p(V_0 + \Delta v) &lt; q_{max}$ (no saturation)</li>
+<li>$h &gt; 0$ (tank not empty)</li>
 </ol>
 <p>If these conditions are violated, the linearized model gives incorrect predictions.</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
@@ -2971,16 +2971,16 @@ Characteristic Curve (left):
 <p>Before moving on, verify you can answer these:</p>
 <ol>
 <li>
-<p>A system is described by <span class="arithmatex">\(\frac{dy}{dt} = ay + bu + cy^2\)</span>. Is this system linear? Why or why not?</p>
+<p>A system is described by $\frac{dy}{dt} = ay + bu + cy^2$. Is this system linear? Why or why not?</p>
 </li>
 <li>
-<p>For the equation <span class="arithmatex">\(\frac{dx}{dt} = x^2 - 4\)</span>, find all equilibrium points. Which are stable?</p>
+<p>For the equation $\frac{dx}{dt} = x^2 - 4$, find all equilibrium points. Which are stable?</p>
 </li>
 <li>
-<p>Linearize <span class="arithmatex">\(f(x) = x^3\)</span> around <span class="arithmatex">\(x_0 = 2\)</span>. What is the linearized function?</p>
+<p>Linearize $f(x) = x^3$ around $x_0 = 2$. What is the linearized function?</p>
 </li>
 <li>
-<p>A pump has flow rate <span class="arithmatex">\(q = k\sqrt{\Delta P}\)</span> where <span class="arithmatex">\(\Delta P\)</span> is pressure difference. Linearize this around operating point <span class="arithmatex">\(\Delta P_0 = 4\)</span> bar.</p>
+<p>A pump has flow rate $q = k\sqrt{\Delta P}$ where $\Delta P$ is pressure difference. Linearize this around operating point $\Delta P_0 = 4$ bar.</p>
 </li>
 <li>
 <p>Explain why saturation in a control system's actuator can lead to integrator windup.</p>

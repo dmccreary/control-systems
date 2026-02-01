@@ -1857,7 +1857,7 @@
           <li class="md-nav__item">
   <a href="#effect-of-proportional-gain-k_p" class="md-nav__link">
     <span class="md-ellipsis">
-      Effect of Proportional Gain \(K_p\)
+      Effect of Proportional Gain $K_p$
     </span>
   </a>
   
@@ -1866,7 +1866,7 @@
           <li class="md-nav__item">
   <a href="#effect-of-integral-gain-k_i-or-integral-time-t_i" class="md-nav__link">
     <span class="md-ellipsis">
-      Effect of Integral Gain \(K_i\) (or Integral Time \(T_i\))
+      Effect of Integral Gain $K_i$ (or Integral Time $T_i$)
     </span>
   </a>
   
@@ -1875,11 +1875,11 @@
           <li class="md-nav__item">
   <a href="#effect-of-derivative-gain-k_d-or-derivative-time-t_d" class="md-nav__link">
     <span class="md-ellipsis">
-      Effect of Derivative Gain \(K_d\) (or Derivative Time \(T_d\))
+      Effect of Derivative Gain $K_d$ (or Derivative Time $T_d$)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Effect of Derivative Gain \(K_d\) (or Derivative Time \(T_d\))">
+    <nav class="md-nav" aria-label="Effect of Derivative Gain $K_d$ (or Derivative Time $T_d$)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2290,14 +2290,14 @@
 <h3 id="proportional-control-react-to-the-present">Proportional Control: React to the Present</h3>
 <p><strong>Proportional control</strong> is the most intuitive control action: the controller output is directly proportional to the error signal. If you're far from your target, push hard. If you're close, push gently.</p>
 <h4 id="proportional-control-law">Proportional Control Law</h4>
-<p><span class="arithmatex">\(u(t) = K_p \cdot e(t)\)</span></p>
+<p>$u(t) = K_p \cdot e(t)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(u(t)\)</span> is the controller output (control effort)</li>
-<li><span class="arithmatex">\(K_p\)</span> is the <strong>proportional gain</strong></li>
-<li><span class="arithmatex">\(e(t) = r(t) - y(t)\)</span> is the error (setpoint minus measured output)</li>
+<li>$u(t)$ is the controller output (control effort)</li>
+<li>$K_p$ is the <strong>proportional gain</strong></li>
+<li>$e(t) = r(t) - y(t)$ is the error (setpoint minus measured output)</li>
 </ul>
-<p>The proportional gain <span class="arithmatex">\(K_p\)</span> determines how aggressively the controller responds to error. A higher <span class="arithmatex">\(K_p\)</span> means stronger reactions, which generally means faster response—but also potential for overshoot and oscillation.</p>
+<p>The proportional gain $K_p$ determines how aggressively the controller responds to error. A higher $K_p$ means stronger reactions, which generally means faster response—but also potential for overshoot and oscillation.</p>
 <p>Think of it like steering a car. If you're drifting to the right, you turn the wheel left. The farther right you've drifted, the more you turn. That's proportional control. Simple, reactive, immediate.</p>
 <table>
 <thead>
@@ -2308,19 +2308,19 @@
 </thead>
 <tbody>
 <tr>
-<td>Low <span class="arithmatex">\(K_p\)</span></td>
+<td>Low $K_p$</td>
 <td>Sluggish response, large steady-state error</td>
 </tr>
 <tr>
-<td>Medium <span class="arithmatex">\(K_p\)</span></td>
+<td>Medium $K_p$</td>
 <td>Reasonable speed, moderate steady-state error</td>
 </tr>
 <tr>
-<td>High <span class="arithmatex">\(K_p\)</span></td>
+<td>High $K_p$</td>
 <td>Fast response, small steady-state error, may oscillate</td>
 </tr>
 <tr>
-<td>Very high <span class="arithmatex">\(K_p\)</span></td>
+<td>Very high $K_p$</td>
 <td>Aggressive oscillation, potential instability</td>
 </tr>
 </tbody>
@@ -2333,10 +2333,10 @@
 <h3 id="integral-control-remember-the-past">Integral Control: Remember the Past</h3>
 <p><strong>Integral control</strong> addresses the steady-state error problem by accumulating error over time. Even tiny persistent errors eventually add up to significant control action.</p>
 <h4 id="integral-control-law">Integral Control Law</h4>
-<p><span class="arithmatex">\(u(t) = K_i \int_0^t e(\tau) \, d\tau\)</span></p>
+<p>$u(t) = K_i \int_0^t e(\tau) \, d\tau$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_i\)</span> is the <strong>integral gain</strong></li>
+<li>$K_i$ is the <strong>integral gain</strong></li>
 <li>The integral accumulates all past error</li>
 </ul>
 <p>The integral term is like having a long memory. If you've been slightly off target for a while, the integral builds up and eventually forces the output to the setpoint—even if the instantaneous error is small. Given enough time, the integral of any non-zero error grows without bound, which forces the controller to eliminate the error entirely.</p>
@@ -2356,19 +2356,19 @@
 </thead>
 <tbody>
 <tr>
-<td>Low <span class="arithmatex">\(K_i\)</span></td>
+<td>Low $K_i$</td>
 <td>Slow error elimination, minimal overshoot impact</td>
 </tr>
 <tr>
-<td>Medium <span class="arithmatex">\(K_i\)</span></td>
+<td>Medium $K_i$</td>
 <td>Reasonable error elimination speed, some overshoot</td>
 </tr>
 <tr>
-<td>High <span class="arithmatex">\(K_i\)</span></td>
+<td>High $K_i$</td>
 <td>Fast error elimination, significant overshoot</td>
 </tr>
 <tr>
-<td>Very high <span class="arithmatex">\(K_i\)</span></td>
+<td>Very high $K_i$</td>
 <td>Aggressive oscillation, long settling time</td>
 </tr>
 </tbody>
@@ -2376,10 +2376,10 @@
 <h3 id="derivative-control-anticipate-the-future">Derivative Control: Anticipate the Future</h3>
 <p><strong>Derivative control</strong> responds to the rate of change of error. If the error is decreasing rapidly, the derivative term reduces control effort—anticipating that you're about to reach the target. If error is increasing, it adds to the control effort, trying to arrest the trend before it gets worse.</p>
 <h4 id="derivative-control-law">Derivative Control Law</h4>
-<p><span class="arithmatex">\(u(t) = K_d \frac{de(t)}{dt}\)</span></p>
+<p>$u(t) = K_d \frac{de(t)}{dt}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_d\)</span> is the <strong>derivative gain</strong></li>
+<li>$K_d$ is the <strong>derivative gain</strong></li>
 <li>The derivative measures how fast the error is changing</li>
 </ul>
 <p>The derivative term provides anticipation—a predictive element that looks at where the system is <em>heading</em>, not just where it is. When Gyra starts to tip, the derivative of her angle is already non-zero before she's leaned very far. Derivative control can start correcting the fall before it becomes serious.</p>
@@ -2394,23 +2394,23 @@
 </thead>
 <tbody>
 <tr>
-<td>Zero <span class="arithmatex">\(K_d\)</span></td>
+<td>Zero $K_d$</td>
 <td>No anticipation, may overshoot</td>
 </tr>
 <tr>
-<td>Low <span class="arithmatex">\(K_d\)</span></td>
+<td>Low $K_d$</td>
 <td>Mild damping, some overshoot reduction</td>
 </tr>
 <tr>
-<td>Medium <span class="arithmatex">\(K_d\)</span></td>
+<td>Medium $K_d$</td>
 <td>Good damping, significant overshoot reduction</td>
 </tr>
 <tr>
-<td>High <span class="arithmatex">\(K_d\)</span></td>
+<td>High $K_d$</td>
 <td>Aggressive damping, may slow response, noise sensitive</td>
 </tr>
 <tr>
-<td>Very high <span class="arithmatex">\(K_d\)</span></td>
+<td>Very high $K_d$</td>
 <td>Noise amplification, jerky control action</td>
 </tr>
 </tbody>
@@ -2463,8 +2463,8 @@ Bloom Verb: compare, explain</p>
 <h3 id="the-p-controller">The P Controller</h3>
 <p>The simplest feedback controller uses proportional action alone.</p>
 <h4 id="p-controller-transfer-function">P Controller Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p\)</span></p>
-<p>The P controller is just a gain—the simplest possible controller. It's fast, doesn't add phase lag, and never causes instability on its own (though it can destabilize the closed-loop system if <span class="arithmatex">\(K_p\)</span> is too high).</p>
+<p>$G_c(s) = K_p$</p>
+<p>The P controller is just a gain—the simplest possible controller. It's fast, doesn't add phase lag, and never causes instability on its own (though it can destabilize the closed-loop system if $K_p$ is too high).</p>
 <p><strong>When to use P control:</strong>
 - When steady-state error is acceptable
 - When the plant has inherent integration (e.g., level control in a tank with integrating dynamics)
@@ -2473,14 +2473,14 @@ Bloom Verb: compare, explain</p>
 <h3 id="the-pi-controller">The PI Controller</h3>
 <p>Adding integral action to proportional control creates the workhorse of industrial control: the PI controller.</p>
 <h4 id="pi-controller-transfer-function">PI Controller Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p + \frac{K_i}{s} = K_p \left(1 + \frac{1}{T_i s}\right)\)</span></p>
+<p>$G_c(s) = K_p + \frac{K_i}{s} = K_p \left(1 + \frac{1}{T_i s}\right)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_p\)</span> is the proportional gain</li>
-<li><span class="arithmatex">\(K_i\)</span> is the integral gain</li>
-<li><span class="arithmatex">\(T_i = K_p / K_i\)</span> is the <strong>integral time</strong> (also called reset time)</li>
+<li>$K_p$ is the proportional gain</li>
+<li>$K_i$ is the integral gain</li>
+<li>$T_i = K_p / K_i$ is the <strong>integral time</strong> (also called reset time)</li>
 </ul>
-<p>The integral time <span class="arithmatex">\(T_i\)</span> is the time it would take for the integral action alone to produce the same output as the proportional action, given a constant error. It's a more intuitive parameter than <span class="arithmatex">\(K_i\)</span> for many practitioners.</p>
+<p>The integral time $T_i$ is the time it would take for the integral action alone to produce the same output as the proportional action, given a constant error. It's a more intuitive parameter than $K_i$ for many practitioners.</p>
 <p><strong>What PI control gives you:</strong>
 - Zero steady-state error for step inputs
 - Reasonable disturbance rejection
@@ -2493,14 +2493,14 @@ Bloom Verb: compare, explain</p>
 <h3 id="the-pd-controller">The PD Controller</h3>
 <p>Combining proportional and derivative action creates a controller that reacts to both the present error and its rate of change.</p>
 <h4 id="pd-controller-transfer-function">PD Controller Transfer Function</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p + K_d s = K_p (1 + T_d s)\)</span></p>
+<p>$G_c(s) = K_p + K_d s = K_p (1 + T_d s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_p\)</span> is the proportional gain</li>
-<li><span class="arithmatex">\(K_d\)</span> is the derivative gain</li>
-<li><span class="arithmatex">\(T_d = K_d / K_p\)</span> is the <strong>derivative time</strong></li>
+<li>$K_p$ is the proportional gain</li>
+<li>$K_d$ is the derivative gain</li>
+<li>$T_d = K_d / K_p$ is the <strong>derivative time</strong></li>
 </ul>
-<p>The derivative time <span class="arithmatex">\(T_d\)</span> represents how far into the future the controller "looks" based on the current rate of change.</p>
+<p>The derivative time $T_d$ represents how far into the future the controller "looks" based on the current rate of change.</p>
 <p><strong>What PD control gives you:</strong>
 - Anticipatory action reduces overshoot
 - Improved damping and transient response
@@ -2514,15 +2514,15 @@ Bloom Verb: compare, explain</p>
 <h3 id="the-pid-controller">The PID Controller</h3>
 <p>The full PID controller combines all three actions.</p>
 <h4 id="pid-controller-transfer-function-parallel-form">PID Controller Transfer Function (Parallel Form)</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p + \frac{K_i}{s} + K_d s\)</span></p>
+<p>$G_c(s) = K_p + \frac{K_i}{s} + K_d s$</p>
 <p>This is often written in the alternative "ideal" or "series" form:</p>
 <h4 id="pid-controller-transfer-function-ideal-form">PID Controller Transfer Function (Ideal Form)</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p \left(1 + \frac{1}{T_i s} + T_d s\right)\)</span></p>
+<p>$G_c(s) = K_p \left(1 + \frac{1}{T_i s} + T_d s\right)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_p\)</span> is the proportional gain</li>
-<li><span class="arithmatex">\(T_i\)</span> is the integral time</li>
-<li><span class="arithmatex">\(T_d\)</span> is the derivative time</li>
+<li>$K_p$ is the proportional gain</li>
+<li>$T_i$ is the integral time</li>
+<li>$T_d$ is the derivative time</li>
 </ul>
 <table>
 <thead>
@@ -2534,17 +2534,17 @@ Bloom Verb: compare, explain</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(K_p\)</span></td>
+<td>$K_p$</td>
 <td>Gain, Proportional Band</td>
 <td>Faster response, more overshoot, smaller steady-state error</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(T_i\)</span></td>
+<td>$T_i$</td>
 <td>Integral Time, Reset Time</td>
 <td>Slower integral action, less overshoot, slower error elimination</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(T_d\)</span></td>
+<td>$T_d$</td>
 <td>Derivative Time, Rate Time</td>
 <td>More anticipation, better damping, more noise sensitivity</td>
 </tr>
@@ -2553,10 +2553,10 @@ Bloom Verb: compare, explain</p>
 <p>The PID controller gives us the best of all worlds: proportional action for immediate response, integral action for zero steady-state error, and derivative action for predictive damping.</p>
 <div class="admonition tip">
 <p class="admonition-title">Parameter Relationships</p>
-<p>The parallel form parameters (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_i\)</span>, <span class="arithmatex">\(K_d\)</span>) and the ideal form parameters (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(T_i\)</span>, <span class="arithmatex">\(T_d\)</span>) are related by:</p>
+<p>The parallel form parameters ($K_p$, $K_i$, $K_d$) and the ideal form parameters ($K_p$, $T_i$, $T_d$) are related by:</p>
 <ul>
-<li><span class="arithmatex">\(K_i = K_p / T_i\)</span></li>
-<li><span class="arithmatex">\(K_d = K_p \cdot T_d\)</span></li>
+<li>$K_i = K_p / T_i$</li>
+<li>$K_d = K_p \cdot T_d$</li>
 </ul>
 <p>Be careful when reading datasheets or tuning guides—know which form they're using!</p>
 </div>
@@ -2600,7 +2600,7 @@ Bloom Verb: identify, explain</p>
 </details>
 <h2 id="effects-of-controller-gains-on-closed-loop-response">Effects of Controller Gains on Closed-Loop Response</h2>
 <p>Understanding how each gain affects closed-loop behavior is essential for tuning. While the exact effects depend on the plant dynamics, some general patterns emerge.</p>
-<h3 id="effect-of-proportional-gain-k_p">Effect of Proportional Gain <span class="arithmatex">\(K_p\)</span></h3>
+<h3 id="effect-of-proportional-gain-k_p">Effect of Proportional Gain $K_p$</h3>
 <p>Increasing proportional gain typically:</p>
 <ul>
 <li>Decreases rise time (faster initial response)</li>
@@ -2609,8 +2609,8 @@ Bloom Verb: identify, explain</p>
 <li>May decrease or increase settling time (depends on the system)</li>
 <li>Can eventually destabilize the system</li>
 </ul>
-<p>There's an inherent tradeoff: higher <span class="arithmatex">\(K_p\)</span> gives faster, more accurate response—up to a point. Beyond that point, oscillations grow and the system becomes underdamped or unstable.</p>
-<h3 id="effect-of-integral-gain-k_i-or-integral-time-t_i">Effect of Integral Gain <span class="arithmatex">\(K_i\)</span> (or Integral Time <span class="arithmatex">\(T_i\)</span>)</h3>
+<p>There's an inherent tradeoff: higher $K_p$ gives faster, more accurate response—up to a point. Beyond that point, oscillations grow and the system becomes underdamped or unstable.</p>
+<h3 id="effect-of-integral-gain-k_i-or-integral-time-t_i">Effect of Integral Gain $K_i$ (or Integral Time $T_i$)</h3>
 <p>Increasing integral gain (or decreasing integral time) typically:</p>
 <ul>
 <li>Eliminates steady-state error (this is guaranteed for step inputs)</li>
@@ -2618,8 +2618,8 @@ Bloom Verb: identify, explain</p>
 <li>Increases settling time (more oscillation)</li>
 <li>Adds phase lag, reducing stability margins</li>
 </ul>
-<p>The integral term is slow-acting by nature. Aggressive integral action (high <span class="arithmatex">\(K_i\)</span>, low <span class="arithmatex">\(T_i\)</span>) tries to eliminate error too quickly, causing overshoot and oscillation.</p>
-<h3 id="effect-of-derivative-gain-k_d-or-derivative-time-t_d">Effect of Derivative Gain <span class="arithmatex">\(K_d\)</span> (or Derivative Time <span class="arithmatex">\(T_d\)</span>)</h3>
+<p>The integral term is slow-acting by nature. Aggressive integral action (high $K_i$, low $T_i$) tries to eliminate error too quickly, causing overshoot and oscillation.</p>
+<h3 id="effect-of-derivative-gain-k_d-or-derivative-time-t_d">Effect of Derivative Gain $K_d$ (or Derivative Time $T_d$)</h3>
 <p>Increasing derivative gain typically:</p>
 <ul>
 <li>Decreases overshoot (better damping)</li>
@@ -2641,21 +2641,21 @@ Bloom Verb: identify, explain</p>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(K_p\)</span> ↑</td>
+<td>$K_p$ ↑</td>
 <td>Decrease</td>
 <td>Increase</td>
 <td>Small change</td>
 <td>Decrease</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K_i\)</span> ↑</td>
+<td>$K_i$ ↑</td>
 <td>Decrease</td>
 <td>Increase</td>
 <td>Increase</td>
 <td>Eliminate</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K_d\)</span> ↑</td>
+<td>$K_d$ ↑</td>
 <td>Minor change</td>
 <td>Decrease</td>
 <td>Decrease</td>
@@ -2713,7 +2713,7 @@ Bloom Verb: demonstrate, experiment</p>
 <h2 id="controller-tuning-finding-the-right-gains">Controller Tuning: Finding the Right Gains</h2>
 <p>Knowing what PID control <em>is</em> doesn't tell you what values to use. <strong>Controller tuning</strong> is the art and science of selecting gains that achieve your performance objectives. And it is both art and science—decades of research have produced systematic methods, but experienced practitioners still apply judgment and iteration.</p>
 <h3 id="the-tuning-problem">The Tuning Problem</h3>
-<p>The challenge: find <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_i\)</span> (or <span class="arithmatex">\(T_i\)</span>), and <span class="arithmatex">\(K_d\)</span> (or <span class="arithmatex">\(T_d\)</span>) such that the closed-loop system:</p>
+<p>The challenge: find $K_p$, $K_i$ (or $T_i$), and $K_d$ (or $T_d$) such that the closed-loop system:</p>
 <ul>
 <li>Is stable (absolutely required)</li>
 <li>Has acceptable speed (rise time, settling time)</li>
@@ -2726,10 +2726,10 @@ Bloom Verb: demonstrate, experiment</p>
 <p>The most basic tuning method—and often underrated—is <strong>trial and error</strong> (also called manual tuning or experimental tuning). Despite its informal name, skilled practitioners can tune controllers quickly and effectively using this approach.</p>
 <p><strong>Basic procedure:</strong></p>
 <ol>
-<li>Start with <span class="arithmatex">\(K_i = 0\)</span> and <span class="arithmatex">\(K_d = 0\)</span> (P control only)</li>
-<li>Increase <span class="arithmatex">\(K_p\)</span> until the response is reasonably fast with acceptable overshoot, or until the system oscillates, then back off slightly</li>
-<li>If steady-state error is unacceptable, add integral action: increase <span class="arithmatex">\(K_i\)</span> slowly until error is eliminated</li>
-<li>If overshoot is excessive, add derivative action: increase <span class="arithmatex">\(K_d\)</span> to provide damping</li>
+<li>Start with $K_i = 0$ and $K_d = 0$ (P control only)</li>
+<li>Increase $K_p$ until the response is reasonably fast with acceptable overshoot, or until the system oscillates, then back off slightly</li>
+<li>If steady-state error is unacceptable, add integral action: increase $K_i$ slowly until error is eliminated</li>
+<li>If overshoot is excessive, add derivative action: increase $K_d$ to provide damping</li>
 <li>Fine-tune all three gains to balance speed, accuracy, and smoothness</li>
 </ol>
 <table>
@@ -2743,17 +2743,17 @@ Bloom Verb: demonstrate, experiment</p>
 <tbody>
 <tr>
 <td>1</td>
-<td><span class="arithmatex">\(K_p\)</span> ↑</td>
+<td>$K_p$ ↑</td>
 <td>Faster response without excessive overshoot</td>
 </tr>
 <tr>
 <td>2</td>
-<td><span class="arithmatex">\(K_i\)</span> ↑</td>
+<td>$K_i$ ↑</td>
 <td>Steady-state error elimination</td>
 </tr>
 <tr>
 <td>3</td>
-<td><span class="arithmatex">\(K_d\)</span> ↑</td>
+<td>$K_d$ ↑</td>
 <td>Overshoot reduction, smoother response</td>
 </tr>
 <tr>
@@ -2785,15 +2785,15 @@ Bloom Verb: demonstrate, experiment</p>
 <li>Put the controller in manual mode (open loop)</li>
 <li>Apply a step change to the plant input</li>
 <li>Record the output response—the "reaction curve"</li>
-<li>Identify two parameters from the curve: <strong>delay time</strong> <span class="arithmatex">\(L\)</span> and <strong>time constant</strong> <span class="arithmatex">\(T\)</span></li>
+<li>Identify two parameters from the curve: <strong>delay time</strong> $L$ and <strong>time constant</strong> $T$</li>
 <li>Calculate controller parameters using the Ziegler-Nichols formulas</li>
 </ol>
 <p>The method assumes the open-loop response looks like a first-order system with delay—an S-shaped curve that's common in many industrial processes.</p>
 <h4 id="reaction-curve-parameters">Reaction Curve Parameters</h4>
 <p>The key parameters are found by drawing a tangent line at the point of maximum slope (the inflection point):</p>
 <ul>
-<li><span class="arithmatex">\(L\)</span> (delay time or lag): time from step input to where the tangent line intersects the initial value</li>
-<li><span class="arithmatex">\(T\)</span> (time constant): time from where tangent intersects initial value to where it intersects final value</li>
+<li>$L$ (delay time or lag): time from step input to where the tangent line intersects the initial value</li>
+<li>$T$ (time constant): time from where tangent intersects initial value to where it intersects final value</li>
 </ul>
 <h4 id="diagram-reaction-curve-analysis">Diagram: Reaction Curve Analysis</h4>
 <iframe src="../../sims/reaction-curve-method/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -2843,36 +2843,36 @@ Bloom Verb: calculate, apply</p>
 <thead>
 <tr>
 <th>Controller</th>
-<th><span class="arithmatex">\(K_p\)</span></th>
-<th><span class="arithmatex">\(T_i\)</span></th>
-<th><span class="arithmatex">\(T_d\)</span></th>
+<th>$K_p$</th>
+<th>$T_i$</th>
+<th>$T_d$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>P</td>
-<td><span class="arithmatex">\(\frac{T}{L}\)</span></td>
+<td>$\frac{T}{L}$</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr>
 <td>PI</td>
-<td><span class="arithmatex">\(0.9 \frac{T}{L}\)</span></td>
-<td><span class="arithmatex">\(3.3 L\)</span></td>
+<td>$0.9 \frac{T}{L}$</td>
+<td>$3.3 L$</td>
 <td>—</td>
 </tr>
 <tr>
 <td>PID</td>
-<td><span class="arithmatex">\(1.2 \frac{T}{L}\)</span></td>
-<td><span class="arithmatex">\(2 L\)</span></td>
-<td><span class="arithmatex">\(0.5 L\)</span></td>
+<td>$1.2 \frac{T}{L}$</td>
+<td>$2 L$</td>
+<td>$0.5 L$</td>
 </tr>
 </tbody>
 </table>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(T\)</span> is the time constant from the reaction curve</li>
-<li><span class="arithmatex">\(L\)</span> is the delay time from the reaction curve</li>
+<li>$T$ is the time constant from the reaction curve</li>
+<li>$L$ is the delay time from the reaction curve</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">When to Use the Reaction Curve Method</p>
@@ -2881,27 +2881,27 @@ Bloom Verb: calculate, apply</p>
 <li>The plant is open-loop stable</li>
 <li>The step response is S-shaped (first-order-like with delay)</li>
 <li>You can run the plant in open loop safely</li>
-<li>The ratio <span class="arithmatex">\(L/T\)</span> is between roughly 0.1 and 1</li>
+<li>The ratio $L/T$ is between roughly 0.1 and 1</li>
 </ul>
 </div>
 <h3 id="the-ultimate-gain-method-closed-loop">The Ultimate Gain Method (Closed-Loop)</h3>
 <p>The <strong>ultimate gain method</strong> (also called the continuous cycling method or closed-loop method) is based on finding the point of marginal stability.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Set <span class="arithmatex">\(K_i = 0\)</span> and <span class="arithmatex">\(K_d = 0\)</span> (proportional-only control)</li>
-<li>Starting with a low <span class="arithmatex">\(K_p\)</span>, gradually increase the gain</li>
+<li>Set $K_i = 0$ and $K_d = 0$ (proportional-only control)</li>
+<li>Starting with a low $K_p$, gradually increase the gain</li>
 <li>At each gain value, apply a small disturbance or setpoint change and observe the response</li>
-<li>Continue increasing <span class="arithmatex">\(K_p\)</span> until the system exhibits sustained oscillation—neither growing nor decaying</li>
-<li>Record this gain as the <strong>ultimate gain</strong> <span class="arithmatex">\(K_u\)</span></li>
-<li>Measure the <strong>ultimate period</strong> <span class="arithmatex">\(T_u\)</span> of the sustained oscillation</li>
+<li>Continue increasing $K_p$ until the system exhibits sustained oscillation—neither growing nor decaying</li>
+<li>Record this gain as the <strong>ultimate gain</strong> $K_u$</li>
+<li>Measure the <strong>ultimate period</strong> $T_u$ of the sustained oscillation</li>
 <li>Calculate controller parameters using the Ziegler-Nichols formulas</li>
 </ol>
 <h4 id="ultimate-gain-definition">Ultimate Gain Definition</h4>
-<p><span class="arithmatex">\(K_u\)</span> is the proportional gain at which the closed-loop system is marginally stable—poles exactly on the imaginary axis, producing sustained oscillation without decay or growth.</p>
+<p>$K_u$ is the proportional gain at which the closed-loop system is marginally stable—poles exactly on the imaginary axis, producing sustained oscillation without decay or growth.</p>
 <h4 id="ultimate-period-definition">Ultimate Period Definition</h4>
-<p><span class="arithmatex">\(T_u\)</span> is the period of the sustained oscillation at the ultimate gain:</p>
-<p><span class="arithmatex">\(T_u = \frac{2\pi}{\omega_u}\)</span></p>
-<p>where <span class="arithmatex">\(\omega_u\)</span> is the frequency of oscillation at marginal stability.</p>
+<p>$T_u$ is the period of the sustained oscillation at the ultimate gain:</p>
+<p>$T_u = \frac{2\pi}{\omega_u}$</p>
+<p>where $\omega_u$ is the frequency of oscillation at marginal stability.</p>
 <h4 id="diagram-ultimate-gain-method-visualization">Diagram: Ultimate Gain Method Visualization</h4>
 <iframe src="../../sims/ultimate-gain-method/main.html" width="100%" height="550px" scrolling="no"></iframe>
 
@@ -2952,36 +2952,36 @@ Bloom Verb: execute, implement</p>
 <thead>
 <tr>
 <th>Controller</th>
-<th><span class="arithmatex">\(K_p\)</span></th>
-<th><span class="arithmatex">\(T_i\)</span></th>
-<th><span class="arithmatex">\(T_d\)</span></th>
+<th>$K_p$</th>
+<th>$T_i$</th>
+<th>$T_d$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>P</td>
-<td><span class="arithmatex">\(0.5 K_u\)</span></td>
+<td>$0.5 K_u$</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr>
 <td>PI</td>
-<td><span class="arithmatex">\(0.45 K_u\)</span></td>
-<td><span class="arithmatex">\(\frac{T_u}{1.2}\)</span></td>
+<td>$0.45 K_u$</td>
+<td>$\frac{T_u}{1.2}$</td>
 <td>—</td>
 </tr>
 <tr>
 <td>PID</td>
-<td><span class="arithmatex">\(0.6 K_u\)</span></td>
-<td><span class="arithmatex">\(\frac{T_u}{2}\)</span></td>
-<td><span class="arithmatex">\(\frac{T_u}{8}\)</span></td>
+<td>$0.6 K_u$</td>
+<td>$\frac{T_u}{2}$</td>
+<td>$\frac{T_u}{8}$</td>
 </tr>
 </tbody>
 </table>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K_u\)</span> is the ultimate gain</li>
-<li><span class="arithmatex">\(T_u\)</span> is the ultimate period</li>
+<li>$K_u$ is the ultimate gain</li>
+<li>$T_u$ is the ultimate period</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Safety Considerations</p>
@@ -3042,10 +3042,10 @@ Bloom Verb: execute, implement</p>
 <p>Consider Gyra trying to recover from a large disturbance. Her motors have maximum torque limits. If she's leaning far and her controller's integral term keeps growing, but the motors are already at maximum, the integral is accumulating "debt" that will cause her to overcorrect massively once she crosses vertical.</p>
 <h4 id="anti-windup-strategies">Anti-Windup Strategies</h4>
 <p><strong>Integrator clamping:</strong> Stop integrating when the output is saturated.</p>
-<p><span class="arithmatex">\(\text{if } |u| \geq u_{max}: \quad \text{freeze integral}\)</span></p>
+<p>$\text{if } |u| \geq u_{max}: \quad \text{freeze integral}$</p>
 <p><strong>Back-calculation:</strong> When saturated, feed back the saturation error to reduce the integral.</p>
-<p><span class="arithmatex">\(\frac{d}{dt}\left(\int e \, dt\right) = e(t) + \frac{1}{T_t}(u_{actual} - u_{calculated})\)</span></p>
-<p>where <span class="arithmatex">\(T_t\)</span> is a tracking time constant.</p>
+<p>$\frac{d}{dt}\left(\int e \, dt\right) = e(t) + \frac{1}{T_t}(u_{actual} - u_{calculated})$</p>
+<p>where $T_t$ is a tracking time constant.</p>
 <p><strong>Conditional integration:</strong> Only integrate when the error is small or the output is moving in the right direction.</p>
 <table>
 <thead>
@@ -3067,7 +3067,7 @@ Bloom Verb: execute, implement</p>
 <td>Back-calculation</td>
 <td>Medium</td>
 <td>High</td>
-<td>One parameter (<span class="arithmatex">\(T_t\)</span>)</td>
+<td>One parameter ($T_t$)</td>
 </tr>
 <tr>
 <td>Conditional integration</td>
@@ -3085,13 +3085,13 @@ Bloom Verb: execute, implement</p>
 <p><strong>Derivative kick</strong> is a sudden spike in the control output that occurs when the setpoint changes abruptly. The derivative term responds to the rate of change of error, and if the setpoint jumps (a step change), the derivative of error is theoretically infinite at that instant.</p>
 <p>In practice, this causes a brief but potentially violent control action right when you change the setpoint—not what you want in a well-behaved system.</p>
 <h4 id="solutions-to-derivative-kick">Solutions to Derivative Kick</h4>
-<p><strong>Derivative on measurement (not error):</strong> Instead of differentiating the error <span class="arithmatex">\(e = r - y\)</span>, differentiate only the measurement <span class="arithmatex">\(y\)</span>. Setpoint changes don't affect the derivative term.</p>
-<p><span class="arithmatex">\(u_d(t) = -K_d \frac{dy(t)}{dt}\)</span></p>
-<p>The minus sign accounts for the fact that we're differentiating <span class="arithmatex">\(y\)</span> rather than <span class="arithmatex">\(e = r - y\)</span>.</p>
+<p><strong>Derivative on measurement (not error):</strong> Instead of differentiating the error $e = r - y$, differentiate only the measurement $y$. Setpoint changes don't affect the derivative term.</p>
+<p>$u_d(t) = -K_d \frac{dy(t)}{dt}$</p>
+<p>The minus sign accounts for the fact that we're differentiating $y$ rather than $e = r - y$.</p>
 <p><strong>Setpoint filtering:</strong> Pass the setpoint through a low-pass filter before computing the error, smoothing sudden changes.</p>
 <p><strong>Derivative filtering:</strong> Apply a low-pass filter to the derivative term itself.</p>
 <h4 id="modified-pid-with-derivative-on-measurement">Modified PID with Derivative on Measurement</h4>
-<p><span class="arithmatex">\(u(t) = K_p \cdot e(t) + K_i \int e(\tau) d\tau - K_d \frac{dy(t)}{dt}\)</span></p>
+<p>$u(t) = K_p \cdot e(t) + K_i \int e(\tau) d\tau - K_d \frac{dy(t)}{dt}$</p>
 <p>This formulation eliminates derivative kick while maintaining the derivative's beneficial effect on output disturbances.</p>
 <table>
 <thead>
@@ -3252,11 +3252,11 @@ Bloom Verb: compare, differentiate</p>
 <li>
 <p><strong>Refine tuning:</strong></p>
 </li>
-<li>Too slow? Increase <span class="arithmatex">\(K_p\)</span></li>
-<li>Too much overshoot? Decrease <span class="arithmatex">\(K_p\)</span>, increase <span class="arithmatex">\(K_d\)</span>, or increase <span class="arithmatex">\(T_i\)</span></li>
-<li>Steady-state error? Decrease <span class="arithmatex">\(T_i\)</span> (or add/increase <span class="arithmatex">\(K_i\)</span>)</li>
+<li>Too slow? Increase $K_p$</li>
+<li>Too much overshoot? Decrease $K_p$, increase $K_d$, or increase $T_i$</li>
+<li>Steady-state error? Decrease $T_i$ (or add/increase $K_i$)</li>
 <li>
-<p>Oscillation? Decrease all gains, especially <span class="arithmatex">\(K_p\)</span></p>
+<p>Oscillation? Decrease all gains, especially $K_p$</p>
 </li>
 <li>
 <p><strong>Implement practical fixes:</strong> Add anti-windup, derivative filtering, derivative on measurement as needed</p>
@@ -3328,15 +3328,15 @@ Bloom Verb: assess, recommend</p>
 </ul>
 <p>The controller transfer function in parallel form is:</p>
 <h4 id="pid-transfer-function-parallel-form">PID Transfer Function (Parallel Form)</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p + \frac{K_i}{s} + K_d s\)</span></p>
+<p>$G_c(s) = K_p + \frac{K_i}{s} + K_d s$</p>
 <p>Or in ideal form with integral and derivative time constants:</p>
 <h4 id="pid-transfer-function-ideal-form">PID Transfer Function (Ideal Form)</h4>
-<p><span class="arithmatex">\(G_c(s) = K_p \left(1 + \frac{1}{T_i s} + T_d s\right)\)</span></p>
+<p>$G_c(s) = K_p \left(1 + \frac{1}{T_i s} + T_d s\right)$</p>
 <p><strong>Tuning methods:</strong></p>
 <ul>
 <li><strong>Trial and error:</strong> Practical, hands-on, depends on skill</li>
 <li><strong>Ziegler-Nichols reaction curve:</strong> Open-loop step test, extract L and T</li>
-<li><strong>Ziegler-Nichols ultimate gain:</strong> Closed-loop oscillation test, find <span class="arithmatex">\(K_u\)</span> and <span class="arithmatex">\(T_u\)</span></li>
+<li><strong>Ziegler-Nichols ultimate gain:</strong> Closed-loop oscillation test, find $K_u$ and $T_u$</li>
 </ul>
 <p><strong>Practical issues:</strong></p>
 <ul>
@@ -3353,8 +3353,8 @@ Bloom Verb: assess, recommend</p>
 <summary>Check Your Understanding</summary>
 <ol>
 <li>Why can't a P-only controller eliminate steady-state error for a step input in most systems?</li>
-<li>What is the relationship between integral gain <span class="arithmatex">\(K_i\)</span> and integral time <span class="arithmatex">\(T_i\)</span>?</li>
-<li>In the Ziegler-Nichols ultimate gain method, what happens when <span class="arithmatex">\(K_p\)</span> exceeds <span class="arithmatex">\(K_u\)</span>?</li>
+<li>What is the relationship between integral gain $K_i$ and integral time $T_i$?</li>
+<li>In the Ziegler-Nichols ultimate gain method, what happens when $K_p$ exceeds $K_u$?</li>
 <li>Why is derivative action typically applied to the measurement rather than the error?</li>
 <li>What causes integral windup, and how does anti-windup prevent it?</li>
 </ol>

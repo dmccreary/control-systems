@@ -2050,7 +2050,7 @@ Bloom Verb: explain, describe</p>
 Canvas size: 800x400px, responsive width</p>
 </details>
 <h3 id="reference-input">Reference Input</h3>
-<p>The <strong>reference input</strong> <span class="arithmatex">\(r(t)\)</span> represents the desired output or setpoint of the control system. In engineering notation, this signal specifies what we want the system output to be. For a temperature control system, the reference input would be the desired temperature setting. For a motor speed controller, it would be the commanded velocity.</p>
+<p>The <strong>reference input</strong> $r(t)$ represents the desired output or setpoint of the control system. In engineering notation, this signal specifies what we want the system output to be. For a temperature control system, the reference input would be the desired temperature setting. For a motor speed controller, it would be the commanded velocity.</p>
 <p>The reference input may be:</p>
 <ul>
 <li>A constant value (regulation problem)</li>
@@ -2059,9 +2059,9 @@ Canvas size: 800x400px, responsive width</p>
 <li>A complex profile such as a ramp or sinusoidal pattern</li>
 </ul>
 <h3 id="the-summing-junction-and-error-signal">The Summing Junction and Error Signal</h3>
-<p>The <strong>summing junction</strong> compares the reference input with the measured output to produce the <strong>error signal</strong> <span class="arithmatex">\(e(t)\)</span>. Mathematically:</p>
+<p>The <strong>summing junction</strong> compares the reference input with the measured output to produce the <strong>error signal</strong> $e(t)$. Mathematically:</p>
 <div class="arithmatex">\[e(t) = r(t) - y_m(t)\]</div>
-<p>where <span class="arithmatex">\(y_m(t)\)</span> is the measured output from the sensor. The error signal quantifies the difference between what we want (the reference) and what we have (the measured output). The controller's job is to drive this error toward zero.</p>
+<p>where $y_m(t)$ is the measured output from the sensor. The error signal quantifies the difference between what we want (the reference) and what we have (the measured output). The controller's job is to drive this error toward zero.</p>
 <p>The summing junction is represented in block diagrams as a circle with plus and minus signs indicating how the inputs combine. The reference input enters with a positive sign, while the feedback signal enters with a negative sign, hence the term "negative feedback." (Don't worry—unlike the kind you might get on a group project, this type of negative feedback is actually helpful!)</p>
 <h3 id="controller">Controller</h3>
 <p>The <strong>controller</strong> (sometimes called the compensator) processes the error signal and generates a command to the actuator. The controller embodies the control strategy—the algorithm or transfer function that determines how the system should respond to errors. If the plant is the star of the show, the controller is the director—making sure everything hits its mark and the performance goes smoothly.</p>
@@ -2072,7 +2072,7 @@ Canvas size: 800x400px, responsive width</p>
 <li>Derivative action (responding to rate of change of error)</li>
 <li>More advanced structures covered in later chapters</li>
 </ul>
-<p>The controller transfer function is often denoted <span class="arithmatex">\(G_c(s)\)</span> in the Laplace domain, where <span class="arithmatex">\(s\)</span> is the complex frequency variable.</p>
+<p>The controller transfer function is often denoted $G_c(s)$ in the Laplace domain, where $s$ is the complex frequency variable.</p>
 <h3 id="actuator">Actuator</h3>
 <p>The <strong>actuator</strong> converts the controller's command signal into physical action on the plant. Actuators bridge the gap between the electrical signals in the control system and the mechanical, thermal, or other physical quantities being controlled. They're the "muscle" of the operation—all the controller's brilliant ideas mean nothing if the actuator can't make them happen in the real world.</p>
 <p>Common actuator examples include:</p>
@@ -2109,7 +2109,7 @@ Canvas size: 800x400px, responsive width</p>
 <p>In many analyses, the actuator dynamics are combined with the plant dynamics, but for high-performance systems, actuator limitations (bandwidth, saturation, slew rate) must be modeled explicitly.</p>
 <h3 id="plant">Plant</h3>
 <p>The <strong>plant</strong> is the physical system or process being controlled. (And no, we're not talking about your succulent on the windowsill—though keeping <em>that</em> alive is its own control challenge!) The plant is what we ultimately want to regulate or manipulate. Everything else in the control loop—controller, actuator, sensor—exists to make the plant behave as desired.</p>
-<p>The plant transfer function <span class="arithmatex">\(G_p(s)\)</span> characterizes how the plant output responds to its input. This mathematical model captures the plant's dynamics: how fast it responds, whether it oscillates, and how it settles to steady state.</p>
+<p>The plant transfer function $G_p(s)$ characterizes how the plant output responds to its input. This mathematical model captures the plant's dynamics: how fast it responds, whether it oscillates, and how it settles to steady state.</p>
 <p>Examples of plants include:</p>
 <ul>
 <li>A DC motor (input: voltage, output: angular position or velocity)</li>
@@ -2126,9 +2126,9 @@ Canvas size: 800x400px, responsive width</p>
 <li><strong>Dynamic response</strong>: Finite bandwidth limiting how fast changes can be tracked</li>
 <li><strong>Quantization</strong>: Discrete steps when using digital sensors</li>
 </ul>
-<p>The sensor transfer function <span class="arithmatex">\(H(s)\)</span> captures these dynamics. In ideal analyses, <span class="arithmatex">\(H(s) = 1\)</span> (perfect measurement), but practical design must account for sensor limitations.</p>
+<p>The sensor transfer function $H(s)$ captures these dynamics. In ideal analyses, $H(s) = 1$ (perfect measurement), but practical design must account for sensor limitations.</p>
 <h2 id="system-response">System Response</h2>
-<p>The <strong>system response</strong> <span class="arithmatex">\(y(t)\)</span> is the actual output of the plant—the quantity we are trying to control. The goal of the feedback control system is to make this response track the reference input as closely as possible, despite disturbances and model uncertainties.</p>
+<p>The <strong>system response</strong> $y(t)$ is the actual output of the plant—the quantity we are trying to control. The goal of the feedback control system is to make this response track the reference input as closely as possible, despite disturbances and model uncertainties.</p>
 <p>System response characteristics include:</p>
 <ul>
 <li><strong>Transient response</strong>: How the output behaves as it moves from one state to another</li>
@@ -2136,7 +2136,7 @@ Canvas size: 800x400px, responsive width</p>
 <li><strong>Tracking accuracy</strong>: How well the output follows a changing reference</li>
 <li><strong>Disturbance rejection</strong>: How effectively the system suppresses unwanted inputs</li>
 </ul>
-<p>Later chapters will develop quantitative measures for these characteristics, but the fundamental goal remains the same: make <span class="arithmatex">\(y(t)\)</span> follow <span class="arithmatex">\(r(t)\)</span> as closely as possible.</p>
+<p>Later chapters will develop quantitative measures for these characteristics, but the fundamental goal remains the same: make $y(t)$ follow $r(t)$ as closely as possible.</p>
 <h4 id="diagram-interactive-feedback-loop-simulator">Diagram: Interactive Feedback Loop Simulator</h4>
 <iframe src="../../sims/feedback-loop-simulator/main.html" width="100%" height="550px" scrolling="no"></iframe>
 
@@ -2166,9 +2166,9 @@ Bloom Verb: demonstrate, execute</p>
 - Checkbox: "Show error signal"
 - Display: Final steady-state error value
 - Display: Approximate settling time</p>
-<p>Plant model: First-order system <span class="arithmatex">\(G_p(s) = \frac{1}{\tau s + 1}\)</span>
-Controller: Proportional controller <span class="arithmatex">\(G_c(s) = K\)</span>
-Closed-loop transfer function: <span class="arithmatex">\(\frac{K}{(\tau s + 1) + K} = \frac{K}{\tau s + (1 + K)}\)</span></p>
+<p>Plant model: First-order system $G_p(s) = \frac{1}{\tau s + 1}$
+Controller: Proportional controller $G_c(s) = K$
+Closed-loop transfer function: $\frac{K}{(\tau s + 1) + K} = \frac{K}{\tau s + (1 + K)}$</p>
 <p>Default parameters:
 - K = 2
 - τ = 1 second
@@ -2176,17 +2176,17 @@ Closed-loop transfer function: <span class="arithmatex">\(\frac{K}{(\tau s + 1) 
 <p>Behavior:
 - When "Run Simulation" clicked, animate the step response
 - Show how increasing K reduces steady-state error but may increase overshoot (for this first-order system, no overshoot, but faster response)
-- Display calculated steady-state error: <span class="arithmatex">\(e_{ss} = \frac{1}{1+K}\)</span>
+- Display calculated steady-state error: $e_{ss} = \frac{1}{1+K}$
 - Update settling time estimate as parameters change</p>
 <p>Data visibility requirements:
 - Show K value prominently
-- Show calculated closed-loop time constant: <span class="arithmatex">\(\tau_{CL} = \frac{\tau}{1+K}\)</span>
-- Show steady-state value: <span class="arithmatex">\(y_{ss} = \frac{K}{1+K}\)</span></p>
+- Show calculated closed-loop time constant: $\tau_{CL} = \frac{\tau}{1+K}$
+- Show steady-state value: $y_{ss} = \frac{K}{1+K}$</p>
 <p>Implementation: p5.js with canvas-based controls
 Canvas size: 700x400px, responsive width</p>
 </details>
 <h2 id="disturbances">Disturbances</h2>
-<p>A <strong>disturbance</strong> <span class="arithmatex">\(d(t)\)</span> is any unwanted input that affects the system output without being commanded by the controller. In other words, disturbances are the universe's way of saying "not so fast!" to your carefully designed system. Disturbances represent the primary reason why feedback control is necessary—if there were no disturbances and our plant model were perfect, open-loop control would suffice. But this is reality, and reality loves to throw curveballs.</p>
+<p>A <strong>disturbance</strong> $d(t)$ is any unwanted input that affects the system output without being commanded by the controller. In other words, disturbances are the universe's way of saying "not so fast!" to your carefully designed system. Disturbances represent the primary reason why feedback control is necessary—if there were no disturbances and our plant model were perfect, open-loop control would suffice. But this is reality, and reality loves to throw curveballs.</p>
 <p>Disturbances can enter the system at various points:</p>
 <ul>
 <li><strong>Load disturbances</strong>: External forces or demands acting on the plant</li>
@@ -2279,9 +2279,9 @@ Bloom Verb: compare, differentiate</p>
 - Slider: Disturbance magnitude (range -0.5 to +0.5, default 0.3)
 - Button: "Reset Both Systems"
 - Slider: Controller gain K for closed-loop system (range 1 to 10, default 5)</p>
-<p>Plant model for both: <span class="arithmatex">\(G_p(s) = \frac{1}{s + 1}\)</span></p>
-<p>Open-loop controller: Fixed gain <span class="arithmatex">\(G_c = 1\)</span> (calibrated for unity output with no disturbance)</p>
-<p>Closed-loop controller: Proportional gain <span class="arithmatex">\(G_c = K\)</span></p>
+<p>Plant model for both: $G_p(s) = \frac{1}{s + 1}$</p>
+<p>Open-loop controller: Fixed gain $G_c = 1$ (calibrated for unity output with no disturbance)</p>
+<p>Closed-loop controller: Proportional gain $G_c = K$</p>
 <p>Behavior:
 - Initially, both systems are at steady state with output ≈ 1
 - When disturbance is applied, open-loop output shifts by the disturbance amount and stays there

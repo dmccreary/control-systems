@@ -1133,7 +1133,7 @@
         <li class="md-nav__item">
   <a href="#2-the-position-error-constant-k_p-is-used-to-calculate-steady-state-error-for" class="md-nav__link">
     <span class="md-ellipsis">
-      2. The position error constant \(K_p\) is used to calculate steady-state error for:
+      2. The position error constant $K_p$ is used to calculate steady-state error for:
     </span>
   </a>
   
@@ -1160,7 +1160,7 @@
         <li class="md-nav__item">
   <a href="#5-the-velocity-error-constant-k_v-is-calculated-as" class="md-nav__link">
     <span class="md-ellipsis">
-      5. The velocity error constant \(K_v\) is calculated as:
+      5. The velocity error constant $K_v$ is calculated as:
     </span>
   </a>
   
@@ -1205,7 +1205,7 @@
         <li class="md-nav__item">
   <a href="#10-the-acceleration-error-constant-k_a-determines-steady-state-error-for" class="md-nav__link">
     <span class="md-ellipsis">
-      10. The acceleration error constant \(K_a\) determines steady-state error for:
+      10. The acceleration error constant $K_a$ determines steady-state error for:
     </span>
   </a>
   
@@ -1725,7 +1725,7 @@
         <li class="md-nav__item">
   <a href="#2-the-position-error-constant-k_p-is-used-to-calculate-steady-state-error-for" class="md-nav__link">
     <span class="md-ellipsis">
-      2. The position error constant \(K_p\) is used to calculate steady-state error for:
+      2. The position error constant $K_p$ is used to calculate steady-state error for:
     </span>
   </a>
   
@@ -1752,7 +1752,7 @@
         <li class="md-nav__item">
   <a href="#5-the-velocity-error-constant-k_v-is-calculated-as" class="md-nav__link">
     <span class="md-ellipsis">
-      5. The velocity error constant \(K_v\) is calculated as:
+      5. The velocity error constant $K_v$ is calculated as:
     </span>
   </a>
   
@@ -1797,7 +1797,7 @@
         <li class="md-nav__item">
   <a href="#10-the-acceleration-error-constant-k_a-determines-steady-state-error-for" class="md-nav__link">
     <span class="md-ellipsis">
-      10. The acceleration error constant \(K_a\) determines steady-state error for:
+      10. The acceleration error constant $K_a$ determines steady-state error for:
     </span>
   </a>
   
@@ -1829,17 +1829,17 @@
 <ol>
 <li>The maximum overshoot during transient response</li>
 <li>The difference between reference input and output as time approaches infinity</li>
-<li>The initial error at <span class="arithmatex">\(t = 0\)</span></li>
+<li>The initial error at $t = 0$</li>
 <li>The error at the peak time</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. Steady-state error is <span class="arithmatex">\(e_{ss} = \lim_{t \to \infty}[r(t) - y(t)]\)</span>, the difference between the desired reference and actual output after all transients have decayed. It measures how accurately the system tracks inputs in the long term.</p>
+<p>The correct answer is <strong>B</strong>. Steady-state error is $e_{ss} = \lim_{t \to \infty}[r(t) - y(t)]$, the difference between the desired reference and actual output after all transients have decayed. It measures how accurately the system tracks inputs in the long term.</p>
 <p><strong>Concept Tested:</strong> Steady-State Error</p>
 </details>
 <hr>
-<h4 id="2-the-position-error-constant-k_p-is-used-to-calculate-steady-state-error-for">2. The position error constant <span class="arithmatex">\(K_p\)</span> is used to calculate steady-state error for:</h4>
+<h4 id="2-the-position-error-constant-k_p-is-used-to-calculate-steady-state-error-for">2. The position error constant $K_p$ is used to calculate steady-state error for:</h4>
 <div class="upper-alpha">
 <ol>
 <li>Ramp inputs</li>
@@ -1850,7 +1850,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. The position error constant <span class="arithmatex">\(K_p = \lim_{s \to 0} G(s)H(s)\)</span> determines steady-state error to a step input: <span class="arithmatex">\(e_{ss} = 1/(1 + K_p)\)</span>. For ramp inputs use <span class="arithmatex">\(K_v\)</span>, for parabolic use <span class="arithmatex">\(K_a\)</span>.</p>
+<p>The correct answer is <strong>B</strong>. The position error constant $K_p = \lim_{s \to 0} G(s)H(s)$ determines steady-state error to a step input: $e_{ss} = 1/(1 + K_p)$. For ramp inputs use $K_v$, for parabolic use $K_a$.</p>
 <p><strong>Concept Tested:</strong> Position Error Constant, Error Constants</p>
 </details>
 <hr>
@@ -1865,7 +1865,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. System type equals the number of pure integrators (poles at <span class="arithmatex">\(s = 0\)</span>) in the open-loop transfer function. Type 1 has exactly one integrator: <span class="arithmatex">\(GH = K/[s(s+a)...]\)</span>. Type 0 has none; Type 2 has two.</p>
+<p>The correct answer is <strong>B</strong>. System type equals the number of pure integrators (poles at $s = 0$) in the open-loop transfer function. Type 1 has exactly one integrator: $GH = K/[s(s+a)...]$. Type 0 has none; Type 2 has two.</p>
 <p><strong>Concept Tested:</strong> Type 1 System, System Type</p>
 </details>
 <hr>
@@ -1873,29 +1873,29 @@
 <div class="upper-alpha">
 <ol>
 <li>Zero</li>
-<li><span class="arithmatex">\(1/(1 + K_p)\)</span> where <span class="arithmatex">\(K_p\)</span> is finite</li>
+<li>$1/(1 + K_p)$ where $K_p$ is finite</li>
 <li>Infinite</li>
 <li>Equal to the DC gain</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. Type 0 systems have finite <span class="arithmatex">\(K_p\)</span>, so steady-state error to a step is <span class="arithmatex">\(e_{ss} = 1/(1 + K_p)\)</span>. Increasing gain reduces but never eliminates this error. Only Type 1 or higher systems can track steps with zero steady-state error.</p>
+<p>The correct answer is <strong>B</strong>. Type 0 systems have finite $K_p$, so steady-state error to a step is $e_{ss} = 1/(1 + K_p)$. Increasing gain reduces but never eliminates this error. Only Type 1 or higher systems can track steps with zero steady-state error.</p>
 <p><strong>Concept Tested:</strong> Type 0 System, Position Error Constant</p>
 </details>
 <hr>
-<h4 id="5-the-velocity-error-constant-k_v-is-calculated-as">5. The velocity error constant <span class="arithmatex">\(K_v\)</span> is calculated as:</h4>
+<h4 id="5-the-velocity-error-constant-k_v-is-calculated-as">5. The velocity error constant $K_v$ is calculated as:</h4>
 <div class="upper-alpha">
 <ol>
-<li><span class="arithmatex">\(\lim_{s \to 0} G(s)H(s)\)</span></li>
-<li><span class="arithmatex">\(\lim_{s \to 0} sG(s)H(s)\)</span></li>
-<li><span class="arithmatex">\(\lim_{s \to 0} s^2G(s)H(s)\)</span></li>
-<li><span class="arithmatex">\(\lim_{s \to \infty} G(s)H(s)\)</span></li>
+<li>$\lim_{s \to 0} G(s)H(s)$</li>
+<li>$\lim_{s \to 0} sG(s)H(s)$</li>
+<li>$\lim_{s \to 0} s^2G(s)H(s)$</li>
+<li>$\lim_{s \to \infty} G(s)H(s)$</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. The velocity error constant is <span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s)H(s)\)</span>. For a ramp input, steady-state error is <span class="arithmatex">\(e_{ss} = 1/K_v\)</span>. Type 0 systems have <span class="arithmatex">\(K_v = 0\)</span> (infinite error to ramp); Type 1+ systems have finite positive <span class="arithmatex">\(K_v\)</span>.</p>
+<p>The correct answer is <strong>B</strong>. The velocity error constant is $K_v = \lim_{s \to 0} sG(s)H(s)$. For a ramp input, steady-state error is $e_{ss} = 1/K_v$. Type 0 systems have $K_v = 0$ (infinite error to ramp); Type 1+ systems have finite positive $K_v$.</p>
 <p><strong>Concept Tested:</strong> Velocity Error Constant</p>
 </details>
 <hr>
@@ -1903,14 +1903,14 @@
 <div class="upper-alpha">
 <ol>
 <li>Infinite</li>
-<li><span class="arithmatex">\(1/K_v\)</span></li>
+<li>$1/K_v$</li>
 <li>Zero</li>
 <li>Equal to the ramp slope</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>C</strong>. Type 2 systems have two integrators, so <span class="arithmatex">\(K_v = \infty\)</span>, making <span class="arithmatex">\(e_{ss} = 1/K_v = 0\)</span> for ramp inputs. Type 2 systems can track both steps and ramps with zero steady-state error, but have finite error to parabolic inputs.</p>
+<p>The correct answer is <strong>C</strong>. Type 2 systems have two integrators, so $K_v = \infty$, making $e_{ss} = 1/K_v = 0$ for ramp inputs. Type 2 systems can track both steps and ramps with zero steady-state error, but have finite error to parabolic inputs.</p>
 <p><strong>Concept Tested:</strong> Type 2 System, Steady-State Error</p>
 </details>
 <hr>
@@ -1925,7 +1925,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. Adding an integrator (<span class="arithmatex">\(1/s\)</span>) increases the system type by one, improving steady-state accuracy (e.g., converting a Type 0 with step error into a Type 1 with zero step error). However, it adds phase lag of -90°, which can reduce stability margins.</p>
+<p>The correct answer is <strong>B</strong>. Adding an integrator ($1/s$) increases the system type by one, improving steady-state accuracy (e.g., converting a Type 0 with step error into a Type 1 with zero step error). However, it adds phase lag of -90°, which can reduce stability margins.</p>
 <p><strong>Concept Tested:</strong> System Type, Steady-State Error</p>
 </details>
 <hr>
@@ -1933,14 +1933,14 @@
 <div class="upper-alpha">
 <ol>
 <li>Zero</li>
-<li><span class="arithmatex">\(1/K_v\)</span></li>
+<li>$1/K_v$</li>
 <li>Infinite</li>
-<li><span class="arithmatex">\(1/(1 + K_p)\)</span></li>
+<li>$1/(1 + K_p)$</li>
 </ol>
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. Type 1 systems have finite velocity error constant <span class="arithmatex">\(K_v\)</span>, so steady-state error to a ramp is <span class="arithmatex">\(e_{ss} = 1/K_v\)</span>. This error can be reduced by increasing gain but cannot be eliminated without adding another integrator (making it Type 2).</p>
+<p>The correct answer is <strong>B</strong>. Type 1 systems have finite velocity error constant $K_v$, so steady-state error to a ramp is $e_{ss} = 1/K_v$. This error can be reduced by increasing gain but cannot be eliminated without adding another integrator (making it Type 2).</p>
 <p><strong>Concept Tested:</strong> Type 1 System, Velocity Error Constant</p>
 </details>
 <hr>
@@ -1955,11 +1955,11 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>B</strong>. High loop gain suppresses disturbances. For a disturbance entering at the plant input, the transfer function from disturbance to output is approximately <span class="arithmatex">\(1/L(s)\)</span> where <span class="arithmatex">\(L(s)\)</span> is loop gain. Higher <span class="arithmatex">\(|L(j\omega)|\)</span> at the disturbance frequency reduces its effect.</p>
+<p>The correct answer is <strong>B</strong>. High loop gain suppresses disturbances. For a disturbance entering at the plant input, the transfer function from disturbance to output is approximately $1/L(s)$ where $L(s)$ is loop gain. Higher $|L(j\omega)|$ at the disturbance frequency reduces its effect.</p>
 <p><strong>Concept Tested:</strong> Disturbance Error</p>
 </details>
 <hr>
-<h4 id="10-the-acceleration-error-constant-k_a-determines-steady-state-error-for">10. The acceleration error constant <span class="arithmatex">\(K_a\)</span> determines steady-state error for:</h4>
+<h4 id="10-the-acceleration-error-constant-k_a-determines-steady-state-error-for">10. The acceleration error constant $K_a$ determines steady-state error for:</h4>
 <div class="upper-alpha">
 <ol>
 <li>Step inputs</li>
@@ -1970,7 +1970,7 @@
 </div>
 <details class="question">
 <summary>Show Answer</summary>
-<p>The correct answer is <strong>C</strong>. The acceleration error constant <span class="arithmatex">\(K_a = \lim_{s \to 0} s^2G(s)H(s)\)</span> determines steady-state error to a parabolic input (constant acceleration): <span class="arithmatex">\(e_{ss} = 1/K_a\)</span>. Only Type 2 or higher systems have finite <span class="arithmatex">\(K_a\)</span>.</p>
+<p>The correct answer is <strong>C</strong>. The acceleration error constant $K_a = \lim_{s \to 0} s^2G(s)H(s)$ determines steady-state error to a parabolic input (constant acceleration): $e_{ss} = 1/K_a$. Only Type 2 or higher systems have finite $K_a$.</p>
 <p><strong>Concept Tested:</strong> Acceleration Error Constant</p>
 </details>
 <hr>

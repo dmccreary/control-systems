@@ -2123,17 +2123,17 @@
 <p>Here's the magic: differentiation in the time domain becomes multiplication in the s-domain. Integration becomes division. Convolution—that nasty integral you might remember from signals and systems—becomes simple multiplication. This isn't just a mathematical trick; it's a conceptual framework that reveals the fundamental structure of linear systems.</p>
 <p>For control engineers, the Laplace transform is indispensable. It gives us the <strong>transfer function</strong>, which encapsulates everything about how a system responds to inputs. It enables us to analyze stability, predict transient behavior, and design controllers—all without solving a single differential equation the hard way. If you master the techniques in this chapter, you'll have a toolkit that applies to virtually any linear time-invariant system you'll encounter.</p>
 <h2 id="the-time-domain">The Time Domain</h2>
-<p>The <strong>time domain</strong> is where we live and where physical systems operate. When you watch Gyra wobble after being pushed, you're observing time-domain behavior. Variables in the time domain are functions of time <span class="arithmatex">\(t\)</span>, typically denoted as <span class="arithmatex">\(f(t)\)</span>, <span class="arithmatex">\(x(t)\)</span>, or <span class="arithmatex">\(y(t)\)</span>.</p>
+<p>The <strong>time domain</strong> is where we live and where physical systems operate. When you watch Gyra wobble after being pushed, you're observing time-domain behavior. Variables in the time domain are functions of time $t$, typically denoted as $f(t)$, $x(t)$, or $y(t)$.</p>
 <p>In the time domain, we describe systems using differential equations. For a simple mass-spring-damper:</p>
 <h4 id="mass-spring-damper-differential-equation">Mass-Spring-Damper Differential Equation</h4>
-<p><span class="arithmatex">\(m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx = F(t)\)</span></p>
+<p>$m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx = F(t)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(m\)</span> is the mass</li>
-<li><span class="arithmatex">\(b\)</span> is the damping coefficient</li>
-<li><span class="arithmatex">\(k\)</span> is the spring constant</li>
-<li><span class="arithmatex">\(x(t)\)</span> is the displacement</li>
-<li><span class="arithmatex">\(F(t)\)</span> is the applied force</li>
+<li>$m$ is the mass</li>
+<li>$b$ is the damping coefficient</li>
+<li>$k$ is the spring constant</li>
+<li>$x(t)$ is the displacement</li>
+<li>$F(t)$ is the applied force</li>
 </ul>
 <p>Time-domain analysis is intuitive—you can directly observe cause and effect as time progresses. But solving these equations, especially for higher-order systems or complicated inputs, requires significant mathematical effort. And crucially, time-domain equations don't immediately reveal system properties like stability, natural frequency, or damping ratio.</p>
 <table>
@@ -2146,11 +2146,11 @@
 <tbody>
 <tr>
 <td>Independent variable</td>
-<td>Time <span class="arithmatex">\(t\)</span>, typically <span class="arithmatex">\(t \geq 0\)</span></td>
+<td>Time $t$, typically $t \geq 0$</td>
 </tr>
 <tr>
 <td>Signal representation</td>
-<td><span class="arithmatex">\(f(t)\)</span>, real-valued functions</td>
+<td>$f(t)$, real-valued functions</td>
 </tr>
 <tr>
 <td>System description</td>
@@ -2167,15 +2167,15 @@
 </tbody>
 </table>
 <h2 id="the-s-domain">The S-Domain</h2>
-<p>The <strong>s-domain</strong> (or complex frequency domain) is where the Laplace transform takes us. Here, the independent variable is <span class="arithmatex">\(s\)</span>, a complex number with real and imaginary parts: <span class="arithmatex">\(s = \sigma + j\omega\)</span>. Functions in the s-domain are denoted with capital letters: <span class="arithmatex">\(F(s)\)</span>, <span class="arithmatex">\(X(s)\)</span>, <span class="arithmatex">\(Y(s)\)</span>.</p>
+<p>The <strong>s-domain</strong> (or complex frequency domain) is where the Laplace transform takes us. Here, the independent variable is $s$, a complex number with real and imaginary parts: $s = \sigma + j\omega$. Functions in the s-domain are denoted with capital letters: $F(s)$, $X(s)$, $Y(s)$.</p>
 <p>In the s-domain, differential equations become algebraic equations. The mass-spring-damper equation transforms to:</p>
 <h4 id="mass-spring-damper-in-s-domain">Mass-Spring-Damper in S-Domain</h4>
-<p><span class="arithmatex">\((ms^2 + bs + k)X(s) = F(s) + \text{initial conditions}\)</span></p>
+<p>$(ms^2 + bs + k)X(s) = F(s) + \text{initial conditions}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(X(s)\)</span> is the Laplace transform of <span class="arithmatex">\(x(t)\)</span></li>
-<li><span class="arithmatex">\(F(s)\)</span> is the Laplace transform of the input force</li>
-<li>The polynomial <span class="arithmatex">\((ms^2 + bs + k)\)</span> captures the system dynamics</li>
+<li>$X(s)$ is the Laplace transform of $x(t)$</li>
+<li>$F(s)$ is the Laplace transform of the input force</li>
+<li>The polynomial $(ms^2 + bs + k)$ captures the system dynamics</li>
 </ul>
 <p>This is just algebra! No derivatives to deal with. The price we pay is working with complex numbers and polynomials—but that's a trade most engineers are happy to make.</p>
 <p>The s-domain reveals system structure. The roots of the denominator polynomial (poles) tell us about stability and response characteristics. The relationship between input and output transforms gives us the transfer function. This representation is the foundation of classical control theory.</p>
@@ -2184,7 +2184,7 @@
 <p>Think of the s-domain as a control room with dials and displays that show you <em>what kind</em> of behavior a system can exhibit. The time domain is the actual room where the system operates. Engineers work in the s-domain to design systems, then verify their designs by simulating or observing time-domain behavior.</p>
 </div>
 <h2 id="the-frequency-domain">The Frequency Domain</h2>
-<p>The <strong>frequency domain</strong> is closely related to the s-domain but focuses specifically on sinusoidal steady-state behavior. When we evaluate the transfer function at <span class="arithmatex">\(s = j\omega\)</span> (purely imaginary), we're asking: "How does this system respond to a sinusoid of frequency <span class="arithmatex">\(\omega\)</span>?"</p>
+<p>The <strong>frequency domain</strong> is closely related to the s-domain but focuses specifically on sinusoidal steady-state behavior. When we evaluate the transfer function at $s = j\omega$ (purely imaginary), we're asking: "How does this system respond to a sinusoid of frequency $\omega$?"</p>
 <p>The frequency domain is particularly useful for:</p>
 <ul>
 <li>Analyzing steady-state response to periodic inputs</li>
@@ -2192,7 +2192,7 @@
 <li>Designing filters and compensators</li>
 <li>Assessing stability margins (gain and phase margins)</li>
 </ul>
-<p>We'll explore frequency-domain analysis in detail in later chapters with Bode plots and Nyquist diagrams. For now, understand that the s-domain is the general framework, and the frequency domain is the special case where <span class="arithmatex">\(s = j\omega\)</span>.</p>
+<p>We'll explore frequency-domain analysis in detail in later chapters with Bode plots and Nyquist diagrams. For now, understand that the s-domain is the general framework, and the frequency domain is the special case where $s = j\omega$.</p>
 <table>
 <thead>
 <tr>
@@ -2205,76 +2205,76 @@
 <tbody>
 <tr>
 <td>Time</td>
-<td><span class="arithmatex">\(t\)</span></td>
+<td>$t$</td>
 <td>Transient + steady-state</td>
 <td>Simulation, observation</td>
 </tr>
 <tr>
 <td>S-Domain</td>
-<td><span class="arithmatex">\(s = \sigma + j\omega\)</span></td>
+<td>$s = \sigma + j\omega$</td>
 <td>Complete system behavior</td>
 <td>Analysis, design</td>
 </tr>
 <tr>
 <td>Frequency</td>
-<td><span class="arithmatex">\(j\omega\)</span></td>
+<td>$j\omega$</td>
 <td>Sinusoidal steady-state</td>
 <td>Filter design, stability margins</td>
 </tr>
 </tbody>
 </table>
 <h2 id="the-laplace-transform">The Laplace Transform</h2>
-<p>The <strong>Laplace transform</strong> converts a time-domain function <span class="arithmatex">\(f(t)\)</span> into an s-domain function <span class="arithmatex">\(F(s)\)</span>. The definition is:</p>
+<p>The <strong>Laplace transform</strong> converts a time-domain function $f(t)$ into an s-domain function $F(s)$. The definition is:</p>
 <h4 id="laplace-transform-definition">Laplace Transform Definition</h4>
-<p><span class="arithmatex">\(F(s) = \mathcal{L}\{f(t)\} = \int_0^{\infty} f(t)e^{-st}dt\)</span></p>
+<p>$F(s) = \mathcal{L}{f(t)} = \int_0^{\infty} f(t)e^{-st}dt$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(f(t)\)</span> is the original time-domain function (defined for <span class="arithmatex">\(t \geq 0\)</span>)</li>
-<li><span class="arithmatex">\(F(s)\)</span> is the Laplace transform</li>
-<li><span class="arithmatex">\(s\)</span> is the complex frequency variable</li>
-<li><span class="arithmatex">\(\mathcal{L}\{\cdot\}\)</span> denotes the Laplace transform operator</li>
+<li>$f(t)$ is the original time-domain function (defined for $t \geq 0$)</li>
+<li>$F(s)$ is the Laplace transform</li>
+<li>$s$ is the complex frequency variable</li>
+<li>$\mathcal{L}{\cdot}$ denotes the Laplace transform operator</li>
 </ul>
-<p>The integral essentially "weighs" <span class="arithmatex">\(f(t)\)</span> against decaying exponentials <span class="arithmatex">\(e^{-st}\)</span> for all values of <span class="arithmatex">\(s\)</span>. Functions that grow too fast (faster than any exponential) don't have Laplace transforms, but all physically realizable signals do.</p>
+<p>The integral essentially "weighs" $f(t)$ against decaying exponentials $e^{-st}$ for all values of $s$. Functions that grow too fast (faster than any exponential) don't have Laplace transforms, but all physically realizable signals do.</p>
 <p>You rarely need to compute this integral directly. Instead, you'll use a table of transform pairs and properties. Here are the essential ones:</p>
 <table>
 <thead>
 <tr>
-<th>Time Function <span class="arithmatex">\(f(t)\)</span></th>
-<th>Laplace Transform <span class="arithmatex">\(F(s)\)</span></th>
+<th>Time Function $f(t)$</th>
+<th>Laplace Transform $F(s)$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Unit impulse <span class="arithmatex">\(\delta(t)\)</span></td>
-<td><span class="arithmatex">\(1\)</span></td>
+<td>Unit impulse $\delta(t)$</td>
+<td>$1$</td>
 </tr>
 <tr>
-<td>Unit step <span class="arithmatex">\(u(t)\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{s}\)</span></td>
+<td>Unit step $u(t)$</td>
+<td>$\frac{1}{s}$</td>
 </tr>
 <tr>
-<td>Ramp <span class="arithmatex">\(t\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{s^2}\)</span></td>
+<td>Ramp $t$</td>
+<td>$\frac{1}{s^2}$</td>
 </tr>
 <tr>
-<td>Exponential <span class="arithmatex">\(e^{-at}\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{s+a}\)</span></td>
+<td>Exponential $e^{-at}$</td>
+<td>$\frac{1}{s+a}$</td>
 </tr>
 <tr>
-<td>Sine <span class="arithmatex">\(\sin(\omega t)\)</span></td>
-<td><span class="arithmatex">\(\frac{\omega}{s^2+\omega^2}\)</span></td>
+<td>Sine $\sin(\omega t)$</td>
+<td>$\frac{\omega}{s^2+\omega^2}$</td>
 </tr>
 <tr>
-<td>Cosine <span class="arithmatex">\(\cos(\omega t)\)</span></td>
-<td><span class="arithmatex">\(\frac{s}{s^2+\omega^2}\)</span></td>
+<td>Cosine $\cos(\omega t)$</td>
+<td>$\frac{s}{s^2+\omega^2}$</td>
 </tr>
 <tr>
-<td>Damped exponential <span class="arithmatex">\(te^{-at}\)</span></td>
-<td><span class="arithmatex">\(\frac{1}{(s+a)^2}\)</span></td>
+<td>Damped exponential $te^{-at}$</td>
+<td>$\frac{1}{(s+a)^2}$</td>
 </tr>
 <tr>
-<td>Damped sine <span class="arithmatex">\(e^{-at}\sin(\omega t)\)</span></td>
-<td><span class="arithmatex">\(\frac{\omega}{(s+a)^2+\omega^2}\)</span></td>
+<td>Damped sine $e^{-at}\sin(\omega t)$</td>
+<td>$\frac{\omega}{(s+a)^2+\omega^2}$</td>
 </tr>
 </tbody>
 </table>
@@ -2290,33 +2290,33 @@
 <tbody>
 <tr>
 <td>Linearity</td>
-<td><span class="arithmatex">\(af(t) + bg(t)\)</span></td>
-<td><span class="arithmatex">\(aF(s) + bG(s)\)</span></td>
+<td>$af(t) + bg(t)$</td>
+<td>$aF(s) + bG(s)$</td>
 </tr>
 <tr>
 <td>Differentiation</td>
-<td><span class="arithmatex">\(\frac{df}{dt}\)</span></td>
-<td><span class="arithmatex">\(sF(s) - f(0^-)\)</span></td>
+<td>$\frac{df}{dt}$</td>
+<td>$sF(s) - f(0^-)$</td>
 </tr>
 <tr>
 <td>Integration</td>
-<td><span class="arithmatex">\(\int_0^t f(\tau)d\tau\)</span></td>
-<td><span class="arithmatex">\(\frac{F(s)}{s}\)</span></td>
+<td>$\int_0^t f(\tau)d\tau$</td>
+<td>$\frac{F(s)}{s}$</td>
 </tr>
 <tr>
 <td>Time shift</td>
-<td><span class="arithmatex">\(f(t-a)u(t-a)\)</span></td>
-<td><span class="arithmatex">\(e^{-as}F(s)\)</span></td>
+<td>$f(t-a)u(t-a)$</td>
+<td>$e^{-as}F(s)$</td>
 </tr>
 <tr>
 <td>Frequency shift</td>
-<td><span class="arithmatex">\(e^{-at}f(t)\)</span></td>
-<td><span class="arithmatex">\(F(s+a)\)</span></td>
+<td>$e^{-at}f(t)$</td>
+<td>$F(s+a)$</td>
 </tr>
 <tr>
 <td>Convolution</td>
-<td><span class="arithmatex">\(f(t)*g(t)\)</span></td>
-<td><span class="arithmatex">\(F(s)G(s)\)</span></td>
+<td>$f(t)*g(t)$</td>
+<td>$F(s)G(s)$</td>
 </tr>
 </tbody>
 </table>
@@ -2368,56 +2368,56 @@ Time Domain Plot:
 <h2 id="the-transfer-function">The Transfer Function</h2>
 <p>The <strong>transfer function</strong> is the crown jewel of classical control theory. It completely characterizes a linear time-invariant (LTI) system's input-output relationship in the s-domain, assuming zero initial conditions.</p>
 <h4 id="transfer-function-definition">Transfer Function Definition</h4>
-<p><span class="arithmatex">\(G(s) = \frac{Y(s)}{U(s)}\)</span></p>
+<p>$G(s) = \frac{Y(s)}{U(s)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(G(s)\)</span> is the transfer function</li>
-<li><span class="arithmatex">\(Y(s)\)</span> is the Laplace transform of the output</li>
-<li><span class="arithmatex">\(U(s)\)</span> is the Laplace transform of the input</li>
+<li>$G(s)$ is the transfer function</li>
+<li>$Y(s)$ is the Laplace transform of the output</li>
+<li>$U(s)$ is the Laplace transform of the input</li>
 </ul>
 <p>For a system described by the differential equation:</p>
-<p><span class="arithmatex">\(a_n\frac{d^ny}{dt^n} + \cdots + a_1\frac{dy}{dt} + a_0y = b_m\frac{d^mu}{dt^m} + \cdots + b_1\frac{du}{dt} + b_0u\)</span></p>
+<p>$a_n\frac{d^ny}{dt^n} + \cdots + a_1\frac{dy}{dt} + a_0y = b_m\frac{d^mu}{dt^m} + \cdots + b_1\frac{du}{dt} + b_0u$</p>
 <p>The transfer function is:</p>
 <h4 id="general-transfer-function-form">General Transfer Function Form</h4>
-<p><span class="arithmatex">\(G(s) = \frac{b_ms^m + b_{m-1}s^{m-1} + \cdots + b_1s + b_0}{a_ns^n + a_{n-1}s^{n-1} + \cdots + a_1s + a_0}\)</span></p>
+<p>$G(s) = \frac{b_ms^m + b_{m-1}s^{m-1} + \cdots + b_1s + b_0}{a_ns^n + a_{n-1}s^{n-1} + \cdots + a_1s + a_0}$</p>
 <p>The denominator polynomial determines system stability and dynamics. Its roots are the <strong>poles</strong>. The numerator polynomial affects how inputs couple to the system. Its roots are the <strong>zeros</strong>.</p>
-<p>For example, a simple first-order system with time constant <span class="arithmatex">\(\tau\)</span> has transfer function:</p>
+<p>For example, a simple first-order system with time constant $\tau$ has transfer function:</p>
 <h4 id="first-order-transfer-function">First-Order Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{K}{\tau s + 1}\)</span></p>
+<p>$G(s) = \frac{K}{\tau s + 1}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the DC gain</li>
-<li><span class="arithmatex">\(\tau\)</span> is the time constant</li>
-<li>The pole is at <span class="arithmatex">\(s = -1/\tau\)</span></li>
+<li>$K$ is the DC gain</li>
+<li>$\tau$ is the time constant</li>
+<li>The pole is at $s = -1/\tau$</li>
 </ul>
 <p>For a second-order system:</p>
 <h4 id="second-order-transfer-function">Second-Order Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></p>
+<p>$G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
-<li>The poles are at <span class="arithmatex">\(s = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}\)</span></li>
+<li>$\omega_n$ is the natural frequency</li>
+<li>$\zeta$ is the damping ratio</li>
+<li>The poles are at $s = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}$</li>
 </ul>
 <p>The transfer function enables us to find the output for any input through multiplication:</p>
-<p><span class="arithmatex">\(Y(s) = G(s) \cdot U(s)\)</span></p>
+<p>$Y(s) = G(s) \cdot U(s)$</p>
 <p>This simple relationship is why control engineers live in the s-domain.</p>
 <div class="admonition note">
 <p class="admonition-title">Zero Initial Conditions</p>
 <p>The transfer function assumes the system starts at rest (zero initial conditions). When initial conditions are non-zero, additional terms appear in the s-domain equation. For controller design, we typically work with transfer functions and handle initial conditions separately.</p>
 </div>
 <h2 id="the-inverse-laplace-transform">The Inverse Laplace Transform</h2>
-<p>Finding the output in the s-domain is easy—just multiply. But to know what actually happens over time, we need to transform back. The <strong>inverse Laplace transform</strong> converts <span class="arithmatex">\(F(s)\)</span> back to <span class="arithmatex">\(f(t)\)</span>:</p>
+<p>Finding the output in the s-domain is easy—just multiply. But to know what actually happens over time, we need to transform back. The <strong>inverse Laplace transform</strong> converts $F(s)$ back to $f(t)$:</p>
 <h4 id="inverse-laplace-transform">Inverse Laplace Transform</h4>
-<p><span class="arithmatex">\(f(t) = \mathcal{L}^{-1}\{F(s)\}\)</span></p>
+<p>$f(t) = \mathcal{L}^{-1}{F(s)}$</p>
 <p>The formal definition involves a complex contour integral, but in practice, we use tables and algebraic techniques. The key is to decompose complex s-domain expressions into simpler terms that match table entries.</p>
 <p>The most important technique is <strong>partial fraction expansion</strong>: breaking a ratio of polynomials into a sum of simpler fractions, each of which has a known inverse transform.</p>
 <p>For example, if:</p>
-<p><span class="arithmatex">\(F(s) = \frac{3s + 5}{(s+1)(s+2)}\)</span></p>
+<p>$F(s) = \frac{3s + 5}{(s+1)(s+2)}$</p>
 <p>We can write:</p>
-<p><span class="arithmatex">\(F(s) = \frac{A}{s+1} + \frac{B}{s+2}\)</span></p>
-<p>Finding <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>, then inverting each term separately using the table:</p>
-<p><span class="arithmatex">\(f(t) = Ae^{-t} + Be^{-2t}\)</span></p>
+<p>$F(s) = \frac{A}{s+1} + \frac{B}{s+2}$</p>
+<p>Finding $A$ and $B$, then inverting each term separately using the table:</p>
+<p>$f(t) = Ae^{-t} + Be^{-2t}$</p>
 <p>The next sections develop this technique in detail.</p>
 <h4 id="diagram-domain-transformation-workflow">Diagram: Domain Transformation Workflow</h4>
 <iframe src="../../sims/domain-transformation-workflow/main.html" width="100%" height="450px" scrolling="no"></iframe>
@@ -2490,20 +2490,20 @@ Bloom Verb: explain, summarize</p>
 <h2 id="partial-fraction-expansion">Partial Fraction Expansion</h2>
 <p><strong>Partial fraction expansion</strong> (also called partial fraction decomposition) is the workhorse technique for inverse Laplace transforms. It breaks a complicated ratio of polynomials into a sum of simpler terms, each corresponding to a known transform pair.</p>
 <p>Given a proper rational function (numerator degree less than denominator degree):</p>
-<p><span class="arithmatex">\(F(s) = \frac{N(s)}{D(s)}\)</span></p>
-<p>We factor the denominator and express <span class="arithmatex">\(F(s)\)</span> as a sum of simpler fractions.</p>
+<p>$F(s) = \frac{N(s)}{D(s)}$</p>
+<p>We factor the denominator and express $F(s)$ as a sum of simpler fractions.</p>
 <h3 id="case-1-distinct-real-poles">Case 1: Distinct Real Poles</h3>
 <p>When the denominator has distinct real roots (simple poles):</p>
-<p><span class="arithmatex">\(F(s) = \frac{N(s)}{(s+p_1)(s+p_2)\cdots(s+p_n)} = \frac{A_1}{s+p_1} + \frac{A_2}{s+p_2} + \cdots + \frac{A_n}{s+p_n}\)</span></p>
-<p>Each term inverts to an exponential: <span class="arithmatex">\(\mathcal{L}^{-1}\{\frac{A_k}{s+p_k}\} = A_ke^{-p_kt}\)</span></p>
+<p>$F(s) = \frac{N(s)}{(s+p_1)(s+p_2)\cdots(s+p_n)} = \frac{A_1}{s+p_1} + \frac{A_2}{s+p_2} + \cdots + \frac{A_n}{s+p_n}$</p>
+<p>Each term inverts to an exponential: $\mathcal{L}^{-1}{\frac{A_k}{s+p_k}} = A_ke^{-p_kt}$</p>
 <h3 id="case-2-repeated-real-poles">Case 2: Repeated Real Poles</h3>
-<p>When a pole is repeated <span class="arithmatex">\(r\)</span> times:</p>
-<p><span class="arithmatex">\(F(s) = \frac{N(s)}{(s+p)^r} = \frac{A_1}{s+p} + \frac{A_2}{(s+p)^2} + \cdots + \frac{A_r}{(s+p)^r}\)</span></p>
-<p>These terms invert to terms involving <span class="arithmatex">\(t^ke^{-pt}\)</span>.</p>
+<p>When a pole is repeated $r$ times:</p>
+<p>$F(s) = \frac{N(s)}{(s+p)^r} = \frac{A_1}{s+p} + \frac{A_2}{(s+p)^2} + \cdots + \frac{A_r}{(s+p)^r}$</p>
+<p>These terms invert to terms involving $t^ke^{-pt}$.</p>
 <h3 id="case-3-complex-conjugate-poles">Case 3: Complex Conjugate Poles</h3>
 <p>When the denominator has complex roots (always in conjugate pairs for real systems):</p>
-<p><span class="arithmatex">\(F(s) = \frac{N(s)}{(s+\alpha)^2+\omega^2}\)</span></p>
-<p>This inverts to damped sinusoids: <span class="arithmatex">\(e^{-\alpha t}(A\cos\omega t + B\sin\omega t)\)</span></p>
+<p>$F(s) = \frac{N(s)}{(s+\alpha)^2+\omega^2}$</p>
+<p>This inverts to damped sinusoids: $e^{-\alpha t}(A\cos\omega t + B\sin\omega t)$</p>
 <table>
 <thead>
 <tr>
@@ -2514,47 +2514,47 @@ Bloom Verb: explain, summarize</p>
 </thead>
 <tbody>
 <tr>
-<td>Simple real at <span class="arithmatex">\(-p\)</span></td>
-<td><span class="arithmatex">\(\frac{A}{s+p}\)</span></td>
-<td><span class="arithmatex">\(Ae^{-pt}\)</span></td>
+<td>Simple real at $-p$</td>
+<td>$\frac{A}{s+p}$</td>
+<td>$Ae^{-pt}$</td>
 </tr>
 <tr>
 <td>Repeated real (order 2)</td>
-<td><span class="arithmatex">\(\frac{A}{(s+p)^2}\)</span></td>
-<td><span class="arithmatex">\(Ate^{-pt}\)</span></td>
+<td>$\frac{A}{(s+p)^2}$</td>
+<td>$Ate^{-pt}$</td>
 </tr>
 <tr>
-<td>Complex pair at <span class="arithmatex">\(-\alpha \pm j\omega\)</span></td>
-<td><span class="arithmatex">\(\frac{As+B}{(s+\alpha)^2+\omega^2}\)</span></td>
-<td><span class="arithmatex">\(e^{-\alpha t}(C\cos\omega t + D\sin\omega t)\)</span></td>
+<td>Complex pair at $-\alpha \pm j\omega$</td>
+<td>$\frac{As+B}{(s+\alpha)^2+\omega^2}$</td>
+<td>$e^{-\alpha t}(C\cos\omega t + D\sin\omega t)$</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition example">
 <p class="admonition-title">Example: Partial Fraction Expansion</p>
 <p>Find the inverse Laplace transform of:</p>
-<p><span class="arithmatex">\(F(s) = \frac{2s + 10}{(s+1)(s+3)}\)</span></p>
+<p>$F(s) = \frac{2s + 10}{(s+1)(s+3)}$</p>
 <p>Expand into partial fractions:</p>
-<p><span class="arithmatex">\(F(s) = \frac{A}{s+1} + \frac{B}{s+3}\)</span></p>
-<p>Solving: <span class="arithmatex">\(A = 4\)</span>, <span class="arithmatex">\(B = -2\)</span></p>
+<p>$F(s) = \frac{A}{s+1} + \frac{B}{s+3}$</p>
+<p>Solving: $A = 4$, $B = -2$</p>
 <p>Therefore:</p>
-<p><span class="arithmatex">\(f(t) = 4e^{-t} - 2e^{-3t}\)</span></p>
+<p>$f(t) = 4e^{-t} - 2e^{-3t}$</p>
 </div>
 <h2 id="residue-calculation">Residue Calculation</h2>
-<p>The <strong>residues</strong> are the numerator coefficients <span class="arithmatex">\(A_k\)</span> in the partial fraction expansion. Calculating them is straightforward for simple poles and requires more care for repeated or complex poles.</p>
+<p>The <strong>residues</strong> are the numerator coefficients $A_k$ in the partial fraction expansion. Calculating them is straightforward for simple poles and requires more care for repeated or complex poles.</p>
 <h3 id="for-simple-poles">For Simple Poles</h3>
-<p>For a simple pole at <span class="arithmatex">\(s = -p_k\)</span>:</p>
+<p>For a simple pole at $s = -p_k$:</p>
 <h4 id="residue-formula-for-simple-poles">Residue Formula for Simple Poles</h4>
-<p><span class="arithmatex">\(A_k = \lim_{s \to -p_k} (s + p_k)F(s)\)</span></p>
-<p>This "multiplies away" the factor <span class="arithmatex">\((s + p_k)\)</span> from the denominator and evaluates what remains at the pole location.</p>
+<p>$A_k = \lim_{s \to -p_k} (s + p_k)F(s)$</p>
+<p>This "multiplies away" the factor $(s + p_k)$ from the denominator and evaluates what remains at the pole location.</p>
 <h3 id="for-repeated-poles">For Repeated Poles</h3>
-<p>For a pole of order <span class="arithmatex">\(r\)</span> at <span class="arithmatex">\(s = -p\)</span>, the residues are:</p>
+<p>For a pole of order $r$ at $s = -p$, the residues are:</p>
 <h4 id="residue-formula-for-repeated-poles">Residue Formula for Repeated Poles</h4>
-<p><span class="arithmatex">\(A_k = \frac{1}{(r-k)!}\lim_{s \to -p}\frac{d^{r-k}}{ds^{r-k}}[(s+p)^rF(s)]\)</span></p>
+<p>$A_k = \frac{1}{(r-k)!}\lim_{s \to -p}\frac{d^{r-k}}{ds^{r-k}}[(s+p)^rF(s)]$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(k\)</span> ranges from 1 to <span class="arithmatex">\(r\)</span></li>
-<li><span class="arithmatex">\(A_r\)</span> (the highest-order term) is found without differentiation</li>
+<li>$k$ ranges from 1 to $r$</li>
+<li>$A_r$ (the highest-order term) is found without differentiation</li>
 <li>Lower-order terms require successive derivatives</li>
 </ul>
 <h3 id="for-complex-poles">For Complex Poles</h3>
@@ -2567,25 +2567,25 @@ Bloom Verb: explain, summarize</p>
 <div class="admonition tip">
 <p class="admonition-title">Practical Approach for Complex Poles</p>
 <p>Rather than computing complex residues, write the partial fraction with a quadratic denominator:</p>
-<p><span class="arithmatex">\(\frac{As + B}{s^2 + 2\alpha s + (\alpha^2 + \omega^2)}\)</span></p>
+<p>$\frac{As + B}{s^2 + 2\alpha s + (\alpha^2 + \omega^2)}$</p>
 <p>Then complete the square and use standard transform pairs for damped sinusoids.</p>
 </div>
 <h2 id="the-cover-up-method">The Cover-Up Method</h2>
 <p>The <strong>cover-up method</strong> (also known as Heaviside's method) provides a quick shortcut for finding residues of simple poles. It's faster than the formal residue formula for hand calculations.</p>
-<p>To find the residue <span class="arithmatex">\(A_k\)</span> for a simple pole at <span class="arithmatex">\(s = -p_k\)</span>:</p>
+<p>To find the residue $A_k$ for a simple pole at $s = -p_k$:</p>
 <ol>
-<li>"Cover up" the factor <span class="arithmatex">\((s + p_k)\)</span> in the denominator with your thumb</li>
-<li>Evaluate what remains at <span class="arithmatex">\(s = -p_k\)</span></li>
-<li>The result is <span class="arithmatex">\(A_k\)</span></li>
+<li>"Cover up" the factor $(s + p_k)$ in the denominator with your thumb</li>
+<li>Evaluate what remains at $s = -p_k$</li>
+<li>The result is $A_k$</li>
 </ol>
 <h4 id="cover-up-method-example">Cover-Up Method Example</h4>
-<p>For <span class="arithmatex">\(F(s) = \frac{2s + 10}{(s+1)(s+3)}\)</span>:</p>
-<p>To find <span class="arithmatex">\(A\)</span> (residue at <span class="arithmatex">\(s = -1\)</span>):
-- Cover up <span class="arithmatex">\((s+1)\)</span>: <span class="arithmatex">\(\frac{2s + 10}{(s+3)}\)</span>
-- Evaluate at <span class="arithmatex">\(s = -1\)</span>: <span class="arithmatex">\(\frac{2(-1) + 10}{(-1+3)} = \frac{8}{2} = 4\)</span></p>
-<p>To find <span class="arithmatex">\(B\)</span> (residue at <span class="arithmatex">\(s = -3\)</span>):
-- Cover up <span class="arithmatex">\((s+3)\)</span>: <span class="arithmatex">\(\frac{2s + 10}{(s+1)}\)</span>
-- Evaluate at <span class="arithmatex">\(s = -3\)</span>: <span class="arithmatex">\(\frac{2(-3) + 10}{(-3+1)} = \frac{4}{-2} = -2\)</span></p>
+<p>For $F(s) = \frac{2s + 10}{(s+1)(s+3)}$:</p>
+<p>To find $A$ (residue at $s = -1$):
+- Cover up $(s+1)$: $\frac{2s + 10}{(s+3)}$
+- Evaluate at $s = -1$: $\frac{2(-1) + 10}{(-1+3)} = \frac{8}{2} = 4$</p>
+<p>To find $B$ (residue at $s = -3$):
+- Cover up $(s+3)$: $\frac{2s + 10}{(s+1)}$
+- Evaluate at $s = -3$: $\frac{2(-3) + 10}{(-3+1)} = \frac{4}{-2} = -2$</p>
 <p>The cover-up method is particularly efficient when you have many simple poles. Just work through each one mechanically: cover, substitute, evaluate.</p>
 <div class="admonition warning">
 <p class="admonition-title">Limitation</p>
@@ -2640,64 +2640,64 @@ Stage 10: Show final time-domain answer</p>
 <p>Implementation: p5.js with canvas-based step controls and equation rendering</p>
 </details>
 <h2 id="initial-value-theorem">Initial Value Theorem</h2>
-<p>The <strong>initial value theorem</strong> provides a shortcut to find <span class="arithmatex">\(f(0^+)\)</span>—the value of a function immediately after <span class="arithmatex">\(t = 0\)</span>—directly from its Laplace transform, without computing the full inverse transform.</p>
+<p>The <strong>initial value theorem</strong> provides a shortcut to find $f(0^+)$—the value of a function immediately after $t = 0$—directly from its Laplace transform, without computing the full inverse transform.</p>
 <h4 id="initial-value-theorem_1">Initial Value Theorem</h4>
-<p><span class="arithmatex">\(f(0^+) = \lim_{s \to \infty} sF(s)\)</span></p>
+<p>$f(0^+) = \lim_{s \to \infty} sF(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(f(0^+)\)</span> is the value of <span class="arithmatex">\(f(t)\)</span> as <span class="arithmatex">\(t\)</span> approaches zero from the positive side</li>
-<li><span class="arithmatex">\(F(s)\)</span> is the Laplace transform of <span class="arithmatex">\(f(t)\)</span></li>
-<li>The limit is taken as <span class="arithmatex">\(s\)</span> goes to infinity</li>
+<li>$f(0^+)$ is the value of $f(t)$ as $t$ approaches zero from the positive side</li>
+<li>$F(s)$ is the Laplace transform of $f(t)$</li>
+<li>The limit is taken as $s$ goes to infinity</li>
 </ul>
-<p>This theorem is valid when <span class="arithmatex">\(f(t)\)</span> and its derivative are Laplace transformable, and when the limit exists.</p>
-<p>The intuition: as <span class="arithmatex">\(s \to \infty\)</span>, the transform <span class="arithmatex">\(F(s)\)</span> is dominated by the behavior of <span class="arithmatex">\(f(t)\)</span> near <span class="arithmatex">\(t = 0\)</span>. The factor <span class="arithmatex">\(s\)</span> compensates for the <span class="arithmatex">\(1/s\)</span> inherent in the transform.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(F(s) = \frac{5}{s+2}\)</span>:</p>
-<p><span class="arithmatex">\(f(0^+) = \lim_{s \to \infty} s \cdot \frac{5}{s+2} = \lim_{s \to \infty} \frac{5s}{s+2} = \lim_{s \to \infty} \frac{5}{1+2/s} = 5\)</span></p>
-<p>We can verify: <span class="arithmatex">\(f(t) = 5e^{-2t}\)</span>, so <span class="arithmatex">\(f(0) = 5\)</span>. ✓</p>
+<p>This theorem is valid when $f(t)$ and its derivative are Laplace transformable, and when the limit exists.</p>
+<p>The intuition: as $s \to \infty$, the transform $F(s)$ is dominated by the behavior of $f(t)$ near $t = 0$. The factor $s$ compensates for the $1/s$ inherent in the transform.</p>
+<p><strong>Example:</strong> For $F(s) = \frac{5}{s+2}$:</p>
+<p>$f(0^+) = \lim_{s \to \infty} s \cdot \frac{5}{s+2} = \lim_{s \to \infty} \frac{5s}{s+2} = \lim_{s \to \infty} \frac{5}{1+2/s} = 5$</p>
+<p>We can verify: $f(t) = 5e^{-2t}$, so $f(0) = 5$. ✓</p>
 <table>
 <thead>
 <tr>
-<th>Transform <span class="arithmatex">\(F(s)\)</span></th>
-<th><span class="arithmatex">\(\lim_{s \to \infty} sF(s)\)</span></th>
-<th>Actual <span class="arithmatex">\(f(0^+)\)</span></th>
+<th>Transform $F(s)$</th>
+<th>$\lim_{s \to \infty} sF(s)$</th>
+<th>Actual $f(0^+)$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\frac{1}{s+a}\)</span></td>
+<td>$\frac{1}{s+a}$</td>
 <td>1</td>
 <td>1</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{\omega}{s^2+\omega^2}\)</span></td>
+<td>$\frac{\omega}{s^2+\omega^2}$</td>
 <td>0</td>
 <td>0 (sine starts at 0)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{s}{s^2+\omega^2}\)</span></td>
+<td>$\frac{s}{s^2+\omega^2}$</td>
 <td>1</td>
 <td>1 (cosine starts at 1)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\frac{K}{s}\)</span></td>
-<td><span class="arithmatex">\(K\)</span></td>
-<td><span class="arithmatex">\(K\)</span> (step function)</td>
+<td>$\frac{K}{s}$</td>
+<td>$K$</td>
+<td>$K$ (step function)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="final-value-theorem">Final Value Theorem</h2>
-<p>The <strong>final value theorem</strong> provides a shortcut to find the steady-state value <span class="arithmatex">\(f(\infty)\)</span>—what <span class="arithmatex">\(f(t)\)</span> approaches as time goes to infinity—directly from its Laplace transform.</p>
+<p>The <strong>final value theorem</strong> provides a shortcut to find the steady-state value $f(\infty)$—what $f(t)$ approaches as time goes to infinity—directly from its Laplace transform.</p>
 <h4 id="final-value-theorem_1">Final Value Theorem</h4>
-<p><span class="arithmatex">\(f(\infty) = \lim_{s \to 0} sF(s)\)</span></p>
+<p>$f(\infty) = \lim_{s \to 0} sF(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(f(\infty) = \lim_{t \to \infty} f(t)\)</span> is the final value</li>
-<li>The limit is taken as <span class="arithmatex">\(s\)</span> approaches zero</li>
+<li>$f(\infty) = \lim_{t \to \infty} f(t)$ is the final value</li>
+<li>The limit is taken as $s$ approaches zero</li>
 </ul>
-<p><strong>Critical requirement:</strong> The final value theorem is only valid if <span class="arithmatex">\(f(t)\)</span> actually converges to a finite limit. Specifically, all poles of <span class="arithmatex">\(sF(s)\)</span> must be in the left half-plane (except possibly a simple pole at the origin for <span class="arithmatex">\(F(s)\)</span> itself). If <span class="arithmatex">\(F(s)\)</span> has poles in the right half-plane or on the imaginary axis (except at the origin), the theorem doesn't apply because <span class="arithmatex">\(f(t)\)</span> doesn't settle to a constant.</p>
-<p><strong>Example:</strong> For <span class="arithmatex">\(F(s) = \frac{5}{s(s+2)}\)</span> (step response of a first-order system):</p>
-<p><span class="arithmatex">\(f(\infty) = \lim_{s \to 0} s \cdot \frac{5}{s(s+2)} = \lim_{s \to 0} \frac{5}{s+2} = \frac{5}{2} = 2.5\)</span></p>
-<p>We can verify: <span class="arithmatex">\(f(t) = 2.5(1 - e^{-2t})\)</span>, so <span class="arithmatex">\(f(\infty) = 2.5\)</span>. ✓</p>
+<p><strong>Critical requirement:</strong> The final value theorem is only valid if $f(t)$ actually converges to a finite limit. Specifically, all poles of $sF(s)$ must be in the left half-plane (except possibly a simple pole at the origin for $F(s)$ itself). If $F(s)$ has poles in the right half-plane or on the imaginary axis (except at the origin), the theorem doesn't apply because $f(t)$ doesn't settle to a constant.</p>
+<p><strong>Example:</strong> For $F(s) = \frac{5}{s(s+2)}$ (step response of a first-order system):</p>
+<p>$f(\infty) = \lim_{s \to 0} s \cdot \frac{5}{s(s+2)} = \lim_{s \to 0} \frac{5}{s+2} = \frac{5}{2} = 2.5$</p>
+<p>We can verify: $f(t) = 2.5(1 - e^{-2t})$, so $f(\infty) = 2.5$. ✓</p>
 <div class="admonition warning">
 <p class="admonition-title">When the Final Value Theorem Fails</p>
 <p>Don't use the final value theorem when:</p>
@@ -2755,43 +2755,43 @@ Time Response Plot:
 <p>Implementation: p5.js with equation display and responsive plotting</p>
 </details>
 <h2 id="convolution-in-the-time-domain">Convolution in the Time Domain</h2>
-<p><strong>Convolution</strong> is a mathematical operation that describes how an LTI system transforms an input signal into an output signal. In the time domain, if a system has impulse response <span class="arithmatex">\(h(t)\)</span> and input <span class="arithmatex">\(u(t)\)</span>, the output is:</p>
+<p><strong>Convolution</strong> is a mathematical operation that describes how an LTI system transforms an input signal into an output signal. In the time domain, if a system has impulse response $h(t)$ and input $u(t)$, the output is:</p>
 <h4 id="convolution-integral">Convolution Integral</h4>
-<p><span class="arithmatex">\(y(t) = h(t) * u(t) = \int_0^t h(\tau)u(t-\tau)d\tau\)</span></p>
+<p>$y(t) = h(t) * u(t) = \int_0^t h(\tau)u(t-\tau)d\tau$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(h(t)\)</span> is the system's impulse response</li>
-<li><span class="arithmatex">\(u(t)\)</span> is the input signal</li>
-<li><span class="arithmatex">\(*\)</span> denotes convolution</li>
-<li><span class="arithmatex">\(\tau\)</span> is the integration variable</li>
+<li>$h(t)$ is the system's impulse response</li>
+<li>$u(t)$ is the input signal</li>
+<li>$*$ denotes convolution</li>
+<li>$\tau$ is the integration variable</li>
 </ul>
-<p>The convolution integral says: to find the output at time <span class="arithmatex">\(t\)</span>, look at how all past inputs (weighted by the impulse response) contribute to the current output. The impulse response essentially describes how the system "remembers" past inputs.</p>
+<p>The convolution integral says: to find the output at time $t$, look at how all past inputs (weighted by the impulse response) contribute to the current output. The impulse response essentially describes how the system "remembers" past inputs.</p>
 <p>Convolution has intuitive physical meaning:</p>
 <ul>
-<li>The impulse response <span class="arithmatex">\(h(\tau)\)</span> tells us how strongly an input at time <span class="arithmatex">\(\tau\)</span> in the past affects the output now</li>
-<li>We sum up all these contributions from <span class="arithmatex">\(\tau = 0\)</span> to <span class="arithmatex">\(\tau = t\)</span></li>
-<li>Older inputs typically contribute less (for stable systems, <span class="arithmatex">\(h(\tau) \to 0\)</span> as <span class="arithmatex">\(\tau \to \infty\)</span>)</li>
+<li>The impulse response $h(\tau)$ tells us how strongly an input at time $\tau$ in the past affects the output now</li>
+<li>We sum up all these contributions from $\tau = 0$ to $\tau = t$</li>
+<li>Older inputs typically contribute less (for stable systems, $h(\tau) \to 0$ as $\tau \to \infty$)</li>
 </ul>
 <p>While beautiful theoretically, convolution integrals are often tedious to evaluate directly. This is exactly why we use the Laplace transform.</p>
 <div class="admonition tip">
 <p class="admonition-title">Visualizing Convolution</p>
-<p>Think of convolution as "sliding" the reversed impulse response <span class="arithmatex">\(h(-\tau)\)</span> across the input <span class="arithmatex">\(u(\tau)\)</span>, multiplying at each position, and integrating. At each time <span class="arithmatex">\(t\)</span>, you get one value of the output. The animation of this process helps build intuition.</p>
+<p>Think of convolution as "sliding" the reversed impulse response $h(-\tau)$ across the input $u(\tau)$, multiplying at each position, and integrating. At each time $t$, you get one value of the output. The animation of this process helps build intuition.</p>
 </div>
 <h2 id="convolution-in-the-s-domain">Convolution in the S-Domain</h2>
 <p>Here's where the Laplace transform truly shines. The convolution theorem states that convolution in the time domain becomes <strong>multiplication</strong> in the s-domain:</p>
 <h4 id="convolution-theorem">Convolution Theorem</h4>
-<p><span class="arithmatex">\(\mathcal{L}\{h(t) * u(t)\} = H(s) \cdot U(s)\)</span></p>
+<p>$\mathcal{L}{h(t) * u(t)} = H(s) \cdot U(s)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(H(s) = \mathcal{L}\{h(t)\}\)</span> is the transfer function</li>
-<li><span class="arithmatex">\(U(s) = \mathcal{L}\{u(t)\}\)</span> is the input transform</li>
-<li>The product <span class="arithmatex">\(H(s)U(s)\)</span> is the output transform</li>
+<li>$H(s) = \mathcal{L}{h(t)}$ is the transfer function</li>
+<li>$U(s) = \mathcal{L}{u(t)}$ is the input transform</li>
+<li>The product $H(s)U(s)$ is the output transform</li>
 </ul>
 <p>This is remarkable! That complicated integral becomes simple multiplication. To find the output:</p>
 <ol>
-<li>Transform the input: <span class="arithmatex">\(u(t) \to U(s)\)</span></li>
-<li>Multiply by the transfer function: <span class="arithmatex">\(Y(s) = H(s)U(s)\)</span></li>
-<li>Inverse transform to get the output: <span class="arithmatex">\(Y(s) \to y(t)\)</span></li>
+<li>Transform the input: $u(t) \to U(s)$</li>
+<li>Multiply by the transfer function: $Y(s) = H(s)U(s)$</li>
+<li>Inverse transform to get the output: $Y(s) \to y(t)$</li>
 </ol>
 <p>This is the fundamental workflow of classical control analysis.</p>
 <table>
@@ -2820,7 +2820,7 @@ Time Response Plot:
 </tr>
 </tbody>
 </table>
-<p>The transfer function <span class="arithmatex">\(G(s)\)</span> is actually the Laplace transform of the impulse response <span class="arithmatex">\(g(t)\)</span>. This connects our s-domain representation directly to the system's fundamental behavior.</p>
+<p>The transfer function $G(s)$ is actually the Laplace transform of the impulse response $g(t)$. This connects our s-domain representation directly to the system's fundamental behavior.</p>
 <h4 id="diagram-convolution-comparison">Diagram: Convolution Comparison</h4>
 <iframe src="../../sims/convolution-comparison/main.html" width="100%" height="550px" scrolling="no"></iframe>
 
@@ -2875,14 +2875,14 @@ Write the differential equation(s) describing the system, or obtain the transfer
 <p><strong>Step 2: Transform</strong>
 Apply the Laplace transform to convert differential equations to algebraic equations. Include initial conditions if nonzero.</p>
 <p><strong>Step 3: Solve</strong>
-Use algebra to solve for the output transform <span class="arithmatex">\(Y(s)\)</span> in terms of the input transform <span class="arithmatex">\(U(s)\)</span> and initial conditions.</p>
+Use algebra to solve for the output transform $Y(s)$ in terms of the input transform $U(s)$ and initial conditions.</p>
 <p><strong>Step 4: Partial Fraction Expansion</strong>
-Decompose <span class="arithmatex">\(Y(s)\)</span> into simpler terms using partial fractions. Use the cover-up method for simple poles.</p>
+Decompose $Y(s)$ into simpler terms using partial fractions. Use the cover-up method for simple poles.</p>
 <p><strong>Step 5: Inverse Transform</strong>
-Use transform tables to find <span class="arithmatex">\(y(t)\)</span> from each partial fraction term. Sum the results.</p>
+Use transform tables to find $y(t)$ from each partial fraction term. Sum the results.</p>
 <p><strong>Optional Shortcuts:</strong>
-- Use the initial value theorem to find <span class="arithmatex">\(y(0^+)\)</span> without full inversion
-- Use the final value theorem to find steady-state <span class="arithmatex">\(y(\infty)\)</span> without full inversion</p>
+- Use the initial value theorem to find $y(0^+)$ without full inversion
+- Use the final value theorem to find steady-state $y(\infty)$ without full inversion</p>
 <p>This workflow applies whether you're finding step responses, analyzing stability, or designing controllers. The tools developed in this chapter are foundational for everything that follows.</p>
 <div class="admonition success">
 <p class="admonition-title">Key Insight</p>
@@ -2895,7 +2895,7 @@ Use transform tables to find <span class="arithmatex">\(y(t)\)</span> from each 
 <p><strong>Transform between domains</strong>: Use the Laplace transform to move from time-domain differential equations to s-domain algebraic equations, and back again using inverse transforms.</p>
 </li>
 <li>
-<p><strong>Work with transfer functions</strong>: Understand that the transfer function <span class="arithmatex">\(G(s) = Y(s)/U(s)\)</span> completely characterizes an LTI system's input-output behavior.</p>
+<p><strong>Work with transfer functions</strong>: Understand that the transfer function $G(s) = Y(s)/U(s)$ completely characterizes an LTI system's input-output behavior.</p>
 </li>
 <li>
 <p><strong>Apply partial fraction expansion</strong>: Decompose complex rational functions into simpler terms suitable for inverse transformation. Handle distinct real poles, repeated poles, and complex conjugate poles.</p>
@@ -2904,7 +2904,7 @@ Use transform tables to find <span class="arithmatex">\(y(t)\)</span> from each 
 <p><strong>Use the cover-up method</strong>: Quickly find residues for simple poles by "covering up" factors and evaluating.</p>
 </li>
 <li>
-<p><strong>Apply value theorems</strong>: Use the initial value theorem to find <span class="arithmatex">\(f(0^+)\)</span> and the final value theorem to find <span class="arithmatex">\(f(\infty)\)</span> directly from <span class="arithmatex">\(F(s)\)</span>—but only when valid!</p>
+<p><strong>Apply value theorems</strong>: Use the initial value theorem to find $f(0^+)$ and the final value theorem to find $f(\infty)$ directly from $F(s)$—but only when valid!</p>
 </li>
 <li>
 <p><strong>Understand convolution</strong>: Recognize that time-domain convolution becomes s-domain multiplication, making system analysis vastly easier.</p>
@@ -2915,11 +2915,11 @@ Use transform tables to find <span class="arithmatex">\(y(t)\)</span> from each 
 <summary>Self-Check: Test Your Understanding</summary>
 <p>Before moving on, see if you can answer these without looking back:</p>
 <ol>
-<li>What is the Laplace transform of <span class="arithmatex">\(f(t) = 3e^{-2t}\)</span>?</li>
-<li>A transfer function has a pole at <span class="arithmatex">\(s = -5\)</span>. What is the corresponding time constant?</li>
-<li>Given <span class="arithmatex">\(F(s) = \frac{10}{s(s+2)}\)</span>, use the final value theorem to find <span class="arithmatex">\(f(\infty)\)</span>.</li>
-<li>Use the cover-up method to find the partial fraction expansion of <span class="arithmatex">\(\frac{6}{(s+1)(s+3)}\)</span>.</li>
-<li>Why can't you use the final value theorem when <span class="arithmatex">\(F(s) = \frac{1}{s^2+4}\)</span>?</li>
+<li>What is the Laplace transform of $f(t) = 3e^{-2t}$?</li>
+<li>A transfer function has a pole at $s = -5$. What is the corresponding time constant?</li>
+<li>Given $F(s) = \frac{10}{s(s+2)}$, use the final value theorem to find $f(\infty)$.</li>
+<li>Use the cover-up method to find the partial fraction expansion of $\frac{6}{(s+1)(s+3)}$.</li>
+<li>Why can't you use the final value theorem when $F(s) = \frac{1}{s^2+4}$?</li>
 </ol>
 <p>If you answered all five correctly, you're ready for the next chapter on poles, zeros, and system analysis!</p>
 </details>

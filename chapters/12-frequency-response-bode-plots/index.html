@@ -2537,27 +2537,27 @@
 </div>
 <h2 id="what-is-frequency-response">What Is Frequency Response?</h2>
 <p>The <strong>frequency response</strong> of a linear time-invariant (LTI) system describes how the system responds to sinusoidal inputs at various frequencies. For any stable LTI system, a sinusoidal input produces a sinusoidal output at the same frequency, but with possibly different amplitude and phase.</p>
-<p>Consider a system with transfer function <span class="arithmatex">\(G(s)\)</span>. If we apply a sinusoidal input:</p>
+<p>Consider a system with transfer function $G(s)$. If we apply a sinusoidal input:</p>
 <h4 id="sinusoidal-input">Sinusoidal Input</h4>
-<p><span class="arithmatex">\(u(t) = A \sin(\omega t)\)</span></p>
+<p>$u(t) = A \sin(\omega t)$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(A\)</span> is the input amplitude</li>
-<li><span class="arithmatex">\(\omega\)</span> is the angular frequency (rad/s)</li>
+<li>$A$ is the input amplitude</li>
+<li>$\omega$ is the angular frequency (rad/s)</li>
 </ul>
 <p>The steady-state output (after transients decay) is:</p>
 <h4 id="sinusoidal-steady-state-output">Sinusoidal Steady-State Output</h4>
-<p><span class="arithmatex">\(y_{ss}(t) = A |G(j\omega)| \sin(\omega t + \angle G(j\omega))\)</span></p>
+<p>$y_{ss}(t) = A |G(j\omega)| \sin(\omega t + \angle G(j\omega))$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(|G(j\omega)|\)</span> is the magnitude of the transfer function at frequency <span class="arithmatex">\(\omega\)</span></li>
-<li><span class="arithmatex">\(\angle G(j\omega)\)</span> is the phase of the transfer function at frequency <span class="arithmatex">\(\omega\)</span></li>
+<li>$|G(j\omega)|$ is the magnitude of the transfer function at frequency $\omega$</li>
+<li>$\angle G(j\omega)$ is the phase of the transfer function at frequency $\omega$</li>
 </ul>
 <p>This is a remarkable result. The output is:</p>
 <ul>
 <li>At the <strong>same frequency</strong> as the input</li>
-<li><strong>Scaled</strong> by the magnitude <span class="arithmatex">\(|G(j\omega)|\)</span></li>
-<li><strong>Shifted in time</strong> by the phase <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+<li><strong>Scaled</strong> by the magnitude $|G(j\omega)|$</li>
+<li><strong>Shifted in time</strong> by the phase $\angle G(j\omega)$</li>
 </ul>
 <p>No new frequencies are created—this is a fundamental property of linear systems. Nonlinear systems would distort the sine wave, creating harmonics, but LTI systems preserve the sinusoidal shape.</p>
 <table>
@@ -2569,16 +2569,16 @@
 </thead>
 <tbody>
 <tr>
-<td>Frequency <span class="arithmatex">\(\omega\)</span></td>
-<td>Same frequency <span class="arithmatex">\(\omega\)</span></td>
+<td>Frequency $\omega$</td>
+<td>Same frequency $\omega$</td>
 </tr>
 <tr>
-<td>Amplitude <span class="arithmatex">\(A\)</span></td>
+<td>Amplitude $A$</td>
 <td>Amplitude $A \cdot</td>
 </tr>
 <tr>
-<td>Phase <span class="arithmatex">\(0\)</span></td>
-<td>Phase <span class="arithmatex">\(\angle G(j\omega)\)</span></td>
+<td>Phase $0$</td>
+<td>Phase $\angle G(j\omega)$</td>
 </tr>
 </tbody>
 </table>
@@ -2591,13 +2591,13 @@
 <p>For a stable system (all poles in LHP), the transient eventually vanishes, leaving only the steady-state sinusoid. The frequency response characterizes this steady-state behavior.</p>
 <p>Consider a first-order system:</p>
 <h4 id="first-order-example">First-Order Example</h4>
-<p><span class="arithmatex">\(G(s) = \frac{1}{s + 1}\)</span></p>
-<p>Input: <span class="arithmatex">\(u(t) = \sin(2t)\)</span> (amplitude 1, frequency 2 rad/s)</p>
-<p>At <span class="arithmatex">\(\omega = 2\)</span> rad/s:</p>
-<p><span class="arithmatex">\(G(j2) = \frac{1}{j2 + 1} = \frac{1}{1 + j2}\)</span></p>
-<p>Magnitude: <span class="arithmatex">\(|G(j2)| = \frac{1}{\sqrt{1^2 + 2^2}} = \frac{1}{\sqrt{5}} \approx 0.447\)</span></p>
-<p>Phase: <span class="arithmatex">\(\angle G(j2) = -\arctan\left(\frac{2}{1}\right) = -63.4°\)</span></p>
-<p>Steady-state output: <span class="arithmatex">\(y_{ss}(t) = 0.447 \sin(2t - 63.4°)\)</span></p>
+<p>$G(s) = \frac{1}{s + 1}$</p>
+<p>Input: $u(t) = \sin(2t)$ (amplitude 1, frequency 2 rad/s)</p>
+<p>At $\omega = 2$ rad/s:</p>
+<p>$G(j2) = \frac{1}{j2 + 1} = \frac{1}{1 + j2}$</p>
+<p>Magnitude: $|G(j2)| = \frac{1}{\sqrt{1^2 + 2^2}} = \frac{1}{\sqrt{5}} \approx 0.447$</p>
+<p>Phase: $\angle G(j2) = -\arctan\left(\frac{2}{1}\right) = -63.4°$</p>
+<p>Steady-state output: $y_{ss}(t) = 0.447 \sin(2t - 63.4°)$</p>
 <p>The output has less than half the amplitude of the input and lags by about 63 degrees. This single-frequency measurement tells us something about the system—and repeating it across many frequencies builds a complete picture.</p>
 <h4 id="diagram-sinusoidal-steady-state-visualizer">Diagram: Sinusoidal Steady-State Visualizer</h4>
 <iframe src="../../sims/sinusoidal-steady-state/main.html" width="100%" height="550px" scrolling="no"></iframe>
@@ -2654,16 +2654,16 @@ Time Domain:
 <p>Implementation: p5.js with dual time-domain and phasor displays</p>
 </details>
 <h2 id="the-frequency-transfer-function-substitution-s-j">The Frequency Transfer Function: Substitution s = jω</h2>
-<p>The key to frequency response analysis is the substitution <span class="arithmatex">\(s = j\omega\)</span>. The transfer function <span class="arithmatex">\(G(s)\)</span> becomes a function of frequency alone: <span class="arithmatex">\(G(j\omega)\)</span>.</p>
+<p>The key to frequency response analysis is the substitution $s = j\omega$. The transfer function $G(s)$ becomes a function of frequency alone: $G(j\omega)$.</p>
 <h4 id="the-fundamental-substitution">The Fundamental Substitution</h4>
-<p><span class="arithmatex">\(G(j\omega) = G(s)\big|_{s=j\omega}\)</span></p>
+<p>$G(j\omega) = G(s)\big|_{s=j\omega}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(s\)</span> is the complex Laplace variable</li>
-<li><span class="arithmatex">\(j = \sqrt{-1}\)</span> is the imaginary unit</li>
-<li><span class="arithmatex">\(\omega\)</span> is the angular frequency in rad/s</li>
+<li>$s$ is the complex Laplace variable</li>
+<li>$j = \sqrt{-1}$ is the imaginary unit</li>
+<li>$\omega$ is the angular frequency in rad/s</li>
 </ul>
-<p>This substitution has a beautiful interpretation. In the s-plane, the imaginary axis is where <span class="arithmatex">\(s = j\omega\)</span>. Evaluating the transfer function along the imaginary axis traces out the frequency response. Every point on the imaginary axis corresponds to a different frequency:</p>
+<p>This substitution has a beautiful interpretation. In the s-plane, the imaginary axis is where $s = j\omega$. Evaluating the transfer function along the imaginary axis traces out the frequency response. Every point on the imaginary axis corresponds to a different frequency:</p>
 <table>
 <thead>
 <tr>
@@ -2673,74 +2673,74 @@ Time Domain:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(s = 0\)</span></td>
+<td>$s = 0$</td>
 <td>DC (ω = 0)</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = j1\)</span></td>
+<td>$s = j1$</td>
 <td>1 rad/s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = j10\)</span></td>
+<td>$s = j10$</td>
 <td>10 rad/s</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s = j100\)</span></td>
+<td>$s = j100$</td>
 <td>100 rad/s</td>
 </tr>
 </tbody>
 </table>
-<p>The resulting complex number <span class="arithmatex">\(G(j\omega)\)</span> has magnitude and phase:</p>
+<p>The resulting complex number $G(j\omega)$ has magnitude and phase:</p>
 <h4 id="magnitude-response">Magnitude Response</h4>
-<p><span class="arithmatex">\(|G(j\omega)| = \sqrt{[\text{Re}(G(j\omega))]^2 + [\text{Im}(G(j\omega))]^2}\)</span></p>
+<p>$|G(j\omega)| = \sqrt{[\text{Re}(G(j\omega))]^2 + [\text{Im}(G(j\omega))]^2}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\text{Re}(G(j\omega))\)</span> is the real part</li>
-<li><span class="arithmatex">\(\text{Im}(G(j\omega))\)</span> is the imaginary part</li>
+<li>$\text{Re}(G(j\omega))$ is the real part</li>
+<li>$\text{Im}(G(j\omega))$ is the imaginary part</li>
 </ul>
 <h4 id="phase-response">Phase Response</h4>
-<p><span class="arithmatex">\(\angle G(j\omega) = \arctan\left(\frac{\text{Im}(G(j\omega))}{\text{Re}(G(j\omega))}\right)\)</span></p>
+<p>$\angle G(j\omega) = \arctan\left(\frac{\text{Im}(G(j\omega))}{\text{Re}(G(j\omega))}\right)$</p>
 <p>where:</p>
 <ul>
 <li>The result is in degrees or radians</li>
 <li>Care must be taken with the quadrant (use atan2 in computations)</li>
 </ul>
-<p>Together, <span class="arithmatex">\(|G(j\omega)|\)</span> and <span class="arithmatex">\(\angle G(j\omega)\)</span> completely describe the frequency response. The <strong>magnitude response</strong> tells us how much the system amplifies or attenuates each frequency. The <strong>phase response</strong> tells us how much time delay (in terms of phase angle) the system introduces at each frequency.</p>
+<p>Together, $|G(j\omega)|$ and $\angle G(j\omega)$ completely describe the frequency response. The <strong>magnitude response</strong> tells us how much the system amplifies or attenuates each frequency. The <strong>phase response</strong> tells us how much time delay (in terms of phase angle) the system introduces at each frequency.</p>
 <h2 id="poles-zeros-and-frequency-response">Poles, Zeros, and Frequency Response</h2>
-<p>There's a direct geometric connection between pole-zero locations and frequency response. At any frequency <span class="arithmatex">\(\omega\)</span>, the magnitude and phase can be computed from the distances and angles to poles and zeros.</p>
+<p>There's a direct geometric connection between pole-zero locations and frequency response. At any frequency $\omega$, the magnitude and phase can be computed from the distances and angles to poles and zeros.</p>
 <p>For a transfer function in factored form:</p>
 <h4 id="transfer-function-in-factored-form">Transfer Function in Factored Form</h4>
-<p><span class="arithmatex">\(G(s) = K \frac{\prod_{i=1}^{m}(s - z_i)}{\prod_{j=1}^{n}(s - p_j)}\)</span></p>
+<p>$G(s) = K \frac{\prod_{i=1}^{m}(s - z_i)}{\prod_{j=1}^{n}(s - p_j)}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is the gain constant</li>
-<li><span class="arithmatex">\(z_i\)</span> are the zeros</li>
-<li><span class="arithmatex">\(p_j\)</span> are the poles</li>
+<li>$K$ is the gain constant</li>
+<li>$z_i$ are the zeros</li>
+<li>$p_j$ are the poles</li>
 </ul>
-<p>The magnitude at frequency <span class="arithmatex">\(\omega\)</span> is:</p>
+<p>The magnitude at frequency $\omega$ is:</p>
 <h4 id="magnitude-from-poles-and-zeros">Magnitude from Poles and Zeros</h4>
-<p><span class="arithmatex">\(|G(j\omega)| = |K| \frac{\prod_{i=1}^{m}|j\omega - z_i|}{\prod_{j=1}^{n}|j\omega - p_j|}\)</span></p>
+<p>$|G(j\omega)| = |K| \frac{\prod_{i=1}^{m}|j\omega - z_i|}{\prod_{j=1}^{n}|j\omega - p_j|}$</p>
 <p>And the phase is:</p>
 <h4 id="phase-from-poles-and-zeros">Phase from Poles and Zeros</h4>
-<p><span class="arithmatex">\(\angle G(j\omega) = \angle K + \sum_{i=1}^{m}\angle(j\omega - z_i) - \sum_{j=1}^{n}\angle(j\omega - p_j)\)</span></p>
+<p>$\angle G(j\omega) = \angle K + \sum_{i=1}^{m}\angle(j\omega - z_i) - \sum_{j=1}^{n}\angle(j\omega - p_j)$</p>
 <p>Geometrically:</p>
 <ul>
-<li><span class="arithmatex">\(|j\omega - z_i|\)</span> is the distance from the test point <span class="arithmatex">\(j\omega\)</span> on the imaginary axis to zero <span class="arithmatex">\(z_i\)</span></li>
-<li><span class="arithmatex">\(\angle(j\omega - z_i)\)</span> is the angle of the vector from <span class="arithmatex">\(z_i\)</span> to <span class="arithmatex">\(j\omega\)</span></li>
+<li>$|j\omega - z_i|$ is the distance from the test point $j\omega$ on the imaginary axis to zero $z_i$</li>
+<li>$\angle(j\omega - z_i)$ is the angle of the vector from $z_i$ to $j\omega$</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Geometric Intuition</p>
-<p>When <span class="arithmatex">\(\omega\)</span> is close to a pole, the denominator term becomes small, making the magnitude large. This is <strong>resonance</strong>. When <span class="arithmatex">\(\omega\)</span> is close to a zero, the numerator term becomes small, making the magnitude small—a <strong>notch</strong>. Poles boost the frequency response; zeros cut it.</p>
+<p>When $\omega$ is close to a pole, the denominator term becomes small, making the magnitude large. This is <strong>resonance</strong>. When $\omega$ is close to a zero, the numerator term becomes small, making the magnitude small—a <strong>notch</strong>. Poles boost the frequency response; zeros cut it.</p>
 </div>
 <h2 id="logarithmic-scales-and-the-decibel">Logarithmic Scales and the Decibel</h2>
 <p>Before constructing Bode plots, we need to understand the scales used. Bode plots use logarithmic scales for both frequency and magnitude, which converts multiplication into addition and reveals patterns across many decades of frequency.</p>
 <p>The <strong>decibel</strong> (dB) is a logarithmic unit for expressing ratios:</p>
 <h4 id="decibel-definition">Decibel Definition</h4>
-<p><span class="arithmatex">\(|G|_{dB} = 20 \log_{10}|G|\)</span></p>
+<p>$|G|<em 10="10">{dB} = 20 \log</em>|G|$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(|G|\)</span> is the magnitude (dimensionless ratio)</li>
-<li><span class="arithmatex">\(|G|_{dB}\)</span> is the magnitude in decibels</li>
+<li>$|G|$ is the magnitude (dimensionless ratio)</li>
+<li>$|G|_{dB}$ is the magnitude in decibels</li>
 </ul>
 <table>
 <thead>
@@ -2782,21 +2782,21 @@ Time Domain:
 </table>
 <p>The -3 dB point (magnitude of 0.707) is particularly important—it represents the <strong>half-power point</strong>, where power (proportional to magnitude squared) drops to half its maximum value.</p>
 <p>Using decibels transforms multiplication into addition:</p>
-<p><span class="arithmatex">\(|G_1 G_2|_{dB} = |G_1|_{dB} + |G_2|_{dB}\)</span></p>
+<p>$|G_1 G_2|<em db="dB">{dB} = |G_1|</em>$} + |G_2|_{dB</p>
 <p>This is crucial for Bode plots, where we'll add the contributions of individual factors to get the total response.</p>
 <p>The <strong>logarithmic frequency scale</strong> uses decades and octaves:</p>
 <h4 id="decade">Decade</h4>
-<p><span class="arithmatex">\(\text{One decade} = \text{factor of 10 in frequency}\)</span></p>
+<p>$\text{One decade} = \text{factor of 10 in frequency}$</p>
 <p>Examples: 1 to 10 rad/s, 10 to 100 rad/s, 100 to 1000 rad/s</p>
 <h4 id="octave">Octave</h4>
-<p><span class="arithmatex">\(\text{One octave} = \text{factor of 2 in frequency}\)</span></p>
+<p>$\text{One octave} = \text{factor of 2 in frequency}$</p>
 <p>Examples: 1 to 2 rad/s, 2 to 4 rad/s, 4 to 8 rad/s</p>
-<p>There are approximately 3.32 octaves per decade (since <span class="arithmatex">\(\log_2(10) \approx 3.32\)</span>). Control engineers typically work in decades; audio engineers prefer octaves.</p>
+<p>There are approximately 3.32 octaves per decade (since $\log_2(10) \approx 3.32$). Control engineers typically work in decades; audio engineers prefer octaves.</p>
 <h2 id="what-is-a-bode-plot">What Is a Bode Plot?</h2>
 <p>A <strong>Bode plot</strong> consists of two graphs that together display the complete frequency response:</p>
 <ol>
-<li><strong>Bode Magnitude Plot</strong>: <span class="arithmatex">\(|G(j\omega)|_{dB}\)</span> versus <span class="arithmatex">\(\omega\)</span> on a log scale</li>
-<li><strong>Bode Phase Plot</strong>: <span class="arithmatex">\(\angle G(j\omega)\)</span> (in degrees) versus <span class="arithmatex">\(\omega\)</span> on a log scale</li>
+<li><strong>Bode Magnitude Plot</strong>: $|G(j\omega)|_{dB}$ versus $\omega$ on a log scale</li>
+<li><strong>Bode Phase Plot</strong>: $\angle G(j\omega)$ (in degrees) versus $\omega$ on a log scale</li>
 </ol>
 <p>Named after Hendrik Wade Bode (rhymes with "body"), who developed these techniques at Bell Labs in the 1930s, Bode plots remain the standard tool for frequency-domain analysis because:</p>
 <ul>
@@ -2860,51 +2860,51 @@ Magnitude Plot:
 <h2 id="bode-plot-of-constant-gain">Bode Plot of Constant Gain</h2>
 <p>The simplest transfer function is a pure gain:</p>
 <h4 id="constant-gain-term">Constant Gain Term</h4>
-<p><span class="arithmatex">\(G(s) = K\)</span></p>
+<p>$G(s) = K$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(K\)</span> is a real constant (positive or negative)</li>
+<li>$K$ is a real constant (positive or negative)</li>
 </ul>
 <p>For frequency response:</p>
-<p><span class="arithmatex">\(G(j\omega) = K\)</span></p>
-<p>Magnitude: <span class="arithmatex">\(|K|_{dB} = 20 \log_{10}|K|\)</span> (constant for all frequencies)</p>
-<p>Phase: <span class="arithmatex">\(\angle K = 0°\)</span> if <span class="arithmatex">\(K &gt; 0\)</span>, or <span class="arithmatex">\(-180°\)</span> (equivalently <span class="arithmatex">\(+180°\)</span>) if <span class="arithmatex">\(K &lt; 0\)</span></p>
+<p>$G(j\omega) = K$</p>
+<p>Magnitude: $|K|<em 10="10">{dB} = 20 \log</em>|K|$ (constant for all frequencies)</p>
+<p>Phase: $\angle K = 0°$ if $K &gt; 0$, or $-180°$ (equivalently $+180°$) if $K &lt; 0$</p>
 <p>The Bode plot of a constant gain is simply:</p>
 <ul>
-<li><strong>Magnitude</strong>: Horizontal line at <span class="arithmatex">\(20 \log_{10}|K|\)</span> dB</li>
-<li><strong>Phase</strong>: Horizontal line at 0° (if <span class="arithmatex">\(K &gt; 0\)</span>) or ±180° (if <span class="arithmatex">\(K &lt; 0\)</span>)</li>
+<li><strong>Magnitude</strong>: Horizontal line at $20 \log_{10}|K|$ dB</li>
+<li><strong>Phase</strong>: Horizontal line at 0° (if $K &gt; 0$) or ±180° (if $K &lt; 0$)</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th>Gain <span class="arithmatex">\(K\)</span></th>
+<th>Gain $K$</th>
 <th>Magnitude</th>
 <th>Phase</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(K = 1\)</span></td>
+<td>$K = 1$</td>
 <td>0 dB</td>
 <td>0°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = 10\)</span></td>
+<td>$K = 10$</td>
 <td>20 dB</td>
 <td>0°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = 100\)</span></td>
+<td>$K = 100$</td>
 <td>40 dB</td>
 <td>0°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = 0.1\)</span></td>
+<td>$K = 0.1$</td>
 <td>-20 dB</td>
 <td>0°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(K = -1\)</span></td>
+<td>$K = -1$</td>
 <td>0 dB</td>
 <td>±180°</td>
 </tr>
@@ -2916,33 +2916,33 @@ Magnitude Plot:
 <h3 id="first-order-pole-low-pass-factor">First-Order Pole (Low-Pass Factor)</h3>
 <p>A first-order pole in the denominator:</p>
 <h4 id="first-order-pole">First-Order Pole</h4>
-<p><span class="arithmatex">\(G(s) = \frac{1}{1 + s/\omega_c} = \frac{1}{1 + j\omega/\omega_c}\)</span></p>
+<p>$G(s) = \frac{1}{1 + s/\omega_c} = \frac{1}{1 + j\omega/\omega_c}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_c\)</span> is the corner frequency (also called break frequency or cutoff frequency)</li>
-<li>The time constant is <span class="arithmatex">\(\tau = 1/\omega_c\)</span></li>
+<li>$\omega_c$ is the corner frequency (also called break frequency or cutoff frequency)</li>
+<li>The time constant is $\tau = 1/\omega_c$</li>
 </ul>
 <p>This is a low-pass filter that passes low frequencies and attenuates high frequencies.</p>
 <p><strong>Magnitude</strong>:</p>
-<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\sqrt{1 + (\omega/\omega_c)^2}}\)</span></p>
-<p><span class="arithmatex">\(|G|_{dB} = -20 \log_{10}\sqrt{1 + (\omega/\omega_c)^2} = -10 \log_{10}[1 + (\omega/\omega_c)^2]\)</span></p>
+<p>$|G(j\omega)| = \frac{1}{\sqrt{1 + (\omega/\omega_c)^2}}$</p>
+<p>$|G|<em 10="10">{dB} = -20 \log</em>[1 + (\omega/\omega_c)^2]$}\sqrt{1 + (\omega/\omega_c)^2} = -10 \log_{10</p>
 <p><strong>Phase</strong>:</p>
-<p><span class="arithmatex">\(\angle G(j\omega) = -\arctan(\omega/\omega_c)\)</span></p>
+<p>$\angle G(j\omega) = -\arctan(\omega/\omega_c)$</p>
 <h4 id="first-order-bode-plot-asymptotes">First-Order Bode Plot Asymptotes</h4>
-<p><strong>Low-frequency asymptote</strong> (<span class="arithmatex">\(\omega \ll \omega_c\)</span>):</p>
+<p><strong>Low-frequency asymptote</strong> ($\omega \ll \omega_c$):</p>
 <ul>
 <li>Magnitude: 0 dB (horizontal line)</li>
 <li>Phase: 0°</li>
 </ul>
-<p><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \gg \omega_c\)</span>):</p>
+<p><strong>High-frequency asymptote</strong> ($\omega \gg \omega_c$):</p>
 <ul>
-<li>Magnitude: <span class="arithmatex">\(-20 \log_{10}(\omega/\omega_c)\)</span> dB, which is a line with slope <strong>-20 dB/decade</strong></li>
+<li>Magnitude: $-20 \log_{10}(\omega/\omega_c)$ dB, which is a line with slope <strong>-20 dB/decade</strong></li>
 <li>Phase: -90°</li>
 </ul>
-<p><strong>At the corner frequency</strong> (<span class="arithmatex">\(\omega = \omega_c\)</span>):</p>
+<p><strong>At the corner frequency</strong> ($\omega = \omega_c$):</p>
 <ul>
-<li>Magnitude: <span class="arithmatex">\(-10 \log_{10}(2) = -3\)</span> dB (3 dB below the low-frequency asymptote)</li>
-<li>Phase: <span class="arithmatex">\(-\arctan(1) = -45°\)</span> (halfway between 0° and -90°)</li>
+<li>Magnitude: $-10 \log_{10}(2) = -3$ dB (3 dB below the low-frequency asymptote)</li>
+<li>Phase: $-\arctan(1) = -45°$ (halfway between 0° and -90°)</li>
 </ul>
 <table>
 <thead>
@@ -2954,37 +2954,37 @@ Magnitude Plot:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(\omega \ll \omega_c\)</span></td>
+<td>$\omega \ll \omega_c$</td>
 <td>0 dB</td>
 <td>≈ 0°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = 0.1\omega_c\)</span></td>
+<td>$\omega = 0.1\omega_c$</td>
 <td>-0.04 dB</td>
 <td>-5.7°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = 0.5\omega_c\)</span></td>
+<td>$\omega = 0.5\omega_c$</td>
 <td>-1 dB</td>
 <td>-26.6°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = \omega_c\)</span></td>
+<td>$\omega = \omega_c$</td>
 <td>-3 dB</td>
 <td>-45°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = 2\omega_c\)</span></td>
+<td>$\omega = 2\omega_c$</td>
 <td>-7 dB</td>
 <td>-63.4°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega = 10\omega_c\)</span></td>
+<td>$\omega = 10\omega_c$</td>
 <td>-20 dB</td>
 <td>-84.3°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\omega \gg \omega_c\)</span></td>
+<td>$\omega \gg \omega_c$</td>
 <td>-20 dB/decade slope</td>
 <td>≈ -90°</td>
 </tr>
@@ -2993,10 +2993,10 @@ Magnitude Plot:
 <h3 id="first-order-zero-high-pass-factor">First-Order Zero (High-Pass Factor)</h3>
 <p>A first-order zero in the numerator:</p>
 <h4 id="first-order-zero">First-Order Zero</h4>
-<p><span class="arithmatex">\(G(s) = 1 + s/\omega_c = 1 + j\omega/\omega_c\)</span></p>
+<p>$G(s) = 1 + s/\omega_c = 1 + j\omega/\omega_c$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_c\)</span> is the corner frequency</li>
+<li>$\omega_c$ is the corner frequency</li>
 </ul>
 <p>This factor has the opposite effect of a first-order pole:</p>
 <p><strong>Magnitude asymptotes</strong>:</p>
@@ -3077,24 +3077,24 @@ Magnitude Plot:
 <h3 id="integrator-bode-plot">Integrator Bode Plot</h3>
 <p>The integrator (pole at the origin):</p>
 <h4 id="integrator-transfer-function">Integrator Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{1}{s} = \frac{1}{j\omega}\)</span></p>
+<p>$G(s) = \frac{1}{s} = \frac{1}{j\omega}$</p>
 <p><strong>Magnitude</strong>:</p>
-<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\omega}\)</span></p>
-<p><span class="arithmatex">\(|G|_{dB} = -20 \log_{10}(\omega)\)</span></p>
-<p>This is a straight line with slope <strong>-20 dB/decade</strong>, passing through 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s.</p>
+<p>$|G(j\omega)| = \frac{1}{\omega}$</p>
+<p>$|G|<em 10="10">{dB} = -20 \log</em>(\omega)$</p>
+<p>This is a straight line with slope <strong>-20 dB/decade</strong>, passing through 0 dB at $\omega = 1$ rad/s.</p>
 <p><strong>Phase</strong>:</p>
-<p><span class="arithmatex">\(\angle G(j\omega) = -90°\)</span> (constant at all frequencies)</p>
+<p>$\angle G(j\omega) = -90°$ (constant at all frequencies)</p>
 <p>The integrator has no corner frequency—the -20 dB/decade slope extends forever in both directions. Of course, at very low frequencies this implies infinite gain, which isn't physically realizable, but it's mathematically correct.</p>
 <h3 id="differentiator-bode-plot">Differentiator Bode Plot</h3>
 <p>The differentiator (zero at the origin):</p>
 <h4 id="differentiator-transfer-function">Differentiator Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = s = j\omega\)</span></p>
+<p>$G(s) = s = j\omega$</p>
 <p><strong>Magnitude</strong>:</p>
-<p><span class="arithmatex">\(|G(j\omega)| = \omega\)</span></p>
-<p><span class="arithmatex">\(|G|_{dB} = 20 \log_{10}(\omega)\)</span></p>
-<p>This is a straight line with slope <strong>+20 dB/decade</strong>, passing through 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s.</p>
+<p>$|G(j\omega)| = \omega$</p>
+<p>$|G|<em 10="10">{dB} = 20 \log</em>(\omega)$</p>
+<p>This is a straight line with slope <strong>+20 dB/decade</strong>, passing through 0 dB at $\omega = 1$ rad/s.</p>
 <p><strong>Phase</strong>:</p>
-<p><span class="arithmatex">\(\angle G(j\omega) = +90°\)</span> (constant at all frequencies)</p>
+<p>$\angle G(j\omega) = +90°$ (constant at all frequencies)</p>
 <table>
 <thead>
 <tr>
@@ -3105,22 +3105,22 @@ Magnitude Plot:
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(1/s\)</span> (integrator)</td>
+<td>$1/s$ (integrator)</td>
 <td>-20 dB/decade</td>
 <td>-90°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s\)</span> (differentiator)</td>
+<td>$s$ (differentiator)</td>
 <td>+20 dB/decade</td>
 <td>+90°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(1/s^2\)</span> (double integrator)</td>
+<td>$1/s^2$ (double integrator)</td>
 <td>-40 dB/decade</td>
 <td>-180°</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(s^2\)</span> (double differentiator)</td>
+<td>$s^2$ (double differentiator)</td>
 <td>+40 dB/decade</td>
 <td>+180°</td>
 </tr>
@@ -3134,94 +3134,94 @@ Magnitude Plot:
 <p>Second-order factors are more interesting because they introduce <strong>resonance</strong>—the possibility of amplification near the natural frequency.</p>
 <h3 id="second-order-pole-standard-form">Second-Order Pole (Standard Form)</h3>
 <h4 id="second-order-denominator-factor">Second-Order Denominator Factor</h4>
-<p><span class="arithmatex">\(G(s) = \frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}\)</span></p>
+<p>$G(s) = \frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
-<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+<li>$\omega_n$ is the natural frequency</li>
+<li>$\zeta$ is the damping ratio</li>
 </ul>
-<p>Substituting <span class="arithmatex">\(s = j\omega\)</span>:</p>
-<p><span class="arithmatex">\(G(j\omega) = \frac{1}{1 - (\omega/\omega_n)^2 + j2\zeta(\omega/\omega_n)}\)</span></p>
+<p>Substituting $s = j\omega$:</p>
+<p>$G(j\omega) = \frac{1}{1 - (\omega/\omega_n)^2 + j2\zeta(\omega/\omega_n)}$</p>
 <p><strong>Magnitude</strong>:</p>
-<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\sqrt{[1-(\omega/\omega_n)^2]^2 + [2\zeta(\omega/\omega_n)]^2}}\)</span></p>
+<p>$|G(j\omega)| = \frac{1}{\sqrt{[1-(\omega/\omega_n)^2]^2 + [2\zeta(\omega/\omega_n)]^2}}$</p>
 <p><strong>Phase</strong>:</p>
-<p><span class="arithmatex">\(\angle G(j\omega) = -\arctan\left(\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)^2}\right)\)</span></p>
+<p>$\angle G(j\omega) = -\arctan\left(\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)^2}\right)$</p>
 <h4 id="second-order-bode-plot-asymptotes">Second-Order Bode Plot Asymptotes</h4>
-<p><strong>Low-frequency asymptote</strong> (<span class="arithmatex">\(\omega \ll \omega_n\)</span>):</p>
+<p><strong>Low-frequency asymptote</strong> ($\omega \ll \omega_n$):</p>
 <ul>
 <li>Magnitude: 0 dB</li>
 <li>Phase: 0°</li>
 </ul>
-<p><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \gg \omega_n\)</span>):</p>
+<p><strong>High-frequency asymptote</strong> ($\omega \gg \omega_n$):</p>
 <ul>
-<li>Magnitude: <span class="arithmatex">\(-40 \log_{10}(\omega/\omega_n)\)</span> dB, slope of <strong>-40 dB/decade</strong></li>
+<li>Magnitude: $-40 \log_{10}(\omega/\omega_n)$ dB, slope of <strong>-40 dB/decade</strong></li>
 <li>Phase: -180°</li>
 </ul>
-<p><strong>At the natural frequency</strong> (<span class="arithmatex">\(\omega = \omega_n\)</span>):</p>
+<p><strong>At the natural frequency</strong> ($\omega = \omega_n$):</p>
 <ul>
-<li>Magnitude: <span class="arithmatex">\(|G(j\omega_n)| = \frac{1}{2\zeta}\)</span>, so <span class="arithmatex">\(|G|_{dB} = -20\log_{10}(2\zeta)\)</span></li>
+<li>Magnitude: $|G(j\omega_n)| = \frac{1}{2\zeta}$, so $|G|<em 10="10">{dB} = -20\log</em>(2\zeta)$</li>
 <li>Phase: exactly -90°</li>
 </ul>
-<p>The behavior at <span class="arithmatex">\(\omega_n\)</span> depends strongly on <span class="arithmatex">\(\zeta\)</span>:</p>
-<p>| <span class="arithmatex">\(\zeta\)</span> | <span class="arithmatex">\(|G(j\omega_n)|\)</span> | Magnitude at <span class="arithmatex">\(\omega_n\)</span> | Behavior |
+<p>The behavior at $\omega_n$ depends strongly on $\zeta$:</p>
+<p>| $\zeta$ | $|G(j\omega_n)|$ | Magnitude at $\omega_n$ | Behavior |
 |---------|------------------|------------------------|----------|
 | 1.0 | 0.5 | -6 dB | Critically damped, no peak |
 | 0.707 | 0.707 | -3 dB | Optimal damping, slight rise |
 | 0.5 | 1.0 | 0 dB | Equal to low-freq value |
 | 0.25 | 2.0 | +6 dB | Moderate resonance |
 | 0.1 | 5.0 | +14 dB | Strong resonance |</p>
-<p>For <span class="arithmatex">\(\zeta &lt; 0.707\)</span>, there's a <strong>resonant peak</strong> above 0 dB. The lower the damping, the higher and sharper the peak.</p>
+<p>For $\zeta &lt; 0.707$, there's a <strong>resonant peak</strong> above 0 dB. The lower the damping, the higher and sharper the peak.</p>
 <h3 id="resonant-peak-and-resonant-frequency">Resonant Peak and Resonant Frequency</h3>
-<p>The <strong>resonant peak</strong> <span class="arithmatex">\(M_r\)</span> is the maximum value of the magnitude response. It doesn't occur exactly at <span class="arithmatex">\(\omega_n\)</span> unless <span class="arithmatex">\(\zeta\)</span> is very small.</p>
+<p>The <strong>resonant peak</strong> $M_r$ is the maximum value of the magnitude response. It doesn't occur exactly at $\omega_n$ unless $\zeta$ is very small.</p>
 <h4 id="resonant-frequency">Resonant Frequency</h4>
-<p><span class="arithmatex">\(\omega_r = \omega_n\sqrt{1 - 2\zeta^2}\)</span></p>
+<p>$\omega_r = \omega_n\sqrt{1 - 2\zeta^2}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\omega_r\)</span> is the frequency at which the peak occurs</li>
-<li>This is only valid for <span class="arithmatex">\(\zeta &lt; 1/\sqrt{2} \approx 0.707\)</span></li>
+<li>$\omega_r$ is the frequency at which the peak occurs</li>
+<li>This is only valid for $\zeta &lt; 1/\sqrt{2} \approx 0.707$</li>
 </ul>
-<p>For <span class="arithmatex">\(\zeta \geq 0.707\)</span>, there's no resonant peak above the DC value.</p>
+<p>For $\zeta \geq 0.707$, there's no resonant peak above the DC value.</p>
 <h4 id="resonant-peak-magnitude">Resonant Peak Magnitude</h4>
-<p><span class="arithmatex">\(M_r = \frac{1}{2\zeta\sqrt{1-\zeta^2}}\)</span></p>
-<p>In decibels: <span class="arithmatex">\(M_r|_{dB} = 20\log_{10}(M_r)\)</span></p>
+<p>$M_r = \frac{1}{2\zeta\sqrt{1-\zeta^2}}$</p>
+<p>In decibels: $M_r|<em 10="10">{dB} = 20\log</em>(M_r)$</p>
 <p>The relationship between damping and resonant peak is crucial for design:</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(\zeta\)</span></th>
-<th><span class="arithmatex">\(\omega_r\)</span></th>
-<th><span class="arithmatex">\(M_r\)</span></th>
-<th><span class="arithmatex">\(M_r\)</span> (dB)</th>
+<th>$\zeta$</th>
+<th>$\omega_r$</th>
+<th>$M_r$</th>
+<th>$M_r$ (dB)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0.1</td>
-<td><span class="arithmatex">\(0.99\omega_n\)</span></td>
+<td>$0.99\omega_n$</td>
 <td>5.03</td>
 <td>14.0 dB</td>
 </tr>
 <tr>
 <td>0.2</td>
-<td><span class="arithmatex">\(0.96\omega_n\)</span></td>
+<td>$0.96\omega_n$</td>
 <td>2.55</td>
 <td>8.1 dB</td>
 </tr>
 <tr>
 <td>0.3</td>
-<td><span class="arithmatex">\(0.91\omega_n\)</span></td>
+<td>$0.91\omega_n$</td>
 <td>1.75</td>
 <td>4.9 dB</td>
 </tr>
 <tr>
 <td>0.4</td>
-<td><span class="arithmatex">\(0.82\omega_n\)</span></td>
+<td>$0.82\omega_n$</td>
 <td>1.36</td>
 <td>2.7 dB</td>
 </tr>
 <tr>
 <td>0.5</td>
-<td><span class="arithmatex">\(0.71\omega_n\)</span></td>
+<td>$0.71\omega_n$</td>
 <td>1.15</td>
 <td>1.3 dB</td>
 </tr>
@@ -3234,21 +3234,21 @@ Magnitude Plot:
 </tbody>
 </table>
 <h3 id="quality-factor">Quality Factor</h3>
-<p>The <strong>quality factor</strong> <span class="arithmatex">\(Q\)</span> is an alternative way to characterize second-order systems:</p>
+<p>The <strong>quality factor</strong> $Q$ is an alternative way to characterize second-order systems:</p>
 <h4 id="quality-factor-definition">Quality Factor Definition</h4>
-<p><span class="arithmatex">\(Q = \frac{1}{2\zeta}\)</span></p>
+<p>$Q = \frac{1}{2\zeta}$</p>
 <p>where:</p>
 <ul>
-<li>High <span class="arithmatex">\(Q\)</span> means low damping (sharp resonance)</li>
-<li>Low <span class="arithmatex">\(Q\)</span> means high damping (broad, gentle response)</li>
+<li>High $Q$ means low damping (sharp resonance)</li>
+<li>Low $Q$ means high damping (broad, gentle response)</li>
 </ul>
 <p>The quality factor describes how "selective" a resonant system is—high-Q systems respond strongly only near the resonant frequency, while low-Q systems have broad frequency response.</p>
 <table>
 <thead>
 <tr>
 <th>Damping</th>
-<th><span class="arithmatex">\(\zeta\)</span></th>
-<th><span class="arithmatex">\(Q\)</span></th>
+<th>$\zeta$</th>
+<th>$Q$</th>
 <th>Character</th>
 </tr>
 </thead>
@@ -3340,17 +3340,17 @@ Magnitude Plot:
 </ol>
 <p>This approach, developed by Bode himself, is remarkably accurate and reveals system structure at a glance.</p>
 <h3 id="bode-plot-construction-procedure">Bode Plot Construction Procedure</h3>
-<p>Given a transfer function <span class="arithmatex">\(G(s)\)</span>:</p>
+<p>Given a transfer function $G(s)$:</p>
 <p><strong>Step 1: Put in standard form</strong></p>
 <p>Rewrite each factor in time-constant form:</p>
 <ul>
-<li>First-order pole: <span class="arithmatex">\(\frac{1}{1 + s/\omega_c}\)</span></li>
-<li>First-order zero: <span class="arithmatex">\(1 + s/\omega_c\)</span></li>
-<li>Second-order: <span class="arithmatex">\(\frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}\)</span></li>
+<li>First-order pole: $\frac{1}{1 + s/\omega_c}$</li>
+<li>First-order zero: $1 + s/\omega_c$</li>
+<li>Second-order: $\frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}$</li>
 </ul>
-<p>Extract the DC gain <span class="arithmatex">\(K\)</span> as a separate constant.</p>
+<p>Extract the DC gain $K$ as a separate constant.</p>
 <p><strong>Step 2: Identify all corner frequencies</strong></p>
-<p>List all corner frequencies <span class="arithmatex">\(\omega_c\)</span> and <span class="arithmatex">\(\omega_n\)</span> in ascending order. Each corner marks where asymptotes change slope.</p>
+<p>List all corner frequencies $\omega_c$ and $\omega_n$ in ascending order. Each corner marks where asymptotes change slope.</p>
 <p><strong>Step 3: Draw the low-frequency asymptote</strong></p>
 <p>Start from the leftmost part of the plot:</p>
 <ul>
@@ -3373,32 +3373,32 @@ Magnitude Plot:
 <h3 id="construction-example">Construction Example</h3>
 <p>Construct the Bode plot for:</p>
 <h4 id="construction-example-transfer-function">Construction Example Transfer Function</h4>
-<p><span class="arithmatex">\(G(s) = \frac{100(s + 10)}{s(s + 100)}\)</span></p>
+<p>$G(s) = \frac{100(s + 10)}{s(s + 100)}$</p>
 <p><strong>Step 1: Standard form</strong></p>
-<p><span class="arithmatex">\(G(s) = \frac{100 \cdot 10 \cdot (1 + s/10)}{s \cdot 100 \cdot (1 + s/100)} = \frac{10(1 + s/10)}{s(1 + s/100)}\)</span></p>
+<p>$G(s) = \frac{100 \cdot 10 \cdot (1 + s/10)}{s \cdot 100 \cdot (1 + s/100)} = \frac{10(1 + s/10)}{s(1 + s/100)}$</p>
 <p>DC gain effect: With factor of 10 at numerator and integrator, need to evaluate at a reference frequency.</p>
-<p>Actually, let's be more systematic. At <span class="arithmatex">\(\omega = 1\)</span>:</p>
-<p><span class="arithmatex">\(|G(j1)| = \frac{100|1 + j0.1|}{|j1||1 + j0.01|} = \frac{100 \cdot 1.005}{1 \cdot 1.00005} \approx 100.5\)</span></p>
+<p>Actually, let's be more systematic. At $\omega = 1$:</p>
+<p>$|G(j1)| = \frac{100|1 + j0.1|}{|j1||1 + j0.01|} = \frac{100 \cdot 1.005}{1 \cdot 1.00005} \approx 100.5$</p>
 <p>That's about 40 dB.</p>
 <p><strong>Step 2: Corner frequencies</strong></p>
 <ul>
-<li>Zero at <span class="arithmatex">\(\omega = 10\)</span> rad/s</li>
-<li>Pole at <span class="arithmatex">\(\omega = 100\)</span> rad/s</li>
+<li>Zero at $\omega = 10$ rad/s</li>
+<li>Pole at $\omega = 100$ rad/s</li>
 <li>Integrator (pole at origin)</li>
 </ul>
 <p><strong>Step 3: Low-frequency asymptote</strong></p>
 <p>Due to integrator: slope of -20 dB/decade at low frequencies</p>
-<p>At <span class="arithmatex">\(\omega = 1\)</span>: magnitude ≈ 40 dB (from above)</p>
+<p>At $\omega = 1$: magnitude ≈ 40 dB (from above)</p>
 <p><strong>Step 4: Asymptote changes</strong></p>
 <ul>
-<li>At <span class="arithmatex">\(\omega = 10\)</span> (zero): slope changes from -20 to 0 dB/decade (zero adds +20)</li>
-<li>At <span class="arithmatex">\(\omega = 100\)</span> (pole): slope changes from 0 to -20 dB/decade (pole adds -20)</li>
+<li>At $\omega = 10$ (zero): slope changes from -20 to 0 dB/decade (zero adds +20)</li>
+<li>At $\omega = 100$ (pole): slope changes from 0 to -20 dB/decade (pole adds -20)</li>
 </ul>
 <p><strong>Step 5: Phase</strong></p>
 <ul>
 <li>Low freq: -90° (integrator alone)</li>
-<li>At <span class="arithmatex">\(\omega = 10\)</span>: zero adds +90°, transitioning to 0° at high frequency relative to zero</li>
-<li>At <span class="arithmatex">\(\omega = 100\)</span>: pole adds -90°, transitioning to -90° total at high frequency</li>
+<li>At $\omega = 10$: zero adds +90°, transitioning to 0° at high frequency relative to zero</li>
+<li>At $\omega = 100$: pole adds -90°, transitioning to -90° total at high frequency</li>
 </ul>
 <p>Net phase:</p>
 <ul>
@@ -3466,21 +3466,21 @@ Magnitude Plot:
 <h2 id="time-delay-in-bode-plots">Time Delay in Bode Plots</h2>
 <p>Physical systems often include pure time delays—the output is a delayed copy of a processed input. Transport delays in pipelines, computation delays in digital controllers, and signal propagation delays all fall into this category.</p>
 <h4 id="time-delay-transfer-function">Time Delay Transfer Function</h4>
-<p><span class="arithmatex">\(G_d(s) = e^{-sT_d}\)</span></p>
+<p>$G_d(s) = e^{-sT_d}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(T_d\)</span> is the delay time in seconds</li>
+<li>$T_d$ is the delay time in seconds</li>
 </ul>
-<p>Substituting <span class="arithmatex">\(s = j\omega\)</span>:</p>
-<p><span class="arithmatex">\(G_d(j\omega) = e^{-j\omega T_d}\)</span></p>
-<p><strong>Magnitude</strong>: <span class="arithmatex">\(|e^{-j\omega T_d}| = 1\)</span> (0 dB at all frequencies)</p>
-<p><strong>Phase</strong>: <span class="arithmatex">\(\angle e^{-j\omega T_d} = -\omega T_d\)</span> radians = <span class="arithmatex">\(-\omega T_d \cdot \frac{180°}{\pi}\)</span> degrees</p>
+<p>Substituting $s = j\omega$:</p>
+<p>$G_d(j\omega) = e^{-j\omega T_d}$</p>
+<p><strong>Magnitude</strong>: $|e^{-j\omega T_d}| = 1$ (0 dB at all frequencies)</p>
+<p><strong>Phase</strong>: $\angle e^{-j\omega T_d} = -\omega T_d$ radians = $-\omega T_d \cdot \frac{180°}{\pi}$ degrees</p>
 <p>The time delay has no effect on magnitude but adds ever-increasing phase lag as frequency increases. This phase lag is linear with frequency on a linear plot but appears as a curve on the logarithmic Bode phase plot.</p>
 <table>
 <thead>
 <tr>
 <th>Frequency</th>
-<th>Phase Lag (for <span class="arithmatex">\(T_d = 0.1\)</span> s)</th>
+<th>Phase Lag (for $T_d = 0.1$ s)</th>
 </tr>
 </thead>
 <tbody>
@@ -3493,7 +3493,7 @@ Magnitude Plot:
 <td>-57.3°</td>
 </tr>
 <tr>
-<td>31.4 rad/s (<span class="arithmatex">\(\pi \omega\)</span>)</td>
+<td>31.4 rad/s ($\pi \omega$)</td>
 <td>-180°</td>
 </tr>
 <tr>
@@ -3509,28 +3509,28 @@ Magnitude Plot:
 <h2 id="bandwidth-and-cutoff-frequency">Bandwidth and Cutoff Frequency</h2>
 <p>The <strong>bandwidth</strong> of a system is the range of frequencies over which it responds effectively. For many systems, bandwidth is defined by the <strong>cutoff frequency</strong>—the frequency at which the magnitude drops to a specified level below its maximum.</p>
 <h4 id="cutoff-frequency-definition">Cutoff Frequency Definition</h4>
-<p><span class="arithmatex">\(\omega_c \text{ is where } |G(j\omega_c)| = \frac{|G|_{max}}{\sqrt{2}}\)</span></p>
+<p>$\omega_c \text{ is where } |G(j\omega_c)| = \frac{|G|_{max}}{\sqrt{2}}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(|G|_{max}\)</span> is the maximum magnitude (often the DC gain)</li>
-<li><span class="arithmatex">\(\frac{1}{\sqrt{2}} \approx 0.707\)</span>, corresponding to -3 dB</li>
+<li>$|G|_{max}$ is the maximum magnitude (often the DC gain)</li>
+<li>$\frac{1}{\sqrt{2}} \approx 0.707$, corresponding to -3 dB</li>
 </ul>
 <p>The <strong>-3 dB point</strong> is also called the <strong>half-power point</strong> because power is proportional to magnitude squared:</p>
-<p><span class="arithmatex">\(P \propto |G|^2\)</span></p>
-<p>At -3 dB: <span class="arithmatex">\(|G|^2 = \frac{1}{2}|G|_{max}^2\)</span></p>
-<p>For a first-order low-pass system <span class="arithmatex">\(G(s) = \frac{1}{1 + s/\omega_c}\)</span>:</p>
+<p>$P \propto |G|^2$</p>
+<p>At -3 dB: $|G|^2 = \frac{1}{2}|G|_{max}^2$</p>
+<p>For a first-order low-pass system $G(s) = \frac{1}{1 + s/\omega_c}$:</p>
 <ul>
-<li>Bandwidth = corner frequency = <span class="arithmatex">\(\omega_c\)</span></li>
-<li>At <span class="arithmatex">\(\omega_c\)</span>: magnitude is -3 dB below DC</li>
+<li>Bandwidth = corner frequency = $\omega_c$</li>
+<li>At $\omega_c$: magnitude is -3 dB below DC</li>
 </ul>
 <p>For second-order systems, the relationship between bandwidth and natural frequency depends on damping:</p>
 <h4 id="second-order-bandwidth">Second-Order Bandwidth</h4>
-<p><span class="arithmatex">\(\omega_{BW} \approx \omega_n\sqrt{1 - 2\zeta^2 + \sqrt{4\zeta^4 - 4\zeta^2 + 2}}\)</span></p>
+<p>$\omega_{BW} \approx \omega_n\sqrt{1 - 2\zeta^2 + \sqrt{4\zeta^4 - 4\zeta^2 + 2}}$</p>
 <p>This formula is complex, but approximately:</p>
 <ul>
-<li>For <span class="arithmatex">\(\zeta = 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} \approx \omega_n\)</span></li>
-<li>For <span class="arithmatex">\(\zeta &lt; 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} &gt; \omega_n\)</span> (resonance extends bandwidth)</li>
-<li>For <span class="arithmatex">\(\zeta &gt; 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} &lt; \omega_n\)</span></li>
+<li>For $\zeta = 0.707$: $\omega_{BW} \approx \omega_n$</li>
+<li>For $\zeta &lt; 0.707$: $\omega_{BW} &gt; \omega_n$ (resonance extends bandwidth)</li>
+<li>For $\zeta &gt; 0.707$: $\omega_{BW} &lt; \omega_n$</li>
 </ul>
 <table>
 <thead>
@@ -3561,7 +3561,7 @@ Magnitude Plot:
 <div class="admonition tip">
 <p class="admonition-title">Bandwidth and Speed</p>
 <p>Bandwidth and rise time are inversely related. A rule of thumb:</p>
-<p><span class="arithmatex">\(\omega_{BW} \cdot t_r \approx 2\)</span></p>
+<p>$\omega_{BW} \cdot t_r \approx 2$</p>
 <p>Doubling bandwidth roughly halves rise time. This connects frequency-domain and time-domain specifications.</p>
 </div>
 <h2 id="filter-types-low-pass-high-pass-bandpass-notch">Filter Types: Low-Pass, High-Pass, Bandpass, Notch</h2>
@@ -3576,8 +3576,8 @@ Magnitude Plot:
 </ul>
 <p>Examples:</p>
 <ul>
-<li>First-order: <span class="arithmatex">\(G(s) = \frac{K}{1 + s/\omega_c}\)</span></li>
-<li>Second-order: <span class="arithmatex">\(G(s) = \frac{K\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></li>
+<li>First-order: $G(s) = \frac{K}{1 + s/\omega_c}$</li>
+<li>Second-order: $G(s) = \frac{K\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$</li>
 </ul>
 <p>Low-pass systems smooth out rapid changes, filter noise, and integrate signals. Most physical systems are inherently low-pass because high-frequency energy is dissipated.</p>
 <h3 id="high-pass-system">High-Pass System</h3>
@@ -3590,8 +3590,8 @@ Magnitude Plot:
 </ul>
 <p>Examples:</p>
 <ul>
-<li>First-order: <span class="arithmatex">\(G(s) = \frac{Ks/\omega_c}{1 + s/\omega_c}\)</span></li>
-<li>Second-order: <span class="arithmatex">\(G(s) = \frac{Ks^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></li>
+<li>First-order: $G(s) = \frac{Ks/\omega_c}{1 + s/\omega_c}$</li>
+<li>Second-order: $G(s) = \frac{Ks^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$</li>
 </ul>
 <p>High-pass systems reject DC offsets and slow drifts, emphasize rapid changes, and differentiate signals. Washout filters in power system stabilizers are high-pass.</p>
 <h3 id="bandpass-system">Bandpass System</h3>
@@ -3604,8 +3604,8 @@ Magnitude Plot:
 <li>Bandwidth: width of the passband (typically at -3 dB points)</li>
 </ul>
 <p>Example:</p>
-<p><span class="arithmatex">\(G(s) = \frac{Ks/\omega_0}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}\)</span></p>
-<p>where <span class="arithmatex">\(\omega_0\)</span> is the center frequency and <span class="arithmatex">\(Q\)</span> determines selectivity.</p>
+<p>$G(s) = \frac{Ks/\omega_0}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}$</p>
+<p>where $\omega_0$ is the center frequency and $Q$ determines selectivity.</p>
 <p>Bandpass filters isolate signals at specific frequencies. They're used in communication systems, resonant circuits, and vibration analysis.</p>
 <h3 id="notch-filter">Notch Filter</h3>
 <p>A <strong>notch filter</strong> (band-reject filter) attenuates a specific frequency range while passing frequencies above and below.</p>
@@ -3617,8 +3617,8 @@ Magnitude Plot:
 <li>Sharp dip in magnitude response</li>
 </ul>
 <p>Example:</p>
-<p><span class="arithmatex">\(G(s) = \frac{(s/\omega_0)^2 + 1}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}\)</span></p>
-<p>The numerator zeros are on the imaginary axis at <span class="arithmatex">\(\pm j\omega_0\)</span>, creating complete attenuation at exactly <span class="arithmatex">\(\omega_0\)</span>.</p>
+<p>$G(s) = \frac{(s/\omega_0)^2 + 1}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}$</p>
+<p>The numerator zeros are on the imaginary axis at $\pm j\omega_0$, creating complete attenuation at exactly $\omega_0$.</p>
 <p>Notch filters remove unwanted tones or oscillations. A common application is eliminating 60 Hz power line interference.</p>
 <table>
 <thead>
@@ -3712,14 +3712,14 @@ Magnitude Plot:
 <h3 id="bandwidth-and-rise-time">Bandwidth and Rise Time</h3>
 <p>Faster systems have higher bandwidth. The approximate relationship:</p>
 <h4 id="bandwidth-rise-time-relationship">Bandwidth-Rise Time Relationship</h4>
-<p><span class="arithmatex">\(t_r \approx \frac{2.2}{\omega_{BW}}\)</span> (for first-order)</p>
-<p><span class="arithmatex">\(t_r \approx \frac{1.8}{\omega_n}\)</span> (for second-order with <span class="arithmatex">\(\zeta = 0.707\)</span>)</p>
+<p>$t_r \approx \frac{2.2}{\omega_{BW}}$ (for first-order)</p>
+<p>$t_r \approx \frac{1.8}{\omega_n}$ (for second-order with $\zeta = 0.707$)</p>
 <h3 id="resonance-and-overshoot">Resonance and Overshoot</h3>
 <p>Systems with resonant peaks in the Bode magnitude plot exhibit overshoot in the step response:</p>
 <table>
 <thead>
 <tr>
-<th>Resonant Peak <span class="arithmatex">\(M_r\)</span></th>
+<th>Resonant Peak $M_r$</th>
 <th>Approximate Overshoot</th>
 </tr>
 </thead>
@@ -3750,12 +3750,12 @@ Magnitude Plot:
 <h3 id="phase-and-delay">Phase and Delay</h3>
 <p>Low-frequency phase slope indicates effective time delay:</p>
 <h4 id="group-delay">Group Delay</h4>
-<p><span class="arithmatex">\(\tau_g = -\frac{d\phi}{d\omega}\)</span></p>
+<p>$\tau_g = -\frac{d\phi}{d\omega}$</p>
 <p>where:</p>
 <ul>
-<li><span class="arithmatex">\(\tau_g\)</span> is the group delay</li>
-<li><span class="arithmatex">\(\phi\)</span> is the phase in radians</li>
-<li><span class="arithmatex">\(\omega\)</span> is the frequency in rad/s</li>
+<li>$\tau_g$ is the group delay</li>
+<li>$\phi$ is the phase in radians</li>
+<li>$\omega$ is the frequency in rad/s</li>
 </ul>
 <p>Systems with linear phase (constant group delay) preserve signal shape. Systems with nonlinear phase distort the shape of signals.</p>
 <div class="admonition quote">
@@ -3767,8 +3767,8 @@ Magnitude Plot:
 <p><strong>Core Concepts</strong>:</p>
 <ul>
 <li><strong>Frequency response</strong>: How a system responds to sinusoids at each frequency</li>
-<li><strong>Magnitude response</strong>: Amplitude scaling factor <span class="arithmatex">\(|G(j\omega)|\)</span></li>
-<li><strong>Phase response</strong>: Phase shift <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+<li><strong>Magnitude response</strong>: Amplitude scaling factor $|G(j\omega)|$</li>
+<li><strong>Phase response</strong>: Phase shift $\angle G(j\omega)$</li>
 </ul>
 <p><strong>The Bode Plot</strong>:</p>
 <ul>
@@ -3787,7 +3787,7 @@ Magnitude Plot:
 </thead>
 <tbody>
 <tr>
-<td>Corner frequency <span class="arithmatex">\(\omega_c\)</span></td>
+<td>Corner frequency $\omega_c$</td>
 <td>Where asymptotes intersect</td>
 <td>Transition between regions</td>
 </tr>
@@ -3797,7 +3797,7 @@ Magnitude Plot:
 <td>Bandwidth boundary</td>
 </tr>
 <tr>
-<td>Resonant frequency <span class="arithmatex">\(\omega_r\)</span></td>
+<td>Resonant frequency $\omega_r$</td>
 <td>Magnitude peak</td>
 <td>Maximum amplification</td>
 </tr>
@@ -3819,17 +3819,17 @@ Magnitude Plot:
 </thead>
 <tbody>
 <tr>
-<td>Constant <span class="arithmatex">\(K\)</span></td>
-<td>Vertical shift by <span class="arithmatex">\(20\log K\)</span></td>
-<td>0° (or 180° if <span class="arithmatex">\(K&lt;0\)</span>)</td>
+<td>Constant $K$</td>
+<td>Vertical shift by $20\log K$</td>
+<td>0° (or 180° if $K&lt;0$)</td>
 </tr>
 <tr>
-<td>Integrator <span class="arithmatex">\(1/s\)</span></td>
+<td>Integrator $1/s$</td>
 <td>-20 dB/decade, through 0 dB at ω=1</td>
 <td>-90°</td>
 </tr>
 <tr>
-<td>Differentiator <span class="arithmatex">\(s\)</span></td>
+<td>Differentiator $s$</td>
 <td>+20 dB/decade, through 0 dB at ω=1</td>
 <td>+90°</td>
 </tr>
@@ -3883,16 +3883,16 @@ Magnitude Plot:
 <p>This chapter has equipped you to analyze systems in the frequency domain:</p>
 <ul>
 <li>
-<p>The <strong>frequency response</strong> <span class="arithmatex">\(G(j\omega)\)</span> is obtained by substituting <span class="arithmatex">\(s = j\omega\)</span> into the transfer function, describing how sinusoids are transformed.</p>
+<p>The <strong>frequency response</strong> $G(j\omega)$ is obtained by substituting $s = j\omega$ into the transfer function, describing how sinusoids are transformed.</p>
 </li>
 <li>
-<p><strong>Magnitude response</strong> <span class="arithmatex">\(|G(j\omega)|\)</span> tells you the amplitude ratio; <strong>phase response</strong> <span class="arithmatex">\(\angle G(j\omega)\)</span> tells you the time shift.</p>
+<p><strong>Magnitude response</strong> $|G(j\omega)|$ tells you the amplitude ratio; <strong>phase response</strong> $\angle G(j\omega)$ tells you the time shift.</p>
 </li>
 <li>
 <p><strong>Bode plots</strong> display magnitude in decibels and phase in degrees versus logarithmic frequency. The logarithmic scales convert multiplication to addition.</p>
 </li>
 <li>
-<p>A <strong>decade</strong> is a factor of 10 in frequency; an <strong>octave</strong> is a factor of 2. Decibels: <span class="arithmatex">\(|G|_{dB} = 20\log_{10}|G|\)</span>.</p>
+<p>A <strong>decade</strong> is a factor of 10 in frequency; an <strong>octave</strong> is a factor of 2. Decibels: $|G|<em 10="10">{dB} = 20\log</em>|G|$.</p>
 </li>
 <li>
 <p><strong>Asymptotic approximation</strong> constructs Bode plots using straight-line segments. First-order factors change slope by 20 dB/decade and phase by 90°. Second-order factors change by 40 dB/decade and 180°.</p>
@@ -3901,7 +3901,7 @@ Magnitude Plot:
 <p><strong>Corner frequencies</strong> mark where asymptotes change slope. At a first-order corner, the actual curve is 3 dB from the asymptotes.</p>
 </li>
 <li>
-<p><strong>Second-order factors</strong> can have resonant peaks when <span class="arithmatex">\(\zeta &lt; 0.707\)</span>. The <strong>quality factor</strong> <span class="arithmatex">\(Q = 1/(2\zeta)\)</span> measures selectivity.</p>
+<p><strong>Second-order factors</strong> can have resonant peaks when $\zeta &lt; 0.707$. The <strong>quality factor</strong> $Q = 1/(2\zeta)$ measures selectivity.</p>
 </li>
 <li>
 <p><strong>Bandwidth</strong> is the -3 dB frequency range. It's inversely related to rise time: faster systems have higher bandwidth.</p>
@@ -3918,7 +3918,7 @@ Magnitude Plot:
 <p>Before moving on, try these without peeking:</p>
 <ol>
 <li>
-<p>A system has <span class="arithmatex">\(G(s) = \frac{10}{s+10}\)</span>. What is the magnitude in dB at DC? At ω = 10 rad/s? At ω = 100 rad/s?</p>
+<p>A system has $G(s) = \frac{10}{s+10}$. What is the magnitude in dB at DC? At ω = 10 rad/s? At ω = 100 rad/s?</p>
 </li>
 <li>
 <p>For a system with a pole at s = -5 and a zero at s = -50, what is the high-frequency asymptote slope? What is the low-frequency asymptote?</p>
