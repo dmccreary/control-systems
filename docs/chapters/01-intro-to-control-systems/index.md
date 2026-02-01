@@ -35,13 +35,15 @@ This chapter assumes only the prerequisites listed in the [course description](.
 
 ## Welcome!
 
-![](mip-in-classroom.png)
+![Consumer Products](./consumer-products.png)
+
+Welcome to the wonderful world of control systems—where physics meets finesse, and math becomes magic! If you've ever wondered how a Segway stays upright, how a drone hovers in place, or how your car's cruise control keeps you at exactly 65 mph even going uphill, you're about to peek behind the curtain.
+
+![MIP in Classroom](./mip-in-classroom.png)
 <details>
 <summary>Image generation prompt</summary>
 Generate a wide landscape image of junior high school kids playing with the MIP two-wheel self-balancing robot. Make the image 1.91:1 w/h ratio and make it 1200 pixels wide. The kids are in a brightly lit school with fun robotics parts around the room. The kids are smiling and laughing and having a great time. The kids are from a diverse gender and race profile.
 </details>
-
-Welcome to the wonderful world of control systems—where physics meets finesse, and math becomes magic! If you've ever wondered how a Segway stays upright, how a drone hovers in place, or how your car's cruise control keeps you at exactly 65 mph even going uphill, you're about to peek behind the curtain.
 
 Consider the MIP robot—that delightful little self-balancing toy that zooms around on two wheels like a tiny, determined penguin. MIP (Mobile Inverted Pendulum) looks simple: just a round body perched on two wheels. But here's the thing—balancing on two wheels is *really hard*. Try standing a broomstick on your palm. Now imagine doing that while the broomstick is also trying to drive somewhere. That's MIP's life, every millisecond of every day.
 
@@ -446,6 +448,7 @@ Canvas size: 750x450px, responsive width
 Control systems appear in virtually every domain of engineering. Understanding these examples helps ground abstract concepts in practical applications.
 
 ### Automotive Cruise Control
+![](./curse-control-infographic.png)
 
 Cruise control maintains vehicle speed at a driver-selected setpoint. The components map directly to our control system framework:
 

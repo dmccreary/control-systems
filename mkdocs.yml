@@ -35,6 +35,7 @@ nav:
     - Control System Examples: sims/control-system-examples/index.md
     - Feedback Loop Block Diagram: sims/feedback-loop-block-diagram/index.md
     - Feedback Loop Simulator: sims/feedback-loop-simulator/index.md
+    - History of Control Systems: sims/timeline/index.md
     - Learning Graph Viewer: sims/graph-viewer/index.md
     - Open-Loop vs Closed-Loop: sims/open-vs-closed-loop/index.md
 

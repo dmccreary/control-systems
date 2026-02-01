@@ -31,6 +31,12 @@ Interactive Micro Simulations to help students learn control systems fundamental
 
     Explore how controller gain K and plant time constant τ affect closed-loop step response, steady-state error, and settling time.
 
+-   **[History of Control Systems](./timeline/index.md)**
+
+    ![History of Control Systems](./timeline/timeline.png)
+
+    Interactive timeline spanning from ancient water clocks to AI-enhanced control, showing the evolution of control systems across three eras.
+
 -   **[Learning Graph Viewer](./graph-viewer/index.md)**
 
     ![Learning Graph Viewer](./graph-viewer/graph-viewer.png)
