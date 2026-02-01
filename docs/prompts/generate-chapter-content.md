@@ -33,11 +33,23 @@ Use the file at @docs/chapters/10-stability-routh-hurwitz/index.md
 The reading level is for a college-level course.
 When finished, write the session log to logs/ch-10.md
 
+Use the /chapter-content-generator to generate content for chapter 11.  
+Use the file at @docs/chapters/11-root-locus-analysis-design/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-11.md
+
+Use the /chapter-content-generator to generate content for chapter 12.  
+Use the file at @docs/chapters/12-frequency-response-bode-plots/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-12.md
 
 
-11-root-locus-analysis-design
-12-frequency-response-bode-plots
-13-nyquist-stability-margins
+Use the /chapter-content-generator to generate content for chapter 13.  
+Use the file at @docs/chapters/13-nyquist-stability-margins/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-13.md
+
+
 14-steady-state-error-analysis
 15-pid-control-tuning
 16-compensator-design-performance

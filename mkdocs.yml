@@ -88,6 +88,8 @@ theme:
 plugins:
   - search
 #  - social
+# - social_override
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -117,8 +119,12 @@ extra_javascript:
   - js/katex.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
-#extra:
-#  analytics:
-#    provider: google
-    # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
-#    property: G-XXXX
+
+copyright: Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+
+extra:
+  # remove the "Built with MkDocs" footer
+  generator: false
+  analytics:
+    provider: google
+    property: G-JZNNKZH8FW
