@@ -1,0 +1,184 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "content": "Water Clocks (Clepsydra)",
+      "start": "0300-01-01",
+      "title": "Ancient Greek and Egyptian water clocks used float-based feedback mechanisms to regulate water flow and maintain a roughly constant rate of timekeeping. These are among the earliest known examples of feedback control systems."
+    },
+    {
+      "id": 2,
+      "content": "Ktesibios Float Regulator",
+      "start": "0250-01-01",
+      "title": "Ktesibios of Alexandria introduced a float regulator for water clocks, explicitly using negative feedback to maintain constant water levels, establishing a foundational control principle."
+    },
+    {
+      "id": 3,
+      "content": "Medieval Windmill Governors",
+      "start": "1200-01-01",
+      "title": "Early windmills employed mechanical regulation mechanisms to prevent overspeed under high winds, an early application of feedback for safety and stability."
+    },
+    {
+      "id": 4,
+      "content": "Cornelis Drebbel Thermostat",
+      "start": "1620-01-01",
+      "title": "Drebbel demonstrated a temperature-regulated furnace using feedback, one of the first documented thermostatic control systems."
+    },
+    {
+      "id": 5,
+      "content": "James Watt Steam Engine Governor",
+      "start": "1788-01-01",
+      "title": "Watt’s centrifugal flyball governor automatically regulated engine speed, becoming the canonical example of mechanical feedback control and inspiring centuries of control theory development."
+    },
+    {
+      "id": 6,
+      "content": "Laplace Transform",
+      "start": "1815-01-01",
+      "title": "Pierre-Simon Laplace developed integral transforms that later became essential mathematical tools for modeling and analyzing linear time-invariant control systems."
+    },
+    {
+      "id": 7,
+      "content": "Maxwell Stability Analysis",
+      "start": "1868-01-01",
+      "title": "James Clerk Maxwell published the first formal mathematical analysis of feedback stability in governors, introducing differential equation-based control analysis."
+    },
+    {
+      "id": 8,
+      "content": "Routh Stability Criterion",
+      "start": "1877-01-01",
+      "title": "Edward Routh developed an algebraic method to determine system stability without explicitly solving characteristic equations, a major advance in control analysis."
+    },
+    {
+      "id": 9,
+      "content": "Lyapunov Stability Theory",
+      "start": "1892-01-01",
+      "title": "Aleksandr Lyapunov introduced a general theory for stability of dynamical systems, forming the theoretical backbone of modern nonlinear control."
+    },
+    {
+      "id": 10,
+      "content": "Telephone Feedback Amplifiers",
+      "start": "1912-01-01",
+      "title": "Harold Black and early telephone engineers explored negative feedback in amplifiers, dramatically improving linearity and robustness."
+    },
+    {
+      "id": 11,
+      "content": "Nyquist Stability Criterion",
+      "start": "1932-01-01",
+      "title": "Harry Nyquist developed a frequency-domain method for determining closed-loop stability, enabling analysis of complex feedback systems."
+    },
+    {
+      "id": 12,
+      "content": "PID Control Formalization",
+      "start": "1939-01-01",
+      "title": "Proportional-Integral-Derivative control was formalized for industrial process control, becoming the most widely used control algorithm in history."
+    },
+    {
+      "id": 13,
+      "content": "Bode Plots",
+      "start": "1945-01-01",
+      "title": "Hendrik Bode introduced logarithmic magnitude and phase plots, simplifying frequency-domain design and intuition for control engineers."
+    },
+    {
+      "id": 14,
+      "content": "Servomechanisms (WWII)",
+      "start": "1945-01-01",
+      "title": "Military needs during World War II drove rapid advances in servomechanisms for radar tracking, gun control, and aircraft systems."
+    },
+    {
+      "id": 15,
+      "content": "Root Locus Method",
+      "start": "1948-01-01",
+      "title": "Walter R. Evans developed the root locus technique, allowing designers to visualize how feedback gain affects system poles and stability."
+    },
+    {
+      "id": 16,
+      "content": "State-Space Theory",
+      "start": "1960-01-01",
+      "title": "Modern state-space control theory emerged, enabling multivariable, time-domain analysis and control design beyond classical methods."
+    },
+    {
+      "id": 17,
+      "content": "Kalman Filter",
+      "start": "1960-01-01",
+      "title": "Rudolf Kalman introduced optimal state estimation for noisy systems, revolutionizing navigation, aerospace, and signal processing."
+    },
+    {
+      "id": 18,
+      "content": "Apollo Guidance Computer",
+      "start": "1969-01-01",
+      "title": "The Apollo program demonstrated real-time digital control, guidance, and estimation in safety-critical systems, validating modern control theory in practice."
+    },
+    {
+      "id": 19,
+      "content": "Optimal Control (Pontryagin)",
+      "start": "1962-01-01",
+      "title": "Pontryagin’s Maximum Principle formalized optimal control, enabling fuel-optimal trajectories and constrained system optimization."
+    },
+    {
+      "id": 20,
+      "content": "Robust Control (H-infinity)",
+      "start": "1980-01-01",
+      "title": "H-infinity control methods addressed uncertainty and robustness explicitly, strengthening control design for real-world systems."
+    },
+    {
+      "id": 21,
+      "content": "Industrial PLC Control",
+      "start": "1985-01-01",
+      "title": "Programmable Logic Controllers became dominant in industrial automation, embedding control theory into manufacturing at scale."
+    },
+    {
+      "id": 22,
+      "content": "Anti-lock Braking Systems",
+      "start": "1990-01-01",
+      "title": "ABS brought real-time feedback control into consumer vehicles, improving safety and public awareness of embedded control systems."
+    },
+    {
+      "id": 23,
+      "content": "Fly-by-Wire Aircraft",
+      "start": "1992-01-01",
+      "title": "Digital fly-by-wire systems replaced mechanical linkages, relying entirely on control software for aircraft stability and performance."
+    },
+    {
+      "id": 24,
+      "content": "Model Predictive Control",
+      "start": "1995-01-01",
+      "title": "MPC enabled constrained, optimization-based control in real time, especially in chemical processes and energy systems."
+    },
+    {
+      "id": 25,
+      "content": "Segway Self-Balancing Scooter",
+      "start": "2001-01-01",
+      "title": "The Segway popularized inverted-pendulum control in a consumer product, showcasing real-time sensing, estimation, and feedback control."
+    },
+    {
+      "id": 26,
+      "content": "Robotic Vacuum Cleaners",
+      "start": "2002-01-01",
+      "title": "Consumer robots like Roomba integrated control, sensing, and autonomy into everyday household products."
+    },
+    {
+      "id": 27,
+      "content": "Quadrotor Drones",
+      "start": "2010-01-01",
+      "title": "Low-cost MEMS sensors enabled widespread quadrotor drones, making nonlinear and multivariable control accessible to students and hobbyists."
+    },
+    {
+      "id": 28,
+      "content": "Autonomous Vehicle Control",
+      "start": "2015-01-01",
+      "title": "Advanced control, sensor fusion, and planning algorithms became central to self-driving vehicle research and deployment."
+    },
+    {
+      "id": 29,
+      "content": "Learning-Based Control",
+      "start": "2018-01-01",
+      "title": "Machine learning began augmenting classical control, enabling adaptive and data-driven controllers in complex environments."
+    },
+    {
+      "id": 30,
+      "content": "AI-Enhanced Control Systems",
+      "start": "2023-01-01",
+      "title": "Modern systems integrate classical control, optimization, and AI to manage large-scale, uncertain, and adaptive cyber-physical systems."
+    }
+  ]
+}

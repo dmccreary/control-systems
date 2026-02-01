@@ -131,6 +131,13 @@ MicroSims live in `docs/sims/<sim-name>/` with:
 - `script.js` - JavaScript (vis-network, p5.js, etc.)
 - `local.css` - optional styles
 
+### MicroSim Screenshots
+Always use `~/.local/bin/bk-capture-screenshot` to capture MicroSim screenshots for social media previews:
+```bash
+~/.local/bin/bk-capture-screenshot /path/to/microsim-directory
+```
+This script uses Chrome headless mode to render the MicroSim and saves a PNG with the same name as the directory (e.g., `open-vs-closed-loop.png`).
+
 ### Key Data Files
 - `docs/learning-graph/color-config.json` - taxonomy ID to color mapping
 - `docs/learning-graph/metadata.json` - graph metadata (title, description, creator)
