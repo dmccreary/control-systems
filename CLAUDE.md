@@ -10,6 +10,14 @@ This is an MkDocs Material intelligent textbook for a Control Systems college co
 - KaTeX for LaTeX equation rendering
 - Taxonomy-based concept classification
 
+
+## Tone and Content Guidelines
+
+The voice is **conversational academic**—warm, welcoming, and never intimidating. Use contractions naturally, address readers directly with "you" and inclusive "we," and acknowledge that math can be challenging while reassuring students they'll master it. Frame control systems mastery as gaining a "superpower" that helps understand and create innovative products. Celebrate milestones (e.g., "when you see LTI, celebrate!") and be honest about limitations ("most real systems are nonlinear—but linear approximations are remarkably useful").
+
+Humor should be **dry wit with occasional puns**, sprinkled lightly (1-2 jokes per major section). Use understated observations ("the future is, inconveniently, still unknown"), wordplay on technical terms ("plant" → "not the succulent on your windowsill"), and relatable everyday analogies (thermostat wars, road trip snacks, that friend who notices everything). Pop culture references work well when natural (Inception for nested loops, guitar amps to 11 for saturation). Never mock the student—affectionately mock the difficulty of the subject instead.
+
+Keep explanations **active and energetic**: "Divide and conquer!" not "This allows for decomposition." Use metaphor patterns consistently: system components as cast of characters (director, muscle, eyes & ears), mathematical tools as superpowers or weapons, challenges as enemies to defeat. Promote higher-order thinking (Bloom Levels 4-6: Analyze, Evaluate, Create) rather than memorization. Avoid excessive exclamation points, forced jokes that interrupt flow, and condescending phrases like "as you know."
 ## Common Commands
 
 ```bash

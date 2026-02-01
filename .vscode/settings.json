@@ -6,6 +6,8 @@
         "Mechatronics",
         "Microsite",
         "MIMO",
-        "multivariable"
+        "multivariable",
+        "overdamped",
+        "underdamped"
     ]
 }
