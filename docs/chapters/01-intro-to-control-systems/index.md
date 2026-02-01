@@ -33,8 +33,6 @@ This chapter covers the following 12 concepts from the learning graph:
 
 This chapter assumes only the prerequisites listed in the [course description](../../course-description.md).
 
-
-
 ## Welcome!
 
 ![](mip-in-classroom.png)
@@ -54,6 +52,12 @@ Here's the exciting part: the same principles that make MIP balance also guide s
 By the end of this course, you'll understand how these systems work—and more importantly, how to design them yourself. Think of it as becoming a Jedi Knight of engineering. The Force? That's feedback. Your lightsaber? Transfer functions and Bode plots. Your enemies? Instability and steady-state error. (Don't worry, we'll defeat them.)
 
 Mastering control systems theory is like gaining a superpower. It doesn't just help you understand the world around you—from thermostats to Tesla autopilots—it empowers you to *create* innovative products that seemed impossible before. Ready to begin? Let's go!
+
+## Meet Gyra
+
+![](./meet-gyra-notext.png)
+
+Gyra is a two-wheel, self-balancing robot who lives at the edge of stability. Left on her own, she wobbles, overcorrects, and eventually tips over—not because she is broken, but because physics is unforgiving. Gyra responds to the world through sensors, motors, and feedback, and every choice made in her controller shapes how she behaves. Throughout this course, you will take on the role of Gyra’s control engineer. Many concepts you learn will help her react faster, overshoot less, and recover more gracefully when disturbances occur. By the end of the book, Gyra may still lean and hum quietly as she balances, but she will do so with confidence—because you designed the system that keeps her upright.
 
 ## What Is a Control System?
 

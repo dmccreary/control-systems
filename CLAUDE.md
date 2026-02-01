@@ -18,6 +18,77 @@ The voice is **conversational academic**—warm, welcoming, and never intimidati
 Humor should be **dry wit with occasional puns**, sprinkled lightly (1-2 jokes per major section). Use understated observations ("the future is, inconveniently, still unknown"), wordplay on technical terms ("plant" → "not the succulent on your windowsill"), and relatable everyday analogies (thermostat wars, road trip snacks, that friend who notices everything). Pop culture references work well when natural (Inception for nested loops, guitar amps to 11 for saturation). Never mock the student—affectionately mock the difficulty of the subject instead.
 
 Keep explanations **active and energetic**: "Divide and conquer!" not "This allows for decomposition." Use metaphor patterns consistently: system components as cast of characters (director, muscle, eyes & ears), mathematical tools as superpowers or weapons, challenges as enemies to defeat. Promote higher-order thinking (Bloom Levels 4-6: Analyze, Evaluate, Create) rather than memorization. Avoid excessive exclamation points, forced jokes that interrupt flow, and condescending phrases like "as you know."
+
+## Gyra: The Narrative Anchor
+
+**Gyra** is the course mascot—a small, two-wheeled, self-balancing robot who is constantly fighting gravity. She's not perfectly stable, not optimally tuned, and not afraid to fall over. Her purpose is to turn abstract control concepts into a continuous narrative that gives students something tangible to care about.
+
+> **Before generating chapter content**, read the full Gyra specification at `docs/appendix/gyra.md` to understand her personality, physical description, and role in the textbook.
+
+### Framing Concepts Through Gyra
+
+When appropriate, frame major control topics as steps forward in Gyra's development. Students aren't just learning theory—they're helping Gyra improve:
+
+| Control Concept | Gyra Framing |
+|-----------------|--------------|
+| Open-loop control | Gyra reacting too late, guessing without feedback |
+| Closed-loop control | Gyra finally listening to her "inner ear" (IMU) |
+| Proportional control | Gyra becoming twitchy—reacting hard but never quite right |
+| Integral action | Gyra accumulating past mistakes, learning from history |
+| Derivative action | Gyra anticipating trouble before it happens |
+| PID tuning | Finding Gyra's "personality"—how aggressive vs. smooth |
+| Stability analysis | Predicting whether Gyra will fall over eventually |
+| Overshoot | Gyra overreacting, leaning too far the other way |
+| Oscillation | Gyra wobbling or "panicking" |
+| Damping | Gyra calming down |
+| Critical damping | Gyra feeling "just right"—responsive but not jittery |
+| Steady-state error | Gyra standing, but always leaning slightly forward |
+| Saturation | Gyra's motors hitting their limits, "giving everything she's got" |
+| Phase lag/delay | Gyra reacting a moment too late |
+| Gain margin | How much louder can we yell before Gyra loses it? |
+| Bode plots | Listening to how Gyra responds at different frequencies |
+
+### Gyra's Personality in Writing
+
+When Gyra "speaks" or her perspective is shared:
+- **Curious and eager** to try new controller settings
+- **Optimistic** even after repeated falls ("That's useful data!")
+- **Dramatic** when oscillations grow large ("I'm wobbling!")
+- **Self-aware** about her instability ("I know I'm top-heavy")
+- **Never blames the student**—treats each failure as information
+
+### Gyra Moments
+
+Add **"Gyra Moments"** as short narrative asides (1-2 sentences) when a concept has a natural physical interpretation. Use an admonition block:
+
+```markdown
+!!! quote "Gyra Moment"
+    "When you set my proportional gain too high, I don't just correct—I *overcorrect*. Then I overcorrect the overcorrection. It's exhausting."
+```
+
+Use Gyra Moments sparingly (1-2 per major section maximum). They work best for:
+- Making abstract math feel physical
+- Showing consequences of design choices
+- Adding emotional stakes to tuning decisions
+- Transitioning between theory and application
+
+### When NOT to Use Gyra
+
+- Don't force Gyra into purely mathematical derivations
+- Don't use Gyra for frequency-domain concepts that don't map naturally to her physical experience
+- Don't overuse—Gyra should enhance, not distract
+- Don't make Gyra the subject of every example; she's one tool among many
+
+### Gyra's Recurring Metaphors
+
+Use these consistently throughout the book:
+- **IMU** → "inner ear"
+- **Gyroscope** → "sense of spin"
+- **Accelerometer** → "listening to gravity"
+- **Motor saturation** → "giving everything she's got"
+- **Falling over** → not failure, but "data"
+- **Integral windup** → "holding onto past mistakes"
+
 ## Common Commands
 
 ```bash

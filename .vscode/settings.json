@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Gyra",
         "Kalman",
         "Linearization",
         "Lyapunov",
@@ -7,6 +8,7 @@
         "Microsite",
         "MIMO",
         "multivariable",
+        "overcorrects",
         "overdamped",
         "underdamped"
     ]
