@@ -1,0 +1,75 @@
+{
+  "$schema": "https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json",
+  "title": "Interactive Feedback Loop Simulator",
+  "description": "Interactive simulation demonstrating how proportional controller gain K and plant time constant τ affect closed-loop step response. Students observe real-time changes in steady-state error, settling time, and response speed.",
+  "creator": "Claude AI",
+  "date": "2026-02-01",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "subject": ["Control Systems", "Engineering", "Feedback Control", "Proportional Control"],
+  "gradeLevel": "High School, Undergraduate",
+  "topic": "Closed-Loop Step Response and Proportional Control",
+  "learningObjectives": [
+    "Demonstrate how changing K affects closed-loop response speed",
+    "Calculate steady-state error for a proportional control system",
+    "Predict settling time from system parameters",
+    "Explain why proportional control alone cannot eliminate steady-state error"
+  ],
+  "bloomsTaxonomy": ["Apply"],
+  "duration": "15-20 minutes",
+  "prerequisites": ["Understanding of feedback control concepts", "Basic algebra"],
+  "framework": "p5.js",
+  "canvasDimensions": "responsive x 550",
+  "responsive": "Width-responsive",
+  "dependencies": ["p5.js CDN"],
+  "accessibility": {
+    "screenReaderSupport": true,
+    "describe": "Interactive feedback loop simulator with parameter sliders and animated step response plot"
+  },
+  "controls": [
+    {
+      "type": "slider",
+      "name": "Gain K",
+      "range": "0.5 to 10",
+      "default": 2,
+      "description": "Controller proportional gain"
+    },
+    {
+      "type": "slider",
+      "name": "Tau τ",
+      "range": "0.5 to 3",
+      "default": 1,
+      "description": "Plant time constant in seconds"
+    },
+    {
+      "type": "button",
+      "name": "Run/Pause",
+      "description": "Start or pause the step response animation"
+    },
+    {
+      "type": "button",
+      "name": "Reset",
+      "description": "Reset parameters to defaults"
+    },
+    {
+      "type": "checkbox",
+      "name": "Show error region",
+      "description": "Highlight the area between reference and output"
+    }
+  ],
+  "simulationModel": {
+    "type": "First-Order Closed-Loop System",
+    "plantTransferFunction": "G_p(s) = 1/(τs + 1)",
+    "controllerTransferFunction": "G_c(s) = K",
+    "closedLoopTransferFunction": "G_CL(s) = K/(τs + 1 + K)",
+    "variables": ["K", "tau", "time", "reference", "output"],
+    "equations": [
+      "y_ss = K/(1+K)",
+      "e_ss = 1/(1+K)",
+      "tau_CL = tau/(1+K)",
+      "t_settling = 4 * tau_CL"
+    ],
+    "assumptions": "First-order plant, proportional controller, unit step input at t=1s"
+  }
+}

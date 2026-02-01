@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json",
+  "title": "Standard Feedback Control Loop Block Diagram",
+  "description": "Interactive block diagram showing signal flow through a closed-loop control system. Hover over components to see detailed descriptions and real-world examples. Click to highlight signal paths.",
+  "creator": "Claude AI",
+  "date": "2026-02-01",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "subject": ["Control Systems", "Engineering", "Feedback Control"],
+  "gradeLevel": "High School, Undergraduate",
+  "topic": "Closed-Loop Feedback Control Architecture",
+  "learningObjectives": [
+    "Trace signal flow through a complete feedback control system",
+    "Identify each component's role in the control loop",
+    "Explain how signals transform as they propagate through the loop",
+    "Describe how feedback enables disturbance rejection"
+  ],
+  "bloomsTaxonomy": ["Understand"],
+  "duration": "10-15 minutes",
+  "prerequisites": ["Basic understanding of input/output systems"],
+  "framework": "p5.js",
+  "canvasDimensions": "responsive x 450",
+  "responsive": "Width-responsive",
+  "dependencies": ["p5.js CDN"],
+  "accessibility": {
+    "screenReaderSupport": true,
+    "describe": "Interactive feedback control loop block diagram with hover descriptions and click highlighting"
+  },
+  "controls": [
+    {
+      "type": "hover",
+      "description": "Hover over any block or signal to see detailed description and example"
+    },
+    {
+      "type": "click",
+      "description": "Click on components to highlight and select them"
+    }
+  ],
+  "components": [
+    "Reference Input r(t)",
+    "Summing Junction",
+    "Error Signal e(t)",
+    "Controller Gc(s)",
+    "Control Signal u(t)",
+    "Actuator",
+    "Plant Gp(s)",
+    "Output y(t)",
+    "Disturbance d(t)",
+    "Sensor H(s)",
+    "Measured Output ym(t)"
+  ],
+  "simulationModel": {
+    "type": "Block Diagram",
+    "variables": ["hoveredElement", "selectedElement"],
+    "assumptions": "Standard single-input single-output (SISO) feedback control architecture"
+  }
+}
