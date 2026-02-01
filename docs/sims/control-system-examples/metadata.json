@@ -1,0 +1,40 @@
+{
+  "$schema": "https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json",
+  "title": "Control System Examples in Daily Life",
+  "description": "Interactive infographic showing examples of open-loop and closed-loop control systems in everyday products and devices. Students click on icons to learn about each system's input, output, and feedback characteristics.",
+  "creator": "Claude AI",
+  "date": "2026-02-01",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "subject": ["Control Systems", "Engineering", "Systems Thinking"],
+  "gradeLevel": "High School, Undergraduate",
+  "topic": "Open-Loop and Closed-Loop Control Systems",
+  "learningObjectives": [
+    "Identify control systems in everyday contexts",
+    "Classify systems as open-loop or closed-loop",
+    "Explain the role of feedback in closed-loop systems"
+  ],
+  "bloomsTaxonomy": ["Understand"],
+  "duration": "10-15 minutes",
+  "prerequisites": ["None"],
+  "framework": "p5.js",
+  "canvasDimensions": "responsive x 450",
+  "responsive": "Width-responsive",
+  "dependencies": ["p5.js CDN"],
+  "accessibility": {
+    "screenReaderSupport": true,
+    "describe": "Interactive grid of 6 control system examples with click-to-reveal details"
+  },
+  "controls": [
+    {
+      "type": "click",
+      "description": "Click on any system card to reveal detailed information about input, output, and feedback"
+    }
+  ],
+  "simulationModel": {
+    "type": "Infographic",
+    "variables": ["selectedExample", "hoverExample"],
+    "assumptions": "Simplified representations of real-world systems for educational purposes"
+  }
+}

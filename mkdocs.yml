@@ -32,6 +32,7 @@ nav:
   
   - Sims:
     - List of Sims: sims/index.md
+    - Control System Examples: sims/control-system-examples/index.md
     - Graph Viewer: sims/graph-viewer/index.md
 
   - Appendix:
