@@ -279,6 +279,9 @@ The **time constant** $\tau$ has several equivalent interpretations:
 !!! tip "The Rule of Five Tau"
     Engineers live by the "5τ rule": a first-order system is considered to have reached steady state after approximately $5\tau$ seconds, when it's within 1% of the final value. Commit this to memory—it'll serve you well in exams and in life.
 
+!!! quote "Helping Gyra"
+    Gyra's time constant determines how quickly she responds to disturbances. A small $\tau$ means she reacts fast—great for quick corrections, but potentially twitchy. A large $\tau$ means she responds slowly—smooth and graceful, but maybe too slow to catch herself when pushed. When we tune Gyra's controller, we're effectively choosing her time constant. The 5τ rule tells us how long to wait after a disturbance before we can say "okay, she's settled." If $\tau = 0.2$ seconds, Gyra settles in about 1 second. If $\tau = 2$ seconds, we're waiting 10 seconds. For a robot fighting gravity, that difference matters!
+
 #### Diagram: First-Order Step Response Explorer
 
 <iframe src="../../sims/first-order-response/main.html" width="100%" height="500px" scrolling="no"></iframe>
@@ -388,6 +391,9 @@ The damping ratio creates a classification scheme for second-order systems—and
 | $\zeta > 1$ | Overdamped | Distinct real | Sluggish, no oscillation |
 
 This classification is fundamental—it tells us whether a system will ring like a bell, how fast it will settle, and whether it will overshoot its target. Master this table, and you've got a superpower for predicting system behavior.
+
+!!! quote "Helping Gyra"
+    Gyra lives and breathes damping ratio. When her controller is **underdamped**, she wobbles back and forth before settling—annoying but eventually stable. When she's **overdamped**, she corrects so sluggishly that a gust of wind might knock her over before she finishes responding. But when she's **critically damped**? That's the sweet spot. She returns to upright quickly without any wobble. Finding Gyra's "just right" damping is one of our main jobs as her control engineers. Too twitchy? Lower the gain. Too sluggish? Speed her up. Goldilocks would approve.
 
 ## Damped Frequency
 
@@ -499,6 +505,9 @@ The complex conjugate poles at $s = -\zeta\omega_n \pm j\omega_d$ lie in the lef
 - Imaginary part $\omega_d$ determining oscillation frequency
 
 Here's a practical insight: many engineered systems are *deliberately* designed to be slightly underdamped ($\zeta \approx 0.4$ to $0.7$) because this provides a sweet spot—fast response with acceptable overshoot. It's a conscious design choice, not a failure.
+
+!!! quote "Helping Gyra"
+    When Gyra overshoots, she leans past vertical, catches herself, swings back, overshoots the other way, and gradually settles down. It looks like she's panicking, but she's actually following the math perfectly—this is underdamped second-order behavior in action. The overshoot percentage tells us how far past vertical she'll swing. The ringing frequency tells us how fast she'll wobble. Once you can predict these from $\zeta$ and $\omega_n$, you can tune her controller to minimize the drama while keeping her responsive. A little wobble is often acceptable; falling over is not.
 
 ## Critically Damped Systems
 

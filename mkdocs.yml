@@ -67,7 +67,7 @@ theme:
   name: material
   extra_css:
     - styles/custom.css
-  logo: img/logo.png
+  logo: img/gyra-cropped.png
   favicon: img/favicon.ico
   palette:
     primary: 'maroon'

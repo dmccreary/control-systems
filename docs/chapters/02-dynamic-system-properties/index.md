@@ -241,6 +241,9 @@ where the coefficients $a_i$ and $b_j$ depend only on time (or are constants), N
 !!! warning "Most Real Systems Are Nonlinear"
     Here's a humbling truth: strictly speaking, almost every real physical system is nonlinear! Springs become nonlinear at large deflections. Amplifiers saturate. Friction is often nonlinear. So why do we obsess over linear systems? Because many systems behave approximately linear over a limited operating range—and that approximation unlocks an entire universe of powerful analysis tools. It's like how we use flat-Earth approximations for local navigation—technically wrong, but practically useful!
 
+!!! quote "Helping Gyra"
+    Gyra knows all about nonlinearity. When she's nearly upright, small corrections work beautifully—double the tilt error, double the motor response. But when she's falling over badly? Her motors hit their limits and *saturate*. She's giving everything she's got, but it's not twice as much as before—it's just... everything. This is why we try to keep Gyra in her "linear zone" where corrections are proportional. Once she leaves that zone, our nice LTI analysis goes out the window and things get unpredictable fast.
+
 ## Time-Invariant Systems: The Same Today as Tomorrow
 
 A **time-invariant system** (also called a *shift-invariant* system) is one whose behavior doesn't change over time. If you apply the same input today, tomorrow, or next year, you get the same output (shifted in time accordingly).
@@ -338,6 +341,9 @@ Think of LTI systems as the "sweet spot" of control engineering. They're complex
 
 !!! success "The LTI Assumption"
     Throughout most of this textbook, we assume systems are LTI. This isn't because real systems are perfectly LTI—they're not! It's because the LTI assumption provides such powerful analytical tools that engineers find it worthwhile to linearize around operating points and treat systems as approximately LTI. When in doubt, verify the assumption experimentally!
+
+!!! quote "Helping Gyra"
+    Good news: Gyra is (approximately) an LTI system! Her dynamics don't change whether it's Tuesday or Saturday, and small tilts produce proportionally small motor corrections. This means all the powerful tools we're developing—transfer functions, frequency response, stability analysis—apply directly to helping her stay upright. Of course, if you push her too hard, her motors saturate and linearity breaks down. But within her normal operating range? LTI all the way. That's why we can actually *design* her controller mathematically instead of just guessing.
 
 ## Causality: No Crystal Balls Allowed
 
