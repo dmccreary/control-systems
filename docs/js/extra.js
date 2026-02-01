@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Find all quote admonitions with "Gyra" in the title (Gyra Moment, Helping Gyra, etc.)
+    document.querySelectorAll(".admonition.quote").forEach((admonition) => {
+        const title = admonition.querySelector(".admonition-title");
+        if (title && title.textContent.toLowerCase().includes("gyra")) {
+            admonition.classList.add("gyra-moment");
+        }
+    });
+
     // Find all admonitions with the "prompt" class
     document.querySelectorAll(".admonition.prompt").forEach((admonition) => {
         // Create a "Copy" button

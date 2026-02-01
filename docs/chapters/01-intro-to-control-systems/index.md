@@ -86,6 +86,7 @@ Learning Objective: Students will identify control systems in everyday contexts 
 Layout: Interactive grid of 6-8 clickable icons representing common systems
 
 Examples to include:
+
 1. Toaster (open-loop) - timer-based, no measurement of bread color
 2. Thermostat/HVAC (closed-loop) - temperature sensor provides feedback
 3. Washing machine timer (open-loop) - fixed cycle regardless of cleanliness
@@ -102,6 +103,9 @@ Visual style: Clean icons with modern flat design, arranged in 2 rows of 3-4
 
 Implementation: HTML/CSS/JavaScript with click handlers revealing info panels
 </details>
+
+For a longer list of consumer products that use control theory see
+our Appendix: [Consumer Products that Use Control Theory](../../appendix/consumer-products-that-use-control-theory.md)
 
 ## Open-Loop Control
 

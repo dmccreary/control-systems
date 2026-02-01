@@ -1,6 +1,8 @@
-# Gyra: The Balancing Robot Mascot of Control Systems
+# Meet Gyra
 
-## Overview
+![Gyra the mostly balancing robot](../img/gyra.png)
+
+## Meet Gyra - Our (un)Balancing Robot Mascot
 
 Gyra is the official mascot of this control systems course. She is a small, two-wheel, self-balancing robot who is constantly fighting gravity. Gyra is not perfectly stable, not optimally tuned, and not afraid to fall over. Her purpose in the textbook is to turn abstract control concepts into a continuous narrative that gives students something tangible to care about.
 
@@ -122,11 +124,4 @@ That is what makes her a control system.
 
 And that is why she belongs in this textbook.
 
----
-
-If you want, next we can:
-
-* Add short “Gyra Moments” callout boxes per chapter
-* Map Gyra explicitly to each Bloom taxonomy level
-* Write a one-page illustrated origin story for the front of the book
-* Define a Gyra icon and silhouette spec for diagrams and MicroSims
+Note that Gyra was inspired by the real-world [MIP Robot](https://wowwee.com/mip/)

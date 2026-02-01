@@ -59,12 +59,18 @@ When Gyra "speaks" or her perspective is shared:
 
 ### Gyra Moments
 
-Add **"Gyra Moments"** as short narrative asides (1-2 sentences) when a concept has a natural physical interpretation. Use an admonition block:
+Add **"Gyra Moments"** as short narrative asides when a concept has a natural physical interpretation. Use a quote admonition with "Gyra" in the title:
 
 ```markdown
 !!! quote "Gyra Moment"
     "When you set my proportional gain too high, I don't just correct—I *overcorrect*. Then I overcorrect the overcorrection. It's exhausting."
+
+!!! quote "Helping Gyra"
+    When Gyra overshoots, she leans past vertical, catches herself, and swings back.
+    This is underdamped second-order behavior in action.
 ```
+
+**Automatic icon:** Any quote admonition with "Gyra" in the title (e.g., "Gyra Moment", "Helping Gyra", "Gyra Says") automatically displays a small Gyra robot icon in the upper-right corner and gets a pink accent color. This is handled by `docs/js/extra.js` and `docs/css/extra.css`.
 
 Use Gyra Moments sparingly (1-2 per major section maximum). They work best for:
 - Making abstract math feel physical

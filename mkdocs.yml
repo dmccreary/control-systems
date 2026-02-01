@@ -34,6 +34,10 @@ nav:
     - List of Sims: sims/index.md
     - Graph Viewer: sims/graph-viewer/index.md
 
+  - Appendix:
+    - List of Appendices: appendix/index.md
+    - Gyra: appendix/gyra.md
+    - Consumer Products that Use Control Systems: appendix/consumer-products-that-use-control-systems.md
   
   - Learning Graph:
     - Introduction: learning-graph/index.md
