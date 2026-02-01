@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Graphical analysis of closed-loop pole movement as gain varies, enabling systematic controller design through pole placement">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>11. Root Locus Analysis - Control Systems</title>
+        <title>Root Locus Analysis and Design - Control Systems</title>
       
     
     
@@ -59,6 +59,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JZNNKZH8FW"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JZNNKZH8FW",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JZNNKZH8FW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -115,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11. Root Locus Analysis
+              Root Locus Analysis and Design
             
           </span>
         </div>
@@ -692,6 +702,633 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-stability-boundaries-to-pole-trajectories" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Stability Boundaries to Pole Trajectories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-root-locus-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Root Locus Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Root Locus Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-feedback-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Feedback System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-angle-and-magnitude-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Angle and Magnitude Conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Angle and Magnitude Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angle-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angle Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angle Calculation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-angle-condition-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Angle Condition Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-construction-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Construction Rules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Construction Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-number-of-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 1: Number of Branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 1: Number of Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-of-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Branches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-starting-points-and-ending-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 2: Starting Points and Ending Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-3-symmetry-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 3: Symmetry Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-4-real-axis-segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 4: Real-Axis Segments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 4: Real-Axis Segments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-axis-segment-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Axis Segment Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-5-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 5: Asymptotes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 5: Asymptotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asymptote-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptote Angles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centroid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-asymptote-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Asymptote Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-6-breakaway-and-break-in-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 6: Breakaway and Break-In Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 6: Breakaway and Break-In Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breakaway-point-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakaway Point Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breakaway-point-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakaway Point Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-7-departure-and-arrival-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 7: Departure and Arrival Angles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 7: Departure and Arrival Angles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#departure-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Departure Angle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrival-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrival Angle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#departure-angle-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Departure Angle Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-8-imaginary-axis-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 8: Imaginary Axis Crossing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 8: Imaginary Axis Crossing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imaginary-axis-crossing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imaginary Axis Crossing Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complete-root-locus-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complete Root Locus Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-root-locus-a-complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading the Root Locus: A Complete Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading the Root Locus: A Complete Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-magnitude-condition-and-gain-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Magnitude Condition and Gain Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Magnitude Condition and Gain Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-condition-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Condition (Gain Formula)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gain-calculation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Calculation Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-gain-and-system-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Gain and System Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Gain and System Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gain-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gain-Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gain-adjustment-for-desired-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Adjustment for Desired Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Adjustment for Desired Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-example-meeting-a-damping-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Example: Meeting a Damping Requirement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominant-pole-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dominant Pole Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominant-pole-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Criterion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominant-pole-design-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Design Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-placement-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole Placement Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole Placement Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pole-placement-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Pole Placement Designer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-compensation-effects-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Compensation Effects Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-root-locus-to-previous-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Root Locus to Previous Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-root-locus-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Root Locus Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,9 +1625,7 @@
     
       
         
-      
-        
-      
+          
         
       
         
@@ -1008,7 +1643,7 @@
         
   
   
-    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1180,6 +1815,633 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-stability-boundaries-to-pole-trajectories" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Stability Boundaries to Pole Trajectories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-root-locus-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Root Locus Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Root Locus Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-feedback-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Feedback System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-angle-and-magnitude-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Angle and Magnitude Conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Angle and Magnitude Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angle-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angle Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angle Calculation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-angle-condition-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Angle Condition Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-construction-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Construction Rules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Construction Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-number-of-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 1: Number of Branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 1: Number of Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-of-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Branches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-starting-points-and-ending-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 2: Starting Points and Ending Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-3-symmetry-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 3: Symmetry Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-4-real-axis-segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 4: Real-Axis Segments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 4: Real-Axis Segments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-axis-segment-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Axis Segment Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-5-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 5: Asymptotes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 5: Asymptotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asymptote-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptote Angles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centroid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-asymptote-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Asymptote Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-6-breakaway-and-break-in-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 6: Breakaway and Break-In Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 6: Breakaway and Break-In Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breakaway-point-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakaway Point Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breakaway-point-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakaway Point Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-7-departure-and-arrival-angles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 7: Departure and Arrival Angles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 7: Departure and Arrival Angles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#departure-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Departure Angle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrival-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrival Angle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#departure-angle-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Departure Angle Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-8-imaginary-axis-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule 8: Imaginary Axis Crossing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule 8: Imaginary Axis Crossing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imaginary-axis-crossing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imaginary Axis Crossing Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complete-root-locus-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complete Root Locus Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-root-locus-a-complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading the Root Locus: A Complete Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading the Root Locus: A Complete Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-magnitude-condition-and-gain-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Magnitude Condition and Gain Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Magnitude Condition and Gain Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-condition-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Condition (Gain Formula)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gain-calculation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Calculation Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-gain-and-system-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Gain and System Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Gain and System Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gain-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gain-Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gain-adjustment-for-desired-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Adjustment for Desired Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Adjustment for Desired Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-example-meeting-a-damping-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Example: Meeting a Damping Requirement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominant-pole-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dominant Pole Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominant-pole-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Criterion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominant-pole-design-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Pole Design Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-placement-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole Placement Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole Placement Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pole-placement-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Pole Placement Designer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#root-locus-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Locus Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Locus Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-compensation-effects-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Compensation Effects Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-root-locus-to-previous-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Root Locus to Previous Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-root-locus-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Root Locus Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1235,7 +2497,1071 @@
 <li><a href="../10-stability-routh-hurwitz/">Chapter 10: Stability Analysis and Routh-Hurwitz</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="from-stability-boundaries-to-pole-trajectories">From Stability Boundaries to Pole Trajectories</h2>
+<p>In Chapter 10, you learned to answer the binary question: "Is this system stable?" The Routh-Hurwitz criterion tells you whether poles are in the left or right half-plane, and it identifies the stability boundary—the critical gain where poles cross the imaginary axis. That's powerful, but it leaves you wanting more. <em>Where exactly are those poles?</em> How do they move as gain changes? If I want faster response, which way should I push the gain?</p>
+<p>The <strong>root locus</strong> answers all of these questions with a single elegant diagram. It's a graphical technique that shows the complete trajectory of closed-loop poles as a parameter (usually gain <span class="arithmatex">\(K\)</span>) varies from zero to infinity. One glance at a root locus plot tells you:</p>
+<ul>
+<li>Where the poles start (when <span class="arithmatex">\(K = 0\)</span>)</li>
+<li>Where they end (as <span class="arithmatex">\(K \to \infty\)</span>)</li>
+<li>How they travel between these endpoints</li>
+<li>When they cross into the unstable region</li>
+<li>What gain values yield specific pole locations</li>
+</ul>
+<p>This isn't just analysis—it's a design tool. Want your dominant poles at a specific location for a target damping ratio and natural frequency? The root locus shows you exactly what gain achieves that. Want to know if adding a compensator will help? Sketch the new root locus and see how the trajectories change.</p>
+<p>Walter R. Evans developed the root locus method in the 1940s while working on aircraft flight control systems at North American Aviation. Before computers made numerical root-finding trivial, Evans' graphical technique was revolutionary—it gave engineers insight into parameter sensitivity that no amount of calculation could easily provide. Even today, with MATLAB and Python at our fingertips, the root locus remains the preferred tool for understanding how systems behave as parameters change. The visualization it provides is irreplaceable.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My engineers don't just test one gain value at a time—they use root locus to see my entire stability future in a single plot. When they're tuning my controller, they literally watch my poles migrate across the s-plane. Move a slider, and my poles shift. Push the gain too high, and they watch my poles march toward the right half-plane. The root locus is a movie of my fate, parameterized by gain."</p>
+</div>
+<h2 id="the-root-locus-concept">The Root Locus Concept</h2>
+<p>The root locus is the set of all possible locations of closed-loop poles as a system parameter varies. Consider the standard negative feedback configuration:</p>
+<h4 id="standard-feedback-system">Standard Feedback System</h4>
+<p><img alt="Standard Feedback Configuration" src="../../img/standard-feedback.png" /></p>
+<p>The closed-loop transfer function is:</p>
+<p><span class="arithmatex">\(T(s) = \frac{KG(s)}{1 + KG(s)H(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is the adjustable gain</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the forward path (plant) transfer function</li>
+<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+</ul>
+<p>The closed-loop poles are the roots of the characteristic equation:</p>
+<h4 id="characteristic-equation">Characteristic Equation</h4>
+<p><span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span></p>
+<p>This can be rewritten as:</p>
+<p><span class="arithmatex">\(KG(s)H(s) = -1\)</span></p>
+<p>As <span class="arithmatex">\(K\)</span> varies from 0 to ∞, the roots of this equation trace out curves in the s-plane. These curves constitute the root locus.</p>
+<p>Here's the key insight: when <span class="arithmatex">\(K = 0\)</span>, the characteristic equation becomes <span class="arithmatex">\(1 = 0\)</span>, which is never satisfied—except at the poles of <span class="arithmatex">\(G(s)H(s)\)</span>, where the loop gain becomes infinite. As <span class="arithmatex">\(K\)</span> increases, the roots migrate away from the open-loop poles. As <span class="arithmatex">\(K \to \infty\)</span>, the roots approach the zeros of <span class="arithmatex">\(G(s)H(s)\)</span> or head off to infinity along asymptotes.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Value</th>
+<th>Root Locations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(K = 0\)</span></td>
+<td>At open-loop poles</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K &gt; 0\)</span> (small)</td>
+<td>Near open-loop poles</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = K_{critical}\)</span></td>
+<td>On stability boundary</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K \to \infty\)</span></td>
+<td>At open-loop zeros or infinity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-angle-and-magnitude-conditions">The Angle and Magnitude Conditions</h2>
+<p>The characteristic equation <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span> can be written as:</p>
+<p><span class="arithmatex">\(G(s)H(s) = -\frac{1}{K}\)</span></p>
+<p>For a point <span class="arithmatex">\(s\)</span> to lie on the root locus, two conditions must be satisfied simultaneously.</p>
+<h4 id="angle-condition">Angle Condition</h4>
+<p><span class="arithmatex">\(\angle G(s)H(s) = (2k+1) \times 180°\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\angle G(s)H(s)\)</span> is the angle of the complex number <span class="arithmatex">\(G(s)H(s)\)</span></li>
+<li><span class="arithmatex">\(k\)</span> is any integer (0, 1, 2, ...)</li>
+</ul>
+<p>This is the <strong>angle condition</strong>—the phase of the open-loop transfer function at any point on the root locus must be an odd multiple of 180°.</p>
+<h4 id="magnitude-condition">Magnitude Condition</h4>
+<p><span class="arithmatex">\(|G(s)H(s)| = \frac{1}{K}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(|G(s)H(s)|\)</span> is the magnitude of <span class="arithmatex">\(G(s)H(s)\)</span> at point <span class="arithmatex">\(s\)</span></li>
+<li><span class="arithmatex">\(K\)</span> is the gain that places a closed-loop pole at <span class="arithmatex">\(s\)</span></li>
+</ul>
+<p>The <strong>magnitude condition</strong> tells us the value of <span class="arithmatex">\(K\)</span> required to place a pole at any specific point on the root locus.</p>
+<p>The angle condition determines <em>which</em> points are on the root locus. The magnitude condition determines <em>what gain</em> corresponds to each point. This separation is powerful: we can first sketch the locus using angle criteria alone, then find gains as needed using the magnitude condition.</p>
+<p>To compute angles, express <span class="arithmatex">\(G(s)H(s)\)</span> in factored form:</p>
+<p><span class="arithmatex">\(G(s)H(s) = \frac{K \prod_{i=1}^{m}(s-z_i)}{\prod_{j=1}^{n}(s-p_j)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(z_i\)</span> are the open-loop zeros</li>
+<li><span class="arithmatex">\(p_j\)</span> are the open-loop poles</li>
+<li><span class="arithmatex">\(m\)</span> is the number of zeros</li>
+<li><span class="arithmatex">\(n\)</span> is the number of poles</li>
+</ul>
+<p>The angle at any point <span class="arithmatex">\(s\)</span> is:</p>
+<h4 id="angle-calculation">Angle Calculation</h4>
+<p><span class="arithmatex">\(\angle G(s)H(s) = \sum_{i=1}^{m}\angle(s-z_i) - \sum_{j=1}^{n}\angle(s-p_j)\)</span></p>
+<p>Sum of angles from zeros minus sum of angles from poles. For a point to be on the root locus, this difference must equal ±180°, ±540°, etc.</p>
+<h4 id="diagram-angle-condition-visualizer">Diagram: Angle Condition Visualizer</h4>
+<iframe src="../../sims/angle-condition/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Angle Condition Visualizer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain how angles from poles and zeros determine whether a point lies on the root locus.</p>
+<p>Canvas layout:
+- Main area (75%): S-plane with poles, zeros, and test point
+- Right panel (25%): Angle calculations and sum</p>
+<p>Visual elements:
+S-Plane:
+- Complex plane with σ (real) and jω (imaginary) axes
+- Open-loop poles marked with × in blue
+- Open-loop zeros marked with ○ in red
+- Draggable test point (green dot)
+- Vectors drawn from each pole and zero to test point
+- Angle arcs shown at each pole and zero
+- Different colors for pole angles vs zero angles</p>
+<p>Angle Panel:
+- List of individual angles from zeros: φ₁, φ₂, ...
+- List of individual angles from poles: θ₁, θ₂, ...
+- Sum of zero angles
+- Sum of pole angles
+- Net angle: Σφ - Σθ
+- Status indicator: "ON ROOT LOCUS" (green) or "NOT ON ROOT LOCUS" (red)
+- Target: ±180°, ±540°, etc.</p>
+<p>Interactive controls:
+- Drag test point anywhere on s-plane
+- Preset examples dropdown (simple second-order, complex poles, with zeros)
+- Toggle: Show/hide angle arcs
+- Toggle: Show/hide vectors
+- Button: Animate test point along root locus</p>
+<p>Data Visibility Requirements:
+- Stage 1: Show pole and zero locations
+- Stage 2: Draw vectors from poles/zeros to test point
+- Stage 3: Display individual angles with values
+- Stage 4: Calculate and display sum
+- Stage 5: Compare to 180° criterion</p>
+<p>Behavior:
+- Angles update in real-time as test point is dragged
+- Root locus curve shown faintly in background
+- When test point is exactly on root locus, indicators turn green
+- Near-misses show how far off the angle is</p>
+<p>Instructional Rationale: Direct manipulation of the test point with immediate angle feedback helps students internalize why certain s-plane regions are on the locus and others are not. Seeing the angle sum change continuously builds geometric intuition.</p>
+<p>Implementation: p5.js with draggable elements and real-time angle calculation</p>
+</details>
+<h2 id="root-locus-construction-rules">Root Locus Construction Rules</h2>
+<p>While modern software generates root locus plots instantly, understanding the construction rules provides crucial insight into system behavior. These rules allow you to sketch the qualitative shape of the root locus by hand and, more importantly, to predict how design changes will affect the locus.</p>
+<h3 id="rule-1-number-of-branches">Rule 1: Number of Branches</h3>
+<p>The root locus has <span class="arithmatex">\(n\)</span> branches, where <span class="arithmatex">\(n\)</span> is the number of open-loop poles (the order of the characteristic equation). Each branch starts at an open-loop pole and represents the trajectory of one closed-loop pole.</p>
+<h4 id="number-of-branches">Number of Branches</h4>
+<p><span class="arithmatex">\(\text{Number of branches} = n = \text{number of open-loop poles}\)</span></p>
+<h3 id="rule-2-starting-points-and-ending-points">Rule 2: Starting Points and Ending Points</h3>
+<p><strong>Starting points</strong> (<span class="arithmatex">\(K = 0\)</span>): Each branch begins at an open-loop pole. When <span class="arithmatex">\(K = 0\)</span>, the closed-loop poles equal the open-loop poles.</p>
+<p><strong>Ending points</strong> (<span class="arithmatex">\(K \to \infty\)</span>): Branches end at open-loop zeros or at infinity. There are <span class="arithmatex">\(m\)</span> zeros (counting any at infinity). The <span class="arithmatex">\(m\)</span> branches approaching finite zeros terminate there; the remaining <span class="arithmatex">\((n-m)\)</span> branches head to infinity along asymptotes.</p>
+<table>
+<thead>
+<tr>
+<th>Number of</th>
+<th>Symbol</th>
+<th>Where Branches...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open-loop poles</td>
+<td><span class="arithmatex">\(n\)</span></td>
+<td>Start</td>
+</tr>
+<tr>
+<td>Open-loop zeros</td>
+<td><span class="arithmatex">\(m\)</span></td>
+<td>End (finite)</td>
+</tr>
+<tr>
+<td>Zeros at infinity</td>
+<td><span class="arithmatex">\(n-m\)</span></td>
+<td>End (along asymptotes)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rule-3-symmetry-property">Rule 3: Symmetry Property</h3>
+<p>The root locus is symmetric about the real axis. Complex poles and zeros always come in conjugate pairs (for systems with real coefficients), so the locus must be symmetric. When sketching, you only need to determine the upper half—the lower half is the mirror image.</p>
+<h3 id="rule-4-real-axis-segments">Rule 4: Real-Axis Segments</h3>
+<p>A point on the real axis lies on the root locus if and only if there is an <strong>odd number of real poles and zeros to its right</strong>.</p>
+<p>This rule emerges from the angle condition. For a real test point:</p>
+<ul>
+<li>Complex poles/zeros contribute angles that cancel (conjugate pairs)</li>
+<li>Real poles/zeros to the right contribute 180° each</li>
+<li>Real poles/zeros to the left contribute 0° each</li>
+</ul>
+<p>For the total angle to be ±180°, we need an odd count from the right.</p>
+<h4 id="real-axis-segment-example">Real-Axis Segment Example</h4>
+<p>Consider a system with poles at <span class="arithmatex">\(s = 0\)</span>, <span class="arithmatex">\(s = -2\)</span>, <span class="arithmatex">\(s = -4\)</span> and a zero at <span class="arithmatex">\(s = -3\)</span>.</p>
+<ul>
+<li>From <span class="arithmatex">\(s = 0\)</span> to <span class="arithmatex">\(s = -2\)</span>: One pole to the right → ON locus</li>
+<li>From <span class="arithmatex">\(s = -2\)</span> to <span class="arithmatex">\(s = -3\)</span>: Two poles to the right → OFF locus</li>
+<li>From <span class="arithmatex">\(s = -3\)</span> to <span class="arithmatex">\(s = -4\)</span>: Two poles + one zero to the right (3 total) → ON locus</li>
+<li>To the left of <span class="arithmatex">\(s = -4\)</span>: All four singularities to the right (4 total) → OFF locus</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Quick Real-Axis Check</p>
+<p>Count poles and zeros on the real axis. Shade segments that have an odd count to their right. The root locus exists on these shaded segments.</p>
+</div>
+<h3 id="rule-5-asymptotes">Rule 5: Asymptotes</h3>
+<p>As <span class="arithmatex">\(K \to \infty\)</span>, the <span class="arithmatex">\((n-m)\)</span> branches that don't end at finite zeros go to infinity along straight-line asymptotes. These asymptotes radiate from a common point (the centroid) at specific angles.</p>
+<h4 id="asymptote-angles">Asymptote Angles</h4>
+<p><span class="arithmatex">\(\phi_k = \frac{(2k+1) \times 180°}{n-m}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\phi_k\)</span> is the angle of the <span class="arithmatex">\(k\)</span>th asymptote</li>
+<li><span class="arithmatex">\(k = 0, 1, 2, \ldots, (n-m-1)\)</span></li>
+<li><span class="arithmatex">\(n\)</span> is the number of poles</li>
+<li><span class="arithmatex">\(m\)</span> is the number of zeros</li>
+</ul>
+<h4 id="centroid">Centroid</h4>
+<p><span class="arithmatex">\(\sigma_c = \frac{\sum \text{poles} - \sum \text{zeros}}{n-m}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\sigma_c\)</span> is the real-axis intersection of all asymptotes</li>
+<li>The sums are over the real parts of poles and zeros</li>
+</ul>
+<p>The centroid is a single point on the real axis where all asymptotes meet. The asymptotes then extend at angles <span class="arithmatex">\(\phi_k\)</span> from this point.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(n-m\)</span></th>
+<th>Asymptote Angles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>180°</td>
+</tr>
+<tr>
+<td>2</td>
+<td>±90°</td>
+</tr>
+<tr>
+<td>3</td>
+<td>60°, 180°, -60°</td>
+</tr>
+<tr>
+<td>4</td>
+<td>±45°, ±135°</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-asymptote-calculator">Diagram: Asymptote Calculator</h4>
+<iframe src="../../sims/asymptotes/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Asymptote Calculator</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, use</p>
+<p>Learning Objective: Students will calculate asymptote angles and centroid location for systems with various pole-zero configurations.</p>
+<p>Canvas layout:
+- Left (60%): S-plane with poles, zeros, centroid, and asymptotes
+- Right (40%): Calculation panel with step-by-step formulas</p>
+<p>Visual elements:
+S-Plane:
+- Open-loop poles (×) and zeros (○)
+- Centroid marked with distinct symbol (★)
+- Asymptotes as dashed lines radiating from centroid
+- Angle annotations on each asymptote
+- Real axis emphasized</p>
+<p>Calculation Panel:
+- n = [number of poles]
+- m = [number of zeros]
+- n - m = [excess poles]
+- Sum of poles: [value]
+- Sum of zeros: [value]
+- Centroid σc = (Σpoles - Σzeros)/(n-m) = [value]
+- Asymptote angles: φ₀ = [value], φ₁ = [value], ...</p>
+<p>Interactive controls:
+- Input: Number of poles (1-5)
+- Input: Number of zeros (0 to n-1)
+- Draggable poles and zeros on s-plane
+- Preset examples dropdown
+- Button: Add pole/zero
+- Button: Reset</p>
+<p>Data Visibility Requirements:
+- Show all poles and zeros with numerical values
+- Display calculation for centroid step-by-step
+- Show each asymptote angle calculation
+- Display centroid location on s-plane</p>
+<p>Behavior:
+- As poles/zeros are moved, centroid and asymptotes update in real-time
+- Calculation panel shows formulas with substituted values
+- Asymptotes visually extend toward infinity at correct angles
+- Warning if m ≥ n (improper system)</p>
+<p>Instructional Rationale: Seeing asymptotes update as poles and zeros move builds intuition for how pole-zero configuration affects high-gain behavior. The calculation panel reinforces the formulas while students explore.</p>
+<p>Implementation: p5.js with draggable elements and dynamic calculation display</p>
+</details>
+<h3 id="rule-6-breakaway-and-break-in-points">Rule 6: Breakaway and Break-In Points</h3>
+<p><strong>Breakaway points</strong> are locations where root locus branches leave the real axis and become complex. <strong>Break-in points</strong> are where complex branches return to the real axis.</p>
+<p>These occur on real-axis segments of the root locus, between poles (breakaway) or between zeros (break-in), at points where <span class="arithmatex">\(K\)</span> reaches a local maximum or minimum.</p>
+<p>To find breakaway/break-in points:</p>
+<h4 id="breakaway-point-condition">Breakaway Point Condition</h4>
+<p><span class="arithmatex">\(\frac{dK}{ds} = 0\)</span></p>
+<p>Equivalently, from <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span>, solve:</p>
+<p><span class="arithmatex">\(\frac{d}{ds}\left[\frac{-1}{G(s)H(s)}\right] = 0\)</span></p>
+<p>For simple cases with real poles and zeros:</p>
+<p><span class="arithmatex">\(\sum_{j=1}^{n} \frac{1}{s-p_j} = \sum_{i=1}^{m} \frac{1}{s-z_i}\)</span></p>
+<p>Solve for <span class="arithmatex">\(s\)</span> on real-axis segments of the locus.</p>
+<h4 id="breakaway-point-example">Breakaway Point Example</h4>
+<p>For <span class="arithmatex">\(G(s) = \frac{K}{s(s+4)}\)</span> (poles at 0 and -4, no finite zeros):</p>
+<p>The real-axis segment from 0 to -4 is on the locus. Setting:</p>
+<p><span class="arithmatex">\(\frac{1}{s} + \frac{1}{s+4} = 0\)</span></p>
+<p><span class="arithmatex">\((s+4) + s = 0\)</span></p>
+<p><span class="arithmatex">\(2s + 4 = 0\)</span></p>
+<p><span class="arithmatex">\(s = -2\)</span></p>
+<p>The breakaway point is at <span class="arithmatex">\(s = -2\)</span>. At this point, the two branches meet on the real axis and then depart at ±90° into the complex plane.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"Breakaway points are where my poles say goodbye to the real axis and head into complex territory. Below my breakaway gain, I have two distinct real poles—overdamped, sluggish. Above it, I have complex conjugate poles—oscillation appears! The breakaway point is my transition from 'boring but stable' to 'responsive but bouncy.'"</p>
+</div>
+<h3 id="rule-7-departure-and-arrival-angles">Rule 7: Departure and Arrival Angles</h3>
+<p>When the root locus leaves a complex pole or arrives at a complex zero, it does so at a specific angle. These angles are crucial for accurately sketching the locus near complex singularities.</p>
+<h4 id="departure-angle">Departure Angle</h4>
+<p><span class="arithmatex">\(\theta_{dep} = 180° - \sum(\text{angles from other poles}) + \sum(\text{angles from all zeros})\)</span></p>
+<p>All angles measured from the complex pole in question to other poles and zeros.</p>
+<h4 id="arrival-angle">Arrival Angle</h4>
+<p><span class="arithmatex">\(\phi_{arr} = 180° - \sum(\text{angles from all poles}) + \sum(\text{angles from other zeros})\)</span></p>
+<p>All angles measured from the complex zero in question.</p>
+<h4 id="departure-angle-example">Departure Angle Example</h4>
+<p>Consider <span class="arithmatex">\(G(s)H(s) = \frac{K}{(s+1)(s^2+2s+2)}\)</span></p>
+<p>The quadratic factor has roots at <span class="arithmatex">\(s = -1 \pm j1\)</span> (complex conjugate poles).</p>
+<p>For the pole at <span class="arithmatex">\(s = -1 + j\)</span>:</p>
+<ul>
+<li>Angle from pole at <span class="arithmatex">\(s = -1\)</span>: <span class="arithmatex">\(\angle[(-1+j) - (-1)] = \angle[j] = 90°\)</span></li>
+<li>Angle from conjugate pole at <span class="arithmatex">\(s = -1-j\)</span>: <span class="arithmatex">\(\angle[(-1+j) - (-1-j)] = \angle[2j] = 90°\)</span></li>
+</ul>
+<p>Departure angle: <span class="arithmatex">\(\theta_{dep} = 180° - 90° - 90° = 0°\)</span></p>
+<p>The locus departs horizontally from this pole (toward the left, as it turns out).</p>
+<h3 id="rule-8-imaginary-axis-crossing">Rule 8: Imaginary Axis Crossing</h3>
+<p>The imaginary axis crossing determines the critical gain for stability—the same boundary we found with Routh-Hurwitz in Chapter 10. There are two methods:</p>
+<p><strong>Method 1: Routh-Hurwitz</strong>
+Set the first-column element that goes to zero equal to zero and solve for <span class="arithmatex">\(K\)</span>. The auxiliary polynomial gives the crossing frequency.</p>
+<p><strong>Method 2: Direct Substitution</strong>
+Substitute <span class="arithmatex">\(s = j\omega\)</span> into the characteristic equation and set real and imaginary parts separately to zero. Solve for <span class="arithmatex">\(\omega\)</span> and <span class="arithmatex">\(K\)</span>.</p>
+<h4 id="imaginary-axis-crossing-example">Imaginary Axis Crossing Example</h4>
+<p>For <span class="arithmatex">\(1 + \frac{K}{s(s+2)(s+4)} = 0\)</span></p>
+<p>Characteristic equation: <span class="arithmatex">\(s^3 + 6s^2 + 8s + K = 0\)</span></p>
+<p>Substitute <span class="arithmatex">\(s = j\omega\)</span>:</p>
+<p><span class="arithmatex">\((j\omega)^3 + 6(j\omega)^2 + 8(j\omega) + K = 0\)</span></p>
+<p><span class="arithmatex">\(-j\omega^3 - 6\omega^2 + 8j\omega + K = 0\)</span></p>
+<p>Real part: <span class="arithmatex">\(-6\omega^2 + K = 0 \Rightarrow K = 6\omega^2\)</span></p>
+<p>Imaginary part: <span class="arithmatex">\(-\omega^3 + 8\omega = 0 \Rightarrow \omega(\omega^2 - 8) = 0\)</span></p>
+<p>So <span class="arithmatex">\(\omega = \sqrt{8} = 2\sqrt{2}\)</span> rad/s (ignoring <span class="arithmatex">\(\omega = 0\)</span>)</p>
+<p>And <span class="arithmatex">\(K = 6 \times 8 = 48\)</span></p>
+<p>The root locus crosses the imaginary axis at <span class="arithmatex">\(s = \pm j2\sqrt{2}\)</span> when <span class="arithmatex">\(K = 48\)</span>.</p>
+<h4 id="diagram-complete-root-locus-constructor">Diagram: Complete Root Locus Constructor</h4>
+<iframe src="../../sims/root-locus-constructor/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Complete Root Locus Constructor</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, organize</p>
+<p>Learning Objective: Students will analyze root locus plots by identifying key features (asymptotes, breakaway points, departure angles, crossings) and understanding their relationship to system behavior.</p>
+<p>Canvas layout:
+- Main area (70%): S-plane with complete root locus
+- Side panel (30%): Feature checklist and gain slider with response</p>
+<p>Visual elements:
+S-Plane:
+- Open-loop poles (×) and zeros (○)
+- Complete root locus curves
+- Asymptotes (dashed lines)
+- Centroid marked
+- Breakaway/break-in points highlighted
+- Departure/arrival angles shown with arcs
+- Imaginary axis crossings marked with diamonds
+- Current operating point based on gain slider</p>
+<p>Feature Panel:
+- Checklist of root locus features:
+  - [ ] Starting points (poles)
+  - [ ] Ending points (zeros/asymptotes)
+  - [ ] Real-axis segments
+  - [ ] Asymptotes (angles, centroid)
+  - [ ] Breakaway points
+  - [ ] Departure angles (if complex poles)
+  - [ ] Imaginary axis crossings
+- Current gain K = [value]
+- Current pole locations
+- Step response plot</p>
+<p>Interactive controls:
+- Gain slider K (0 to 2× critical)
+- Dropdown: System presets (second-order, third-order, with zeros)
+- Toggle: Show/hide each feature type
+- Toggle: Animate gain sweep
+- Button: Show construction steps</p>
+<p>Data Visibility Requirements:
+- Show numerical values for all key points
+- Display gain at each significant point (breakaway, crossing)
+- Show pole locations as K changes
+- Display damping ratio and natural frequency for complex poles</p>
+<p>Behavior:
+- As gain slider moves, operating point moves along locus
+- Poles highlighted at current position
+- Step response updates with gain
+- Features highlighted when toggle enabled
+- Animation mode sweeps gain from 0 to max</p>
+<p>Instructional Rationale: Comprehensive visualization connects abstract rules to concrete geometry. The feature checklist guides systematic analysis while interactive exploration reveals cause-effect relationships.</p>
+<p>Implementation: p5.js with multiple visualization layers and linked displays</p>
+</details>
+<h2 id="reading-the-root-locus-a-complete-example">Reading the Root Locus: A Complete Example</h2>
+<p>Let's work through a complete example to demonstrate all the construction rules working together.</p>
+<p>Consider the open-loop transfer function:</p>
+<h4 id="complete-example">Complete Example</h4>
+<p><span class="arithmatex">\(G(s)H(s) = \frac{K(s+3)}{s(s+1)(s+2)}\)</span></p>
+<p>where:</p>
+<ul>
+<li>Poles at <span class="arithmatex">\(s = 0, -1, -2\)</span> (three poles, <span class="arithmatex">\(n = 3\)</span>)</li>
+<li>Zero at <span class="arithmatex">\(s = -3\)</span> (one zero, <span class="arithmatex">\(m = 1\)</span>)</li>
+</ul>
+<p><strong>Step 1: Number of Branches</strong></p>
+<p><span class="arithmatex">\(n = 3\)</span> branches</p>
+<p><strong>Step 2: Starting and Ending Points</strong></p>
+<ul>
+<li>Start: <span class="arithmatex">\(s = 0, -1, -2\)</span> (the three poles)</li>
+<li>End: One branch ends at <span class="arithmatex">\(s = -3\)</span> (the zero); two branches go to infinity</li>
+</ul>
+<p><strong>Step 3: Real-Axis Segments</strong></p>
+<p>Count poles and zeros to the right of test points:</p>
+<ul>
+<li>Right of <span class="arithmatex">\(s = 0\)</span>: 0 singularities → OFF (even)</li>
+<li>Between <span class="arithmatex">\(s = 0\)</span> and <span class="arithmatex">\(s = -1\)</span>: 1 pole → ON (odd)</li>
+<li>Between <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -2\)</span>: 2 poles → OFF (even)</li>
+<li>Between <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -3\)</span>: 3 poles → ON (odd)</li>
+<li>Left of <span class="arithmatex">\(s = -3\)</span>: 3 poles + 1 zero = 4 → OFF (even)</li>
+</ul>
+<p>Root locus on real axis: <span class="arithmatex">\([-1, 0]\)</span> and <span class="arithmatex">\([-3, -2]\)</span></p>
+<p><strong>Step 4: Asymptotes</strong></p>
+<p><span class="arithmatex">\(n - m = 3 - 1 = 2\)</span> asymptotes</p>
+<p>Angles: <span class="arithmatex">\(\phi_0 = \frac{180°}{2} = 90°\)</span>, <span class="arithmatex">\(\phi_1 = \frac{540°}{2} = 270° = -90°\)</span></p>
+<p>Centroid: <span class="arithmatex">\(\sigma_c = \frac{(0 + (-1) + (-2)) - (-3)}{2} = \frac{-3 + 3}{2} = 0\)</span></p>
+<p>The asymptotes are vertical lines at <span class="arithmatex">\(\sigma = 0\)</span>, going straight up and down.</p>
+<p><strong>Step 5: Breakaway Point</strong></p>
+<p>On the segment <span class="arithmatex">\([-1, 0]\)</span>:</p>
+<p><span class="arithmatex">\(\frac{1}{s} + \frac{1}{s+1} + \frac{1}{s+2} = \frac{1}{s+3}\)</span></p>
+<p>Solving numerically: <span class="arithmatex">\(s \approx -0.42\)</span></p>
+<p><strong>Step 6: Departure Angles</strong></p>
+<p>All poles are real, so no departure angle calculation needed.</p>
+<p><strong>Step 7: Imaginary Axis Crossing</strong></p>
+<p>Use the characteristic equation: <span class="arithmatex">\(s(s+1)(s+2) + K(s+3) = 0\)</span></p>
+<p><span class="arithmatex">\(s^3 + 3s^2 + 2s + Ks + 3K = 0\)</span></p>
+<p><span class="arithmatex">\(s^3 + 3s^2 + (2+K)s + 3K = 0\)</span></p>
+<p>Routh array:</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Col 1</th>
+<th>Col 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>1</td>
+<td><span class="arithmatex">\(2+K\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td>3</td>
+<td><span class="arithmatex">\(3K\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(\frac{3(2+K) - 3K}{3} = 2\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td><span class="arithmatex">\(3K\)</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="arithmatex">\(s^1\)</span> row is always 2 (positive)—the locus never crosses the imaginary axis for positive <span class="arithmatex">\(K\)</span>! This system is stable for all <span class="arithmatex">\(K &gt; 0\)</span>. The zero at <span class="arithmatex">\(s = -3\)</span> "pulls" the locus to the left, preventing instability.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of branches</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Starting points</td>
+<td>0, -1, -2</td>
+</tr>
+<tr>
+<td>Ending points</td>
+<td>-3, ±j∞</td>
+</tr>
+<tr>
+<td>Real-axis segments</td>
+<td>[-1, 0], [-3, -2]</td>
+</tr>
+<tr>
+<td>Asymptote angles</td>
+<td>±90°</td>
+</tr>
+<tr>
+<td>Centroid</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Breakaway point</td>
+<td>≈ -0.42</td>
+</tr>
+<tr>
+<td>Imaginary crossing</td>
+<td>None (stable for all K &gt; 0)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Key Observation</p>
+<p>Adding a zero to the left of all poles can "stabilize" the root locus—the zero pulls branches leftward, potentially keeping them in the LHP for all gains. This is the principle behind <strong>lead compensation</strong>.</p>
+</div>
+<h2 id="the-magnitude-condition-and-gain-calculation">The Magnitude Condition and Gain Calculation</h2>
+<p>Once you know a point is on the root locus (via the angle condition), the magnitude condition tells you the value of <span class="arithmatex">\(K\)</span> that places a closed-loop pole there.</p>
+<h4 id="magnitude-condition-gain-formula">Magnitude Condition (Gain Formula)</h4>
+<p><span class="arithmatex">\(K = \frac{1}{|G(s)H(s)|} = \frac{\prod |s - p_j|}{\prod |s - z_i|}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(|s - p_j|\)</span> is the distance from test point <span class="arithmatex">\(s\)</span> to pole <span class="arithmatex">\(p_j\)</span></li>
+<li><span class="arithmatex">\(|s - z_i|\)</span> is the distance from test point <span class="arithmatex">\(s\)</span> to zero <span class="arithmatex">\(z_i\)</span></li>
+</ul>
+<p>In words: <strong>Gain equals product of distances to poles divided by product of distances to zeros</strong>.</p>
+<p>This is remarkably convenient for graphical analysis. Measure distances on your root locus plot, multiply the pole distances, divide by zero distances, and you have the gain.</p>
+<h4 id="gain-calculation-example">Gain Calculation Example</h4>
+<p>For <span class="arithmatex">\(G(s)H(s) = \frac{K}{s(s+4)}\)</span>, find <span class="arithmatex">\(K\)</span> when poles are at <span class="arithmatex">\(s = -2 \pm j2\)</span>.</p>
+<p>Test point: <span class="arithmatex">\(s = -2 + j2\)</span></p>
+<p>Distance to pole at <span class="arithmatex">\(s = 0\)</span>: <span class="arithmatex">\(|-2 + j2| = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}\)</span></p>
+<p>Distance to pole at <span class="arithmatex">\(s = -4\)</span>: <span class="arithmatex">\(|-2 + j2 - (-4)| = |2 + j2| = \sqrt{4 + 4} = 2\sqrt{2}\)</span></p>
+<p><span class="arithmatex">\(K = 2\sqrt{2} \times 2\sqrt{2} = 8\)</span></p>
+<p>When <span class="arithmatex">\(K = 8\)</span>, the closed-loop poles are at <span class="arithmatex">\(s = -2 \pm j2\)</span>, giving:</p>
+<ul>
+<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{(-2)^2 + 2^2} = \sqrt{8} = 2\sqrt{2}\)</span> rad/s</li>
+<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} \approx 0.707\)</span></li>
+</ul>
+<p>This is the well-known "optimal" damping ratio—significant overshoot but fast settling.</p>
+<h2 id="root-locus-gain-and-system-performance">Root Locus Gain and System Performance</h2>
+<p>The parameter <span class="arithmatex">\(K\)</span> in the root locus isn't just a mathematical variable—it's a tuning knob with real consequences. Understanding how <span class="arithmatex">\(K\)</span> affects performance is essential for design.</p>
+<p>As <span class="arithmatex">\(K\)</span> increases along the root locus:</p>
+<table>
+<thead>
+<tr>
+<th>Performance Aspect</th>
+<th>Effect of Increasing <span class="arithmatex">\(K\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed of response</td>
+<td>Initially faster (poles move left)</td>
+</tr>
+<tr>
+<td>Stability</td>
+<td>Eventually degrades (poles may cross to RHP)</td>
+</tr>
+<tr>
+<td>Damping</td>
+<td>Often decreases (poles become more oscillatory)</td>
+</tr>
+<tr>
+<td>Steady-state error</td>
+<td>Decreases (higher gain reduces error)</td>
+</tr>
+<tr>
+<td>Overshoot</td>
+<td>Often increases (less damping)</td>
+</tr>
+</tbody>
+</table>
+<p>There's typically a trade-off: more gain improves steady-state accuracy and initial speed but can lead to oscillation and even instability. The root locus visualizes this trade-off perfectly—you can see poles becoming complex, approaching the imaginary axis, and crossing into the RHP.</p>
+<h4 id="diagram-gain-response-explorer">Diagram: Gain-Response Explorer</h4>
+<iframe src="../../sims/gain-response/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Gain-Response Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: assess, judge, compare</p>
+<p>Learning Objective: Students will evaluate the effect of gain on system performance by observing how time-domain specifications change as poles move along the root locus.</p>
+<p>Canvas layout:
+- Left (45%): Root locus with current operating point
+- Right top (35%): Step response plot
+- Right bottom (20%): Performance metrics table</p>
+<p>Visual elements:
+Root Locus:
+- Complete root locus
+- Operating point marker (moves with gain slider)
+- Constant damping ratio lines (ζ = 0.3, 0.5, 0.707, 1.0)
+- Constant natural frequency circles (ωn = 1, 2, 3, ...)
+- Shaded regions: "fast", "slow", "oscillatory"</p>
+<p>Step Response:
+- Time response curve
+- Rise time markers
+- Overshoot indicator
+- Settling time marker
+- Steady-state value line</p>
+<p>Performance Metrics:
+- Rise time: [value]
+- Overshoot: [value]%
+- Settling time (2%): [value]
+- Steady-state error: [value]%
+- Damping ratio ζ: [value]
+- Natural frequency ωn: [value]</p>
+<p>Interactive controls:
+- Gain slider K (logarithmic scale)
+- Input: Step magnitude
+- Dropdown: System presets
+- Toggle: Show ζ lines
+- Toggle: Show ωn circles
+- Button: Compare two gains side-by-side</p>
+<p>Data Visibility Requirements:
+- Show current K value prominently
+- Display pole locations numerically
+- Show all performance metrics
+- Highlight when crossing stability boundary</p>
+<p>Behavior:
+- As K changes, operating point moves along locus
+- Step response updates in real-time
+- Metrics recalculate and display
+- Warning when approaching instability
+- Visual feedback when poles become complex</p>
+<p>Instructional Rationale: Linking root locus position to time-domain performance builds the intuition needed for controller tuning. Students see the consequence of every gain choice immediately.</p>
+<p>Implementation: p5.js with gain slider and synchronized displays</p>
+</details>
+<h2 id="gain-adjustment-for-desired-performance">Gain Adjustment for Desired Performance</h2>
+<p>The root locus enables direct design: choose a desired pole location based on performance specifications, then read off the required gain.</p>
+<h4 id="design-procedure">Design Procedure</h4>
+<ol>
+<li>Translate specifications into desired pole locations</li>
+<li><span class="arithmatex">\(\zeta\)</span> specifies a line: <span class="arithmatex">\(\cos(\theta) = \zeta\)</span> where <span class="arithmatex">\(\theta\)</span> is angle from negative real axis</li>
+<li><span class="arithmatex">\(\omega_n\)</span> specifies a circle of radius <span class="arithmatex">\(\omega_n\)</span></li>
+<li>Settling time → minimum distance from imaginary axis</li>
+<li>
+<p>Maximum overshoot → minimum damping ratio</p>
+</li>
+<li>
+<p>Find where the root locus intersects the desired region</p>
+</li>
+<li>
+<p>Use the magnitude condition to calculate the required gain</p>
+</li>
+<li>
+<p>Verify that all other poles (non-dominant) are acceptable</p>
+</li>
+</ol>
+<h4 id="design-example-meeting-a-damping-requirement">Design Example: Meeting a Damping Requirement</h4>
+<p>Given: <span class="arithmatex">\(G(s) = \frac{K}{s(s+6)}\)</span></p>
+<p>Requirement: Closed-loop damping ratio <span class="arithmatex">\(\zeta = 0.5\)</span></p>
+<p>The angle for <span class="arithmatex">\(\zeta = 0.5\)</span> is <span class="arithmatex">\(\theta = \cos^{-1}(0.5) = 60°\)</span> from the negative real axis.</p>
+<p>The root locus for this system:</p>
+<ul>
+<li>Starts at <span class="arithmatex">\(s = 0, -6\)</span></li>
+<li>Asymptotes at ±90° from centroid at <span class="arithmatex">\(\sigma_c = -3\)</span></li>
+<li>Breakaway at <span class="arithmatex">\(s = -3\)</span></li>
+</ul>
+<p>The locus departs vertically from <span class="arithmatex">\(s = -3\)</span>. The <span class="arithmatex">\(\zeta = 0.5\)</span> lines intersect the locus at <span class="arithmatex">\(s = -3 \pm j3\sqrt{3}\)</span>.</p>
+<p>Gain at this point:</p>
+<p><span class="arithmatex">\(K = |s| \cdot |s + 6| = |-3 + j3\sqrt{3}| \cdot |3 + j3\sqrt{3}|\)</span></p>
+<p><span class="arithmatex">\(K = 6 \times 6 = 36\)</span></p>
+<p>With <span class="arithmatex">\(K = 36\)</span>, the closed-loop poles are at <span class="arithmatex">\(s = -3 \pm j5.2\)</span>, giving <span class="arithmatex">\(\zeta = 0.5\)</span> exactly.</p>
+<h2 id="dominant-pole-design">Dominant Pole Design</h2>
+<p>Real systems often have more than two poles. A third-order system has three poles; higher-order systems have even more. Analyzing all poles is complex, but the <strong>dominant pole</strong> concept simplifies matters.</p>
+<p><strong>Dominant poles</strong> are the closed-loop poles closest to the imaginary axis. They have the slowest decay rates and thus contribute most to the response for the longest time. If the dominant poles are well-separated from the other poles (at least 5× farther from the imaginary axis), the system behaves approximately like a second-order system defined by the dominant poles alone.</p>
+<h4 id="dominant-pole-criterion">Dominant Pole Criterion</h4>
+<p><span class="arithmatex">\(|\text{Re}(p_{non-dominant})| &gt; 5 |\text{Re}(p_{dominant})|\)</span></p>
+<p>When this condition holds, the contribution from non-dominant poles decays so quickly that it becomes negligible within the rise time of the dominant response.</p>
+<h4 id="dominant-pole-design-example">Dominant Pole Design Example</h4>
+<p>Consider <span class="arithmatex">\(G(s) = \frac{K}{s(s+1)(s+10)}\)</span></p>
+<p>For small <span class="arithmatex">\(K\)</span>, poles are near 0, -1, -10. As <span class="arithmatex">\(K\)</span> increases, the poles at 0 and -1 become complex and dominate the response—they're much closer to the imaginary axis than the pole near -10.</p>
+<p>If we design for the dominant pair to have <span class="arithmatex">\(\zeta = 0.707\)</span> and <span class="arithmatex">\(\omega_n = 1\)</span>, the dominant poles would be at <span class="arithmatex">\(s = -0.707 \pm j0.707\)</span>. The third pole should remain near <span class="arithmatex">\(s = -10\)</span>. Since <span class="arithmatex">\(10 &gt; 5 \times 0.707\)</span>, the dominance condition is satisfied.</p>
+<div class="admonition warning">
+<p class="admonition-title">Validity of Dominant Pole Assumption</p>
+<p>The dominant pole approximation fails when:</p>
+<ul>
+<li>Non-dominant poles aren't far enough away</li>
+<li>Zeros are near the dominant poles (zeros can boost non-dominant modes)</li>
+<li>The initial transient matters (non-dominant modes contribute early)</li>
+</ul>
+<p>Always verify with simulation when the separation isn't large.</p>
+</div>
+<h2 id="pole-placement-design">Pole Placement Design</h2>
+<p><strong>Pole placement</strong> is the art of choosing pole locations to meet performance specifications, then using the root locus (or other techniques) to determine how to achieve those locations.</p>
+<p>The relationship between s-plane location and time-domain specifications:</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>S-Plane Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Settling time <span class="arithmatex">\(t_s\)</span></td>
+<td><span class="arithmatex">\(\text{Re}(s) &lt; -\frac{4}{t_s}\)</span> (2% criterion)</td>
+</tr>
+<tr>
+<td>Peak overshoot <span class="arithmatex">\(M_p\)</span>%</td>
+<td>Damping ratio <span class="arithmatex">\(\zeta\)</span> on specific line</td>
+</tr>
+<tr>
+<td>Rise time <span class="arithmatex">\(t_r\)</span></td>
+<td>Natural frequency <span class="arithmatex">\(\omega_n &gt; \frac{1.8}{t_r}\)</span></td>
+</tr>
+<tr>
+<td>Steady-state error</td>
+<td>Loop gain (not directly a pole location)</td>
+</tr>
+</tbody>
+</table>
+<p>The root locus shows you where poles can go as <span class="arithmatex">\(K\)</span> varies. If the locus passes through your desired region, you're in luck—just set the appropriate gain. If it doesn't, you'll need compensation (additional poles and zeros) to reshape the locus.</p>
+<h4 id="diagram-pole-placement-designer">Diagram: Pole Placement Designer</h4>
+<iframe src="../../sims/pole-placement/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Pole Placement Designer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Create (L6)
+Bloom Verb: design, construct</p>
+<p>Learning Objective: Students will design closed-loop pole locations to meet given time-domain specifications, using the root locus to determine required gain.</p>
+<p>Canvas layout:
+- Left (50%): S-plane with specification regions and root locus
+- Right (50%): Specifications input, step response, and results</p>
+<p>Visual elements:
+S-Plane:
+- Specification regions shaded:
+  - Settling time boundary (vertical line)
+  - Damping ratio boundary (radial lines)
+  - Natural frequency boundary (arc)
+- Feasible region where all specs met (intersection)
+- Root locus overlay
+- Draggable target point
+- Current pole locations marked</p>
+<p>Specifications Panel:
+- Input: Maximum settling time (seconds)
+- Input: Maximum overshoot (%)
+- Input: Maximum rise time (seconds)
+- Calculated boundaries displayed
+- Feasibility indicator: "Achievable" or "Not achievable"</p>
+<p>Results Panel:
+- Required gain K = [value]
+- Resulting pole locations
+- Actual performance metrics vs. specifications
+- Step response plot with spec markers</p>
+<p>Interactive controls:
+- Drag target point on s-plane
+- Specification input fields
+- Dropdown: System presets
+- Button: Auto-place poles (find optimal)
+- Toggle: Show/hide specification boundaries</p>
+<p>Data Visibility Requirements:
+- Show specification boundaries with labels
+- Display required gain when target is on locus
+- Show calculated vs. specified metrics
+- Indicate if selected point is on locus</p>
+<p>Behavior:
+- As target is dragged, show required K if on locus
+- Show "Not on locus" if target is off the locus
+- Feasible region updates as specs change
+- Auto-place finds intersection of specs and locus
+- Warning if locus never enters feasible region</p>
+<p>Instructional Rationale: Interactive design experience helps students internalize the connection between specifications, s-plane regions, and root locus. The immediate feedback loop accelerates learning of design trade-offs.</p>
+<p>Implementation: p5.js with specification inputs, region shading, and locus overlay</p>
+</details>
+<h2 id="root-locus-compensation">Root Locus Compensation</h2>
+<p>When the root locus doesn't pass through the desired pole locations, we need <strong>compensation</strong>—adding poles and/or zeros to reshape the locus.</p>
+<h3 id="lead-compensation">Lead Compensation</h3>
+<p>A <strong>lead compensator</strong> adds a zero to the left of a pole:</p>
+<h4 id="lead-compensator">Lead Compensator</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \frac{s + z}{s + p}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(z &lt; p\)</span> (zero closer to origin than pole)</li>
+<li>Both <span class="arithmatex">\(z\)</span> and <span class="arithmatex">\(p\)</span> are positive real numbers</li>
+</ul>
+<p>The zero "pulls" the root locus to the left, improving stability margins and potentially allowing higher gains. The pole is placed far to the left so it doesn't interfere much.</p>
+<p>Effects of lead compensation:</p>
+<ul>
+<li>Improves transient response (faster settling)</li>
+<li>Increases phase margin</li>
+<li>May increase bandwidth</li>
+<li>Generally increases high-frequency noise sensitivity</li>
+</ul>
+<h3 id="lag-compensation">Lag Compensation</h3>
+<p>A <strong>lag compensator</strong> adds a pole to the left of a zero (both near the origin):</p>
+<h4 id="lag-compensator">Lag Compensator</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \frac{s + z}{s + p}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(p &lt; z\)</span> (pole closer to origin than zero)</li>
+<li>Both small (near the origin)</li>
+</ul>
+<p>The lag compensator doesn't significantly change the root locus shape but increases DC gain, reducing steady-state error.</p>
+<p>Effects of lag compensation:</p>
+<ul>
+<li>Reduces steady-state error</li>
+<li>Minimal effect on transient response (if properly designed)</li>
+<li>Decreases bandwidth</li>
+<li>Adds phase lag at low frequencies</li>
+</ul>
+<h3 id="lead-lag-compensation">Lead-Lag Compensation</h3>
+<p>For demanding specifications, combine lead and lag:</p>
+<h4 id="lead-lag-compensator">Lead-Lag Compensator</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \frac{(s + z_1)(s + z_2)}{(s + p_1)(s + p_2)}\)</span></p>
+<p>where:</p>
+<ul>
+<li>One zero-pole pair provides lead (transient improvement)</li>
+<li>One zero-pole pair provides lag (steady-state improvement)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Compensator Type</th>
+<th>Effect on Root Locus</th>
+<th>Primary Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lead</td>
+<td>Pulls locus left</td>
+<td>Faster transient, more stability</td>
+</tr>
+<tr>
+<td>Lag</td>
+<td>Minimal shape change</td>
+<td>Lower steady-state error</td>
+</tr>
+<tr>
+<td>Lead-Lag</td>
+<td>Combined effects</td>
+<td>Both transient and steady-state</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"When my basic controller can't give my engineers the performance they want, they add compensators. A lead compensator is like adding anticipation to my control—I sense change coming and act earlier. A lag compensator is like adding patience—I accumulate small corrections over time. The best controllers give me both: quick reactions and long-term precision."</p>
+</div>
+<h4 id="diagram-compensation-effects-explorer">Diagram: Compensation Effects Explorer</h4>
+<iframe src="../../sims/compensation-effects/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Compensation Effects Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: compare, critique, assess</p>
+<p>Learning Objective: Students will evaluate the effects of lead and lag compensation on root locus shape and system performance.</p>
+<p>Canvas layout:
+- Top left (40%): Original root locus
+- Top right (40%): Compensated root locus
+- Bottom (20%): Comparison response and metrics</p>
+<p>Visual elements:
+Original Root Locus:
+- System poles and zeros
+- Uncompensated root locus
+- Current operating point</p>
+<p>Compensated Root Locus:
+- Original system poles/zeros (faded)
+- Compensator pole/zero (highlighted)
+- New root locus
+- New operating point (same K or same specs)</p>
+<p>Comparison Panel:
+- Step responses overlaid (original vs compensated)
+- Metrics table: settling time, overshoot, steady-state error
+- Phase margin comparison
+- Gain margin comparison</p>
+<p>Interactive controls:
+- Dropdown: Compensator type (Lead, Lag, Lead-Lag, None)
+- Sliders: Zero location, Pole location
+- Radio: Match gain or match specs
+- Dropdown: System presets
+- Toggle: Show both step responses</p>
+<p>Data Visibility Requirements:
+- Show compensator transfer function
+- Display pole/zero locations
+- Show before/after metrics
+- Highlight improvement or degradation</p>
+<p>Behavior:
+- As compensator parameters change, right plot updates
+- Responses update in real-time
+- Color coding: green for improvement, red for degradation
+- Constraint: zero left of pole for lead, pole left of zero for lag</p>
+<p>Instructional Rationale: Side-by-side comparison with interactive parameters helps students develop intuition for compensator design. Seeing both root locus shape change and performance impact builds design judgment.</p>
+<p>Implementation: p5.js with dual plots and synchronized compensator controls</p>
+</details>
+<h2 id="connecting-root-locus-to-previous-concepts">Connecting Root Locus to Previous Concepts</h2>
+<p>The root locus method ties together many concepts from earlier chapters:</p>
+<p><strong>From Chapter 6 (Poles and Zeros)</strong>: The root locus shows how open-loop poles and zeros determine closed-loop pole trajectories. Zeros attract branches; poles repel them (at <span class="arithmatex">\(K = 0\)</span>).</p>
+<p><strong>From Chapter 9 (Block Diagrams)</strong>: The characteristic equation <span class="arithmatex">\(1 + GH = 0\)</span> comes from the closed-loop transfer function of negative feedback systems.</p>
+<p><strong>From Chapter 10 (Routh-Hurwitz)</strong>: The stability boundary from Routh-Hurwitz corresponds to imaginary axis crossings on the root locus. Both methods find the critical gain, but root locus shows the complete trajectory.</p>
+<p><strong>Looking Ahead to Frequency Methods</strong>: The root locus is a time-domain/s-plane technique. Bode plots and Nyquist diagrams (upcoming chapters) analyze the same systems from a frequency-domain perspective. The connections are deep:</p>
+<ul>
+<li>Gain margin from Bode corresponds to distance from imaginary axis crossing</li>
+<li>Phase margin relates to damping ratio of dominant poles</li>
+<li>Both frequency and root locus methods inform compensator design</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Root Locus Connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pole locations</td>
+<td>Branch starting points</td>
+</tr>
+<tr>
+<td>Zero locations</td>
+<td>Branch ending points</td>
+</tr>
+<tr>
+<td>Characteristic equation</td>
+<td>Defines the locus</td>
+</tr>
+<tr>
+<td>Stability boundary</td>
+<td>Imaginary axis crossing</td>
+</tr>
+<tr>
+<td>Dominant poles</td>
+<td>Poles closest to jω-axis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary-the-root-locus-toolkit">Summary: The Root Locus Toolkit</h2>
+<p>The root locus method provides a complete graphical analysis of closed-loop pole movement. Here's your quick reference:</p>
+<p><strong>Purpose</strong>: Visualize how closed-loop poles move as gain varies; design gain for desired pole locations.</p>
+<p><strong>Foundation</strong>: The characteristic equation <span class="arithmatex">\(1 + KG(s)H(s) = 0\)</span></p>
+<ul>
+<li>Angle condition: <span class="arithmatex">\(\angle GH = \pm 180°\)</span> determines locus points</li>
+<li>Magnitude condition: <span class="arithmatex">\(K = 1/|GH|\)</span> gives gain at each point</li>
+</ul>
+<p><strong>Construction Rules Summary</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>What It Determines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Branches = <span class="arithmatex">\(n\)</span></td>
+<td>Number of trajectories</td>
+</tr>
+<tr>
+<td>Start at poles</td>
+<td>Initial points (<span class="arithmatex">\(K = 0\)</span>)</td>
+</tr>
+<tr>
+<td>End at zeros/∞</td>
+<td>Final points (<span class="arithmatex">\(K → ∞\)</span>)</td>
+</tr>
+<tr>
+<td>Real axis test</td>
+<td>Which real segments are on locus</td>
+</tr>
+<tr>
+<td>Asymptotes</td>
+<td>Behavior as branches go to infinity</td>
+</tr>
+<tr>
+<td>Breakaway</td>
+<td>Where branches leave real axis</td>
+</tr>
+<tr>
+<td>Departure angles</td>
+<td>Direction leaving complex poles</td>
+</tr>
+<tr>
+<td>Axis crossing</td>
+<td>Stability boundary</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Design Applications</strong>:</p>
+<ul>
+<li>Gain adjustment for performance specifications</li>
+<li>Dominant pole design for simplified analysis</li>
+<li>Pole placement for meeting time-domain specs</li>
+<li>Compensation design when basic gain isn't enough</li>
+</ul>
+<p><strong>Key Insight</strong>: The root locus transforms gain selection from guesswork into geometry. Instead of trial-and-error simulation, you can see all possible pole locations at once and choose the gain that achieves your objectives.</p>
+<div class="admonition success">
+<p class="admonition-title">The Power of Visualization</p>
+<p>Before computers, the root locus was a practical calculation tool. Today, its value is primarily conceptual—it provides insight that pure numerical methods cannot. When you understand root locus, you understand how closed-loop systems behave as parameters change, and that understanding is priceless for design.</p>
+</div>
+<h2 id="connecting-to-whats-next">Connecting to What's Next</h2>
+<p>You now have a powerful tool for analyzing and designing control systems in the s-domain. The root locus shows you exactly how poles move as gain changes, enabling precise gain selection and revealing when compensation is needed.</p>
+<p>In the next chapter, we'll shift perspective from the s-plane to the frequency domain. <strong>Bode plots</strong> represent system behavior as a function of sinusoidal frequency, providing a different but complementary view. You'll learn to read gain and phase margins directly from frequency response plots—the same stability margins that root locus shows as imaginary axis crossings.</p>
+<p>The combination of root locus (s-domain) and Bode analysis (frequency domain) gives you two powerful lenses for understanding the same system. Master both, and you'll have the complete classical control design toolkit.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"You've learned to see my future in the s-plane—every possible pole location as gain varies, all in one picture. The root locus is like a choose-your-own-adventure map of my stability. Now you're ready for the frequency domain, where you'll listen to how I respond to different frequencies. Between root locus and Bode, you'll know everything about me: where my poles go, how I respond to oscillations, and how much margin I have before instability. That's a complete understanding."</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter has equipped you with the root locus method for control system analysis and design:</p>
+<ul>
+<li>
+<p>The <strong>root locus</strong> is the set of all possible closed-loop pole locations as gain <span class="arithmatex">\(K\)</span> varies from 0 to ∞.</p>
+</li>
+<li>
+<p>The <strong>angle condition</strong> (<span class="arithmatex">\(\angle GH = ±180°\)</span>) determines which points are on the locus. The <strong>magnitude condition</strong> (<span class="arithmatex">\(K = 1/|GH|\)</span>) gives the gain at each point.</p>
+</li>
+<li>
+<p><strong>Construction rules</strong> enable systematic sketching:</p>
+</li>
+<li><span class="arithmatex">\(n\)</span> branches start at open-loop poles, end at zeros or infinity</li>
+<li>Real-axis segments with odd number of singularities to the right</li>
+<li>Asymptotes at specific angles from the centroid</li>
+<li>Breakaway points where branches leave the real axis</li>
+<li>
+<p>Departure angles from complex poles</p>
+</li>
+<li>
+<p>The <strong>imaginary axis crossing</strong> gives the stability boundary—the same result as Routh-Hurwitz, but with more context.</p>
+</li>
+<li>
+<p><strong>Dominant pole design</strong> approximates higher-order systems by second-order behavior when non-dominant poles are far left.</p>
+</li>
+<li>
+<p><strong>Pole placement</strong> translates time-domain specifications into s-plane regions.</p>
+</li>
+<li>
+<p><strong>Compensation</strong> (lead, lag, lead-lag) reshapes the root locus to enable otherwise unachievable specifications.</p>
+</li>
+</ul>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, try these without peeking:</p>
+<ol>
+<li>
+<p>A system has 4 poles and 1 zero. How many root locus branches are there? How many go to infinity?</p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(G(s)H(s) = \frac{K}{s(s+4)(s+6)}\)</span>, what are the asymptote angles and centroid?</p>
+</li>
+<li>
+<p>Why does the root locus exist on a real-axis segment only if there's an odd number of singularities to its right?</p>
+</li>
+<li>
+<p>If the root locus never crosses the imaginary axis (stays in LHP for all positive K), what does this mean for stability?</p>
+</li>
+<li>
+<p>What is the primary difference between lead and lag compensation in terms of root locus effect?</p>
+</li>
+</ol>
+<p>Answers: (1) 4 branches; 3 go to infinity. (2) Asymptotes at ±60°, 180°; centroid at <span class="arithmatex">\(\sigma_c = (0-4-6)/3 = -10/3 ≈ -3.33\)</span>. (3) Complex singularities contribute conjugate angles that cancel; real singularities to the right each contribute 180°, so odd count gives net ±180°. (4) System is stable for all K &gt; 0. (5) Lead adds a zero that pulls the locus left (improves transient); lag adds a pole-zero pair near the origin that doesn't change the shape much but increases DC gain (reduces steady-state error).</p>
+</details>
 
 
 
@@ -1243,7 +3569,12 @@
 
 
 
+  
+  
 
+
+
+  
 
 
 
@@ -1310,11 +3641,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       

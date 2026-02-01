@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Deriving mathematical models for electrical, mechanical, and electromechanical systems">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>7. Physical System Modeling - Control Systems</title>
+        <title>Physical System Modeling - Control Systems</title>
       
     
     
@@ -59,6 +59,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JZNNKZH8FW"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JZNNKZH8FW",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JZNNKZH8FW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -115,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7. Physical System Modeling
+              Physical System Modeling
             
           </span>
         </div>
@@ -608,6 +618,582 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-abstract-to-concrete" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Abstract to Concrete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RC Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit-schematic" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit Schematic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rl-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RL Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RL Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rl-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RL Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RLC Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit-differential-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit Differential Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-rlc-circuit-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: RLC Circuit Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#op-amp-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Op-Amp Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Op-Amp Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-op-amp-circuits-for-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Op-Amp Circuits for Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mechanical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mechanical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#translational-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Translational Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mass-Spring-Damper System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mass-Spring-Damper System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mass-Spring-Damper Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mass-spring-damper-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mass-Spring-Damper Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotational-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotational Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotational Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotational-second-order-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotational Second-Order System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pendulum-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pendulum System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pendulum System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearized-pendulum-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linearized Pendulum Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pendulum-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pendulum Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gear-train" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gear Train
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gear Train">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reflected-inertia-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reflected Inertia Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lever-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lever System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lever System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lever-mechanical-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lever Mechanical Advantage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electromechanical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electromechanical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electromechanical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motor-torque-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Torque Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-emf-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-EMF Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armature-controlled-dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armature-Controlled DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Armature-Controlled DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armature-controlled-dc-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armature-Controlled DC Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplified-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplified Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-controlled-dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field-Controlled DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Field-Controlled DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-controlled-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field-Controlled Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-transfer-function-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Transfer Function Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motor Transfer Function Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dc-motor-model-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DC Motor Model Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluid-and-thermal-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluid and Thermal Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluid and Thermal Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluid-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluid Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluid Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tank-level-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tank Level Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thermal Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analogous-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogous Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analogous Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#force-voltage-analogy-impedance-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Voltage Analogy (Impedance Analogy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-current-analogy-mobility-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Current Analogy (Mobility Analogy)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Force-Current Analogy (Mobility Analogy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-analogous-systems-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Analogous Systems Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-value-of-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Value of Analogies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systematic-modeling-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systematic Modeling Procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,9 +1574,7 @@
     
       
         
-      
-        
-      
+          
         
       
         
@@ -1008,7 +1592,7 @@
         
   
   
-    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1180,6 +1764,582 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-abstract-to-concrete" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Abstract to Concrete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RC Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit-schematic" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit Schematic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rc-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RC Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rl-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RL Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RL Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rl-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RL Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RLC Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit-differential-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit Differential Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rlc-circuit-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLC Circuit Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-rlc-circuit-response-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: RLC Circuit Response Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#op-amp-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Op-Amp Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Op-Amp Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-op-amp-circuits-for-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Op-Amp Circuits for Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mechanical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mechanical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#translational-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Translational Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mass-Spring-Damper System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mass-Spring-Damper System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mass-Spring-Damper Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mass-spring-damper-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mass-Spring-Damper Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotational-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotational Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotational Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotational-second-order-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotational Second-Order System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pendulum-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pendulum System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pendulum System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearized-pendulum-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linearized Pendulum Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pendulum-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pendulum Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gear-train" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gear Train
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gear Train">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reflected-inertia-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reflected Inertia Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lever-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lever System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lever System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lever-mechanical-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lever Mechanical Advantage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electromechanical-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electromechanical Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electromechanical Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motor-torque-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Torque Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-emf-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-EMF Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armature-controlled-dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armature-Controlled DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Armature-Controlled DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armature-controlled-dc-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armature-Controlled DC Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplified-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplified Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-controlled-dc-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field-Controlled DC Motor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Field-Controlled DC Motor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-controlled-motor-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field-Controlled Motor Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-transfer-function-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor Transfer Function Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motor Transfer Function Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dc-motor-model-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DC Motor Model Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluid-and-thermal-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluid and Thermal Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluid and Thermal Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluid-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluid Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluid Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tank-level-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tank Level Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thermal Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analogous-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogous Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analogous Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#force-voltage-analogy-impedance-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Voltage Analogy (Impedance Analogy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-current-analogy-mobility-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Current Analogy (Mobility Analogy)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Force-Current Analogy (Mobility Analogy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-analogous-systems-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Analogous Systems Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-value-of-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Value of Analogies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systematic-modeling-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systematic Modeling Procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1238,7 +2398,981 @@
 <li><a href="../05-laplace-transform-methods/">Chapter 5: Laplace Transform Methods</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="from-abstract-to-concrete">From Abstract to Concrete</h2>
+<p>Up to this point, we've worked with transfer functions that appeared almost magically—given to us as ratios of polynomials in <span class="arithmatex">\(s\)</span>. But where do these transfer functions come from? How do you look at a real physical system—a circuit, a motor, a suspension system—and write down the mathematics that describes its behavior?</p>
+<p>This is the art and science of <strong>physical system modeling</strong>. It's where control engineering connects to the real world. The transfer function isn't just a mathematical abstraction; it emerges from the actual physics of the system you're trying to control.</p>
+<p>In this chapter, we'll develop systematic techniques for deriving models of three major categories of physical systems:</p>
+<ul>
+<li><strong>Electrical systems</strong>: circuits with resistors, capacitors, inductors, and operational amplifiers</li>
+<li><strong>Mechanical systems</strong>: both translational (straight-line motion) and rotational (spinning)</li>
+<li><strong>Electromechanical systems</strong>: devices like DC motors that convert between electrical and mechanical energy</li>
+</ul>
+<p>Along the way, we'll discover something remarkable: the equations governing these seemingly different systems are often identical in structure. A mass-spring-damper behaves mathematically just like an RLC circuit. This insight, captured in the concept of <strong>analogous systems</strong>, means that intuition developed in one domain transfers directly to others.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My body is where all these domains meet. I have motors (electromechanical), which drive wheels against the ground (mechanical), controlled by circuits on my board (electrical). When my engineers model me correctly, they can predict exactly how I'll respond. When they get the model wrong, well... let's just say I spend a lot of time on the floor."</p>
+</div>
+<h2 id="electrical-systems">Electrical Systems</h2>
+<p><strong>Electrical systems</strong> are natural starting points for control engineers because they're relatively easy to analyze mathematically and build physically. The fundamental components—resistors, capacitors, and inductors—each have simple, well-understood relationships between voltage and current.</p>
+<p>The building blocks:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Symbol</th>
+<th>Voltage-Current Relation</th>
+<th>Impedance <span class="arithmatex">\(Z(s)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resistor</td>
+<td><span class="arithmatex">\(R\)</span></td>
+<td><span class="arithmatex">\(v = iR\)</span></td>
+<td><span class="arithmatex">\(R\)</span></td>
+</tr>
+<tr>
+<td>Capacitor</td>
+<td><span class="arithmatex">\(C\)</span></td>
+<td><span class="arithmatex">\(v = \frac{1}{C}\int i \, dt\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{sC}\)</span></td>
+</tr>
+<tr>
+<td>Inductor</td>
+<td><span class="arithmatex">\(L\)</span></td>
+<td><span class="arithmatex">\(v = L\frac{di}{dt}\)</span></td>
+<td><span class="arithmatex">\(sL\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>These relationships, combined with Kirchhoff's laws, allow us to write the governing equations for any circuit. Taking the Laplace transform gives us the s-domain representation, and from there, the transfer function.</p>
+<p>The <strong>impedance</strong> concept is particularly powerful: in the s-domain, all three components obey a generalized Ohm's law <span class="arithmatex">\(V(s) = Z(s)I(s)\)</span>, where <span class="arithmatex">\(Z(s)\)</span> is the component's impedance. This means we can analyze complex circuits using the same techniques as simple resistive circuits—just with complex, frequency-dependent impedances.</p>
+<h3 id="rc-circuit">RC Circuit</h3>
+<p>The <strong>RC circuit</strong> is the simplest dynamic electrical circuit, consisting of a resistor and capacitor in series. It's a first-order system with a single time constant.</p>
+<h4 id="rc-circuit-schematic">RC Circuit Schematic</h4>
+<p>Consider a series RC circuit with input voltage <span class="arithmatex">\(v_{in}(t)\)</span> and output taken across the capacitor as <span class="arithmatex">\(v_{out}(t)\)</span>.</p>
+<p>Applying Kirchhoff's voltage law:</p>
+<p><span class="arithmatex">\(v_{in}(t) = v_R(t) + v_{out}(t) = Ri(t) + v_{out}(t)\)</span></p>
+<p>The current through the capacitor is:</p>
+<p><span class="arithmatex">\(i(t) = C\frac{dv_{out}}{dt}\)</span></p>
+<p>Substituting:</p>
+<p><span class="arithmatex">\(v_{in}(t) = RC\frac{dv_{out}}{dt} + v_{out}(t)\)</span></p>
+<p>This is a first-order linear differential equation. Taking the Laplace transform (with zero initial conditions):</p>
+<p><span class="arithmatex">\(V_{in}(s) = RCs \cdot V_{out}(s) + V_{out}(s) = (RCs + 1)V_{out}(s)\)</span></p>
+<h4 id="rc-circuit-transfer-function">RC Circuit Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{RCs + 1} = \frac{1}{\tau s + 1}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\tau = RC\)</span> is the time constant</li>
+<li>The pole is at <span class="arithmatex">\(s = -1/\tau = -1/RC\)</span></li>
+</ul>
+<p>The RC circuit acts as a <strong>low-pass filter</strong>: it passes low-frequency signals while attenuating high frequencies. The cutoff frequency is <span class="arithmatex">\(\omega_c = 1/RC\)</span> rad/s. At DC (s = 0), the gain is 1; at high frequencies, the gain approaches zero.</p>
+<p>Physical interpretation: the capacitor voltage can't change instantaneously. When the input steps up, the capacitor gradually charges through the resistor, with the charging current decreasing exponentially as the capacitor voltage approaches the input.</p>
+<h3 id="rl-circuit">RL Circuit</h3>
+<p>The <strong>RL circuit</strong> pairs a resistor with an inductor, creating another first-order system but with different characteristics than the RC circuit.</p>
+<p>For a series RL circuit with output taken across the resistor:</p>
+<p><span class="arithmatex">\(v_{in}(t) = L\frac{di}{dt} + Ri(t)\)</span></p>
+<p>The output voltage across the resistor is <span class="arithmatex">\(v_{out}(t) = Ri(t)\)</span>, so <span class="arithmatex">\(i(t) = v_{out}(t)/R\)</span>.</p>
+<p>Taking the Laplace transform:</p>
+<p><span class="arithmatex">\(V_{in}(s) = \frac{Ls}{R}V_{out}(s) + V_{out}(s) = \left(\frac{L}{R}s + 1\right)V_{out}(s)\)</span></p>
+<h4 id="rl-circuit-transfer-function">RL Circuit Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1}{\frac{L}{R}s + 1} = \frac{1}{\tau s + 1}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\tau = L/R\)</span> is the time constant</li>
+<li>The pole is at <span class="arithmatex">\(s = -R/L\)</span></li>
+</ul>
+<p>Wait—this looks identical to the RC circuit transfer function! Both are first-order systems with the form <span class="arithmatex">\(1/(\tau s + 1)\)</span>. The only difference is how <span class="arithmatex">\(\tau\)</span> is computed: <span class="arithmatex">\(RC\)</span> for the RC circuit, <span class="arithmatex">\(L/R\)</span> for the RL circuit.</p>
+<p>This is our first hint of the deep connections between different physical systems that we'll explore in the analogous systems section.</p>
+<h3 id="rlc-circuit">RLC Circuit</h3>
+<p>The <strong>RLC circuit</strong> combines all three passive components, creating a second-order system with much richer behavior than the first-order RC or RL circuits.</p>
+<p>Consider a series RLC circuit with input voltage <span class="arithmatex">\(v_{in}(t)\)</span> and output taken across the capacitor:</p>
+<h4 id="rlc-circuit-differential-equation">RLC Circuit Differential Equation</h4>
+<p><span class="arithmatex">\(L\frac{d^2v_{out}}{dt^2} + R\frac{dv_{out}}{dt} + \frac{1}{C}v_{out} = \frac{1}{C}v_{in}\)</span></p>
+<p>Taking the Laplace transform:</p>
+<p><span class="arithmatex">\(Ls^2V_{out}(s) + RsV_{out}(s) + \frac{1}{C}V_{out}(s) = \frac{1}{C}V_{in}(s)\)</span></p>
+<h4 id="rlc-circuit-transfer-function">RLC Circuit Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{V_{out}(s)}{V_{in}(s)} = \frac{1/LC}{s^2 + \frac{R}{L}s + \frac{1}{LC}}\)</span></p>
+<p>Comparing with the standard second-order form <span class="arithmatex">\(\frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span>:</p>
+<ul>
+<li>Natural frequency: <span class="arithmatex">\(\omega_n = \frac{1}{\sqrt{LC}}\)</span></li>
+<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}\)</span></li>
+</ul>
+<p>The RLC circuit can exhibit all the second-order behaviors we studied earlier: overdamped, critically damped, underdamped, or undamped oscillation—depending on the relative values of R, L, and C.</p>
+<table>
+<thead>
+<tr>
+<th>Damping Condition</th>
+<th>Damping Ratio</th>
+<th>Circuit Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(R &gt; 2\sqrt{L/C}\)</span></td>
+<td><span class="arithmatex">\(\zeta &gt; 1\)</span></td>
+<td>Overdamped (sluggish)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R = 2\sqrt{L/C}\)</span></td>
+<td><span class="arithmatex">\(\zeta = 1\)</span></td>
+<td>Critically damped (fastest non-oscillatory)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R &lt; 2\sqrt{L/C}\)</span></td>
+<td><span class="arithmatex">\(\zeta &lt; 1\)</span></td>
+<td>Underdamped (oscillatory)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R = 0\)</span></td>
+<td><span class="arithmatex">\(\zeta = 0\)</span></td>
+<td>Undamped (sustained oscillation)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-rlc-circuit-response-explorer">Diagram: RLC Circuit Response Explorer</h4>
+<iframe src="../../sims/rlc-circuit-explorer/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>RLC Circuit Response Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, solve</p>
+<p>Learning Objective: Students will apply their understanding of second-order system parameters to predict RLC circuit behavior and observe how R, L, and C values affect the response.</p>
+<p>Canvas layout:
+- Left (55%): Time response plot
+- Right (45%): Circuit diagram and parameter panel</p>
+<p>Visual elements:
+Circuit Diagram:
+- Series RLC schematic with labeled components
+- Component values displayed
+- Input and output voltage indicators</p>
+<p>Time Response Plot:
+- Step response of capacitor voltage
+- Time axis (0 to 10τ)
+- Amplitude axis with unity step input reference
+- Overshoot and settling time indicators for underdamped cases</p>
+<p>Parameter Panel:
+- Current R, L, C values
+- Calculated ω_n and ζ
+- Damping classification (overdamped/critically/underdamped)
+- Pole locations</p>
+<p>Interactive controls:
+- Slider: Resistance R (1 to 1000 Ω)
+- Slider: Inductance L (0.001 to 1 H)
+- Slider: Capacitance C (0.1 to 100 μF)
+- Button: Reset to defaults
+- Toggle: Show pole locations on s-plane inset</p>
+<p>Data Visibility Requirements:
+- Display calculated ω_n = 1/√(LC)
+- Display calculated ζ = (R/2)√(C/L)
+- Show damping classification
+- Display pole locations: s = -ζω_n ± jω_n√(1-ζ²)</p>
+<p>Behavior:
+- Response plot updates in real-time as sliders move
+- Color coding: overdamped (blue), critical (green), underdamped (orange)
+- Pole locations update on s-plane inset
+- Numerical displays update with slider changes</p>
+<p>Instructional Rationale: Direct manipulation of circuit parameters with immediate visual feedback builds intuition for how component values map to system dynamics. The connection between physical parameters and abstract quantities (ω_n, ζ) becomes tangible.</p>
+<p>Implementation: p5.js with canvas-based sliders and dual plotting areas</p>
+</details>
+<h3 id="op-amp-circuits">Op-Amp Circuits</h3>
+<p><strong>Operational amplifiers</strong> (op-amps) are active electronic devices that dramatically expand what we can achieve with circuits. While passive RC and RL circuits can only attenuate signals, op-amp circuits can provide gain, inversion, integration, differentiation, and much more.</p>
+<p>For control systems, the ideal op-amp model suffices:</p>
+<ul>
+<li>Infinite input impedance (no current into input terminals)</li>
+<li>Zero output impedance</li>
+<li>Infinite open-loop gain (forces the difference between inputs to zero when feedback is present)</li>
+</ul>
+<p>These idealized properties, combined with negative feedback, give us the "golden rules" for op-amp analysis:</p>
+<ol>
+<li>No current flows into the + or − input terminals</li>
+<li>When negative feedback is present, the voltage difference between inputs is zero</li>
+</ol>
+<h4 id="common-op-amp-circuits-for-control">Common Op-Amp Circuits for Control</h4>
+<p><strong>Inverting Amplifier:</strong></p>
+<p><span class="arithmatex">\(G(s) = -\frac{Z_f(s)}{Z_{in}(s)}\)</span></p>
+<p>where <span class="arithmatex">\(Z_f\)</span> is the feedback impedance and <span class="arithmatex">\(Z_{in}\)</span> is the input impedance.</p>
+<p><strong>Integrator (Inverting):</strong></p>
+<p>With resistor input and capacitor feedback:</p>
+<p><span class="arithmatex">\(G(s) = -\frac{1}{RCs}\)</span></p>
+<p>This produces output proportional to the integral of the input—essential for PI and PID controllers.</p>
+<p><strong>Differentiator:</strong></p>
+<p>With capacitor input and resistor feedback:</p>
+<p><span class="arithmatex">\(G(s) = -RCs\)</span></p>
+<p>This produces output proportional to the derivative—useful for PD control, though rarely used pure due to noise amplification.</p>
+<p><strong>Active Low-Pass Filter:</strong></p>
+<p>Combining an inverting amplifier with RC filtering:</p>
+<p><span class="arithmatex">\(G(s) = -\frac{R_f}{R_{in}} \cdot \frac{1}{\tau s + 1}\)</span></p>
+<p>This provides both filtering and gain, making it useful in many control applications.</p>
+<div class="admonition tip">
+<p class="admonition-title">Op-Amps in Control Systems</p>
+<p>Op-amp circuits are the building blocks of analog controllers. A PID controller can be constructed entirely from op-amp stages: an inverting integrator for the I term, a differentiator (with filtering) for the D term, and amplifiers for gain adjustment. Understanding these circuits helps bridge the gap between control theory and hardware implementation.</p>
+</div>
+<h2 id="mechanical-systems">Mechanical Systems</h2>
+<p><strong>Mechanical systems</strong> translate the physical world of forces, masses, and motion into mathematical models. We divide mechanical systems into two categories based on the type of motion: translational (straight-line) and rotational (spinning).</p>
+<p>The fundamental mechanical elements parallel the electrical ones in satisfying ways that we'll explore in the analogous systems section.</p>
+<h3 id="translational-systems">Translational Systems</h3>
+<p><strong>Translational systems</strong> involve straight-line motion. The fundamental elements are mass, spring (stiffness), and damper (friction), with the relevant variables being force, velocity, and displacement.</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Symbol</th>
+<th>Force Relationship</th>
+<th>Impedance <span class="arithmatex">\(Z(s)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mass</td>
+<td><span class="arithmatex">\(m\)</span></td>
+<td><span class="arithmatex">\(F = m\frac{d^2x}{dt^2}\)</span></td>
+<td><span class="arithmatex">\(ms^2\)</span></td>
+</tr>
+<tr>
+<td>Damper</td>
+<td><span class="arithmatex">\(b\)</span></td>
+<td><span class="arithmatex">\(F = b\frac{dx}{dt}\)</span></td>
+<td><span class="arithmatex">\(bs\)</span></td>
+</tr>
+<tr>
+<td>Spring</td>
+<td><span class="arithmatex">\(k\)</span></td>
+<td><span class="arithmatex">\(F = kx\)</span></td>
+<td><span class="arithmatex">\(k\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The key governing principle is Newton's second law: <span class="arithmatex">\(\sum F = ma\)</span>. For each mass in the system, we write a force balance equation, then combine these with the constitutive relations for springs and dampers.</p>
+<h3 id="mass-spring-damper-system">Mass-Spring-Damper System</h3>
+<p>The <strong>mass-spring-damper</strong> system is the canonical second-order mechanical system, analogous to the RLC circuit in the electrical domain. It appears everywhere: vehicle suspensions, vibration isolation platforms, seismic sensors, and of course, simplified models of robots like Gyra.</p>
+<p>Consider a mass <span class="arithmatex">\(m\)</span> attached to a fixed wall via a spring <span class="arithmatex">\(k\)</span> and damper <span class="arithmatex">\(b\)</span>, with an applied force <span class="arithmatex">\(F(t)\)</span> and displacement <span class="arithmatex">\(x(t)\)</span> measured from equilibrium.</p>
+<p>Applying Newton's second law:</p>
+<p><span class="arithmatex">\(F(t) = m\frac{d^2x}{dt^2} + b\frac{dx}{dt} + kx\)</span></p>
+<h4 id="mass-spring-damper-transfer-function">Mass-Spring-Damper Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{X(s)}{F(s)} = \frac{1}{ms^2 + bs + k}\)</span></p>
+<p>This can be written in standard form:</p>
+<p><span class="arithmatex">\(G(s) = \frac{1/k}{(m/k)s^2 + (b/k)s + 1} = \frac{1/k}{\frac{s^2}{\omega_n^2} + \frac{2\zeta}{\omega_n}s + 1}\)</span></p>
+<p>where:</p>
+<ul>
+<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{k/m}\)</span></li>
+<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{b}{2\sqrt{km}}\)</span></li>
+<li>DC gain: <span class="arithmatex">\(1/k\)</span> (static displacement per unit force)</li>
+</ul>
+<p>The physical interpretation is intuitive:</p>
+<ul>
+<li>A stiffer spring (larger <span class="arithmatex">\(k\)</span>) means faster oscillation (higher <span class="arithmatex">\(\omega_n\)</span>) and smaller static displacement (lower DC gain)</li>
+<li>A heavier mass (larger <span class="arithmatex">\(m\)</span>) means slower oscillation</li>
+<li>More damping (larger <span class="arithmatex">\(b\)</span>) reduces oscillation and overshoot</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"I'm basically a mass-spring-damper—except my 'spring' is gravity trying to tip me over, and my 'damper' is my control system fighting back. When my engineers tune my PD gains, they're essentially setting my effective spring constant and damping ratio. Too little damping and I wobble endlessly. Too much and I react like I'm stuck in honey."</p>
+</div>
+<h4 id="diagram-mass-spring-damper-simulator">Diagram: Mass-Spring-Damper Simulator</h4>
+<iframe src="../../sims/mass-spring-damper-sim/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Mass-Spring-Damper Simulator</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, calculate</p>
+<p>Learning Objective: Students will apply Newton's second law to predict mass-spring-damper behavior and observe the relationship between physical parameters (m, b, k) and system response characteristics (ω_n, ζ).</p>
+<p>Canvas layout:
+- Left (50%): Physical animation of mass-spring-damper
+- Right (50%): Response plots and parameters</p>
+<p>Visual elements:
+Physical Animation:
+- Fixed wall on left
+- Spring (zigzag line) connecting wall to mass
+- Damper (piston symbol) in parallel with spring
+- Rectangular mass block
+- Ground with friction indicators
+- Position reference line
+- Applied force arrow</p>
+<p>Response Plots:
+- Position vs time plot
+- Velocity vs time plot (smaller, below)</p>
+<p>Parameter Panel:
+- Current m, b, k values
+- Calculated ω_n and ζ
+- Damping classification</p>
+<p>Interactive controls:
+- Slider: Mass m (0.5 to 10 kg)
+- Slider: Damping b (0 to 20 N·s/m)
+- Slider: Stiffness k (10 to 200 N/m)
+- Button: Apply step force
+- Button: Apply impulse
+- Button: Reset position</p>
+<p>Data Visibility Requirements:
+- Display calculated ω_n = √(k/m)
+- Display calculated ζ = b/(2√(km))
+- Show damping classification
+- Display period T = 2π/ω_d for underdamped cases</p>
+<p>Behavior:
+- Animation shows mass moving with spring stretching/compressing
+- Response plots show position and velocity over time
+- Different damping regimes show visually distinct behaviors
+- Spring visualization stretches proportionally to displacement
+- Damper shows velocity-proportional resistance</p>
+<p>Instructional Rationale: Physical animation combined with response plots connects the abstract transfer function to tangible mechanical behavior. Students see how changing mass affects both animation speed and the response curves.</p>
+<p>Implementation: p5.js with physics simulation and synchronized plotting</p>
+</details>
+<h3 id="rotational-systems">Rotational Systems</h3>
+<p><strong>Rotational systems</strong> involve spinning motion around an axis. The variables and elements are analogous to translational systems but for rotation:</p>
+<table>
+<thead>
+<tr>
+<th>Translational</th>
+<th>Rotational</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Force <span class="arithmatex">\(F\)</span></td>
+<td>Torque <span class="arithmatex">\(\tau\)</span></td>
+<td><span class="arithmatex">\(\tau = Fr\)</span> (moment arm)</td>
+</tr>
+<tr>
+<td>Mass <span class="arithmatex">\(m\)</span></td>
+<td>Moment of inertia <span class="arithmatex">\(J\)</span></td>
+<td><span class="arithmatex">\(J = mr^2\)</span> (for point mass)</td>
+</tr>
+<tr>
+<td>Damping <span class="arithmatex">\(b\)</span></td>
+<td>Rotational damping <span class="arithmatex">\(B\)</span></td>
+<td>Same units concept</td>
+</tr>
+<tr>
+<td>Stiffness <span class="arithmatex">\(k\)</span></td>
+<td>Torsional stiffness <span class="arithmatex">\(K\)</span></td>
+<td>Same units concept</td>
+</tr>
+<tr>
+<td>Displacement <span class="arithmatex">\(x\)</span></td>
+<td>Angle <span class="arithmatex">\(\theta\)</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Velocity <span class="arithmatex">\(v\)</span></td>
+<td>Angular velocity <span class="arithmatex">\(\omega\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Newton's second law becomes:</p>
+<p><span class="arithmatex">\(\sum \tau = J\frac{d^2\theta}{dt^2} = J\dot{\omega}\)</span></p>
+<p>For a rotational mass-spring-damper (e.g., a torsional pendulum):</p>
+<h4 id="rotational-second-order-system">Rotational Second-Order System</h4>
+<p><span class="arithmatex">\(G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{Js^2 + Bs + K}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(J\)</span> is the moment of inertia</li>
+<li><span class="arithmatex">\(B\)</span> is the rotational damping coefficient</li>
+<li><span class="arithmatex">\(K\)</span> is the torsional spring constant</li>
+<li><span class="arithmatex">\(\Theta(s)\)</span> is the angular displacement</li>
+<li><span class="arithmatex">\(T(s)\)</span> is the applied torque</li>
+</ul>
+<p>The form is identical to the translational case—only the variables and units differ.</p>
+<h3 id="pendulum-system">Pendulum System</h3>
+<p>The <strong>pendulum</strong> is a classical rotational system that introduces an important modeling concept: <strong>linearization</strong>. A simple pendulum's true dynamics are nonlinear, but for small angles, we can approximate the behavior with a linear model.</p>
+<p>For a simple pendulum of length <span class="arithmatex">\(L\)</span> and mass <span class="arithmatex">\(m\)</span>, with angle <span class="arithmatex">\(\theta\)</span> from vertical:</p>
+<p>The exact equation of motion is:</p>
+<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + mgL\sin\theta = \tau_{applied}\)</span></p>
+<p>This is nonlinear because of the <span class="arithmatex">\(\sin\theta\)</span> term. However, for small angles (typically <span class="arithmatex">\(\theta &lt; 15°\)</span>), we can use the approximation <span class="arithmatex">\(\sin\theta \approx \theta\)</span>:</p>
+<h4 id="linearized-pendulum-equation">Linearized Pendulum Equation</h4>
+<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + mgL\theta = \tau_{applied}\)</span></p>
+<p>Adding damping <span class="arithmatex">\(B\)</span> at the pivot:</p>
+<p><span class="arithmatex">\(mL^2\frac{d^2\theta}{dt^2} + B\frac{d\theta}{dt} + mgL\theta = \tau_{applied}\)</span></p>
+<h4 id="pendulum-transfer-function">Pendulum Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{\Theta(s)}{T(s)} = \frac{1}{mL^2s^2 + Bs + mgL}\)</span></p>
+<p>This is again a second-order system with:</p>
+<ul>
+<li>Natural frequency: <span class="arithmatex">\(\omega_n = \sqrt{g/L}\)</span> (the classic pendulum frequency)</li>
+<li>Damping ratio: <span class="arithmatex">\(\zeta = \frac{B}{2mL^2\omega_n} = \frac{B}{2L\sqrt{mgL}}\)</span></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Linearization Limitations</p>
+<p>The linearized pendulum model only works for small angles. If the pendulum swings widely, the actual behavior diverges from the linear prediction. This is a recurring theme in control: linear models are powerful but have validity limits. Good engineers know where those limits lie.</p>
+</div>
+<h3 id="gear-train">Gear Train</h3>
+<p><strong>Gear trains</strong> are mechanical power transmission systems that transform speed and torque. They're essential components in motors, robotics, and machinery. From a modeling perspective, they act as transformers—similar to electrical transformers but for mechanical quantities.</p>
+<p>For an ideal gear pair with gear ratio <span class="arithmatex">\(N = N_2/N_1\)</span> (driven gear teeth / driving gear teeth):</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Angular velocity</td>
+<td><span class="arithmatex">\(\omega_2 = \omega_1/N\)</span></td>
+</tr>
+<tr>
+<td>Torque</td>
+<td><span class="arithmatex">\(\tau_2 = N\tau_1\)</span></td>
+</tr>
+<tr>
+<td>Power</td>
+<td><span class="arithmatex">\(P_2 = P_1\)</span> (conserved)</td>
+</tr>
+</tbody>
+</table>
+<p>Gears trade speed for torque: a gear ratio <span class="arithmatex">\(N &gt; 1\)</span> reduces output speed but multiplies torque.</p>
+<p>When reflecting inertia and damping through a gear train to a single reference shaft:</p>
+<h4 id="reflected-inertia-formula">Reflected Inertia Formula</h4>
+<p><span class="arithmatex">\(J_{reflected} = J_{load}/N^2\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(J_{load}\)</span> is the load inertia on the output shaft</li>
+<li><span class="arithmatex">\(N\)</span> is the gear ratio</li>
+<li><span class="arithmatex">\(J_{reflected}\)</span> is the equivalent inertia seen at the motor shaft</li>
+</ul>
+<p>This <span class="arithmatex">\(N^2\)</span> relationship is crucial for motor sizing: a gear reduction makes the load appear lighter to the motor.</p>
+<div class="admonition tip">
+<p class="admonition-title">Gear Ratio Selection</p>
+<p>Gear ratios involve tradeoffs. Higher ratios reduce the effective load inertia and increase torque but also reduce output speed and can introduce backlash and compliance. In robotics, matching the gear ratio to optimize for acceleration capability or force sensitivity is an important design decision.</p>
+</div>
+<h3 id="lever-system">Lever System</h3>
+<p><strong>Lever systems</strong> are rotational mechanical advantage devices, fundamental to tools and machines. Like gears, they transform force and displacement.</p>
+<p>For a lever with fulcrum position creating arms of length <span class="arithmatex">\(a\)</span> (input side) and <span class="arithmatex">\(b\)</span> (output side):</p>
+<h4 id="lever-mechanical-advantage">Lever Mechanical Advantage</h4>
+<p><span class="arithmatex">\(MA = \frac{F_{out}}{F_{in}} = \frac{a}{b}\)</span></p>
+<p>And displacement relationship:</p>
+<p><span class="arithmatex">\(\frac{x_{out}}{x_{in}} = \frac{b}{a}\)</span></p>
+<p>The product of force and displacement is conserved (work in = work out for ideal levers):</p>
+<p><span class="arithmatex">\(F_{in} \cdot x_{in} = F_{out} \cdot x_{out}\)</span></p>
+<p>Levers are first-class (fulcrum between effort and load), second-class (load between fulcrum and effort), or third-class (effort between fulcrum and load), each suited to different applications.</p>
+<h2 id="electromechanical-systems">Electromechanical Systems</h2>
+<p><strong>Electromechanical systems</strong> bridge the electrical and mechanical domains. They convert electrical energy to mechanical energy (motors) or mechanical energy to electrical energy (generators). For control systems, the <strong>DC motor</strong> is the most important electromechanical device to model.</p>
+<h3 id="dc-motor">DC Motor</h3>
+<p>The <strong>DC motor</strong> converts electrical current into rotational mechanical power through electromagnetic interaction. It's the actuator of choice in countless control applications: robotics, disk drives, automotive systems, and—you guessed it—Gyra's wheels.</p>
+<p>A DC motor has two main circuits:</p>
+<ul>
+<li><strong>Armature circuit</strong>: the rotating winding that carries current and produces torque</li>
+<li><strong>Field circuit</strong>: provides the magnetic field (can be permanent magnets or electromagnets)</li>
+</ul>
+<p>The key relationships governing DC motor behavior:</p>
+<h4 id="motor-torque-equation">Motor Torque Equation</h4>
+<p><span class="arithmatex">\(\tau = K_t i_a\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\tau\)</span> is the motor torque</li>
+<li><span class="arithmatex">\(K_t\)</span> is the torque constant (N·m/A)</li>
+<li><span class="arithmatex">\(i_a\)</span> is the armature current</li>
+</ul>
+<h4 id="back-emf-equation">Back-EMF Equation</h4>
+<p><span class="arithmatex">\(e_b = K_e \omega\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(e_b\)</span> is the back-EMF (electromotive force)</li>
+<li><span class="arithmatex">\(K_e\)</span> is the back-EMF constant (V·s/rad)</li>
+<li><span class="arithmatex">\(\omega\)</span> is the angular velocity</li>
+</ul>
+<p>For an ideal motor, <span class="arithmatex">\(K_t = K_e\)</span> when expressed in consistent units.</p>
+<p>The back-EMF is a crucial feedback mechanism: as the motor spins faster, it generates a voltage that opposes the applied voltage, naturally limiting speed.</p>
+<h3 id="armature-controlled-dc-motor">Armature-Controlled DC Motor</h3>
+<p>The <strong>armature-controlled DC motor</strong> is the most common configuration. The field is held constant (often using permanent magnets), and speed/torque are controlled by varying the armature voltage.</p>
+<p>The armature circuit equation:</p>
+<p><span class="arithmatex">\(v_a = L_a\frac{di_a}{dt} + R_ai_a + e_b = L_a\frac{di_a}{dt} + R_ai_a + K_e\omega\)</span></p>
+<p>The mechanical equation:</p>
+<p><span class="arithmatex">\(J\frac{d\omega}{dt} + B\omega = \tau - \tau_L = K_ti_a - \tau_L\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(v_a\)</span> is the armature voltage (input)</li>
+<li><span class="arithmatex">\(L_a\)</span> and <span class="arithmatex">\(R_a\)</span> are armature inductance and resistance</li>
+<li><span class="arithmatex">\(J\)</span> is the total inertia (motor + load)</li>
+<li><span class="arithmatex">\(B\)</span> is the viscous friction coefficient</li>
+<li><span class="arithmatex">\(\tau_L\)</span> is the load torque</li>
+</ul>
+<p>Taking Laplace transforms and eliminating <span class="arithmatex">\(I_a(s)\)</span>:</p>
+<h4 id="armature-controlled-dc-motor-transfer-function">Armature-Controlled DC Motor Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{\Omega(s)}{V_a(s)} = \frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}\)</span></p>
+<p>For most DC motors, the electrical time constant (<span class="arithmatex">\(L_a/R_a\)</span>) is much smaller than the mechanical time constant (<span class="arithmatex">\(J/B\)</span>), so we often neglect armature inductance:</p>
+<h4 id="simplified-motor-transfer-function">Simplified Motor Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{K_t/R_a}{Js + B + K_tK_e/R_a} = \frac{K_m}{\tau_m s + 1}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K_m = \frac{K_t}{R_aB + K_tK_e}\)</span> is the motor gain constant</li>
+<li><span class="arithmatex">\(\tau_m = \frac{JR_a}{R_aB + K_tK_e}\)</span> is the motor time constant</li>
+</ul>
+<p>This simplified model is a first-order system—voltage in, speed out—which is remarkably tractable for control design.</p>
+<h3 id="field-controlled-dc-motor">Field-Controlled DC Motor</h3>
+<p>The <strong>field-controlled DC motor</strong> varies the field current while keeping armature current constant. This configuration is less common but appears in some applications.</p>
+<p>With constant armature current <span class="arithmatex">\(i_a\)</span> and variable field current <span class="arithmatex">\(i_f\)</span>:</p>
+<p><span class="arithmatex">\(\tau = K'_t i_f i_a = K_f i_f\)</span> (where <span class="arithmatex">\(K_f = K'_t i_a\)</span>)</p>
+<p>The field circuit equation:</p>
+<p><span class="arithmatex">\(v_f = L_f\frac{di_f}{dt} + R_fi_f\)</span></p>
+<p>The mechanical equation:</p>
+<p><span class="arithmatex">\(J\frac{d\omega}{dt} + B\omega = K_f i_f\)</span></p>
+<h4 id="field-controlled-motor-transfer-function">Field-Controlled Motor Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{\Omega(s)}{V_f(s)} = \frac{K_f}{(L_fs + R_f)(Js + B)}\)</span></p>
+<p>This is a second-order system—the field and mechanical dynamics each contribute a pole. The response is generally slower than armature control because of the field circuit's larger inductance.</p>
+<h3 id="motor-transfer-function-summary">Motor Transfer Function Summary</h3>
+<p>Both motor types can be expressed as transfer functions relating input voltage to output speed or position:</p>
+<table>
+<thead>
+<tr>
+<th>Motor Type</th>
+<th>Speed Transfer Function</th>
+<th>Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Armature-controlled (full)</td>
+<td><span class="arithmatex">\(\frac{K_t}{(L_as + R_a)(Js + B) + K_tK_e}\)</span></td>
+<td>Second</td>
+</tr>
+<tr>
+<td>Armature-controlled (simplified)</td>
+<td><span class="arithmatex">\(\frac{K_m}{\tau_m s + 1}\)</span></td>
+<td>First</td>
+</tr>
+<tr>
+<td>Field-controlled</td>
+<td><span class="arithmatex">\(\frac{K_f}{(L_fs + R_f)(Js + B)}\)</span></td>
+<td>Second</td>
+</tr>
+</tbody>
+</table>
+<p>For position control, integrate the speed transfer function (multiply by <span class="arithmatex">\(1/s\)</span>):</p>
+<p><span class="arithmatex">\(G_\theta(s) = \frac{\Theta(s)}{V(s)} = \frac{G_\omega(s)}{s}\)</span></p>
+<h4 id="diagram-dc-motor-model-visualization">Diagram: DC Motor Model Visualization</h4>
+<iframe src="../../sims/dc-motor-model/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>DC Motor Model Visualization</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, examine</p>
+<p>Learning Objective: Students will analyze the interaction between electrical and mechanical dynamics in a DC motor, observing how changes in motor parameters affect both circuits and the resulting motion.</p>
+<p>Canvas layout:
+- Top left (40%): Electrical circuit schematic with live values
+- Top right (40%): Mechanical diagram with rotating load
+- Bottom (full width): Time response plots</p>
+<p>Visual elements:
+Electrical Schematic:
+- Armature circuit with R_a, L_a, voltage source
+- Back-EMF source (proportional to speed)
+- Current flow indicators
+- Live voltage and current displays</p>
+<p>Mechanical Diagram:
+- Motor rotor symbol
+- Rotating shaft with angle indicator
+- Connected inertia (disk)
+- Damper symbol
+- Angular velocity display</p>
+<p>Response Plots:
+- Armature current i_a(t)
+- Angular velocity ω(t)
+- Applied voltage v_a(t)
+- Torque τ(t)</p>
+<p>Interactive controls:
+- Slider: Armature voltage V_a (0 to 24 V)
+- Slider: Load inertia J (0.001 to 0.1 kg·m²)
+- Slider: Armature resistance R_a (0.5 to 5 Ω)
+- Slider: Torque constant K_t (0.01 to 0.1 N·m/A)
+- Toggle: Include/neglect inductance L_a
+- Button: Apply step voltage
+- Button: Apply load torque step</p>
+<p>Data Visibility Requirements:
+- Display all electrical quantities: v_a, i_a, e_b
+- Display all mechanical quantities: τ, ω, θ
+- Show power flow: P_elec = v_a·i_a, P_mech = τ·ω
+- Display calculated time constants</p>
+<p>Behavior:
+- When voltage step applied, show current surge then decay
+- Show speed building up with electrical and mechanical dynamics
+- Back-EMF grows as speed increases, limiting current
+- Steady-state reached when torque equals friction load
+- Rotor animation synchronized with calculated velocity</p>
+<p>Instructional Rationale: Parallel visualization of electrical and mechanical domains shows the bidirectional coupling through K_t (current→torque) and K_e (speed→back-EMF). Students see that the motor is not just an electrical or mechanical system—it's fundamentally both.</p>
+<p>Implementation: p5.js with coupled differential equation solver and synchronized animations</p>
+</details>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My motors are armature-controlled DC motors. When my controller commands a voltage, current surges through the armature, creating torque. As I start spinning, back-EMF builds up and opposes the current—nature's built-in speed limiter. My engineers modeled this carefully: the torque constant tells them how much push I get per amp, and the back-EMF constant tells them how fast I resist acceleration. These two numbers, along with my inertia and friction, define who I am as a dynamic system."</p>
+</div>
+<h2 id="fluid-and-thermal-systems">Fluid and Thermal Systems</h2>
+<p>While electrical, mechanical, and electromechanical systems are the primary focus of this course, two other domains appear frequently in industrial control: <strong>fluid systems</strong> and <strong>thermal systems</strong>. Understanding their models reinforces the analogous systems concept.</p>
+<h3 id="fluid-systems">Fluid Systems</h3>
+<p><strong>Fluid systems</strong> involve the flow of liquids or gases through pipes, tanks, and valves. The relevant variables are pressure (analogous to voltage), flow rate (analogous to current), and fluid volume or mass.</p>
+<p>For an incompressible liquid tank with cross-sectional area <span class="arithmatex">\(A\)</span> and outlet resistance <span class="arithmatex">\(R\)</span>:</p>
+<h4 id="tank-level-dynamics">Tank Level Dynamics</h4>
+<p><span class="arithmatex">\(A\frac{dh}{dt} = q_{in} - q_{out} = q_{in} - \frac{h}{R}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(h\)</span> is the liquid height</li>
+<li><span class="arithmatex">\(q_{in}\)</span> is the inlet flow rate</li>
+<li><span class="arithmatex">\(q_{out} = h/R\)</span> assumes laminar flow through the outlet</li>
+<li><span class="arithmatex">\(R\)</span> is the fluid resistance</li>
+</ul>
+<p>This gives a first-order transfer function relating inlet flow to level:</p>
+<p><span class="arithmatex">\(G(s) = \frac{H(s)}{Q_{in}(s)} = \frac{R}{ARs + 1} = \frac{R}{\tau s + 1}\)</span></p>
+<p>where <span class="arithmatex">\(\tau = AR\)</span> is the tank time constant.</p>
+<p>Key fluid system elements:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Analogous To</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fluid resistance</td>
+<td>Electrical resistance</td>
+<td><span class="arithmatex">\(\Delta P = Rq\)</span> (pressure drop)</td>
+</tr>
+<tr>
+<td>Tank capacitance</td>
+<td>Electrical capacitance</td>
+<td><span class="arithmatex">\(C = A\)</span> (storage capacity)</td>
+</tr>
+<tr>
+<td>Fluid inertance</td>
+<td>Electrical inductance</td>
+<td><span class="arithmatex">\(\Delta P = I(dq/dt)\)</span> (momentum)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="thermal-systems">Thermal Systems</h3>
+<p><strong>Thermal systems</strong> involve heat flow and temperature. The relevant variables are temperature (analogous to voltage), heat flow rate (analogous to current), and thermal energy stored.</p>
+<p>For a body with thermal capacitance <span class="arithmatex">\(C_{th}\)</span> and thermal resistance <span class="arithmatex">\(R_{th}\)</span> to the environment at temperature <span class="arithmatex">\(T_{amb}\)</span>:</p>
+<h4 id="thermal-dynamics">Thermal Dynamics</h4>
+<p><span class="arithmatex">\(C_{th}\frac{dT}{dt} = q_{in} - \frac{T - T_{amb}}{R_{th}}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span> is the body temperature</li>
+<li><span class="arithmatex">\(q_{in}\)</span> is the heat input rate</li>
+<li><span class="arithmatex">\(R_{th}\)</span> is the thermal resistance to ambient</li>
+<li><span class="arithmatex">\(C_{th}\)</span> is the thermal capacitance (mass × specific heat)</li>
+</ul>
+<p>The transfer function from heat input to temperature rise above ambient:</p>
+<p><span class="arithmatex">\(G(s) = \frac{T(s) - T_{amb}}{Q_{in}(s)} = \frac{R_{th}}{R_{th}C_{th}s + 1} = \frac{R_{th}}{\tau_{th}s + 1}\)</span></p>
+<p>Thermal systems are typically first-order with large time constants (minutes to hours for building heating, seconds for electronics cooling).</p>
+<table>
+<thead>
+<tr>
+<th>Thermal Element</th>
+<th>Analogous To</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thermal resistance</td>
+<td>Electrical resistance</td>
+<td><span class="arithmatex">\(\Delta T = R_{th}q\)</span></td>
+</tr>
+<tr>
+<td>Thermal capacitance</td>
+<td>Electrical capacitance</td>
+<td><span class="arithmatex">\(C_{th} = mc_p\)</span></td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Voltage</td>
+<td>Driving potential</td>
+</tr>
+<tr>
+<td>Heat flow</td>
+<td>Current</td>
+<td>Flow quantity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analogous-systems">Analogous Systems</h2>
+<p>One of the most powerful insights in engineering is that seemingly different physical systems often obey the same mathematical equations. A circuit, a mechanical system, a fluid tank, and a heating system can all be described by the same transfer function. This concept of <strong>analogous systems</strong> allows engineers to transfer intuition and analysis techniques across domains.</p>
+<p>The analogies arise because all linear physical systems are governed by conservation laws (energy, momentum, mass) and constitutive relations (component behaviors). The mathematics doesn't care whether the energy is stored in a capacitor or a spring, or whether the "flow" is electrical current or fluid volume rate.</p>
+<p>There are two main analogy conventions for relating electrical and mechanical systems:</p>
+<h3 id="force-voltage-analogy-impedance-analogy">Force-Voltage Analogy (Impedance Analogy)</h3>
+<p>The <strong>force-voltage analogy</strong> (also called the <strong>impedance analogy</strong>) maps:</p>
+<table>
+<thead>
+<tr>
+<th>Mechanical</th>
+<th>Electrical</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Force <span class="arithmatex">\(F\)</span></td>
+<td>Voltage <span class="arithmatex">\(v\)</span></td>
+</tr>
+<tr>
+<td>Velocity <span class="arithmatex">\(v\)</span></td>
+<td>Current <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td>Displacement <span class="arithmatex">\(x\)</span></td>
+<td>Charge <span class="arithmatex">\(q\)</span></td>
+</tr>
+<tr>
+<td>Mass <span class="arithmatex">\(m\)</span></td>
+<td>Inductance <span class="arithmatex">\(L\)</span></td>
+</tr>
+<tr>
+<td>Damping <span class="arithmatex">\(b\)</span></td>
+<td>Resistance <span class="arithmatex">\(R\)</span></td>
+</tr>
+<tr>
+<td>Stiffness <span class="arithmatex">\(k\)</span></td>
+<td>1/Capacitance <span class="arithmatex">\(1/C\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The name "impedance analogy" comes from the fact that mechanical impedance <span class="arithmatex">\(Z_m = F/v\)</span> maps to electrical impedance <span class="arithmatex">\(Z_e = V/I\)</span>.</p>
+<p>Under this analogy:</p>
+<ul>
+<li>A <strong>mass</strong> (stores kinetic energy, <span class="arithmatex">\(E = \frac{1}{2}mv^2\)</span>) is analogous to an <strong>inductor</strong> (stores magnetic energy, <span class="arithmatex">\(E = \frac{1}{2}Li^2\)</span>)</li>
+<li>A <strong>spring</strong> (stores potential energy, <span class="arithmatex">\(E = \frac{1}{2}kx^2\)</span>) is analogous to a <strong>capacitor</strong> (stores electric energy, <span class="arithmatex">\(E = \frac{1}{2}Cv^2\)</span>)</li>
+<li>A <strong>damper</strong> (dissipates energy, <span class="arithmatex">\(P = bv^2\)</span>) is analogous to a <strong>resistor</strong> (dissipates energy, <span class="arithmatex">\(P = Ri^2\)</span>)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Why Force Maps to Voltage</p>
+<p>In this analogy, elements in series in the mechanical domain (experiencing the same force) correspond to elements in series in the electrical domain (experiencing the same voltage). This makes circuit topology match mechanical topology.</p>
+</div>
+<h3 id="force-current-analogy-mobility-analogy">Force-Current Analogy (Mobility Analogy)</h3>
+<p>The <strong>force-current analogy</strong> (also called the <strong>mobility analogy</strong>) provides an alternative mapping:</p>
+<table>
+<thead>
+<tr>
+<th>Mechanical</th>
+<th>Electrical</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Force <span class="arithmatex">\(F\)</span></td>
+<td>Current <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td>Velocity <span class="arithmatex">\(v\)</span></td>
+<td>Voltage <span class="arithmatex">\(v\)</span></td>
+</tr>
+<tr>
+<td>Displacement <span class="arithmatex">\(x\)</span></td>
+<td>Flux linkage <span class="arithmatex">\(\lambda\)</span></td>
+</tr>
+<tr>
+<td>Mass <span class="arithmatex">\(m\)</span></td>
+<td>Capacitance <span class="arithmatex">\(C\)</span></td>
+</tr>
+<tr>
+<td>Damping <span class="arithmatex">\(b\)</span></td>
+<td>1/Resistance <span class="arithmatex">\(1/R\)</span></td>
+</tr>
+<tr>
+<td>Stiffness <span class="arithmatex">\(k\)</span></td>
+<td>1/Inductance <span class="arithmatex">\(1/L\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Under this analogy:</p>
+<ul>
+<li>A <strong>mass</strong> is analogous to a <strong>capacitor</strong> (both store energy proportional to the square of the "across" variable: velocity or voltage)</li>
+<li>A <strong>spring</strong> is analogous to an <strong>inductor</strong> (both store energy proportional to the square of the "through" variable: force or current)</li>
+<li>A <strong>damper</strong> is analogous to a <strong>conductance</strong> (reciprocal of resistance)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Which Analogy to Use?</p>
+<p>Both analogies are valid and lead to correct transfer functions. The force-voltage analogy is more common in textbooks because it preserves series/parallel relationships. The force-current analogy is sometimes preferred in computer simulation because node voltages correspond to velocities, which are the natural state variables.</p>
+</div>
+<h4 id="diagram-analogous-systems-comparison">Diagram: Analogous Systems Comparison</h4>
+<iframe src="../../sims/analogous-systems-compare/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Analogous Systems Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, contrast</p>
+<p>Learning Objective: Students will compare the behavior of mechanical and electrical systems, observing that analogous systems with matched parameters produce identical transfer functions and responses.</p>
+<p>Canvas layout:
+- Top left: Mechanical system (mass-spring-damper) animation and schematic
+- Top right: Electrical system (RLC circuit) animation and schematic
+- Bottom: Shared response plot with both outputs overlaid</p>
+<p>Visual elements:
+Mechanical System:
+- Mass-spring-damper schematic
+- Animation of mass position
+- Parameter values: m, b, k
+- Applied force input indicator</p>
+<p>Electrical System:
+- RLC circuit schematic
+- Animation showing capacitor voltage as moving bar
+- Parameter values: L, R, C
+- Applied voltage input indicator</p>
+<p>Shared Response Plot:
+- Time axis
+- Mechanical response (displacement x or velocity v)
+- Electrical response (voltage or current)
+- Both curves overlaid showing identical dynamics
+- Legend distinguishing curves</p>
+<p>Parameter Mapping Panel:
+- Shows which analogy is active
+- Displays the mapping: m↔L, b↔R, k↔1/C (force-voltage)
+- Calculated ω_n and ζ for both systems</p>
+<p>Interactive controls:
+- Radio buttons: Select analogy (Force-Voltage or Force-Current)
+- Slider: Natural frequency ω_n (shared for both systems)
+- Slider: Damping ratio ζ (shared for both systems)
+- Button: Apply step input to both
+- Button: Apply impulse to both
+- Toggle: Show/hide individual responses</p>
+<p>Data Visibility Requirements:
+- Display transfer functions for both systems
+- Show that they are identical in form
+- Display calculated component values based on ω_n and ζ
+- Show analogy mapping table</p>
+<p>Behavior:
+- Both systems animate simultaneously with step/impulse input
+- Response curves overlay exactly when analogy is correct
+- Changing ω_n or ζ updates both systems proportionally
+- Switching analogy changes the mapping but maintains identical response</p>
+<p>Instructional Rationale: Side-by-side visualization with overlaid responses proves that different physical systems can be mathematically identical. The shared sliders for ω_n and ζ emphasize that these are the fundamental parameters—not the specific physical values.</p>
+<p>Implementation: p5.js with dual physics simulations and synchronized response plotting</p>
+</details>
+<h3 id="practical-value-of-analogies">Practical Value of Analogies</h3>
+<p>The analogous systems concept isn't just academic elegance—it has real practical value:</p>
+<ol>
+<li>
+<p><strong>Transfer of intuition</strong>: If you understand how an RLC circuit behaves, you understand mass-spring-dampers, tank level systems, and thermal dynamics.</p>
+</li>
+<li>
+<p><strong>Cross-domain modeling</strong>: Complex systems often span multiple domains. A motor-driven mechanical system involves electrical dynamics (armature circuit) coupled to mechanical dynamics (rotor and load). Analogies help create unified models.</p>
+</li>
+<li>
+<p><strong>Simulation</strong>: Electrical circuit simulators (like SPICE) can model mechanical, thermal, and fluid systems by creating analogous electrical circuits. This was common before multi-domain simulators became widely available.</p>
+</li>
+<li>
+<p><strong>Physical insight</strong>: Sometimes a behavior is more intuitive in one domain. The "resonance" of an RLC circuit might be easier to visualize than the corresponding mechanical oscillation, or vice versa.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Energy Storage 1</th>
+<th>Energy Storage 2</th>
+<th>Energy Dissipation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electrical</td>
+<td>Inductor (<span class="arithmatex">\(L\)</span>)</td>
+<td>Capacitor (<span class="arithmatex">\(C\)</span>)</td>
+<td>Resistor (<span class="arithmatex">\(R\)</span>)</td>
+</tr>
+<tr>
+<td>Mech. Trans.</td>
+<td>Mass (<span class="arithmatex">\(m\)</span>)</td>
+<td>Spring (<span class="arithmatex">\(1/k\)</span>)</td>
+<td>Damper (<span class="arithmatex">\(b\)</span>)</td>
+</tr>
+<tr>
+<td>Mech. Rot.</td>
+<td>Inertia (<span class="arithmatex">\(J\)</span>)</td>
+<td>Torsion spring (<span class="arithmatex">\(1/K\)</span>)</td>
+<td>Rot. damper (<span class="arithmatex">\(B\)</span>)</td>
+</tr>
+<tr>
+<td>Fluid</td>
+<td>Inertance</td>
+<td>Tank (<span class="arithmatex">\(A\)</span>)</td>
+<td>Resistance (<span class="arithmatex">\(R_f\)</span>)</td>
+</tr>
+<tr>
+<td>Thermal</td>
+<td>—</td>
+<td>Capacitance (<span class="arithmatex">\(C_{th}\)</span>)</td>
+<td>Resistance (<span class="arithmatex">\(R_{th}\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="systematic-modeling-procedure">Systematic Modeling Procedure</h2>
+<p>Whether modeling electrical, mechanical, or electromechanical systems, a systematic approach prevents errors and builds understanding. Here's a recommended procedure:</p>
+<p><strong>Step 1: Identify the System Boundary</strong>
+Determine what's inside your model (the "plant") and what's outside (inputs, disturbances, loads).</p>
+<p><strong>Step 2: Choose Variables</strong>
+Select the minimum set of independent variables needed to describe the system state. These are typically "across" variables (voltage, velocity, temperature) at nodes and "through" variables (current, force, heat flow) in branches.</p>
+<p><strong>Step 3: Apply Conservation Laws</strong>
+- Electrical: Kirchhoff's voltage law (KVL) and current law (KCL)
+- Mechanical: Newton's laws (force/torque balance)
+- Thermal/Fluid: Energy/mass conservation</p>
+<p><strong>Step 4: Apply Constitutive Relations</strong>
+Relate the through and across variables for each component (Ohm's law, spring law, etc.).</p>
+<p><strong>Step 5: Combine and Simplify</strong>
+Eliminate intermediate variables to get equations in terms of input(s) and output(s) only.</p>
+<p><strong>Step 6: Take Laplace Transform</strong>
+Convert differential equations to algebraic equations in <span class="arithmatex">\(s\)</span>.</p>
+<p><strong>Step 7: Solve for Transfer Function</strong>
+Express <span class="arithmatex">\(G(s) = Output(s)/Input(s)\)</span>.</p>
+<p><strong>Step 8: Verify</strong>
+Check units, limiting cases (DC, high frequency), and physical reasonableness. Does the model behave as expected?</p>
+<div class="admonition example">
+<p class="admonition-title">Example: Modeling a Motor-Driven Mass</p>
+<p>Consider a DC motor (armature-controlled) connected through gears to a translational mass. The input is armature voltage <span class="arithmatex">\(v_a\)</span>; the output is mass position <span class="arithmatex">\(x\)</span>.</p>
+<p><strong>Components:</strong>
+- Motor: <span class="arithmatex">\(R_a\)</span>, <span class="arithmatex">\(L_a\)</span>, <span class="arithmatex">\(K_t\)</span>, <span class="arithmatex">\(K_e\)</span>, rotor inertia <span class="arithmatex">\(J_m\)</span>, rotor damping <span class="arithmatex">\(B_m\)</span>
+- Gears: ratio <span class="arithmatex">\(N\)</span> (motor turns per output revolution)
+- Mass: <span class="arithmatex">\(m\)</span>, damping <span class="arithmatex">\(b\)</span>, plus rack-and-pinion with radius <span class="arithmatex">\(r\)</span></p>
+<p><strong>Analysis approach:</strong>
+1. Model motor electrically and mechanically
+2. Reflect load to motor shaft through gears
+3. Convert rotational motion to translation via rack-and-pinion
+4. Combine into single transfer function <span class="arithmatex">\(X(s)/V_a(s)\)</span></p>
+<p>The result is a third-order system (electrical + two mechanical integrations), though often simplified by neglecting armature inductance.</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter developed the essential skill of physical system modeling—translating real-world systems into mathematical descriptions suitable for control analysis and design.</p>
+<p><strong>Electrical Systems:</strong>
+- RC, RL circuits are first-order systems with time constants <span class="arithmatex">\(\tau = RC\)</span> or <span class="arithmatex">\(\tau = L/R\)</span>
+- RLC circuits are second-order with natural frequency <span class="arithmatex">\(\omega_n = 1/\sqrt{LC}\)</span> and damping ratio <span class="arithmatex">\(\zeta = (R/2)\sqrt{C/L}\)</span>
+- Op-amp circuits enable active operations: gain, integration, differentiation</p>
+<p><strong>Mechanical Systems:</strong>
+- Translational and rotational systems share parallel structures
+- Mass-spring-damper is the canonical second-order mechanical system
+- Gear trains transform speed and torque with ratio <span class="arithmatex">\(N\)</span>; inertia reflects by <span class="arithmatex">\(N^2\)</span>
+- Nonlinear systems (like pendulums) can be linearized for small deviations</p>
+<p><strong>Electromechanical Systems:</strong>
+- DC motors couple electrical and mechanical dynamics
+- Armature-controlled motors relate voltage to speed via coupled first/second-order dynamics
+- Torque constant <span class="arithmatex">\(K_t\)</span> and back-EMF constant <span class="arithmatex">\(K_e\)</span> characterize the coupling</p>
+<p><strong>Analogous Systems:</strong>
+- Different physical domains obey similar mathematical structures
+- Force-voltage and force-current analogies relate mechanical to electrical systems
+- Analogies enable transfer of insight across disciplines</p>
+<p>The transfer functions derived in this chapter are the starting point for the stability analysis, frequency response methods, and controller design techniques covered in subsequent chapters. A good model is the foundation of good control.</p>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, verify you can answer these:</p>
+<ol>
+<li>
+<p>An RC circuit has R = 10 kΩ and C = 0.1 μF. What is the time constant? What is the pole location?</p>
+</li>
+<li>
+<p>A mass-spring-damper has m = 2 kg, k = 50 N/m, b = 4 N·s/m. Calculate ω_n and ζ. Is it underdamped, critically damped, or overdamped?</p>
+</li>
+<li>
+<p>A motor has K_t = 0.05 N·m/A and K_e = 0.05 V·s/rad. If the motor runs at 100 rad/s, what back-EMF is generated?</p>
+</li>
+<li>
+<p>In the force-voltage analogy, what electrical component is analogous to a mechanical spring?</p>
+</li>
+<li>
+<p>Why do we often neglect armature inductance when modeling DC motors?</p>
+</li>
+</ol>
+<p>If you can answer all five, you're ready to analyze stability and design controllers in the chapters ahead!</p>
+</details>
 
 
 
@@ -1246,7 +3380,12 @@
 
 
 
+  
+  
 
+
+
+  
 
 
 
@@ -1313,11 +3452,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       

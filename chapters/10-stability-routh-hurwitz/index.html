@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Understanding stability definitions and using the Routh-Hurwitz criterion to determine system stability without computing poles">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>10. Stability and Routh-Hurwitz - Control Systems</title>
+        <title>Stability Analysis and the Routh-Hurwitz Criterion - Control Systems</title>
       
     
     
@@ -59,6 +59,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JZNNKZH8FW"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JZNNKZH8FW",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JZNNKZH8FW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -115,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. Stability and Routh-Hurwitz
+              Stability Analysis and the Routh-Hurwitz Criterion
             
           </span>
         </div>
@@ -671,6 +681,468 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-question-every-engineer-must-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Question Every Engineer Must Answer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Stability?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bounded-input-and-bounded-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Input and Bounded Output
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounded Input and Bounded Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bounded-input-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Input Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounded-output-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Output Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibo-stability-the-input-output-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIBO Stability: The Input-Output View
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BIBO Stability: The Input-Output View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bibo-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIBO Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-stability-eventually-settling-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Stability: Eventually Settling Down
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Stability: Eventually Settling Down">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asymptotic-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marginal-stability-the-edge-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marginal Stability: The Edge Case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Marginal Stability: The Edge Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marginal-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marginal Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-stability-looking-inside" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Stability: Looking Inside
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Stability: Looking Inside">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hidden-instability-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hidden Instability Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unstable-systems-when-things-go-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unstable Systems: When Things Go Wrong
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-characteristic-equation-and-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Characteristic Equation and Polynomial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Characteristic Equation and Polynomial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-the-routh-hurwitz-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need the Routh-Hurwitz Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why We Need the Routh-Hurwitz Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stability-analysis-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Stability Analysis Timeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-routh-hurwitz-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Routh-Hurwitz Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Routh-Hurwitz Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-polynomial-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Polynomial Form
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routh-array-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routh Array Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Routh Array Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routh-array-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routh Array Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-routh-array-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Routh Array Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-third-order-system-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Third-Order System Stability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-fourth-order-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Fourth-Order System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-case-zero-in-first-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Case: Zero in First Column
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Case: Zero in First Column">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-in-first-column-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero in First Column Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-case-row-of-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Case: Row of Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Case: Row of Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auxiliary Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-of-zeros-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row of Zeros Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-row-of-zeros-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Row of Zeros Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stability-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Stability Boundary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Stability Boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stability-boundary-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Stability Boundary Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relative-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relative Stability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relative Stability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-stability-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relative Stability Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-using-routh-hurwitz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Using Routh-Hurwitz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Using Routh-Hurwitz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-example-two-parameter-stability-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Example: Two-Parameter Stability Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-parameter-stability-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Two-Parameter Stability Region
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-routh-hurwitz-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: Routh-Hurwitz at a Glance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,9 +1460,7 @@
     
       
         
-      
-        
-      
+          
         
       
         
@@ -1008,7 +1478,7 @@
         
   
   
-    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1180,6 +1650,468 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-question-every-engineer-must-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Question Every Engineer Must Answer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Stability?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bounded-input-and-bounded-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Input and Bounded Output
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bounded Input and Bounded Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bounded-input-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Input Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounded-output-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounded Output Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibo-stability-the-input-output-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIBO Stability: The Input-Output View
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BIBO Stability: The Input-Output View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bibo-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIBO Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-stability-eventually-settling-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Stability: Eventually Settling Down
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Stability: Eventually Settling Down">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asymptotic-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marginal-stability-the-edge-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marginal Stability: The Edge Case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Marginal Stability: The Edge Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marginal-stability-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marginal Stability Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-stability-looking-inside" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Stability: Looking Inside
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Stability: Looking Inside">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hidden-instability-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hidden Instability Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unstable-systems-when-things-go-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unstable Systems: When Things Go Wrong
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-characteristic-equation-and-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Characteristic Equation and Polynomial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Characteristic Equation and Polynomial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-the-routh-hurwitz-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need the Routh-Hurwitz Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why We Need the Routh-Hurwitz Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stability-analysis-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Stability Analysis Timeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-routh-hurwitz-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Routh-Hurwitz Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Routh-Hurwitz Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-polynomial-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Polynomial Form
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routh-array-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routh Array Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Routh Array Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routh-array-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routh Array Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-routh-array-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Routh Array Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-third-order-system-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Third-Order System Stability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-fourth-order-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Fourth-Order System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-case-zero-in-first-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Case: Zero in First Column
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Case: Zero in First Column">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zero-in-first-column-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero in First Column Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-case-row-of-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Case: Row of Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Case: Row of Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auxiliary Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-of-zeros-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row of Zeros Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-row-of-zeros-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Row of Zeros Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stability-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Stability Boundary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Stability Boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stability-boundary-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Stability Boundary Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relative-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relative Stability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relative Stability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relative-stability-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relative Stability Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-using-routh-hurwitz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Using Routh-Hurwitz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Using Routh-Hurwitz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-example-two-parameter-stability-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Example: Two-Parameter Stability Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-parameter-stability-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Two-Parameter Stability Region
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-routh-hurwitz-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: Routh-Hurwitz at a Glance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1234,7 +2166,1083 @@
 <li><a href="../09-block-diagrams-signal-flow/">Chapter 9: Block Diagrams and Signal Flow</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="the-question-every-engineer-must-answer">The Question Every Engineer Must Answer</h2>
+<p>Before you optimize a system's speed, before you minimize overshoot, before you worry about steady-state error—you must answer one fundamental question: <strong>Will this system blow up?</strong></p>
+<p>Stability isn't just one of many design requirements; it's the prerequisite for all other requirements to matter. An unstable control system is worse than useless—it's actively dangerous. Rockets explode, robots run away, chemical plants catch fire, power grids collapse. The mathematics of stability analysis isn't abstract theory; it's the engineer's first line of defense against catastrophe.</p>
+<p>In Chapter 6, we learned that poles in the right half-plane (RHP) cause exponential growth—instability. That insight is powerful, but it comes with a practical problem: finding pole locations requires solving polynomial equations, and for polynomials of degree 5 or higher, there's no general closed-form solution. What do we do when we can't find the poles?</p>
+<p>Enter the <strong>Routh-Hurwitz criterion</strong>—an elegant algebraic test that determines stability without ever finding the poles themselves. By the end of this chapter, you'll be able to check stability for systems of any order using only arithmetic, determine how many poles are in the RHP, find stability boundaries as functions of controller parameters, and handle the special cases that arise in practice.</p>
+<p>This is one of the most useful tools in your control engineering toolkit.</p>
+<h2 id="what-is-stability">What Is Stability?</h2>
+<p>The word "stability" gets used loosely in everyday language—a "stable" relationship, a "stable" economy. In control systems, we need precise definitions. A system's stability tells us whether its response to disturbances will eventually die out or grow without bound.</p>
+<p>Consider Gyra trying to balance. If she leans slightly forward and her controller brings her back to vertical, she's stable. If a small lean causes her to fall over completely, she's unstable. If she wobbles forever at constant amplitude, she's marginally stable. These everyday observations correspond to mathematical definitions we'll now make precise.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"Stability is my existential question. Every millisecond, my controller asks: 'Will this disturbance die out, or will it grow until I crash?' The math you're learning is the same math running inside me, deciding 50 times per second whether I'm about to fall."</p>
+</div>
+<h2 id="bounded-input-and-bounded-output">Bounded Input and Bounded Output</h2>
+<p>Before defining stability formally, we need to clarify what "bounded" means.</p>
+<p>A <strong>bounded input</strong> is a signal that remains finite for all time. Mathematically:</p>
+<h4 id="bounded-input-definition">Bounded Input Definition</h4>
+<p><span class="arithmatex">\(|u(t)| \leq M_u &lt; \infty \text{ for all } t \geq 0\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(u(t)\)</span> is the input signal</li>
+<li><span class="arithmatex">\(M_u\)</span> is some finite constant</li>
+</ul>
+<p>Common bounded inputs include:</p>
+<ul>
+<li>Step functions</li>
+<li>Sinusoids</li>
+<li>Any signal that doesn't grow to infinity</li>
+</ul>
+<p>A <strong>bounded output</strong> follows the same pattern—a signal that remains finite:</p>
+<h4 id="bounded-output-definition">Bounded Output Definition</h4>
+<p><span class="arithmatex">\(|y(t)| \leq M_y &lt; \infty \text{ for all } t \geq 0\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(y(t)\)</span> is the output signal</li>
+<li><span class="arithmatex">\(M_y\)</span> is some finite constant</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Signal Type</th>
+<th>Bounded?</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step: <span class="arithmatex">\(u(t) = 1\)</span></td>
+<td>Yes</td>
+<td>Constant, finite</td>
+</tr>
+<tr>
+<td>Sine: <span class="arithmatex">\(u(t) = \sin(\omega t)\)</span></td>
+<td>Yes</td>
+<td>Always between -1 and 1</td>
+</tr>
+<tr>
+<td>Ramp: <span class="arithmatex">\(u(t) = t\)</span></td>
+<td>No</td>
+<td>Grows without bound</td>
+</tr>
+<tr>
+<td>Exponential: <span class="arithmatex">\(u(t) = e^{t}\)</span></td>
+<td>No</td>
+<td>Grows without bound</td>
+</tr>
+<tr>
+<td>Decaying: <span class="arithmatex">\(u(t) = e^{-t}\)</span></td>
+<td>Yes</td>
+<td>Decays to zero</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding boundedness is essential because stability definitions revolve around the relationship between bounded inputs and bounded outputs.</p>
+<h2 id="bibo-stability-the-input-output-view">BIBO Stability: The Input-Output View</h2>
+<p><strong>BIBO stability</strong> (Bounded-Input, Bounded-Output stability) is the most intuitive stability definition. A system is BIBO stable if every bounded input produces a bounded output.</p>
+<h4 id="bibo-stability-definition">BIBO Stability Definition</h4>
+<p>A system is BIBO stable if and only if:</p>
+<p>For every bounded input <span class="arithmatex">\(u(t)\)</span>, the output <span class="arithmatex">\(y(t)\)</span> is also bounded.</p>
+<p>This is an input-output view of stability—we only care about what goes in and what comes out. We don't look "inside" the system at internal state variables.</p>
+<p>For linear time-invariant (LTI) systems described by transfer functions, BIBO stability has a clean characterization:</p>
+<div class="admonition success">
+<p class="admonition-title">BIBO Stability Criterion</p>
+<p>A transfer function <span class="arithmatex">\(G(s)\)</span> is BIBO stable if and only if all its poles have negative real parts—that is, all poles lie in the open left half-plane (LHP).</p>
+</div>
+<p>This connects directly to what we learned in Chapter 6. Each pole contributes a mode to the response:</p>
+<ul>
+<li>LHP poles → decaying modes → bounded contributions</li>
+<li>RHP poles → growing modes → unbounded contributions</li>
+<li>Imaginary axis poles → sustained oscillations → potentially unbounded</li>
+</ul>
+<p>The "potentially" for imaginary axis poles depends on the input. If the input contains the same frequency as an imaginary axis pole, resonance can cause unbounded growth. This is why we exclude the imaginary axis from the stable region.</p>
+<table>
+<thead>
+<tr>
+<th>Pole Location</th>
+<th>BIBO Stable?</th>
+<th>Time Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All in LHP</td>
+<td>Yes</td>
+<td>All modes decay</td>
+</tr>
+<tr>
+<td>Any in RHP</td>
+<td>No</td>
+<td>At least one mode grows</td>
+</tr>
+<tr>
+<td>Any on imaginary axis</td>
+<td>No</td>
+<td>Sustained or growing oscillation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="asymptotic-stability-eventually-settling-down">Asymptotic Stability: Eventually Settling Down</h2>
+<p><strong>Asymptotic stability</strong> looks at what happens to the system's response as time goes to infinity, specifically starting from any initial condition with zero input.</p>
+<h4 id="asymptotic-stability-definition">Asymptotic Stability Definition</h4>
+<p>A system is asymptotically stable if:</p>
+<p><span class="arithmatex">\(\lim_{t \to \infty} y(t) = 0\)</span></p>
+<p>for any initial conditions and zero input.</p>
+<p>In words: disturb the system from equilibrium and then leave it alone. If it returns to equilibrium, it's asymptotically stable.</p>
+<p>For LTI systems, asymptotic stability and BIBO stability are essentially equivalent when the transfer function captures all system dynamics. A system is asymptotically stable if and only if all poles are in the open LHP.</p>
+<p>The intuition: asymptotic stability means all natural modes decay. Since the natural modes correspond to poles, all poles must be in the LHP where exponential decay occurs.</p>
+<h2 id="marginal-stability-the-edge-case">Marginal Stability: The Edge Case</h2>
+<p><strong>Marginal stability</strong> (also called critical stability) describes systems that neither settle down nor blow up—they sit on the boundary between stability and instability.</p>
+<h4 id="marginal-stability-definition">Marginal Stability Definition</h4>
+<p>A system is marginally stable if:</p>
+<ul>
+<li>The output remains bounded for bounded inputs (no growth)</li>
+<li>The output does not decay to zero (no settling)</li>
+</ul>
+<p>For LTI systems, marginal stability occurs when:</p>
+<ul>
+<li>All poles are in the LHP or on the imaginary axis</li>
+<li>Poles on the imaginary axis are simple (not repeated)</li>
+</ul>
+<p>A pole at <span class="arithmatex">\(s = j\omega\)</span> produces a sustained sinusoid at frequency <span class="arithmatex">\(\omega\)</span>. A pole at <span class="arithmatex">\(s = 0\)</span> produces a constant offset. These don't decay, but they don't grow either—as long as they're simple poles.</p>
+<table>
+<thead>
+<tr>
+<th>Pole Configuration</th>
+<th>Stability Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All poles strictly in LHP</td>
+<td>Asymptotically stable</td>
+</tr>
+<tr>
+<td>Simple poles on imaginary axis, none in RHP</td>
+<td>Marginally stable</td>
+</tr>
+<tr>
+<td>Repeated poles on imaginary axis</td>
+<td>Unstable</td>
+</tr>
+<tr>
+<td>Any pole in RHP</td>
+<td>Unstable</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Marginal Stability Is Fragile</p>
+<p>Marginally stable systems are theoretical idealizations. In practice, friction, resistance, or any tiny perturbation pushes the poles slightly left (stable) or right (unstable). A "marginally stable" design is living dangerously—the slightest model error can tip it either way.</p>
+</div>
+<h2 id="internal-stability-looking-inside">Internal Stability: Looking Inside</h2>
+<p><strong>Internal stability</strong> goes beyond input-output behavior to examine what happens to all internal state variables. A system can be BIBO stable (bounded output for bounded input) while having internal variables that grow without bound—a dangerous hidden instability.</p>
+<p>This can happen when unstable poles are cancelled by zeros in the transfer function. Consider:</p>
+<h4 id="hidden-instability-example">Hidden Instability Example</h4>
+<p><span class="arithmatex">\(G(s) = \frac{s - 2}{(s + 1)(s - 2)} = \frac{1}{s + 1}\)</span></p>
+<p>The transfer function simplifies to a stable first-order system. But the pole at <span class="arithmatex">\(s = +2\)</span> still exists in the original system—it's just invisible in the input-output relationship. Any disturbance or initial condition can excite this hidden mode, causing an internal state to grow exponentially while the output appears well-behaved.</p>
+<p>A system is <strong>internally stable</strong> if all modes decay, including those cancelled by zeros. For practical control design:</p>
+<div class="admonition danger">
+<p class="admonition-title">Never Cancel Unstable Poles</p>
+<p>Attempting to stabilize a system by placing a controller zero on an unstable pole creates internal instability. The output may look fine, but internal state variables are growing exponentially. Eventually, something will saturate, the model will break down, and failure will occur suddenly and catastrophically.</p>
+</div>
+<h2 id="unstable-systems-when-things-go-wrong">Unstable Systems: When Things Go Wrong</h2>
+<p>An <strong>unstable system</strong> is one that fails the stability test—its response grows without bound for some bounded input or some initial condition. For LTI systems, instability means at least one pole is in the right half-plane or a repeated pole is on the imaginary axis.</p>
+<p>The consequences of instability depend on the application:</p>
+<ul>
+<li><strong>Mechanical systems</strong>: Excessive vibration, structural failure</li>
+<li><strong>Electrical systems</strong>: Component burnout, circuit destruction</li>
+<li><strong>Aerospace</strong>: Loss of vehicle, crash</li>
+<li><strong>Chemical processes</strong>: Runaway reactions, explosions</li>
+<li><strong>Thermal systems</strong>: Overheating, fires</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"When I'm unstable, it starts small—a tiny wobble I can't quite correct. But exponential growth is relentless. That wobble doubles, then doubles again. Within a fraction of a second, I'm past the point of no return, falling with increasing speed until I hit the floor. Stability margin isn't just a number; it's my margin for survival."</p>
+</div>
+<p>The study of stability isn't about avoiding minor inconveniences—it's about preventing catastrophic failure. This is why stability analysis comes before any other design consideration.</p>
+<h2 id="the-characteristic-equation-and-polynomial">The Characteristic Equation and Polynomial</h2>
+<p>The <strong>characteristic polynomial</strong> is the denominator of the closed-loop transfer function, and the <strong>characteristic equation</strong> is that polynomial set equal to zero.</p>
+<p>For a transfer function:</p>
+<h4 id="characteristic-polynomial">Characteristic Polynomial</h4>
+<p><span class="arithmatex">\(G(s) = \frac{N(s)}{D(s)}\)</span></p>
+<p>The characteristic polynomial is <span class="arithmatex">\(D(s)\)</span>, and the characteristic equation is:</p>
+<p><span class="arithmatex">\(D(s) = 0\)</span></p>
+<p>For a standard negative feedback system with forward gain <span class="arithmatex">\(G(s)\)</span> and feedback <span class="arithmatex">\(H(s)\)</span>:</p>
+<h4 id="closed-loop-characteristic-equation">Closed-Loop Characteristic Equation</h4>
+<p><span class="arithmatex">\(1 + G(s)H(s) = 0\)</span></p>
+<p>Rearranging: the characteristic polynomial is the numerator of <span class="arithmatex">\(1 + G(s)H(s)\)</span> after combining over a common denominator.</p>
+<p>The <strong>characteristic roots</strong> are the solutions to the characteristic equation—these are the closed-loop poles. The stability of the system depends entirely on the locations of these roots.</p>
+<p>Consider a closed-loop system with:</p>
+<p><span class="arithmatex">\(G(s) = \frac{K}{s(s+2)(s+5)}\)</span>, <span class="arithmatex">\(H(s) = 1\)</span></p>
+<p>The characteristic equation is:</p>
+<p><span class="arithmatex">\(1 + G(s)H(s) = 1 + \frac{K}{s(s+2)(s+5)} = 0\)</span></p>
+<p>Multiplying through:</p>
+<p><span class="arithmatex">\(s(s+2)(s+5) + K = 0\)</span></p>
+<p><span class="arithmatex">\(s^3 + 7s^2 + 10s + K = 0\)</span></p>
+<p>This is a cubic polynomial. For small <span class="arithmatex">\(K\)</span>, the roots are near <span class="arithmatex">\(s = 0, -2, -5\)</span> (stable). As <span class="arithmatex">\(K\)</span> increases, the roots move. At some critical <span class="arithmatex">\(K\)</span>, roots may cross into the RHP, causing instability. The Routh-Hurwitz criterion will tell us exactly when.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Characteristic polynomial</td>
+<td>Denominator <span class="arithmatex">\(D(s)\)</span> of closed-loop transfer function</td>
+</tr>
+<tr>
+<td>Characteristic equation</td>
+<td><span class="arithmatex">\(D(s) = 0\)</span></td>
+</tr>
+<tr>
+<td>Characteristic roots</td>
+<td>Solutions to characteristic equation (closed-loop poles)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-we-need-the-routh-hurwitz-criterion">Why We Need the Routh-Hurwitz Criterion</h2>
+<p>You might wonder: if stability depends on pole locations, why not just find the poles? Here's the problem: there's no general formula for finding roots of polynomials of degree 5 or higher. This is a fundamental mathematical limitation proved in the 19th century (the Abel-Ruffini theorem).</p>
+<p>Even for polynomials where we can find roots:</p>
+<ul>
+<li>The algebra becomes tedious for degree 3 and 4</li>
+<li>Symbolic solutions become unwieldy</li>
+<li>We often care about stability boundaries in terms of parameters (like gain <span class="arithmatex">\(K\)</span>), not specific pole values</li>
+</ul>
+<p>The <strong>Routh-Hurwitz criterion</strong> provides an elegant solution: determine whether all roots of a polynomial are in the left half-plane using only the polynomial coefficients—no root finding required.</p>
+<p>The criterion was developed independently by Edward Routh (1877) and Adolf Hurwitz (1895). Routh's approach uses a tabular method (the Routh array), while Hurwitz used determinants. The results are equivalent; we'll focus on the Routh array because it's more practical for hand calculation.</p>
+<h4 id="diagram-stability-analysis-timeline">Diagram: Stability Analysis Timeline</h4>
+<iframe src="../../sims/stability-timeline/main.html" width="100%" height="350px" scrolling="no"></iframe>
+
+<details>
+<summary>Stability Analysis Timeline</summary>
+<p>Type: timeline</p>
+<p>Bloom Taxonomy: Remember (L1)
+Bloom Verb: recall, identify</p>
+<p>Learning Objective: Students will recall the historical development of stability analysis methods.</p>
+<p>Time period: 1850-1900</p>
+<p>Orientation: Horizontal</p>
+<p>Events:
+- 1868: James Clerk Maxwell publishes "On Governors" analyzing steam engine regulation
+- 1877: Edward Routh develops tabular stability criterion, wins Adams Prize
+- 1890: A.M. Lyapunov develops general stability theory
+- 1895: Adolf Hurwitz independently develops determinant-based criterion</p>
+<p>Visual style: Horizontal timeline with portraits and key publications</p>
+<p>Color coding:
+- Blue: Routh's contribution
+- Green: Hurwitz's contribution
+- Gray: Related developments</p>
+<p>Interactive features:
+- Hover over events to see brief descriptions
+- Click for expanded historical context</p>
+<p>Implementation: HTML/CSS/JavaScript</p>
+</details>
+<h2 id="the-routh-hurwitz-criterion">The Routh-Hurwitz Criterion</h2>
+<p>The <strong>Routh-Hurwitz criterion</strong> states conditions under which a polynomial has all roots in the left half-plane. Given a polynomial:</p>
+<h4 id="general-polynomial-form">General Polynomial Form</h4>
+<p><span class="arithmatex">\(D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(a_n &gt; 0\)</span> (leading coefficient positive)</li>
+<li>All <span class="arithmatex">\(a_i\)</span> are real</li>
+</ul>
+<p>The criterion has two parts:</p>
+<p><strong>Necessary Condition</strong>: All coefficients <span class="arithmatex">\(a_i\)</span> must be positive (assuming <span class="arithmatex">\(a_n &gt; 0\)</span>). If any coefficient is zero, negative, or missing, the system is either unstable or marginally stable.</p>
+<p><strong>Necessary and Sufficient Condition</strong>: Construct the Routh array from the coefficients. All elements in the first column of the Routh array must be positive.</p>
+<div class="admonition tip">
+<p class="admonition-title">Necessary vs. Sufficient</p>
+<p>The "all coefficients positive" test is necessary but not sufficient. A polynomial can have all positive coefficients but still be unstable. The full Routh array test is both necessary and sufficient—it gives a definitive answer.</p>
+</div>
+<p>For a second-order polynomial <span class="arithmatex">\(as^2 + bs + c\)</span>, the necessary condition (all positive coefficients) is also sufficient. For third-order and higher, we need the Routh array.</p>
+<h2 id="routh-array-construction">Routh Array Construction</h2>
+<p>The <strong>Routh array</strong> is a triangular table built from polynomial coefficients. The number of sign changes in the first column equals the number of roots in the right half-plane.</p>
+<p>Given a polynomial of degree <span class="arithmatex">\(n\)</span>:</p>
+<p><span class="arithmatex">\(D(s) = a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0\)</span></p>
+<p>The Routh array has <span class="arithmatex">\(n+1\)</span> rows, labeled from <span class="arithmatex">\(s^n\)</span> down to <span class="arithmatex">\(s^0\)</span>.</p>
+<h4 id="routh-array-structure">Routh Array Structure</h4>
+<p><strong>First two rows</strong> come directly from the polynomial coefficients:</p>
+<ul>
+<li>Row <span class="arithmatex">\(s^n\)</span>: <span class="arithmatex">\(a_n\)</span>, <span class="arithmatex">\(a_{n-2}\)</span>, <span class="arithmatex">\(a_{n-4}\)</span>, ... (even-indexed from the top)</li>
+<li>Row <span class="arithmatex">\(s^{n-1}\)</span>: <span class="arithmatex">\(a_{n-1}\)</span>, <span class="arithmatex">\(a_{n-3}\)</span>, <span class="arithmatex">\(a_{n-5}\)</span>, ... (odd-indexed from the top)</li>
+</ul>
+<p><strong>Subsequent rows</strong> are calculated using a determinant-like formula:</p>
+<p>For row <span class="arithmatex">\(s^{n-2}\)</span> and beyond, each element is:</p>
+<p><span class="arithmatex">\(\text{element} = -\frac{1}{\text{pivot}} \begin{vmatrix} \text{first column entry above} &amp; \text{column entry above} \\ \text{first column entry two above} &amp; \text{column entry two above} \end{vmatrix}\)</span></p>
+<p>Or more simply:</p>
+<p><span class="arithmatex">\(b_1 = \frac{a_{n-1} a_{n-2} - a_n a_{n-3}}{a_{n-1}}\)</span></p>
+<p>Let's construct the array for a fourth-order polynomial:</p>
+<p><span class="arithmatex">\(D(s) = a_4 s^4 + a_3 s^3 + a_2 s^2 + a_1 s + a_0\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td><span class="arithmatex">\(a_4\)</span></td>
+<td><span class="arithmatex">\(a_2\)</span></td>
+<td><span class="arithmatex">\(a_0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td><span class="arithmatex">\(a_3\)</span></td>
+<td><span class="arithmatex">\(a_1\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td><span class="arithmatex">\(b_1 = \frac{a_3 a_2 - a_4 a_1}{a_3}\)</span></td>
+<td><span class="arithmatex">\(b_2 = \frac{a_3 a_0 - a_4 \cdot 0}{a_3} = a_0\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(c_1 = \frac{b_1 a_1 - a_3 b_2}{b_1}\)</span></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td><span class="arithmatex">\(a_0\)</span></td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The first column is what matters: <span class="arithmatex">\(a_4, a_3, b_1, c_1, a_0\)</span>.</p>
+<div class="admonition success">
+<p class="admonition-title">Routh-Hurwitz Stability Test</p>
+<p><strong>The number of sign changes in the first column of the Routh array equals the number of roots in the right half-plane.</strong> For stability, all first-column elements must be positive (no sign changes).</p>
+</div>
+<h4 id="diagram-routh-array-constructor">Diagram: Routh Array Constructor</h4>
+<iframe src="../../sims/routh-array-constructor/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Routh Array Constructor</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute, calculate</p>
+<p>Learning Objective: Students will construct Routh arrays from polynomial coefficients and determine stability by counting sign changes.</p>
+<p>Canvas layout:
+- Top (40%): Coefficient input area and polynomial display
+- Bottom (60%): Routh array with step-by-step construction</p>
+<p>Visual elements:
+Input Area:
+- Polynomial degree selector (2-6)
+- Coefficient input fields with labels (a_n, a_{n-1}, etc.)
+- Displayed polynomial in standard form</p>
+<p>Routh Array:
+- Grid structure with row labels (s^n, s^{n-1}, etc.)
+- Cells showing calculated values
+- First column highlighted
+- Sign changes marked with red indicators
+- Calculation tooltips showing formulas used</p>
+<p>Interactive controls:
+- Input: Polynomial degree (dropdown 2-6)
+- Input: Coefficient values (number fields)
+- Button: Calculate Array
+- Button: Step Through (builds array row by row)
+- Button: Reset
+- Toggle: Show calculation details</p>
+<p>Data Visibility Requirements:
+- Stage 1: Show input coefficients arranged in first two rows
+- Stage 2: Show calculation for first element of row 3
+- Stage 3: Complete row 3
+- Continue for each row
+- Final: Highlight first column, count and display sign changes</p>
+<p>Behavior:
+- Input validation: warns if leading coefficient is zero or negative
+- Step-through mode shows one calculation at a time
+- Current calculation highlighted and formula displayed
+- Sign changes counted automatically
+- Stability verdict displayed: "STABLE (0 RHP poles)" or "UNSTABLE (N RHP poles)"
+- Warns about special cases (zero in first column, row of zeros)</p>
+<p>Instructional Rationale: Step-through construction with visible formulas helps students internalize the mechanical process. Seeing calculations explicitly builds procedural fluency before applying to design problems.</p>
+<p>Implementation: p5.js with canvas-based input fields and dynamic table rendering</p>
+</details>
+<h2 id="example-third-order-system-stability">Example: Third-Order System Stability</h2>
+<p>Let's apply the Routh criterion to the characteristic polynomial from our earlier feedback system:</p>
+<p><span class="arithmatex">\(D(s) = s^3 + 7s^2 + 10s + K\)</span></p>
+<p>where <span class="arithmatex">\(K\)</span> is the forward gain. We want to find the range of <span class="arithmatex">\(K\)</span> for stability.</p>
+<p><strong>Step 1</strong>: Check necessary condition. For all coefficients positive, we need <span class="arithmatex">\(K &gt; 0\)</span>.</p>
+<p><strong>Step 2</strong>: Construct the Routh array.</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td>7</td>
+<td>K</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(\frac{7 \cdot 10 - 1 \cdot K}{7} = \frac{70 - K}{7}\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td>K</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3</strong>: Apply stability criterion. All first-column elements must be positive:</p>
+<ul>
+<li><span class="arithmatex">\(1 &gt; 0\)</span> ✓ (always)</li>
+<li><span class="arithmatex">\(7 &gt; 0\)</span> ✓ (always)</li>
+<li><span class="arithmatex">\(\frac{70 - K}{7} &gt; 0\)</span> → <span class="arithmatex">\(K &lt; 70\)</span></li>
+<li><span class="arithmatex">\(K &gt; 0\)</span></li>
+</ul>
+<p><strong>Stability Range</strong>: <span class="arithmatex">\(0 &lt; K &lt; 70\)</span></p>
+<p>At <span class="arithmatex">\(K = 70\)</span>, the <span class="arithmatex">\(s^1\)</span> row has a zero—this is the <strong>stability boundary</strong>. We'll handle this special case shortly.</p>
+<h2 id="example-fourth-order-system">Example: Fourth-Order System</h2>
+<p>Consider:</p>
+<p><span class="arithmatex">\(D(s) = s^4 + 2s^3 + 3s^2 + 4s + 5\)</span></p>
+<p><strong>Step 1</strong>: All coefficients are positive ✓</p>
+<p><strong>Step 2</strong>: Construct the Routh array.</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 3 - 1 \cdot 4}{2} = 1\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 5 - 1 \cdot 0}{2} = 5\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(\frac{1 \cdot 4 - 2 \cdot 5}{1} = -6\)</span></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3</strong>: Count sign changes in first column: <span class="arithmatex">\(1, 2, 1, -6, 5\)</span></p>
+<p>Sign changes:
+- <span class="arithmatex">\(1 → 2\)</span>: no change (+→+)
+- <span class="arithmatex">\(2 → 1\)</span>: no change (+→+)
+- <span class="arithmatex">\(1 → -6\)</span>: <strong>sign change</strong> (+→−)
+- <span class="arithmatex">\(-6 → 5\)</span>: <strong>sign change</strong> (−→+)</p>
+<p><strong>Result</strong>: 2 sign changes → 2 poles in RHP → <strong>System is unstable</strong></p>
+<p>Even though all coefficients were positive, the system is unstable. This demonstrates why the necessary condition is not sufficient for higher-order polynomials.</p>
+<h2 id="special-case-zero-in-first-column">Special Case: Zero in First Column</h2>
+<p>Sometimes during Routh array construction, an element in the first column becomes zero while other elements in that row are nonzero. This creates a division-by-zero problem when computing the next row.</p>
+<p><strong>Solution</strong>: Replace the zero with a small positive number <span class="arithmatex">\(\epsilon\)</span> and continue the construction. After completing the array, let <span class="arithmatex">\(\epsilon → 0^+\)</span> to determine sign changes.</p>
+<h4 id="zero-in-first-column-example">Zero in First Column Example</h4>
+<p>Consider:</p>
+<p><span class="arithmatex">\(D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + 11s + 10\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^5\)</span></td>
+<td>1</td>
+<td>2</td>
+<td>11</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td>2</td>
+<td>4</td>
+<td>10</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0\)</span> → <span class="arithmatex">\(\epsilon\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 11 - 1 \cdot 10}{2} = 6\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td><span class="arithmatex">\(\frac{\epsilon \cdot 4 - 2 \cdot 6}{\epsilon} = 4 - \frac{12}{\epsilon}\)</span></td>
+<td>...</td>
+<td></td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>As <span class="arithmatex">\(\epsilon → 0^+\)</span>, <span class="arithmatex">\(4 - \frac{12}{\epsilon} → -\infty\)</span> (large negative).</p>
+<p>The sign of the <span class="arithmatex">\(s^2\)</span> row first column is negative for small positive <span class="arithmatex">\(\epsilon\)</span>. Continue the analysis to count total sign changes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Epsilon Method</p>
+<p>The <span class="arithmatex">\(\epsilon\)</span> method works but can be tedious. Some textbooks teach alternative approaches like multiplying the row by a positive constant or using L'Hôpital's rule. The key insight: a zero in the first column indicates either a pole at the origin or poles symmetric about the imaginary axis.</p>
+</div>
+<h2 id="special-case-row-of-zeros">Special Case: Row of Zeros</h2>
+<p>A more significant special case occurs when an entire row becomes zero. This indicates that the polynomial has:</p>
+<ul>
+<li>Pairs of roots symmetric about the origin (either on the imaginary axis or symmetric LHP/RHP pairs)</li>
+<li>The system is at best marginally stable</li>
+</ul>
+<p>When a row of zeros occurs, we:</p>
+<ol>
+<li>Form the <strong>auxiliary polynomial</strong> from the row above the zero row</li>
+<li>Take the derivative of the auxiliary polynomial</li>
+<li>Use the coefficients of the derivative to replace the zero row</li>
+<li>Continue the Routh array construction</li>
+</ol>
+<h4 id="auxiliary-polynomial">Auxiliary Polynomial</h4>
+<p>The auxiliary polynomial is formed from the row immediately above the zero row. Its degree equals the power of <span class="arithmatex">\(s\)</span> for that row.</p>
+<p>For example, if row <span class="arithmatex">\(s^4\)</span> is: <span class="arithmatex">\(2, 8, 6\)</span>, the auxiliary polynomial is:</p>
+<p><span class="arithmatex">\(A(s) = 2s^4 + 8s^2 + 6\)</span></p>
+<p>(Only even or odd powers appear because of how the Routh array alternates.)</p>
+<p>The derivative is:</p>
+<p><span class="arithmatex">\(\frac{dA}{ds} = 8s^3 + 16s\)</span></p>
+<p>Coefficients: <span class="arithmatex">\(8, 16\)</span> replace the zero row.</p>
+<h4 id="row-of-zeros-example">Row of Zeros Example</h4>
+<p><span class="arithmatex">\(D(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + s + 2\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^5\)</span></td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 2 - 1 \cdot 4}{2} = 0\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 1 - 1 \cdot 2}{2} = 0\)</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Row <span class="arithmatex">\(s^3\)</span> is entirely zero!</p>
+<p><strong>Auxiliary polynomial</strong> from row <span class="arithmatex">\(s^4\)</span>: <span class="arithmatex">\(A(s) = 2s^4 + 4s^2 + 2\)</span></p>
+<p><strong>Derivative</strong>: <span class="arithmatex">\(\frac{dA}{ds} = 8s^3 + 8s\)</span></p>
+<p>Replace zero row with coefficients: <span class="arithmatex">\(8, 8\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^5\)</span></td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td><span class="arithmatex">\(\frac{8 \cdot 4 - 2 \cdot 8}{8} = 2\)</span></td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(\frac{2 \cdot 8 - 8 \cdot 2}{2} = 0\)</span></td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Another row of zeros at <span class="arithmatex">\(s^1\)</span>. Auxiliary polynomial from <span class="arithmatex">\(s^2\)</span>: <span class="arithmatex">\(A(s) = 2s^2 + 2\)</span></p>
+<p>Derivative: <span class="arithmatex">\(4s\)</span>, so row becomes: <span class="arithmatex">\(4, 0\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^5\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^4\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>8</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>First column: all positive → <strong>no sign changes → no RHP poles</strong>.</p>
+<p>But wait! The row of zeros indicates symmetric roots. The auxiliary polynomial <span class="arithmatex">\(A(s) = 2s^4 + 4s^2 + 2 = 2(s^4 + 2s^2 + 1) = 2(s^2 + 1)^2\)</span> has roots at <span class="arithmatex">\(s = \pm j\)</span> (repeated).</p>
+<p><strong>Conclusion</strong>: System has repeated poles on the imaginary axis → <strong>unstable</strong> (by our definition) or at best marginally stable.</p>
+<h4 id="diagram-row-of-zeros-analysis">Diagram: Row of Zeros Analysis</h4>
+<iframe src="../../sims/row-of-zeros/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Row of Zeros Analysis</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, examine</p>
+<p>Learning Objective: Students will analyze Routh array special cases by constructing auxiliary polynomials and interpreting symmetric root patterns.</p>
+<p>Canvas layout:
+- Left (50%): Routh array with step-by-step construction
+- Right (50%): S-plane showing pole locations and symmetry</p>
+<p>Visual elements:
+Routh Array:
+- Highlighted row when zero row detected
+- Auxiliary polynomial displayed
+- Derivative calculation shown
+- Replacement row highlighted in different color</p>
+<p>S-Plane:
+- Poles plotted as array is constructed
+- Symmetry lines visible when row of zeros occurs
+- Imaginary axis highlighted
+- LHP/RHP regions shaded</p>
+<p>Interactive controls:
+- Input: Polynomial coefficients
+- Button: Step through construction
+- Button: Show auxiliary polynomial roots
+- Toggle: Animate pole movement as array builds</p>
+<p>Data Visibility Requirements:
+- Stage 1: Initial array with zero row detected
+- Stage 2: Form auxiliary polynomial explicitly
+- Stage 3: Show derivative calculation
+- Stage 4: Replace row and continue
+- Stage 5: Solve auxiliary polynomial to show symmetric roots
+- Final: Display complete pole pattern on s-plane</p>
+<p>Behavior:
+- Zero row automatically detected and flagged
+- Auxiliary polynomial formation shown step-by-step
+- Roots of auxiliary polynomial displayed on s-plane
+- Interpretation provided (imaginary axis poles, symmetric RHP/LHP pairs)</p>
+<p>Instructional Rationale: Connecting the algebraic procedure to geometric pole locations builds conceptual understanding of why the row of zeros occurs and what it means for stability.</p>
+<p>Implementation: p5.js with split canvas for array and s-plane</p>
+</details>
+<h2 id="the-stability-boundary">The Stability Boundary</h2>
+<p>The <strong>stability boundary</strong> is the surface in parameter space where the system transitions from stable to unstable. At the stability boundary, poles lie exactly on the imaginary axis.</p>
+<p>For a system with adjustable gain <span class="arithmatex">\(K\)</span>, the stability boundary occurs when:</p>
+<ul>
+<li>A first-column element of the Routh array equals zero, or</li>
+<li>A row of zeros appears</li>
+</ul>
+<p>From our third-order example:</p>
+<p><span class="arithmatex">\(D(s) = s^3 + 7s^2 + 10s + K\)</span></p>
+<p>The first-column element in the <span class="arithmatex">\(s^1\)</span> row is <span class="arithmatex">\(\frac{70 - K}{7}\)</span>.</p>
+<p><strong>Stability boundary</strong>: <span class="arithmatex">\(\frac{70 - K}{7} = 0\)</span> → <span class="arithmatex">\(K = 70\)</span></p>
+<p>At <span class="arithmatex">\(K = 70\)</span>, we form the auxiliary polynomial from the <span class="arithmatex">\(s^2\)</span> row: <span class="arithmatex">\(A(s) = 7s^2 + 70 = 7(s^2 + 10)\)</span></p>
+<p>Roots: <span class="arithmatex">\(s = \pm j\sqrt{10} \approx \pm j3.16\)</span></p>
+<p>At the stability boundary, the system has a pair of poles on the imaginary axis at <span class="arithmatex">\(\pm j\sqrt{10}\)</span> rad/s, producing sustained oscillation at this frequency. For <span class="arithmatex">\(K &lt; 70\)</span>, these poles are in the LHP (stable). For <span class="arithmatex">\(K &gt; 70\)</span>, they're in the RHP (unstable).</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(0 &lt; K &lt; 70\)</span></td>
+<td>Stable (all poles in LHP)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = 70\)</span></td>
+<td>Marginally stable (poles on imaginary axis)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K &gt; 70\)</span></td>
+<td>Unstable (poles in RHP)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My engineers found my stability boundary the first week. When they turned my proportional gain up too high, I didn't just become sluggish or jerky—I started oscillating at a very specific frequency, about 3 rad/s. That was my imaginary-axis frequency, the signature of the stability boundary. They learned: cross that boundary, and I don't just degrade gracefully. I break."</p>
+</div>
+<h4 id="diagram-stability-boundary-explorer">Diagram: Stability Boundary Explorer</h4>
+<iframe src="../../sims/stability-boundary/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Stability Boundary Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: assess, judge</p>
+<p>Learning Objective: Students will evaluate system stability by adjusting gain and observing the transition across the stability boundary.</p>
+<p>Canvas layout:
+- Top left (40%): Routh array with key element highlighted
+- Top right (40%): S-plane with root locus hint
+- Bottom (20%): Gain slider and time response</p>
+<p>Visual elements:
+Routh Array:
+- Complete array with current K value
+- Critical element (determines stability) highlighted
+- Color coding: green (positive), red (negative), yellow (zero)</p>
+<p>S-Plane:
+- Closed-loop poles plotted
+- Poles move as K changes
+- Imaginary axis emphasized
+- Stable/unstable region shading</p>
+<p>Time Response:
+- Step response for current K
+- Grows unbounded when unstable
+- Sustained oscillation at boundary</p>
+<p>Interactive controls:
+- Slider: Gain K from 0 to 100
+- Play/pause: Animate K sweep
+- Button: Jump to stability boundary
+- Toggle: Show root locus path</p>
+<p>Data Visibility Requirements:
+- Display current K value prominently
+- Show critical Routh array element value
+- Display pole locations numerically
+- Show stability status: STABLE / BOUNDARY / UNSTABLE
+- At boundary: show oscillation frequency from auxiliary polynomial</p>
+<p>Behavior:
+- As K increases, poles move on s-plane
+- At K = K_critical, poles cross imaginary axis
+- Response changes from settling to sustained oscillation to growing
+- Routh array element changes sign as K crosses boundary</p>
+<p>Instructional Rationale: Real-time connection between Routh array sign, pole location, and time response reinforces the practical meaning of stability analysis. Students see cause and effect immediately.</p>
+<p>Implementation: p5.js with linked visualizations and slider control</p>
+</details>
+<h2 id="relative-stability">Relative Stability</h2>
+<p>So far, stability has been binary: a system is stable or it isn't. But in practice, some stable systems are <em>more</em> stable than others. <strong>Relative stability</strong> quantifies how far the poles are from the stability boundary.</p>
+<p>Two measures of relative stability:</p>
+<p><strong>Distance from Imaginary Axis</strong>: Poles farther left in the s-plane have faster-decaying modes. The dominant pole (rightmost LHP pole) determines the "least stable" behavior.</p>
+<p><strong>Gain Margin and Phase Margin</strong>: How much can gain increase before instability? How much phase lag can be added? (We'll explore these in detail in the frequency response chapters.)</p>
+<p>For the Routh-Hurwitz context, we can test relative stability by shifting the stability boundary. To determine if all poles are to the left of <span class="arithmatex">\(s = -\sigma\)</span> (where <span class="arithmatex">\(\sigma &gt; 0\)</span>), substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> into the characteristic polynomial and apply the Routh criterion to the new polynomial.</p>
+<h4 id="relative-stability-test">Relative Stability Test</h4>
+<p>To verify all poles have real part less than <span class="arithmatex">\(-\sigma\)</span>:</p>
+<ol>
+<li>Substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> into <span class="arithmatex">\(D(s)\)</span></li>
+<li>Simplify to get polynomial in <span class="arithmatex">\(s_1\)</span></li>
+<li>Apply Routh criterion to the new polynomial</li>
+<li>If stable, all original poles are to the left of <span class="arithmatex">\(s = -\sigma\)</span></li>
+</ol>
+<p>This is useful when specifications require all poles to be within a certain region—for example, "all time constants less than 2 seconds" requires all poles to the left of <span class="arithmatex">\(s = -0.5\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Pole Constraint</th>
+<th>Substitution</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All poles in LHP</td>
+<td>None (standard Routh)</td>
+<td>Basic stability</td>
+</tr>
+<tr>
+<td>All poles left of <span class="arithmatex">\(s = -1\)</span></td>
+<td><span class="arithmatex">\(s = s_1 - 1\)</span></td>
+<td>Fast decay (τ &lt; 1s)</td>
+</tr>
+<tr>
+<td>All poles left of <span class="arithmatex">\(s = -0.5\)</span></td>
+<td><span class="arithmatex">\(s = s_1 - 0.5\)</span></td>
+<td>Time constants &lt; 2s</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">When to Use Relative Stability</p>
+<p>Relative stability tests are valuable when you have settling time requirements. If the spec says "settle within 4 seconds," you need the dominant pole's real part more negative than about <span class="arithmatex">\(-1\)</span> (since settling takes roughly <span class="arithmatex">\(4\tau = 4/|Re(p)|\)</span>). Use the shifted Routh test to verify this without finding the actual poles.</p>
+</div>
+<h2 id="design-using-routh-hurwitz">Design Using Routh-Hurwitz</h2>
+<p>The Routh-Hurwitz criterion isn't just for analysis—it's a powerful design tool. Given a system with adjustable parameters, we can determine the range of parameters that maintain stability.</p>
+<h4 id="design-example-two-parameter-stability-region">Design Example: Two-Parameter Stability Region</h4>
+<p>Consider a proportional-derivative (PD) controller applied to a plant:</p>
+<p><span class="arithmatex">\(G(s) = \frac{K_p + K_d s}{s^3 + 4s^2 + 5s}\)</span></p>
+<p>Closed-loop characteristic equation:</p>
+<p><span class="arithmatex">\(s^3 + 4s^2 + (5 + K_d)s + K_p = 0\)</span></p>
+<p>For stability:</p>
+<ol>
+<li>All coefficients positive: <span class="arithmatex">\(K_p &gt; 0\)</span> and <span class="arithmatex">\(5 + K_d &gt; 0\)</span> → <span class="arithmatex">\(K_d &gt; -5\)</span></li>
+<li>Routh array first column all positive</li>
+</ol>
+<p>Routh array:</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s^3\)</span></td>
+<td>1</td>
+<td><span class="arithmatex">\(5 + K_d\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span></td>
+<td>4</td>
+<td><span class="arithmatex">\(K_p\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^1\)</span></td>
+<td><span class="arithmatex">\(\frac{4(5+K_d) - K_p}{4}\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^0\)</span></td>
+<td><span class="arithmatex">\(K_p\)</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Stability conditions:</p>
+<ul>
+<li><span class="arithmatex">\(K_p &gt; 0\)</span></li>
+<li><span class="arithmatex">\(K_d &gt; -5\)</span></li>
+<li><span class="arithmatex">\(\frac{4(5+K_d) - K_p}{4} &gt; 0\)</span> → <span class="arithmatex">\(K_p &lt; 4(5 + K_d) = 20 + 4K_d\)</span></li>
+</ul>
+<p>The stable region in the <span class="arithmatex">\((K_d, K_p)\)</span> plane is bounded by:</p>
+<ul>
+<li><span class="arithmatex">\(K_p = 0\)</span> (lower boundary)</li>
+<li><span class="arithmatex">\(K_d = -5\)</span> (left boundary)</li>
+<li><span class="arithmatex">\(K_p = 20 + 4K_d\)</span> (upper boundary)</li>
+</ul>
+<h4 id="diagram-two-parameter-stability-region">Diagram: Two-Parameter Stability Region</h4>
+<iframe src="../../sims/stability-region/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Two-Parameter Stability Region</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Create (L6)
+Bloom Verb: design, construct</p>
+<p>Learning Objective: Students will design controller gains by identifying stable regions in multi-parameter space using Routh-Hurwitz analysis.</p>
+<p>Canvas layout:
+- Left (60%): Parameter space (K_d, K_p) with stability region shaded
+- Right (40%): Routh array and time response for selected point</p>
+<p>Visual elements:
+Parameter Space:
+- 2D plot with K_d on x-axis, K_p on y-axis
+- Stable region shaded green
+- Unstable region shaded red
+- Stability boundary lines labeled
+- Current operating point marked</p>
+<p>Routh Array Panel:
+- Shows array for current (K_d, K_p)
+- Elements color-coded by sign
+- Sign changes highlighted</p>
+<p>Time Response:
+- Step response for current parameters
+- Changes as parameters move</p>
+<p>Interactive controls:
+- Click to place operating point in parameter space
+- Drag operating point to explore
+- Slider: animate along a line in parameter space
+- Toggle: show/hide boundary equations
+- Button: Reset to example</p>
+<p>Data Visibility Requirements:
+- Display current K_d, K_p values
+- Show Routh array elements symbolically and numerically
+- Display stability status
+- On boundary: show imaginary axis poles</p>
+<p>Behavior:
+- Green region = all Routh elements positive
+- Red region = at least one sign change
+- Boundary lines where Routh elements = 0
+- Crossing boundary changes response dramatically
+- Sound/visual alert when entering unstable region</p>
+<p>Instructional Rationale: Mapping algebraic conditions to visual regions in parameter space helps students understand how Routh-Hurwitz enables systematic design. Interactivity builds intuition for controller tuning.</p>
+<p>Implementation: p5.js with 2D parameter space and linked displays</p>
+</details>
+<h2 id="summary-routh-hurwitz-at-a-glance">Summary: Routh-Hurwitz at a Glance</h2>
+<p>The Routh-Hurwitz criterion is one of the most practical tools in control engineering. Here's a quick reference:</p>
+<p><strong>Purpose</strong>: Determine if a polynomial has all roots in the LHP (stable) without finding the roots.</p>
+<p><strong>Necessary Condition</strong>: All coefficients must be positive and present.</p>
+<p><strong>Routh Array Construction</strong>:</p>
+<ol>
+<li>First two rows from coefficients (alternating)</li>
+<li>Subsequent rows by cross-multiplication formula</li>
+<li>Continue until <span class="arithmatex">\(s^0\)</span> row</li>
+</ol>
+<p><strong>Stability Test</strong>: Count sign changes in first column = number of RHP poles.</p>
+<p><strong>Special Cases</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Indication</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero in first column</td>
+<td>Possible imaginary axis poles</td>
+<td>Replace with ε, let ε → 0⁺</td>
+</tr>
+<tr>
+<td>Row of zeros</td>
+<td>Symmetric pole pairs</td>
+<td>Form auxiliary polynomial, differentiate, continue</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Design Use</strong>: Find stability boundaries by setting first-column elements to zero, solve for parameter values.</p>
+<p><strong>Relative Stability</strong>: Substitute <span class="arithmatex">\(s = s_1 - \sigma\)</span> to test if poles are left of <span class="arithmatex">\(s = -\sigma\)</span>.</p>
+<div class="admonition success">
+<p class="admonition-title">Key Insight</p>
+<p>The Routh-Hurwitz criterion transforms the question "Where are the poles?" into the question "What are the signs of these algebraic expressions?" The latter is much easier to answer, especially when parameters are unknown.</p>
+</div>
+<h2 id="connecting-to-whats-next">Connecting to What's Next</h2>
+<p>You now have a complete algebraic toolkit for stability analysis. The Routh-Hurwitz criterion tells you <em>whether</em> a system is stable and <em>how many</em> poles are in the RHP, but it doesn't tell you <em>where</em> those poles are. For deeper insight into pole movement as parameters change, we'll develop the <strong>root locus</strong> technique in Chapter 11.</p>
+<p>The root locus graphically shows how closed-loop poles move as gain varies—you'll see exactly how poles migrate from stable to unstable regions. The Routh criterion gives you the boundary; root locus gives you the whole picture.</p>
+<p>Later, frequency-domain methods (Bode plots, Nyquist criterion) will provide yet another perspective on stability—one that connects directly to experimental measurements and robust design. The Routh-Hurwitz criterion remains the fastest pencil-and-paper check, while frequency methods offer design insight.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"You've learned to answer my most important question: 'Will I fall?' With the Routh-Hurwitz criterion, you can check my stability without solving any polynomial equations. That's elegant. But now I want to know more—not just whether I'm stable, but how stable, and how I could be more stable. The root locus will show you exactly where my poles are heading as you tune my gains. It's like getting a preview of my future."</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter has equipped you to analyze stability systematically:</p>
+<ul>
+<li>
+<p><strong>Stability</strong> is the prerequisite for all other design requirements. An unstable system is worse than useless.</p>
+</li>
+<li>
+<p><strong>BIBO stability</strong> requires all poles in the open LHP. <strong>Asymptotic stability</strong> means disturbances die out. <strong>Marginal stability</strong> means the system neither settles nor explodes.</p>
+</li>
+<li>
+<p><strong>Internal stability</strong> requires attention to cancelled poles. Never cancel unstable poles with zeros.</p>
+</li>
+<li>
+<p>The <strong>characteristic polynomial</strong> is the closed-loop denominator; its roots are the closed-loop poles.</p>
+</li>
+<li>
+<p>The <strong>Routh-Hurwitz criterion</strong> determines stability from polynomial coefficients alone:</p>
+</li>
+<li>Build the Routh array from coefficients</li>
+<li>Count sign changes in first column = RHP poles</li>
+<li>
+<p>All positive first column = stable</p>
+</li>
+<li>
+<p><strong>Special cases</strong> (zero in first column, row of zeros) indicate symmetric pole configurations and require modified procedures.</p>
+</li>
+<li>
+<p>The <strong>stability boundary</strong> is where first-column elements equal zero—poles on the imaginary axis.</p>
+</li>
+<li>
+<p><strong>Relative stability</strong> asks how far into the LHP the poles lie.</p>
+</li>
+<li>
+<p>Routh-Hurwitz enables <strong>design</strong> by finding stability boundaries in parameter space.</p>
+</li>
+</ul>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, try these without peeking:</p>
+<ol>
+<li>
+<p>A polynomial has coefficients <span class="arithmatex">\([1, 2, 3, 4, -5]\)</span>. Without constructing the array, is the system definitely unstable? Why?</p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(D(s) = s^3 + 3s^2 + 2s + K\)</span>, find the range of <span class="arithmatex">\(K\)</span> for stability.</p>
+</li>
+<li>
+<p>What does a row of zeros in the Routh array indicate about the pole locations?</p>
+</li>
+<li>
+<p>True or false: If all coefficients of a polynomial are positive, the system must be stable.</p>
+</li>
+<li>
+<p>A system has characteristic equation <span class="arithmatex">\(s^2 + 2s + K = 0\)</span>. For what values of <span class="arithmatex">\(K\)</span> is the system stable?</p>
+</li>
+</ol>
+<p>Answers: (1) Yes—negative coefficient violates necessary condition. (2) <span class="arithmatex">\(0 &lt; K &lt; 6\)</span>. (3) Poles symmetric about origin (imaginary axis or symmetric RHP/LHP pairs). (4) False—necessary but not sufficient for order ≥ 3. (5) <span class="arithmatex">\(K &gt; 0\)</span>.</p>
+</details>
 
 
 
@@ -1242,7 +3250,12 @@
 
 
 
+  
+  
 
+
+
+  
 
 
 
@@ -1309,11 +3322,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Understanding how pole and zero locations in the s-plane determine system stability, response characteristics, and dynamic behavior">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>6. Poles, Zeros, and System Analysis - Control Systems</title>
+        <title>Poles, Zeros, and System Analysis - Control Systems</title>
       
     
     
@@ -59,6 +59,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JZNNKZH8FW"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JZNNKZH8FW",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JZNNKZH8FW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -115,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. Poles, Zeros, and System Analysis
+              Poles, Zeros, and System Analysis
             
           </span>
         </div>
@@ -587,6 +597,381 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-s-plane-a-map-of-system-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      The S-Plane: A Map of System Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-where-the-action-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles: Where the Action Happens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles: Where the Action Happens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function Form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zeros-shaping-the-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zeros: Shaping the Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zeros: Shaping the Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-with-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function with Zero
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Pole-Zero Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pole-Zero Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Pole-Zero Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-pole-step-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real Pole Step Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-conjugate-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Conjugate Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex Conjugate Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#damped-sinusoidal-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damped Sinusoidal Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complex-pole-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complex Pole Geometry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-poles-vs-repeated-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Poles vs. Repeated Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Poles vs. Repeated Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-vs-repeated-pole-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple vs Repeated Pole Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-at-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole at Origin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole at Origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-in-the-left-half-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles in the Left Half Plane
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles in the Left Half Plane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lhp-pole-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: LHP Pole Effects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-in-the-right-half-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles in the Right Half Plane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-on-the-imaginary-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles on the Imaginary Axis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Order
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proper-and-strictly-proper-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proper and Strictly Proper Transfer Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dc-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DC Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Gain Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominant-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dominant Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dominant-pole-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dominant Pole Approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-zero-cancellation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole-Zero Cancellation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole-Zero Cancellation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancellation Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-reading-a-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: Reading a Pole-Zero Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together: Reading a Pole-Zero Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pole-zero-analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Pole-Zero Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,9 +1373,7 @@
     
       
         
-      
-        
-      
+          
         
       
         
@@ -1008,7 +1391,7 @@
         
   
   
-    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1180,6 +1563,381 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-s-plane-a-map-of-system-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      The S-Plane: A Map of System Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-where-the-action-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles: Where the Action Happens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles: Where the Action Happens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function Form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zeros-shaping-the-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zeros: Shaping the Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zeros: Shaping the Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-with-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function with Zero
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Pole-Zero Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pole-Zero Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Pole-Zero Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-pole-step-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real Pole Step Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-conjugate-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Conjugate Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex Conjugate Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#damped-sinusoidal-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damped Sinusoidal Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complex-pole-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complex Pole Geometry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-poles-vs-repeated-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Poles vs. Repeated Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Poles vs. Repeated Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-vs-repeated-pole-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple vs Repeated Pole Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-at-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole at Origin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole at Origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-in-the-left-half-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles in the Left Half Plane
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles in the Left Half Plane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lhp-pole-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: LHP Pole Effects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-in-the-right-half-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles in the Right Half Plane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-on-the-imaginary-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles on the Imaginary Axis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Order
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proper-and-strictly-proper-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proper and Strictly Proper Transfer Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dc-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DC Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      DC Gain Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominant-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dominant Poles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dominant Poles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dominant-pole-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dominant Pole Approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pole-zero-cancellation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pole-Zero Cancellation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pole-Zero Cancellation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancellation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancellation Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-reading-a-pole-zero-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: Reading a Pole-Zero Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together: Reading a Pole-Zero Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pole-zero-analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Pole-Zero Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1230,7 +1988,858 @@
 <li><a href="../05-laplace-transform-methods/">Chapter 5: Laplace Transform Methods</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="the-s-plane-a-map-of-system-behavior">The S-Plane: A Map of System Behavior</h2>
+<p>Imagine having a map that tells you everything about how a system will behave—whether it will oscillate, how fast it will respond, whether it will explode or settle down peacefully. That map exists, and it's called the <strong>s-plane</strong>. The locations of a system's poles and zeros on this complex plane encode the complete story of its dynamic behavior. Learn to read this map, and you'll have x-ray vision into any linear system.</p>
+<p>Here's the remarkable insight: two systems with completely different physical implementations—an electrical circuit and a mechanical suspension, say—will behave identically if they share the same pole and zero locations. The s-plane is the universal language of linear dynamics, transcending the specifics of springs, capacitors, or hydraulic cylinders. Master this language, and you can analyze anything.</p>
+<p>In this chapter, we'll develop the vocabulary and visual intuition to read pole-zero maps fluently. By the end, you'll be able to glance at a pole-zero plot and immediately know whether the system will be stable, how fast it will respond, whether it will oscillate, and what kind of controller might improve it. That's a genuine engineering superpower.</p>
+<h2 id="poles-where-the-action-happens">Poles: Where the Action Happens</h2>
+<p>The <strong>poles</strong> of a transfer function are the values of <span class="arithmatex">\(s\)</span> that make the denominator equal to zero—they're the roots of the characteristic equation. If you have a transfer function:</p>
+<h4 id="transfer-function-form">Transfer Function Form</h4>
+<p><span class="arithmatex">\(G(s) = \frac{N(s)}{D(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(N(s)\)</span> is the numerator polynomial</li>
+<li><span class="arithmatex">\(D(s)\)</span> is the denominator polynomial</li>
+</ul>
+<p>Then the poles are the solutions to <span class="arithmatex">\(D(s) = 0\)</span>.</p>
+<p>Why do we call them "poles"? If you imagine the transfer function magnitude as a surface over the s-plane, poles are points where this surface shoots up to infinity—like tent poles holding up a canvas. The mathematical term comes from complex analysis, but the visual metaphor is apt: poles are where the action is.</p>
+<p>Consider this transfer function:</p>
+<h4 id="example-transfer-function">Example Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{5}{(s+2)(s+5)}\)</span></p>
+<p>The poles are at <span class="arithmatex">\(s = -2\)</span> and <span class="arithmatex">\(s = -5\)</span>. At these values, the denominator becomes zero, and the transfer function theoretically "blows up." But here's the crucial point: while we never actually operate the system at its pole frequencies, the pole locations completely determine how the system responds to <em>any</em> input.</p>
+<p>Each pole contributes a component to the natural response. For real poles:</p>
+<ul>
+<li>A pole at <span class="arithmatex">\(s = -a\)</span> contributes a term <span class="arithmatex">\(e^{-at}\)</span> to the time response</li>
+<li>More negative poles decay faster</li>
+<li>Poles closer to the imaginary axis dominate the response</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pole Location</th>
+<th>Time Response Component</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s = -2\)</span></td>
+<td><span class="arithmatex">\(e^{-2t}\)</span></td>
+<td>Decays with time constant 0.5s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = -5\)</span></td>
+<td><span class="arithmatex">\(e^{-5t}\)</span></td>
+<td>Decays with time constant 0.2s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = -0.1\)</span></td>
+<td><span class="arithmatex">\(e^{-0.1t}\)</span></td>
+<td>Slowly decaying (dominates!)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"Every pole in my transfer function is a voice in my response. The poles closest to the imaginary axis are the loudest—they're the last ones to quiet down after a disturbance. When my engineers want to speed me up, they push my poles further left. When they want me calmer, they add damping to spread the poles apart. My behavior is literally mapped on the s-plane."</p>
+</div>
+<h2 id="zeros-shaping-the-response">Zeros: Shaping the Response</h2>
+<p>While poles determine <em>what</em> response modes exist, <strong>zeros</strong> shape <em>how much</em> of each mode appears in the output. Zeros are the values of <span class="arithmatex">\(s\)</span> that make the numerator equal to zero—the roots of <span class="arithmatex">\(N(s) = 0\)</span>.</p>
+<p>For the transfer function:</p>
+<h4 id="transfer-function-with-zero">Transfer Function with Zero</h4>
+<p><span class="arithmatex">\(G(s) = \frac{s+3}{(s+2)(s+5)}\)</span></p>
+<p>The zero is at <span class="arithmatex">\(s = -3\)</span>. Zeros have a remarkable property: they can suppress or enhance certain response characteristics.</p>
+<p>Here's the intuition: if you place a zero near a pole, the zero partially "cancels" that pole's contribution to the response. If you place a zero far from any poles, it has less effect on the dominant dynamics. This gives designers a tool—add zeros through controllers to reshape the response without changing the fundamental pole locations.</p>
+<p>Key effects of zeros:</p>
+<ul>
+<li><strong>Zeros in the left half-plane</strong>: Can cause overshoot in the step response, even for heavily damped systems</li>
+<li><strong>Zeros near poles</strong>: Reduce the contribution of that pole to the response</li>
+<li><strong>Right half-plane zeros</strong>: Create "non-minimum phase" behavior—the response initially goes the "wrong way"</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Zero Location</th>
+<th>Effect on Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LHP, far from poles</td>
+<td>Mild increase in overshoot</td>
+</tr>
+<tr>
+<td>LHP, near a pole</td>
+<td>Reduces that pole's influence</td>
+</tr>
+<tr>
+<td>RHP (positive real part)</td>
+<td>Initial undershoot, then recovery</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Right Half-Plane Zeros</p>
+<p>RHP zeros are trouble. They cause the step response to initially move in the opposite direction from its final value—like a car that backs up before going forward. Systems with RHP zeros are harder to control and have fundamental limitations on achievable bandwidth. If you encounter one, proceed with caution.</p>
+</div>
+<h2 id="the-pole-zero-plot">The Pole-Zero Plot</h2>
+<p>A <strong>pole-zero plot</strong> is a graphical representation of all poles and zeros of a transfer function on the complex s-plane. By convention:</p>
+<ul>
+<li><strong>Poles</strong> are marked with ✕ symbols</li>
+<li><strong>Zeros</strong> are marked with ○ symbols</li>
+<li>The horizontal axis is the real part of <span class="arithmatex">\(s\)</span> (σ)</li>
+<li>The vertical axis is the imaginary part of <span class="arithmatex">\(s\)</span> (jω)</li>
+</ul>
+<p>This simple diagram packs enormous information. At a glance, you can determine:</p>
+<ul>
+<li><strong>Stability</strong>: Are all poles in the left half-plane?</li>
+<li><strong>Speed of response</strong>: How far left are the dominant poles?</li>
+<li><strong>Oscillation</strong>: Are there complex conjugate poles?</li>
+<li><strong>Damping</strong>: What angle do complex poles make with the negative real axis?</li>
+<li><strong>DC gain</strong>: Where are the zeros relative to poles?</li>
+</ul>
+<h4 id="diagram-interactive-pole-zero-plot">Diagram: Interactive Pole-Zero Plot</h4>
+<iframe src="../../sims/pole-zero-plot/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Interactive Pole-Zero Plot</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: interpret, explain</p>
+<p>Learning Objective: Students will interpret pole-zero plots by identifying pole and zero locations and understanding their implications for system behavior.</p>
+<p>Canvas layout:
+- Left side (55%): S-plane with poles and zeros
+- Right side (45%): Time response plot and transfer function display</p>
+<p>Visual elements:
+S-Plane:
+- Complex plane with real (σ) and imaginary (jω) axes
+- Grid lines at integer values
+- Left half-plane shaded light green (stable region)
+- Right half-plane shaded light red (unstable region)
+- Imaginary axis highlighted
+- Poles marked with blue ✕ symbols
+- Zeros marked with red ○ symbols
+- Draggable poles and zeros</p>
+<p>Time Response Plot:
+- Step response curve
+- Time axis (0 to 10 seconds)
+- Amplitude axis (0 to 2)
+- Steady-state reference line</p>
+<p>Interactive controls:
+- Drag poles and zeros on s-plane
+- Button: Add Pole (click to place)
+- Button: Add Zero (click to place)
+- Button: Delete Selected
+- Button: Reset to Example
+- Dropdown: Preset examples (First-order, Underdamped second-order, System with zero)</p>
+<p>Data Visibility Requirements:
+- Display transfer function G(s) in symbolic form
+- Show pole values: p₁ = [value], p₂ = [value], etc.
+- Show zero values: z₁ = [value], etc.
+- Display DC gain
+- For complex poles: show ζ and ωn</p>
+<p>Behavior:
+- Step response updates in real-time as poles/zeros are dragged
+- System becomes unstable (response grows) if any pole enters RHP
+- Complex conjugate poles must move as pairs
+- Transfer function display updates with each change
+- Warning message if system is unstable</p>
+<p>Instructional Rationale: Direct manipulation of poles and zeros with immediate visual feedback builds deep intuition for the connection between s-plane locations and time response. Students discover relationships through exploration rather than memorization.</p>
+<p>Implementation: p5.js with draggable elements and real-time response calculation</p>
+</details>
+<h2 id="real-poles">Real Poles</h2>
+<p><strong>Real poles</strong> lie on the real axis of the s-plane—they have no imaginary component. A real pole at <span class="arithmatex">\(s = -a\)</span> (where <span class="arithmatex">\(a &gt; 0\)</span>) contributes an exponentially decaying term <span class="arithmatex">\(Ae^{-at}\)</span> to the time response.</p>
+<p>The location determines everything:</p>
+<ul>
+<li><strong>Magnitude <span class="arithmatex">\(|a|\)</span></strong>: Determines decay rate (larger = faster)</li>
+<li><strong>Sign</strong>: Negative (left of origin) = stable, Positive (right) = unstable</li>
+<li><strong>Distance from origin</strong>: Time constant <span class="arithmatex">\(\tau = 1/|a|\)</span></li>
+</ul>
+<p>Real poles produce smooth, monotonic response components—no oscillation. A first-order system has exactly one real pole. Second-order overdamped systems have two distinct real poles.</p>
+<h4 id="real-pole-step-response">Real Pole Step Response</h4>
+<p>For a system with a single real pole at <span class="arithmatex">\(s = -a\)</span>:</p>
+<p><span class="arithmatex">\(G(s) = \frac{K \cdot a}{s + a}\)</span></p>
+<p>The step response is:</p>
+<p><span class="arithmatex">\(y(t) = K(1 - e^{-at})\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is the DC gain</li>
+<li><span class="arithmatex">\(a\)</span> is the pole magnitude (determines speed)</li>
+<li><span class="arithmatex">\(\tau = 1/a\)</span> is the time constant</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pole at</th>
+<th>Time Constant</th>
+<th>63.2% Time</th>
+<th>Settling Time (5τ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s = -1\)</span></td>
+<td>1 second</td>
+<td>1 s</td>
+<td>5 s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = -5\)</span></td>
+<td>0.2 seconds</td>
+<td>0.2 s</td>
+<td>1 s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = -0.5\)</span></td>
+<td>2 seconds</td>
+<td>2 s</td>
+<td>10 s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="complex-conjugate-poles">Complex Conjugate Poles</h2>
+<p><strong>Complex conjugate poles</strong> always come in pairs (for systems with real coefficients) and create oscillatory behavior. A pair at <span class="arithmatex">\(s = -\sigma \pm j\omega_d\)</span> produces a damped sinusoidal response:</p>
+<h4 id="damped-sinusoidal-response">Damped Sinusoidal Response</h4>
+<p><span class="arithmatex">\(y(t) = Ae^{-\sigma t}\sin(\omega_d t + \phi)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\sigma = \zeta\omega_n\)</span> is the decay rate (real part magnitude)</li>
+<li><span class="arithmatex">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span> is the damped frequency</li>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+</ul>
+<p>The geometry of complex pole locations directly encodes the dynamic parameters:</p>
+<ul>
+<li><strong>Distance from origin</strong>: <span class="arithmatex">\(\omega_n = \sqrt{\sigma^2 + \omega_d^2}\)</span> (natural frequency)</li>
+<li><strong>Angle from negative real axis</strong>: <span class="arithmatex">\(\theta = \cos^{-1}(\zeta)\)</span> (damping ratio)</li>
+<li><strong>Real part magnitude</strong>: <span class="arithmatex">\(\sigma = \zeta\omega_n\)</span> (decay rate)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Reading ζ from the S-Plane</p>
+<p>Draw a line from the origin to a complex pole. The angle θ this line makes with the negative real axis relates to damping: <span class="arithmatex">\(\zeta = \cos(\theta)\)</span>. Poles at 45° have ζ = 0.707 (often considered optimal). Poles near the imaginary axis (large θ) are lightly damped. Poles near the real axis (small θ) are heavily damped.</p>
+</div>
+<h4 id="diagram-complex-pole-geometry">Diagram: Complex Pole Geometry</h4>
+<iframe src="../../sims/complex-pole-geometry/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Complex Pole Geometry</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, demonstrate</p>
+<p>Learning Objective: Students will calculate damping ratio and natural frequency from complex pole locations by measuring angles and distances on the s-plane.</p>
+<p>Canvas layout:
+- Left side (60%): S-plane with geometric construction
+- Right side (40%): Parameter display and response preview</p>
+<p>Visual elements:
+S-Plane:
+- Complex plane with axes labeled σ and jω
+- Complex conjugate pole pair (draggable)
+- Line from origin to upper pole
+- Arc showing angle θ
+- Horizontal line to real axis intersection
+- Vertical line showing imaginary part
+- Constant ζ lines (radial lines from origin)
+- Constant ωn circles (arcs centered at origin)</p>
+<p>Parameter Display:
+- Real part: σ = [value]
+- Imaginary part: ωd = [value]
+- Natural frequency: ωn = [value]
+- Damping ratio: ζ = [value]
+- Angle: θ = [value]°</p>
+<p>Response Preview:
+- Small step response plot showing damped oscillation
+- Envelope curves visible</p>
+<p>Interactive controls:
+- Drag pole to reposition (conjugate moves automatically)
+- Toggle: Show/hide constant ζ lines
+- Toggle: Show/hide constant ωn circles
+- Slider: Set ζ directly (poles move to match)
+- Slider: Set ωn directly (poles move to match)</p>
+<p>Data Visibility Requirements:
+- Display all geometric relationships as pole moves
+- Show calculation: ωn = √(σ² + ωd²)
+- Show calculation: ζ = σ/ωn = cos(θ)
+- Update response preview in real-time</p>
+<p>Behavior:
+- As pole is dragged, all parameters update continuously
+- Constant ζ lines are radial (same angle = same damping)
+- Constant ωn circles show poles with same natural frequency
+- Cannot drag poles to RHP in this demonstration
+- Response preview shows corresponding time behavior</p>
+<p>Instructional Rationale: Geometric construction with live parameter calculation helps students internalize the relationships between pole locations and dynamic parameters. The dual representation (slider vs. drag) reinforces bidirectional understanding.</p>
+<p>Implementation: p5.js with geometric drawing and canvas-based controls</p>
+</details>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"My complex conjugate poles determine my wobble characteristics. When they're close to the imaginary axis, I oscillate many times before settling—it's exhausting! When they're far to the left, I barely wobble at all, but I'm also sluggish. My engineers found a sweet spot around ζ = 0.7, where I'm responsive but not too bouncy. On the s-plane, that's when my poles sit at about 45° from the real axis."</p>
+</div>
+<h2 id="simple-poles-vs-repeated-poles">Simple Poles vs. Repeated Poles</h2>
+<p>A <strong>simple pole</strong> is a pole of multiplicity one—it appears exactly once as a root of the characteristic equation. Most poles you'll encounter are simple poles, and they contribute straightforward exponential or oscillatory components to the response.</p>
+<p><strong>Repeated poles</strong> (also called multiple poles) occur when a root appears more than once. A pole of multiplicity <span class="arithmatex">\(m\)</span> at <span class="arithmatex">\(s = -a\)</span> appears as a factor <span class="arithmatex">\((s+a)^m\)</span> in the denominator.</p>
+<p>The key difference is in the time response:</p>
+<h4 id="simple-vs-repeated-pole-response">Simple vs Repeated Pole Response</h4>
+<p>For a simple pole at <span class="arithmatex">\(s = -a\)</span>:</p>
+<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{s+a}\right\} = e^{-at}\)</span></p>
+<p>For a repeated pole of order 2 at <span class="arithmatex">\(s = -a\)</span>:</p>
+<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{(s+a)^2}\right\} = te^{-at}\)</span></p>
+<p>For a repeated pole of order 3:</p>
+<p><span class="arithmatex">\(\mathcal{L}^{-1}\left\{\frac{1}{(s+a)^3}\right\} = \frac{t^2}{2}e^{-at}\)</span></p>
+<p>The pattern continues: multiplicity <span class="arithmatex">\(m\)</span> contributes terms up to <span class="arithmatex">\(t^{m-1}e^{-at}\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Pole Type</th>
+<th>Transfer Function Factor</th>
+<th>Time Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple at <span class="arithmatex">\(-a\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{s+a}\)</span></td>
+<td><span class="arithmatex">\(e^{-at}\)</span></td>
+</tr>
+<tr>
+<td>Double at <span class="arithmatex">\(-a\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{(s+a)^2}\)</span></td>
+<td><span class="arithmatex">\(te^{-at}\)</span></td>
+</tr>
+<tr>
+<td>Triple at <span class="arithmatex">\(-a\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{(s+a)^3}\)</span></td>
+<td><span class="arithmatex">\(\frac{t^2}{2}e^{-at}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The polynomial factor (<span class="arithmatex">\(t\)</span>, <span class="arithmatex">\(t^2\)</span>, etc.) causes the response to initially grow before the exponential decay dominates. Critically damped second-order systems have a repeated pole—that's why their response has the form <span class="arithmatex">\((1 + \omega_n t)e^{-\omega_n t}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Repeated Poles in Practice</p>
+<p>Repeated poles are mathematically interesting but somewhat rare in physical systems. They represent a knife-edge condition—a tiny change in parameters would split the repeated pole into two nearby simple poles. In design, we often aim for repeated poles when we want critical damping.</p>
+</div>
+<h2 id="pole-at-origin">Pole at Origin</h2>
+<p>A <strong>pole at the origin</strong> (<span class="arithmatex">\(s = 0\)</span>) has special significance. It corresponds to an integrator in the system—a component that accumulates its input over time. In the time domain, a pole at <span class="arithmatex">\(s = 0\)</span> contributes a constant or a ramp, depending on the input.</p>
+<h4 id="integrator-transfer-function">Integrator Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{1}{s}\)</span></p>
+<p>This is a pure integrator. Its step response is a ramp:</p>
+<p><span class="arithmatex">\(y(t) = t\)</span></p>
+<p>The output grows without bound—there's no decay because the pole's real part is zero.</p>
+<p>Poles at the origin are neither stable nor unstable—they're <strong>marginally stable</strong>. The system doesn't blow up, but it doesn't settle down either. This is characteristic of systems with no restoring force or inherent feedback, such as:</p>
+<ul>
+<li>Position control systems (integrating velocity gives position)</li>
+<li>Tank level with continuous flow (integrating flow rate gives volume)</li>
+<li>A frictionless mass (integrating force gives velocity)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pole Location</th>
+<th>Classification</th>
+<th>Step Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left of origin</td>
+<td>Stable</td>
+<td>Bounded, settles</td>
+</tr>
+<tr>
+<td>At origin</td>
+<td>Marginally stable</td>
+<td>Ramp (unbounded)</td>
+</tr>
+<tr>
+<td>Right of origin</td>
+<td>Unstable</td>
+<td>Exponential growth</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"I have something like a pole at the origin—or very close to it. When I lean forward slightly, I don't spring back automatically. Without my controller constantly applying corrective torque, I'd just keep falling. That's what an integrator does: any small disturbance accumulates into a big problem. My controller has to actively fight this tendency every millisecond. If the controller sleeps, I fall."</p>
+</div>
+<h2 id="poles-in-the-left-half-plane">Poles in the Left Half Plane</h2>
+<p><strong>Poles in the left half plane (LHP)</strong> are the hallmark of stable systems. Any pole with a negative real part (<span class="arithmatex">\(\text{Re}(s) &lt; 0\)</span>) contributes a decaying component to the time response—whether exponential decay for real poles or damped oscillation for complex poles.</p>
+<p>For stability, <em>all</em> poles must be in the LHP. This is the fundamental stability criterion:</p>
+<div class="admonition success">
+<p class="admonition-title">Stability Criterion</p>
+<p>A linear time-invariant system is <strong>stable</strong> if and only if all poles of its transfer function lie in the open left half-plane (excluding the imaginary axis).</p>
+</div>
+<p>The farther a pole is to the left, the faster its contribution decays. This gives us a design principle: if we want a faster system, push the poles leftward. But there are limits—real actuators can't respond infinitely fast, and pushing poles too far left requires high gains that amplify noise.</p>
+<p>Consider a system with poles at <span class="arithmatex">\(s = -1\)</span> and <span class="arithmatex">\(s = -10\)</span>:</p>
+<ul>
+<li>The pole at <span class="arithmatex">\(s = -1\)</span> has time constant <span class="arithmatex">\(\tau = 1\)</span> s</li>
+<li>The pole at <span class="arithmatex">\(s = -10\)</span> has time constant <span class="arithmatex">\(\tau = 0.1\)</span> s</li>
+</ul>
+<p>After about 0.5 seconds, the contribution from the <span class="arithmatex">\(s = -10\)</span> pole has decayed to essentially nothing, while the <span class="arithmatex">\(s = -1\)</span> pole is just getting started. The leftmost pole is "fast" and becomes negligible quickly; the rightmost pole (still in LHP) "dominates" the long-term response.</p>
+<h4 id="diagram-lhp-pole-effects">Diagram: LHP Pole Effects</h4>
+<iframe src="../../sims/lhp-pole-effects/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>LHP Pole Effects</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, compare</p>
+<p>Learning Objective: Students will analyze how pole distance from the imaginary axis affects response speed and settling time.</p>
+<p>Canvas layout:
+- Top (50%): S-plane showing pole locations
+- Bottom (50%): Time response showing individual pole contributions and total</p>
+<p>Visual elements:
+S-Plane:
+- LHP shaded green with "Stable Region" label
+- Imaginary axis highlighted
+- Multiple poles (2-3) at different horizontal positions
+- Draggable poles (horizontal movement only for this demo)</p>
+<p>Time Response:
+- Individual contributions from each pole (thin colored lines)
+- Total response (thick black line)
+- Time axis 0-10 seconds
+- Amplitude axis
+- Settling time markers</p>
+<p>Interactive controls:
+- Drag poles horizontally to change real part
+- Toggle: Show/hide individual contributions
+- Button: Reset
+- Dropdown: 2 poles, 3 poles, or 4 poles</p>
+<p>Data Visibility Requirements:
+- Display each pole location and its time constant
+- Show settling time for each component (5τ)
+- Identify which pole is "dominant" (rightmost)
+- Show total system settling time</p>
+<p>Behavior:
+- As poles move left, their contributions decay faster
+- Dominant pole always labeled (rightmost LHP pole)
+- Response updates in real-time
+- Cannot drag poles across imaginary axis in this demo</p>
+<p>Instructional Rationale: By separating individual pole contributions, students see clearly why the rightmost pole dominates. Horizontal-only movement focuses attention on the key parameter affecting response speed.</p>
+<p>Implementation: p5.js with constrained dragging and multi-curve plotting</p>
+</details>
+<h2 id="poles-in-the-right-half-plane">Poles in the Right Half Plane</h2>
+<p><strong>Poles in the right half plane (RHP)</strong> spell disaster. A pole with a positive real part (<span class="arithmatex">\(\text{Re}(s) &gt; 0\)</span>) contributes an exponentially <em>growing</em> component to the response. The system is <strong>unstable</strong>—any disturbance, no matter how small, will eventually cause the output to blow up.</p>
+<p>For a pole at <span class="arithmatex">\(s = +a\)</span> (where <span class="arithmatex">\(a &gt; 0\)</span>):</p>
+<p><span class="arithmatex">\(y(t) \propto e^{+at}\)</span></p>
+<p>This grows without bound. In practice, physical systems don't actually reach infinity—they hit actuator limits, break, catch fire, or otherwise demonstrate that mathematical models have their limits. But the point stands: RHP poles must be eliminated through feedback or the system is unusable.</p>
+<div class="admonition danger">
+<p class="admonition-title">Unstable Systems</p>
+<p>An unstable system is not merely "sluggish" or "oscillatory"—it's fundamentally broken for control purposes. Even with zero input, noise or numerical error will trigger exponential growth. RHP poles are red flags that demand immediate attention. Never deploy a system with RHP poles without closed-loop stabilization.</p>
+</div>
+<p>How do RHP poles arise? Many interesting physical systems are inherently unstable:</p>
+<ul>
+<li>Inverted pendulums (Gyra!)</li>
+<li>Rocket or missile guidance (aerodynamic instability)</li>
+<li>Some chemical reactors (thermal runaway)</li>
+<li>Aircraft at certain flight conditions</li>
+</ul>
+<p>The good news: feedback control can move poles. A major goal of controller design is to take an unstable open-loop system and create a stable closed-loop system by moving RHP poles into the LHP.</p>
+<h2 id="poles-on-the-imaginary-axis">Poles on the Imaginary Axis</h2>
+<p><strong>Poles on the imaginary axis</strong> represent the boundary between stability and instability. They produce sustained oscillations that neither grow nor decay—<strong>marginal stability</strong>.</p>
+<p>A pair of complex conjugate poles at <span class="arithmatex">\(s = \pm j\omega\)</span> contributes:</p>
+<p><span class="arithmatex">\(y(t) = A\cos(\omega t + \phi)\)</span></p>
+<p>This oscillation continues forever at constant amplitude. There's no damping (the real part is zero), so energy is neither added nor removed.</p>
+<p>Examples of systems with imaginary-axis poles:</p>
+<ul>
+<li>Ideal LC oscillators (no resistance)</li>
+<li>Undamped spring-mass systems (no friction)</li>
+<li>Systems at the edge of instability</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pole Location</th>
+<th>Real Part</th>
+<th>Response Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LHP</td>
+<td>Negative</td>
+<td>Decaying (stable)</td>
+</tr>
+<tr>
+<td>Imaginary axis</td>
+<td>Zero</td>
+<td>Sustained oscillation (marginal)</td>
+</tr>
+<tr>
+<td>RHP</td>
+<td>Positive</td>
+<td>Growing (unstable)</td>
+</tr>
+</tbody>
+</table>
+<p>Imaginary-axis poles are tricky to work with. They're neither clearly stable nor unstable—any small perturbation might push them into either half-plane. In practice, truly marginally stable systems are rare because real systems always have some damping. But understanding this boundary case is essential for stability analysis.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"If my poles sat exactly on the imaginary axis, I would oscillate forever at constant amplitude—swinging back and forth without ever settling or falling. But that would require perfect symmetry and zero friction, which don't exist. In reality, my poles are either slightly in the LHP (I eventually settle) or slightly in the RHP (I eventually fall). My controller's job is to make sure they stay firmly in the LHP."</p>
+</div>
+<h2 id="system-order">System Order</h2>
+<p>The <strong>system order</strong> is the degree of the denominator polynomial of the transfer function—equivalently, the number of poles (counting multiplicity). System order determines the maximum complexity of the response and corresponds to the number of independent energy storage elements.</p>
+<p>For a transfer function:</p>
+<h4 id="general-transfer-function">General Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{b_m s^m + b_{m-1}s^{m-1} + \cdots + b_0}{a_n s^n + a_{n-1}s^{n-1} + \cdots + a_0}\)</span></p>
+<p>The system order is <span class="arithmatex">\(n\)</span> (the degree of the denominator).</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Poles</th>
+<th>Energy Storage</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1 element</td>
+<td>RC circuit</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2 elements</td>
+<td>RLC circuit, mass-spring-damper</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>3 elements</td>
+<td>Cascaded tanks</td>
+</tr>
+<tr>
+<td>n</td>
+<td>n</td>
+<td>n elements</td>
+<td>Complex systems</td>
+</tr>
+</tbody>
+</table>
+<p>Higher-order systems can exhibit more complex behavior—multiple oscillation modes, multiple time scales, more complex transient shapes. However, higher-order systems can often be approximated by lower-order models using dominant pole analysis, which we'll explore shortly.</p>
+<p>The order also tells us how many initial conditions are needed to specify the system state completely and how many roots we need to find when analyzing the characteristic equation.</p>
+<h2 id="proper-and-strictly-proper-transfer-functions">Proper and Strictly Proper Transfer Functions</h2>
+<p>A transfer function's "properness" relates the degrees of its numerator and denominator. This classification has important implications for physical realizability and high-frequency behavior.</p>
+<p>A <strong>proper transfer function</strong> has:</p>
+<p><span class="arithmatex">\(\deg(N(s)) \leq \deg(D(s))\)</span></p>
+<p>In other words, the numerator degree is less than or equal to the denominator degree. All physically realizable systems are proper.</p>
+<p>A <strong>strictly proper transfer function</strong> has:</p>
+<p><span class="arithmatex">\(\deg(N(s)) &lt; \deg(D(s))\)</span></p>
+<p>The numerator degree is strictly less than the denominator degree.</p>
+<p>An <strong>improper transfer function</strong> has:</p>
+<p><span class="arithmatex">\(\deg(N(s)) &gt; \deg(D(s))\)</span></p>
+<p>Improper transfer functions are not physically realizable—they would require predicting the future or infinite bandwidth.</p>
+<table>
+<thead>
+<tr>
+<th>Transfer Function</th>
+<th>Numerator Degree</th>
+<th>Denominator Degree</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\frac{5}{s+2}\)</span></td>
+<td>0</td>
+<td>1</td>
+<td>Strictly proper</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{s+1}{s+2}\)</span></td>
+<td>1</td>
+<td>1</td>
+<td>Proper</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{s+1}{(s+2)(s+3)}\)</span></td>
+<td>1</td>
+<td>2</td>
+<td>Strictly proper</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{s^2+1}{s+2}\)</span></td>
+<td>2</td>
+<td>1</td>
+<td>Improper</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Why This Matters</p>
+<p>Strictly proper systems have gain that drops to zero at high frequencies—they act as low-pass filters. Proper (but not strictly proper) systems approach a constant gain at high frequencies. These characteristics affect noise sensitivity, controller design, and simulation accuracy.</p>
+</div>
+<p>For control design, we typically work with strictly proper plants (most physical systems) and may add proper controllers. Improper controllers can sometimes arise in theory but require approximation for implementation.</p>
+<h2 id="dc-gain">DC Gain</h2>
+<p>The <strong>DC gain</strong> is the system's steady-state output-to-input ratio for a constant input—what happens when all the transients have died out and the system has fully settled. It's found by evaluating the transfer function at <span class="arithmatex">\(s = 0\)</span>:</p>
+<h4 id="dc-gain-formula">DC Gain Formula</h4>
+<p><span class="arithmatex">\(K_{DC} = G(0) = \lim_{s \to 0} G(s)\)</span></p>
+<p>For a transfer function:</p>
+<p><span class="arithmatex">\(G(s) = \frac{5(s+3)}{(s+1)(s+2)}\)</span></p>
+<p>The DC gain is:</p>
+<p><span class="arithmatex">\(K_{DC} = G(0) = \frac{5(0+3)}{(0+1)(0+2)} = \frac{15}{2} = 7.5\)</span></p>
+<p>This means a unit step input produces a steady-state output of 7.5.</p>
+<p>DC gain tells you the "amplification" of the system for slowly-varying signals. It's crucial for:</p>
+<ul>
+<li>Predicting steady-state response to step inputs</li>
+<li>Calculating steady-state error in feedback systems</li>
+<li>Scaling controller gains</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Transfer Function</th>
+<th>DC Gain</th>
+<th>Steady-State Step Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\frac{3}{s+2}\)</span></td>
+<td><span class="arithmatex">\(3/2 = 1.5\)</span></td>
+<td>1.5</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{10}{(s+1)(s+5)}\)</span></td>
+<td><span class="arithmatex">\(10/5 = 2\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{s+2}{s+5}\)</span></td>
+<td><span class="arithmatex">\(2/5 = 0.4\)</span></td>
+<td>0.4</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Poles at Origin</p>
+<p>If the system has a pole at the origin (an integrator), the DC gain is infinite—<span class="arithmatex">\(G(0)\)</span> blows up. This makes physical sense: an integrator's response to a constant input is a ramp that grows forever. For such systems, we talk about "velocity constants" or "position constants" instead.</p>
+</div>
+<h2 id="dominant-poles">Dominant Poles</h2>
+<p>In higher-order systems, not all poles contribute equally to the response. <strong>Dominant poles</strong> are the poles closest to the imaginary axis—they decay slowest and therefore dominate the long-term transient behavior.</p>
+<p>Consider a third-order system with poles at <span class="arithmatex">\(s = -1\)</span>, <span class="arithmatex">\(s = -2\)</span>, and <span class="arithmatex">\(s = -10\)</span>:</p>
+<ul>
+<li>Pole at <span class="arithmatex">\(s = -1\)</span>: time constant <span class="arithmatex">\(\tau = 1\)</span> s, contributes <span class="arithmatex">\(e^{-t}\)</span></li>
+<li>Pole at <span class="arithmatex">\(s = -2\)</span>: time constant <span class="arithmatex">\(\tau = 0.5\)</span> s, contributes <span class="arithmatex">\(e^{-2t}\)</span></li>
+<li>Pole at <span class="arithmatex">\(s = -10\)</span>: time constant <span class="arithmatex">\(\tau = 0.1\)</span> s, contributes <span class="arithmatex">\(e^{-10t}\)</span></li>
+</ul>
+<p>After <span class="arithmatex">\(t = 0.5\)</span> seconds:
+- <span class="arithmatex">\(e^{-10(0.5)} = e^{-5} \approx 0.007\)</span> (essentially zero)
+- <span class="arithmatex">\(e^{-2(0.5)} = e^{-1} \approx 0.37\)</span> (significant)
+- <span class="arithmatex">\(e^{-1(0.5)} = e^{-0.5} \approx 0.61\)</span> (dominant)</p>
+<p>The pole at <span class="arithmatex">\(s = -10\)</span> is effectively "invisible" after the first half-second. The pole at <span class="arithmatex">\(s = -1\)</span> dominates the settling behavior.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Factor of 5 Rule</p>
+<p>A common approximation: if a pole is more than 5 times farther from the imaginary axis than the dominant pole(s), its contribution can often be neglected for design purposes. The system can then be approximated by a lower-order model containing only the dominant poles.</p>
+</div>
+<p>This simplification is enormously practical. A tenth-order system might be well-approximated by a second-order model if only two poles are close to the imaginary axis and the rest are far to the left. Simplified models are easier to analyze, design for, and explain to management.</p>
+<h4 id="diagram-dominant-pole-approximation">Diagram: Dominant Pole Approximation</h4>
+<iframe src="../../sims/dominant-pole-approximation/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Dominant Pole Approximation</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: assess, justify</p>
+<p>Learning Objective: Students will assess when a lower-order approximation is valid by comparing full and reduced-order model responses.</p>
+<p>Canvas layout:
+- Left (50%): S-plane showing all poles with dominance zones
+- Right (50%): Time response comparing full model vs. approximation</p>
+<p>Visual elements:
+S-Plane:
+- All poles of full system (3-4 poles)
+- Vertical "dominance boundary" line (adjustable)
+- Poles left of boundary shaded/dimmed (to be neglected)
+- Poles right of boundary highlighted (dominant)</p>
+<p>Time Response:
+- Full-order response (solid blue line)
+- Reduced-order approximation (dashed red line)
+- Error band showing difference
+- Settling time markers for both</p>
+<p>Interactive controls:
+- Slider: Position of "neglect boundary"
+- Drag poles to different locations
+- Dropdown: Preset systems (3rd, 4th, 5th order examples)
+- Toggle: Show/hide error
+- Display: Order of approximation</p>
+<p>Data Visibility Requirements:
+- List all poles with their distances from imaginary axis
+- Show ratio: "Fastest neglected pole / Slowest kept pole"
+- Display RMS error between full and approximate responses
+- Show percentage fit quality</p>
+<p>Behavior:
+- As boundary moves, some poles are "kept" and others "neglected"
+- Approximate response uses only kept poles (with DC gain correction)
+- Error generally decreases as more poles are kept
+- Good approximation when ratio &gt; 5</p>
+<p>Instructional Rationale: Students develop judgment about when approximations are valid by directly seeing the trade-off between model complexity and accuracy. The adjustable boundary lets them discover the "factor of 5" guideline empirically.</p>
+<p>Implementation: p5.js with adjustable boundary and error calculation</p>
+</details>
+<h2 id="pole-zero-cancellation">Pole-Zero Cancellation</h2>
+<p><strong>Pole-zero cancellation</strong> occurs when a zero is located at or very near the same location as a pole. In the transfer function:</p>
+<h4 id="cancellation-example">Cancellation Example</h4>
+<p><span class="arithmatex">\(G(s) = \frac{s+2}{(s+2)(s+5)} = \frac{1}{s+5}\)</span></p>
+<p>The zero at <span class="arithmatex">\(s = -2\)</span> "cancels" the pole at <span class="arithmatex">\(s = -2\)</span>, leaving a first-order system.</p>
+<p>But wait—is this really that simple? Mathematically, yes. Practically, it's more nuanced.</p>
+<p><strong>Perfect cancellation</strong> (exact match) eliminates the pole's contribution entirely. The mode associated with that pole simply doesn't appear in the transfer function output.</p>
+<p><strong>Imperfect cancellation</strong> (pole and zero close but not identical) is more realistic. Manufacturing tolerances and parameter variations mean exact cancellation is nearly impossible. A small mismatch leaves a lightly-weighted pole that may still affect transient behavior.</p>
+<div class="admonition warning">
+<p class="admonition-title">Hidden Modes</p>
+<p>Cancellation can hide dynamics but doesn't eliminate them. If a pole at <span class="arithmatex">\(s = -2\)</span> is cancelled but initial conditions excite that mode, the response will still contain <span class="arithmatex">\(e^{-2t}\)</span> components. Cancellation affects the forced response but not the natural response. This distinction matters for stability analysis and internal stability.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Cancellation Scenario</th>
+<th>Practical Concern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LHP pole cancelled by LHP zero</td>
+<td>Generally acceptable, may hide slow mode</td>
+</tr>
+<tr>
+<td>RHP pole cancelled by RHP zero</td>
+<td>Dangerous! Internal instability remains</td>
+</tr>
+<tr>
+<td>Pole near zero (imperfect)</td>
+<td>Lightly-damped hidden mode, sensitive to parameters</td>
+</tr>
+</tbody>
+</table>
+<p>The most dangerous case is attempting to cancel an unstable (RHP) pole with a RHP zero. The transfer function looks stable, but the internal dynamics remain unstable. Any noise or disturbance will excite the hidden unstable mode, causing internal state variables to blow up even while the output appears well-behaved—until it doesn't.</p>
+<h2 id="putting-it-all-together-reading-a-pole-zero-plot">Putting It All Together: Reading a Pole-Zero Plot</h2>
+<p>Now that we've explored each element, let's develop a systematic approach to reading pole-zero plots. When presented with a pole-zero plot, follow this analysis checklist:</p>
+<p><strong>Step 1: Check Stability</strong>
+Are all poles in the left half-plane? If any pole is on or right of the imaginary axis, the system is marginally stable or unstable.</p>
+<p><strong>Step 2: Identify Dominant Poles</strong>
+Which poles are closest to the imaginary axis? These dominate the response.</p>
+<p><strong>Step 3: Classify Response Type</strong></p>
+<ul>
+<li>All real poles → No oscillation</li>
+<li>Complex conjugate poles → Oscillatory component</li>
+<li>Read damping from pole angle: <span class="arithmatex">\(\zeta = \cos(\theta)\)</span></li>
+</ul>
+<p><strong>Step 4: Estimate Speed</strong>
+Distance from imaginary axis determines speed. Dominant pole location gives approximate time constant.</p>
+<p><strong>Step 5: Note Zeros</strong></p>
+<ul>
+<li>LHP zeros affect overshoot</li>
+<li>RHP zeros cause initial undershoot</li>
+<li>Zeros near poles may indicate cancellation</li>
+</ul>
+<p><strong>Step 6: Calculate DC Gain</strong>
+Evaluate <span class="arithmatex">\(G(0)\)</span> for steady-state behavior.</p>
+<h4 id="diagram-pole-zero-analysis-workflow">Diagram: Pole-Zero Analysis Workflow</h4>
+<iframe src="../../sims/pole-zero-workflow/main.html" width="100%" height="450px" scrolling="no"></iframe>
+
+<details>
+<summary>Pole-Zero Analysis Workflow</summary>
+<p>Type: workflow</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute, implement</p>
+<p>Learning Objective: Students will apply a systematic workflow to analyze any pole-zero plot and predict system behavior.</p>
+<p>Purpose: Show the step-by-step process for analyzing a pole-zero plot</p>
+<p>Visual style: Flowchart with decision diamonds and process rectangles</p>
+<p>Steps:
+1. Start: "Given: Pole-Zero Plot"
+   Hover text: "Start with locations of all poles and zeros"</p>
+<ol>
+<li>Decision: "All poles in LHP?"
+   Hover text: "Check if all poles have negative real parts"</li>
+</ol>
+<p>3a. Process: "System is STABLE" (if yes)
+    Hover text: "Proceed with response analysis"</p>
+<p>3b. Process: "System is UNSTABLE" (if no)
+    Hover text: "Stop! System requires stabilization first"</p>
+<ol>
+<li>
+<p>Process: "Identify Dominant Poles"
+   Hover text: "Find pole(s) closest to imaginary axis"</p>
+</li>
+<li>
+<p>Decision: "Complex or Real Poles?"
+   Hover text: "Check if dominant poles have imaginary parts"</p>
+</li>
+</ol>
+<p>6a. Process: "Calculate ζ, ωn from geometry" (if complex)
+    Hover text: "Use ζ=cos(θ), ωn=distance from origin"</p>
+<p>6b. Process: "Calculate time constant τ=1/|p|" (if real)
+    Hover text: "Response is purely exponential"</p>
+<ol>
+<li>
+<p>Process: "Analyze Zeros"
+   Hover text: "Check for LHP zeros (overshoot), RHP zeros (undershoot), or cancellations"</p>
+</li>
+<li>
+<p>Process: "Calculate DC Gain"
+   Hover text: "Evaluate G(0) for steady-state value"</p>
+</li>
+<li>
+<p>End: "Complete System Characterization"
+   Hover text: "Can now predict step response, stability margins, etc."</p>
+</li>
+</ol>
+<p>Color coding:
+- Blue: Data/query steps
+- Green: Stable path
+- Red: Unstable warning
+- Yellow: Decision points
+- Purple: Calculation steps</p>
+<p>Interactive elements:
+- Hover over each box for detailed explanation
+- Click to see example at each stage</p>
+<p>Implementation: HTML/CSS/JavaScript with SVG flowchart</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter has equipped you with the vocabulary and visual intuition to analyze systems through their pole-zero structure. Here's what you can now do:</p>
+<ul>
+<li>
+<p><strong>Poles</strong> are the roots of the denominator—they determine the natural modes of the system. Every pole contributes a component to the time response.</p>
+</li>
+<li>
+<p><strong>Zeros</strong> are the roots of the numerator—they shape how strongly each mode appears. Zeros near poles can suppress those modes.</p>
+</li>
+<li>
+<p>The <strong>pole-zero plot</strong> is a complete graphical summary of a system's dynamics. Learn to read it like a map.</p>
+</li>
+<li>
+<p><strong>Stability</strong> requires all poles to be in the left half-plane. RHP poles mean exponential growth—unstable. Imaginary-axis poles mean sustained oscillation—marginal stability.</p>
+</li>
+<li>
+<p><strong>Real poles</strong> produce exponential decays or growths. <strong>Complex conjugate poles</strong> produce oscillations. The damping ratio <span class="arithmatex">\(\zeta = \cos(\theta)\)</span> can be read directly from the pole angle.</p>
+</li>
+<li>
+<p><strong>Repeated poles</strong> produce polynomial-times-exponential responses. Critical damping is a special case with repeated poles.</p>
+</li>
+<li>
+<p><strong>Dominant poles</strong> are closest to the imaginary axis and determine long-term behavior. Higher-order systems can often be approximated by keeping only dominant poles.</p>
+</li>
+<li>
+<p><strong>DC gain</strong> <span class="arithmatex">\(G(0)\)</span> gives the steady-state response to a step input.</p>
+</li>
+<li>
+<p><strong>Pole-zero cancellation</strong> can simplify transfer functions but can hide internal dynamics—especially dangerous if cancelling RHP poles.</p>
+</li>
+<li>
+<p><strong>Proper</strong> transfer functions have numerator degree ≤ denominator degree. All physical systems are proper; strictly proper systems are most common.</p>
+</li>
+</ul>
+<p>The s-plane is your diagnostic tool for understanding and designing control systems. When you see a transfer function, immediately sketch the pole-zero plot—it will tell you everything you need to know about stability, speed, and oscillation characteristics.</p>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, see if you can answer these without peeking:</p>
+<ol>
+<li>A system has poles at <span class="arithmatex">\(s = -2 \pm j3\)</span>. What is the natural frequency <span class="arithmatex">\(\omega_n\)</span> and damping ratio <span class="arithmatex">\(\zeta\)</span>?</li>
+<li>A transfer function has poles at <span class="arithmatex">\(s = -1\)</span>, <span class="arithmatex">\(s = -10\)</span>, and <span class="arithmatex">\(s = -50\)</span>. Which pole dominates the response, and what is the approximate settling time?</li>
+<li>True or false: If you cancel an unstable pole with a zero at the same location, the system becomes stable.</li>
+<li>A system has DC gain of 5. What is the steady-state output for a unit step input?</li>
+<li>Looking at a pole at 45° from the negative real axis, what is the damping ratio?</li>
+</ol>
+<p>If you got all five, you're ready for the next chapter on block diagrams and feedback structures!</p>
+</details>
 
 
 
@@ -1238,7 +2847,12 @@
 
 
 
+  
+  
 
+
+
+  
 
 
 
@@ -1305,11 +2919,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       

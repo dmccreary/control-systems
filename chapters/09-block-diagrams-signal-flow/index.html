@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Graphical methods for representing and analyzing complex interconnected control systems using block diagrams and signal flow graphs">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>9. Block Diagrams and Signal Flow - Control Systems</title>
+        <title>Block Diagrams and Signal Flow - Control Systems</title>
       
     
     
@@ -59,6 +59,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JZNNKZH8FW"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JZNNKZH8FW",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JZNNKZH8FW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -115,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              9. Block Diagrams and Signal Flow
+              Block Diagrams and Signal Flow
             
           </span>
         </div>
@@ -650,6 +660,774 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-art-of-visual-system-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Art of Visual System Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagrams-building-blocks-of-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagrams: Building Blocks of Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Diagrams: Building Blocks of Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-essential-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Three Essential Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks-and-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blocks and Transfer Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blocks and Transfer Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-block-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function Block Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-summing-junction" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Summing Junction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Summing Junction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-signal-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Signal Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pickoff-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Pickoff Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pickoff Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-types-how-blocks-combine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Types: How Blocks Combine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connection Types: How Blocks Combine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cascade-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cascade Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cascade Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cascade-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cascade Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parallel Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feedback Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positive-feedback-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive Feedback Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-connection-type-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Connection Type Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-forward-and-feedback-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Forward and Feedback Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Forward and Feedback Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inner-and-outer-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inner and Outer Loops
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inner and Outer Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nested-feedback-loop-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nested Feedback Loop Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-loop-and-closed-loop-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop and Closed-Loop Transfer Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open-Loop and Closed-Loop Transfer Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open-Loop Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-transfer-function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Transfer Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Closed-Loop Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Feedback Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unity Feedback Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-feedback-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Feedback Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Unity Feedback Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagram-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram Reduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Diagram Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-diagram-algebra-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram Algebra Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-a-pickoff-point-past-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving a Pickoff Point Past a Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-a-summing-junction-past-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving a Summing Junction Past a Block
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Moving a Summing Junction Past a Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-reduction-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram Reduction Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduction-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reduction Strategy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-flow-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Flow Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Flow Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodes-and-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes and Branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nodes and Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-value-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Value Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch Gain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-block-diagrams-to-signal-flow-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Converting Block Diagrams to Signal Flow Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Block Diagrams to Signal Flow Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-to-signal-flow-graph-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram to Signal Flow Graph Conversion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masons-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mason's Gain Formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mason's Gain Formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward Path Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path-gain-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path Gain Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-gain-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loop Gain Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-gain-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-touching-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Touching Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-graph-determinant" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Graph Determinant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Graph Determinant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-determinant-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Determinant Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cofactors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cofactors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cofactors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cofactor-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cofactor Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masons-gain-formula_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mason's Gain Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-masons-gain-formula-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mason's Gain Formula Step-by-Step
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-applying-masons-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked Example: Applying Mason's Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples-gyras-control-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples: Gyra's Control Loops
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples: Gyra's Control Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gyras-cascade-control-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gyra's Cascade Control Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyra's Cascade Control Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gyras-cascade-control-block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gyra's Cascade Control Block Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reducing-gyras-control-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reducing Gyra's Control Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loop-gain-and-stability-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain and Stability Preview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loop Gain and Stability Preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,9 +1766,7 @@
     
       
         
-      
-        
-      
+          
         
       
         
@@ -1008,7 +1784,7 @@
         
   
   
-    <a href="../../prompts/equation-standards.md" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1180,6 +1956,774 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-art-of-visual-system-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Art of Visual System Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagrams-building-blocks-of-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagrams: Building Blocks of Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Diagrams: Building Blocks of Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-essential-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Three Essential Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks-and-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blocks and Transfer Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blocks and Transfer Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-block-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function Block Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-summing-junction" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Summing Junction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Summing Junction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-signal-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Signal Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pickoff-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Pickoff Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pickoff Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-types-how-blocks-combine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Types: How Blocks Combine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connection Types: How Blocks Combine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cascade-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cascade Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cascade Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cascade-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cascade Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parallel Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feedback Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positive-feedback-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive Feedback Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-connection-type-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Connection Type Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-forward-and-feedback-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Forward and Feedback Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Forward and Feedback Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inner-and-outer-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inner and Outer Loops
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inner and Outer Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nested-feedback-loop-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nested Feedback Loop Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-loop-and-closed-loop-transfer-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop and Closed-Loop Transfer Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open-Loop and Closed-Loop Transfer Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open-Loop Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-transfer-function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop Transfer Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Closed-Loop Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closed-loop-transfer-function-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Loop Transfer Function Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Feedback Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unity Feedback Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-feedback-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Feedback Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Unity Feedback Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagram-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram Reduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Diagram Reduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-diagram-algebra-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram Algebra Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-a-pickoff-point-past-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving a Pickoff Point Past a Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-a-summing-junction-past-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving a Summing Junction Past a Block
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Moving a Summing Junction Past a Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-reduction-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram Reduction Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduction-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reduction Strategy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-flow-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Flow Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Flow Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodes-and-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes and Branches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nodes and Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-value-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Value Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch Gain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-block-diagrams-to-signal-flow-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Converting Block Diagrams to Signal Flow Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Block Diagrams to Signal Flow Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-block-diagram-to-signal-flow-graph-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Block Diagram to Signal Flow Graph Conversion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masons-gain-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mason's Gain Formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mason's Gain Formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward Path Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-path-gain-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forward Path Gain Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-gain-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loop Gain Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-gain-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-touching-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Touching Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-graph-determinant" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Graph Determinant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Graph Determinant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-determinant-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Determinant Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cofactors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cofactors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cofactors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cofactor-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cofactor Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Formula
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Formula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masons-gain-formula_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mason's Gain Formula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-masons-gain-formula-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mason's Gain Formula Step-by-Step
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-applying-masons-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked Example: Applying Mason's Formula
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples-gyras-control-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples: Gyra's Control Loops
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples: Gyra's Control Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gyras-cascade-control-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gyra's Cascade Control Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyra's Cascade Control Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gyras-cascade-control-block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gyra's Cascade Control Block Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reducing-gyras-control-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reducing Gyra's Control Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loop-gain-and-stability-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Gain and Stability Preview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loop Gain and Stability Preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1240,7 +2784,874 @@
 <li><a href="../05-laplace-transform-methods/">Chapter 5: Laplace Transform Methods</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="the-art-of-visual-system-representation">The Art of Visual System Representation</h2>
+<p>Control systems rarely exist in isolation. A real-world system like Gyra involves multiple interconnected subsystems—sensors measuring tilt, controllers computing corrections, amplifiers boosting signals, motors generating torque, and the mechanical structure responding to forces. Understanding how these subsystems combine requires more than differential equations; it requires a visual language that captures both the structure and the signal flow of complex systems.</p>
+<p><strong>Block diagrams</strong> provide exactly this visual language. They allow you to represent systems as interconnected blocks, each representing a transfer function, with signals flowing along connecting paths. Think of a block diagram as an engineering schematic that tells you not just <em>what</em> components exist, but <em>how</em> signals propagate and transform as they travel through the system.</p>
+<p>This chapter equips you with two powerful graphical tools: block diagrams and signal flow graphs. Both serve the same ultimate purpose—finding the overall transfer function from input to output—but they approach the problem differently. Block diagrams are intuitive and widely used for design; signal flow graphs are compact and powerful for analysis. Together, they form the visual foundation of classical control theory.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My designers don't just write equations—they draw pictures of me! Each block represents something: my IMU, my controller, my motors, even my wobbling body. When they connect these blocks together, they can literally see how a command to 'stand still' transforms into the motor currents that keep me upright."</p>
+</div>
+<h2 id="block-diagrams-building-blocks-of-control">Block Diagrams: Building Blocks of Control</h2>
+<p>A <strong>block diagram</strong> is a graphical representation of a system using blocks, arrows, and special connection symbols. Each block represents a transfer function—a mathematical relationship between its input and output signals. Arrows indicate the direction of signal flow, and special symbols handle signal combination and distribution.</p>
+<p>The beauty of block diagrams lies in their modularity. You can analyze complex systems by first understanding simple building blocks, then combining them according to well-defined rules. This "divide and conquer" approach makes even intimidating systems manageable.</p>
+<h3 id="the-three-essential-elements">The Three Essential Elements</h3>
+<p>Every block diagram is constructed from three fundamental elements:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Symbol</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block</td>
+<td>Rectangle</td>
+<td>Multiplies input signal by transfer function</td>
+</tr>
+<tr>
+<td>Summing Junction</td>
+<td>Circle with +/− signs</td>
+<td>Adds or subtracts multiple signals</td>
+</tr>
+<tr>
+<td>Pickoff Point</td>
+<td>Dot or branch point</td>
+<td>Distributes one signal to multiple destinations</td>
+</tr>
+</tbody>
+</table>
+<p>Let's examine each element in detail.</p>
+<h3 id="blocks-and-transfer-functions">Blocks and Transfer Functions</h3>
+<p>The rectangular <strong>block</strong> is the workhorse of block diagrams. Each block contains a transfer function—typically written as <span class="arithmatex">\(G(s)\)</span>, <span class="arithmatex">\(H(s)\)</span>, or with subscripts like <span class="arithmatex">\(G_1(s)\)</span>—that describes how the input signal is transformed to produce the output.</p>
+<h4 id="transfer-function-block-relationship">Transfer Function Block Relationship</h4>
+<p><span class="arithmatex">\(Y(s) = G(s) \cdot X(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(Y(s)\)</span> is the output signal in the s-domain</li>
+<li><span class="arithmatex">\(X(s)\)</span> is the input signal in the s-domain</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the transfer function of the block</li>
+</ul>
+<p>The transfer function encapsulates all the dynamics of that subsystem—poles, zeros, gain, and frequency response. When you look at a block labeled <span class="arithmatex">\(G(s)\)</span>, you're seeing a complete dynamic system condensed into a single symbol.</p>
+<h3 id="the-summing-junction">The Summing Junction</h3>
+<p>The <strong>summing junction</strong> combines multiple signals through addition or subtraction. It's drawn as a circle with signs (+ or −) next to each input arrow indicating whether that signal is added or subtracted.</p>
+<p>The summing junction is where error signals are born. When a reference input <span class="arithmatex">\(R(s)\)</span> enters with a positive sign and measured output <span class="arithmatex">\(Y(s)\)</span> enters with a negative sign, the result is the error:</p>
+<h4 id="error-signal-computation">Error Signal Computation</h4>
+<p><span class="arithmatex">\(E(s) = R(s) - Y(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(E(s)\)</span> is the error signal</li>
+<li><span class="arithmatex">\(R(s)\)</span> is the reference (desired) input</li>
+<li><span class="arithmatex">\(Y(s)\)</span> is the measured output (fed back through the sensor)</li>
+</ul>
+<p>Summing junctions can have more than two inputs—disturbances, multiple feedback signals, and feedforward paths might all meet at a single junction. The key rule: signals are simply added algebraically according to their signs.</p>
+<h3 id="the-pickoff-point">The Pickoff Point</h3>
+<p>A <strong>pickoff point</strong> (also called a branch point or takeoff point) allows a single signal to be sent to multiple destinations without being altered. It's drawn as a small dot or simply as a branching of the signal line.</p>
+<p>Pickoff points don't modify the signal—they just copy it. This is essential for feedback systems where the output must simultaneously go to the "outside world" and back to the summing junction for comparison with the reference.</p>
+<div class="admonition tip">
+<p class="admonition-title">Signal Conservation at Pickoff Points</p>
+<p>When a signal branches at a pickoff point, each branch carries the same signal. There's no "splitting" of signal magnitude—it's like making copies of a digital file. Every copy is identical to the original.</p>
+</div>
+<h4 id="diagram-block-diagram-elements">Diagram: Block Diagram Elements</h4>
+<iframe src="../../sims/block-diagram-elements/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Block Diagram Elements Interactive</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Remember (L1)
+Bloom Verb: identify, recognize</p>
+<p>Learning Objective: Students will identify and recognize the three fundamental block diagram elements (blocks, summing junctions, pickoff points) and understand how each transforms or routes signals.</p>
+<p>Canvas layout:
+- Top section (60%): Interactive block diagram building area
+- Bottom section (40%): Element palette and signal value display</p>
+<p>Visual elements:
+- Palette of draggable elements: transfer function block, summing junction (with configurable +/- signs), pickoff point
+- Work area with grid background
+- Connecting lines that can be drawn between elements
+- Signal value annotations that update in real-time</p>
+<p>Interactive controls:
+- Click on palette elements to add them to the work area
+- Drag elements to position them
+- Connect elements by clicking and dragging from output to input
+- Input field to set the input signal value (numeric)
+- Input field to enter transfer function gain for blocks
+- Display panel showing output values at each node</p>
+<p>Default example:
+- Pre-built simple feedback loop with R(s)=1, G(s)=10, H(s)=1
+- Shows computed values: E(s), Y(s) at each signal point</p>
+<p>Behavior:
+- When connections are complete, calculate and display all signal values
+- Highlight signal path when hovering over any signal line
+- Show popup with element description when hovering over element</p>
+<p>Instructional Rationale: Drag-and-drop construction with real-time signal value computation helps students internalize how signals flow through each element type before analyzing more complex systems.</p>
+<p>Implementation: p5.js with canvas-based controls
+Canvas size: Responsive, minimum 800x500px</p>
+</details>
+<h2 id="connection-types-how-blocks-combine">Connection Types: How Blocks Combine</h2>
+<p>When multiple blocks appear in a system, they're connected in specific patterns. Three fundamental connection types cover nearly every configuration you'll encounter: cascade (series), parallel, and feedback.</p>
+<h3 id="cascade-connection">Cascade Connection</h3>
+<p>A <strong>cascade connection</strong> (or series connection) occurs when the output of one block feeds directly into the input of another. The blocks are "in line," like train cars coupled together.</p>
+<p>For two blocks <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> in cascade:</p>
+<h4 id="cascade-transfer-function">Cascade Transfer Function</h4>
+<p><span class="arithmatex">\(G_{cascade}(s) = G_1(s) \cdot G_2(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(G_{cascade}(s)\)</span> is the equivalent transfer function of the cascade</li>
+<li><span class="arithmatex">\(G_1(s)\)</span> is the first block in the chain</li>
+<li><span class="arithmatex">\(G_2(s)\)</span> is the second block in the chain</li>
+</ul>
+<p>The rule extends to any number of blocks: multiply all the transfer functions together. This makes intuitive sense—each block multiplies the signal by its transfer function, so chaining <span class="arithmatex">\(n\)</span> blocks multiplies by all <span class="arithmatex">\(n\)</span> transfer functions.</p>
+<p>Order matters for physical interpretation (signals flow through <span class="arithmatex">\(G_1\)</span> before <span class="arithmatex">\(G_2\)</span>), but mathematically, multiplication is commutative: <span class="arithmatex">\(G_1(s) \cdot G_2(s) = G_2(s) \cdot G_1(s)\)</span>.</p>
+<h3 id="parallel-connection">Parallel Connection</h3>
+<p>A <strong>parallel connection</strong> occurs when a signal splits into multiple paths, each path passes through a different block, and the results combine at a summing junction.</p>
+<p>For two blocks <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> in parallel (both added):</p>
+<h4 id="parallel-transfer-function">Parallel Transfer Function</h4>
+<p><span class="arithmatex">\(G_{parallel}(s) = G_1(s) + G_2(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(G_{parallel}(s)\)</span> is the equivalent transfer function of the parallel combination</li>
+<li><span class="arithmatex">\(G_1(s)\)</span> is the upper parallel path</li>
+<li><span class="arithmatex">\(G_2(s)\)</span> is the lower parallel path</li>
+</ul>
+<p>If one path has a negative sign at the summing junction, you subtract instead of add. Parallel connections are common when multiple effects contribute to a single output—perhaps a feedforward path alongside the main control path, or multiple disturbances entering the plant.</p>
+<h3 id="feedback-connection">Feedback Connection</h3>
+<p>The <strong>feedback connection</strong> is the heart of closed-loop control. The output of a forward path block <span class="arithmatex">\(G(s)\)</span> is fed back through a feedback block <span class="arithmatex">\(H(s)\)</span> and subtracted (for negative feedback) from the input.</p>
+<p>For negative feedback:</p>
+<h4 id="closed-loop-transfer-function">Closed-Loop Transfer Function</h4>
+<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 + G(s)H(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T(s)\)</span> is the closed-loop transfer function</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
+<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+<li><span class="arithmatex">\(G(s)H(s)\)</span> is the loop transfer function (open-loop transfer function)</li>
+</ul>
+<p>This formula is so fundamental that you should commit it to memory. It appears constantly in control systems analysis and design.</p>
+<p>For positive feedback (when the fed-back signal is added rather than subtracted):</p>
+<h4 id="positive-feedback-transfer-function">Positive Feedback Transfer Function</h4>
+<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 - G(s)H(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li>The denominator has a minus sign instead of plus</li>
+<li>Positive feedback is rarely used intentionally (it tends toward instability)</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">The Sign Matters!</p>
+<p>The difference between <span class="arithmatex">\(1 + G(s)H(s)\)</span> (negative feedback) and <span class="arithmatex">\(1 - G(s)H(s)\)</span> (positive feedback) is critical. Most control systems use negative feedback because it's inherently stabilizing. The denominator <span class="arithmatex">\(1 + G(s)H(s)\)</span> is called the <strong>characteristic polynomial</strong>—its roots determine system stability.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Connection Type</th>
+<th>Configuration</th>
+<th>Equivalent Transfer Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cascade</td>
+<td>Blocks in series</td>
+<td><span class="arithmatex">\(G_1 \cdot G_2\)</span></td>
+</tr>
+<tr>
+<td>Parallel</td>
+<td>Blocks in parallel, summed</td>
+<td><span class="arithmatex">\(G_1 + G_2\)</span></td>
+</tr>
+<tr>
+<td>Negative Feedback</td>
+<td>Forward and feedback paths</td>
+<td><span class="arithmatex">\(\frac{G}{1 + GH}\)</span></td>
+</tr>
+<tr>
+<td>Positive Feedback</td>
+<td>Forward path, added feedback</td>
+<td><span class="arithmatex">\(\frac{G}{1 - GH}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-connection-type-comparison">Diagram: Connection Type Comparison</h4>
+<iframe src="../../sims/connection-types/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Connection Type Comparison MicroSim</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: compare, contrast</p>
+<p>Learning Objective: Students will compare cascade, parallel, and feedback connection types, observing how different configurations produce different overall transfer functions from identical component blocks.</p>
+<p>Canvas layout:
+- Left panel (30%): Connection type selector and transfer function display
+- Right panel (70%): Visual block diagram that updates based on selection</p>
+<p>Visual elements:
+- Three connection configurations shown graphically
+- Block <span class="arithmatex">\(G_1(s)\)</span> and <span class="arithmatex">\(G_2(s)\)</span> with adjustable gains
+- Input arrow <span class="arithmatex">\(R(s)\)</span> and output arrow <span class="arithmatex">\(Y(s)\)</span>
+- Formula display showing equivalent transfer function
+- Pole-zero plot or Bode magnitude sketch for each configuration</p>
+<p>Interactive controls:
+- Radio buttons: Select "Cascade", "Parallel", or "Feedback"
+- Slider: <span class="arithmatex">\(G_1\)</span> gain (0.1 to 10, default 2)
+- Slider: <span class="arithmatex">\(G_2\)</span> gain (0.1 to 10, default 3)
+- Checkbox: Show equivalent single-block representation
+- Button: Reset to defaults</p>
+<p>Default parameters:
+- Connection type: Cascade
+- <span class="arithmatex">\(G_1 = 2\)</span>, <span class="arithmatex">\(G_2 = 3\)</span>
+- Transfer functions shown as simple gains for clarity</p>
+<p>Behavior:
+- When connection type changes, diagram reconfigures smoothly
+- Equivalent transfer function updates in real-time as gains change
+- For feedback, show the classic loop with summing junction
+- Display numerical value of equivalent transfer function</p>
+<p>Data Visibility Requirements:
+- Stage 1: Show selected connection type diagram
+- Stage 2: Show individual transfer function values
+- Stage 3: Show formula for combination
+- Stage 4: Show computed equivalent transfer function</p>
+<p>Instructional Rationale: Side-by-side comparison with identical blocks allows students to directly observe how connection topology (not just component values) determines overall system behavior.</p>
+<p>Implementation: p5.js with canvas-based controls
+Canvas size: Responsive, 800x550px minimum</p>
+</details>
+<h2 id="understanding-forward-and-feedback-paths">Understanding Forward and Feedback Paths</h2>
+<p>Before we can reduce complex block diagrams, we need precise vocabulary for describing the routes signals take through a system.</p>
+<h3 id="forward-path">Forward Path</h3>
+<p>A <strong>forward path</strong> is any path from the input <span class="arithmatex">\(R(s)\)</span> to the output <span class="arithmatex">\(Y(s)\)</span> that traverses signals only in the forward direction (following the arrows) and doesn't pass through any node more than once.</p>
+<p>In a simple feedback system, there's typically one forward path: from <span class="arithmatex">\(R(s)\)</span> through the controller, through the plant, to <span class="arithmatex">\(Y(s)\)</span>. Complex systems may have multiple forward paths—perhaps a direct feedforward path alongside the main control path.</p>
+<h3 id="feedback-path">Feedback Path</h3>
+<p>The <strong>feedback path</strong> is the route from the output back to the summing junction at the input. This path typically includes the sensor and any signal conditioning. The feedback path contains the block <span class="arithmatex">\(H(s)\)</span> in our standard notation.</p>
+<p>The feedback path is what makes closed-loop control possible. Without it, the system has no way to compare actual output to desired output.</p>
+<h3 id="the-loop">The Loop</h3>
+<p>A <strong>loop</strong> is a closed path starting and ending at the same point, following signal directions around the circuit. The most important loop in control systems is the main feedback loop—from the summing junction, through <span class="arithmatex">\(G(s)\)</span>, out to the output, back through <span class="arithmatex">\(H(s)\)</span>, and returning to the summing junction.</p>
+<p>The product of all transfer functions around a loop is called the <strong>loop gain</strong> or <strong>loop transfer function</strong>:</p>
+<h4 id="loop-transfer-function">Loop Transfer Function</h4>
+<p><span class="arithmatex">\(L(s) = G(s)H(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(L(s)\)</span> is the loop transfer function</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
+<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+</ul>
+<p>Loop gain is central to stability analysis. The roots of <span class="arithmatex">\(1 + L(s) = 0\)</span> determine whether the closed-loop system is stable.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My main feedback loop goes like this: My tilt angle gets measured by my IMU, compared to 'zero' (the reference), the error goes to my controller, the controller drives my motors, the motors push me, and that changes my tilt angle—which gets measured again. Around and around, dozens of times per second. That loop is my heartbeat."</p>
+</div>
+<h3 id="inner-and-outer-loops">Inner and Outer Loops</h3>
+<p>Complex systems often have <strong>nested feedback loops</strong>—a feedback loop inside another feedback loop. The innermost feedback structure is called the <strong>inner loop</strong>, while the loop encompassing it is the <strong>outer loop</strong>.</p>
+<p>Inner loops typically handle fast dynamics (like motor current control), while outer loops handle slower dynamics (like position or velocity control). This hierarchical structure is called <strong>cascade control</strong> (not to be confused with cascade connections of blocks).</p>
+<p>To analyze nested loops, you typically:</p>
+<ol>
+<li>Reduce the inner loop first, treating it as a single equivalent block</li>
+<li>Then analyze the outer loop with the simplified inner loop</li>
+</ol>
+<p>This inside-out approach simplifies complex structures step by step.</p>
+<h4 id="diagram-nested-feedback-loop-structure">Diagram: Nested Feedback Loop Structure</h4>
+<iframe src="../../sims/nested-loops/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Nested Feedback Loop Structure</summary>
+<p>Type: diagram</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, organize</p>
+<p>Learning Objective: Students will differentiate between inner and outer loops in a nested feedback structure and trace the signal flow through each loop independently.</p>
+<p>Purpose: Visualize the hierarchical structure of nested feedback loops commonly found in cascade control systems</p>
+<p>Components to show:
+- Outer loop reference input <span class="arithmatex">\(R(s)\)</span>
+- Outer loop summing junction
+- Outer loop controller <span class="arithmatex">\(G_{c1}(s)\)</span>
+- Inner loop reference (output of outer controller)
+- Inner loop summing junction
+- Inner loop controller <span class="arithmatex">\(G_{c2}(s)\)</span>
+- Plant <span class="arithmatex">\(G_p(s)\)</span>
+- Inner loop sensor <span class="arithmatex">\(H_2(s)\)</span>
+- Outer loop sensor <span class="arithmatex">\(H_1(s)\)</span>
+- Output <span class="arithmatex">\(Y(s)\)</span></p>
+<p>Visual layout:
+- Inner loop highlighted with light blue background
+- Outer loop highlighted with light green background
+- Clear labels for "Inner Loop" and "Outer Loop"
+- Signal labels at all key points</p>
+<p>Interactive features:
+- Hover over inner loop region: highlights all inner loop components
+- Hover over outer loop region: highlights all outer loop components
+- Click "Show Inner Loop Equivalent": collapses inner loop to single block
+- Animation showing signal flow around each loop</p>
+<p>Color scheme:
+- Inner loop components: blue
+- Outer loop components: green
+- Plant: gray
+- Signals: black arrows</p>
+<p>Implementation: vis-network or custom SVG with JavaScript
+Canvas size: 900x500px, responsive</p>
+</details>
+<h2 id="open-loop-and-closed-loop-transfer-functions">Open-Loop and Closed-Loop Transfer Functions</h2>
+<p>Two transfer functions are fundamental to control system analysis: the <strong>open-loop transfer function</strong> and the <strong>closed-loop transfer function</strong>. Understanding the relationship between them is crucial.</p>
+<h3 id="open-loop-transfer-function">Open-Loop Transfer Function</h3>
+<p>The <strong>open-loop transfer function</strong> <span class="arithmatex">\(G_{OL}(s)\)</span> describes the system behavior when the feedback loop is "broken"—when the measured output is not connected back to the summing junction. It's the product of all transfer functions around the loop:</p>
+<h4 id="open-loop-transfer-function-definition">Open-Loop Transfer Function Definition</h4>
+<p><span class="arithmatex">\(G_{OL}(s) = G(s)H(s)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(G_{OL}(s)\)</span> is the open-loop transfer function</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the forward path transfer function</li>
+<li><span class="arithmatex">\(H(s)\)</span> is the feedback path transfer function</li>
+</ul>
+<p>The open-loop transfer function is what you measure if you open the loop (break the feedback connection) and inject a signal at one point while measuring at another. It's essential for stability analysis using Bode plots and Nyquist diagrams.</p>
+<h3 id="closed-loop-transfer-function_1">Closed-Loop Transfer Function</h3>
+<p>The <strong>closed-loop transfer function</strong> <span class="arithmatex">\(T(s)\)</span> describes the overall input-output relationship when the feedback loop is closed:</p>
+<h4 id="closed-loop-transfer-function-definition">Closed-Loop Transfer Function Definition</h4>
+<p><span class="arithmatex">\(T(s) = \frac{Y(s)}{R(s)} = \frac{G(s)}{1 + G(s)H(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T(s)\)</span> is the closed-loop transfer function</li>
+<li><span class="arithmatex">\(Y(s)\)</span> is the output</li>
+<li><span class="arithmatex">\(R(s)\)</span> is the reference input</li>
+<li>The denominator <span class="arithmatex">\(1 + G(s)H(s)\)</span> is called the characteristic polynomial</li>
+</ul>
+<p>The poles of <span class="arithmatex">\(T(s)\)</span>—the roots of <span class="arithmatex">\(1 + G(s)H(s) = 0\)</span>—determine closed-loop stability and transient response.</p>
+<h3 id="unity-feedback-systems">Unity Feedback Systems</h3>
+<p>A <strong>unity feedback</strong> system is the special case where <span class="arithmatex">\(H(s) = 1\)</span>. The sensor is "ideal"—it perfectly measures the output without any dynamics or gain. This simplifies the closed-loop transfer function:</p>
+<h4 id="unity-feedback-transfer-function">Unity Feedback Transfer Function</h4>
+<p><span class="arithmatex">\(T(s) = \frac{G(s)}{1 + G(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(H(s) = 1\)</span> (unity feedback)</li>
+<li>The open-loop transfer function equals the forward path: <span class="arithmatex">\(G_{OL}(s) = G(s)\)</span></li>
+</ul>
+<p>Unity feedback is a common assumption in textbook problems and serves as a useful starting point for design. Real sensors have dynamics, but at frequencies of interest, <span class="arithmatex">\(H(s) \approx 1\)</span> is often a reasonable approximation.</p>
+<h3 id="non-unity-feedback-systems">Non-Unity Feedback Systems</h3>
+<p>When <span class="arithmatex">\(H(s) \neq 1\)</span>, the system has <strong>non-unity feedback</strong>. The sensor might have:</p>
+<ul>
+<li>Gain different from 1 (e.g., a tachometer outputting volts per rad/s)</li>
+<li>Dynamics (e.g., sensor bandwidth limitations)</li>
+<li>Filtering (e.g., to remove noise)</li>
+</ul>
+<p>For non-unity feedback, you must include <span class="arithmatex">\(H(s)\)</span> explicitly in all calculations. A common transformation is to convert a non-unity feedback system to an equivalent unity feedback form for analysis, but this requires care with the transfer function definitions.</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Feedback Transfer Function</th>
+<th>Closed-Loop Transfer</th>
+<th>Open-Loop Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unity Feedback</td>
+<td><span class="arithmatex">\(H(s) = 1\)</span></td>
+<td><span class="arithmatex">\(\frac{G}{1+G}\)</span></td>
+<td><span class="arithmatex">\(G(s)\)</span></td>
+</tr>
+<tr>
+<td>Non-Unity Feedback</td>
+<td><span class="arithmatex">\(H(s) \neq 1\)</span></td>
+<td><span class="arithmatex">\(\frac{G}{1+GH}\)</span></td>
+<td><span class="arithmatex">\(G(s)H(s)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Deriving the Closed-Loop Transfer Function</p>
+<p>You can derive <span class="arithmatex">\(T(s) = \frac{G}{1+GH}\)</span> from first principles:</p>
+<ol>
+<li>Write <span class="arithmatex">\(E = R - HY\)</span> (error = reference minus fed-back output)</li>
+<li>Write <span class="arithmatex">\(Y = GE\)</span> (output = forward path times error)</li>
+<li>Substitute: <span class="arithmatex">\(Y = G(R - HY) = GR - GHY\)</span></li>
+<li>Rearrange: <span class="arithmatex">\(Y + GHY = GR\)</span>, so <span class="arithmatex">\(Y(1 + GH) = GR\)</span></li>
+<li>Solve: <span class="arithmatex">\(T = \frac{Y}{R} = \frac{G}{1+GH}\)</span></li>
+</ol>
+</div>
+<h2 id="block-diagram-reduction">Block Diagram Reduction</h2>
+<p>Real control systems have block diagrams far more complex than a single feedback loop. <strong>Block diagram reduction</strong> is the systematic process of simplifying these complex diagrams to find the overall transfer function.</p>
+<p>The goal is straightforward: start with a complicated diagram and end with a single block showing the transfer function from input to output. The process uses equivalence rules that preserve the input-output relationship while simplifying the structure.</p>
+<h3 id="block-diagram-algebra-rules">Block Diagram Algebra Rules</h3>
+<p><strong>Block diagram algebra</strong> consists of rules for manipulating block diagrams while preserving their input-output behavior. These rules let you move blocks and pickoff points, combine blocks, and ultimately reduce the diagram.</p>
+<p>The fundamental rules are:</p>
+<ol>
+<li><strong>Cascade blocks combine by multiplication</strong></li>
+<li><strong>Parallel blocks combine by addition</strong></li>
+<li><strong>Feedback loops combine using the feedback formula</strong></li>
+<li><strong>Moving a pickoff point past a block requires compensation</strong></li>
+<li><strong>Moving a summing junction past a block requires compensation</strong></li>
+</ol>
+<p>Let's examine the compensation rules in detail.</p>
+<h3 id="moving-a-pickoff-point-past-a-block">Moving a Pickoff Point Past a Block</h3>
+<p>If you need to move a pickoff point from the output of block <span class="arithmatex">\(G(s)\)</span> to its input, you must add a compensating block <span class="arithmatex">\(G(s)\)</span> in the path that was picked off:</p>
+<p><strong>Moving pickoff point backward (toward input):</strong> Insert <span class="arithmatex">\(G(s)\)</span> in the picked-off path</p>
+<p><strong>Moving pickoff point forward (toward output):</strong> Insert <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in the picked-off path</p>
+<p>This compensation ensures that the signal in the picked-off path has the same value as before the move.</p>
+<h3 id="moving-a-summing-junction-past-a-block">Moving a Summing Junction Past a Block</h3>
+<p>Similarly, moving a summing junction past a block requires compensation:</p>
+<p><strong>Moving summing junction backward:</strong> Insert <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in paths entering the junction</p>
+<p><strong>Moving summing junction forward:</strong> Insert <span class="arithmatex">\(G(s)\)</span> in paths entering the junction</p>
+<p>These rules are the "legal moves" in the game of block diagram reduction. Master them, and you can systematically simplify any block diagram.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Compensation Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Move pickoff point backward past <span class="arithmatex">\(G(s)\)</span></td>
+<td>Add <span class="arithmatex">\(G(s)\)</span> in picked-off path</td>
+</tr>
+<tr>
+<td>Move pickoff point forward past <span class="arithmatex">\(G(s)\)</span></td>
+<td>Add <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in picked-off path</td>
+</tr>
+<tr>
+<td>Move summing junction backward past <span class="arithmatex">\(G(s)\)</span></td>
+<td>Add <span class="arithmatex">\(\frac{1}{G(s)}\)</span> in entering paths</td>
+</tr>
+<tr>
+<td>Move summing junction forward past <span class="arithmatex">\(G(s)\)</span></td>
+<td>Add <span class="arithmatex">\(G(s)\)</span> in entering paths</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-block-diagram-reduction-steps">Diagram: Block Diagram Reduction Steps</h4>
+<iframe src="../../sims/block-reduction-steps/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Block Diagram Reduction Steps MicroSim</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute, apply</p>
+<p>Learning Objective: Students will apply block diagram algebra rules to systematically reduce a multi-loop block diagram to a single transfer function, seeing each step animated.</p>
+<p>Canvas layout:
+- Main area (75%): Block diagram that transforms step by step
+- Side panel (25%): Reduction steps list and current formula</p>
+<p>Visual elements:
+- Multi-loop block diagram with 4-5 blocks
+- Animated transitions showing each reduction step
+- Highlighted regions showing which elements are being combined
+- Running calculation of equivalent transfer function</p>
+<p>Interactive controls:
+- Button: "Next Step" - advances reduction by one step
+- Button: "Previous Step" - goes back one step
+- Button: "Auto-Run" - animates through all steps
+- Slider: Animation speed (0.5 to 2 seconds per step)
+- Button: "Reset" - returns to original diagram
+- Dropdown: Select example problem (3 different diagrams of varying complexity)</p>
+<p>Default example:
+- System with inner and outer loops
+- Forward path: <span class="arithmatex">\(G_1(s)G_2(s)G_3(s)\)</span>
+- Inner feedback: <span class="arithmatex">\(H_1(s)\)</span> around <span class="arithmatex">\(G_2(s)G_3(s)\)</span>
+- Outer feedback: <span class="arithmatex">\(H_2(s)\)</span> around entire system</p>
+<p>Reduction sequence:
+Step 1: Identify inner loop
+Step 2: Apply feedback formula to inner loop, replace with equivalent block
+Step 3: Combine cascade blocks in forward path
+Step 4: Apply feedback formula to outer loop
+Step 5: Simplify to final transfer function</p>
+<p>Data Visibility Requirements:
+- Each step shows: diagram state, rule being applied, formula evolution
+- Final step shows complete transfer function with all terms</p>
+<p>Instructional Rationale: Step-by-step animation with pause and rewind allows students to trace each algebraic manipulation, building procedural fluency before tackling problems independently.</p>
+<p>Implementation: p5.js with canvas-based controls and smooth transitions
+Canvas size: 900x600px, responsive</p>
+</details>
+<h3 id="reduction-strategy">Reduction Strategy</h3>
+<p>When facing a complex block diagram, follow this systematic approach:</p>
+<ol>
+<li><strong>Identify all loops</strong> - Find inner loops, outer loops, and any parallel paths</li>
+<li><strong>Reduce inner loops first</strong> - Apply the feedback formula to innermost structures</li>
+<li><strong>Combine cascade elements</strong> - Multiply series transfer functions</li>
+<li><strong>Combine parallel elements</strong> - Add parallel transfer functions</li>
+<li><strong>Repeat</strong> until only one block remains</li>
+</ol>
+<p>If you get stuck, look for opportunities to move pickoff points or summing junctions using the compensation rules. Sometimes rearranging the diagram makes the reduction path clearer.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My designers once drew my complete control system—it looked like spaghetti! There was an inner loop for motor current control, a middle loop for velocity, and an outer loop for position. But step by step, they collapsed each loop using the feedback formula until the whole thing became one transfer function. That's when they could finally tune me properly."</p>
+</div>
+<h2 id="signal-flow-graphs">Signal Flow Graphs</h2>
+<p>While block diagrams are intuitive, they can become unwieldy for systems with many loops and forward paths. <strong>Signal flow graphs</strong> offer a more compact alternative that's particularly well-suited for applying Mason's gain formula—a powerful technique for finding transfer functions without step-by-step reduction.</p>
+<p>A signal flow graph represents the same information as a block diagram but in a different form: signals become <strong>nodes</strong> (points), and transfer functions become <strong>branches</strong> (directed lines connecting nodes).</p>
+<h3 id="nodes-and-branches">Nodes and Branches</h3>
+<p>A <strong>node</strong> represents a signal variable. Unlike block diagram signals (which are just labels on arrows), nodes are explicit points in the graph. Each node has a value equal to the sum of all signals entering it.</p>
+<p>A <strong>branch</strong> connects two nodes and has an associated gain—the transfer function by which the source node's value is multiplied to contribute to the destination node's value. Branches have direction, shown by arrows.</p>
+<p>The key relationship: the value at any node equals the sum of all incoming branch gains times their source node values:</p>
+<h4 id="node-value-equation">Node Value Equation</h4>
+<p><span class="arithmatex">\(X_j = \sum_i T_{ij} X_i\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(X_j\)</span> is the value at node <span class="arithmatex">\(j\)</span></li>
+<li><span class="arithmatex">\(X_i\)</span> is the value at source node <span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(T_{ij}\)</span> is the branch gain from node <span class="arithmatex">\(i\)</span> to node <span class="arithmatex">\(j\)</span></li>
+<li>The sum is over all branches entering node <span class="arithmatex">\(j\)</span></li>
+</ul>
+<h3 id="branch-gain">Branch Gain</h3>
+<p>The <strong>branch gain</strong> is simply the transfer function written along the branch arrow. For a branch from node <span class="arithmatex">\(X_i\)</span> to node <span class="arithmatex">\(X_j\)</span> with gain <span class="arithmatex">\(G(s)\)</span>, the contribution to <span class="arithmatex">\(X_j\)</span> is <span class="arithmatex">\(G(s) \cdot X_i\)</span>.</p>
+<p>Signal flow graphs are drawn with input nodes on the left (sources, with only outgoing branches), output nodes on the right (sinks, with only incoming branches), and intermediate nodes in between.</p>
+<h3 id="converting-block-diagrams-to-signal-flow-graphs">Converting Block Diagrams to Signal Flow Graphs</h3>
+<p>The conversion is straightforward:</p>
+<ol>
+<li>Each signal in the block diagram becomes a node</li>
+<li>Each block becomes a branch with gain equal to the block's transfer function</li>
+<li>Summing junctions become nodes (the sum happens implicitly)</li>
+<li>Pickoff points are simply nodes with multiple outgoing branches</li>
+</ol>
+<p>Signal flow graphs are more compact because they don't need separate symbols for summing—it's built into the node definition.</p>
+<h4 id="diagram-block-diagram-to-signal-flow-graph-conversion">Diagram: Block Diagram to Signal Flow Graph Conversion</h4>
+<iframe src="../../sims/block-to-sfg/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Block Diagram to Signal Flow Graph Conversion</summary>
+<p>Type: diagram</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: interpret, convert</p>
+<p>Learning Objective: Students will interpret the correspondence between block diagram elements and signal flow graph elements, converting between the two representations.</p>
+<p>Purpose: Show side-by-side comparison of block diagram and equivalent signal flow graph</p>
+<p>Layout:
+- Top half: Block diagram of a feedback system
+- Bottom half: Equivalent signal flow graph
+- Dashed lines connecting corresponding elements</p>
+<p>Block diagram elements (top):
+- Reference input R(s)
+- Summing junction
+- Error E(s)
+- Forward block G(s)
+- Output Y(s)
+- Feedback block H(s)
+- Feedback signal</p>
+<p>Signal flow graph elements (bottom):
+- Node R (input node, leftmost)
+- Node E (after summing)
+- Branch with gain G from E to Y
+- Node Y (output node, rightmost)
+- Branch with gain -H from Y to E (negative for feedback)</p>
+<p>Interactive features:
+- Hover over block diagram element: highlights corresponding SFG element
+- Hover over SFG element: highlights corresponding block diagram element
+- Animation showing signal values propagating through both representations
+- Toggle: "Show signal values" displays numerical values at each node</p>
+<p>Visual style:
+- Block diagram: standard rectangular blocks and circles
+- SFG: dots for nodes, arrows with gain labels for branches
+- Matching colors between corresponding elements</p>
+<p>Implementation: vis-network or custom SVG
+Canvas size: 800x500px, responsive</p>
+</details>
+<h2 id="masons-gain-formula">Mason's Gain Formula</h2>
+<p><strong>Mason's gain formula</strong> is a powerful technique for finding the transfer function of a signal flow graph without performing step-by-step reduction. It's particularly valuable for complex systems with multiple loops and forward paths where block diagram reduction would be tedious.</p>
+<p>The formula may look intimidating at first, but it's based on a systematic accounting of all paths and loops in the graph.</p>
+<h3 id="forward-path-gain">Forward Path Gain</h3>
+<p>A <strong>forward path</strong> in a signal flow graph is any path from the input node to the output node that doesn't pass through any node more than once. Each forward path has an associated <strong>forward path gain</strong>—the product of all branch gains along that path.</p>
+<h4 id="forward-path-gain-definition">Forward Path Gain Definition</h4>
+<p><span class="arithmatex">\(P_k = \prod_{\text{branches in path } k} T_i\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(P_k\)</span> is the gain of the <span class="arithmatex">\(k\)</span>th forward path</li>
+<li><span class="arithmatex">\(T_i\)</span> are the individual branch gains along the path</li>
+</ul>
+<p>Many systems have only one forward path, but complex systems with feedforward or multiple routes from input to output may have several.</p>
+<h3 id="loop-gain-calculation">Loop Gain Calculation</h3>
+<p>A <strong>loop</strong> in a signal flow graph is a closed path that starts and ends at the same node, traversing each intermediate node only once. Each loop has a <strong>loop gain</strong>—the product of all branch gains around the loop.</p>
+<h4 id="loop-gain-definition">Loop Gain Definition</h4>
+<p><span class="arithmatex">\(L_i = \prod_{\text{branches in loop } i} T_j\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(L_i\)</span> is the gain of the <span class="arithmatex">\(i\)</span>th loop</li>
+<li><span class="arithmatex">\(T_j\)</span> are the branch gains around the loop</li>
+</ul>
+<h3 id="non-touching-loops">Non-Touching Loops</h3>
+<p>Two loops are <strong>non-touching</strong> if they share no common nodes. Non-touching loops don't interact directly—a signal can't travel through both loops in a single trip around the graph.</p>
+<p>Mason's formula requires identifying:</p>
+<ul>
+<li>All individual loop gains</li>
+<li>All products of two non-touching loop gains</li>
+<li>All products of three non-touching loop gains</li>
+<li>And so on...</li>
+</ul>
+<h3 id="the-graph-determinant">The Graph Determinant</h3>
+<p>The <strong>graph determinant</strong> <span class="arithmatex">\(\Delta\)</span> (also called the system determinant) summarizes all the loop structure:</p>
+<h4 id="graph-determinant-formula">Graph Determinant Formula</h4>
+<p><span class="arithmatex">\(\Delta = 1 - \sum L_i + \sum L_i L_j - \sum L_i L_j L_k + \cdots\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\sum L_i\)</span> is the sum of all individual loop gains</li>
+<li><span class="arithmatex">\(\sum L_i L_j\)</span> is the sum of products of all pairs of non-touching loops</li>
+<li><span class="arithmatex">\(\sum L_i L_j L_k\)</span> is the sum of products of all triplets of non-touching loops</li>
+<li>The pattern continues with alternating signs</li>
+</ul>
+<p>For many practical systems, especially those with touching loops, only the first few terms are non-zero.</p>
+<h3 id="cofactors">Cofactors</h3>
+<p>The <strong>cofactor</strong> <span class="arithmatex">\(\Delta_k\)</span> for the <span class="arithmatex">\(k\)</span>th forward path is the graph determinant evaluated with all loops that touch that forward path removed:</p>
+<h4 id="cofactor-definition">Cofactor Definition</h4>
+<p><span class="arithmatex">\(\Delta_k = 1 - \sum L_i^{(k)} + \sum L_i^{(k)} L_j^{(k)} - \cdots\)</span></p>
+<p>where:</p>
+<ul>
+<li>The superscript <span class="arithmatex">\((k)\)</span> indicates only loops that don't touch forward path <span class="arithmatex">\(k\)</span></li>
+<li>If all loops touch forward path <span class="arithmatex">\(k\)</span>, then <span class="arithmatex">\(\Delta_k = 1\)</span></li>
+</ul>
+<h3 id="the-complete-formula">The Complete Formula</h3>
+<p>Mason's gain formula gives the transfer function as:</p>
+<h4 id="masons-gain-formula_1">Mason's Gain Formula</h4>
+<p><span class="arithmatex">\(T(s) = \frac{Y(s)}{R(s)} = \frac{\sum_k P_k \Delta_k}{\Delta}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(P_k\)</span> is the gain of the <span class="arithmatex">\(k\)</span>th forward path</li>
+<li><span class="arithmatex">\(\Delta_k\)</span> is the cofactor for the <span class="arithmatex">\(k\)</span>th forward path</li>
+<li><span class="arithmatex">\(\Delta\)</span> is the graph determinant</li>
+<li>The sum is over all forward paths</li>
+</ul>
+<p>This formula directly gives the closed-loop transfer function without any intermediate reduction steps.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forward path gain</td>
+<td><span class="arithmatex">\(P_k\)</span></td>
+<td>Product of branch gains along forward path <span class="arithmatex">\(k\)</span></td>
+</tr>
+<tr>
+<td>Loop gain</td>
+<td><span class="arithmatex">\(L_i\)</span></td>
+<td>Product of branch gains around loop <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td>Graph determinant</td>
+<td><span class="arithmatex">\(\Delta\)</span></td>
+<td><span class="arithmatex">\(1 - \sum L_i + \sum L_iL_j - \cdots\)</span></td>
+</tr>
+<tr>
+<td>Cofactor</td>
+<td><span class="arithmatex">\(\Delta_k\)</span></td>
+<td>Graph determinant with path-<span class="arithmatex">\(k\)</span>-touching loops removed</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-masons-gain-formula-step-by-step">Diagram: Mason's Gain Formula Step-by-Step</h4>
+<iframe src="../../sims/masons-formula/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Mason's Gain Formula Step-by-Step MicroSim</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, apply</p>
+<p>Learning Objective: Students will apply Mason's gain formula by identifying forward paths, loops, non-touching loop pairs, and computing the transfer function step by step.</p>
+<p>Canvas layout:
+- Left panel (50%): Signal flow graph with interactive highlighting
+- Right panel (50%): Step-by-step calculation display</p>
+<p>Visual elements:
+- Signal flow graph with 4-5 nodes and multiple loops
+- Forward paths highlighted in green when selected
+- Loops highlighted in orange when selected
+- Non-touching loop pairs shown with matching colors
+- Formula building progressively as terms are identified</p>
+<p>Interactive controls:
+- Step 1 button: "Find Forward Paths" - highlights each forward path in sequence
+- Step 2 button: "Find Loops" - highlights each loop in sequence
+- Step 3 button: "Find Non-Touching Pairs" - shows which loops don't touch
+- Step 4 button: "Calculate Δ" - builds determinant formula
+- Step 5 button: "Calculate Cofactors" - shows Δ_k for each path
+- Step 6 button: "Apply Formula" - combines everything into final T(s)
+- Dropdown: Select example (3 different signal flow graphs)
+- Button: Reset</p>
+<p>Default example:
+- System with two forward paths
+- Three loops, one pair of non-touching loops
+- Simple gains (integers) for easy hand calculation</p>
+<p>Data Visibility Requirements:
+- Stage 1: Highlight forward path, display P_k value
+- Stage 2: Highlight each loop, display L_i value
+- Stage 3: Show which loops touch which paths
+- Stage 4: Show Δ formula with numerical values
+- Stage 5: Show Δ_k for each forward path
+- Stage 6: Show final T(s) with all substitutions</p>
+<p>Instructional Rationale: Breaking Mason's formula into discrete steps with visual feedback demystifies what can seem like a cryptic procedure, building student confidence for independent application.</p>
+<p>Implementation: p5.js with canvas-based controls
+Canvas size: 900x650px, responsive</p>
+</details>
+<h3 id="worked-example-applying-masons-formula">Worked Example: Applying Mason's Formula</h3>
+<p>Consider a signal flow graph with:</p>
+<ul>
+<li>Input node <span class="arithmatex">\(R\)</span>, intermediate nodes <span class="arithmatex">\(X_1\)</span>, <span class="arithmatex">\(X_2\)</span>, and output node <span class="arithmatex">\(Y\)</span></li>
+<li>Forward path: <span class="arithmatex">\(R \to X_1 \to X_2 \to Y\)</span> with gains <span class="arithmatex">\(G_1\)</span>, <span class="arithmatex">\(G_2\)</span>, <span class="arithmatex">\(G_3\)</span></li>
+<li>Loop 1: <span class="arithmatex">\(X_1 \to X_2 \to X_1\)</span> with gain <span class="arithmatex">\(-G_2 H_1\)</span> (self-loop through feedback)</li>
+<li>Loop 2: <span class="arithmatex">\(X_2 \to Y \to X_2\)</span> with gain <span class="arithmatex">\(-G_3 H_2\)</span></li>
+</ul>
+<p><strong>Step 1: Identify forward paths</strong></p>
+<p>There's one forward path with gain <span class="arithmatex">\(P_1 = G_1 G_2 G_3\)</span></p>
+<p><strong>Step 2: Identify loops and their gains</strong></p>
+<ul>
+<li><span class="arithmatex">\(L_1 = -G_2 H_1\)</span></li>
+<li><span class="arithmatex">\(L_2 = -G_3 H_2\)</span></li>
+</ul>
+<p><strong>Step 3: Identify non-touching loops</strong></p>
+<p>Do loops 1 and 2 share any nodes? Loop 1 involves <span class="arithmatex">\(X_1, X_2\)</span>. Loop 2 involves <span class="arithmatex">\(X_2, Y\)</span>. They share <span class="arithmatex">\(X_2\)</span>, so they're <em>touching</em>. No non-touching pairs exist.</p>
+<p><strong>Step 4: Calculate the graph determinant</strong></p>
+<p><span class="arithmatex">\(\Delta = 1 - (L_1 + L_2) + 0 = 1 + G_2 H_1 + G_3 H_2\)</span></p>
+<p><strong>Step 5: Calculate cofactors</strong></p>
+<p>Does the forward path touch all loops? Path goes through <span class="arithmatex">\(X_1, X_2, Y\)</span>. Both loops touch this path (they share nodes with it). So <span class="arithmatex">\(\Delta_1 = 1\)</span>.</p>
+<p><strong>Step 6: Apply Mason's formula</strong></p>
+<p><span class="arithmatex">\(T(s) = \frac{P_1 \Delta_1}{\Delta} = \frac{G_1 G_2 G_3}{1 + G_2 H_1 + G_3 H_2}\)</span></p>
+<div class="admonition tip">
+<p class="admonition-title">When to Use Mason's Formula</p>
+<p>Mason's gain formula shines when:</p>
+<ul>
+<li>The system has multiple forward paths</li>
+<li>There are many loops, some non-touching</li>
+<li>Block diagram reduction would require many steps</li>
+</ul>
+<p>For simple single-loop systems, direct application of <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span> is usually faster.</p>
+</div>
+<h2 id="practical-examples-gyras-control-loops">Practical Examples: Gyra's Control Loops</h2>
+<p>Let's apply these techniques to a realistic scenario: Gyra's cascade position control system. This example illustrates nested loops, multiple transfer functions, and the power of systematic reduction.</p>
+<h3 id="gyras-cascade-control-structure">Gyra's Cascade Control Structure</h3>
+<p>Gyra uses three nested control loops:</p>
+<ol>
+<li><strong>Inner loop (fastest)</strong>: Motor current control - ensures motors deliver commanded torque</li>
+<li><strong>Middle loop</strong>: Velocity control - regulates how fast Gyra tilts</li>
+<li><strong>Outer loop (slowest)</strong>: Position control - keeps Gyra at the desired tilt angle (zero for upright)</li>
+</ol>
+<p>Each loop operates at a different speed, with inner loops responding much faster than outer loops. This hierarchical structure improves performance and makes tuning easier.</p>
+<p>The transfer functions are:</p>
+<ul>
+<li><span class="arithmatex">\(G_c(s)\)</span> - Position controller (outer)</li>
+<li><span class="arithmatex">\(G_v(s)\)</span> - Velocity controller (middle)</li>
+<li><span class="arithmatex">\(G_i(s)\)</span> - Current controller (inner)</li>
+<li><span class="arithmatex">\(G_m(s)\)</span> - Motor dynamics</li>
+<li><span class="arithmatex">\(G_p(s)\)</span> - Gyra's mechanical dynamics</li>
+<li><span class="arithmatex">\(H_i(s)\)</span> - Current sensor</li>
+<li><span class="arithmatex">\(H_v(s)\)</span> - Velocity sensor (derived from gyroscope)</li>
+<li><span class="arithmatex">\(H_p(s)\)</span> - Position sensor (from accelerometer)</li>
+</ul>
+<h4 id="diagram-gyras-cascade-control-block-diagram">Diagram: Gyra's Cascade Control Block Diagram</h4>
+<iframe src="../../sims/gyra-cascade-control/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Gyra's Cascade Control Block Diagram</summary>
+<p>Type: diagram</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: organize, deconstruct</p>
+<p>Learning Objective: Students will deconstruct Gyra's cascade control system into nested loop structures, identifying which loops must be reduced first.</p>
+<p>Purpose: Show realistic cascade control structure with physical interpretation for each block</p>
+<p>Components to show:
+- Reference input: Desired tilt angle θ_ref (typically 0° for upright)
+- Outer loop controller G_c(s): Position controller (PD or PID)
+- Velocity reference: Output of position controller
+- Middle loop controller G_v(s): Velocity controller
+- Current reference: Output of velocity controller
+- Inner loop controller G_i(s): Current controller
+- Motor G_m(s): Motor electrical and mechanical dynamics
+- Plant G_p(s): Gyra's inverted pendulum dynamics
+- Output θ: Actual tilt angle
+- Current sensor H_i(s): Measures motor current
+- Velocity sensor H_v(s): From gyroscope
+- Position sensor H_p(s): From accelerometer/IMU fusion</p>
+<p>Visual layout:
+- Nested rectangular regions showing each loop
+- Inner loop in innermost region (light blue)
+- Middle loop in middle region (light green)
+- Outer loop in outermost region (light yellow)
+- Clear signal flow arrows</p>
+<p>Interactive features:
+- Click on any loop region to highlight that loop's components
+- Hover over any block to see physical description and typical transfer function form
+- Button: "Show reduction order" - animates the inside-out reduction sequence
+- Button: "Show equivalent blocks" - shows result of reducing each loop</p>
+<p>Color scheme:
+- Position loop: yellow/gold
+- Velocity loop: green
+- Current loop: blue
+- Physical plant: gray
+- Sensors: purple</p>
+<p>Implementation: vis-network or custom interactive SVG
+Canvas size: 900x550px, responsive</p>
+</details>
+<h3 id="reducing-gyras-control-structure">Reducing Gyra's Control Structure</h3>
+<p>To find the overall transfer function from desired angle to actual angle, we reduce inside-out:</p>
+<p><strong>Step 1: Reduce the inner (current) loop</strong></p>
+<p><span class="arithmatex">\(T_i(s) = \frac{G_i(s) G_m(s)}{1 + G_i(s) G_m(s) H_i(s)}\)</span></p>
+<p>This represents the "controlled motor" that delivers current proportional to command.</p>
+<p><strong>Step 2: Reduce the middle (velocity) loop</strong></p>
+<p>The forward path is now <span class="arithmatex">\(G_v(s) T_i(s) G_p(s)\)</span>. With velocity feedback:</p>
+<p><span class="arithmatex">\(T_v(s) = \frac{G_v(s) T_i(s) G_p(s)}{1 + G_v(s) T_i(s) G_p(s) H_v(s)}\)</span></p>
+<p><strong>Step 3: Reduce the outer (position) loop</strong></p>
+<p>Finally, with position feedback:</p>
+<p><span class="arithmatex">\(T(s) = \frac{G_c(s) T_v(s)}{1 + G_c(s) T_v(s) H_p(s)}\)</span></p>
+<p>Substituting backwards gives the complete transfer function—which would be extremely messy if written out fully, but the structured approach keeps it manageable.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My inner current loop responds in milliseconds—it's like a reflex, too fast for me to even notice. My velocity loop is a bit slower, smoothing out the jerkiness. And my position loop? That's the one that really keeps me upright, comparing where I am to where I should be, over and over."</p>
+</div>
+<h2 id="loop-gain-and-stability-preview">Loop Gain and Stability Preview</h2>
+<p>While detailed stability analysis comes in later chapters, block diagrams provide immediate insight into a crucial stability quantity: the <strong>loop gain</strong>.</p>
+<p>The loop gain <span class="arithmatex">\(L(s) = G(s)H(s)\)</span> determines system stability. Specifically, the closed-loop system is stable if and only if all roots of the characteristic equation:</p>
+<h4 id="characteristic-equation">Characteristic Equation</h4>
+<p><span class="arithmatex">\(1 + L(s) = 0\)</span></p>
+<p>have negative real parts (lie in the left half of the s-plane).</p>
+<p>Block diagrams make the loop gain visually apparent—just multiply the transfer functions around any feedback loop. This connection between graphical representation and stability is one of the great insights of classical control theory.</p>
+<h2 id="summary_1">Summary</h2>
+<p>This chapter developed two complementary graphical methods for analyzing control systems:</p>
+<p><strong>Block Diagrams:</strong></p>
+<ul>
+<li>Built from blocks, summing junctions, and pickoff points</li>
+<li>Cascade connections multiply transfer functions</li>
+<li>Parallel connections add transfer functions</li>
+<li>Feedback connections use <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span></li>
+<li>Reduction follows inside-out strategy for nested loops</li>
+<li>Block diagram algebra enables systematic simplification</li>
+</ul>
+<p><strong>Signal Flow Graphs:</strong></p>
+<ul>
+<li>Nodes represent signals; branches represent transfer functions</li>
+<li>More compact than block diagrams for complex systems</li>
+<li>Mason's gain formula finds transfer functions directly</li>
+</ul>
+<p><strong>Key Formulas:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Closed-loop transfer (negative feedback)</td>
+<td><span class="arithmatex">\(T = \frac{G}{1+GH}\)</span></td>
+</tr>
+<tr>
+<td>Closed-loop transfer (positive feedback)</td>
+<td><span class="arithmatex">\(T = \frac{G}{1-GH}\)</span></td>
+</tr>
+<tr>
+<td>Open-loop transfer function</td>
+<td><span class="arithmatex">\(L = GH\)</span></td>
+</tr>
+<tr>
+<td>Characteristic equation</td>
+<td><span class="arithmatex">\(1 + GH = 0\)</span></td>
+</tr>
+<tr>
+<td>Mason's gain formula</td>
+<td><span class="arithmatex">\(T = \frac{\sum P_k \Delta_k}{\Delta}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>These graphical tools transform abstract mathematical relationships into visible structures that reveal system architecture, signal flow, and the critical feedback loops that determine behavior. Whether you're designing a new controller for Gyra or analyzing an industrial process control system, block diagrams and signal flow graphs are indispensable companions.</p>
+<details class="question">
+<summary>Check Your Understanding: What happens to the closed-loop transfer function if feedback is removed (H = 0)?</summary>
+<p>When <span class="arithmatex">\(H(s) = 0\)</span> (no feedback), the closed-loop formula <span class="arithmatex">\(T = \frac{G}{1+GH}\)</span> becomes <span class="arithmatex">\(T = \frac{G}{1+0} = G\)</span>. The system becomes open-loop—output equals input times forward gain, with no error correction. This is exactly what we'd expect: removing feedback converts a closed-loop system into an open-loop system.</p>
+</details>
+<details class="question">
+<summary>Check Your Understanding: In Mason's formula, what is the cofactor for a forward path that touches all loops?</summary>
+<p>If a forward path touches all loops in the graph, then when we remove those loops to calculate the cofactor, no loops remain. The cofactor formula <span class="arithmatex">\(\Delta_k = 1 - \sum L_i^{(k)} + \cdots\)</span> has all terms zero except the 1, so <span class="arithmatex">\(\Delta_k = 1\)</span>. This is the most common case in simple systems.</p>
+</details>
 
 
 
@@ -1248,7 +3659,12 @@
 
 
 
+  
+  
 
+
+
+  
 
 
 
@@ -1315,11 +3731,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       
