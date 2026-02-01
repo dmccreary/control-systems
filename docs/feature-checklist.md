@@ -121,7 +121,7 @@ MicroSims are small, browser-based simulations that let students experiment with
 |---------|--------|--------|-------|
 | MicroSims (interactive simulations) | :white_check_mark: | High | Browser-based apps for hands-on learning (6 created) |
 | MicroSim index catalog | :white_check_mark: | Medium | Visual gallery with cards showing all available simulations |
-| Per-chapter quizzes | :x: | High | Auto-graded questions aligned to learning objectives |
+| Per-chapter quizzes | :white_check_mark: | High | 10 questions per chapter aligned to learning objectives |
 | Interactive diagrams | :construction: | High | Clickable/draggable visuals (some embedded in MicroSims) |
 
 ### Learning Graph System

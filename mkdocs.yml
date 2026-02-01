@@ -12,22 +12,54 @@ nav:
 
   - Chapters:
     - List of Chapters: chapters/index.md
-    - 1. Introduction to Control Systems: chapters/01-intro-to-control-systems/index.md
-    - 2. Dynamic System Properties: chapters/02-dynamic-system-properties/index.md
-    - 3. Time-Domain Response: chapters/03-time-domain-response/index.md
-    - 4. Transient Response Specs: chapters/04-transient-response-specs/index.md
-    - 5. Laplace Transform Methods: chapters/05-laplace-transform-methods/index.md
-    - 6. Poles, Zeros, and System Analysis: chapters/06-poles-zeros-system-analysis/index.md
-    - 7. Physical System Modeling: chapters/07-physical-system-modeling/index.md
-    - 8. Linearization and Nonlinear Effects: chapters/08-linearization-nonlinear-effects/index.md
-    - 9. Block Diagrams and Signal Flow: chapters/09-block-diagrams-signal-flow/index.md
-    - 10. Stability and Routh-Hurwitz: chapters/10-stability-routh-hurwitz/index.md
-    - 11. Root Locus Analysis: chapters/11-root-locus-analysis-design/index.md
-    - 12. Frequency Response and Bode: chapters/12-frequency-response-bode-plots/index.md
-    - 13. Nyquist and Stability Margins: chapters/13-nyquist-stability-margins/index.md
-    - 14. Steady-State Error Analysis: chapters/14-steady-state-error-analysis/index.md
-    - 15. PID Control and Tuning: chapters/15-pid-control-tuning/index.md
-    - 16. Compensator Design: chapters/16-compensator-design-performance/index.md
+    - 1. Introduction to Control Systems:
+      - Content: chapters/01-intro-to-control-systems/index.md
+      - Quiz: chapters/01-intro-to-control-systems/quiz.md
+    - 2. Dynamic System Properties:
+      - Content: chapters/02-dynamic-system-properties/index.md
+      - Quiz: chapters/02-dynamic-system-properties/quiz.md
+    - 3. Time-Domain Response:
+      - Content: chapters/03-time-domain-response/index.md
+      - Quiz: chapters/03-time-domain-response/quiz.md
+    - 4. Transient Response Specs:
+      - Content: chapters/04-transient-response-specs/index.md
+      - Quiz: chapters/04-transient-response-specs/quiz.md
+    - 5. Laplace Transform Methods:
+      - Content: chapters/05-laplace-transform-methods/index.md
+      - Quiz: chapters/05-laplace-transform-methods/quiz.md
+    - 6. Poles, Zeros, and System Analysis:
+      - Content: chapters/06-poles-zeros-system-analysis/index.md
+      - Quiz: chapters/06-poles-zeros-system-analysis/quiz.md
+    - 7. Physical System Modeling:
+      - Content: chapters/07-physical-system-modeling/index.md
+      - Quiz: chapters/07-physical-system-modeling/quiz.md
+    - 8. Linearization and Nonlinear Effects:
+      - Content: chapters/08-linearization-nonlinear-effects/index.md
+      - Quiz: chapters/08-linearization-nonlinear-effects/quiz.md
+    - 9. Block Diagrams and Signal Flow:
+      - Content: chapters/09-block-diagrams-signal-flow/index.md
+      - Quiz: chapters/09-block-diagrams-signal-flow/quiz.md
+    - 10. Stability and Routh-Hurwitz:
+      - Content: chapters/10-stability-routh-hurwitz/index.md
+      - Quiz: chapters/10-stability-routh-hurwitz/quiz.md
+    - 11. Root Locus Analysis:
+      - Content: chapters/11-root-locus-analysis-design/index.md
+      - Quiz: chapters/11-root-locus-analysis-design/quiz.md
+    - 12. Frequency Response and Bode:
+      - Content: chapters/12-frequency-response-bode-plots/index.md
+      - Quiz: chapters/12-frequency-response-bode-plots/quiz.md
+    - 13. Nyquist and Stability Margins:
+      - Content: chapters/13-nyquist-stability-margins/index.md
+      - Quiz: chapters/13-nyquist-stability-margins/quiz.md
+    - 14. Steady-State Error Analysis:
+      - Content: chapters/14-steady-state-error-analysis/index.md
+      - Quiz: chapters/14-steady-state-error-analysis/quiz.md
+    - 15. PID Control and Tuning:
+      - Content: chapters/15-pid-control-tuning/index.md
+      - Quiz: chapters/15-pid-control-tuning/quiz.md
+    - 16. Compensator Design:
+      - Content: chapters/16-compensator-design-performance/index.md
+      - Quiz: chapters/16-compensator-design-performance/quiz.md
 
   
   - Sims:
@@ -58,6 +90,7 @@ nav:
     - Chapter Metrics: learning-graph/chapter-metrics.md
     - Diagram Details: learning-graph/diagram-details.md
     - Diagram Table: learning-graph/diagram-table.md
+    - Quiz Generation Report: learning-graph/quiz-generation-report.md
   
   - Prompts:
     - List of Prompts: prompts/index.md
