@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Using frequency-domain plots to determine closed-loop stability and quantify robustness through gain and phase margins">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>13. Nyquist and Stability Margins - Control Systems</title>
+        <title>Nyquist Analysis and Stability Margins - Control Systems</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13. Nyquist and Stability Margins
+              Nyquist Analysis and Stability Margins
             
           </span>
         </div>
@@ -744,6 +744,678 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-bode-to-stability-the-missing-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Bode to Stability: The Missing Link
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-margins-how-close-to-the-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stability Margins: How Close to the Edge?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stability Margins: How Close to the Edge?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-critical-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Critical Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Critical Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gain-margin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Margin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-crossover-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Crossover Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Crossover Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-crossover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Crossover
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-margin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Margin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gain-crossover-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Crossover Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Crossover Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-crossover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Crossover
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gain-and-phase-margin-on-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gain and Phase Margin on Bode Plots
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-guidelines-for-stability-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Guidelines for Stability Margins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Guidelines for Stability Margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-to-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin to Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-crossover-frequency-and-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Crossover Frequency and Bandwidth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Crossover Frequency and Bandwidth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crossover-and-bandwidth-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crossover and Bandwidth Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-nyquist-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Nyquist Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Nyquist Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-plot-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist Plot Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-plot-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Plot Introduction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-margins-from-the-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Margins from the Nyquist Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading Margins from the Nyquist Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-from-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin from Nyquist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Margin from Nyquist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-from-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin from Nyquist Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-from-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin from Nyquist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Margin from Nyquist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-from-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin from Nyquist Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nyquist-contour" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Contour
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Contour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-standard-nyquist-contour" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Nyquist Contour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-poles-on-the-imaginary-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Poles on the Imaginary Axis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Poles on the Imaginary Axis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-contour-and-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Contour and Mapping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nyquist-stability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Stability Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Stability Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-principle-behind-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Principle Behind Nyquist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-nyquist-criterion-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Criterion Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Criterion Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-stability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist Stability Criterion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counting-encirclements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Counting Encirclements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Counting Encirclements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-encirclement-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Encirclement Counter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-half-plane-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Poles and Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Right-Half-Plane Poles and Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#right-half-plane-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Poles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-half-plane-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Right-Half-Plane Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhp-zero-phase-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHP Zero Phase Contribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-phase-and-non-minimum-phase-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Phase and Non-Minimum Phase Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Phase and Non-Minimum Phase Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-phase-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Phase System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-minimum-phase-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Minimum Phase System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="All-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-pass-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-Pass Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-minimum-vs-non-minimum-phase-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Minimum vs Non-Minimum Phase Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionally-stable-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionally Stable Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditionally Stable Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-conditional-stability-occurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Conditional Stability Occurs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recognizing-conditional-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recognizing Conditional Stability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recognizing Conditional Stability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-conditionally-stable-system-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Conditionally Stable System Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-nyquist-to-bode-and-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Nyquist to Bode and Root Locus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Nyquist to Bode and Root Locus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-and-bode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist and Bode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-and-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist and Root Locus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-nyquist-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Nyquist Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Nyquist Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-second-order-system-with-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Second-Order System with Integrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-nyquist-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Nyquist Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1188,6 +1860,678 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-bode-to-stability-the-missing-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Bode to Stability: The Missing Link
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-margins-how-close-to-the-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stability Margins: How Close to the Edge?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stability Margins: How Close to the Edge?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-critical-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Critical Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Critical Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristic-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristic Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gain-margin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Margin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-crossover-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Crossover Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Crossover Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-crossover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Crossover
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-margin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Margin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gain-crossover-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Crossover Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Crossover Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-crossover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Crossover
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gain-and-phase-margin-on-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Gain and Phase Margin on Bode Plots
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-guidelines-for-stability-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Guidelines for Stability Margins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Guidelines for Stability Margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-to-damping-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin to Damping Ratio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-crossover-frequency-and-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Crossover Frequency and Bandwidth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Crossover Frequency and Bandwidth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crossover-and-bandwidth-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crossover and Bandwidth Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-nyquist-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Nyquist Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Nyquist Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-plot-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist Plot Construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-plot-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Plot Introduction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-margins-from-the-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Margins from the Nyquist Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading Margins from the Nyquist Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-from-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin from Nyquist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gain Margin from Nyquist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gain-margin-from-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gain Margin from Nyquist Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-from-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin from Nyquist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Margin from Nyquist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-margin-from-nyquist-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Margin from Nyquist Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nyquist-contour" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Contour
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Contour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-standard-nyquist-contour" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Nyquist Contour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-poles-on-the-imaginary-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Poles on the Imaginary Axis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Poles on the Imaginary Axis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-contour-and-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Contour and Mapping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nyquist-stability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Stability Criterion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Stability Criterion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-principle-behind-nyquist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Principle Behind Nyquist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-nyquist-criterion-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Nyquist Criterion Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Nyquist Criterion Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-stability-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist Stability Criterion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counting-encirclements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Counting Encirclements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Counting Encirclements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nyquist-encirclement-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Nyquist Encirclement Counter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-half-plane-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Poles and Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Right-Half-Plane Poles and Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#right-half-plane-poles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Poles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-half-plane-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Half-Plane Zeros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Right-Half-Plane Zeros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhp-zero-phase-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHP Zero Phase Contribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-phase-and-non-minimum-phase-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Phase and Non-Minimum Phase Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Phase and Non-Minimum Phase Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-phase-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Phase System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-minimum-phase-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Minimum Phase System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="All-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-pass-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-Pass Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-minimum-vs-non-minimum-phase-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Minimum vs Non-Minimum Phase Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionally-stable-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionally Stable Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conditionally Stable Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-conditional-stability-occurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Conditional Stability Occurs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recognizing-conditional-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recognizing Conditional Stability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recognizing Conditional Stability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-conditionally-stable-system-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Conditionally Stable System Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-nyquist-to-bode-and-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Nyquist to Bode and Root Locus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Nyquist to Bode and Root Locus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-and-bode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist and Bode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-and-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nyquist and Root Locus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-nyquist-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Nyquist Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Nyquist Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-second-order-system-with-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Second-Order System with Integrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-nyquist-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Nyquist Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1242,13 +2586,1130 @@
 <li><a href="../12-frequency-response-bode-plots/">Chapter 12: Frequency Response and Bode Plots</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="from-bode-to-stability-the-missing-link">From Bode to Stability: The Missing Link</h2>
+<p>In Chapter 12, you learned to construct Bode plots—magnitude and phase versus frequency on logarithmic scales. These plots beautifully characterize how a system responds to sinusoidal inputs. But here's what Bode plots don't directly tell you: <strong>Is the closed-loop system stable?</strong></p>
+<p>The Routh-Hurwitz criterion (Chapter 10) answers stability questions algebraically. The root locus (Chapter 11) answers them graphically by tracking pole movement. Now we'll develop a third approach: determining stability directly from the frequency response. This isn't just an alternative method—it's often the most practical one, because frequency response can be <strong>measured experimentally</strong> without knowing the transfer function.</p>
+<p>The key insight comes from Harry Nyquist, who in 1932 published a remarkable theorem connecting the frequency response of an open-loop system to the stability of the closed-loop system. His criterion uses complex analysis—specifically, the principle of argument from complex variable theory—to count poles in the right half-plane by examining how a contour maps through the transfer function.</p>
+<p>Along the way, we'll develop <strong>gain margin</strong> and <strong>phase margin</strong>—the workhorses of practical control design. These stability margins tell you not just whether a system is stable, but how robust that stability is. A system with large margins can tolerate modeling errors, parameter variations, and disturbances. A system with small margins is fragile, hovering near the edge of instability.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My engineers measure my phase margin every time they tune my controller. It's not enough that I stay upright—they want to know how close I am to wobbling out of control. A 45° phase margin means I have headroom. A 10° phase margin means I'm one disturbance away from oscillating. The Nyquist plot shows them exactly where that danger lies."</p>
+</div>
+<h2 id="stability-margins-how-close-to-the-edge">Stability Margins: How Close to the Edge?</h2>
+<p>Before diving into Nyquist theory, let's understand what we're trying to quantify. Consider a feedback system that's currently stable. How would it become unstable?</p>
+<p>Two ways:</p>
+<ol>
+<li><strong>Increase the gain</strong> until oscillations grow unbounded</li>
+<li><strong>Add phase lag</strong> until the feedback becomes positive at a critical frequency</li>
+</ol>
+<p>The <strong>gain margin</strong> measures how much gain increase the system can tolerate. The <strong>phase margin</strong> measures how much additional phase lag is acceptable. Together, these <strong>stability margins</strong> quantify robustness.</p>
+<h3 id="the-critical-point">The Critical Point</h3>
+<p>For a standard negative feedback system with loop transfer function <span class="arithmatex">\(L(s) = G(s)H(s)\)</span>, the closed-loop characteristic equation is:</p>
+<h4 id="characteristic-equation">Characteristic Equation</h4>
+<p><span class="arithmatex">\(1 + L(s) = 0\)</span></p>
+<p>or equivalently:</p>
+<p><span class="arithmatex">\(L(s) = -1\)</span></p>
+<p>The point <span class="arithmatex">\(-1 + j0\)</span> in the complex plane is called the <strong>critical point</strong>. If the loop transfer function ever equals <span class="arithmatex">\(-1\)</span> at some real frequency, the closed-loop system is on the verge of instability—it will oscillate at that frequency with constant amplitude.</p>
+<p>Why <span class="arithmatex">\(-1\)</span>? Consider what happens at a frequency <span class="arithmatex">\(\omega\)</span> where <span class="arithmatex">\(|L(j\omega)| = 1\)</span> and <span class="arithmatex">\(\angle L(j\omega) = -180°\)</span>:</p>
+<ul>
+<li>The magnitude is unity, so signals neither grow nor decay</li>
+<li>The phase is -180°, so the negative feedback becomes positive feedback</li>
+<li>The result: sustained oscillation</li>
+</ul>
+<p>This is the <strong>Barkhausen criterion</strong> for oscillation, familiar from electronics. Our goal is to ensure the system stays away from this critical point.</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(L(j\omega) = -1\)</span></td>
+<td>On the edge of instability</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\|L(j\omega)\| &lt; 1\)</span> when <span class="arithmatex">\(\angle L = -180°\)</span></td>
+<td>Gain margin exists</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\angle L(j\omega) &gt; -180°\)</span> when <span class="arithmatex">\(\|L\| = 1\)</span></td>
+<td>Phase margin exists</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gain-margin">Gain Margin</h2>
+<p>The <strong>gain margin</strong> (GM) is the factor by which the loop gain can be increased before the system becomes unstable. It's measured at the <strong>phase crossover frequency</strong>—the frequency where the phase equals -180°.</p>
+<h4 id="gain-margin-definition">Gain Margin Definition</h4>
+<p><span class="arithmatex">\(GM = \frac{1}{|L(j\omega_{pc})|}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_{pc}\)</span> is the phase crossover frequency</li>
+<li><span class="arithmatex">\(|L(j\omega_{pc})|\)</span> is the magnitude at that frequency</li>
+</ul>
+<p>In decibels:</p>
+<p><span class="arithmatex">\(GM_{dB} = -20\log_{10}|L(j\omega_{pc})| = -|L(j\omega_{pc})|_{dB}\)</span></p>
+<p>If the magnitude at phase crossover is -12 dB, the gain margin is +12 dB—you can increase the gain by a factor of 4 before instability.</p>
+<h3 id="phase-crossover-frequency">Phase Crossover Frequency</h3>
+<p>The <strong>phase crossover frequency</strong> <span class="arithmatex">\(\omega_{pc}\)</span> is where the loop transfer function has a phase of exactly -180°:</p>
+<h4 id="phase-crossover">Phase Crossover</h4>
+<p><span class="arithmatex">\(\angle L(j\omega_{pc}) = -180°\)</span></p>
+<p>At this frequency, the feedback signal is exactly inverted—negative feedback has become positive feedback. If the gain is less than unity here, the system is stable because signals still decay around the loop.</p>
+<p>On a Bode plot, find where the phase curve crosses -180°. Read the magnitude at that frequency. The gain margin is the distance (in dB) from that magnitude to 0 dB.</p>
+<table>
+<thead>
+<tr>
+<th>Magnitude at <span class="arithmatex">\(\omega_{pc}\)</span></th>
+<th>Gain Margin</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-20 dB</td>
+<td>+20 dB</td>
+<td>Stable with good margin</td>
+</tr>
+<tr>
+<td>-6 dB</td>
+<td>+6 dB</td>
+<td>Stable with moderate margin</td>
+</tr>
+<tr>
+<td>0 dB</td>
+<td>0 dB</td>
+<td>Marginally stable</td>
+</tr>
+<tr>
+<td>+6 dB</td>
+<td>-6 dB</td>
+<td>Unstable</td>
+</tr>
+</tbody>
+</table>
+<p>A negative gain margin means the system is already unstable—you'd need to reduce gain to stabilize it.</p>
+<h2 id="phase-margin">Phase Margin</h2>
+<p>The <strong>phase margin</strong> (PM) is the additional phase lag that would bring the system to instability. It's measured at the <strong>gain crossover frequency</strong>—the frequency where the magnitude equals unity (0 dB).</p>
+<h4 id="phase-margin-definition">Phase Margin Definition</h4>
+<p><span class="arithmatex">\(PM = 180° + \angle L(j\omega_{gc})\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_{gc}\)</span> is the gain crossover frequency</li>
+<li><span class="arithmatex">\(\angle L(j\omega_{gc})\)</span> is the phase at that frequency</li>
+</ul>
+<p>If the phase at gain crossover is -135°, the phase margin is <span class="arithmatex">\(180° - 135° = 45°\)</span>. The system could tolerate an additional 45° of phase lag before becoming unstable.</p>
+<h3 id="gain-crossover-frequency">Gain Crossover Frequency</h3>
+<p>The <strong>gain crossover frequency</strong> <span class="arithmatex">\(\omega_{gc}\)</span> is where the loop transfer function has unity magnitude:</p>
+<h4 id="gain-crossover">Gain Crossover</h4>
+<p><span class="arithmatex">\(|L(j\omega_{gc})| = 1\)</span> (or 0 dB)</p>
+<p>This is the most important frequency for closed-loop behavior. At frequencies well below <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain is high and the closed-loop system tracks commands well. At frequencies well above <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain is low and the system attenuates disturbances. Near <span class="arithmatex">\(\omega_{gc}\)</span>, the transition occurs—and if there's not enough phase margin, oscillations result.</p>
+<p>On a Bode plot, find where the magnitude curve crosses 0 dB. Read the phase at that frequency. The phase margin is how far that phase is above -180°.</p>
+<table>
+<thead>
+<tr>
+<th>Phase at <span class="arithmatex">\(\omega_{gc}\)</span></th>
+<th>Phase Margin</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-90°</td>
+<td>90°</td>
+<td>Very stable, possibly slow</td>
+</tr>
+<tr>
+<td>-135°</td>
+<td>45°</td>
+<td>Good balance of speed and stability</td>
+</tr>
+<tr>
+<td>-150°</td>
+<td>30°</td>
+<td>Marginally acceptable</td>
+</tr>
+<tr>
+<td>-180°</td>
+<td>0°</td>
+<td>Marginally stable (oscillatory)</td>
+</tr>
+<tr>
+<td>-200°</td>
+<td>-20°</td>
+<td>Unstable</td>
+</tr>
+</tbody>
+</table>
+<p>A negative phase margin means the system is already unstable.</p>
+<h4 id="diagram-gain-and-phase-margin-on-bode-plots">Diagram: Gain and Phase Margin on Bode Plots</h4>
+<iframe src="../../sims/stability-margins-bode/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Gain and Phase Margin on Bode Plots</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: interpret, explain</p>
+<p>Learning Objective: Students will interpret Bode plots to identify gain crossover frequency, phase crossover frequency, gain margin, and phase margin.</p>
+<p>Canvas layout:
+- Top (45%): Bode magnitude plot
+- Middle (45%): Bode phase plot
+- Bottom (10%): Margin display and controls</p>
+<p>Visual elements:
+Magnitude Plot:
+- Loop transfer function magnitude curve
+- 0 dB line emphasized
+- Gain crossover point marked with vertical line
+- Gain margin shown as vertical arrow from magnitude curve to 0 dB at ωpc
+- Frequency axis logarithmic</p>
+<p>Phase Plot:
+- Loop transfer function phase curve
+- -180° line emphasized
+- Phase crossover point marked with vertical line
+- Phase margin shown as vertical arrow from -180° to phase curve at ωgc
+- Shaded region between phase curve and -180° (phase margin region)</p>
+<p>Margin Display:
+- Gain crossover frequency ωgc = [value] rad/s
+- Phase crossover frequency ωpc = [value] rad/s
+- Gain margin = [value] dB
+- Phase margin = [value]°
+- Stability indicator: STABLE / UNSTABLE</p>
+<p>Interactive controls:
+- Slider: Overall gain K (affects vertical position of magnitude)
+- Slider: Dominant time constant (shifts curves horizontally)
+- Dropdown: System presets (type 0, type 1, type 2, lead-lag)
+- Toggle: Show margin annotations
+- Toggle: Show crossover lines</p>
+<p>Data Visibility Requirements:
+- Stage 1: Show Bode plots
+- Stage 2: Mark gain crossover (0 dB crossing)
+- Stage 3: Mark phase crossover (-180° crossing)
+- Stage 4: Display gain margin as distance
+- Stage 5: Display phase margin as distance</p>
+<p>Behavior:
+- As gain K increases, magnitude shifts up, reducing margins
+- When margins go negative, indicator turns red
+- Margin arrows update in real-time
+- Preset systems show different stability characteristics
+- Changing time constant shifts curves and changes crossover frequencies</p>
+<p>Instructional Rationale: Visualizing margins as physical distances on familiar Bode plots makes the concepts tangible. Interactive gain adjustment shows how margins change and connects to design decisions.</p>
+<p>Implementation: p5.js with dual Bode plots and interactive annotations</p>
+</details>
+<h2 id="design-guidelines-for-stability-margins">Design Guidelines for Stability Margins</h2>
+<p>How much margin is enough? The answer depends on how uncertain your model is and how much variation you expect in operation. General guidelines:</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Gain Margin</th>
+<th>Phase Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum acceptable</td>
+<td>6 dB</td>
+<td>30°</td>
+</tr>
+<tr>
+<td>Typical design target</td>
+<td>10-12 dB</td>
+<td>45-60°</td>
+</tr>
+<tr>
+<td>Conservative/robust</td>
+<td>&gt;12 dB</td>
+<td>&gt;60°</td>
+</tr>
+<tr>
+<td>Very high precision</td>
+<td>May accept less if model is accurate</td>
+<td>30-45°</td>
+</tr>
+</tbody>
+</table>
+<p>There's a rough relationship between phase margin and closed-loop damping ratio:</p>
+<h4 id="phase-margin-to-damping-ratio">Phase Margin to Damping Ratio</h4>
+<p><span class="arithmatex">\(\zeta \approx \frac{PM}{100}\)</span> (for PM in degrees, 30° &lt; PM &lt; 70°)</p>
+<p>A 45° phase margin corresponds to roughly <span class="arithmatex">\(\zeta \approx 0.45\)</span>, which gives about 20% overshoot. A 60° phase margin gives <span class="arithmatex">\(\zeta \approx 0.6\)</span> and about 10% overshoot.</p>
+<div class="admonition tip">
+<p class="admonition-title">The 45° Rule of Thumb</p>
+<p>For most control systems, aim for 45° phase margin as a starting point. This provides good balance between response speed and stability robustness. Increase margin if the plant model is uncertain; you may accept less margin if the model is very accurate and speed is critical.</p>
+</div>
+<h2 id="the-crossover-frequency-and-bandwidth">The Crossover Frequency and Bandwidth</h2>
+<p>The <strong>crossover frequency</strong> <span class="arithmatex">\(\omega_{gc}\)</span> (gain crossover) is closely related to the closed-loop bandwidth. For many systems:</p>
+<h4 id="crossover-and-bandwidth-relationship">Crossover and Bandwidth Relationship</h4>
+<p><span class="arithmatex">\(\omega_{BW} \approx \omega_{gc}\)</span> (within a factor of 2)</p>
+<p>This makes the gain crossover frequency a key design parameter. Want faster response? Push <span class="arithmatex">\(\omega_{gc}\)</span> higher. But as you increase crossover frequency:</p>
+<ul>
+<li>Phase margin typically decreases (more phase lag accumulates)</li>
+<li>Noise sensitivity increases (high-frequency gain is higher)</li>
+<li>Plant dynamics become more limiting</li>
+</ul>
+<p>The crossover frequency represents the frequency range where your controller is actively regulating the system. Below <span class="arithmatex">\(\omega_{gc}\)</span>, you have good command following and disturbance rejection. Above <span class="arithmatex">\(\omega_{gc}\)</span>, the loop gain drops and control authority diminishes.</p>
+<h2 id="introduction-to-nyquist-plots">Introduction to Nyquist Plots</h2>
+<p>The <strong>Nyquist plot</strong> (also called <strong>Nyquist diagram</strong>) is a polar plot of the loop transfer function <span class="arithmatex">\(L(j\omega)\)</span> as frequency varies from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>. Unlike Bode plots, which show magnitude and phase separately on logarithmic frequency scales, the Nyquist plot displays the complex value of <span class="arithmatex">\(L(j\omega)\)</span> directly in the complex plane.</p>
+<h4 id="nyquist-plot-construction">Nyquist Plot Construction</h4>
+<p><span class="arithmatex">\(L(j\omega) = |L(j\omega)| e^{j\angle L(j\omega)}\)</span></p>
+<p>where:</p>
+<ul>
+<li>The magnitude <span class="arithmatex">\(|L(j\omega)|\)</span> determines the distance from the origin</li>
+<li>The phase <span class="arithmatex">\(\angle L(j\omega)\)</span> determines the angle from the positive real axis</li>
+</ul>
+<p>For each frequency <span class="arithmatex">\(\omega\)</span>, plot the point <span class="arithmatex">\((Re[L(j\omega)], Im[L(j\omega)])\)</span>. As <span class="arithmatex">\(\omega\)</span> increases from 0 to <span class="arithmatex">\(\infty\)</span>, these points trace out a curve. The complete Nyquist plot includes both positive and negative frequencies, with the negative frequency portion being the mirror image (complex conjugate) of the positive portion.</p>
+<p>Key features of Nyquist plots:</p>
+<ul>
+<li><strong>DC point</strong> (<span class="arithmatex">\(\omega = 0\)</span>): Often on the positive real axis (for type 0 systems) or at infinity (for systems with integrators)</li>
+<li><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \to \infty\)</span>): Approaches the origin for proper transfer functions</li>
+<li><strong>Critical point</strong>: The point <span class="arithmatex">\(-1 + j0\)</span> is where stability is determined</li>
+<li><strong>Symmetry</strong>: The curve for negative frequencies is the reflection about the real axis</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frequency</th>
+<th>Typical Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\omega = 0\)</span></td>
+<td>Right side of plot (positive real, often)</td>
+</tr>
+<tr>
+<td>Low <span class="arithmatex">\(\omega\)</span></td>
+<td>Large magnitude, small negative phase</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = \omega_{gc}\)</span></td>
+<td>On unit circle</td>
+</tr>
+<tr>
+<td>High <span class="arithmatex">\(\omega\)</span></td>
+<td>Near origin</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega \to \infty\)</span></td>
+<td>At origin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-nyquist-plot-introduction">Diagram: Nyquist Plot Introduction</h4>
+<iframe src="../../sims/nyquist-intro/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Nyquist Plot Introduction</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain how Nyquist plots represent the loop transfer function in the complex plane and identify key features including the critical point.</p>
+<p>Canvas layout:
+- Left (60%): Nyquist plot (complex plane)
+- Right (40%): Bode-style magnitude/phase for comparison</p>
+<p>Visual elements:
+Nyquist Plot:
+- Complex plane with real and imaginary axes
+- Unit circle (dashed)
+- Critical point (-1, 0) marked prominently
+- Nyquist curve for positive frequencies
+- Nyquist curve for negative frequencies (dashed or lighter)
+- Direction arrows showing increasing frequency
+- Current frequency point highlighted
+- Frequency labels at key points</p>
+<p>Bode Comparison:
+- Small magnitude and phase plots
+- Current frequency marked on both
+- Correspondence between Bode values and Nyquist point</p>
+<p>Interactive controls:
+- Slider: Frequency ω (logarithmic, 0.01 to 100 rad/s)
+- Dropdown: System presets (simple lag, lead-lag, with integrator)
+- Toggle: Show negative frequency portion
+- Toggle: Show unit circle
+- Toggle: Show frequency labels
+- Button: Animate frequency sweep</p>
+<p>Data Visibility Requirements:
+- Show current frequency ω
+- Display magnitude |L(jω)| and phase ∠L(jω)
+- Display real and imaginary parts
+- Show distance to critical point
+- Indicate if inside/outside unit circle</p>
+<p>Behavior:
+- As frequency slider moves, point traces along curve
+- Arrow indicates direction of increasing frequency
+- Bode plots highlight corresponding frequency
+- Animation sweeps through full frequency range
+- Different presets show different curve shapes</p>
+<p>Instructional Rationale: Side-by-side comparison with Bode plots builds connection between familiar representation and new Nyquist format. Interactive frequency slider reveals how each frequency maps to a point on the curve.</p>
+<p>Implementation: p5.js with complex plane plotting and linked Bode display</p>
+</details>
+<h2 id="reading-margins-from-the-nyquist-plot">Reading Margins from the Nyquist Plot</h2>
+<p>The Nyquist plot provides an elegant geometric view of stability margins:</p>
+<h3 id="gain-margin-from-nyquist">Gain Margin from Nyquist</h3>
+<p>The <strong>gain margin from Nyquist</strong> is the reciprocal of the distance from the origin to where the Nyquist curve crosses the negative real axis.</p>
+<p>When the Nyquist curve crosses the negative real axis, the phase is exactly -180° (or -540°, etc.). At that crossing, if the curve is inside the unit circle (distance from origin &lt; 1), the system is stable. The gain margin is:</p>
+<h4 id="gain-margin-from-nyquist-plot">Gain Margin from Nyquist Plot</h4>
+<p><span class="arithmatex">\(GM = \frac{1}{|L(j\omega_{pc})|}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_{pc}\)</span> is the frequency where the curve crosses the negative real axis</li>
+<li><span class="arithmatex">\(|L(j\omega_{pc})|\)</span> is the distance from origin to that crossing point</li>
+</ul>
+<p>If the crossing is at distance 0.25 from the origin, <span class="arithmatex">\(GM = 4\)</span> (or 12 dB). The gain could be quadrupled before the crossing reaches the critical point.</p>
+<h3 id="phase-margin-from-nyquist">Phase Margin from Nyquist</h3>
+<p>The <strong>phase margin from Nyquist</strong> is the angle between the negative real axis and the point where the Nyquist curve crosses the unit circle.</p>
+<p>When the Nyquist curve crosses the unit circle, the magnitude is exactly 1 (0 dB). At that crossing:</p>
+<h4 id="phase-margin-from-nyquist-plot">Phase Margin from Nyquist Plot</h4>
+<p><span class="arithmatex">\(PM = 180° + \angle L(j\omega_{gc})\)</span></p>
+<p>Geometrically, this is the angle from the negative real axis to the crossing point, measured from the origin.</p>
+<table>
+<thead>
+<tr>
+<th>Nyquist Feature</th>
+<th>What It Tells You</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crossing of negative real axis</td>
+<td>Phase crossover (phase = -180°)</td>
+</tr>
+<tr>
+<td>Distance of that crossing from origin</td>
+<td>Gain margin</td>
+</tr>
+<tr>
+<td>Crossing of unit circle</td>
+<td>Gain crossover (magnitude = 1)</td>
+</tr>
+<tr>
+<td>Angle of that crossing from -180°</td>
+<td>Phase margin</td>
+</tr>
+<tr>
+<td>Encirclement of -1 point</td>
+<td>Stability (Nyquist criterion)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"On my Nyquist plot, the critical point at -1 is my danger zone. As long as my frequency response curve stays away from that point, I'm stable. The farther my curve passes from -1, the more disturbance I can handle without oscillating. My gain margin is how much my curve can stretch toward -1 before reaching it. My phase margin is how much my curve can rotate toward -1 before encircling it."</p>
+</div>
+<h2 id="the-nyquist-contour">The Nyquist Contour</h2>
+<p>To understand the Nyquist stability criterion, we need to consider what contour in the s-plane we're mapping through the transfer function.</p>
+<p>The <strong>Nyquist contour</strong> (also called the Nyquist path) is a closed contour in the s-plane that encircles the entire right half-plane. It consists of:</p>
+<ol>
+<li>The imaginary axis from <span class="arithmatex">\(-j\infty\)</span> to <span class="arithmatex">\(+j\infty\)</span></li>
+<li>A semicircular arc of infinite radius in the right half-plane</li>
+</ol>
+<p>This contour captures all possible RHP poles. When we evaluate <span class="arithmatex">\(L(s)\)</span> around this contour, we get the Nyquist plot.</p>
+<h4 id="the-standard-nyquist-contour">The Standard Nyquist Contour</h4>
+<p>The contour is parameterized as:</p>
+<ul>
+<li>Imaginary axis: <span class="arithmatex">\(s = j\omega\)</span>, <span class="arithmatex">\(\omega\)</span> from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span></li>
+<li>Infinite semicircle: <span class="arithmatex">\(s = Re^{j\theta}\)</span>, <span class="arithmatex">\(R \to \infty\)</span>, <span class="arithmatex">\(\theta\)</span> from <span class="arithmatex">\(+90°\)</span> to <span class="arithmatex">\(-90°\)</span></li>
+</ul>
+<p>For proper transfer functions (more poles than zeros), the infinite semicircle maps to a single point at the origin—because <span class="arithmatex">\(L(s) \to 0\)</span> as <span class="arithmatex">\(|s| \to \infty\)</span>. So the Nyquist plot is effectively just the mapping of the imaginary axis.</p>
+<h3 id="handling-poles-on-the-imaginary-axis">Handling Poles on the Imaginary Axis</h3>
+<p>If <span class="arithmatex">\(L(s)\)</span> has poles on the imaginary axis (like integrators at <span class="arithmatex">\(s = 0\)</span>), the standard contour must be modified. We indent around these poles with small semicircles into the right half-plane, ensuring the contour remains closed and excludes the imaginary axis poles.</p>
+<p>For a system with one integrator (pole at <span class="arithmatex">\(s = 0\)</span>):</p>
+<ul>
+<li>The small indentation around <span class="arithmatex">\(s = 0\)</span> maps to a large semicircular arc at infinity in the Nyquist plot</li>
+<li>This arc sweeps from one end of the imaginary axis mapping to the other</li>
+<li>The direction depends on whether we indent into the RHP (counterclockwise) or LHP</li>
+</ul>
+<h4 id="diagram-nyquist-contour-and-mapping">Diagram: Nyquist Contour and Mapping</h4>
+<iframe src="../../sims/nyquist-contour/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Nyquist Contour and Mapping</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, examine</p>
+<p>Learning Objective: Students will analyze how the Nyquist contour in the s-plane maps through the loop transfer function to produce the Nyquist plot.</p>
+<p>Canvas layout:
+- Left (45%): S-plane showing Nyquist contour
+- Right (45%): L(s)-plane showing Nyquist plot
+- Bottom (10%): Controls and annotations</p>
+<p>Visual elements:
+S-Plane:
+- Complex s-plane with σ and jω axes
+- Nyquist contour highlighted:
+  - Imaginary axis portion (solid)
+  - Infinite semicircle (dashed, conceptual)
+  - Small indentations around jω-axis poles (if present)
+- Poles and zeros of L(s) marked
+- Current point on contour highlighted
+- Direction arrows</p>
+<p>L(s)-Plane (Nyquist Plot):
+- Complex plane for L(s) values
+- Nyquist curve traced out
+- Critical point at -1 marked
+- Unit circle shown
+- Mapping of current s-plane point shown
+- Direction arrows matching s-plane</p>
+<p>Interactive controls:
+- Slider: Trace along Nyquist contour
+- Dropdown: System type (no integrators, 1 integrator, 2 integrators)
+- Toggle: Show infinite semicircle mapping
+- Toggle: Show indentation detail
+- Button: Animate full contour trace</p>
+<p>Data Visibility Requirements:
+- Show current s value on contour
+- Show corresponding L(s) value
+- Display transfer function
+- Show pole/zero locations
+- Indicate which portion of contour is being mapped</p>
+<p>Behavior:
+- As slider moves, point traces s-plane contour
+- Corresponding point traces Nyquist curve
+- For systems with integrators, indentation creates large arc in Nyquist plot
+- Infinite semicircle maps to origin for proper systems
+- Animation completes full contour traversal</p>
+<p>Instructional Rationale: Seeing the contour-to-curve mapping directly connects the abstract Nyquist contour concept to the resulting plot. The side-by-side view makes the mapping relationship concrete.</p>
+<p>Implementation: p5.js with dual complex planes and synchronized tracing</p>
+</details>
+<h2 id="the-nyquist-stability-criterion">The Nyquist Stability Criterion</h2>
+<p>The <strong>Nyquist criterion</strong> is a powerful theorem connecting the Nyquist plot geometry to closed-loop stability. It's based on the principle of argument from complex analysis.</p>
+<h3 id="the-principle-behind-nyquist">The Principle Behind Nyquist</h3>
+<p>Consider the characteristic equation <span class="arithmatex">\(1 + L(s) = 0\)</span>. The closed-loop poles are the values of <span class="arithmatex">\(s\)</span> that satisfy this equation—equivalently, the zeros of <span class="arithmatex">\(1 + L(s)\)</span>.</p>
+<p>Now, <span class="arithmatex">\(1 + L(s)\)</span> has:</p>
+<ul>
+<li>Zeros: the closed-loop poles (what we care about)</li>
+<li>Poles: the same as the poles of <span class="arithmatex">\(L(s)\)</span> (the open-loop poles)</li>
+</ul>
+<p>The principle of argument states that as we traverse a closed contour in the s-plane, the net change in angle of <span class="arithmatex">\(1 + L(s)\)</span> equals <span class="arithmatex">\(2\pi(Z - P)\)</span>, where <span class="arithmatex">\(Z\)</span> is the number of zeros and <span class="arithmatex">\(P\)</span> is the number of poles inside the contour.</p>
+<p>Since our Nyquist contour encircles the entire RHP:</p>
+<ul>
+<li><span class="arithmatex">\(Z\)</span> = number of closed-loop poles in RHP (zeros of <span class="arithmatex">\(1 + L(s)\)</span> in RHP)</li>
+<li><span class="arithmatex">\(P\)</span> = number of open-loop poles in RHP (poles of <span class="arithmatex">\(L(s)\)</span> in RHP)</li>
+</ul>
+<p>The number of <strong>encirclements</strong> of the origin by <span class="arithmatex">\(1 + L(s)\)</span> equals <span class="arithmatex">\(Z - P\)</span>. But mapping <span class="arithmatex">\(1 + L(s)\)</span> is the same as mapping <span class="arithmatex">\(L(s)\)</span> and then shifting by 1. So encirclements of the origin by <span class="arithmatex">\(1 + L(s)\)</span> equal encirclements of <span class="arithmatex">\(-1\)</span> by <span class="arithmatex">\(L(s)\)</span>.</p>
+<h3 id="the-nyquist-criterion-statement">The Nyquist Criterion Statement</h3>
+<h4 id="nyquist-stability-criterion">Nyquist Stability Criterion</h4>
+<p><span class="arithmatex">\(Z = N + P\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(Z\)</span> = number of closed-loop poles in the RHP</li>
+<li><span class="arithmatex">\(N\)</span> = number of clockwise encirclements of <span class="arithmatex">\(-1\)</span> by the Nyquist plot</li>
+<li><span class="arithmatex">\(P\)</span> = number of open-loop poles in the RHP</li>
+</ul>
+<p>For the closed-loop system to be stable, we need <span class="arithmatex">\(Z = 0\)</span> (no closed-loop poles in RHP).</p>
+<p><strong>For stable open-loop systems</strong> (<span class="arithmatex">\(P = 0\)</span>): The closed-loop is stable if and only if the Nyquist plot does not encircle the point <span class="arithmatex">\(-1\)</span>.</p>
+<p><strong>For unstable open-loop systems</strong> (<span class="arithmatex">\(P &gt; 0\)</span>): The closed-loop is stable if and only if the Nyquist plot encircles <span class="arithmatex">\(-1\)</span> exactly <span class="arithmatex">\(P\)</span> times in the <strong>counterclockwise</strong> direction (i.e., <span class="arithmatex">\(N = -P\)</span>).</p>
+<h3 id="counting-encirclements">Counting Encirclements</h3>
+<p>An <strong>encirclement</strong> of the critical point <span class="arithmatex">\(-1\)</span> means the Nyquist curve goes completely around that point. A <strong>clockwise encirclement</strong> is counted as <span class="arithmatex">\(+1\)</span>. A <strong>counterclockwise encirclement</strong> is counted as <span class="arithmatex">\(-1\)</span>.</p>
+<p>To count encirclements:</p>
+<ol>
+<li>Draw a line from <span class="arithmatex">\(-1\)</span> to infinity (typically along the negative real axis going left)</li>
+<li>Count how many times the Nyquist curve crosses this line</li>
+<li>Crossings where the curve goes from below to above (counterclockwise) count as <span class="arithmatex">\(-1\)</span></li>
+<li>Crossings where the curve goes from above to below (clockwise) count as <span class="arithmatex">\(+1\)</span></li>
+<li>Sum the crossings to get <span class="arithmatex">\(N\)</span></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Encirclement Count <span class="arithmatex">\(N\)</span></th>
+<th>Open-Loop Poles in RHP (<span class="arithmatex">\(P\)</span>)</th>
+<th>Closed-Loop Poles in RHP (<span class="arithmatex">\(Z\)</span>)</th>
+<th>Stability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>Unstable</td>
+</tr>
+<tr>
+<td>-2 (2 CCW)</td>
+<td>2</td>
+<td>0</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>+1 (1 CW)</td>
+<td>0</td>
+<td>1</td>
+<td>Unstable</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Getting the Direction Right</p>
+<p>The convention for "clockwise" uses the standard mathematical orientation: clockwise when viewed from above the complex plane (i.e., from positive imaginary). The complete Nyquist plot traverses in the direction of increasing frequency (positive <span class="arithmatex">\(\omega\)</span>) for the upper half, then the reflection for negative <span class="arithmatex">\(\omega\)</span>.</p>
+</div>
+<h4 id="diagram-nyquist-encirclement-counter">Diagram: Nyquist Encirclement Counter</h4>
+<iframe src="../../sims/nyquist-encirclement/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Nyquist Encirclement Counter</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: execute, use</p>
+<p>Learning Objective: Students will apply the Nyquist criterion by counting encirclements of the critical point and determining closed-loop stability.</p>
+<p>Canvas layout:
+- Left (60%): Nyquist plot with encirclement visualization
+- Right (40%): Criterion calculation panel</p>
+<p>Visual elements:
+Nyquist Plot:
+- Complete Nyquist curve (positive and negative frequencies)
+- Critical point at -1 prominently marked
+- Counting ray from -1 extending left
+- Crossing points marked with up/down arrows
+- Shaded region if -1 is encircled
+- Direction arrows on curve</p>
+<p>Criterion Panel:
+- Transfer function displayed
+- Number of open-loop RHP poles: P = [value]
+- Number of encirclements: N = [value]
+- Calculation: Z = N + P = [value]
+- Verdict: "STABLE" (green) or "UNSTABLE" (red)
+- Explanation of criterion application</p>
+<p>Crossing Counter:
+- Table of crossings with directions
+- Running total
+- Final N value</p>
+<p>Interactive controls:
+- Dropdown: System presets (stable, unstable open-loop, conditionally stable)
+- Slider: Gain K
+- Toggle: Show counting ray
+- Toggle: Show crossing markers
+- Button: Animate criterion check
+- Button: Step through crossings</p>
+<p>Data Visibility Requirements:
+- Show P (given from system)
+- Count and display N
+- Calculate Z = N + P
+- Highlight crossings as they're counted
+- Show final stability verdict</p>
+<p>Behavior:
+- As gain changes, Nyquist curve scales
+- Encirclement count updates
+- Stability verdict changes when N changes
+- Animation traces curve and counts crossings
+- Step mode explains each crossing</p>
+<p>Instructional Rationale: Systematic counting with visual feedback ensures students correctly apply the encirclement criterion. The step-by-step mode prevents sign errors and direction confusion.</p>
+<p>Implementation: p5.js with curve tracing and crossing detection</p>
+</details>
+<h2 id="right-half-plane-poles-and-zeros">Right-Half-Plane Poles and Zeros</h2>
+<p>The location of poles and zeros relative to the imaginary axis profoundly affects system behavior and the interpretation of frequency response.</p>
+<h3 id="right-half-plane-poles">Right-Half-Plane Poles</h3>
+<p><strong>Right-half-plane (RHP) poles</strong> in the open-loop transfer function indicate an unstable open-loop system. Examples include:</p>
+<ul>
+<li>Inverted pendulum plants</li>
+<li>Unstable aircraft</li>
+<li>Some chemical reactors</li>
+</ul>
+<p>When <span class="arithmatex">\(P &gt; 0\)</span>, the Nyquist criterion requires encirclements of <span class="arithmatex">\(-1\)</span> to achieve closed-loop stability. This creates a <strong>non-minimum phase</strong> characteristic in the loop transfer function.</p>
+<p>An RHP pole at <span class="arithmatex">\(s = p\)</span> (where <span class="arithmatex">\(p &gt; 0\)</span>) contributes phase that starts at some value and increases toward +90° as frequency increases—opposite to the phase decrease from LHP poles. This creates challenges for control design.</p>
+<h3 id="right-half-plane-zeros">Right-Half-Plane Zeros</h3>
+<p><strong>Right-half-plane zeros</strong> are even more troublesome than RHP poles. An RHP zero at <span class="arithmatex">\(s = z\)</span> (where <span class="arithmatex">\(z &gt; 0\)</span>) causes:</p>
+<ol>
+<li><strong>Initial inverse response</strong>: The step response starts in the wrong direction</li>
+<li><strong>Phase lag</strong>: At high frequencies, RHP zeros contribute negative phase (unlike LHP zeros which contribute positive phase)</li>
+<li><strong>Bandwidth limitation</strong>: Crossover frequency must stay below the RHP zero frequency for adequate phase margin</li>
+</ol>
+<h4 id="rhp-zero-phase-contribution">RHP Zero Phase Contribution</h4>
+<p><span class="arithmatex">\(\angle(j\omega - z) = -\arctan(\omega/z)\)</span> for RHP zero at <span class="arithmatex">\(s = z &gt; 0\)</span></p>
+<p>At low frequency, this approaches 0°. At high frequency, it approaches -90°. Compare to an LHP zero at <span class="arithmatex">\(s = -z\)</span>, which contributes +90° at high frequency.</p>
+<p>The phase lag from RHP zeros directly reduces phase margin. A common rule:</p>
+<div class="admonition warning">
+<p class="admonition-title">RHP Zero Bandwidth Limitation</p>
+<p>For acceptable stability margins, the crossover frequency should be less than about half the RHP zero frequency:</p>
+<p><span class="arithmatex">\(\omega_{gc} &lt; z_{RHP}/2\)</span></p>
+<p>This severely limits achievable bandwidth when RHP zeros are present.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Singularity Location</th>
+<th>Effect on Phase</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LHP pole</td>
+<td>Phase decreases</td>
+<td>Normal lag, acceptable</td>
+</tr>
+<tr>
+<td>LHP zero</td>
+<td>Phase increases</td>
+<td>Lead compensation effect</td>
+</tr>
+<tr>
+<td>RHP pole</td>
+<td>Phase increases (in <span class="arithmatex">\(L(s)\)</span>)</td>
+<td>Unstable open-loop</td>
+</tr>
+<tr>
+<td>RHP zero</td>
+<td>Phase decreases</td>
+<td>Limits bandwidth, non-minimum phase</td>
+</tr>
+</tbody>
+</table>
+<h2 id="minimum-phase-and-non-minimum-phase-systems">Minimum Phase and Non-Minimum Phase Systems</h2>
+<p>The terms <strong>minimum phase</strong> and <strong>non-minimum phase</strong> classify systems by their pole-zero locations.</p>
+<h3 id="minimum-phase-system">Minimum Phase System</h3>
+<p>A <strong>minimum phase system</strong> has all poles and zeros in the left half-plane. For such systems:</p>
+<ul>
+<li>Phase is uniquely determined by magnitude (Bode's gain-phase relationship)</li>
+<li>Phase lag is the minimum possible for the given magnitude characteristic</li>
+<li>No inverse response to step inputs</li>
+<li>Relatively easy to control</li>
+</ul>
+<p>The name comes from the fact that among all systems with the same magnitude response, the minimum phase system has the least phase lag.</p>
+<h3 id="non-minimum-phase-system">Non-Minimum Phase System</h3>
+<p>A <strong>non-minimum phase system</strong> has one or more zeros in the right half-plane. Characteristics:</p>
+<ul>
+<li>Extra phase lag beyond what magnitude alone would suggest</li>
+<li>Initial wrong-way response to step inputs (inverse response)</li>
+<li>Bandwidth limitations for stability</li>
+<li>More difficult to control</li>
+</ul>
+<p>Common causes of non-minimum phase behavior:</p>
+<ul>
+<li>Time delays (infinite RHP zeros when approximated)</li>
+<li>Certain physical configurations (steam drum level, flexible spacecraft)</li>
+<li>Parallel paths with different dynamics</li>
+</ul>
+<h3 id="all-pass-system">All-Pass System</h3>
+<p>An <strong>all-pass system</strong> has magnitude of exactly 1 at all frequencies but has phase that varies with frequency. An all-pass transfer function has RHP zeros that mirror its LHP poles:</p>
+<h4 id="all-pass-transfer-function">All-Pass Transfer Function</h4>
+<p><span class="arithmatex">\(G_{ap}(s) = \frac{s - a}{s + a}\)</span> (first-order all-pass)</p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(a &gt; 0\)</span></li>
+<li>Zero at <span class="arithmatex">\(s = +a\)</span>, pole at <span class="arithmatex">\(s = -a\)</span></li>
+</ul>
+<p>Magnitude: <span class="arithmatex">\(|G_{ap}(j\omega)| = 1\)</span> for all <span class="arithmatex">\(\omega\)</span></p>
+<p>Phase: <span class="arithmatex">\(\angle G_{ap}(j\omega) = -2\arctan(\omega/a)\)</span></p>
+<p>All-pass elements contribute phase lag without changing magnitude. They arise naturally in some physical systems and can be used to model pure time delays approximately.</p>
+<h4 id="diagram-minimum-vs-non-minimum-phase-comparison">Diagram: Minimum vs Non-Minimum Phase Comparison</h4>
+<iframe src="../../sims/phase-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Minimum vs Non-Minimum Phase Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, contrast</p>
+<p>Learning Objective: Students will compare minimum phase and non-minimum phase systems, analyzing how RHP zeros affect phase response and step response.</p>
+<p>Canvas layout:
+- Top left (30%): Bode magnitude (both systems)
+- Top right (30%): Bode phase (both systems)
+- Bottom left (30%): Step response (both systems)
+- Bottom right (10%): Controls and legend</p>
+<p>Visual elements:
+Bode Magnitude:
+- Minimum phase system curve (blue)
+- Non-minimum phase system curve (red)
+- Same magnitude (curves overlap)</p>
+<p>Bode Phase:
+- Minimum phase curve (blue)
+- Non-minimum phase curve (red)
+- Clear separation showing extra lag
+- -180° line marked</p>
+<p>Step Response:
+- Minimum phase response (blue)
+- Non-minimum phase response (red)
+- Inverse response visible in non-minimum phase
+- Steady state value marked</p>
+<p>Legend:
+- Blue: Minimum phase (LHP zero)
+- Red: Non-minimum phase (RHP zero)
+- Zero location display</p>
+<p>Interactive controls:
+- Slider: Zero location (moves from LHP to RHP)
+- Slider: DC gain
+- Slider: Pole location
+- Toggle: Show both systems
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Show transfer functions for both
+- Display zero locations
+- Show phase margin for each
+- Highlight inverse response in step plot</p>
+<p>Behavior:
+- As zero moves from LHP to RHP, phase changes
+- Magnitude remains identical
+- Step response develops inverse response for RHP zero
+- Phase margin decreases as zero moves to RHP</p>
+<p>Instructional Rationale: Direct comparison with matched magnitude reveals how RHP zeros add phase lag. The step response connection shows practical consequences of non-minimum phase behavior.</p>
+<p>Implementation: p5.js with synchronized multi-plot display</p>
+</details>
+<h2 id="conditionally-stable-systems">Conditionally Stable Systems</h2>
+<p>A <strong>conditionally stable</strong> system is one that becomes unstable if the gain is either too high OR too low. This unusual behavior occurs when the Nyquist plot encircles the critical point <span class="arithmatex">\(-1\)</span> for some gain ranges but not others.</p>
+<h3 id="how-conditional-stability-occurs">How Conditional Stability Occurs</h3>
+<p>Consider a system where the Nyquist plot crosses the negative real axis multiple times. As gain increases:</p>
+<ol>
+<li>At low gain, the curve is entirely to the right of <span class="arithmatex">\(-1\)</span>: stable</li>
+<li>At moderate gain, the curve encircles <span class="arithmatex">\(-1\)</span>: unstable</li>
+<li>At higher gain, the curve might encircle <span class="arithmatex">\(-1\)</span> twice, but in opposite directions, netting zero: stable</li>
+<li>At very high gain, the encirclements may change again</li>
+</ol>
+<p>This creates "stability windows" separated by unstable regions.</p>
+<h3 id="recognizing-conditional-stability">Recognizing Conditional Stability</h3>
+<p>From a Bode plot perspective, conditional stability occurs when:</p>
+<ul>
+<li>There are multiple phase crossings of -180°</li>
+<li>Gain margin is positive at one crossing but negative at another</li>
+<li>The system is stable only for gains within a specific range</li>
+</ul>
+<p>From the Nyquist plot:</p>
+<ul>
+<li>The curve makes multiple passes near the critical point</li>
+<li>The encirclement count changes as gain varies</li>
+<li>No single gain provides stability for all operating conditions</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Conditionally Stable Systems Are Hazardous</p>
+<p>Conditionally stable systems can fail unexpectedly. A gain reduction (perhaps from component aging or saturation effects) can push the system from stable to unstable. Never design a conditionally stable system unless absolutely necessary, and if you must, ensure robust gain limiting.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Gain Too Low</th>
+<th>Gain Just Right</th>
+<th>Gain Too High</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>Stable (overdamped)</td>
+<td>Stable (well-damped)</td>
+<td>Unstable</td>
+</tr>
+<tr>
+<td>Conditionally Stable</td>
+<td>Unstable</td>
+<td>Stable</td>
+<td>Unstable (or stable then unstable again)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-conditionally-stable-system-explorer">Diagram: Conditionally Stable System Explorer</h4>
+<iframe src="../../sims/conditional-stability/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Conditionally Stable System Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: judge, assess</p>
+<p>Learning Objective: Students will evaluate system stability across a range of gains, identifying stability windows and understanding the hazards of conditionally stable systems.</p>
+<p>Canvas layout:
+- Left (50%): Nyquist plot with gain-dependent curve
+- Right top (25%): Gain vs. stability diagram
+- Right bottom (25%): Controls and warnings</p>
+<p>Visual elements:
+Nyquist Plot:
+- Nyquist curve for current gain
+- Critical point at -1
+- Trace of how curve changes with gain (faded curves for other gains)
+- Encirclement region highlighted</p>
+<p>Stability Diagram:
+- Horizontal axis: Gain K
+- Regions colored: Green (stable), Red (unstable)
+- Current gain marked with vertical line
+- Stability boundaries labeled</p>
+<p>Warning Panel:
+- Current gain = [value]
+- Encirclements N = [value]
+- Open-loop RHP poles P = [value]
+- Stability status
+- Warning if conditionally stable</p>
+<p>Interactive controls:
+- Slider: Gain K (wide range, logarithmic)
+- Toggle: Show gain sweep animation
+- Toggle: Show stability boundaries
+- Button: Find stability margins
+- Button: Reset</p>
+<p>Data Visibility Requirements:
+- Show how encirclement count changes with gain
+- Display stability boundaries numerically
+- Show gain margin at each -180° crossing
+- Warn when operating near instability boundary</p>
+<p>Behavior:
+- As gain increases, Nyquist curve scales
+- Stability status changes at boundaries
+- Multiple stability windows visible
+- Animation sweeps through gain showing stability changes
+- Warnings flash when approaching unstable region</p>
+<p>Instructional Rationale: Seeing stability windows and understanding how they arise prevents dangerous designs. The gain sweep animation reveals the non-intuitive behavior clearly.</p>
+<p>Implementation: p5.js with gain-dependent curve scaling and stability region shading</p>
+</details>
+<h2 id="connecting-nyquist-to-bode-and-root-locus">Connecting Nyquist to Bode and Root Locus</h2>
+<p>The three major graphical analysis techniques—Bode plots, Nyquist plots, and root locus—all examine the same underlying system from different perspectives.</p>
+<h3 id="nyquist-and-bode">Nyquist and Bode</h3>
+<p>Nyquist and Bode plots contain the same information, just displayed differently:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bode Plot</th>
+<th>Nyquist Plot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Magnitude</td>
+<td>Vertical axis (dB)</td>
+<td>Distance from origin</td>
+</tr>
+<tr>
+<td>Phase</td>
+<td>Vertical axis (degrees)</td>
+<td>Angle from positive real</td>
+</tr>
+<tr>
+<td>Gain margin</td>
+<td>Distance from 0 dB at ω_pc</td>
+<td>1/(distance to -1 at crossing)</td>
+</tr>
+<tr>
+<td>Phase margin</td>
+<td>Distance from -180° at ω_gc</td>
+<td>Angle from -180° at unit circle</td>
+</tr>
+<tr>
+<td>Stability</td>
+<td>Margins both positive</td>
+<td>No encirclement of -1</td>
+</tr>
+</tbody>
+</table>
+<p>Bode plots are easier for construction and design intuition. Nyquist plots are better for applying the Nyquist criterion, especially for unstable open-loop systems.</p>
+<h3 id="nyquist-and-root-locus">Nyquist and Root Locus</h3>
+<p>Both methods analyze how poles move as gain changes:</p>
+<ul>
+<li><strong>Root locus</strong> directly shows pole locations versus gain</li>
+<li><strong>Nyquist</strong> shows whether those poles are in the RHP (via encirclements)</li>
+</ul>
+<p>For stable open-loop systems (<span class="arithmatex">\(P = 0\)</span>), the root locus shows poles migrating from open-loop poles toward zeros or infinity. The system becomes unstable when poles cross the imaginary axis—exactly when the Nyquist plot starts encircling <span class="arithmatex">\(-1\)</span>.</p>
+<p>The imaginary axis crossing on the root locus corresponds to the Nyquist plot passing through <span class="arithmatex">\(-1\)</span>. The gain at that crossing equals the reciprocal of the magnitude at the -180° phase crossing.</p>
+<h2 id="practical-nyquist-analysis">Practical Nyquist Analysis</h2>
+<p>Here's a systematic approach to using the Nyquist criterion:</p>
+<h3 id="step-by-step-procedure">Step-by-Step Procedure</h3>
+<ol>
+<li>
+<p><strong>Identify open-loop poles</strong>: Count <span class="arithmatex">\(P\)</span>, the number in the RHP</p>
+</li>
+<li>
+<p><strong>Sketch or plot the Nyquist diagram</strong>:</p>
+</li>
+<li>Evaluate <span class="arithmatex">\(L(j\omega)\)</span> for <span class="arithmatex">\(\omega\)</span> from 0 to <span class="arithmatex">\(\infty\)</span></li>
+<li>Reflect about the real axis for negative frequencies</li>
+<li>
+<p>Handle imaginary axis poles with indentation arcs</p>
+</li>
+<li>
+<p><strong>Count encirclements of -1</strong>:</p>
+</li>
+<li>Draw a ray from <span class="arithmatex">\(-1\)</span> to infinity</li>
+<li>
+<p>Count signed crossings to get <span class="arithmatex">\(N\)</span></p>
+</li>
+<li>
+<p><strong>Apply the criterion</strong>: <span class="arithmatex">\(Z = N + P\)</span></p>
+</li>
+<li>If <span class="arithmatex">\(Z = 0\)</span>: stable</li>
+<li>
+<p>If <span class="arithmatex">\(Z &gt; 0\)</span>: unstable with <span class="arithmatex">\(Z\)</span> RHP poles</p>
+</li>
+<li>
+<p><strong>Measure stability margins</strong>:</p>
+</li>
+<li>Gain margin from negative real axis crossing</li>
+<li>Phase margin from unit circle crossing</li>
+</ol>
+<h3 id="example-second-order-system-with-integrator">Example: Second-Order System with Integrator</h3>
+<p>Consider:</p>
+<p><span class="arithmatex">\(L(s) = \frac{K}{s(s+1)(s+2)}\)</span></p>
+<p><strong>Step 1</strong>: Open-loop poles at <span class="arithmatex">\(s = 0, -1, -2\)</span>. All in LHP or on imaginary axis, so <span class="arithmatex">\(P = 0\)</span>.</p>
+<p><strong>Step 2</strong>: Evaluate at key frequencies:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\omega\)</span></th>
+<th><span class="arithmatex">\(L(j\omega)\)</span></th>
+<th>Magnitude</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><span class="arithmatex">\(\to \infty\)</span></td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td>-90°</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td><span class="arithmatex">\(\frac{K}{j0.5(1.12\angle 26.6°)(2.06\angle 14°)}\)</span></td>
+<td>Large</td>
+<td>≈ -130°</td>
+</tr>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(\frac{K}{j(1.41\angle 45°)(2.24\angle 26.6°)}\)</span></td>
+<td><span class="arithmatex">\(\frac{K}{3.16}\)</span></td>
+<td>-162°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sqrt{2}\)</span></td>
+<td></td>
+<td></td>
+<td>-180°</td>
+</tr>
+<tr>
+<td>10</td>
+<td><span class="arithmatex">\(\frac{K}{j10 \cdot 10.05 \cdot 10.2}\)</span></td>
+<td><span class="arithmatex">\(\frac{K}{1025}\)</span></td>
+<td>-262°</td>
+</tr>
+</tbody>
+</table>
+<p>The curve starts at <span class="arithmatex">\(-90°\)</span> (pointing down from infinity along negative imaginary axis), spirals toward the origin, crossing the negative real axis somewhere.</p>
+<p><strong>Step 3</strong>: For <span class="arithmatex">\(K\)</span> small, no encirclement. As <span class="arithmatex">\(K\)</span> increases, the curve expands, eventually encircling <span class="arithmatex">\(-1\)</span>.</p>
+<p><strong>Step 4</strong>: For stability: <span class="arithmatex">\(N = 0\)</span> required (since <span class="arithmatex">\(P = 0\)</span>).</p>
+<p><strong>Step 5</strong>: The phase crosses -180° at <span class="arithmatex">\(\omega = \sqrt{2}\)</span> rad/s. At that frequency:</p>
+<p><span class="arithmatex">\(|L(j\sqrt{2})| = \frac{K}{\sqrt{2} \cdot \sqrt{3} \cdot \sqrt{6}} = \frac{K}{6}\)</span></p>
+<p>For <span class="arithmatex">\(|L| &lt; 1\)</span> at -180° phase (stable), need <span class="arithmatex">\(K &lt; 6\)</span>.</p>
+<p>Gain margin at <span class="arithmatex">\(K = 1\)</span>: <span class="arithmatex">\(GM = 1/(1/6) = 6\)</span> or about 15.6 dB.</p>
+<h2 id="summary-the-nyquist-toolkit">Summary: The Nyquist Toolkit</h2>
+<p>You now have a complete set of tools for frequency-domain stability analysis:</p>
+<p><strong>Stability Margins</strong>:</p>
+<ul>
+<li><strong>Gain margin</strong>: How much gain increase before instability (measured at phase crossover)</li>
+<li><strong>Phase margin</strong>: How much phase lag before instability (measured at gain crossover)</li>
+<li>Target: GM &gt; 6 dB, PM &gt; 30° minimum; GM &gt; 10 dB, PM &gt; 45° preferred</li>
+</ul>
+<p><strong>Nyquist Plot</strong>:</p>
+<ul>
+<li>Polar plot of <span class="arithmatex">\(L(j\omega)\)</span> in the complex plane</li>
+<li>Critical point at <span class="arithmatex">\(-1 + j0\)</span></li>
+<li>Shows how far from instability the system operates</li>
+</ul>
+<p><strong>Nyquist Criterion</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(Z = N + P\)</span> where <span class="arithmatex">\(Z\)</span> = closed-loop RHP poles, <span class="arithmatex">\(N\)</span> = clockwise encirclements, <span class="arithmatex">\(P\)</span> = open-loop RHP poles</li>
+<li>For stability: <span class="arithmatex">\(Z = 0\)</span></li>
+<li>For stable open-loop (<span class="arithmatex">\(P = 0\)</span>): need <span class="arithmatex">\(N = 0\)</span> (no encirclement)</li>
+<li>For unstable open-loop (<span class="arithmatex">\(P &gt; 0\)</span>): need <span class="arithmatex">\(N = -P\)</span> (counterclockwise encirclements)</li>
+</ul>
+<p><strong>System Classifications</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Characteristics</th>
+<th>Control Challenge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum phase</td>
+<td>All poles/zeros in LHP</td>
+<td>Standard techniques work</td>
+</tr>
+<tr>
+<td>Non-minimum phase</td>
+<td>RHP zeros</td>
+<td>Bandwidth limited, inverse response</td>
+</tr>
+<tr>
+<td>Unstable open-loop</td>
+<td>RHP poles</td>
+<td>Must stabilize first</td>
+</tr>
+<tr>
+<td>Conditionally stable</td>
+<td>Multiple stability regions</td>
+<td>Avoid if possible</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connecting-to-whats-next">Connecting to What's Next</h2>
+<p>With the Nyquist criterion and stability margins, you can now assess robustness of any control design. In Chapter 14, we'll examine steady-state error—how accurately the system tracks commands and rejects disturbances in the long run. You'll learn about system type, position/velocity/acceleration error constants, and how these connect to the low-frequency behavior visible in Bode plots.</p>
+<p>The frequency-domain tools you've developed—Bode plots, Nyquist plots, and stability margins—form the foundation for controller design in Chapters 15 and 16, where you'll synthesize compensators to achieve desired performance.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"You've learned to measure how close I am to losing control. My phase margin tells you how much wobble I can tolerate before it grows unbounded. My gain margin tells you how much my sensors could drift before I oscillate. The Nyquist plot is like a map of my stability—the critical point at -1 is the cliff edge, and as long as my curve doesn't wrap around it, I stay upright. Now you can not only keep me balanced but also guarantee I'll stay that way even when things don't go perfectly."</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter has equipped you to assess stability and robustness using frequency-domain methods:</p>
+<ul>
+<li>
+<p><strong>Stability margins</strong> (gain margin and phase margin) quantify how far a system is from instability. Larger margins mean more robustness.</p>
+</li>
+<li>
+<p><strong>Gain margin</strong> is measured at the phase crossover frequency where phase = -180°. It's the factor by which gain can increase before instability.</p>
+</li>
+<li>
+<p><strong>Phase margin</strong> is measured at the gain crossover frequency where magnitude = 0 dB. It's the additional phase lag that would cause instability.</p>
+</li>
+<li>
+<p>The <strong>crossover frequency</strong> (<span class="arithmatex">\(\omega_{gc}\)</span>) approximately equals the closed-loop bandwidth and represents the control system's speed of response.</p>
+</li>
+<li>
+<p>The <strong>Nyquist plot</strong> displays <span class="arithmatex">\(L(j\omega)\)</span> in the complex plane. The <strong>critical point</strong> <span class="arithmatex">\(-1 + j0\)</span> is key to stability determination.</p>
+</li>
+<li>
+<p>The <strong>Nyquist criterion</strong> states <span class="arithmatex">\(Z = N + P\)</span>: closed-loop RHP poles = encirclements + open-loop RHP poles.</p>
+</li>
+<li>
+<p><strong>Minimum phase systems</strong> have all poles and zeros in the LHP. <strong>Non-minimum phase systems</strong> have RHP zeros, which add phase lag and limit bandwidth.</p>
+</li>
+<li>
+<p><strong>Conditionally stable systems</strong> are stable only for gains within specific ranges—a hazardous condition to avoid.</p>
+</li>
+<li>
+<p>Stability margins are visible on both Bode plots (as distances to 0 dB and -180°) and Nyquist plots (as distances and angles to the critical point).</p>
+</li>
+</ul>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, try these without peeking:</p>
+<ol>
+<li>
+<p>A Bode plot shows magnitude of -8 dB where the phase crosses -180°. What is the gain margin?</p>
+</li>
+<li>
+<p>If the phase is -150° where the magnitude crosses 0 dB, what is the phase margin?</p>
+</li>
+<li>
+<p>A system has 2 open-loop poles in the RHP and the Nyquist plot makes 2 counterclockwise encirclements of -1. Is the closed-loop stable?</p>
+</li>
+<li>
+<p>Why does an RHP zero limit the achievable bandwidth?</p>
+</li>
+<li>
+<p>A system has gain margin at two different frequencies: +6 dB at one and -4 dB at another. What does this indicate?</p>
+</li>
+</ol>
+<p>Answers: (1) GM = 8 dB (positive, stable with margin). (2) PM = 180° - 150° = 30°. (3) Yes: <span class="arithmatex">\(N = -2\)</span>, <span class="arithmatex">\(P = 2\)</span>, so <span class="arithmatex">\(Z = -2 + 2 = 0\)</span> closed-loop RHP poles. (4) RHP zeros contribute phase lag at high frequencies, reducing phase margin if crossover is pushed too high. (5) Conditionally stable system—stable only for a limited gain range.</p>
+</details>
 
 
 
 
 
 
+
+  
+  
 
 
 

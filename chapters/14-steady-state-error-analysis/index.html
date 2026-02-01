@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Understanding how control systems track reference inputs after transients settle, including error constants, system type classification, and disturbance rejection">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>14. Steady-State Error Analysis - Control Systems</title>
+        <title>Steady-State Error Analysis - Control Systems</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14. Steady-State Error Analysis
+              Steady-State Error Analysis
             
           </span>
         </div>
@@ -765,6 +765,381 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-long-term-view-when-the-dust-settles" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Long-Term View: When the Dust Settles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-steady-state-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Steady-State Error?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steady-State Accuracy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unity-feedback-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Unity Feedback Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Unity Feedback Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-unity-feedback-system-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Unity Feedback System Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-final-value-theorem-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Final Value Theorem Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-test-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Test Inputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-type-counting-integrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Type: Counting Integrators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Type: Counting Integrators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-system-type-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: System Type Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-constants-the-tracking-currency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Constants: The Tracking Currency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Constants: The Tracking Currency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-error-constant-k_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position Error Constant \(K_p\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocity-error-constant-k_v" class="md-nav__link">
+    <span class="md-ellipsis">
+      Velocity Error Constant \(K_v\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceleration-error-constant-k_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceleration Error Constant \(K_a\)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceleration Error Constant \(K_a\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-error-constants-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Error Constants Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-master-table-system-type-vs-input-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Master Table: System Type vs. Input Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Coefficients
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-0-systems-the-proportional-controller-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 0 Systems: The Proportional Controller Case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type 0 Systems: The Proportional Controller Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-type-0-system-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Type 0 System Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-1-systems-adding-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 1 Systems: Adding Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-2-systems-double-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 2 Systems: Double Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-steady-state-error-worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating Steady-State Error: Worked Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calculating Steady-State Error: Worked Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-type-1-system-with-step-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Type 1 System with Step Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-type-1-system-with-ramp-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Type 1 System with Ramp Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-type-0-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Type 0 System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example 3: Type 0 System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-steady-state-error-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Steady-State Error Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disturbance-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disturbance Error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-disturbance-rejection-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Disturbance Rejection Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improving-steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improving Steady-State Accuracy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Improving Steady-State Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-1-increase-loop-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 1: Increase Loop Gain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-2-add-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 2: Add Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-3-feedforward-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 3: Feedforward Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Unity Feedback Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-error-to-performance-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Error to Performance Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Error to Performance Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-design-trade-offs-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Design Trade-offs Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1188,6 +1563,381 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-long-term-view-when-the-dust-settles" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Long-Term View: When the Dust Settles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-steady-state-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Steady-State Error?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steady-State Accuracy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unity-feedback-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Unity Feedback Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Unity Feedback Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-unity-feedback-system-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Unity Feedback System Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-final-value-theorem-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Final Value Theorem Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-test-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Test Inputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-type-counting-integrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Type: Counting Integrators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Type: Counting Integrators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-system-type-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: System Type Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-constants-the-tracking-currency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Constants: The Tracking Currency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Constants: The Tracking Currency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-error-constant-k_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position Error Constant \(K_p\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocity-error-constant-k_v" class="md-nav__link">
+    <span class="md-ellipsis">
+      Velocity Error Constant \(K_v\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceleration-error-constant-k_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceleration Error Constant \(K_a\)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceleration Error Constant \(K_a\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-error-constants-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Error Constants Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-master-table-system-type-vs-input-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Master Table: System Type vs. Input Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Coefficients
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-0-systems-the-proportional-controller-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 0 Systems: The Proportional Controller Case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type 0 Systems: The Proportional Controller Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-type-0-system-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Type 0 System Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-1-systems-adding-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 1 Systems: Adding Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-2-systems-double-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type 2 Systems: Double Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-steady-state-error-worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating Steady-State Error: Worked Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calculating Steady-State Error: Worked Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-type-1-system-with-step-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Type 1 System with Step Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-type-1-system-with-ramp-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Type 1 System with Ramp Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-type-0-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Type 0 System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example 3: Type 0 System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-steady-state-error-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Steady-State Error Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disturbance-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disturbance Error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-disturbance-rejection-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Disturbance Rejection Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improving-steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improving Steady-State Accuracy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Improving Steady-State Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-1-increase-loop-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 1: Increase Loop Gain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-2-add-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 2: Add Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-3-feedforward-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy 3: Feedforward Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-unity-feedback-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Unity Feedback Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-error-to-performance-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Error to Performance Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Error to Performance Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-design-trade-offs-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Design Trade-offs Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1217,7 +1967,7 @@
 <li>Error Constants</li>
 <li>Position Error Constant</li>
 <li>Velocity Error Constant</li>
-<li>Acceleration Error Const</li>
+<li>Acceleration Error Constant</li>
 <li>System Type</li>
 <li>Type 0 System</li>
 <li>Type 1 System</li>
@@ -1235,13 +1985,880 @@
 <li><a href="../09-block-diagrams-signal-flow/">Chapter 9: Block Diagrams and Signal Flow</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="the-long-term-view-when-the-dust-settles">The Long-Term View: When the Dust Settles</h2>
+<p>We've spent considerable effort understanding transient behavior—the drama of overshoot, oscillation, and settling that occurs when a system responds to a change. But here's the thing: transients are temporary by definition. What really matters for many applications is what happens <em>after</em> all that excitement dies down. Does the output actually reach the desired value? Or does it stubbornly stop short?</p>
+<p>This is the domain of <strong>steady-state error analysis</strong>—figuring out how accurately a control system tracks its reference input once all transient behavior has disappeared. It's the difference between a thermostat that eventually settles at 72°F (zero error) and one that insists on stopping at 71°F no matter what you do (persistent error). That one-degree gap might not sound like much, but in precision manufacturing, robotic surgery, or satellite pointing, even tiny steady-state errors can be catastrophic.</p>
+<p>The good news? Steady-state error isn't mysterious or unpredictable. It depends on just a few structural properties of the system—properties we can identify by inspection and design around systematically. By the end of this chapter, you'll be able to look at a control system block diagram and predict its steady-state accuracy for different types of inputs. That's a powerful design tool.</p>
+<h2 id="what-is-steady-state-error">What Is Steady-State Error?</h2>
+<p>The <strong>steady-state error</strong> <span class="arithmatex">\(e_{ss}\)</span> is the difference between the reference input and the actual output as time approaches infinity, after all transient components have decayed:</p>
+<div class="arithmatex">\[e_{ss} = \lim_{t \to \infty} e(t) = \lim_{t \to \infty} [r(t) - y(t)]\]</div>
+<p>For a stable system, this limit exists and is finite. If the system is unstable, talking about steady-state error is meaningless—the output is diverging, not settling.</p>
+<p>Here's the conceptual picture: you command the system to do something (the reference input <span class="arithmatex">\(r(t)\)</span>), and the system tries to follow. The error signal <span class="arithmatex">\(e(t)\)</span> is the instantaneous gap between what you wanted and what you got. During transients, this error bounces around as the system adjusts. Eventually, for stable systems, the error settles to some constant value—and that's the steady-state error.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Steady-State Error</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(e_{ss} = 0\)</span></td>
+<td>Perfect tracking</td>
+<td>System reaches exact desired value</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e_{ss} &gt; 0\)</span></td>
+<td>Positive error</td>
+<td>Output falls short of reference</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e_{ss} &lt; 0\)</span></td>
+<td>Negative error</td>
+<td>Output overshoots reference</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Sign Convention</p>
+<p>The definition <span class="arithmatex">\(e(t) = r(t) - y(t)\)</span> means positive error indicates the output is <em>below</em> the reference. Some textbooks define error as <span class="arithmatex">\(y(t) - r(t)\)</span>, which flips the sign. Always check the convention being used, especially when reading data sheets or papers.</p>
+</div>
+<h2 id="steady-state-accuracy">Steady-State Accuracy</h2>
+<p>While steady-state error is the absolute difference, <strong>steady-state accuracy</strong> refers to how close the system gets to perfect tracking—it's the complement of error. A system with zero steady-state error has perfect steady-state accuracy. A system with 5% steady-state error has 95% steady-state accuracy.</p>
+<p>Accuracy requirements vary dramatically by application:</p>
+<ul>
+<li><strong>Home HVAC</strong>: ±2°F is typically acceptable</li>
+<li><strong>Industrial process control</strong>: ±0.1% often required</li>
+<li><strong>Telescope tracking</strong>: Sub-arcsecond accuracy needed</li>
+<li><strong>Inertial navigation</strong>: Parts per million over extended time</li>
+</ul>
+<p>The key insight is that steady-state accuracy is a design specification—you decide how accurate you need to be, then design a controller that achieves it. This chapter gives you the tools to do exactly that.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"When I'm standing still—or at least trying to—the steady-state error is whether I'm truly vertical or leaning slightly to one side. Even after all my oscillations die down, if I'm consistently tilted forward by 0.5 degrees, that's my steady-state error. My engineers might accept a tiny lean, or they might add more integral action to eliminate it completely. Either way, they need to <em>know</em> what the error will be before they deploy me."</p>
+</div>
+<h2 id="the-unity-feedback-configuration">The Unity Feedback Configuration</h2>
+<p>To analyze steady-state error systematically, we need a standard framework. The most common configuration is the <strong>unity feedback</strong> system:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>     r(t)      e(t)         y(t)
+      ○────&gt;───○────&gt;[ G(s) ]────&gt;───┬───&gt;
+              -↑                      │
+               └──────────────────────┘
+</code></pre></div></td></tr></table></div>
+<p>In this configuration:</p>
+<ul>
+<li><span class="arithmatex">\(r(t)\)</span> is the reference input</li>
+<li><span class="arithmatex">\(e(t) = r(t) - y(t)\)</span> is the error signal</li>
+<li><span class="arithmatex">\(G(s)\)</span> is the open-loop transfer function (controller + plant combined)</li>
+<li><span class="arithmatex">\(y(t)\)</span> is the output, which is fed back directly (hence "unity" feedback)</li>
+</ul>
+<p>The closed-loop transfer function is:</p>
+<div class="arithmatex">\[T(s) = \frac{G(s)}{1 + G(s)}\]</div>
+<p>And the error transfer function is:</p>
+<div class="arithmatex">\[\frac{E(s)}{R(s)} = \frac{1}{1 + G(s)}\]</div>
+<p>This relationship is the key to our analysis. The steady-state error depends on both the input <span class="arithmatex">\(R(s)\)</span> and the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>.</p>
+<h4 id="diagram-unity-feedback-system-structure">Diagram: Unity Feedback System Structure</h4>
+<iframe src="../../sims/unity-feedback-structure/main.html" width="100%" height="400px" scrolling="no"></iframe>
+
+<details>
+<summary>Unity Feedback System Structure</summary>
+<p>Type: infographic</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain the relationship between reference, error, and output signals in a unity feedback configuration.</p>
+<p>Layout: Animated block diagram showing signal flow</p>
+<p>Visual elements:
+- Reference input r(t) entering from left (green arrow/signal)
+- Summing junction with + and - labels
+- Error signal e(t) (red arrow) from summing junction to G(s) block
+- G(s) block (blue rectangle) labeled "Open-Loop TF"
+- Output y(t) (blue arrow) exiting right and feeding back
+- Feedback path (dashed line) returning to summing junction
+- Signal values displayed at each point</p>
+<p>Interactive elements:
+- Slider for reference input amplitude
+- Display showing r(t), e(t), and y(t) values in real-time
+- Hover over each element for description
+- Toggle: Show transfer function equations</p>
+<p>Data Visibility Requirements:
+- Show numerical values of all signals
+- Display <span class="arithmatex">\(T(s) = G(s)/(1+G(s))\)</span> formula
+- Display <span class="arithmatex">\(E(s)/R(s) = 1/(1+G(s))\)</span> formula
+- Animate signal flow with moving dots</p>
+<p>Instructional Rationale: Visual representation of signal flow with real-time values helps students understand how error emerges from the feedback structure.</p>
+<p>Implementation: p5.js with canvas-based controls and animation</p>
+</details>
+<h2 id="the-final-value-theorem-approach">The Final Value Theorem Approach</h2>
+<p>The workhorse for steady-state error calculations is the <strong>Final Value Theorem</strong> from Laplace transform theory:</p>
+<div class="arithmatex">\[\lim_{t \to \infty} f(t) = \lim_{s \to 0} sF(s)\]</div>
+<p>This theorem is valid only when <span class="arithmatex">\(f(t)\)</span> has a finite limit as <span class="arithmatex">\(t \to \infty\)</span>—meaning the system must be stable and the input must allow a steady state to exist.</p>
+<p>For our unity feedback system:</p>
+<div class="arithmatex">\[e_{ss} = \lim_{t \to \infty} e(t) = \lim_{s \to 0} sE(s) = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G(s)}\]</div>
+<p>This elegant formula shows that steady-state error depends on two things:</p>
+<ol>
+<li><strong>The input</strong> <span class="arithmatex">\(R(s)\)</span>—what are we asking the system to track?</li>
+<li><strong>The open-loop transfer function</strong> <span class="arithmatex">\(G(s)\)</span>—what resources does the system have to track it?</li>
+</ol>
+<p>The interplay between these factors determines whether the steady-state error is zero, finite, or infinite.</p>
+<div class="admonition warning">
+<p class="admonition-title">Validity Check</p>
+<p>Before applying the Final Value Theorem, verify that all poles of <span class="arithmatex">\(sE(s)\)</span> are in the left half-plane (except possibly a simple pole at the origin). If the closed-loop system is unstable, the FVT gives meaningless results.</p>
+</div>
+<h2 id="standard-test-inputs">Standard Test Inputs</h2>
+<p>We analyze steady-state error for three canonical input types, each representing a class of real-world tracking demands:</p>
+<table>
+<thead>
+<tr>
+<th>Input Type</th>
+<th>Time Domain</th>
+<th>Laplace Transform</th>
+<th>Physical Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step</td>
+<td><span class="arithmatex">\(r(t) = R_0\)</span></td>
+<td><span class="arithmatex">\(R(s) = R_0/s\)</span></td>
+<td>Set-point change, position command</td>
+</tr>
+<tr>
+<td>Ramp</td>
+<td><span class="arithmatex">\(r(t) = R_0 t\)</span></td>
+<td><span class="arithmatex">\(R(s) = R_0/s^2\)</span></td>
+<td>Constant velocity, linear increase</td>
+</tr>
+<tr>
+<td>Parabolic</td>
+<td><span class="arithmatex">\(r(t) = R_0 t^2/2\)</span></td>
+<td><span class="arithmatex">\(R(s) = R_0/s^3\)</span></td>
+<td>Constant acceleration</td>
+</tr>
+</tbody>
+</table>
+<p>The step input asks: "Can you reach and hold a new position?" The ramp asks: "Can you track a moving target?" The parabolic asks: "Can you track an accelerating target?" Each successive input type is more demanding, requiring more from the control system.</p>
+<div class="admonition example">
+<p class="admonition-title">Real-World Examples</p>
+<ul>
+<li><strong>Step input</strong>: Setting a thermostat to a new temperature, commanding a robotic arm to a position</li>
+<li><strong>Ramp input</strong>: A radar antenna tracking a satellite moving at constant angular velocity</li>
+<li><strong>Parabolic input</strong>: Tracking a rocket during powered ascent (constant acceleration)</li>
+</ul>
+</div>
+<h2 id="system-type-counting-integrators">System Type: Counting Integrators</h2>
+<p>Here's where the magic happens. The <strong>system type</strong> is defined as the number of poles at the origin in the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>. This is equivalent to the number of integrators in the forward path.</p>
+<p>A general open-loop transfer function can be written as:</p>
+<div class="arithmatex">\[G(s) = \frac{K(s + z_1)(s + z_2)\cdots(s + z_m)}{s^n(s + p_1)(s + p_2)\cdots(s + p_q)}\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is the open-loop gain (also called the Bode gain)</li>
+<li><span class="arithmatex">\(n\)</span> is the <strong>system type</strong> (number of integrators, or poles at origin)</li>
+<li>The <span class="arithmatex">\(z_i\)</span> are the finite zeros</li>
+<li>The <span class="arithmatex">\(p_i\)</span> are the finite poles</li>
+</ul>
+<p>The system type <span class="arithmatex">\(n\)</span> has profound implications for steady-state accuracy:</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Poles at Origin</th>
+<th>Physical Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type 0</td>
+<td>None</td>
+<td>No integrators in loop</td>
+</tr>
+<tr>
+<td>Type 1</td>
+<td>One (<span class="arithmatex">\(1/s\)</span>)</td>
+<td>One integrator in loop</td>
+</tr>
+<tr>
+<td>Type 2</td>
+<td>Two (<span class="arithmatex">\(1/s^2\)</span>)</td>
+<td>Two integrators in loop</td>
+</tr>
+<tr>
+<td>Type N</td>
+<td><span class="arithmatex">\(N\)</span> (<span class="arithmatex">\(1/s^n\)</span>)</td>
+<td><span class="arithmatex">\(N\)</span> integrators in loop</td>
+</tr>
+</tbody>
+</table>
+<p>Why does this matter? Integrators accumulate error over time. As long as any error exists, the integrator's output keeps growing, driving the system toward zero error. More integrators mean more "error-correcting muscle"—but also more phase lag and potential stability issues.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"Think about what an integrator does for me. If I'm leaning forward, a proportional controller just pushes back proportionally—but it needs some lean to know <em>how much</em> to push. An integrator, though, keeps track of <em>how long</em> I've been leaning. Even a tiny persistent tilt accumulates into a strong corrective action over time. One integrator can eliminate steady-state error to a step. Two integrators can track a ramp. But too many integrators, and I start feeling sluggish—the cure becomes worse than the disease."</p>
+</div>
+<h4 id="diagram-system-type-classification">Diagram: System Type Classification</h4>
+<iframe src="../../sims/system-type-classification/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>System Type Classification</summary>
+<p>Type: infographic</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: classify, identify</p>
+<p>Learning Objective: Students will classify control systems by type based on the number of integrators in the open-loop transfer function.</p>
+<p>Layout: Three columns showing Type 0, Type 1, and Type 2 systems</p>
+<p>Column 1 - Type 0:
+- Block diagram with no integrators
+- Example: <span class="arithmatex">\(G(s) = K/(s+a)\)</span>
+- Pole-zero plot showing no poles at origin
+- Label: "No integrators"</p>
+<p>Column 2 - Type 1:
+- Block diagram with one integrator block
+- Example: <span class="arithmatex">\(G(s) = K/[s(s+a)]\)</span>
+- Pole-zero plot showing one pole at origin
+- Label: "One integrator"</p>
+<p>Column 3 - Type 2:
+- Block diagram with two integrator blocks
+- Example: <span class="arithmatex">\(G(s) = K/[s^2(s+a)]\)</span>
+- Pole-zero plot showing two poles at origin
+- Label: "Two integrators"</p>
+<p>Interactive elements:
+- Hover over each column to see step response characteristics
+- Click to reveal steady-state error predictions for step, ramp, parabolic inputs
+- Toggle between block diagram and transfer function views</p>
+<p>Visual style: Clean engineering diagrams, color-coded (orange for Type 0, blue for Type 1, green for Type 2)</p>
+<p>Instructional Rationale: Visual classification with examples builds recognition skills for quickly identifying system type from transfer functions or block diagrams.</p>
+<p>Implementation: HTML/CSS/JavaScript with interactive reveals</p>
+</details>
+<h2 id="error-constants-the-tracking-currency">Error Constants: The Tracking Currency</h2>
+<p>To quantify steady-state error, we define three <strong>error constants</strong> that characterize the system's tracking capability. These constants are determined solely by the open-loop transfer function <span class="arithmatex">\(G(s)\)</span>.</p>
+<h3 id="position-error-constant-k_p">Position Error Constant <span class="arithmatex">\(K_p\)</span></h3>
+<p>The <strong>position error constant</strong> measures the system's ability to track a step input:</p>
+<div class="arithmatex">\[K_p = \lim_{s \to 0} G(s)\]</div>
+<p>For a step input <span class="arithmatex">\(R(s) = R_0/s\)</span>, the steady-state error is:</p>
+<div class="arithmatex">\[e_{ss} = \frac{R_0}{1 + K_p}\]</div>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th><span class="arithmatex">\(K_p\)</span> Value</th>
+<th>Steady-State Error to Step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type 0</td>
+<td>Finite (<span class="arithmatex">\(K_p\)</span>)</td>
+<td><span class="arithmatex">\(R_0/(1 + K_p)\)</span> — finite error</td>
+</tr>
+<tr>
+<td>Type 1</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td><span class="arithmatex">\(0\)</span> — zero error</td>
+</tr>
+<tr>
+<td>Type 2</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td><span class="arithmatex">\(0\)</span> — zero error</td>
+</tr>
+</tbody>
+</table>
+<p>A Type 0 system can <em>never</em> have zero steady-state error to a step—it will always stop short of the target by an amount that depends on the gain <span class="arithmatex">\(K_p\)</span>. The only way to eliminate this error is to add an integrator to the loop.</p>
+<h3 id="velocity-error-constant-k_v">Velocity Error Constant <span class="arithmatex">\(K_v\)</span></h3>
+<p>The <strong>velocity error constant</strong> measures the system's ability to track a ramp input:</p>
+<div class="arithmatex">\[K_v = \lim_{s \to 0} sG(s)\]</div>
+<p>For a ramp input <span class="arithmatex">\(R(s) = R_0/s^2\)</span>, the steady-state error is:</p>
+<div class="arithmatex">\[e_{ss} = \frac{R_0}{K_v}\]</div>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th><span class="arithmatex">\(K_v\)</span> Value</th>
+<th>Steady-State Error to Ramp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type 0</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+</tr>
+<tr>
+<td>Type 1</td>
+<td>Finite (<span class="arithmatex">\(K_v\)</span>)</td>
+<td><span class="arithmatex">\(R_0/K_v\)</span> — finite error</td>
+</tr>
+<tr>
+<td>Type 2</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td><span class="arithmatex">\(0\)</span> — zero error</td>
+</tr>
+</tbody>
+</table>
+<p>The name "velocity" error constant makes sense: a ramp input represents constant velocity motion, and <span class="arithmatex">\(K_v\)</span> tells us how well the system can follow. A Type 0 system cannot track a ramp at all—the error grows without bound. A Type 1 system tracks with a finite lag. Only Type 2 or higher can track a ramp perfectly.</p>
+<h3 id="acceleration-error-constant-k_a">Acceleration Error Constant <span class="arithmatex">\(K_a\)</span></h3>
+<p>The <strong>acceleration error constant</strong> measures the system's ability to track a parabolic input:</p>
+<div class="arithmatex">\[K_a = \lim_{s \to 0} s^2G(s)\]</div>
+<p>For a parabolic input <span class="arithmatex">\(R(s) = R_0/s^3\)</span>, the steady-state error is:</p>
+<div class="arithmatex">\[e_{ss} = \frac{R_0}{K_a}\]</div>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th><span class="arithmatex">\(K_a\)</span> Value</th>
+<th>Steady-State Error to Parabolic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type 0</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+</tr>
+<tr>
+<td>Type 1</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\infty\)</span> — cannot track</td>
+</tr>
+<tr>
+<td>Type 2</td>
+<td>Finite (<span class="arithmatex">\(K_a\)</span>)</td>
+<td><span class="arithmatex">\(R_0/K_a\)</span> — finite error</td>
+</tr>
+</tbody>
+</table>
+<p>Only Type 2 systems (or higher) can track parabolic inputs with finite error. Type 3 would be needed for zero error to a parabolic—but Type 3 systems are rare in practice due to stability challenges.</p>
+<h4 id="diagram-error-constants-calculator">Diagram: Error Constants Calculator</h4>
+<iframe src="../../sims/error-constants-calculator/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Error Constants Calculator</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, use</p>
+<p>Learning Objective: Students will calculate error constants (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) from a given transfer function and determine steady-state errors for different input types.</p>
+<p>Canvas layout:
+- Top (30%): Transfer function input and display
+- Middle (40%): Error constants calculation with step-by-step work
+- Bottom (30%): Results table and input selector</p>
+<p>Visual elements:
+- Transfer function input field with numerator and denominator coefficient entry
+- Parsed transfer function displayed in standard form
+- Limit calculations shown step-by-step:
+  - <span class="arithmatex">\(K_p = \lim_{s \to 0} G(s) = ?\)</span>
+  - <span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s) = ?\)</span>
+  - <span class="arithmatex">\(K_a = \lim_{s \to 0} s^2G(s) = ?\)</span>
+- Results displayed in formatted table</p>
+<p>Interactive controls:
+- Text inputs for transfer function coefficients
+- Dropdown: Select preset examples (Type 0, 1, 2 systems)
+- Slider: Input amplitude <span class="arithmatex">\(R_0\)</span>
+- Dropdown: Input type (step, ramp, parabolic)
+- Button: Calculate
+- Button: Show work / Hide work toggle</p>
+<p>Data Visibility Requirements:
+- Display system type (detected from G(s))
+- Show each limit calculation with substitution
+- Display error constant values: <span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>
+- Show steady-state error formula and result
+- Indicate whether error is zero, finite, or infinite</p>
+<p>Behavior:
+- Parse coefficients and construct G(s)
+- Identify system type from poles at origin
+- Compute limits symbolically where possible
+- Display step-by-step calculation
+- Update error prediction when input type changes</p>
+<p>Instructional Rationale: Active calculation with visible work helps students understand the limit-taking process and builds procedural fluency for exam problems.</p>
+<p>Implementation: p5.js with canvas-based text display and input parsing</p>
+</details>
+<h2 id="the-master-table-system-type-vs-input-type">The Master Table: System Type vs. Input Type</h2>
+<p>This table is worth memorizing—it summarizes everything about steady-state error for unity feedback systems:</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Step (<span class="arithmatex">\(1/s\)</span>)</th>
+<th>Ramp (<span class="arithmatex">\(1/s^2\)</span>)</th>
+<th>Parabolic (<span class="arithmatex">\(1/s^3\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type 0</strong></td>
+<td><span class="arithmatex">\(\frac{R_0}{1+K_p}\)</span> (finite)</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+</tr>
+<tr>
+<td><strong>Type 1</strong></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\frac{R_0}{K_v}\)</span> (finite)</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+</tr>
+<tr>
+<td><strong>Type 2</strong></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\frac{R_0}{K_a}\)</span> (finite)</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is elegant:</p>
+<ul>
+<li>A Type <span class="arithmatex">\(n\)</span> system has zero steady-state error to inputs up to order <span class="arithmatex">\(n\)</span></li>
+<li>It has finite error to inputs of order <span class="arithmatex">\(n+1\)</span></li>
+<li>It has infinite error (cannot track) for inputs of order <span class="arithmatex">\(n+2\)</span> and higher</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Memory Device</p>
+<p>Think of system type as "how many derivatives of the input the system can handle." A Type 1 system can track position (zero-th derivative) perfectly, but struggles with velocity (first derivative). A Type 2 system handles both position and velocity, but struggles with acceleration (second derivative).</p>
+</div>
+<h2 id="error-coefficients">Error Coefficients</h2>
+<p>The term <strong>error coefficients</strong> is often used interchangeably with error constants, but sometimes refers more broadly to any parameter characterizing steady-state accuracy. In some texts, error coefficients include variations for non-unity feedback configurations or for disturbance rejection.</p>
+<p>The key relationships remain:</p>
+<div class="arithmatex">\[K_p = \lim_{s \to 0} G(s)\]</div>
+<div class="arithmatex">\[K_v = \lim_{s \to 0} sG(s)\]</div>
+<div class="arithmatex">\[K_a = \lim_{s \to 0} s^2G(s)\]</div>
+<p>These coefficients are the currency of steady-state accuracy: higher coefficients mean smaller errors. When you specify that a system must have <span class="arithmatex">\(e_{ss} &lt; 0.01\)</span> for a unit ramp, you're implicitly requiring <span class="arithmatex">\(K_v &gt; 100\)</span>.</p>
+<h2 id="type-0-systems-the-proportional-controller-case">Type 0 Systems: The Proportional Controller Case</h2>
+<p>A <strong>Type 0 system</strong> has no integrators in the open-loop transfer function. The simplest example is a proportional controller with a first-order plant:</p>
+<div class="arithmatex">\[G(s) = \frac{K}{s + a}\]</div>
+<p>The position error constant is:</p>
+<div class="arithmatex">\[K_p = \lim_{s \to 0} \frac{K}{s + a} = \frac{K}{a}\]</div>
+<p>For a unit step input, the steady-state error is:</p>
+<div class="arithmatex">\[e_{ss} = \frac{1}{1 + K/a}\]</div>
+<p>This error can be made smaller by increasing the gain <span class="arithmatex">\(K\)</span>—but it can never be made zero, no matter how large <span class="arithmatex">\(K\)</span> becomes. There's always a finite gap between where you want to be and where the system settles.</p>
+<div class="admonition example">
+<p class="admonition-title">The Cruise Control Analogy</p>
+<p>Imagine a car with cruise control that uses only proportional feedback. If you set the target speed to 60 mph and encounter a hill, the controller needs some speed error to generate the extra throttle. On a steep uphill, you might only be able to maintain 57 mph—the 3 mph error is the proportional signal driving the extra power. This is steady-state error in action.</p>
+</div>
+<h4 id="diagram-type-0-system-response">Diagram: Type 0 System Response</h4>
+<iframe src="../../sims/type-zero-response/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Type 0 System Response</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: demonstrate, predict</p>
+<p>Learning Objective: Students will predict and observe steady-state error for Type 0 systems with different gain values.</p>
+<p>Canvas layout:
+- Left (60%): Time response plot showing step input and system output
+- Right (40%): Controls and calculations panel</p>
+<p>Visual elements:
+- Reference step input (dashed black line at height 1)
+- System output response (blue curve)
+- Steady-state error highlighted (red shaded gap)
+- Annotation showing <span class="arithmatex">\(e_{ss}\)</span> value
+- Asymptotic line at final value</p>
+<p>Interactive controls:
+- Slider: Open-loop gain K from 1 to 100 (default: 10)
+- Slider: Plant pole location (parameter a) from 0.5 to 5 (default: 1)
+- Toggle: Show/hide transient
+- Button: Reset</p>
+<p>Data Visibility Requirements:
+- Display <span class="arithmatex">\(G(s) = K/(s+a)\)</span> with current values
+- Show <span class="arithmatex">\(K_p = K/a = [value]\)</span>
+- Show <span class="arithmatex">\(e_{ss} = 1/(1+K_p) = [value]\)</span>
+- Display percentage error
+- Show how <span class="arithmatex">\(e_{ss}\)</span> changes as K increases</p>
+<p>Behavior:
+- Response curve updates in real-time as sliders change
+- Steady-state error gap shrinks as K increases but never reaches zero
+- Display approaches <span class="arithmatex">\(y_{ss} = K_p/(1+K_p)\)</span> as t → ∞
+- Color intensity of error region indicates error magnitude</p>
+<p>Instructional Rationale: Interactive gain adjustment reveals that no finite gain eliminates steady-state error for Type 0 systems—students discover this limitation experientially.</p>
+<p>Implementation: p5.js with canvas-based controls</p>
+</details>
+<h2 id="type-1-systems-adding-integration">Type 1 Systems: Adding Integration</h2>
+<p>A <strong>Type 1 system</strong> has one integrator in the open-loop path. This could be a physical integrator (like the DC motor position from velocity) or a controller integrator (like the integral term in a PI controller).</p>
+<p>A typical Type 1 system:</p>
+<div class="arithmatex">\[G(s) = \frac{K}{s(s + a)}\]</div>
+<p>The error constants are:</p>
+<div class="arithmatex">\[K_p = \lim_{s \to 0} \frac{K}{s(s+a)} = \infty\]</div>
+<div class="arithmatex">\[K_v = \lim_{s \to 0} \frac{sK}{s(s+a)} = \lim_{s \to 0} \frac{K}{s+a} = \frac{K}{a}\]</div>
+<div class="arithmatex">\[K_a = \lim_{s \to 0} \frac{s^2 K}{s(s+a)} = 0\]</div>
+<p>This gives us:</p>
+<ul>
+<li><strong>Zero</strong> steady-state error to a step input</li>
+<li><strong>Finite</strong> steady-state error to a ramp input: <span class="arithmatex">\(e_{ss} = R_0 a/K\)</span></li>
+<li><strong>Infinite</strong> steady-state error to a parabolic input (cannot track)</li>
+</ul>
+<p>The integrator "keeps score" of accumulated error. Even if the instantaneous error is tiny, the integrator output keeps growing until the error is exactly zero—at least for step inputs. For ramp inputs, the integrator can maintain pace but with a constant lag.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"Here's how integral action feels to me: if I lean forward even a little bit, my integrator starts accumulating that lean. The longer I lean, the stronger my correction becomes. Eventually, the correction is strong enough to stand me perfectly upright—not just 'mostly' upright, but <em>exactly</em> upright. That's zero steady-state error to a step. But if someone pushes me at a constant rate (a ramp disturbance), I can only keep up with a certain lag. I'm one integrator short of perfection."</p>
+</div>
+<h2 id="type-2-systems-double-integration">Type 2 Systems: Double Integration</h2>
+<p>A <strong>Type 2 system</strong> has two integrators in the open-loop path. This configuration is less common but appears in systems requiring high tracking accuracy for velocity inputs—like antenna pointing systems or precision machine tools.</p>
+<p>A typical Type 2 system:</p>
+<div class="arithmatex">\[G(s) = \frac{K}{s^2(s + a)}\]</div>
+<p>The error constants are:</p>
+<div class="arithmatex">\[K_p = \infty, \quad K_v = \infty, \quad K_a = \lim_{s \to 0} \frac{s^2 K}{s^2(s+a)} = \frac{K}{a}\]</div>
+<p>This provides:</p>
+<ul>
+<li><strong>Zero</strong> steady-state error to step inputs</li>
+<li><strong>Zero</strong> steady-state error to ramp inputs</li>
+<li><strong>Finite</strong> steady-state error to parabolic inputs: <span class="arithmatex">\(e_{ss} = R_0 a/K\)</span></li>
+</ul>
+<p>The extra integrator eliminates ramp tracking error but introduces additional phase lag. Type 2 systems can be challenging to stabilize—the double integration contributes 180° of phase lag at all frequencies, eating into your phase margin before the controller even starts.</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Integration</th>
+<th>Benefits</th>
+<th>Challenges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type 0</td>
+<td>None</td>
+<td>Easy to stabilize</td>
+<td>Finite step error</td>
+</tr>
+<tr>
+<td>Type 1</td>
+<td>Single</td>
+<td>Zero step error</td>
+<td>Finite ramp error</td>
+</tr>
+<tr>
+<td>Type 2</td>
+<td>Double</td>
+<td>Zero ramp error</td>
+<td>Harder to stabilize</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Stability Trade-off</p>
+<p>Adding integrators improves steady-state accuracy but makes stability more challenging. Each integrator adds 90° of phase lag at high frequencies. Type 2 and higher systems require careful compensator design to maintain adequate stability margins. There's no free lunch in control design.</p>
+</div>
+<h2 id="calculating-steady-state-error-worked-examples">Calculating Steady-State Error: Worked Examples</h2>
+<p>Let's work through several examples to build procedural fluency.</p>
+<h3 id="example-1-type-1-system-with-step-input">Example 1: Type 1 System with Step Input</h3>
+<p>Given:
+<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{10}{s(s+2)}\)</span>\)</span></p>
+<p>Find the steady-state error for a unit step input.</p>
+<p><strong>Step 1:</strong> Identify system type.
+The denominator has <span class="arithmatex">\(s^1\)</span> in the factored form, so this is a <strong>Type 1</strong> system.</p>
+<p><strong>Step 2:</strong> For a step input, we need <span class="arithmatex">\(K_p\)</span>.
+<span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} G(s) = \lim_{s \to 0} \frac{10}{s(s+2)} = \infty\)</span>\)</span></p>
+<p><strong>Step 3:</strong> Calculate steady-state error.
+<span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \frac{R_0}{1 + K_p} = \frac{1}{1 + \infty} = 0\)</span>\)</span></p>
+<p>The steady-state error is <strong>zero</strong>. Type 1 systems always have zero error to step inputs.</p>
+<h3 id="example-2-type-1-system-with-ramp-input">Example 2: Type 1 System with Ramp Input</h3>
+<p>Same system:
+<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{10}{s(s+2)}\)</span>\)</span></p>
+<p>Find the steady-state error for a unit ramp input (<span class="arithmatex">\(R_0 = 1\)</span>).</p>
+<p><strong>Step 1:</strong> System is Type 1 (from above).</p>
+<p><strong>Step 2:</strong> For a ramp input, we need <span class="arithmatex">\(K_v\)</span>.
+<span class="arithmatex">\(<span class="arithmatex">\(K_v = \lim_{s \to 0} sG(s) = \lim_{s \to 0} \frac{10s}{s(s+2)} = \lim_{s \to 0} \frac{10}{s+2} = \frac{10}{2} = 5\)</span>\)</span></p>
+<p><strong>Step 3:</strong> Calculate steady-state error.
+<span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \frac{R_0}{K_v} = \frac{1}{5} = 0.2\)</span>\)</span></p>
+<p>The steady-state error is <strong>0.2 units</strong>. The output ramp lags the input ramp by 0.2 units at all times after transients settle.</p>
+<h3 id="example-3-type-0-system">Example 3: Type 0 System</h3>
+<p>Given:
+<span class="arithmatex">\(<span class="arithmatex">\(G(s) = \frac{20}{(s+1)(s+4)}\)</span>\)</span></p>
+<p>Find steady-state errors for step, ramp, and parabolic inputs (<span class="arithmatex">\(R_0 = 1\)</span>).</p>
+<p><strong>Step 1:</strong> System type—no poles at origin, so <strong>Type 0</strong>.</p>
+<p><strong>Step 2:</strong> Calculate error constants.
+<span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} \frac{20}{(s+1)(s+4)} = \frac{20}{(1)(4)} = 5\)</span>\)</span></p>
+<div class="arithmatex">\[K_v = \lim_{s \to 0} \frac{20s}{(s+1)(s+4)} = 0\]</div>
+<div class="arithmatex">\[K_a = \lim_{s \to 0} \frac{20s^2}{(s+1)(s+4)} = 0\]</div>
+<p><strong>Step 3:</strong> Steady-state errors.</p>
+<ul>
+<li>Step: <span class="arithmatex">\(e_{ss} = \frac{1}{1+5} = \frac{1}{6} \approx 0.167\)</span></li>
+<li>Ramp: <span class="arithmatex">\(e_{ss} = \frac{1}{0} = \infty\)</span></li>
+<li>Parabolic: <span class="arithmatex">\(e_{ss} = \frac{1}{0} = \infty\)</span></li>
+</ul>
+<p>The Type 0 system has finite error to a step but cannot track ramps or parabolic inputs.</p>
+<h4 id="diagram-steady-state-error-comparison">Diagram: Steady-State Error Comparison</h4>
+<iframe src="../../sims/steady-state-error-comparison/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Steady-State Error Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: compare, differentiate</p>
+<p>Learning Objective: Students will compare steady-state error behavior of Type 0, Type 1, and Type 2 systems for step and ramp inputs.</p>
+<p>Canvas layout:
+- Top row: Three time-response plots (Type 0, Type 1, Type 2)
+- Bottom row: Input selector and numerical results</p>
+<p>Visual elements:
+Each of three plots shows:
+- Reference input (dashed line)
+- System output (solid colored line)
+- Error region (shaded)
+- Steady-state error annotation
+- Time and amplitude axes</p>
+<p>Color coding:
+- Type 0: Orange
+- Type 1: Blue
+- Type 2: Green</p>
+<p>Interactive controls:
+- Toggle: Step input / Ramp input
+- Slider: Open-loop gain K (applies to all systems)
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Display transfer function for each system type
+- Show <span class="arithmatex">\(e_{ss}\)</span> value for each system
+- Indicate "Cannot track" where applicable
+- Display error constants (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) for each</p>
+<p>Behavior:
+- All three responses animate simultaneously
+- For step input: Type 0 shows finite error, Type 1 and 2 show zero
+- For ramp input: Type 0 shows diverging error, Type 1 shows finite lag, Type 2 shows zero
+- Error regions update in real-time with gain changes</p>
+<p>Instructional Rationale: Side-by-side comparison makes the dramatic differences between system types visually obvious and reinforces the type-error relationship.</p>
+<p>Implementation: p5.js with multi-plot canvas layout</p>
+</details>
+<h2 id="disturbance-error">Disturbance Error</h2>
+<p>So far, we've focused on tracking error—the gap between reference and output. But control systems also face <strong>disturbances</strong>: unwanted inputs that push the system away from its desired operating point. The steady-state error due to disturbances is equally important in practice.</p>
+<p>Consider a system with a disturbance <span class="arithmatex">\(D(s)\)</span> entering at the plant output:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>     r(t)      e(t)                    d(t)
+      ○────&gt;───○────&gt;[ G_c(s) ]──&gt;[ G_p(s) ]──&gt;─○──&gt;─┬─&gt; y(t)
+              -↑                                ↑    │
+               └────────────────────────────────┴────┘
+</code></pre></div></td></tr></table></div>
+<p>The output is affected by both the reference and the disturbance:</p>
+<div class="arithmatex">\[Y(s) = \frac{G_c(s)G_p(s)}{1 + G_c(s)G_p(s)}R(s) + \frac{1}{1 + G_c(s)G_p(s)}D(s)\]</div>
+<p>The steady-state error due to a step disturbance <span class="arithmatex">\(D(s) = D_0/s\)</span> is:</p>
+<div class="arithmatex">\[e_{ss,d} = \lim_{s \to 0} \frac{s \cdot D_0/s}{1 + G_c(s)G_p(s)} = \frac{D_0}{1 + \lim_{s \to 0}G_c(s)G_p(s)}\]</div>
+<p>If the loop gain at DC is high (large <span class="arithmatex">\(K_p\)</span>), the disturbance effect is attenuated. If the controller includes an integrator, the disturbance error goes to zero—the integrator "notices" the persistent error and keeps adjusting until it's eliminated.</p>
+<div class="admonition tip">
+<p class="admonition-title">Disturbance Rejection Design</p>
+<p>To achieve good disturbance rejection:
+- Include at least one integrator in the loop (Type 1 or higher)
+- Make the controller gain high at the disturbance frequency
+- Place the disturbance entry point consideration in your design specs</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"Disturbances are my nemesis—wind gusts, floor vibrations, someone bumping me. A step disturbance is like someone nudging me and holding the pressure. Without integral action, I'd lean slightly into the push, finding a new (wrong) equilibrium. But with integral control, my integrator says 'wait, this error isn't going away' and keeps adding correction until I'm back to vertical. The disturbance is still there, pushing me, but my controller pushes back with exactly the right amount."</p>
+</div>
+<h4 id="diagram-disturbance-rejection-comparison">Diagram: Disturbance Rejection Comparison</h4>
+<iframe src="../../sims/disturbance-rejection/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Disturbance Rejection Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: examine, compare</p>
+<p>Learning Objective: Students will analyze how system type affects disturbance rejection by comparing Type 0 and Type 1 system responses to step disturbances.</p>
+<p>Canvas layout:
+- Left plot (50%): Type 0 system (proportional control)
+- Right plot (50%): Type 1 system (PI control)
+- Bottom: Controls and disturbance timing</p>
+<p>Visual elements:
+Each plot shows:
+- System output y(t) vs time
+- Reference level (dashed at y=1)
+- Disturbance indication (shaded region or arrow when active)
+- Steady-state error annotation after disturbance</p>
+<p>Interactive controls:
+- Button: Apply step disturbance at t=5s
+- Slider: Disturbance magnitude (0.1 to 1.0)
+- Slider: Controller gain K
+- Button: Reset</p>
+<p>Data Visibility Requirements:
+- Display controller type for each plot ("P control" vs "PI control")
+- Show <span class="arithmatex">\(e_{ss}\)</span> before and after disturbance
+- Display the disturbance attenuation factor
+- Annotate the steady-state error difference</p>
+<p>Behavior:
+- Initially, both systems track the step reference
+- When disturbance button pressed, step disturbance applied
+- Type 0: Output shifts to new steady-state with finite error
+- Type 1: Output temporarily disturbed but returns to original setpoint
+- Difference in steady-state error clearly visible</p>
+<p>Instructional Rationale: Comparative demonstration shows the practical value of integral action for disturbance rejection, connecting theory to real-world controller selection.</p>
+<p>Implementation: p5.js with event-driven disturbance injection</p>
+</details>
+<h2 id="improving-steady-state-accuracy">Improving Steady-State Accuracy</h2>
+<p>Now that we understand what determines steady-state error, how do we reduce it? Here are the main strategies:</p>
+<h3 id="strategy-1-increase-loop-gain">Strategy 1: Increase Loop Gain</h3>
+<p>For a Type 0 system, increasing the gain <span class="arithmatex">\(K\)</span> reduces steady-state error:</p>
+<div class="arithmatex">\[e_{ss} = \frac{R_0}{1 + K_p}\]</div>
+<p>Doubling <span class="arithmatex">\(K_p\)</span> roughly halves the error. But there's a limit—increasing gain typically reduces stability margins. You can't just crank the gain to infinity; the system will become oscillatory or unstable.</p>
+<h3 id="strategy-2-add-integration">Strategy 2: Add Integration</h3>
+<p>This is the most powerful approach. Adding an integrator to the controller:</p>
+<ul>
+<li>Converts a Type 0 system to Type 1</li>
+<li>Eliminates steady-state error to step inputs</li>
+<li>Converts finite ramp error to zero (if going from Type 1 to Type 2)</li>
+</ul>
+<p>This is why PI and PID controllers are so common—the integral term is specifically there to eliminate steady-state error.</p>
+<h3 id="strategy-3-feedforward-control">Strategy 3: Feedforward Control</h3>
+<p>Instead of relying solely on feedback, add a feedforward path that anticipates the input:</p>
+<div class="arithmatex">\[U(s) = K_{ff}R(s) + C(s)E(s)\]</div>
+<p>Properly designed feedforward can eliminate steady-state error without the stability penalty of high feedback gain. The feedforward gain is tuned to provide exactly the input needed for perfect tracking at DC.</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Effect</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increase gain</td>
+<td>Reduces error proportionally</td>
+<td>May reduce stability margins</td>
+</tr>
+<tr>
+<td>Add integrator</td>
+<td>Eliminates error for lower-order inputs</td>
+<td>Adds phase lag</td>
+</tr>
+<tr>
+<td>Feedforward</td>
+<td>Reduces tracking error</td>
+<td>Requires good model knowledge</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">The Integral Fix in Practice</p>
+<p>A proportional-only cruise control has finite speed error on hills. Adding an integral term (making it PI control) eliminates this error—the integrator accumulates the speed deficit until the throttle is strong enough to maintain exactly the set speed. This is why modern cruise control systems use at least PI control.</p>
+</div>
+<h2 id="non-unity-feedback-systems">Non-Unity Feedback Systems</h2>
+<p>The analysis we've developed assumes unity feedback (the feedback path is just a wire with gain 1). Real systems often have a sensor or feedback element with its own transfer function <span class="arithmatex">\(H(s)\)</span>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>     r(t)      e(t)                          y(t)
+      ○────&gt;───○────&gt;[ G(s) ]────&gt;───────────&gt;
+              -↑                              │
+               └────[ H(s) ]&lt;─────────────────┘
+</code></pre></div></td></tr></table></div>
+<p>For this configuration, the error is <span class="arithmatex">\(e(t) = r(t) - H(s)y(t)\)</span>, and the analysis becomes more complex.</p>
+<p>The closed-loop transfer function is:</p>
+<div class="arithmatex">\[T(s) = \frac{G(s)}{1 + G(s)H(s)}\]</div>
+<p>And the steady-state error requires considering both <span class="arithmatex">\(G(s)\)</span> and <span class="arithmatex">\(H(s)\)</span> together. The system type is determined by poles at the origin in <span class="arithmatex">\(G(s)H(s)\)</span>, not just <span class="arithmatex">\(G(s)\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Practical Consideration</p>
+<p>When <span class="arithmatex">\(H(s) \neq 1\)</span>, we often define error with respect to the sensor output rather than the actual physical output. This is fine for most purposes, but be aware that the "error" you're minimizing is in sensor coordinates, not necessarily physical coordinates. If the sensor has bias or nonlinearity, that shows up in the actual performance.</p>
+</div>
+<h2 id="connecting-error-to-performance-specifications">Connecting Error to Performance Specifications</h2>
+<p>In practice, steady-state error is one of several specifications that define acceptable system performance. The complete picture typically includes:</p>
+<ul>
+<li><strong>Steady-state error</strong>: The persistent gap after settling (this chapter)</li>
+<li><strong>Settling time</strong>: How long until transients decay (Chapter 4)</li>
+<li><strong>Overshoot</strong>: How much the response exceeds the target (Chapter 4)</li>
+<li><strong>Stability margins</strong>: How robust is stability to uncertainty (Chapter 13)</li>
+</ul>
+<p>The challenge is that these specifications often conflict. Adding integral action to reduce steady-state error adds phase lag, which can increase overshoot or reduce stability margins. Increasing gain to reduce error can make the system faster but more oscillatory.</p>
+<p>Good control design is about finding the sweet spot—achieving acceptable performance across all specifications simultaneously. This is where the art of control engineering meets the science.</p>
+<h4 id="diagram-design-trade-offs-visualization">Diagram: Design Trade-offs Visualization</h4>
+<iframe src="../../sims/design-tradeoffs/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Design Trade-offs Visualization</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: assess, evaluate</p>
+<p>Learning Objective: Students will evaluate design trade-offs between steady-state error, transient response, and stability margins.</p>
+<p>Canvas layout:
+- Left (40%): Time response plot
+- Right top (30%): Specification gauges/indicators
+- Right bottom (30%): Controller parameter sliders</p>
+<p>Visual elements:
+Time Response:
+- Step response curve
+- Reference line
+- Overshoot annotation
+- Settling time annotation
+- Steady-state error shaded</p>
+<p>Specification Gauges (circular or bar):
+- Steady-state error (green if low, red if high)
+- Overshoot (green if &lt; 20%, yellow if 20-40%, red if &gt; 40%)
+- Settling time (visual indicator)
+- Phase margin estimate (green if &gt; 45°, yellow if 30-45°, red if &lt; 30°)</p>
+<p>Interactive controls:
+- Slider: Proportional gain Kp
+- Slider: Integral gain Ki (0 = no integral action)
+- Dropdown: Plant type (first-order, second-order)
+- Button: Reset to default</p>
+<p>Data Visibility Requirements:
+- Display all four specifications numerically
+- Highlight which specs are in/out of tolerance
+- Show controller transfer function
+- Display system type</p>
+<p>Behavior:
+- As Ki increases from 0, system transitions from Type 0 to Type 1
+- Steady-state error drops to zero (for step) when Ki &gt; 0
+- Overshoot and settling time may increase with Ki
+- Stability gauge reflects reduced phase margin with more integration
+- Red warning when system approaches instability</p>
+<p>Instructional Rationale: Multi-objective visualization makes trade-offs concrete and experiential. Students discover that improving one specification often degrades another.</p>
+<p>Implementation: p5.js with gauge graphics and real-time simulation</p>
+</details>
+<h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>Steady-state error analysis gives us the tools to predict and design for long-term tracking accuracy. Here's what you should take away:</p>
+<ul>
+<li>
+<p><strong>Steady-state error</strong> is the persistent gap between reference and output after transients settle—it represents the system's DC accuracy</p>
+</li>
+<li>
+<p>The <strong>Final Value Theorem</strong> lets us calculate <span class="arithmatex">\(e_{ss}\)</span> from the Laplace domain:
+  <span class="arithmatex">\(<span class="arithmatex">\(e_{ss} = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G(s)}\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>System type</strong> (number of integrators in the open-loop transfer function) determines which input types can be tracked with zero error:</p>
+</li>
+<li>Type 0: Finite error to step, infinite to ramp</li>
+<li>Type 1: Zero error to step, finite to ramp</li>
+<li>
+<p>Type 2: Zero error to step and ramp, finite to parabolic</p>
+</li>
+<li>
+<p><strong>Error constants</strong> (<span class="arithmatex">\(K_p\)</span>, <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(K_a\)</span>) quantify tracking capability:
+  <span class="arithmatex">\(<span class="arithmatex">\(K_p = \lim_{s \to 0} G(s), \quad K_v = \lim_{s \to 0} sG(s), \quad K_a = \lim_{s \to 0} s^2G(s)\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>Disturbance rejection</strong> follows similar principles—integrators in the loop drive disturbance errors to zero</p>
+</li>
+<li>
+<p>To <strong>reduce steady-state error</strong>: increase gain (limited by stability), add integrators (adds phase lag), or use feedforward (requires model knowledge)</p>
+</li>
+<li>
+<p>There are always <strong>trade-offs</strong>—improving steady-state accuracy often comes at the cost of transient performance or stability margins</p>
+</li>
+</ul>
+<p>This framework gives you the vocabulary to specify accuracy requirements ("I need Type 1 performance with <span class="arithmatex">\(K_v &gt; 100\)</span>") and the tools to verify that a design meets them. When you encounter a control problem in practice, one of your first questions should be: "What system type do I need to achieve my accuracy requirements?"</p>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, try these without looking back:</p>
+<ol>
+<li>
+<p>A system has <span class="arithmatex">\(G(s) = \frac{50}{s(s+5)(s+10)}\)</span>. What is the system type? What is the steady-state error for a unit ramp input?</p>
+</li>
+<li>
+<p>You need zero steady-state error for a constant-velocity tracking problem. What is the minimum system type required?</p>
+</li>
+<li>
+<p>For a Type 0 system with <span class="arithmatex">\(K_p = 19\)</span>, what is the steady-state error for a unit step input? How could you eliminate this error?</p>
+</li>
+<li>
+<p>Why might a designer choose a Type 1 system over a Type 2 system, even though Type 2 has better tracking performance?</p>
+</li>
+</ol>
+<p>If you got all four, you're ready for controller design. If not, revisit the examples and try the interactive simulations—the concepts become much clearer when you can manipulate them.</p>
+</details>
 
 
 
 
 
 
+
+  
+  
 
 
 

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Designing lead and lag compensators to meet performance specifications while understanding fundamental tradeoffs in control system design">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>16. Compensator Design - Control Systems</title>
+        <title>Compensator Design and Performance Tradeoffs - Control Systems</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              16. Compensator Design
+              Compensator Design and Performance Tradeoffs
             
           </span>
         </div>
@@ -807,6 +807,531 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#beyond-pid-shaping-the-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond PID: Shaping the Frequency Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-anatomy-of-compensators" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Anatomy of Compensators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Anatomy of Compensators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poles-and-zeros-in-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles and Zeros in Compensation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lead-compensators-adding-phase-where-you-need-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensators: Adding Phase Where You Need It
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensators: Adding Phase Where You Need It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-lead-from-a-lead-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lead from a Lead Compensator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Lead from a Lead Compensator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-lead-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lead Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-phase-lead-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Phase Lead Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-phase-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Phase Lead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-lead-improves-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Lead Improves Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Lead Improves Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lead-compensator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lead Compensator Bode Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lag-compensators-boosting-low-frequency-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensators: Boosting Low-Frequency Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensators: Boosting Low-Frequency Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-lag-from-a-lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lag from a Lag Compensator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Lag from a Lag Compensator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-lag-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lag Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-lag-improves-steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Lag Improves Steady-State Accuracy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Lag Improves Steady-State Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lag-compensator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lag Compensator Bode Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lead-lag-compensators-the-best-of-both-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensators: The Best of Both Worlds
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensators: The Best of Both Worlds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-methods-bode-vs-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Methods: Bode vs. Root Locus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Methods: Bode vs. Root Locus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bode-design-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Bode Design Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-root-locus-design-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Root Locus Design Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Root Locus Design Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lead-compensator-design-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lead Compensator Design Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-specifications-and-how-to-meet-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Specifications and How to Meet Them
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Specifications and How to Meet Them">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specification-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specification Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-and-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity and Robustness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitivity and Robustness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Sensitivity Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sensitivity Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complementary-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complementary Sensitivity Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complementary Sensitivity Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Sensitivity Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disturbance-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Rejection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disturbance Rejection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sensitivity-and-complementary-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sensitivity and Complementary Sensitivity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise-attenuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noise Attenuation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-tradeoffs-the-fundamental-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Tradeoffs: The Fundamental Limits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Tradeoffs: The Fundamental Limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speed-vs-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed vs. Stability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accuracy-vs-noise-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accuracy vs. Noise Rejection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disturbance-rejection-vs-noise-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Rejection vs. Noise Sensitivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-waterbed-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Waterbed Effect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Waterbed Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-performance-tradeoff-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Performance Tradeoff Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-systematic-design-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Systematic Design Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1188,6 +1713,531 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#beyond-pid-shaping-the-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond PID: Shaping the Frequency Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-anatomy-of-compensators" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Anatomy of Compensators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Anatomy of Compensators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poles-and-zeros-in-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles and Zeros in Compensation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lead-compensators-adding-phase-where-you-need-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensators: Adding Phase Where You Need It
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensators: Adding Phase Where You Need It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-lead-from-a-lead-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lead from a Lead Compensator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Lead from a Lead Compensator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-lead-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lead Equation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-phase-lead-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Phase Lead Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-phase-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Phase Lead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-lead-improves-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Lead Improves Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Lead Improves Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lead-compensator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lead Compensator Bode Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lag-compensators-boosting-low-frequency-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensators: Boosting Low-Frequency Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensators: Boosting Low-Frequency Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lag Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lag-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-lag-from-a-lag-compensator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lag from a Lag Compensator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase Lag from a Lag Compensator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-lag-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Lag Equation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-lag-improves-steady-state-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Lag Improves Steady-State Accuracy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Lag Improves Steady-State Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lag-compensator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lag Compensator Bode Plot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lead-lag-compensators-the-best-of-both-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensators: The Best of Both Worlds
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensators: The Best of Both Worlds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lead-Lag Compensator Transfer Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag-compensator-transfer-function_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lead-Lag Compensator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-methods-bode-vs-root-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Methods: Bode vs. Root Locus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Methods: Bode vs. Root Locus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bode-design-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Bode Design Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-root-locus-design-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Root Locus Design Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Root Locus Design Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-lead-compensator-design-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Lead Compensator Design Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-specifications-and-how-to-meet-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Specifications and How to Meet Them
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Specifications and How to Meet Them">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specification-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specification Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-and-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity and Robustness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensitivity and Robustness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Sensitivity Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sensitivity Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complementary-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complementary Sensitivity Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complementary Sensitivity Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-sensitivity-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Sensitivity Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disturbance-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Rejection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disturbance Rejection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sensitivity-and-complementary-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sensitivity and Complementary Sensitivity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise-attenuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noise Attenuation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-tradeoffs-the-fundamental-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Tradeoffs: The Fundamental Limits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Tradeoffs: The Fundamental Limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speed-vs-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed vs. Stability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accuracy-vs-noise-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accuracy vs. Noise Rejection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disturbance-rejection-vs-noise-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disturbance Rejection vs. Noise Sensitivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-waterbed-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Waterbed Effect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Waterbed Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-performance-tradeoff-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Performance Tradeoff Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-systematic-design-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Systematic Design Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1246,13 +2296,727 @@
 <li><a href="../14-steady-state-error-analysis/">Chapter 14: Steady-State Error Analysis</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="beyond-pid-shaping-the-frequency-response">Beyond PID: Shaping the Frequency Response</h2>
+<p>PID controllers are powerful and versatile, but they're not the only game in town. Sometimes the performance requirements are too demanding, the plant dynamics too challenging, or the specifications too precise for a standard PID to deliver. When you need surgical control over specific frequency ranges—adding phase exactly where it's needed, boosting gain at low frequencies without destabilizing high frequencies—you need <strong>compensators</strong>.</p>
+<p>A compensator is a carefully designed transfer function that modifies the loop's frequency response to achieve desired closed-loop behavior. Unlike PID control, where you tune three parameters with known effects, compensator design gives you direct control over where you place poles and zeros in the s-plane. This precision comes at the cost of complexity, but when PID falls short, compensators pick up the slack.</p>
+<p>In this chapter, we'll develop two fundamental compensator types: <strong>lead compensators</strong> that add phase and improve transient response, and <strong>lag compensators</strong> that boost low-frequency gain and reduce steady-state error. We'll learn to design them using both Bode plots (frequency domain) and root locus (s-domain), and we'll confront the fundamental tradeoffs that limit every control system design.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My PID controller works well for normal balancing. But when my engineers wanted me to respond faster to disturbances <em>without</em> becoming unstable, they needed something more precise. They added a lead compensator that gives me extra phase margin exactly where I need it—around my crossover frequency. Now I can be quick <em>and</em> stable. It's like having prescription glasses tuned exactly to my vision problems."</p>
+</div>
+<h2 id="the-anatomy-of-compensators">The Anatomy of Compensators</h2>
+<p>All compensators we'll study share a common structure: a transfer function with poles and zeros arranged to provide specific phase and magnitude characteristics.</p>
+<h3 id="poles-and-zeros-in-compensation">Poles and Zeros in Compensation</h3>
+<p>A <strong>compensation zero</strong> is a zero introduced by the compensator to modify the system's frequency response or root locus. Similarly, a <strong>compensation pole</strong> is a pole added for the same purpose.</p>
+<p>The key insight: poles and zeros don't just change gain—they change phase. A zero adds up to +90° of phase (spread over about two decades), while a pole subtracts up to -90°. By placing poles and zeros strategically, we can sculpt the phase response to meet our needs.</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Effect on Phase</th>
+<th>Effect on Magnitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero at <span class="arithmatex">\(s = -z\)</span></td>
+<td>Adds up to +90°</td>
+<td>+20 dB/decade above <span class="arithmatex">\(\omega = z\)</span></td>
+</tr>
+<tr>
+<td>Pole at <span class="arithmatex">\(s = -p\)</span></td>
+<td>Subtracts up to -90°</td>
+<td>-20 dB/decade above <span class="arithmatex">\(\omega = p\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The relationship between pole/zero locations and their effects on Bode plots was covered in Chapter 12. Now we'll use this knowledge to design compensators systematically.</p>
+<h2 id="lead-compensators-adding-phase-where-you-need-it">Lead Compensators: Adding Phase Where You Need It</h2>
+<p>A <strong>lead compensator</strong> is designed to add positive phase (phase lead) to the system, typically near the crossover frequency. This additional phase directly increases phase margin, improving stability and reducing overshoot.</p>
+<h3 id="lead-compensator-transfer-function">Lead Compensator Transfer Function</h3>
+<p>The standard form of a lead compensator is:</p>
+<h4 id="lead-compensator-transfer-function_1">Lead Compensator Transfer Function</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K_c\)</span> is the compensator gain</li>
+<li><span class="arithmatex">\(z\)</span> is the zero location (magnitude)</li>
+<li><span class="arithmatex">\(p\)</span> is the pole location (magnitude)</li>
+<li>For lead: <span class="arithmatex">\(z &lt; p\)</span> (zero is closer to origin than pole)</li>
+</ul>
+<p>The ratio <span class="arithmatex">\(\alpha = z/p &lt; 1\)</span> is called the <strong>lead ratio</strong>. A smaller <span class="arithmatex">\(\alpha\)</span> means more separation between zero and pole, producing more phase lead.</p>
+<h3 id="phase-lead-from-a-lead-compensator">Phase Lead from a Lead Compensator</h3>
+<p>The phase contribution of the lead compensator at any frequency is:</p>
+<h4 id="phase-lead-equation">Phase Lead Equation</h4>
+<p><span class="arithmatex">\(\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p)\)</span></p>
+<p>The maximum phase lead occurs at the geometric mean of the zero and pole frequencies:</p>
+<h4 id="maximum-phase-lead-frequency">Maximum Phase Lead Frequency</h4>
+<p><span class="arithmatex">\(\omega_m = \sqrt{z \cdot p}\)</span></p>
+<p>At this frequency, the <strong>maximum phase lead</strong> is:</p>
+<h4 id="maximum-phase-lead">Maximum Phase Lead</h4>
+<p><span class="arithmatex">\(\phi_{max} = \sin^{-1}\left(\frac{1 - \alpha}{1 + \alpha}\right)\)</span></p>
+<p>where <span class="arithmatex">\(\alpha = z/p\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Lead Ratio <span class="arithmatex">\(\alpha\)</span></th>
+<th>Maximum Phase Lead <span class="arithmatex">\(\phi_{max}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td>19.5°</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>33.2°</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>41.8°</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>54.9°</td>
+</tr>
+<tr>
+<td>0.05</td>
+<td>64.8°</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Practical Limit</p>
+<p>While smaller <span class="arithmatex">\(\alpha\)</span> gives more phase lead, it also means greater high-frequency gain. In practice, <span class="arithmatex">\(\alpha\)</span> values below 0.1 are rarely used because the noise amplification becomes problematic. If you need more than about 55-60° of phase lead, use two cascaded lead compensators rather than one extreme compensator.</p>
+</div>
+<h3 id="why-lead-improves-performance">Why Lead Improves Performance</h3>
+<p>Lead compensation works by adding phase near the crossover frequency. This directly increases phase margin, which:</p>
+<ul>
+<li>Reduces overshoot in the step response</li>
+<li>Improves damping (less oscillation)</li>
+<li>Allows higher crossover frequency (faster response)</li>
+<li>Increases robustness to model uncertainty</li>
+</ul>
+<p>The tradeoff: lead compensators amplify high-frequency signals, which can be problematic with noisy measurements. The pole at <span class="arithmatex">\(s = -p\)</span> limits this amplification but doesn't eliminate it.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"Phase lead is like getting a heads-up before trouble arrives. My gyroscope gives me rate information—the derivative of my angle. A lead compensator does something similar in the frequency domain: it shifts the timing of my response so I act <em>before</em> things get bad. The earlier I can react, the less I have to overcorrect."</p>
+</div>
+<h4 id="diagram-lead-compensator-bode-plot">Diagram: Lead Compensator Bode Plot</h4>
+<iframe src="../../sims/lead-compensator-bode/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Lead Compensator Bode Plot</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain how pole and zero placement in a lead compensator creates phase lead and understand the relationship between the lead ratio α and maximum phase.</p>
+<p>Canvas layout:
+- Top section (50%): Magnitude and phase Bode plots
+- Bottom section (50%): Controls and key metrics display</p>
+<p>Visual elements:
+- Magnitude plot showing +20 dB/decade rise then leveling
+- Phase plot showing positive phase bump
+- Marker at ω_m (maximum phase frequency)
+- Annotations showing zero and pole locations
+- Shaded region indicating phase lead contribution
+- Dashed lines showing asymptotic behavior</p>
+<p>Interactive controls:
+- Slider: Zero location z from 0.1 to 10 rad/s (default: 1)
+- Slider: Pole location p from 1 to 100 rad/s (default: 10)
+- Slider: Gain K_c from 0.1 to 10 (default: 1)
+- Checkbox: Show asymptotes
+- Checkbox: Show ω_m marker
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Display α = z/p ratio
+- Show calculated φ_max in degrees
+- Show ω_m frequency
+- Display gain at ω_m
+- Warning if α &lt; 0.1 (impractical design)</p>
+<p>Behavior:
+- Plots update in real-time as parameters change
+- If z ≥ p, display warning "Not a lead compensator"
+- Phase bump visually highlights between zero and pole frequencies
+- Hovering over plots shows exact values at cursor position</p>
+<p>Instructional Rationale: Interactive Bode plots let students see exactly how pole/zero placement creates the phase lead effect. Adjusting parameters builds intuition for the relationship between α and φ_max.</p>
+<p>Implementation: p5.js with canvas-based sliders and transfer function evaluation</p>
+</details>
+<h2 id="lag-compensators-boosting-low-frequency-gain">Lag Compensators: Boosting Low-Frequency Gain</h2>
+<p>While lead compensators improve transient response and stability margins, <strong>lag compensators</strong> address a different problem: steady-state error. A lag compensator increases low-frequency gain without significantly affecting the crossover frequency or phase margin.</p>
+<h3 id="lag-compensator-transfer-function">Lag Compensator Transfer Function</h3>
+<p>The standard form of a lag compensator is:</p>
+<h4 id="lag-compensator-transfer-function_1">Lag Compensator Transfer Function</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{s + z}{s + p} = K_c \cdot \frac{1 + s/z}{1 + s/p}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K_c\)</span> is the compensator gain</li>
+<li><span class="arithmatex">\(z\)</span> is the zero location</li>
+<li><span class="arithmatex">\(p\)</span> is the pole location</li>
+<li>For lag: <span class="arithmatex">\(z &gt; p\)</span> (zero is farther from origin than pole)</li>
+</ul>
+<p>Wait—the transfer function looks identical to the lead compensator! The only difference is the relationship between <span class="arithmatex">\(z\)</span> and <span class="arithmatex">\(p\)</span>. For lag compensators, <span class="arithmatex">\(z &gt; p\)</span>, which inverts the phase behavior.</p>
+<h3 id="phase-lag-from-a-lag-compensator">Phase Lag from a Lag Compensator</h3>
+<p>With <span class="arithmatex">\(z &gt; p\)</span>, the phase contribution is negative (phase lag):</p>
+<h4 id="phase-lag-equation">Phase Lag Equation</h4>
+<p><span class="arithmatex">\(\phi(\omega) = \tan^{-1}(\omega/z) - \tan^{-1}(\omega/p) &lt; 0\)</span></p>
+<p>This phase lag is the price we pay for increased low-frequency gain. The key to successful lag compensation is placing the zero and pole at frequencies <em>below</em> the crossover frequency, so the phase lag doesn't affect stability margins.</p>
+<h3 id="why-lag-improves-steady-state-accuracy">Why Lag Improves Steady-State Accuracy</h3>
+<p>At very low frequencies, the lag compensator gain approaches:</p>
+<p><span class="arithmatex">\(G_c(0) = K_c \cdot \frac{z}{p}\)</span></p>
+<p>Since <span class="arithmatex">\(z &gt; p\)</span>, this ratio is greater than 1, boosting the DC gain. Higher DC gain means smaller position error constant <span class="arithmatex">\(K_p\)</span> denominators and reduced steady-state error.</p>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Use Lead</th>
+<th>Use Lag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increase phase margin</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Reduce overshoot</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Increase bandwidth</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Reduce steady-state error</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Increase DC gain</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Avoid noise amplification</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Lag Compensation Adds Phase Lag</p>
+<p>The name says it all. Lag compensators introduce negative phase, which <em>reduces</em> phase margin. To avoid destabilizing the system, place the lag compensator's zero and pole at least one decade below the crossover frequency. This keeps the phase lag contribution small at the frequency that matters.</p>
+</div>
+<h4 id="diagram-lag-compensator-bode-plot">Diagram: Lag Compensator Bode Plot</h4>
+<iframe src="../../sims/lag-compensator-bode/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Lag Compensator Bode Plot</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, compare</p>
+<p>Learning Objective: Students will explain how lag compensators increase low-frequency gain while contributing phase lag, and understand why pole/zero placement well below crossover is critical.</p>
+<p>Canvas layout:
+- Top section (50%): Magnitude and phase Bode plots
+- Bottom section (50%): Controls and key metrics display</p>
+<p>Visual elements:
+- Magnitude plot showing flat high-frequency response, +20 dB boost at low frequencies
+- Phase plot showing negative phase dip
+- Marker at crossover frequency (adjustable)
+- Shaded region indicating where phase lag occurs
+- Annotation showing DC gain boost ratio z/p</p>
+<p>Interactive controls:
+- Slider: Zero location z from 0.01 to 1 rad/s (default: 0.1)
+- Slider: Pole location p from 0.001 to 0.1 rad/s (default: 0.01)
+- Slider: Gain K_c from 0.1 to 10 (default: 1)
+- Slider: Crossover frequency ω_c for reference (default: 1)
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Display DC gain boost = z/p
+- Show phase lag at ω_c
+- Warning if phase lag at ω_c exceeds 5°
+- Display low-frequency gain in dB</p>
+<p>Behavior:
+- Plots update in real-time as parameters change
+- If z ≤ p, display warning "Not a lag compensator"
+- Crossover frequency marker helps students verify separation
+- Phase lag contribution highlighted at ω_c</p>
+<p>Instructional Rationale: Contrasting with lead compensator visualization reinforces the difference between the two. Students see why placement below crossover is essential.</p>
+<p>Implementation: p5.js with canvas-based sliders and transfer function evaluation</p>
+</details>
+<h2 id="lead-lag-compensators-the-best-of-both-worlds">Lead-Lag Compensators: The Best of Both Worlds</h2>
+<p>When you need both improved transient response <em>and</em> reduced steady-state error, a single compensator won't suffice. The solution: a <strong>lead-lag compensator</strong> that combines both functions.</p>
+<h3 id="lead-lag-compensator-transfer-function">Lead-Lag Compensator Transfer Function</h3>
+<h4 id="lead-lag-compensator-transfer-function_1">Lead-Lag Compensator Transfer Function</h4>
+<p><span class="arithmatex">\(G_c(s) = K_c \cdot \frac{(s + z_{lead})(s + z_{lag})}{(s + p_{lead})(s + p_{lag})}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(z_{lead} &lt; p_{lead}\)</span> (lead section)</li>
+<li><span class="arithmatex">\(z_{lag} &gt; p_{lag}\)</span> (lag section)</li>
+<li>The lead section operates near crossover, the lag section operates at low frequencies</li>
+</ul>
+<p>In practice, you can design the lead and lag sections separately, then combine them. The key is keeping them in different frequency ranges so they don't interfere with each other.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Frequency Range</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lead</td>
+<td>Near crossover (ω_c)</td>
+<td>Increase phase margin, reduce overshoot</td>
+</tr>
+<tr>
+<td>Lag</td>
+<td>Well below crossover</td>
+<td>Increase DC gain, reduce steady-state error</td>
+</tr>
+</tbody>
+</table>
+<p>The separation is crucial. If the lag section is too close to crossover, its phase lag will partially cancel the lead section's phase contribution.</p>
+<h2 id="design-methods-bode-vs-root-locus">Design Methods: Bode vs. Root Locus</h2>
+<p>Two powerful approaches exist for compensator design: frequency-domain design using Bode plots and s-domain design using root locus. Both can achieve the same results, but each has advantages for different types of specifications.</p>
+<h3 id="the-bode-design-method">The Bode Design Method</h3>
+<p>The <strong>Bode design method</strong> works directly with frequency-response specifications:</p>
+<ul>
+<li>Gain margin and phase margin</li>
+<li>Bandwidth (crossover frequency)</li>
+<li>Steady-state error requirements (related to DC gain)</li>
+</ul>
+<p><strong>Design procedure for lead compensation (Bode method):</strong></p>
+<ol>
+<li>Determine the required phase margin increase <span class="arithmatex">\(\Delta\phi\)</span></li>
+<li>Add a safety margin (typically 5-12°) to account for phase reduction from lead compensator gain increase</li>
+<li>Calculate the required <span class="arithmatex">\(\alpha\)</span>: <span class="arithmatex">\(\alpha = \frac{1 - \sin(\phi_{max})}{1 + \sin(\phi_{max})}\)</span></li>
+<li>Find the new crossover frequency <span class="arithmatex">\(\omega_c\)</span> where the uncompensated system has magnitude <span class="arithmatex">\(-10\log_{10}(\alpha)\)</span> dB</li>
+<li>Place the maximum phase at this crossover: <span class="arithmatex">\(\omega_m = \omega_c\)</span></li>
+<li>Calculate zero and pole: <span class="arithmatex">\(z = \omega_c\sqrt{\alpha}\)</span>, <span class="arithmatex">\(p = \omega_c/\sqrt{\alpha}\)</span></li>
+<li>Set compensator gain to maintain desired crossover</li>
+</ol>
+<p>This procedure systematically places the phase lead exactly where it's needed—at the new crossover frequency.</p>
+<p><strong>Design procedure for lag compensation (Bode method):</strong></p>
+<ol>
+<li>Set the gain <span class="arithmatex">\(K_c\)</span> to achieve the desired crossover frequency and phase margin (ignoring steady-state error for now)</li>
+<li>Determine how much additional DC gain is needed to meet the steady-state error specification</li>
+<li>Select the lag ratio: $z/p = $ (required DC gain increase)</li>
+<li>Place the lag zero at least one decade below crossover: <span class="arithmatex">\(z \leq \omega_c/10\)</span></li>
+<li>Calculate the pole: <span class="arithmatex">\(p = z \cdot (\text{required ratio})^{-1}\)</span></li>
+<li>Verify that phase margin hasn't been significantly reduced</li>
+</ol>
+<h3 id="the-root-locus-design-method">The Root Locus Design Method</h3>
+<p>The <strong>root locus design</strong> method works with pole placement specifications:</p>
+<ul>
+<li>Dominant pole locations</li>
+<li>Damping ratio and natural frequency</li>
+<li>Settling time and percent overshoot</li>
+</ul>
+<p><strong>Design procedure for lead compensation (root locus method):</strong></p>
+<ol>
+<li>Determine the desired closed-loop pole locations from transient specifications</li>
+<li>Calculate the angle deficiency: the angle needed from the compensator zero and pole to make the desired point a valid root locus point</li>
+<li>Position the compensator zero and pole to provide this angle</li>
+<li>A common approach: place the zero directly below the desired pole, then find the pole location that provides the correct total angle</li>
+<li>Calculate the gain <span class="arithmatex">\(K\)</span> at the desired pole location</li>
+</ol>
+<p>The root locus method gives direct control over closed-loop pole locations but requires more geometric construction than the Bode method.</p>
+<table>
+<thead>
+<tr>
+<th>Specification Type</th>
+<th>Preferred Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase margin, gain margin</td>
+<td>Bode</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td>Bode</td>
+</tr>
+<tr>
+<td>Damping ratio, natural frequency</td>
+<td>Root Locus</td>
+</tr>
+<tr>
+<td>Settling time, percent overshoot</td>
+<td>Root Locus</td>
+</tr>
+<tr>
+<td>Steady-state error</td>
+<td>Either (Bode slightly easier)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Both Methods Work</p>
+<p>There's no law saying you must use one method exclusively. Many engineers use Bode plots for initial design and root locus for verification, or vice versa. The best approach depends on how your specifications are stated and which method you're more comfortable with.</p>
+</div>
+<h4 id="diagram-lead-compensator-design-workflow">Diagram: Lead Compensator Design Workflow</h4>
+<iframe src="../../sims/lead-design-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Lead Compensator Design Workflow</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, implement</p>
+<p>Learning Objective: Students will apply the Bode design method to design a lead compensator that achieves a specified phase margin, with step-by-step guidance.</p>
+<p>Canvas layout:
+- Left side (60%): Bode plots showing uncompensated and compensated responses
+- Right side (40%): Step-by-step design procedure with calculations</p>
+<p>Visual elements:
+- Uncompensated Bode plot (dashed lines)
+- Compensated Bode plot (solid lines)
+- Phase margin indicators on both
+- Crossover frequency markers
+- Step-by-step procedure panel with current step highlighted
+- Calculated values displayed at each step</p>
+<p>Interactive controls:
+- Slider: Target phase margin from 30° to 70° (default: 45°)
+- Slider: Safety margin from 0° to 15° (default: 5°)
+- Dropdown: Plant type (selection of common transfer functions)
+- Button: "Step through design" (advances through procedure)
+- Button: "Show all steps"
+- Button: "Reset"</p>
+<p>Data Visibility Requirements:
+- Show uncompensated phase margin
+- Display required Δφ (phase margin increase needed)
+- Show calculated α and φ_max
+- Display z, p, and K_c values
+- Final compensated phase margin</p>
+<p>Behavior:
+- Start with uncompensated system
+- Each step of the procedure is highlighted with explanation
+- As each step completes, corresponding elements appear on Bode plot
+- Final step shows before/after comparison
+- Can jump to any step or run all at once</p>
+<p>Instructional Rationale: Step-by-step visualization of the design process demystifies the procedure. Students see each calculation's effect on the Bode plot, building understanding of the method's logic.</p>
+<p>Implementation: p5.js with procedural animation and transfer function evaluation</p>
+</details>
+<h2 id="performance-specifications-and-how-to-meet-them">Performance Specifications and How to Meet Them</h2>
+<p><strong>Performance specs</strong> define what the closed-loop system must achieve. Understanding how compensators affect these specifications is essential for design.</p>
+<h3 id="common-specifications">Common Specifications</h3>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>Symbol</th>
+<th>Related To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Percent overshoot</td>
+<td>%OS</td>
+<td>Damping ratio, phase margin</td>
+</tr>
+<tr>
+<td>Settling time</td>
+<td><span class="arithmatex">\(t_s\)</span></td>
+<td>Dominant pole real part</td>
+</tr>
+<tr>
+<td>Rise time</td>
+<td><span class="arithmatex">\(t_r\)</span></td>
+<td>Bandwidth, crossover frequency</td>
+</tr>
+<tr>
+<td>Steady-state error</td>
+<td><span class="arithmatex">\(e_{ss}\)</span></td>
+<td>DC gain, error constants</td>
+</tr>
+<tr>
+<td>Phase margin</td>
+<td>PM</td>
+<td>Damping, robustness</td>
+</tr>
+<tr>
+<td>Gain margin</td>
+<td>GM</td>
+<td>Robustness</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td><span class="arithmatex">\(\omega_{BW}\)</span></td>
+<td>Speed of response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="specification-conflicts">Specification Conflicts</h3>
+<p>Here's the uncomfortable truth: you can't have everything. Many specifications conflict with each other.</p>
+<p><strong>Speed vs. Stability</strong> is the classic tradeoff. Faster response (higher bandwidth, shorter settling time) typically requires higher loop gain. But higher loop gain reduces stability margins. Push too hard for speed and the system becomes oscillatory or unstable.</p>
+<div class="arithmatex">\[\text{Higher bandwidth} \Leftrightarrow \text{Higher crossover frequency} \Leftrightarrow \text{Less phase margin available}\]</div>
+<p>Lead compensators help by adding phase, but they can only add so much before noise becomes a problem.</p>
+<p><strong>Accuracy vs. Robustness</strong> is another fundamental conflict. To reduce steady-state error, you need high DC gain (lag compensation or integral action). But high gain at low frequencies can make the system sensitive to model uncertainty and disturbances.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"I can be fast or I can be stable, but being both is hard. When my engineers push my bandwidth higher, I respond quicker to disturbances—but I also start to oscillate. There's always a limit. The best they can do is find the right balance, not eliminate the tradeoff. I've learned to accept that being 'good enough' at everything is sometimes better than being perfect at one thing."</p>
+</div>
+<h2 id="sensitivity-and-robustness">Sensitivity and Robustness</h2>
+<p>The real world doesn't match our models perfectly. Components vary, parameters drift, and disturbances appear that we didn't anticipate. <strong>Robustness</strong> is the ability of a control system to maintain acceptable performance despite these uncertainties.</p>
+<h3 id="the-sensitivity-function">The Sensitivity Function</h3>
+<p>The <strong>sensitivity function</strong> <span class="arithmatex">\(S(s)\)</span> measures how disturbances and model errors affect the output:</p>
+<h4 id="sensitivity-function">Sensitivity Function</h4>
+<p><span class="arithmatex">\(S(s) = \frac{1}{1 + G(s)H(s)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(G(s)H(s)\)</span> is the loop transfer function</li>
+<li><span class="arithmatex">\(S(s)\)</span> relates disturbances at the output to their effect on the output</li>
+</ul>
+<p>The sensitivity function tells us how much the closed-loop transfer function changes when the plant changes. A low sensitivity (small <span class="arithmatex">\(|S(j\omega)|\)</span>) means the system is robust to plant variations at that frequency.</p>
+<h3 id="the-complementary-sensitivity-function">The Complementary Sensitivity Function</h3>
+<p>The <strong>complementary sensitivity function</strong> <span class="arithmatex">\(T(s)\)</span> relates the reference input to the output:</p>
+<h4 id="complementary-sensitivity-function">Complementary Sensitivity Function</h4>
+<p><span class="arithmatex">\(T(s) = \frac{G(s)H(s)}{1 + G(s)H(s)}\)</span></p>
+<p>Notice that <span class="arithmatex">\(S(s) + T(s) = 1\)</span>. This is the fundamental constraint that limits what any linear controller can achieve.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Low at Frequency</th>
+<th>High at Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(S(s)\)</span></td>
+<td>Good disturbance rejection</td>
+<td>Poor disturbance rejection</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(T(s)\)</span></td>
+<td>Poor reference tracking</td>
+<td>Good reference tracking</td>
+</tr>
+</tbody>
+</table>
+<p>Since they sum to 1, we can't have both low sensitivity and high complementary sensitivity at the same frequency. This is the mathematical expression of the speed-vs-robustness tradeoff.</p>
+<h3 id="disturbance-rejection">Disturbance Rejection</h3>
+<p><strong>Disturbance rejection</strong> measures how well the control system suppresses unwanted inputs. For disturbances entering at the plant output, the effect is governed by <span class="arithmatex">\(S(s)\)</span>.</p>
+<p>To reject low-frequency disturbances (like constant biases or slow drifts):
+- Make <span class="arithmatex">\(|S(j\omega)|\)</span> small at low frequencies
+- This requires high loop gain at low frequencies
+- Lag compensation or integral action achieves this</p>
+<h4 id="diagram-sensitivity-and-complementary-sensitivity">Diagram: Sensitivity and Complementary Sensitivity</h4>
+<iframe src="../../sims/sensitivity-functions/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Sensitivity and Complementary Sensitivity Functions</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: analyze, differentiate</p>
+<p>Learning Objective: Students will analyze how S(s) and T(s) trade off against each other and understand the implications for disturbance rejection and noise attenuation.</p>
+<p>Canvas layout:
+- Top half (50%): Bode magnitude plots of |S| and |T|
+- Bottom half (50%): Frequency response of loop gain and controls</p>
+<p>Visual elements:
+- |S(jω)| magnitude plot (blue)
+- |T(jω)| magnitude plot (green)
+- 0 dB reference line
+- Crossover frequency marker
+- Shaded regions: "good disturbance rejection" (low |S|), "good noise rejection" (low |T|)
+- |S| + |T| = 1 constraint illustrated at selected frequency</p>
+<p>Interactive controls:
+- Slider: Crossover frequency from 0.1 to 10 rad/s
+- Slider: Phase margin from 20° to 80°
+- Dropdown: Loop shape (simple integrator, lead-compensated, lag-compensated)
+- Toggle: Show S+T constraint visualization
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Display peak of |S| (sensitivity peak)
+- Show crossover frequency
+- Display |S| and |T| values at selected frequency
+- Warning if |S|_peak &gt; 2 (poor robustness)</p>
+<p>Behavior:
+- Plots update in real-time with parameter changes
+- Constraint S+T=1 shown graphically at user-selected frequency
+- Different loop shapes show different S/T tradeoffs
+- Sensitivity peak highlighted with warning for poor designs</p>
+<p>Instructional Rationale: Visualizing S and T together makes the fundamental tradeoff concrete. Students see that pushing one function down necessarily pushes the other up.</p>
+<p>Implementation: p5.js with transfer function evaluation and constraint visualization</p>
+</details>
+<h3 id="noise-attenuation">Noise Attenuation</h3>
+<p><strong>Noise attenuation</strong> refers to the system's ability to reject high-frequency noise from sensors. This is governed by <span class="arithmatex">\(T(s)\)</span> at high frequencies.</p>
+<p>For good noise attenuation:
+- Make <span class="arithmatex">\(|T(j\omega)|\)</span> small at high frequencies
+- This means the loop gain should roll off at high frequencies
+- Lead compensation increases high-frequency gain—potentially problematic for noise</p>
+<p>This creates another tradeoff: lead compensation improves phase margin but can amplify sensor noise. The pole in the lead compensator helps, but careful design is still required.</p>
+<p>| Frequency Range | Want Low <span class="arithmatex">\(|S|\)</span> | Want Low <span class="arithmatex">\(|T|\)</span> | Benefit |
+|-----------------|----------------|----------------|---------|
+| Low frequencies | Yes | No | Disturbance rejection |
+| Crossover | (crossover) | (crossover) | — |
+| High frequencies | No | Yes | Noise attenuation |</p>
+<h2 id="design-tradeoffs-the-fundamental-limits">Design Tradeoffs: The Fundamental Limits</h2>
+<p>Every control design involves tradeoffs. Understanding these limits helps you make informed decisions and set realistic expectations.</p>
+<h3 id="speed-vs-stability">Speed vs. Stability</h3>
+<p>Faster response requires higher bandwidth, which pushes the crossover frequency higher. But:
+- At higher frequencies, the plant typically has more phase lag
+- Less phase margin means less stability and more overshoot
+- Eventually, instability</p>
+<p>Lead compensation can add phase, but practical limits on <span class="arithmatex">\(\alpha\)</span> constrain how much. The fundamental tradeoff remains.</p>
+<h3 id="accuracy-vs-noise-rejection">Accuracy vs. Noise Rejection</h3>
+<p>High DC gain (from lag compensation or integral action) improves steady-state accuracy. But:
+- High gain amplifies low-frequency disturbances
+- If the low-frequency disturbances include sensor bias, this is problematic</p>
+<h3 id="disturbance-rejection-vs-noise-sensitivity">Disturbance Rejection vs. Noise Sensitivity</h3>
+<p>To reject output disturbances, make <span class="arithmatex">\(|S|\)</span> small, which requires high loop gain. But high loop gain also makes <span class="arithmatex">\(|T|\)</span> approach 1 more closely at those frequencies, passing more sensor noise to the output.</p>
+<h3 id="the-waterbed-effect">The Waterbed Effect</h3>
+<p>There's a mathematical result called the <strong>waterbed effect</strong>: if you push sensitivity down in one frequency range, it must come up somewhere else. You can't have <span class="arithmatex">\(|S(j\omega)| &lt; 1\)</span> everywhere—the integral of <span class="arithmatex">\(\ln|S|\)</span> over all frequencies is constrained by the number of RHP poles and zeros.</p>
+<p>This means there's no free lunch. Improving disturbance rejection at low frequencies typically worsens it at high frequencies, or vice versa.</p>
+<div class="admonition warning">
+<p class="admonition-title">No Universal Best Design</p>
+<p>The optimal compensator depends entirely on your specific requirements and constraints. There is no "best" compensator that works for all situations. Every design is a negotiated settlement among competing demands. The engineer's job is to understand these tradeoffs and find the best compromise for the application at hand.</p>
+</div>
+<h4 id="diagram-performance-tradeoff-explorer">Diagram: Performance Tradeoff Explorer</h4>
+<iframe src="../../sims/tradeoff-explorer/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Performance Tradeoff Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Evaluate (L5)
+Bloom Verb: evaluate, prioritize</p>
+<p>Learning Objective: Students will evaluate design tradeoffs by adjusting compensator parameters and observing how improvements in one performance metric degrade others.</p>
+<p>Canvas layout:
+- Top left (40%): Step response plot
+- Top right (40%): Bode magnitude and phase
+- Bottom (20%): Performance metrics dashboard and controls</p>
+<p>Visual elements:
+- Step response with overshoot, settling time markers
+- Bode plot with phase margin, crossover marked
+- Spider/radar chart showing: Rise time, Overshoot, Settling time, Steady-state error, Phase margin, Noise amplification
+- Color coding: green (good), yellow (acceptable), red (poor)</p>
+<p>Interactive controls:
+- Slider: Lead zero location
+- Slider: Lead pole location
+- Slider: Lag zero location (optional lag)
+- Slider: Lag pole location (optional lag)
+- Slider: Overall gain K
+- Toggle: Enable lag section
+- Dropdown: Priority (Speed, Stability, Accuracy)
+- Button: "Optimize for priority"
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- All six performance metrics displayed numerically
+- Spider chart updates in real-time
+- Trade-off relationships highlighted (e.g., when speed improves, show stability degrading)
+- Historical comparison: show best achieved for each metric</p>
+<p>Behavior:
+- All plots and metrics update in real-time
+- Spider chart visually shows balance of performance
+- When one metric improves significantly, show which others degraded
+- "Optimize for priority" adjusts parameters to favor selected metric
+- Cannot achieve all metrics at excellent levels simultaneously</p>
+<p>Instructional Rationale: Interactive exploration of tradeoffs teaches students that no single design is universally best. The spider chart makes the multi-objective nature of control design visible and intuitive.</p>
+<p>Implementation: p5.js with real-time simulation, spider chart visualization, and multi-objective display</p>
+</details>
+<h2 id="a-systematic-design-approach">A Systematic Design Approach</h2>
+<p>Here's a practical workflow for compensator design:</p>
+<ol>
+<li><strong>Analyze the uncompensated system:</strong></li>
+<li>Plot Bode diagrams or root locus</li>
+<li>Identify current phase margin, gain margin, crossover frequency</li>
+<li>
+<p>Calculate current steady-state error</p>
+</li>
+<li>
+<p><strong>Identify the performance gap:</strong></p>
+</li>
+<li>What specifications are not met?</li>
+<li>
+<p>Is the problem phase margin (transient response) or DC gain (steady-state error) or both?</p>
+</li>
+<li>
+<p><strong>Choose compensator type:</strong></p>
+</li>
+<li>Lead if phase margin/transient response is the problem</li>
+<li>Lag if steady-state error is the problem</li>
+<li>
+<p>Lead-lag if both</p>
+</li>
+<li>
+<p><strong>Design the compensator:</strong></p>
+</li>
+<li>Use Bode method for frequency-domain specs</li>
+<li>Use root locus for s-domain specs</li>
+<li>
+<p>Follow the systematic procedures outlined earlier</p>
+</li>
+<li>
+<p><strong>Verify the design:</strong></p>
+</li>
+<li>Check all specifications on the compensated system</li>
+<li>Look at step response, frequency response, and sensitivity functions</li>
+<li>
+<p>Ensure no specification has degraded unacceptably</p>
+</li>
+<li>
+<p><strong>Iterate if necessary:</strong></p>
+</li>
+<li>Tradeoffs may require adjusting the design</li>
+<li>Consider whether specifications themselves need revision</li>
+</ol>
+<h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>Compensator design extends our control toolkit beyond PID, giving precise control over where phase and gain are added or subtracted.</p>
+<p><strong>Lead compensators:</strong>
+- Add positive phase (phase lead)
+- Improve transient response and stability margins
+- Place zero closer to origin than pole (<span class="arithmatex">\(z &lt; p\)</span>)
+- Maximum phase occurs at <span class="arithmatex">\(\omega_m = \sqrt{zp}\)</span>
+- Practical limit around 55-60° per stage</p>
+<p><strong>Lag compensators:</strong>
+- Contribute negative phase (phase lag)
+- Increase low-frequency gain for better steady-state accuracy
+- Place zero farther from origin than pole (<span class="arithmatex">\(z &gt; p\)</span>)
+- Must be placed well below crossover to avoid destabilizing</p>
+<p><strong>Lead-lag compensators:</strong>
+- Combine both functions
+- Lead section near crossover, lag section at low frequencies
+- Address both transient and steady-state requirements</p>
+<p><strong>Design methods:</strong>
+- Bode method: best for phase margin, bandwidth specs
+- Root locus method: best for damping ratio, settling time specs</p>
+<p><strong>Fundamental tradeoffs:</strong>
+- Speed vs. stability (you can't have infinite bandwidth)
+- Accuracy vs. robustness (high gain amplifies uncertainty)
+- Disturbance rejection vs. noise attenuation (<span class="arithmatex">\(S + T = 1\)</span>)</p>
+<p><strong>Sensitivity functions:</strong>
+- <span class="arithmatex">\(S(s) = 1/(1 + GH)\)</span>: disturbance response, model sensitivity
+- <span class="arithmatex">\(T(s) = GH/(1 + GH)\)</span>: reference tracking, noise transmission
+- Their sum equals 1, constraining what's achievable</p>
+<p>Every control design is a compromise. The engineer's skill lies in understanding the tradeoffs and finding the best balance for the specific application.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My control system isn't perfect—it can't be. There's always a tradeoff between how fast I can react and how stable I stay. But understanding these limits helps my engineers make good choices. They can't give me infinite speed and infinite stability, but they can find the sweet spot where I'm quick enough and stable enough to do my job. That's what good control engineering is about: not perfection, but the best possible compromise."</p>
+</div>
+<details class="note">
+<summary>Check Your Understanding</summary>
+<ol>
+<li>For a lead compensator, which is larger: the zero or the pole?</li>
+<li>Why must a lag compensator's zero and pole be placed well below the crossover frequency?</li>
+<li>What does the sensitivity function <span class="arithmatex">\(S(s)\)</span> measure?</li>
+<li>Why does improving disturbance rejection at low frequencies often worsen noise rejection at high frequencies?</li>
+<li>If you need both improved transient response and reduced steady-state error, what type of compensator should you consider?</li>
+</ol>
+</details>
 
 
 
 
 
 
+
+  
+  
 
 
 

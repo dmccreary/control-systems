@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook college course in control systems with MicroSims.">
+        <meta name="description" content="Understanding system behavior through sinusoidal steady-state analysis and graphical frequency-domain visualization">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>12. Frequency Response and Bode - Control Systems</title>
+        <title>Frequency Response and Bode Plots - Control Systems</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12. Frequency Response and Bode
+              Frequency Response and Bode Plots
             
           </span>
         </div>
@@ -723,6 +723,846 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#a-different-lens-on-the-same-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Different Lens on the Same System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Frequency Response?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is Frequency Response?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinusoidal-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinusoidal-steady-state-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Steady-State Output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinusoidal-steady-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Steady State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sinusoidal Steady State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sinusoidal-steady-state-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sinusoidal Steady-State Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-frequency-transfer-function-substitution-s-j" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Frequency Transfer Function: Substitution s = jω
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Frequency Transfer Function: Substitution s = jω">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-fundamental-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Fundamental Substitution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-zeros-and-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles, Zeros, and Frequency Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles, Zeros, and Frequency Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-in-factored-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function in Factored Form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-from-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude from Poles and Zeros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-from-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase from Poles and Zeros
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logarithmic-scales-and-the-decibel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logarithmic Scales and the Decibel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logarithmic Scales and the Decibel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decibel-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decibel Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Octave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Bode Plot?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is a Bode Plot?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bode-plot-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bode Plot Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bode-plot-of-constant-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bode Plot of Constant Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bode Plot of Constant Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-gain-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant Gain Term
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-factors-and-their-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Factors and Their Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Factors and Their Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-pole-low-pass-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Pole (Low-Pass Factor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Pole (Low-Pass Factor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Pole
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-order-bode-plot-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Bode Plot Asymptotes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-order-zero-high-pass-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Zero (High-Pass Factor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Zero (High-Pass Factor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-first-order-bode-plot-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: First-Order Bode Plot Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrator-and-differentiator-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator and Differentiator Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrator and Differentiator Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Bode Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrator Bode Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differentiator Bode Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Differentiator Bode Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differentiator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differentiator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Factors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Second-Order Factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-pole-standard-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Pole (Standard Form)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Second-Order Pole (Standard Form)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-denominator-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Denominator Factor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-bode-plot-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Bode Plot Asymptotes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonant-peak-and-resonant-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Peak and Resonant Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resonant Peak and Resonant Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resonant-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonant-peak-magnitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Peak Magnitude
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Factor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Factor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-factor-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Factor Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-second-order-bode-plot-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Second-Order Bode Plot Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-approximation-and-bode-plot-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Approximation and Bode Plot Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Approximation and Bode Plot Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bode-plot-construction-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bode Plot Construction Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construction Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Construction Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construction-example-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construction Example Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bode-plot-construction-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bode Plot Construction Tool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-delay-in-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Delay in Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time Delay in Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-delay-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Delay Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bandwidth-and-cutoff-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth and Cutoff Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth and Cutoff Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cutoff-frequency-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cutoff Frequency Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Bandwidth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-types-low-pass-high-pass-bandpass-notch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Types: Low-Pass, High-Pass, Bandpass, Notch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter Types: Low-Pass, High-Pass, Bandpass, Notch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Low-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Pass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bandpass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandpass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandpass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandpass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandpass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notch Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-filter-types-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Filter Types Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-bode-plots-to-time-domain-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Bode Plots to Time-Domain Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Bode Plots to Time-Domain Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-and-rise-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth and Rise Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth and Rise Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-rise-time-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth-Rise Time Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonance-and-overshoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonance and Overshoot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase and Delay
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase and Delay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-frequency-response-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Frequency Response Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1188,6 +2028,846 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#a-different-lens-on-the-same-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Different Lens on the Same System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Frequency Response?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is Frequency Response?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinusoidal-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinusoidal-steady-state-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Steady-State Output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinusoidal-steady-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinusoidal Steady State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sinusoidal Steady State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sinusoidal-steady-state-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sinusoidal Steady-State Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-frequency-transfer-function-substitution-s-j" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Frequency Transfer Function: Substitution s = jω
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Frequency Transfer Function: Substitution s = jω">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-fundamental-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Fundamental Substitution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poles-zeros-and-frequency-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poles, Zeros, and Frequency Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poles, Zeros, and Frequency Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-function-in-factored-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Function in Factored Form
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-from-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnitude from Poles and Zeros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-from-poles-and-zeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase from Poles and Zeros
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logarithmic-scales-and-the-decibel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logarithmic Scales and the Decibel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logarithmic Scales and the Decibel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decibel-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decibel Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Octave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Bode Plot?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is a Bode Plot?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bode-plot-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bode Plot Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bode-plot-of-constant-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bode Plot of Constant Gain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bode Plot of Constant Gain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-gain-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant Gain Term
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-factors-and-their-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Factors and Their Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Factors and Their Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-pole-low-pass-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Pole (Low-Pass Factor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Pole (Low-Pass Factor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Pole
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-order-bode-plot-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Bode Plot Asymptotes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-order-zero-high-pass-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Zero (High-Pass Factor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order Zero (High-Pass Factor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-order-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Order Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-first-order-bode-plot-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: First-Order Bode Plot Constructor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrator-and-differentiator-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator and Differentiator Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrator and Differentiator Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Bode Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrator Bode Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiator-bode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differentiator Bode Plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Differentiator Bode Plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differentiator-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differentiator Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Factors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Second-Order Factors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-pole-standard-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Pole (Standard Form)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Second-Order Pole (Standard Form)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-denominator-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Denominator Factor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-bode-plot-asymptotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Bode Plot Asymptotes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonant-peak-and-resonant-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Peak and Resonant Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resonant Peak and Resonant Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resonant-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonant-peak-magnitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonant Peak Magnitude
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Factor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Factor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-factor-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Factor Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-second-order-bode-plot-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Second-Order Bode Plot Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asymptotic-approximation-and-bode-plot-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asymptotic Approximation and Bode Plot Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asymptotic Approximation and Bode Plot Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bode-plot-construction-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bode Plot Construction Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construction Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Construction Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construction-example-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construction Example Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bode-plot-construction-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bode Plot Construction Tool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-delay-in-bode-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Delay in Bode Plots
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time Delay in Bode Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-delay-transfer-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Delay Transfer Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bandwidth-and-cutoff-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth and Cutoff Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth and Cutoff Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cutoff-frequency-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cutoff Frequency Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second-Order Bandwidth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-types-low-pass-high-pass-bandpass-notch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter Types: Low-Pass, High-Pass, Bandpass, Notch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter Types: Low-Pass, High-Pass, Bandpass, Notch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Low-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-pass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Pass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-Pass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-pass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Pass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bandpass-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandpass System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandpass System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandpass-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandpass Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notch Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notch-filter-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notch Filter Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-filter-types-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Filter Types Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-bode-plots-to-time-domain-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Bode Plots to Time-Domain Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Bode Plots to Time-Domain Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-and-rise-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth and Rise Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth and Rise Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-rise-time-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth-Rise Time Relationship
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resonance-and-overshoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resonance and Overshoot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase and Delay
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase and Delay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-frequency-response-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The Frequency Response Toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting to What's Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1257,13 +2937,1431 @@
 <li><a href="../06-poles-zeros-system-analysis/">Chapter 6: Poles, Zeros, and System Analysis</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="a-different-lens-on-the-same-system">A Different Lens on the Same System</h2>
+<p>In Chapters 10 and 11, you learned to analyze control systems by examining pole locations and tracking how they move as parameters change. The s-plane tells a complete story about stability and dynamics—but it requires knowing the transfer function and finding roots. What if you could characterize a system's behavior just by measuring its response to sine waves at different frequencies?</p>
+<p>This is exactly what <strong>frequency response analysis</strong> provides. Instead of looking at where poles are in the complex plane, you ask a simpler experimental question: "If I feed a sinusoid into this system, what sinusoid comes out?" The answer—how the amplitude changes and how much the phase shifts—turns out to contain all the information you need for stability analysis and controller design.</p>
+<p>The genius of Bode plots is that they encode this frequency response information in a graphical form that reveals system structure at a glance. By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Calculate how an LTI system responds to sinusoidal inputs</li>
+<li>Construct Bode plots from transfer functions using simple rules</li>
+<li>Read gain margin, phase margin, and bandwidth directly from plots</li>
+<li>Classify systems as low-pass, high-pass, bandpass, or notch filters</li>
+<li>Understand resonance and its relationship to damping</li>
+</ul>
+<p>Frequency-domain analysis isn't replacing what you learned in the s-domain—it's providing a complementary perspective that's often more practical for real-world design.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"My engineers don't just step me to see how I respond—they also sing to me at different frequencies. When they sweep through low frequencies, I follow along perfectly. But as they push higher, I start lagging behind, and eventually I can barely respond at all. My Bode plot is a portrait of how I hear the world—what frequencies I'm sensitive to, and where I go deaf."</p>
+</div>
+<h2 id="what-is-frequency-response">What Is Frequency Response?</h2>
+<p>The <strong>frequency response</strong> of a linear time-invariant (LTI) system describes how the system responds to sinusoidal inputs at various frequencies. For any stable LTI system, a sinusoidal input produces a sinusoidal output at the same frequency, but with possibly different amplitude and phase.</p>
+<p>Consider a system with transfer function <span class="arithmatex">\(G(s)\)</span>. If we apply a sinusoidal input:</p>
+<h4 id="sinusoidal-input">Sinusoidal Input</h4>
+<p><span class="arithmatex">\(u(t) = A \sin(\omega t)\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> is the input amplitude</li>
+<li><span class="arithmatex">\(\omega\)</span> is the angular frequency (rad/s)</li>
+</ul>
+<p>The steady-state output (after transients decay) is:</p>
+<h4 id="sinusoidal-steady-state-output">Sinusoidal Steady-State Output</h4>
+<p><span class="arithmatex">\(y_{ss}(t) = A |G(j\omega)| \sin(\omega t + \angle G(j\omega))\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(|G(j\omega)|\)</span> is the magnitude of the transfer function at frequency <span class="arithmatex">\(\omega\)</span></li>
+<li><span class="arithmatex">\(\angle G(j\omega)\)</span> is the phase of the transfer function at frequency <span class="arithmatex">\(\omega\)</span></li>
+</ul>
+<p>This is a remarkable result. The output is:</p>
+<ul>
+<li>At the <strong>same frequency</strong> as the input</li>
+<li><strong>Scaled</strong> by the magnitude <span class="arithmatex">\(|G(j\omega)|\)</span></li>
+<li><strong>Shifted in time</strong> by the phase <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+</ul>
+<p>No new frequencies are created—this is a fundamental property of linear systems. Nonlinear systems would distort the sine wave, creating harmonics, but LTI systems preserve the sinusoidal shape.</p>
+<table>
+<thead>
+<tr>
+<th>Input Property</th>
+<th>Output Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frequency <span class="arithmatex">\(\omega\)</span></td>
+<td>Same frequency <span class="arithmatex">\(\omega\)</span></td>
+</tr>
+<tr>
+<td>Amplitude <span class="arithmatex">\(A\)</span></td>
+<td>Amplitude $A \cdot</td>
+</tr>
+<tr>
+<td>Phase <span class="arithmatex">\(0\)</span></td>
+<td>Phase <span class="arithmatex">\(\angle G(j\omega)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sinusoidal-steady-state">Sinusoidal Steady State</h2>
+<p>The term <strong>sinusoidal steady state</strong> refers to the system's behavior after initial transients have died out. When you first apply a sinusoidal input, the output contains two components:</p>
+<ol>
+<li><strong>Transient response</strong>: Determined by the system's poles, decays over time</li>
+<li><strong>Steady-state response</strong>: The persistent sinusoidal oscillation</li>
+</ol>
+<p>For a stable system (all poles in LHP), the transient eventually vanishes, leaving only the steady-state sinusoid. The frequency response characterizes this steady-state behavior.</p>
+<p>Consider a first-order system:</p>
+<h4 id="first-order-example">First-Order Example</h4>
+<p><span class="arithmatex">\(G(s) = \frac{1}{s + 1}\)</span></p>
+<p>Input: <span class="arithmatex">\(u(t) = \sin(2t)\)</span> (amplitude 1, frequency 2 rad/s)</p>
+<p>At <span class="arithmatex">\(\omega = 2\)</span> rad/s:</p>
+<p><span class="arithmatex">\(G(j2) = \frac{1}{j2 + 1} = \frac{1}{1 + j2}\)</span></p>
+<p>Magnitude: <span class="arithmatex">\(|G(j2)| = \frac{1}{\sqrt{1^2 + 2^2}} = \frac{1}{\sqrt{5}} \approx 0.447\)</span></p>
+<p>Phase: <span class="arithmatex">\(\angle G(j2) = -\arctan\left(\frac{2}{1}\right) = -63.4°\)</span></p>
+<p>Steady-state output: <span class="arithmatex">\(y_{ss}(t) = 0.447 \sin(2t - 63.4°)\)</span></p>
+<p>The output has less than half the amplitude of the input and lags by about 63 degrees. This single-frequency measurement tells us something about the system—and repeating it across many frequencies builds a complete picture.</p>
+<h4 id="diagram-sinusoidal-steady-state-visualizer">Diagram: Sinusoidal Steady-State Visualizer</h4>
+<iframe src="../../sims/sinusoidal-steady-state/main.html" width="100%" height="550px" scrolling="no"></iframe>
+
+<details>
+<summary>Sinusoidal Steady-State Visualizer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: explain, interpret</p>
+<p>Learning Objective: Students will explain how sinusoidal inputs are transformed by LTI systems, observing magnitude scaling and phase shift in steady state.</p>
+<p>Canvas layout:
+- Top (40%): Time-domain plot showing input and output sinusoids
+- Middle (30%): Phasor diagram showing amplitude and phase relationship
+- Bottom (30%): Control panel and numeric display</p>
+<p>Visual elements:
+Time Domain:
+- Input sinusoid in blue
+- Output sinusoid in red (after transient)
+- Transient portion shown faded initially, then fading out
+- Time axis with markers for period
+- Amplitude markers for both signals
+- Phase shift indicated with vertical dashed lines</p>
+<p>Phasor Diagram:
+- Input phasor (blue arrow)
+- Output phasor (red arrow)
+- Angle between them labeled
+- Magnitude ratio shown
+- Rotating animation option</p>
+<p>Numeric Display:
+- Input frequency ω = [value] rad/s
+- Input amplitude = [value]
+- Output amplitude = [value]
+- Magnitude ratio = [value]
+- Phase shift = [value]°</p>
+<p>Interactive controls:
+- Slider: Input frequency (0.1 to 10 rad/s, logarithmic)
+- Dropdown: System presets (first-order, second-order underdamped, second-order overdamped)
+- Toggle: Show/hide transient
+- Toggle: Animate phasors
+- Slider: Time constant or damping ratio (system-dependent)</p>
+<p>Data Visibility Requirements:
+- Stage 1: Show input sinusoid only
+- Stage 2: Add system transfer function
+- Stage 3: Calculate |G(jω)| and ∠G(jω) with formula
+- Stage 4: Display output sinusoid with scaling and shift
+- Stage 5: Show phasor representation</p>
+<p>Behavior:
+- As frequency slider moves, output amplitude and phase change
+- Transient fades over first few time constants
+- Phasors rotate at selected frequency if animated
+- For underdamped systems, amplitude can exceed 1 at resonance
+- Phase ranges from 0° (low freq) to -180° (high freq) for typical systems</p>
+<p>Instructional Rationale: Direct visualization of how sinusoidal signals transform through a system builds intuition for frequency response. The phasor representation connects to electrical engineering backgrounds while time-domain plots remain accessible to all.</p>
+<p>Implementation: p5.js with dual time-domain and phasor displays</p>
+</details>
+<h2 id="the-frequency-transfer-function-substitution-s-j">The Frequency Transfer Function: Substitution s = jω</h2>
+<p>The key to frequency response analysis is the substitution <span class="arithmatex">\(s = j\omega\)</span>. The transfer function <span class="arithmatex">\(G(s)\)</span> becomes a function of frequency alone: <span class="arithmatex">\(G(j\omega)\)</span>.</p>
+<h4 id="the-fundamental-substitution">The Fundamental Substitution</h4>
+<p><span class="arithmatex">\(G(j\omega) = G(s)\big|_{s=j\omega}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(s\)</span> is the complex Laplace variable</li>
+<li><span class="arithmatex">\(j = \sqrt{-1}\)</span> is the imaginary unit</li>
+<li><span class="arithmatex">\(\omega\)</span> is the angular frequency in rad/s</li>
+</ul>
+<p>This substitution has a beautiful interpretation. In the s-plane, the imaginary axis is where <span class="arithmatex">\(s = j\omega\)</span>. Evaluating the transfer function along the imaginary axis traces out the frequency response. Every point on the imaginary axis corresponds to a different frequency:</p>
+<table>
+<thead>
+<tr>
+<th>s-plane location</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s = 0\)</span></td>
+<td>DC (ω = 0)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = j1\)</span></td>
+<td>1 rad/s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = j10\)</span></td>
+<td>10 rad/s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s = j100\)</span></td>
+<td>100 rad/s</td>
+</tr>
+</tbody>
+</table>
+<p>The resulting complex number <span class="arithmatex">\(G(j\omega)\)</span> has magnitude and phase:</p>
+<h4 id="magnitude-response">Magnitude Response</h4>
+<p><span class="arithmatex">\(|G(j\omega)| = \sqrt{[\text{Re}(G(j\omega))]^2 + [\text{Im}(G(j\omega))]^2}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\text{Re}(G(j\omega))\)</span> is the real part</li>
+<li><span class="arithmatex">\(\text{Im}(G(j\omega))\)</span> is the imaginary part</li>
+</ul>
+<h4 id="phase-response">Phase Response</h4>
+<p><span class="arithmatex">\(\angle G(j\omega) = \arctan\left(\frac{\text{Im}(G(j\omega))}{\text{Re}(G(j\omega))}\right)\)</span></p>
+<p>where:</p>
+<ul>
+<li>The result is in degrees or radians</li>
+<li>Care must be taken with the quadrant (use atan2 in computations)</li>
+</ul>
+<p>Together, <span class="arithmatex">\(|G(j\omega)|\)</span> and <span class="arithmatex">\(\angle G(j\omega)\)</span> completely describe the frequency response. The <strong>magnitude response</strong> tells us how much the system amplifies or attenuates each frequency. The <strong>phase response</strong> tells us how much time delay (in terms of phase angle) the system introduces at each frequency.</p>
+<h2 id="poles-zeros-and-frequency-response">Poles, Zeros, and Frequency Response</h2>
+<p>There's a direct geometric connection between pole-zero locations and frequency response. At any frequency <span class="arithmatex">\(\omega\)</span>, the magnitude and phase can be computed from the distances and angles to poles and zeros.</p>
+<p>For a transfer function in factored form:</p>
+<h4 id="transfer-function-in-factored-form">Transfer Function in Factored Form</h4>
+<p><span class="arithmatex">\(G(s) = K \frac{\prod_{i=1}^{m}(s - z_i)}{\prod_{j=1}^{n}(s - p_j)}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is the gain constant</li>
+<li><span class="arithmatex">\(z_i\)</span> are the zeros</li>
+<li><span class="arithmatex">\(p_j\)</span> are the poles</li>
+</ul>
+<p>The magnitude at frequency <span class="arithmatex">\(\omega\)</span> is:</p>
+<h4 id="magnitude-from-poles-and-zeros">Magnitude from Poles and Zeros</h4>
+<p><span class="arithmatex">\(|G(j\omega)| = |K| \frac{\prod_{i=1}^{m}|j\omega - z_i|}{\prod_{j=1}^{n}|j\omega - p_j|}\)</span></p>
+<p>And the phase is:</p>
+<h4 id="phase-from-poles-and-zeros">Phase from Poles and Zeros</h4>
+<p><span class="arithmatex">\(\angle G(j\omega) = \angle K + \sum_{i=1}^{m}\angle(j\omega - z_i) - \sum_{j=1}^{n}\angle(j\omega - p_j)\)</span></p>
+<p>Geometrically:</p>
+<ul>
+<li><span class="arithmatex">\(|j\omega - z_i|\)</span> is the distance from the test point <span class="arithmatex">\(j\omega\)</span> on the imaginary axis to zero <span class="arithmatex">\(z_i\)</span></li>
+<li><span class="arithmatex">\(\angle(j\omega - z_i)\)</span> is the angle of the vector from <span class="arithmatex">\(z_i\)</span> to <span class="arithmatex">\(j\omega\)</span></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Geometric Intuition</p>
+<p>When <span class="arithmatex">\(\omega\)</span> is close to a pole, the denominator term becomes small, making the magnitude large. This is <strong>resonance</strong>. When <span class="arithmatex">\(\omega\)</span> is close to a zero, the numerator term becomes small, making the magnitude small—a <strong>notch</strong>. Poles boost the frequency response; zeros cut it.</p>
+</div>
+<h2 id="logarithmic-scales-and-the-decibel">Logarithmic Scales and the Decibel</h2>
+<p>Before constructing Bode plots, we need to understand the scales used. Bode plots use logarithmic scales for both frequency and magnitude, which converts multiplication into addition and reveals patterns across many decades of frequency.</p>
+<p>The <strong>decibel</strong> (dB) is a logarithmic unit for expressing ratios:</p>
+<h4 id="decibel-definition">Decibel Definition</h4>
+<p><span class="arithmatex">\(|G|_{dB} = 20 \log_{10}|G|\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(|G|\)</span> is the magnitude (dimensionless ratio)</li>
+<li><span class="arithmatex">\(|G|_{dB}\)</span> is the magnitude in decibels</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Linear Magnitude</th>
+<th>Decibels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0 dB</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6 dB</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20 dB</td>
+</tr>
+<tr>
+<td>100</td>
+<td>40 dB</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>-20 dB</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>-40 dB</td>
+</tr>
+<tr>
+<td>0.707 ≈ 1/√2</td>
+<td>-3 dB</td>
+</tr>
+</tbody>
+</table>
+<p>The -3 dB point (magnitude of 0.707) is particularly important—it represents the <strong>half-power point</strong>, where power (proportional to magnitude squared) drops to half its maximum value.</p>
+<p>Using decibels transforms multiplication into addition:</p>
+<p><span class="arithmatex">\(|G_1 G_2|_{dB} = |G_1|_{dB} + |G_2|_{dB}\)</span></p>
+<p>This is crucial for Bode plots, where we'll add the contributions of individual factors to get the total response.</p>
+<p>The <strong>logarithmic frequency scale</strong> uses decades and octaves:</p>
+<h4 id="decade">Decade</h4>
+<p><span class="arithmatex">\(\text{One decade} = \text{factor of 10 in frequency}\)</span></p>
+<p>Examples: 1 to 10 rad/s, 10 to 100 rad/s, 100 to 1000 rad/s</p>
+<h4 id="octave">Octave</h4>
+<p><span class="arithmatex">\(\text{One octave} = \text{factor of 2 in frequency}\)</span></p>
+<p>Examples: 1 to 2 rad/s, 2 to 4 rad/s, 4 to 8 rad/s</p>
+<p>There are approximately 3.32 octaves per decade (since <span class="arithmatex">\(\log_2(10) \approx 3.32\)</span>). Control engineers typically work in decades; audio engineers prefer octaves.</p>
+<h2 id="what-is-a-bode-plot">What Is a Bode Plot?</h2>
+<p>A <strong>Bode plot</strong> consists of two graphs that together display the complete frequency response:</p>
+<ol>
+<li><strong>Bode Magnitude Plot</strong>: <span class="arithmatex">\(|G(j\omega)|_{dB}\)</span> versus <span class="arithmatex">\(\omega\)</span> on a log scale</li>
+<li><strong>Bode Phase Plot</strong>: <span class="arithmatex">\(\angle G(j\omega)\)</span> (in degrees) versus <span class="arithmatex">\(\omega\)</span> on a log scale</li>
+</ol>
+<p>Named after Hendrik Wade Bode (rhymes with "body"), who developed these techniques at Bell Labs in the 1930s, Bode plots remain the standard tool for frequency-domain analysis because:</p>
+<ul>
+<li>They span many decades of frequency on a compact graph</li>
+<li>Individual transfer function factors contribute additively</li>
+<li>Straight-line asymptotic approximations are remarkably accurate</li>
+<li>Stability margins are visible at a glance</li>
+</ul>
+<p>The key insight is <strong>factorization</strong>: any transfer function can be written as a product of simple factors, and the Bode plot of the product equals the sum of the Bode plots of the factors.</p>
+<h4 id="diagram-bode-plot-overview">Diagram: Bode Plot Overview</h4>
+<iframe src="../../sims/bode-overview/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Bode Plot Overview</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Remember (L1)
+Bloom Verb: identify, recognize</p>
+<p>Learning Objective: Students will identify the components of a Bode plot and recognize how magnitude (in dB) and phase (in degrees) vary with frequency.</p>
+<p>Canvas layout:
+- Top (45%): Magnitude plot with labeled axes
+- Bottom (45%): Phase plot with labeled axes
+- Right margin (10%): Legend and annotations</p>
+<p>Visual elements:
+Magnitude Plot:
+- Horizontal axis: ω (rad/s), logarithmic scale from 0.1 to 1000
+- Vertical axis: Magnitude (dB), linear scale from -60 to 40
+- Grid lines at decades (0.1, 1, 10, 100, 1000)
+- Grid lines at -40, -20, 0, 20, 40 dB
+- Example transfer function curve
+- 0 dB line emphasized</p>
+<p>Phase Plot:
+- Horizontal axis: ω (rad/s), logarithmic scale (same as magnitude)
+- Vertical axis: Phase (degrees), linear scale from -180 to 0
+- Grid lines at decades
+- Grid lines at -180, -135, -90, -45, 0 degrees
+- Phase curve corresponding to magnitude above
+- -90° and -180° lines emphasized</p>
+<p>Annotations:
+- Label: "Low frequency region" (left)
+- Label: "High frequency region" (right)
+- Arrow pointing to corner frequency
+- Label: "-3 dB point" where applicable</p>
+<p>Interactive controls:
+- Dropdown: Example system (first-order, second-order, integrator, lead-lag)
+- Toggle: Show asymptotes
+- Toggle: Show exact curve
+- Button: Reset to default view
+- Zoom in/out on frequency axis</p>
+<p>Data Visibility Requirements:
+- Show transfer function formula
+- Display magnitude and phase at cursor position
+- Highlight key points: DC gain, corner frequencies, high-frequency slope</p>
+<p>Behavior:
+- As user hovers, crosshairs show exact values
+- Asymptotes appear as dashed lines when enabled
+- Smooth curve overlays asymptotes
+- Different example systems show different characteristics</p>
+<p>Instructional Rationale: A clear, labeled example establishes the visual vocabulary of Bode plots before students learn construction techniques. Seeing exact curves alongside asymptotes prepares them for the approximation approach.</p>
+<p>Implementation: p5.js with logarithmic axis handling and interactive cursor</p>
+</details>
+<h2 id="bode-plot-of-constant-gain">Bode Plot of Constant Gain</h2>
+<p>The simplest transfer function is a pure gain:</p>
+<h4 id="constant-gain-term">Constant Gain Term</h4>
+<p><span class="arithmatex">\(G(s) = K\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> is a real constant (positive or negative)</li>
+</ul>
+<p>For frequency response:</p>
+<p><span class="arithmatex">\(G(j\omega) = K\)</span></p>
+<p>Magnitude: <span class="arithmatex">\(|K|_{dB} = 20 \log_{10}|K|\)</span> (constant for all frequencies)</p>
+<p>Phase: <span class="arithmatex">\(\angle K = 0°\)</span> if <span class="arithmatex">\(K &gt; 0\)</span>, or <span class="arithmatex">\(-180°\)</span> (equivalently <span class="arithmatex">\(+180°\)</span>) if <span class="arithmatex">\(K &lt; 0\)</span></p>
+<p>The Bode plot of a constant gain is simply:</p>
+<ul>
+<li><strong>Magnitude</strong>: Horizontal line at <span class="arithmatex">\(20 \log_{10}|K|\)</span> dB</li>
+<li><strong>Phase</strong>: Horizontal line at 0° (if <span class="arithmatex">\(K &gt; 0\)</span>) or ±180° (if <span class="arithmatex">\(K &lt; 0\)</span>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Gain <span class="arithmatex">\(K\)</span></th>
+<th>Magnitude</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(K = 1\)</span></td>
+<td>0 dB</td>
+<td>0°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = 10\)</span></td>
+<td>20 dB</td>
+<td>0°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = 100\)</span></td>
+<td>40 dB</td>
+<td>0°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = 0.1\)</span></td>
+<td>-20 dB</td>
+<td>0°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K = -1\)</span></td>
+<td>0 dB</td>
+<td>±180°</td>
+</tr>
+</tbody>
+</table>
+<p>A negative gain inverts the sign of the output, which corresponds to a 180° phase shift—flipping the sine wave upside down.</p>
+<h2 id="first-order-factors-and-their-bode-plots">First-Order Factors and Their Bode Plots</h2>
+<p>Most practical transfer functions can be decomposed into first-order and second-order factors. Let's start with first-order terms.</p>
+<h3 id="first-order-pole-low-pass-factor">First-Order Pole (Low-Pass Factor)</h3>
+<p>A first-order pole in the denominator:</p>
+<h4 id="first-order-pole">First-Order Pole</h4>
+<p><span class="arithmatex">\(G(s) = \frac{1}{1 + s/\omega_c} = \frac{1}{1 + j\omega/\omega_c}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_c\)</span> is the corner frequency (also called break frequency or cutoff frequency)</li>
+<li>The time constant is <span class="arithmatex">\(\tau = 1/\omega_c\)</span></li>
+</ul>
+<p>This is a low-pass filter that passes low frequencies and attenuates high frequencies.</p>
+<p><strong>Magnitude</strong>:</p>
+<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\sqrt{1 + (\omega/\omega_c)^2}}\)</span></p>
+<p><span class="arithmatex">\(|G|_{dB} = -20 \log_{10}\sqrt{1 + (\omega/\omega_c)^2} = -10 \log_{10}[1 + (\omega/\omega_c)^2]\)</span></p>
+<p><strong>Phase</strong>:</p>
+<p><span class="arithmatex">\(\angle G(j\omega) = -\arctan(\omega/\omega_c)\)</span></p>
+<h4 id="first-order-bode-plot-asymptotes">First-Order Bode Plot Asymptotes</h4>
+<p><strong>Low-frequency asymptote</strong> (<span class="arithmatex">\(\omega \ll \omega_c\)</span>):</p>
+<ul>
+<li>Magnitude: 0 dB (horizontal line)</li>
+<li>Phase: 0°</li>
+</ul>
+<p><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \gg \omega_c\)</span>):</p>
+<ul>
+<li>Magnitude: <span class="arithmatex">\(-20 \log_{10}(\omega/\omega_c)\)</span> dB, which is a line with slope <strong>-20 dB/decade</strong></li>
+<li>Phase: -90°</li>
+</ul>
+<p><strong>At the corner frequency</strong> (<span class="arithmatex">\(\omega = \omega_c\)</span>):</p>
+<ul>
+<li>Magnitude: <span class="arithmatex">\(-10 \log_{10}(2) = -3\)</span> dB (3 dB below the low-frequency asymptote)</li>
+<li>Phase: <span class="arithmatex">\(-\arctan(1) = -45°\)</span> (halfway between 0° and -90°)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Frequency</th>
+<th>Magnitude</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\omega \ll \omega_c\)</span></td>
+<td>0 dB</td>
+<td>≈ 0°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = 0.1\omega_c\)</span></td>
+<td>-0.04 dB</td>
+<td>-5.7°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = 0.5\omega_c\)</span></td>
+<td>-1 dB</td>
+<td>-26.6°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = \omega_c\)</span></td>
+<td>-3 dB</td>
+<td>-45°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = 2\omega_c\)</span></td>
+<td>-7 dB</td>
+<td>-63.4°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega = 10\omega_c\)</span></td>
+<td>-20 dB</td>
+<td>-84.3°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega \gg \omega_c\)</span></td>
+<td>-20 dB/decade slope</td>
+<td>≈ -90°</td>
+</tr>
+</tbody>
+</table>
+<h3 id="first-order-zero-high-pass-factor">First-Order Zero (High-Pass Factor)</h3>
+<p>A first-order zero in the numerator:</p>
+<h4 id="first-order-zero">First-Order Zero</h4>
+<p><span class="arithmatex">\(G(s) = 1 + s/\omega_c = 1 + j\omega/\omega_c\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_c\)</span> is the corner frequency</li>
+</ul>
+<p>This factor has the opposite effect of a first-order pole:</p>
+<p><strong>Magnitude asymptotes</strong>:</p>
+<ul>
+<li>Low frequency: 0 dB (horizontal)</li>
+<li>High frequency: +20 dB/decade (rising slope)</li>
+<li>At corner: +3 dB</li>
+</ul>
+<p><strong>Phase</strong>:</p>
+<ul>
+<li>Low frequency: 0°</li>
+<li>At corner: +45°</li>
+<li>High frequency: +90°</li>
+</ul>
+<p>The Bode plot of a first-order zero is the mirror image (about 0 dB and 0°) of a first-order pole at the same frequency.</p>
+<div class="admonition tip">
+<p class="admonition-title">Poles vs. Zeros</p>
+<ul>
+<li><strong>Poles</strong> cause magnitude to decrease and phase to become more negative (lag)</li>
+<li><strong>Zeros</strong> cause magnitude to increase and phase to become more positive (lead)</li>
+<li>Both change by 20 dB/decade in magnitude and 90° in phase</li>
+</ul>
+</div>
+<h4 id="diagram-first-order-bode-plot-constructor">Diagram: First-Order Bode Plot Constructor</h4>
+<iframe src="../../sims/first-order-bode/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>First-Order Bode Plot Constructor</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: calculate, execute</p>
+<p>Learning Objective: Students will construct Bode plots for first-order poles and zeros, applying asymptotic approximation rules and verifying accuracy at key frequencies.</p>
+<p>Canvas layout:
+- Top left (35%): Magnitude plot
+- Bottom left (35%): Phase plot
+- Right (30%): Control panel and calculations</p>
+<p>Visual elements:
+Magnitude Plot:
+- Exact curve (solid)
+- Asymptotic approximation (dashed)
+- Corner frequency marked with vertical line
+- -3 dB point marked (for poles) or +3 dB (for zeros)
+- Grid at decades and standard dB values</p>
+<p>Phase Plot:
+- Exact curve (solid)
+- Asymptotic approximation (dashed, three-segment)
+- -45° or +45° point at corner
+- Phase values at 0.1ωc, ωc, 10ωc marked</p>
+<p>Calculation Panel:
+- Transfer function displayed
+- Corner frequency ωc = [value] rad/s
+- Time constant τ = [value] s
+- Low-freq magnitude = [value] dB
+- High-freq slope = [value] dB/decade
+- At ωc: magnitude = [value] dB, phase = [value]°</p>
+<p>Interactive controls:
+- Slider: Corner frequency (0.1 to 100 rad/s, log scale)
+- Radio: Pole or Zero
+- Toggle: Show asymptotes
+- Toggle: Show exact curve
+- Slider: Gain multiplier (0.1 to 10)
+- Button: Reset</p>
+<p>Data Visibility Requirements:
+- Show transfer function formula
+- Display asymptote equations
+- Show exact values at ωc, 0.1ωc, 10ωc
+- Calculate error between asymptote and exact</p>
+<p>Behavior:
+- As corner frequency changes, curves shift horizontally
+- Pole and zero selections flip the curves
+- Error between asymptote and exact shown at corner (always 3 dB for first-order)
+- Gain multiplier shifts magnitude plot vertically</p>
+<p>Instructional Rationale: Hands-on construction with immediate feedback builds fluency with first-order factors. Seeing both exact and asymptotic curves develops judgment about approximation accuracy.</p>
+<p>Implementation: p5.js with logarithmic plotting and parameter controls</p>
+</details>
+<h2 id="integrator-and-differentiator-bode-plots">Integrator and Differentiator Bode Plots</h2>
+<p>Special first-order cases occur when the corner frequency is at zero (integrator) or infinity (conceptually, a pure differentiator).</p>
+<h3 id="integrator-bode-plot">Integrator Bode Plot</h3>
+<p>The integrator (pole at the origin):</p>
+<h4 id="integrator-transfer-function">Integrator Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{1}{s} = \frac{1}{j\omega}\)</span></p>
+<p><strong>Magnitude</strong>:</p>
+<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\omega}\)</span></p>
+<p><span class="arithmatex">\(|G|_{dB} = -20 \log_{10}(\omega)\)</span></p>
+<p>This is a straight line with slope <strong>-20 dB/decade</strong>, passing through 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s.</p>
+<p><strong>Phase</strong>:</p>
+<p><span class="arithmatex">\(\angle G(j\omega) = -90°\)</span> (constant at all frequencies)</p>
+<p>The integrator has no corner frequency—the -20 dB/decade slope extends forever in both directions. Of course, at very low frequencies this implies infinite gain, which isn't physically realizable, but it's mathematically correct.</p>
+<h3 id="differentiator-bode-plot">Differentiator Bode Plot</h3>
+<p>The differentiator (zero at the origin):</p>
+<h4 id="differentiator-transfer-function">Differentiator Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = s = j\omega\)</span></p>
+<p><strong>Magnitude</strong>:</p>
+<p><span class="arithmatex">\(|G(j\omega)| = \omega\)</span></p>
+<p><span class="arithmatex">\(|G|_{dB} = 20 \log_{10}(\omega)\)</span></p>
+<p>This is a straight line with slope <strong>+20 dB/decade</strong>, passing through 0 dB at <span class="arithmatex">\(\omega = 1\)</span> rad/s.</p>
+<p><strong>Phase</strong>:</p>
+<p><span class="arithmatex">\(\angle G(j\omega) = +90°\)</span> (constant at all frequencies)</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Magnitude Slope</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1/s\)</span> (integrator)</td>
+<td>-20 dB/decade</td>
+<td>-90°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s\)</span> (differentiator)</td>
+<td>+20 dB/decade</td>
+<td>+90°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1/s^2\)</span> (double integrator)</td>
+<td>-40 dB/decade</td>
+<td>-180°</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(s^2\)</span> (double differentiator)</td>
+<td>+40 dB/decade</td>
+<td>+180°</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"My tilt angle sensor works like an integrator of angular velocity. In Bode terms, it has a -20 dB/decade slope and -90° phase at all frequencies. This means high-frequency noise gets attenuated (good!), but there's also inherent phase lag. That 90° delay is one reason my controller needs to be carefully tuned—my sensors don't give me instantaneous information; they give me information about the past."</p>
+</div>
+<h2 id="second-order-factors">Second-Order Factors</h2>
+<p>Second-order factors are more interesting because they introduce <strong>resonance</strong>—the possibility of amplification near the natural frequency.</p>
+<h3 id="second-order-pole-standard-form">Second-Order Pole (Standard Form)</h3>
+<h4 id="second-order-denominator-factor">Second-Order Denominator Factor</h4>
+<p><span class="arithmatex">\(G(s) = \frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_n\)</span> is the natural frequency</li>
+<li><span class="arithmatex">\(\zeta\)</span> is the damping ratio</li>
+</ul>
+<p>Substituting <span class="arithmatex">\(s = j\omega\)</span>:</p>
+<p><span class="arithmatex">\(G(j\omega) = \frac{1}{1 - (\omega/\omega_n)^2 + j2\zeta(\omega/\omega_n)}\)</span></p>
+<p><strong>Magnitude</strong>:</p>
+<p><span class="arithmatex">\(|G(j\omega)| = \frac{1}{\sqrt{[1-(\omega/\omega_n)^2]^2 + [2\zeta(\omega/\omega_n)]^2}}\)</span></p>
+<p><strong>Phase</strong>:</p>
+<p><span class="arithmatex">\(\angle G(j\omega) = -\arctan\left(\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)^2}\right)\)</span></p>
+<h4 id="second-order-bode-plot-asymptotes">Second-Order Bode Plot Asymptotes</h4>
+<p><strong>Low-frequency asymptote</strong> (<span class="arithmatex">\(\omega \ll \omega_n\)</span>):</p>
+<ul>
+<li>Magnitude: 0 dB</li>
+<li>Phase: 0°</li>
+</ul>
+<p><strong>High-frequency asymptote</strong> (<span class="arithmatex">\(\omega \gg \omega_n\)</span>):</p>
+<ul>
+<li>Magnitude: <span class="arithmatex">\(-40 \log_{10}(\omega/\omega_n)\)</span> dB, slope of <strong>-40 dB/decade</strong></li>
+<li>Phase: -180°</li>
+</ul>
+<p><strong>At the natural frequency</strong> (<span class="arithmatex">\(\omega = \omega_n\)</span>):</p>
+<ul>
+<li>Magnitude: <span class="arithmatex">\(|G(j\omega_n)| = \frac{1}{2\zeta}\)</span>, so <span class="arithmatex">\(|G|_{dB} = -20\log_{10}(2\zeta)\)</span></li>
+<li>Phase: exactly -90°</li>
+</ul>
+<p>The behavior at <span class="arithmatex">\(\omega_n\)</span> depends strongly on <span class="arithmatex">\(\zeta\)</span>:</p>
+<p>| <span class="arithmatex">\(\zeta\)</span> | <span class="arithmatex">\(|G(j\omega_n)|\)</span> | Magnitude at <span class="arithmatex">\(\omega_n\)</span> | Behavior |
+|---------|------------------|------------------------|----------|
+| 1.0 | 0.5 | -6 dB | Critically damped, no peak |
+| 0.707 | 0.707 | -3 dB | Optimal damping, slight rise |
+| 0.5 | 1.0 | 0 dB | Equal to low-freq value |
+| 0.25 | 2.0 | +6 dB | Moderate resonance |
+| 0.1 | 5.0 | +14 dB | Strong resonance |</p>
+<p>For <span class="arithmatex">\(\zeta &lt; 0.707\)</span>, there's a <strong>resonant peak</strong> above 0 dB. The lower the damping, the higher and sharper the peak.</p>
+<h3 id="resonant-peak-and-resonant-frequency">Resonant Peak and Resonant Frequency</h3>
+<p>The <strong>resonant peak</strong> <span class="arithmatex">\(M_r\)</span> is the maximum value of the magnitude response. It doesn't occur exactly at <span class="arithmatex">\(\omega_n\)</span> unless <span class="arithmatex">\(\zeta\)</span> is very small.</p>
+<h4 id="resonant-frequency">Resonant Frequency</h4>
+<p><span class="arithmatex">\(\omega_r = \omega_n\sqrt{1 - 2\zeta^2}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_r\)</span> is the frequency at which the peak occurs</li>
+<li>This is only valid for <span class="arithmatex">\(\zeta &lt; 1/\sqrt{2} \approx 0.707\)</span></li>
+</ul>
+<p>For <span class="arithmatex">\(\zeta \geq 0.707\)</span>, there's no resonant peak above the DC value.</p>
+<h4 id="resonant-peak-magnitude">Resonant Peak Magnitude</h4>
+<p><span class="arithmatex">\(M_r = \frac{1}{2\zeta\sqrt{1-\zeta^2}}\)</span></p>
+<p>In decibels: <span class="arithmatex">\(M_r|_{dB} = 20\log_{10}(M_r)\)</span></p>
+<p>The relationship between damping and resonant peak is crucial for design:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\zeta\)</span></th>
+<th><span class="arithmatex">\(\omega_r\)</span></th>
+<th><span class="arithmatex">\(M_r\)</span></th>
+<th><span class="arithmatex">\(M_r\)</span> (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td><span class="arithmatex">\(0.99\omega_n\)</span></td>
+<td>5.03</td>
+<td>14.0 dB</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td><span class="arithmatex">\(0.96\omega_n\)</span></td>
+<td>2.55</td>
+<td>8.1 dB</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td><span class="arithmatex">\(0.91\omega_n\)</span></td>
+<td>1.75</td>
+<td>4.9 dB</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td><span class="arithmatex">\(0.82\omega_n\)</span></td>
+<td>1.36</td>
+<td>2.7 dB</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td><span class="arithmatex">\(0.71\omega_n\)</span></td>
+<td>1.15</td>
+<td>1.3 dB</td>
+</tr>
+<tr>
+<td>0.707</td>
+<td>0</td>
+<td>1.0</td>
+<td>0 dB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quality-factor">Quality Factor</h3>
+<p>The <strong>quality factor</strong> <span class="arithmatex">\(Q\)</span> is an alternative way to characterize second-order systems:</p>
+<h4 id="quality-factor-definition">Quality Factor Definition</h4>
+<p><span class="arithmatex">\(Q = \frac{1}{2\zeta}\)</span></p>
+<p>where:</p>
+<ul>
+<li>High <span class="arithmatex">\(Q\)</span> means low damping (sharp resonance)</li>
+<li>Low <span class="arithmatex">\(Q\)</span> means high damping (broad, gentle response)</li>
+</ul>
+<p>The quality factor describes how "selective" a resonant system is—high-Q systems respond strongly only near the resonant frequency, while low-Q systems have broad frequency response.</p>
+<table>
+<thead>
+<tr>
+<th>Damping</th>
+<th><span class="arithmatex">\(\zeta\)</span></th>
+<th><span class="arithmatex">\(Q\)</span></th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heavy</td>
+<td>1.0</td>
+<td>0.5</td>
+<td>No overshoot</td>
+</tr>
+<tr>
+<td>Critical</td>
+<td>0.707</td>
+<td>0.707</td>
+<td>Maximally flat</td>
+</tr>
+<tr>
+<td>Light</td>
+<td>0.5</td>
+<td>1.0</td>
+<td>Some oscillation</td>
+</tr>
+<tr>
+<td>Very light</td>
+<td>0.1</td>
+<td>5.0</td>
+<td>Strong resonance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-second-order-bode-plot-explorer">Diagram: Second-Order Bode Plot Explorer</h4>
+<iframe src="../../sims/second-order-bode/main.html" width="100%" height="650px" scrolling="no"></iframe>
+
+<details>
+<summary>Second-Order Bode Plot Explorer</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Analyze (L4)
+Bloom Verb: differentiate, compare</p>
+<p>Learning Objective: Students will analyze how damping ratio affects second-order Bode plots, comparing resonant behavior across different ζ values.</p>
+<p>Canvas layout:
+- Top left (40%): Magnitude plot with multiple damping curves
+- Bottom left (40%): Phase plot with multiple damping curves
+- Right (20%): Controls and resonance data</p>
+<p>Visual elements:
+Magnitude Plot:
+- Multiple curves for different ζ values (shown simultaneously or one at a time)
+- Asymptotes: 0 dB low-freq, -40 dB/decade high-freq
+- Resonant peak marked with dot and label
+- Natural frequency marked on axis
+- Grid at standard values</p>
+<p>Phase Plot:
+- Phase curves corresponding to magnitude
+- -90° line emphasized (passes through ωn for all ζ)
+- Phase transition region highlighted
+- Grid at -180°, -135°, -90°, -45°, 0°</p>
+<p>Resonance Data Panel:
+- Current ζ = [value]
+- Q = 1/(2ζ) = [value]
+- Resonant frequency ωr = [value] rad/s
+- Resonant peak Mr = [value] (or [value] dB)
+- Bandwidth (if applicable)</p>
+<p>Interactive controls:
+- Slider: Damping ratio ζ (0.05 to 2.0)
+- Slider: Natural frequency ωn (0.1 to 100 rad/s)
+- Toggle: Show asymptotes
+- Toggle: Show multiple ζ values simultaneously
+- Checkbox: ζ = 0.1, 0.3, 0.5, 0.707, 1.0 presets
+- Button: Animate ζ sweep</p>
+<p>Data Visibility Requirements:
+- Show formulas for Mr and ωr
+- Display all key values numerically
+- Highlight when ζ crosses 0.707 threshold
+- Show pole locations on small s-plane inset</p>
+<p>Behavior:
+- As ζ decreases, resonant peak grows
+- Below ζ = 0.707, peak appears above 0 dB line
+- Phase transition becomes sharper as ζ decreases
+- At ζ = 0.707, maximum flat magnitude without overshoot
+- At ζ = 1, no peak, transition is gradual</p>
+<p>Instructional Rationale: Comparing multiple damping values simultaneously reveals the qualitative effect of ζ on resonance. The connection between sharp magnitude peak and rapid phase transition builds intuition for stability margin analysis.</p>
+<p>Implementation: p5.js with multi-curve plotting and parameter animation</p>
+</details>
+<h2 id="asymptotic-approximation-and-bode-plot-construction">Asymptotic Approximation and Bode Plot Construction</h2>
+<p>The power of Bode plots comes from the <strong>asymptotic approximation</strong> technique. Instead of calculating exact values, we:</p>
+<ol>
+<li>Factor the transfer function into simple terms</li>
+<li>Draw straight-line asymptotes for each term</li>
+<li>Add the asymptotes (since we're using dB and log frequency)</li>
+</ol>
+<p>This approach, developed by Bode himself, is remarkably accurate and reveals system structure at a glance.</p>
+<h3 id="bode-plot-construction-procedure">Bode Plot Construction Procedure</h3>
+<p>Given a transfer function <span class="arithmatex">\(G(s)\)</span>:</p>
+<p><strong>Step 1: Put in standard form</strong></p>
+<p>Rewrite each factor in time-constant form:</p>
+<ul>
+<li>First-order pole: <span class="arithmatex">\(\frac{1}{1 + s/\omega_c}\)</span></li>
+<li>First-order zero: <span class="arithmatex">\(1 + s/\omega_c\)</span></li>
+<li>Second-order: <span class="arithmatex">\(\frac{1}{1 + 2\zeta(s/\omega_n) + (s/\omega_n)^2}\)</span></li>
+</ul>
+<p>Extract the DC gain <span class="arithmatex">\(K\)</span> as a separate constant.</p>
+<p><strong>Step 2: Identify all corner frequencies</strong></p>
+<p>List all corner frequencies <span class="arithmatex">\(\omega_c\)</span> and <span class="arithmatex">\(\omega_n\)</span> in ascending order. Each corner marks where asymptotes change slope.</p>
+<p><strong>Step 3: Draw the low-frequency asymptote</strong></p>
+<p>Start from the leftmost part of the plot:</p>
+<ul>
+<li>Magnitude: Determined by DC gain and any integrators/differentiators</li>
+<li>Phase: Sum of phases from constant, integrators, differentiators</li>
+</ul>
+<p><strong>Step 4: At each corner frequency, change the slope</strong></p>
+<ul>
+<li>First-order pole: decrease slope by 20 dB/decade, decrease phase by 90°</li>
+<li>First-order zero: increase slope by 20 dB/decade, increase phase by 90°</li>
+<li>Second-order pole: decrease slope by 40 dB/decade, decrease phase by 180°</li>
+<li>Second-order zero: increase slope by 40 dB/decade, increase phase by 180°</li>
+</ul>
+<p><strong>Step 5: Apply corrections at corners</strong></p>
+<p>The asymptotes are exactly right at low and high frequencies but deviate near corners:</p>
+<ul>
+<li>First-order: 3 dB error at corner</li>
+<li>Second-order: error depends on ζ (can be 0 to +14 dB for resonant peak)</li>
+</ul>
+<h3 id="construction-example">Construction Example</h3>
+<p>Construct the Bode plot for:</p>
+<h4 id="construction-example-transfer-function">Construction Example Transfer Function</h4>
+<p><span class="arithmatex">\(G(s) = \frac{100(s + 10)}{s(s + 100)}\)</span></p>
+<p><strong>Step 1: Standard form</strong></p>
+<p><span class="arithmatex">\(G(s) = \frac{100 \cdot 10 \cdot (1 + s/10)}{s \cdot 100 \cdot (1 + s/100)} = \frac{10(1 + s/10)}{s(1 + s/100)}\)</span></p>
+<p>DC gain effect: With factor of 10 at numerator and integrator, need to evaluate at a reference frequency.</p>
+<p>Actually, let's be more systematic. At <span class="arithmatex">\(\omega = 1\)</span>:</p>
+<p><span class="arithmatex">\(|G(j1)| = \frac{100|1 + j0.1|}{|j1||1 + j0.01|} = \frac{100 \cdot 1.005}{1 \cdot 1.00005} \approx 100.5\)</span></p>
+<p>That's about 40 dB.</p>
+<p><strong>Step 2: Corner frequencies</strong></p>
+<ul>
+<li>Zero at <span class="arithmatex">\(\omega = 10\)</span> rad/s</li>
+<li>Pole at <span class="arithmatex">\(\omega = 100\)</span> rad/s</li>
+<li>Integrator (pole at origin)</li>
+</ul>
+<p><strong>Step 3: Low-frequency asymptote</strong></p>
+<p>Due to integrator: slope of -20 dB/decade at low frequencies</p>
+<p>At <span class="arithmatex">\(\omega = 1\)</span>: magnitude ≈ 40 dB (from above)</p>
+<p><strong>Step 4: Asymptote changes</strong></p>
+<ul>
+<li>At <span class="arithmatex">\(\omega = 10\)</span> (zero): slope changes from -20 to 0 dB/decade (zero adds +20)</li>
+<li>At <span class="arithmatex">\(\omega = 100\)</span> (pole): slope changes from 0 to -20 dB/decade (pole adds -20)</li>
+</ul>
+<p><strong>Step 5: Phase</strong></p>
+<ul>
+<li>Low freq: -90° (integrator alone)</li>
+<li>At <span class="arithmatex">\(\omega = 10\)</span>: zero adds +90°, transitioning to 0° at high frequency relative to zero</li>
+<li>At <span class="arithmatex">\(\omega = 100\)</span>: pole adds -90°, transitioning to -90° total at high frequency</li>
+</ul>
+<p>Net phase:</p>
+<ul>
+<li>Very low: -90°</li>
+<li>Between 10 and 100: transitioning through 0°</li>
+<li>Very high: back to -90° (integrator -90° + zero +90° + pole -90° = -90°)</li>
+</ul>
+<h4 id="diagram-bode-plot-construction-tool">Diagram: Bode Plot Construction Tool</h4>
+<iframe src="../../sims/bode-construction/main.html" width="100%" height="700px" scrolling="no"></iframe>
+
+<details>
+<summary>Bode Plot Construction Tool</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Apply (L3)
+Bloom Verb: construct, execute</p>
+<p>Learning Objective: Students will construct complete Bode plots by combining contributions from individual factors, applying asymptotic rules systematically.</p>
+<p>Canvas layout:
+- Left (65%): Stacked magnitude and phase plots
+- Right (35%): Factor breakdown and construction steps</p>
+<p>Visual elements:
+Magnitude Plot:
+- Final composite asymptote (bold black)
+- Individual factor contributions (colored, thinner)
+- Exact curve (dashed, when shown)
+- Corner frequencies marked on axis
+- Slope labels on each segment</p>
+<p>Phase Plot:
+- Final composite phase (bold black)
+- Individual factor contributions (colored)
+- Exact curve (dashed)
+- Transition regions marked</p>
+<p>Factor Panel:
+- List of factors with transfer function
+- Color coding matching plot lines
+- Slope contribution of each factor
+- Phase contribution of each factor
+- Checkboxes to show/hide each factor</p>
+<p>Construction Steps:
+- Step-by-step instructions
+- Current step highlighted
+- "Next" button to proceed</p>
+<p>Interactive controls:
+- Dropdown: Preset transfer functions
+- Input: Custom transfer function entry
+- Toggle: Show exact curve
+- Toggle: Show individual factors
+- Button: Step through construction
+- Button: Auto-build (animate construction)
+- Slider: Adjust gain</p>
+<p>Data Visibility Requirements:
+- Show transfer function in factored form
+- Display corner frequencies in ascending order
+- Show slope at each frequency region
+- Display DC gain and asymptote starting point
+- Show phase at key frequencies</p>
+<p>Behavior:
+- Factors can be added/removed interactively
+- As construction proceeds, each factor's contribution added
+- Composite builds up step by step
+- Error between asymptotes and exact shown
+- Construction history visible</p>
+<p>Instructional Rationale: Building the composite plot from individual factors reinforces the superposition principle in logarithmic domain. Step-by-step construction with visible contributions develops procedural fluency.</p>
+<p>Implementation: p5.js with transfer function parser and layered plotting</p>
+</details>
+<h2 id="time-delay-in-bode-plots">Time Delay in Bode Plots</h2>
+<p>Physical systems often include pure time delays—the output is a delayed copy of a processed input. Transport delays in pipelines, computation delays in digital controllers, and signal propagation delays all fall into this category.</p>
+<h4 id="time-delay-transfer-function">Time Delay Transfer Function</h4>
+<p><span class="arithmatex">\(G_d(s) = e^{-sT_d}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(T_d\)</span> is the delay time in seconds</li>
+</ul>
+<p>Substituting <span class="arithmatex">\(s = j\omega\)</span>:</p>
+<p><span class="arithmatex">\(G_d(j\omega) = e^{-j\omega T_d}\)</span></p>
+<p><strong>Magnitude</strong>: <span class="arithmatex">\(|e^{-j\omega T_d}| = 1\)</span> (0 dB at all frequencies)</p>
+<p><strong>Phase</strong>: <span class="arithmatex">\(\angle e^{-j\omega T_d} = -\omega T_d\)</span> radians = <span class="arithmatex">\(-\omega T_d \cdot \frac{180°}{\pi}\)</span> degrees</p>
+<p>The time delay has no effect on magnitude but adds ever-increasing phase lag as frequency increases. This phase lag is linear with frequency on a linear plot but appears as a curve on the logarithmic Bode phase plot.</p>
+<table>
+<thead>
+<tr>
+<th>Frequency</th>
+<th>Phase Lag (for <span class="arithmatex">\(T_d = 0.1\)</span> s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 rad/s</td>
+<td>-5.7°</td>
+</tr>
+<tr>
+<td>10 rad/s</td>
+<td>-57.3°</td>
+</tr>
+<tr>
+<td>31.4 rad/s (<span class="arithmatex">\(\pi \omega\)</span>)</td>
+<td>-180°</td>
+</tr>
+<tr>
+<td>100 rad/s</td>
+<td>-573°</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Time Delay Impact on Stability</p>
+<p>Time delay is the enemy of feedback control. The phase lag it introduces reduces phase margin, potentially destabilizing the system. A system that's perfectly stable with ideal sensors and actuators may become unstable when realistic delays are included. The Nyquist criterion (Chapter 13) handles delays elegantly.</p>
+</div>
+<h2 id="bandwidth-and-cutoff-frequency">Bandwidth and Cutoff Frequency</h2>
+<p>The <strong>bandwidth</strong> of a system is the range of frequencies over which it responds effectively. For many systems, bandwidth is defined by the <strong>cutoff frequency</strong>—the frequency at which the magnitude drops to a specified level below its maximum.</p>
+<h4 id="cutoff-frequency-definition">Cutoff Frequency Definition</h4>
+<p><span class="arithmatex">\(\omega_c \text{ is where } |G(j\omega_c)| = \frac{|G|_{max}}{\sqrt{2}}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(|G|_{max}\)</span> is the maximum magnitude (often the DC gain)</li>
+<li><span class="arithmatex">\(\frac{1}{\sqrt{2}} \approx 0.707\)</span>, corresponding to -3 dB</li>
+</ul>
+<p>The <strong>-3 dB point</strong> is also called the <strong>half-power point</strong> because power is proportional to magnitude squared:</p>
+<p><span class="arithmatex">\(P \propto |G|^2\)</span></p>
+<p>At -3 dB: <span class="arithmatex">\(|G|^2 = \frac{1}{2}|G|_{max}^2\)</span></p>
+<p>For a first-order low-pass system <span class="arithmatex">\(G(s) = \frac{1}{1 + s/\omega_c}\)</span>:</p>
+<ul>
+<li>Bandwidth = corner frequency = <span class="arithmatex">\(\omega_c\)</span></li>
+<li>At <span class="arithmatex">\(\omega_c\)</span>: magnitude is -3 dB below DC</li>
+</ul>
+<p>For second-order systems, the relationship between bandwidth and natural frequency depends on damping:</p>
+<h4 id="second-order-bandwidth">Second-Order Bandwidth</h4>
+<p><span class="arithmatex">\(\omega_{BW} \approx \omega_n\sqrt{1 - 2\zeta^2 + \sqrt{4\zeta^4 - 4\zeta^2 + 2}}\)</span></p>
+<p>This formula is complex, but approximately:</p>
+<ul>
+<li>For <span class="arithmatex">\(\zeta = 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} \approx \omega_n\)</span></li>
+<li>For <span class="arithmatex">\(\zeta &lt; 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} &gt; \omega_n\)</span> (resonance extends bandwidth)</li>
+<li>For <span class="arithmatex">\(\zeta &gt; 0.707\)</span>: <span class="arithmatex">\(\omega_{BW} &lt; \omega_n\)</span></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>System Property</th>
+<th>Effect on Bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faster response</td>
+<td>Higher bandwidth</td>
+</tr>
+<tr>
+<td>Lower damping</td>
+<td>Higher bandwidth (with resonance)</td>
+</tr>
+<tr>
+<td>More poles</td>
+<td>Lower bandwidth</td>
+</tr>
+<tr>
+<td>Right-half zeros</td>
+<td>Lower bandwidth</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Bandwidth and Speed</p>
+<p>Bandwidth and rise time are inversely related. A rule of thumb:</p>
+<p><span class="arithmatex">\(\omega_{BW} \cdot t_r \approx 2\)</span></p>
+<p>Doubling bandwidth roughly halves rise time. This connects frequency-domain and time-domain specifications.</p>
+</div>
+<h2 id="filter-types-low-pass-high-pass-bandpass-notch">Filter Types: Low-Pass, High-Pass, Bandpass, Notch</h2>
+<p>Transfer functions can be classified by which frequency ranges they pass or attenuate. These classifications are most apparent from Bode plot shapes.</p>
+<h3 id="low-pass-system">Low-Pass System</h3>
+<p>A <strong>low-pass filter</strong> passes low frequencies and attenuates high frequencies.</p>
+<h4 id="low-pass-characteristics">Low-Pass Characteristics</h4>
+<ul>
+<li>DC gain: finite, nonzero</li>
+<li>High-frequency gain: approaches zero</li>
+<li>Magnitude slope at high frequency: negative (-20, -40, or more dB/decade)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>First-order: <span class="arithmatex">\(G(s) = \frac{K}{1 + s/\omega_c}\)</span></li>
+<li>Second-order: <span class="arithmatex">\(G(s) = \frac{K\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></li>
+</ul>
+<p>Low-pass systems smooth out rapid changes, filter noise, and integrate signals. Most physical systems are inherently low-pass because high-frequency energy is dissipated.</p>
+<h3 id="high-pass-system">High-Pass System</h3>
+<p>A <strong>high-pass filter</strong> attenuates low frequencies and passes high frequencies.</p>
+<h4 id="high-pass-characteristics">High-Pass Characteristics</h4>
+<ul>
+<li>DC gain: zero</li>
+<li>High-frequency gain: finite, nonzero</li>
+<li>Magnitude slope at low frequency: positive (+20, +40, or more dB/decade)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>First-order: <span class="arithmatex">\(G(s) = \frac{Ks/\omega_c}{1 + s/\omega_c}\)</span></li>
+<li>Second-order: <span class="arithmatex">\(G(s) = \frac{Ks^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></li>
+</ul>
+<p>High-pass systems reject DC offsets and slow drifts, emphasize rapid changes, and differentiate signals. Washout filters in power system stabilizers are high-pass.</p>
+<h3 id="bandpass-system">Bandpass System</h3>
+<p>A <strong>bandpass filter</strong> passes a range of frequencies and attenuates both below and above that range.</p>
+<h4 id="bandpass-characteristics">Bandpass Characteristics</h4>
+<ul>
+<li>DC gain: zero</li>
+<li>High-frequency gain: zero</li>
+<li>Peak gain: at the center frequency</li>
+<li>Bandwidth: width of the passband (typically at -3 dB points)</li>
+</ul>
+<p>Example:</p>
+<p><span class="arithmatex">\(G(s) = \frac{Ks/\omega_0}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}\)</span></p>
+<p>where <span class="arithmatex">\(\omega_0\)</span> is the center frequency and <span class="arithmatex">\(Q\)</span> determines selectivity.</p>
+<p>Bandpass filters isolate signals at specific frequencies. They're used in communication systems, resonant circuits, and vibration analysis.</p>
+<h3 id="notch-filter">Notch Filter</h3>
+<p>A <strong>notch filter</strong> (band-reject filter) attenuates a specific frequency range while passing frequencies above and below.</p>
+<h4 id="notch-filter-characteristics">Notch Filter Characteristics</h4>
+<ul>
+<li>DC gain: finite, nonzero</li>
+<li>High-frequency gain: finite, nonzero</li>
+<li>Deep attenuation at notch frequency</li>
+<li>Sharp dip in magnitude response</li>
+</ul>
+<p>Example:</p>
+<p><span class="arithmatex">\(G(s) = \frac{(s/\omega_0)^2 + 1}{(s/\omega_0)^2 + (1/Q)(s/\omega_0) + 1}\)</span></p>
+<p>The numerator zeros are on the imaginary axis at <span class="arithmatex">\(\pm j\omega_0\)</span>, creating complete attenuation at exactly <span class="arithmatex">\(\omega_0\)</span>.</p>
+<p>Notch filters remove unwanted tones or oscillations. A common application is eliminating 60 Hz power line interference.</p>
+<table>
+<thead>
+<tr>
+<th>Filter Type</th>
+<th>DC</th>
+<th>High Freq</th>
+<th style="text-align: right;">Peak Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low-Pass</td>
+<td>Pass</td>
+<td>Reject</td>
+<td style="text-align: right;">DC</td>
+</tr>
+<tr>
+<td>High-Pass</td>
+<td>Reject</td>
+<td>Pass</td>
+<td style="text-align: right;">High freq</td>
+</tr>
+<tr>
+<td>Bandpass</td>
+<td>Reject</td>
+<td>Reject</td>
+<td style="text-align: right;">Center freq</td>
+</tr>
+<tr>
+<td>Notch</td>
+<td>Pass</td>
+<td>Pass</td>
+<td style="text-align: right;">— (dip at notch)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-filter-types-comparison">Diagram: Filter Types Comparison</h4>
+<iframe src="../../sims/filter-types/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<details>
+<summary>Filter Types Comparison</summary>
+<p>Type: microsim</p>
+<p>Bloom Taxonomy: Understand (L2)
+Bloom Verb: classify, compare</p>
+<p>Learning Objective: Students will classify transfer functions as low-pass, high-pass, bandpass, or notch filters by examining their Bode plot characteristics.</p>
+<p>Canvas layout:
+- Top (50%): Bode magnitude plot showing all four filter types
+- Bottom left (25%): Selected filter's time response to chirp signal
+- Bottom right (25%): Filter selection and parameters</p>
+<p>Visual elements:
+Magnitude Plot:
+- Low-pass curve (blue)
+- High-pass curve (green)
+- Bandpass curve (orange)
+- Notch filter curve (purple)
+- All on same axes for comparison
+- Passband and stopband regions shaded for selected filter</p>
+<p>Time Response:
+- Input: chirp signal (frequency sweep)
+- Output: showing filtering effect
+- Clear visualization of which frequencies are passed/rejected</p>
+<p>Parameter Panel:
+- Selected filter type (radio buttons)
+- Cutoff/center frequency slider
+- Damping/Q slider
+- Gain slider
+- Transfer function displayed</p>
+<p>Interactive controls:
+- Radio: Select filter type (Low, High, Band, Notch)
+- Slider: Center/cutoff frequency
+- Slider: Q factor or damping
+- Toggle: Show all filters simultaneously
+- Button: Play chirp input
+- Button: Reset to defaults</p>
+<p>Data Visibility Requirements:
+- Show transfer function for each type
+- Display -3 dB frequencies (cutoff/bandwidth)
+- Show peak value for bandpass, notch depth for notch
+- Compare asymptotic slopes</p>
+<p>Behavior:
+- Selecting a filter highlights its curve
+- Parameter changes update curves in real-time
+- Chirp response animates through frequency range
+- Q/damping affects selectivity/sharpness</p>
+<p>Instructional Rationale: Side-by-side comparison reveals the distinctive "signatures" of each filter type. The chirp signal response demonstrates filtering action in a intuitive way.</p>
+<p>Implementation: p5.js with multi-curve plotting and audio-style visualization</p>
+</details>
+<h2 id="connecting-bode-plots-to-time-domain-response">Connecting Bode Plots to Time-Domain Response</h2>
+<p>Frequency response and time response are two views of the same system. Understanding their relationship helps you predict one from the other.</p>
+<h3 id="bandwidth-and-rise-time">Bandwidth and Rise Time</h3>
+<p>Faster systems have higher bandwidth. The approximate relationship:</p>
+<h4 id="bandwidth-rise-time-relationship">Bandwidth-Rise Time Relationship</h4>
+<p><span class="arithmatex">\(t_r \approx \frac{2.2}{\omega_{BW}}\)</span> (for first-order)</p>
+<p><span class="arithmatex">\(t_r \approx \frac{1.8}{\omega_n}\)</span> (for second-order with <span class="arithmatex">\(\zeta = 0.707\)</span>)</p>
+<h3 id="resonance-and-overshoot">Resonance and Overshoot</h3>
+<p>Systems with resonant peaks in the Bode magnitude plot exhibit overshoot in the step response:</p>
+<table>
+<thead>
+<tr>
+<th>Resonant Peak <span class="arithmatex">\(M_r\)</span></th>
+<th>Approximate Overshoot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 dB</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>1.3 dB</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>2.3 dB</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>4.3 dB</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>8 dB</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p>The frequency at the resonant peak corresponds roughly to the oscillation frequency in the step response.</p>
+<h3 id="phase-and-delay">Phase and Delay</h3>
+<p>Low-frequency phase slope indicates effective time delay:</p>
+<h4 id="group-delay">Group Delay</h4>
+<p><span class="arithmatex">\(\tau_g = -\frac{d\phi}{d\omega}\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\tau_g\)</span> is the group delay</li>
+<li><span class="arithmatex">\(\phi\)</span> is the phase in radians</li>
+<li><span class="arithmatex">\(\omega\)</span> is the frequency in rad/s</li>
+</ul>
+<p>Systems with linear phase (constant group delay) preserve signal shape. Systems with nonlinear phase distort the shape of signals.</p>
+<div class="admonition quote">
+<p class="admonition-title">Gyra Moment</p>
+<p>"When my engineers look at my Bode plot, they're also seeing my step response in disguise. My resonant peak at 3 rad/s? That's why I ring at about 3 rad/s when disturbed. My -3 dB bandwidth? That tells them roughly how fast I can track commands. The frequency domain and time domain are just two languages describing me."</p>
+</div>
+<h2 id="summary-the-frequency-response-toolkit">Summary: The Frequency Response Toolkit</h2>
+<p>You now have a complete toolkit for frequency-domain analysis:</p>
+<p><strong>Core Concepts</strong>:</p>
+<ul>
+<li><strong>Frequency response</strong>: How a system responds to sinusoids at each frequency</li>
+<li><strong>Magnitude response</strong>: Amplitude scaling factor <span class="arithmatex">\(|G(j\omega)|\)</span></li>
+<li><strong>Phase response</strong>: Phase shift <span class="arithmatex">\(\angle G(j\omega)\)</span></li>
+</ul>
+<p><strong>The Bode Plot</strong>:</p>
+<ul>
+<li>Magnitude in dB vs. log frequency</li>
+<li>Phase in degrees vs. log frequency</li>
+<li>Built from asymptotic approximations of individual factors</li>
+</ul>
+<p><strong>Key Frequency Points</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Point</th>
+<th>Definition</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corner frequency <span class="arithmatex">\(\omega_c\)</span></td>
+<td>Where asymptotes intersect</td>
+<td>Transition between regions</td>
+</tr>
+<tr>
+<td>Cutoff frequency</td>
+<td>-3 dB point</td>
+<td>Bandwidth boundary</td>
+</tr>
+<tr>
+<td>Resonant frequency <span class="arithmatex">\(\omega_r\)</span></td>
+<td>Magnitude peak</td>
+<td>Maximum amplification</td>
+</tr>
+<tr>
+<td>Crossover frequency</td>
+<td>0 dB crossing</td>
+<td>Key for stability</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Building Blocks</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Magnitude Effect</th>
+<th>Phase Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constant <span class="arithmatex">\(K\)</span></td>
+<td>Vertical shift by <span class="arithmatex">\(20\log K\)</span></td>
+<td>0° (or 180° if <span class="arithmatex">\(K&lt;0\)</span>)</td>
+</tr>
+<tr>
+<td>Integrator <span class="arithmatex">\(1/s\)</span></td>
+<td>-20 dB/decade, through 0 dB at ω=1</td>
+<td>-90°</td>
+</tr>
+<tr>
+<td>Differentiator <span class="arithmatex">\(s\)</span></td>
+<td>+20 dB/decade, through 0 dB at ω=1</td>
+<td>+90°</td>
+</tr>
+<tr>
+<td>First-order pole</td>
+<td>-20 dB/decade above corner</td>
+<td>-90° phase transition</td>
+</tr>
+<tr>
+<td>First-order zero</td>
+<td>+20 dB/decade above corner</td>
+<td>+90° phase transition</td>
+</tr>
+<tr>
+<td>Second-order pole</td>
+<td>-40 dB/decade above corner, possible peak</td>
+<td>-180° phase transition</td>
+</tr>
+<tr>
+<td>Second-order zero</td>
+<td>+40 dB/decade above corner, possible dip</td>
+<td>+180° phase transition</td>
+</tr>
+<tr>
+<td>Time delay</td>
+<td>0 dB (no effect)</td>
+<td>Linear phase decrease with ω</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Filter Classifications</strong>:</p>
+<ul>
+<li><strong>Low-pass</strong>: Passes DC, attenuates high frequencies</li>
+<li><strong>High-pass</strong>: Blocks DC, passes high frequencies</li>
+<li><strong>Bandpass</strong>: Passes a frequency range, blocks outside</li>
+<li><strong>Notch</strong>: Blocks a specific frequency, passes others</li>
+</ul>
+<h2 id="connecting-to-whats-next">Connecting to What's Next</h2>
+<p>You've learned to visualize a system's frequency response through Bode plots. But the real power of frequency-domain analysis for control design lies in using these plots to assess stability margins and design controllers. In Chapter 13, we'll introduce:</p>
+<ul>
+<li><strong>Gain margin</strong>: How much can gain increase before instability?</li>
+<li><strong>Phase margin</strong>: How much additional phase lag is tolerable?</li>
+<li><strong>Nyquist stability criterion</strong>: A rigorous frequency-domain stability test</li>
+</ul>
+<p>The Bode plot already contains this stability information—you just need to know where to look. The gain margin is visible where the phase crosses -180°. The phase margin is visible where the magnitude crosses 0 dB. These connections will transform the Bode plot from a characterization tool into a design tool.</p>
+<div class="admonition quote">
+<p class="admonition-title">Helping Gyra</p>
+<p>"You've learned to read my frequency portrait. At low frequencies, I follow commands with full fidelity. At my resonant frequency, I'm dangerously responsive—small inputs cause big reactions. At high frequencies, I'm deaf and sluggish. But here's what matters most: somewhere in between, I cross from being helpful to being harmful. That crossover—where my phase margin lives—determines whether I stay upright or oscillate out of control. You'll learn to read that boundary in the next chapter."</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter has equipped you to analyze systems in the frequency domain:</p>
+<ul>
+<li>
+<p>The <strong>frequency response</strong> <span class="arithmatex">\(G(j\omega)\)</span> is obtained by substituting <span class="arithmatex">\(s = j\omega\)</span> into the transfer function, describing how sinusoids are transformed.</p>
+</li>
+<li>
+<p><strong>Magnitude response</strong> <span class="arithmatex">\(|G(j\omega)|\)</span> tells you the amplitude ratio; <strong>phase response</strong> <span class="arithmatex">\(\angle G(j\omega)\)</span> tells you the time shift.</p>
+</li>
+<li>
+<p><strong>Bode plots</strong> display magnitude in decibels and phase in degrees versus logarithmic frequency. The logarithmic scales convert multiplication to addition.</p>
+</li>
+<li>
+<p>A <strong>decade</strong> is a factor of 10 in frequency; an <strong>octave</strong> is a factor of 2. Decibels: <span class="arithmatex">\(|G|_{dB} = 20\log_{10}|G|\)</span>.</p>
+</li>
+<li>
+<p><strong>Asymptotic approximation</strong> constructs Bode plots using straight-line segments. First-order factors change slope by 20 dB/decade and phase by 90°. Second-order factors change by 40 dB/decade and 180°.</p>
+</li>
+<li>
+<p><strong>Corner frequencies</strong> mark where asymptotes change slope. At a first-order corner, the actual curve is 3 dB from the asymptotes.</p>
+</li>
+<li>
+<p><strong>Second-order factors</strong> can have resonant peaks when <span class="arithmatex">\(\zeta &lt; 0.707\)</span>. The <strong>quality factor</strong> <span class="arithmatex">\(Q = 1/(2\zeta)\)</span> measures selectivity.</p>
+</li>
+<li>
+<p><strong>Bandwidth</strong> is the -3 dB frequency range. It's inversely related to rise time: faster systems have higher bandwidth.</p>
+</li>
+<li>
+<p><strong>Filter types</strong> are classified by which frequencies they pass: low-pass (DC), high-pass (high ω), bandpass (narrow range), notch (blocks narrow range).</p>
+</li>
+<li>
+<p><strong>Time delay</strong> contributes no magnitude change but adds phase lag proportional to frequency, which is destabilizing.</p>
+</li>
+</ul>
+<details class="question">
+<summary>Self-Check: Test Your Understanding</summary>
+<p>Before moving on, try these without peeking:</p>
+<ol>
+<li>
+<p>A system has <span class="arithmatex">\(G(s) = \frac{10}{s+10}\)</span>. What is the magnitude in dB at DC? At ω = 10 rad/s? At ω = 100 rad/s?</p>
+</li>
+<li>
+<p>For a system with a pole at s = -5 and a zero at s = -50, what is the high-frequency asymptote slope? What is the low-frequency asymptote?</p>
+</li>
+<li>
+<p>A second-order system has ζ = 0.3 and ωn = 10 rad/s. Approximately what is the resonant peak magnitude?</p>
+</li>
+<li>
+<p>A first-order system has a bandwidth of 100 rad/s. Approximately what is its rise time?</p>
+</li>
+<li>
+<p>A system has magnitude 5 dB at low frequency and -15 dB at high frequency, with a sharp dip to -40 dB at ω = 60 rad/s. What type of filter is this?</p>
+</li>
+</ol>
+<p>Answers: (1) DC: 0 dB (gain = 10/10 = 1); ω = 10: -3 dB; ω = 100: -20 dB approximately. (2) High-freq: 0 dB/decade (pole and zero cancel), low-freq: 0 dB. (3) Mr ≈ 1/(2×0.3×√(1-0.09)) ≈ 1.75, so about +5 dB. (4) tr ≈ 2.2/100 = 22 ms. (5) Notch filter—passes low and high, attenuates at specific frequency.</p>
+</details>
 
 
 
 
 
 
+
+  
+  
 
 
 
