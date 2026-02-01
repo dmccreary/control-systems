@@ -15,7 +15,7 @@
         <link rel="prev" href="../prompts/generate-chapter-content/">
       
       
-        <link rel="next" href="../glossary/">
+        <link rel="next" href="../faq/">
       
       
       <link rel="icon" href="../img/favicon.ico">
@@ -563,6 +563,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq.md" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,11 +951,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-we-built-this-site.md" class="md-nav__link">
+      <a href="../how-we-built-this-site/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How we built this site
+    How We Built This Site
   </span>
   
 
@@ -969,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contact.md" class="md-nav__link">
+      <a href="../contact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1207,7 +1209,17 @@
 
 
 <h1 id="intelligent-textbook-feature-checklist">Intelligent Textbook Feature Checklist</h1>
-<p>This checklist helps Book Feature Product Managers understand what features are available in the MkDocs Material intelligent textbook ecosystem, their implementation status in this book, and the relative effort required to add each feature.</p>
+<p>This checklist helps authors and product managers understand what features are available in the MkDocs Material intelligent textbook ecosystem. Our focus is building the best
+possible level 2+ textbook with many interactive features that could be used to gather student activity events.  For each feature, you'll see whether it's implemented in this book and how much effort it takes to add.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A level 2+ textbook is one that has rich interactivity but does not store any
+personal student data.  A level 2+ textbook can be converted to a level 3
+textbook by sending event data to a learning record store (LRS) to create
+a hyper-personalized learning experience for each student.  The five levels
+of intelligent textbooks are describe in the <a href="https://dmccreary.github.io/intelligent-textbooks/">Intelligent Textbooks</a> course.</p>
+</div>
+<p>An full <strong>intelligent textbook</strong> goes beyond static text to include interactive simulations, personalized learning paths, auto-graded quizzes, and AI-generated content. This checklist tracks which of these capabilities are present in the Control Systems course for a level 2+ textbook.</p>
 <p><strong>Legend:</strong></p>
 <ul>
 <li><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"> Feature is implemented and working</li>
@@ -1220,7 +1232,9 @@
 <tr>
 <th>Level</th>
 <th>Description</th>
-<th>Typical Time</th>
+<th>Human Time</th>
+<th>With GenAI</th>
+<th>With GenAI Skills</th>
 </tr>
 </thead>
 <tbody>
@@ -1228,32 +1242,42 @@
 <td><strong>Trivial</strong></td>
 <td>Config change or copy template</td>
 <td>Minutes</td>
+<td>Seconds</td>
+<td>Seconds</td>
 </tr>
 <tr>
 <td><strong>Low</strong></td>
 <td>Single file creation with standard content</td>
 <td>Hours</td>
+<td>Minutes</td>
+<td>Seconds</td>
 </tr>
 <tr>
 <td><strong>Medium</strong></td>
 <td>Multiple files, some customization needed</td>
 <td>Day</td>
+<td>Hours</td>
+<td>Minutes</td>
 </tr>
 <tr>
 <td><strong>High</strong></td>
 <td>Significant content generation or custom code</td>
 <td>Days</td>
+<td>Hours</td>
+<td>Minutes</td>
 </tr>
 <tr>
 <td><strong>Very High</strong></td>
 <td>Complex integration, AI generation, or external tools</td>
 <td>Week+</td>
+<td>Day</td>
+<td>Hours</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="basic-features">Basic Features</h2>
-<p>These features come by default with MkDocs Material or require minimal configuration.</p>
+<p>These features come by default with MkDocs Material or require minimal configuration. MkDocs is a static site generator that turns Markdown files into a polished website, and Material is a popular theme that provides modern styling and many built-in features.</p>
 <table>
 <thead>
 <tr>
@@ -1268,19 +1292,19 @@
 <td>Navigation sidebar</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td>Default in Material theme</td>
+<td>Left-side menu showing all chapters and sections</td>
 </tr>
 <tr>
 <td>Search functionality</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td>Built-in plugin</td>
+<td>Instant search across all pages as you type</td>
 </tr>
 <tr>
 <td>Table of contents (per page)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>toc.follow</code> enabled</td>
+<td>Right-side outline of headings on current page</td>
 </tr>
 <tr>
 <td>Site title and description</td>
@@ -1322,58 +1346,58 @@
 <td>Footer navigation (prev/next)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>navigation.footer</code> enabled</td>
+<td>Previous/Next chapter links at bottom of each page</td>
 </tr>
 <tr>
 <td>Navigation expand on hover</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>navigation.expand</code> enabled</td>
+<td>Sidebar sections expand when you hover over them</td>
 </tr>
 <tr>
 <td>Back to top button</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>navigation.top</code> enabled</td>
+<td>Floating button to scroll back to page top</td>
 </tr>
 <tr>
 <td>Navigation path breadcrumbs</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>navigation.path</code> enabled</td>
+<td>Shows path like "Home &gt; Chapter 3 &gt; Feedback"</td>
 </tr>
 <tr>
 <td>Section index pages</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>navigation.indexes</code> enabled</td>
+<td>Each folder can have its own landing page</td>
 </tr>
 <tr>
 <td>License page</td>
-<td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
+<td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
 <td>Standard CC license template</td>
 </tr>
 <tr>
 <td>Contact page</td>
-<td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
+<td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
 <td>Contact form or info</td>
 </tr>
 <tr>
 <td>About page (detailed)</td>
-<td><img alt="🚧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a7.png" title=":construction:"></td>
+<td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
 <td>Exists but minimal content</td>
 </tr>
 <tr>
 <td>How We Built This Site</td>
-<td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
+<td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
 <td>Describe tools and process</td>
 </tr>
 <tr>
-<td>Copyright footer</td>
+<td>Copyright on every footer</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
 <td>CC BY-NC-SA 4.0</td>
@@ -1382,8 +1406,9 @@
 </table>
 <hr>
 <h2 id="intermediate-features">Intermediate Features</h2>
-<p>These features require plugins, extensions, or moderate configuration.</p>
+<p>These features require plugins, extensions, or moderate configuration. Plugins are add-ons that extend MkDocs functionality, while extensions enhance Markdown with special syntax for things like math equations and callout boxes.</p>
 <h3 id="content-enhancement">Content Enhancement</h3>
+<p>These features make your content more engaging and easier to read.</p>
 <table>
 <thead>
 <tr>
@@ -1398,83 +1423,84 @@
 <td>GLightBox (image zoom)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Plugin configured</td>
+<td>Click any image for lightbox popup; requires <code>mkdocs-glightbox</code> Python library and 11 lines in mkdocs.yml</td>
 </tr>
 <tr>
 <td>KaTeX equation rendering</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td><code>arithmatex</code> extension</td>
+<td>Display beautiful math equations like <span class="arithmatex">\(e^{i\pi} + 1 = 0\)</span></td>
 </tr>
 <tr>
 <td>Admonitions (callout boxes)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td>Standard extension</td>
+<td>Colored boxes for notes, warnings, tips, and examples</td>
 </tr>
 <tr>
 <td>Code blocks with copy button</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>content.code.copy</code></td>
+<td>One-click copy for all code examples</td>
 </tr>
 <tr>
 <td>Syntax highlighting with line numbers</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.highlight</code></td>
+<td>Code colored by language (Python, JavaScript, etc.)</td>
 </tr>
 <tr>
 <td>Tabbed content blocks</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.tabbed</code></td>
+<td>Switch between versions (e.g., Python vs. pseudocode)</td>
 </tr>
 <tr>
 <td>Task list checkboxes</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.tasklist</code></td>
+<td>Interactive checklists like [ ] and [x]</td>
 </tr>
 <tr>
 <td>Mark/highlight text</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.mark</code></td>
+<td>Use <code>==text==</code> syntax to highlight important phrases in yellow</td>
 </tr>
 <tr>
 <td>Strikethrough text</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.tilde</code></td>
+<td>Use <code>~~text~~</code> syntax to cross out deprecated or incorrect info</td>
 </tr>
 <tr>
 <td>Magic links (auto-linking)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.magiclink</code></td>
+<td>URLs and emails automatically become clickable</td>
 </tr>
 <tr>
 <td>Snippets (file includes)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.snippets</code></td>
+<td>Use <code>--8&lt;-- "file.md"</code> syntax to include content from other files</td>
 </tr>
 <tr>
 <td>Emoji support</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.emoji</code></td>
+<td>Use :emoji_name: shortcodes like <img alt="🚀" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f680.png" title=":rocket:"></td>
 </tr>
 <tr>
 <td>Collapsible details blocks</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td><code>pymdownx.details</code></td>
+<td>Hide/show content with expandable sections</td>
 </tr>
 </tbody>
 </table>
 <h3 id="site-wide-resources">Site-Wide Resources</h3>
+<p>These are pages and files that support the entire textbook rather than individual chapters.</p>
 <table>
 <thead>
 <tr>
@@ -1489,41 +1515,42 @@
 <td>Glossary</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>~300 terms, ISO 11179 format</td>
+<td>Searchable definitions (~300 terms) following ISO 11179 metadata standards for precise, non-circular definitions</td>
 </tr>
 <tr>
 <td>FAQ page</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>~50-100 questions</td>
+<td>Answers to common student questions (~50-100 Q&amp;As)</td>
 </tr>
 <tr>
 <td>References page</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Per-chapter or site-wide</td>
+<td>Curated bibliography with links per chapter or site-wide</td>
 </tr>
 <tr>
 <td>Custom CSS styling</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td><code>extra.css</code> exists</td>
+<td>Override theme colors, fonts, and layouts</td>
 </tr>
 <tr>
 <td>Custom JavaScript</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td><code>extra.js</code> exists</td>
+<td>Add interactivity beyond built-in features</td>
 </tr>
 <tr>
 <td>Google Analytics</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Trivial</td>
-<td>Property configured</td>
+<td>Track page views and user behavior</td>
 </tr>
 </tbody>
 </table>
 <h3 id="publishing-features">Publishing Features</h3>
+<p>These features help your textbook look professional when shared on social media or contributed to by others.</p>
 <table>
 <thead>
 <tr>
@@ -1538,32 +1565,33 @@
 <td>Social media preview cards</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Requires <code>social</code> plugin + Pillow</td>
+<td>Auto-generated images shown when sharing links on Twitter/LinkedIn/Facebook</td>
 </tr>
 <tr>
 <td>Edit page button</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Trivial</td>
-<td>Add <code>content.action.edit</code></td>
+<td>"Edit this page" link to GitHub for community contributions</td>
 </tr>
 <tr>
 <td>Social override plugin</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Custom social images per page</td>
+<td>Custom preview images for specific pages instead of auto-generated</td>
 </tr>
 <tr>
 <td>Exclude template files</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Low</td>
-<td>Add <code>exclude</code> plugin</td>
+<td>Prevent draft or template files from appearing in published site</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="advanced-features">Advanced Features</h2>
-<p>These features require significant effort, custom code, or AI assistance.</p>
+<p>These features require significant effort, custom code, or AI assistance. They're what transform a static textbook into an interactive learning experience.</p>
 <h3 id="interactive-learning">Interactive Learning</h3>
+<p>MicroSims are small, browser-based simulations that let students experiment with concepts by adjusting parameters and seeing results in real-time—no software installation required.</p>
 <table>
 <thead>
 <tr>
@@ -1578,29 +1606,30 @@
 <td>MicroSims (interactive simulations)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>High</td>
-<td>6 MicroSims created</td>
+<td>Browser-based apps for hands-on learning (6 created)</td>
 </tr>
 <tr>
 <td>MicroSim index catalog</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Card grid gallery</td>
+<td>Visual gallery with cards showing all available simulations</td>
 </tr>
 <tr>
 <td>Per-chapter quizzes</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>High</td>
-<td>Multiple choice, concept-aligned</td>
+<td>Auto-graded questions aligned to learning objectives</td>
 </tr>
 <tr>
 <td>Interactive diagrams</td>
 <td><img alt="🚧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a7.png" title=":construction:"></td>
 <td>High</td>
-<td>Some in MicroSims</td>
+<td>Clickable/draggable visuals (some embedded in MicroSims)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="learning-graph-system">Learning Graph System</h3>
+<p>A learning graph maps every concept in the course and shows which concepts depend on others. This helps students understand prerequisites and helps authors ensure topics are taught in the right order. Bloom's Taxonomy classifies learning objectives from basic recall to creative application.</p>
 <table>
 <thead>
 <tr>
@@ -1615,101 +1644,102 @@
 <td>Course description</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Bloom's taxonomy outcomes</td>
+<td>Goals and outcomes using Bloom's Taxonomy levels</td>
 </tr>
 <tr>
 <td>Course description assessment</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Quality analysis</td>
+<td>Automated quality check of course description completeness</td>
 </tr>
 <tr>
 <td>Concept list (~200-300 concepts)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>High</td>
-<td>AI-assisted extraction</td>
+<td>Every topic students need to learn, extracted with AI help</td>
 </tr>
 <tr>
 <td>Learning graph CSV</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>High</td>
-<td>Dependencies defined</td>
+<td>Spreadsheet defining which concepts depend on others</td>
 </tr>
 <tr>
 <td>Learning graph JSON</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Generated from CSV</td>
+<td>Machine-readable format for the graph viewer</td>
 </tr>
 <tr>
 <td>Learning graph viewer (vis-network)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Interactive visualization</td>
+<td>Interactive diagram where you can click and explore concepts</td>
 </tr>
 <tr>
 <td>Concept taxonomy classification</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>8 taxonomy categories</td>
+<td>Grouping concepts into 8 categories (Foundations, Math, etc.)</td>
 </tr>
 <tr>
 <td>Taxonomy distribution analysis</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Charts and statistics</td>
+<td>Charts showing balance across concept categories</td>
 </tr>
 <tr>
 <td>Quality metrics report</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Graph analysis</td>
+<td>Statistics about graph completeness and structure</td>
 </tr>
 <tr>
 <td>Book metrics</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Word counts, chapter stats</td>
+<td>Word counts, reading time, and chapter statistics</td>
 </tr>
 <tr>
 <td>Chapter metrics</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Per-chapter breakdowns</td>
+<td>Detailed stats for each chapter individually</td>
 </tr>
 <tr>
 <td>Diagram table report</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>All diagrams listed</td>
+<td>Inventory of all figures and diagrams in the book</td>
 </tr>
 <tr>
 <td>Diagram details report</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>Detailed diagram info</td>
+<td>Metadata for each diagram (Bloom level, complexity)</td>
 </tr>
 <tr>
 <td>Glossary quality report</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Low</td>
-<td>Requires glossary first</td>
+<td>Check definitions follow standards (requires glossary)</td>
 </tr>
 <tr>
 <td>FAQ quality report</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Low</td>
-<td>Requires FAQ first</td>
+<td>Check FAQ completeness (requires FAQ)</td>
 </tr>
 <tr>
 <td>FAQ coverage gaps</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Low</td>
-<td>Concept coverage analysis</td>
+<td>Find concepts not addressed in FAQ</td>
 </tr>
 </tbody>
 </table>
 <h3 id="content-generation">Content Generation</h3>
+<p>These features involve creating the actual educational content, often with AI assistance to speed up the process while maintaining quality.</p>
 <table>
 <thead>
 <tr>
@@ -1724,47 +1754,48 @@
 <td>Chapter content (16 chapters)</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Very High</td>
-<td>AI-assisted generation</td>
+<td>Full chapter text, examples, and exercises</td>
 </tr>
 <tr>
 <td>Per-chapter references</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Medium</td>
-<td>10 refs per chapter</td>
+<td>10 curated links to Wikipedia, textbooks, and papers per chapter</td>
 </tr>
 <tr>
 <td>Stories/graphic novels</td>
 <td><img alt="🚧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a7.png" title=":construction:"></td>
 <td>Very High</td>
-<td>Historical narratives</td>
+<td>Illustrated narratives about scientists and discoveries</td>
 </tr>
 <tr>
 <td>Instructor's guide</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>High</td>
-<td>Teaching resources</td>
+<td>Lesson plans, discussion questions, and teaching tips</td>
 </tr>
 <tr>
 <td>AI-generated infographics</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Very High</td>
-<td><strong>Requires separate license</strong> (OpenAI DALL-E or Google ImageFX)</td>
+<td>Visual diagrams created by DALL-E or ImageFX (<strong>requires paid license</strong>)</td>
 </tr>
 <tr>
 <td>Complex image generation</td>
 <td><img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:"></td>
 <td>Very High</td>
-<td><strong>$20+/month license cost</strong></td>
+<td>Detailed technical illustrations (<strong>$20+/month license</strong>)</td>
 </tr>
 <tr>
 <td>Sample prompts collection</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Reproducibility</td>
+<td>Saved AI prompts so content can be regenerated consistently</td>
 </tr>
 </tbody>
 </table>
 <h3 id="course-mascot-gyra">Course Mascot (Gyra)</h3>
+<p>A course mascot gives students a relatable character to follow throughout the book. Gyra is a self-balancing robot who demonstrates control concepts through her own struggles with stability.</p>
 <table>
 <thead>
 <tr>
@@ -1779,31 +1810,31 @@
 <td>Mascot specification</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Character guide in appendix</td>
+<td>Detailed personality and appearance guide</td>
 </tr>
 <tr>
 <td>Mascot logo/images</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Medium</td>
-<td>Custom artwork</td>
+<td>Custom robot artwork used in header and callouts</td>
 </tr>
 <tr>
 <td>Gyra Moments (narrative asides)</td>
 <td><img alt="🚧" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f6a7.png" title=":construction:"></td>
 <td>Low</td>
-<td>Admonition styling exists</td>
+<td>Short quotes where Gyra explains concepts from her perspective</td>
 </tr>
 <tr>
 <td>Gyra custom admonition CSS</td>
 <td><img alt="✅" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2705.png" title=":white_check_mark:"></td>
 <td>Low</td>
-<td>Pink accent, icon</td>
+<td>Special pink callout boxes with Gyra icon</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="feature-dependencies">Feature Dependencies</h2>
-<p>Some features require others to be implemented first:</p>
+<p>Some features require others to be implemented first. This diagram shows the order—you can't create quizzes until you have chapter content, and you can't have chapter content until you've defined the concepts in the learning graph.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1836,6 +1867,7 @@
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <h2 id="cost-considerations">Cost Considerations</h2>
+<p>Most intelligent textbook features use free, open-source software. The main costs are AI services for generating content and images.</p>
 <table>
 <thead>
 <tr>
@@ -1848,66 +1880,70 @@
 <tr>
 <td>MkDocs Material</td>
 <td>Free (MIT)</td>
-<td>Core framework</td>
+<td>Static site generator and theme</td>
 </tr>
 <tr>
 <td>Python dependencies</td>
 <td>Free</td>
-<td>Pillow, CairoSVG for social cards</td>
+<td>Pillow and CairoSVG for auto-generating social preview images</td>
 </tr>
 <tr>
 <td>vis-network.js</td>
 <td>Free (MIT)</td>
-<td>Learning graph viewer</td>
+<td>JavaScript library for interactive graph diagrams</td>
 </tr>
 <tr>
 <td>p5.js</td>
 <td>Free (LGPL)</td>
-<td>MicroSim framework</td>
+<td>JavaScript library for creative coding and simulations</td>
 </tr>
 <tr>
 <td>KaTeX</td>
 <td>Free (MIT)</td>
-<td>Equation rendering</td>
+<td>Fast math equation rendering in the browser</td>
 </tr>
 <tr>
 <td>AI image generation</td>
 <td><strong>$20+/month</strong></td>
-<td>OpenAI DALL-E or Google Nano/ImageFX</td>
+<td>Required for creating infographics with DALL-E or ImageFX</td>
 </tr>
 <tr>
 <td>Claude/ChatGPT for content</td>
 <td>Varies</td>
-<td>Content generation assistance</td>
+<td>Used to draft chapters, quizzes, and glossary entries</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="quick-start-adding-missing-features">Quick Start: Adding Missing Features</h2>
+<p>If you're new to this project, start with the easiest wins and work your way up. The features below are prioritized by effort-to-impact ratio.</p>
 <h3 id="highest-impact-lowest-effort">Highest Impact, Lowest Effort</h3>
+<p>These can be done in under an hour:</p>
 <ol>
-<li><strong>License page</strong> - Copy standard CC template</li>
-<li><strong>Contact page</strong> - Simple contact info</li>
-<li><strong>Edit page button</strong> - Add one line to <code>mkdocs.yml</code></li>
-<li><strong>Social media cards</strong> - Enable <code>social</code> plugin</li>
+<li><strong>License page</strong> - Copy the standard Creative Commons template so readers know how they can reuse content</li>
+<li><strong>Contact page</strong> - Add author email or feedback form for questions</li>
+<li><strong>Edit page button</strong> - One line in <code>mkdocs.yml</code> enables "Suggest an edit" links to GitHub</li>
+<li><strong>Social media cards</strong> - Auto-generate preview images when your book is shared on social media</li>
 </ol>
 <h3 id="medium-effort-high-value">Medium Effort, High Value</h3>
+<p>These use Claude Code skills to generate content in a few hours:</p>
 <ol>
-<li><strong>Glossary</strong> - Use glossary-generator skill (~300 terms)</li>
-<li><strong>FAQ</strong> - Use faq-generator skill (~50-100 questions)</li>
-<li><strong>Book metrics</strong> - Use book-metrics-generator skill</li>
-<li><strong>Per-chapter quizzes</strong> - Use quiz-generator skill</li>
+<li><strong>Glossary</strong> - Use the glossary-generator skill to create ~300 searchable definitions</li>
+<li><strong>FAQ</strong> - Use the faq-generator skill to answer ~50-100 common student questions</li>
+<li><strong>Book metrics</strong> - Use the book-metrics-generator skill to track word counts and completeness</li>
+<li><strong>Per-chapter quizzes</strong> - Use the quiz-generator skill for auto-graded practice questions</li>
 </ol>
 <h3 id="high-effort-transformative">High Effort, Transformative</h3>
+<p>These take days but significantly enhance the learning experience:</p>
 <ol>
-<li><strong>Additional MicroSims</strong> - 10-20 more simulations</li>
-<li><strong>AI-generated infographics</strong> - Requires external license</li>
-<li><strong>Stories/graphic novels</strong> - Historical scientist narratives</li>
-<li><strong>Instructor's guide</strong> - Complete teaching resource</li>
+<li><strong>Additional MicroSims</strong> - Each simulation takes 2-4 hours; aim for 10-20 total</li>
+<li><strong>AI-generated infographics</strong> - Requires paid DALL-E or ImageFX subscription</li>
+<li><strong>Stories/graphic novels</strong> - Illustrated narratives about scientists bring history alive</li>
+<li><strong>Instructor's guide</strong> - Helps teachers adopt your textbook with ready-made lesson plans</li>
 </ol>
 <hr>
 <h2 id="comparison-with-other-books">Comparison with Other Books</h2>
-<p>Based on analysis of other intelligent textbooks in the workspace:</p>
+<p>See how this textbook's features compare to other intelligent textbooks. This helps identify gaps and opportunities—for example, the Geometry course has over 100 MicroSims while this course has only 6.</p>
 <table>
 <thead>
 <tr>
@@ -2047,13 +2083,13 @@
         
         
           
-          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+          <a href="../faq/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Glossary
+                FAQ
               </div>
             </div>
             <div class="md-footer__button md-icon">
