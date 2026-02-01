@@ -1,15 +1,22 @@
 {
     "cSpell.words": [
         "Gyra",
+        "inlinehilite",
+        "JZNNKZH",
         "Kalman",
+        "katex",
         "Linearization",
         "Lyapunov",
+        "magiclink",
         "Mechatronics",
         "Microsite",
         "MIMO",
         "multivariable",
         "overcorrects",
         "overdamped",
+        "pymdownx",
+        "superfences",
+        "tasklist",
         "underdamped"
     ]
 }

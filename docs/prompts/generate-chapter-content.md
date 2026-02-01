@@ -50,6 +50,19 @@ The reading level is for a college-level course.
 When finished, write the session log to logs/ch-13.md
 
 
-14-steady-state-error-analysis
-15-pid-control-tuning
-16-compensator-design-performance
+
+
+Use the /chapter-content-generator to generate content for chapter 14.  
+Use the file at @docs/chapters/14-steady-state-error-analysis/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-14.md
+
+Use the /chapter-content-generator to generate content for chapter 15.  
+Use the file at @docs/chapters/15-pid-control-tuning/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-15.md
+
+Use the /chapter-content-generator to generate content for chapter 16.  
+Use the file at @docs/chapters/16-compensator-design-performance/index.md
+The reading level is for a college-level course.
+When finished, write the session log to logs/ch-16.md
