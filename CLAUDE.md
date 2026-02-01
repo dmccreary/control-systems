@@ -125,11 +125,27 @@ When testing with `mkdocs serve`, use the repository name in the path:
 5. **Graph viewer** (`docs/sims/graph-viewer/`) → interactive visualization using vis-network.js
 
 ### MicroSim Structure
+
+About 70% of MicroSims use the p5.js library.  When p5.js is used
+a goal is to allow it to be edited by the p5.js editor with no changes to the JavaScript file.
+
 MicroSims live in `docs/sims/<sim-name>/` with:
-- `index.md` - MkDocs page with iframe embedding
+
+#### All MicroSims Must Have These Files
+
+- `index.md` - MkDocs page with iframe embedding and lesson plan
 - `main.html` - standalone HTML file
-- `script.js` - JavaScript (vis-network, p5.js, etc.)
-- `local.css` - optional styles
+- `script.js` - JavaScript (vis-network, p5.js, etc.) - the file name is often the name of the microsim
+- `metadata.json` - JSON Dublin core fields for faceted search
+- `screenimage.png` - the file name is often the name of the MicroSim
+
+Non p5.js MicroSims:
+
+- `local.css` - optional styles (never used for p5.js)
+- `data.json` - always separate data when possible except when using p5.js
+
+Try to keep individual files smaller so they are easier to maintain.  For non-p5 MicroSims
+suggest a refactor of a main.html has a large amount of CSS, JavaScript or data is in the main.html.
 
 ### MicroSim Screenshots
 Always use `~/.local/bin/bk-capture-screenshot` to capture MicroSim screenshots for social media previews:
@@ -155,7 +171,11 @@ This script uses Chrome headless mode to render the MicroSim and saves a PNG wit
 When creating p5.js MicroSims:
 - Always call `updateCanvasSize()` as first step in `setup()` to get container width
 - Use canvas-based controls (draw buttons/sliders with `rect()`, `text()`, handle with `mousePressed()`/`mouseDragged()`)
-- Do NOT use p5.js DOM functions (`createButton()`, `createSlider()`, etc.) - they have iframe positioning issues
+- Always use the p5.js native controls such as: createSlider(0, 255) and createButton('click me')
+- Always add an "Edit with the p5.js Editor" link in the index.md after the fullscreen button:
+  ```markdown
+  [Edit the {MicroSim Name} Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/SKETCH_ID)
+  ```
 
 ## vis-network Notes
 

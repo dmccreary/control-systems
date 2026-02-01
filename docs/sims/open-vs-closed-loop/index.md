@@ -15,6 +15,8 @@ social:
 
 [Run the Open-Loop vs Closed-Loop Comparison Fullscreen](./main.html){ .md-button .md-button--primary }
 
+[Edit the Open-Loop vs Closed-Loop Comparison MicroSim Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/hTMmtgR-P)
+
 ## About This MicroSim
 
 This interactive simulation provides a side-by-side comparison of open-loop and closed-loop control systems, demonstrating the fundamental difference in how each architecture handles disturbances.
