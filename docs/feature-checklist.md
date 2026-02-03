@@ -1,17 +1,15 @@
 # Intelligent Textbook Feature Checklist
 
-This checklist helps authors and product managers understand what features are available in the MkDocs Material intelligent textbook ecosystem. Our focus is building the best
-possible level 2+ textbook with many interactive features that could be used to gather student activity events.  For each feature, you'll see whether it's implemented in this book and how much effort it takes to add.
+This checklist helps authors and product managers understand what features are available in the MkDocs Material intelligent textbook ecosystem. For each feature, you'll see whether it's implemented in this book and how much effort it takes to add.
 
 !!! note
     A level 2+ textbook is one that has rich interactivity but does not store any
-    personal student data.  A level 2+ textbook can be converted to a level 3
+    personal student data. A level 2+ textbook can be converted to a level 3
     textbook by sending event data to a learning record store (LRS) to create
-    a hyper-personalized learning experience for each student.  The five levels
-    of intelligent textbooks are describe in the [Intelligent Textbooks](https://dmccreary.github.io/intelligent-textbooks/) course.
+    a hyper-personalized learning experience for each student. The five levels
+    of intelligent textbooks are described in the [Intelligent Textbooks](https://dmccreary.github.io/intelligent-textbooks/) course.
 
-
-An full **intelligent textbook** goes beyond static text to include interactive simulations, personalized learning paths, auto-graded quizzes, and AI-generated content. This checklist tracks which of these capabilities are present in the Control Systems course for a level 2+ textbook.
+An **intelligent textbook** goes beyond static text to include interactive simulations, personalized learning paths, auto-graded quizzes, and AI-generated content. This checklist tracks which of these capabilities are present in this textbook.
 
 **Legend:**
 
@@ -22,7 +20,7 @@ An full **intelligent textbook** goes beyond static text to include interactive 
 ## Effort Levels
 
 | Level | Description | Human Time | With GenAI | With GenAI Skills |
-|-------|-------------|--------------|------------|-------------------|
+|-------|-------------|------------|------------|-------------------|
 | **Trivial** | Config change or copy template | Minutes | Seconds | Seconds |
 | **Low** | Single file creation with standard content | Hours | Minutes | Seconds |
 | **Medium** | Multiple files, some customization needed | Day | Hours | Minutes |
@@ -33,7 +31,7 @@ An full **intelligent textbook** goes beyond static text to include interactive 
 
 ## Basic Features
 
-These features come by default with MkDocs Material or require minimal configuration. MkDocs is a static site generator that turns Markdown files into a polished website, and Material is a popular theme that provides modern styling and many built-in features.
+These features come by default with MkDocs Material or require minimal configuration.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
@@ -43,25 +41,25 @@ These features come by default with MkDocs Material or require minimal configura
 | Site title and description | :white_check_mark: | Trivial | In `mkdocs.yml` |
 | Site author metadata | :white_check_mark: | Trivial | In `mkdocs.yml` |
 | GitHub repository link | :white_check_mark: | Trivial | `repo_url` configured |
-| Custom logo | :white_check_mark: | Trivial | Gyra robot logo |
-| Custom favicon | :white_check_mark: | Trivial | Custom icon |
-| Color theme (primary/accent) | :white_check_mark: | Trivial | Maroon/gold |
+| Custom logo | :white_check_mark: | Trivial | Custom logo in header |
+| Custom favicon | :white_check_mark: | Trivial | Custom icon in browser tab |
+| Color theme (primary/accent) | :white_check_mark: | Trivial | Custom color palette |
 | Footer navigation (prev/next) | :white_check_mark: | Trivial | Previous/Next chapter links at bottom of each page |
 | Navigation expand on hover | :white_check_mark: | Trivial | Sidebar sections expand when you hover over them |
 | Back to top button | :white_check_mark: | Trivial | Floating button to scroll back to page top |
 | Navigation path breadcrumbs | :white_check_mark: | Trivial | Shows path like "Home > Chapter 3 > Feedback" |
 | Section index pages | :white_check_mark: | Trivial | Each folder can have its own landing page |
-| License page | :white_check_mark: | Low | Standard CC license template |
+| License page | :x: | Low | Standard CC license template |
 | Contact page | :white_check_mark: | Low | Contact form or info |
 | About page (detailed) | :white_check_mark: | Low | Exists but minimal content |
 | How We Built This Site | :white_check_mark: | Medium | Describe tools and process |
-| Copyright on every footer | :white_check_mark: | Trivial | CC BY-NC-SA 4.0 |
+| Copyright on every footer | :white_check_mark: | Trivial | Copyright notice in footer |
 
 ---
 
 ## Intermediate Features
 
-These features require plugins, extensions, or moderate configuration. Plugins are add-ons that extend MkDocs functionality, while extensions enhance Markdown with special syntax for things like math equations and callout boxes.
+These features require plugins, extensions, or moderate configuration.
 
 ### Content Enhancement
 
@@ -69,8 +67,9 @@ These features make your content more engaging and easier to read.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| GLightBox (image zoom) | :white_check_mark: | Low | Click any image for lightbox popup; requires `mkdocs-glightbox` Python library and 11 lines in mkdocs.yml |
-| KaTeX equation rendering | :white_check_mark: | Low | Display beautiful math equations like $e^{i\pi} + 1 = 0$ |
+| GLightBox (image zoom) | :white_check_mark: | Low | Click any image for lightbox popup; requires `mkdocs-glightbox` Python library |
+| KaTeX equation rendering | :white_check_mark: | Low | Display beautiful math equations; uses `\(...\)` for inline, `$$...$$` for display |
+| MathJax equation rendering | :x: | Low | Alternative math rendering with broader LaTeX support |
 | Admonitions (callout boxes) | :white_check_mark: | Trivial | Colored boxes for notes, warnings, tips, and examples |
 | Code blocks with copy button | :white_check_mark: | Trivial | One-click copy for all code examples |
 | Syntax highlighting with line numbers | :white_check_mark: | Trivial | Code colored by language (Python, JavaScript, etc.) |
@@ -82,6 +81,7 @@ These features make your content more engaging and easier to read.
 | Snippets (file includes) | :white_check_mark: | Trivial | Use `--8<-- "file.md"` syntax to include content from other files |
 | Emoji support | :white_check_mark: | Trivial | Use :emoji_name: shortcodes like :rocket: |
 | Collapsible details blocks | :white_check_mark: | Trivial | Hide/show content with expandable sections |
+| Mermaid diagrams | :white_check_mark: | Trivial | Flowcharts, sequence diagrams from text |
 
 ### Site-Wide Resources
 
@@ -89,8 +89,8 @@ These are pages and files that support the entire textbook rather than individua
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| Glossary | :white_check_mark: | Medium | 300 terms with ISO 11179 compliant definitions |
-| FAQ page | :white_check_mark: | Medium | Answers to common student questions |
+| Glossary | :white_check_mark: | Medium | 297 terms with ISO 11179 compliant definitions |
+| FAQ page | :white_check_mark: | Medium | 69 answers to common student questions |
 | References page | :x: | Medium | Curated bibliography with links per chapter or site-wide |
 | Custom CSS styling | :white_check_mark: | Low | Override theme colors, fonts, and layouts |
 | Custom JavaScript | :white_check_mark: | Low | Add interactivity beyond built-in features |
@@ -98,85 +98,63 @@ These are pages and files that support the entire textbook rather than individua
 
 ### Publishing Features
 
-These features help your textbook look professional when shared on social media or contributed to by others.
+These features help your textbook look professional when shared on social media.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| Social media preview cards | :x: | Medium | Auto-generated images shown when sharing links on Twitter/LinkedIn/Facebook |
-| Edit page button | :x: | Trivial | "Edit this page" link to GitHub for community contributions |
-| Social override plugin | :x: | Medium | Custom preview images for specific pages instead of auto-generated |
-| Exclude template files | :x: | Low | Prevent draft or template files from appearing in published site |
+| Social media preview cards | :x: | Medium | Auto-generated images shown when sharing links |
+| Edit page button | :white_check_mark: | Trivial | "Edit this page" link to GitHub for community contributions |
 
 ---
 
 ## Advanced Features
 
-These features require significant effort, custom code, or AI assistance. They're what transform a static textbook into an interactive learning experience.
+These features require significant effort, custom code, or AI assistance.
 
 ### Interactive Learning
 
-MicroSims are small, browser-based simulations that let students experiment with concepts by adjusting parameters and seeing results in real-time—no software installation required.
+MicroSims are small, browser-based simulations that let students experiment with concepts.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| MicroSims (interactive simulations) | :white_check_mark: | High | Browser-based apps for hands-on learning (6 created) |
+| MicroSims (interactive simulations) | :white_check_mark: | High | 6 browser-based apps for hands-on learning |
 | MicroSim index catalog | :white_check_mark: | Medium | Visual gallery with cards showing all available simulations |
-| Per-chapter quizzes | :white_check_mark: | High | 10 questions per chapter aligned to learning objectives |
-| Interactive diagrams | :construction: | High | Clickable/draggable visuals (some embedded in MicroSims) |
+| Per-chapter quizzes | :white_check_mark: | High | 16 quiz files with questions aligned to learning objectives |
 
 ### Learning Graph System
 
-A learning graph maps every concept in the course and shows which concepts depend on others. This helps students understand prerequisites and helps authors ensure topics are taught in the right order. Bloom's Taxonomy classifies learning objectives from basic recall to creative application.
+A learning graph maps every concept in the course and shows which concepts depend on others.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
 | Course description | :white_check_mark: | Medium | Goals and outcomes using Bloom's Taxonomy levels |
-| Course description assessment | :white_check_mark: | Low | Automated quality check of course description completeness |
 | Concept list (~200-300 concepts) | :white_check_mark: | High | Every topic students need to learn, extracted with AI help |
 | Learning graph CSV | :white_check_mark: | High | Spreadsheet defining which concepts depend on others |
 | Learning graph JSON | :white_check_mark: | Low | Machine-readable format for the graph viewer |
 | Learning graph viewer (vis-network) | :white_check_mark: | Medium | Interactive diagram where you can click and explore concepts |
-| Concept taxonomy classification | :white_check_mark: | Medium | Grouping concepts into 8 categories (Foundations, Math, etc.) |
-| Taxonomy distribution analysis | :white_check_mark: | Low | Charts showing balance across concept categories |
+| Concept taxonomy classification | :white_check_mark: | Medium | Grouping concepts into categories |
 | Quality metrics report | :white_check_mark: | Low | Statistics about graph completeness and structure |
 | Book metrics | :x: | Medium | Word counts, reading time, and chapter statistics |
 | Chapter metrics | :x: | Medium | Detailed stats for each chapter individually |
-| Diagram table report | :x: | Medium | Inventory of all figures and diagrams in the book |
-| Diagram details report | :x: | Medium | Metadata for each diagram (Bloom level, complexity) |
-| Glossary quality report | :x: | Low | Check definitions follow standards (requires glossary) |
-| FAQ quality report | :x: | Low | Check FAQ completeness (requires FAQ) |
-| FAQ coverage gaps | :x: | Low | Find concepts not addressed in FAQ |
+| Glossary quality report | :white_check_mark: | Low | Check definitions follow standards |
+| FAQ quality report | :white_check_mark: | Low | Check FAQ completeness |
+| FAQ coverage gaps | :white_check_mark: | Low | Find concepts not addressed in FAQ |
+| Quiz generation report | :white_check_mark: | Low | Quality report for generated quizzes |
 
 ### Content Generation
 
-These features involve creating the actual educational content, often with AI assistance to speed up the process while maintaining quality.
+These features involve creating the actual educational content.
 
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
-| Chapter content (16 chapters) | :white_check_mark: | Very High | Full chapter text, examples, and exercises |
-| Per-chapter references | :x: | Medium | 10 curated links to Wikipedia, textbooks, and papers per chapter |
-| Stories/graphic novels | :construction: | Very High | Illustrated narratives about scientists and discoveries |
-| Instructor's guide | :x: | High | Lesson plans, discussion questions, and teaching tips |
-| AI-generated infographics | :x: | Very High | Visual diagrams created by DALL-E or ImageFX (**requires paid license**) |
-| Complex image generation | :x: | Very High | Detailed technical illustrations (**$20+/month license**) |
+| Chapter content | :white_check_mark: | Very High | 16 chapters with full text, examples, and exercises |
 | Sample prompts collection | :white_check_mark: | Medium | Saved AI prompts so content can be regenerated consistently |
-
-### Course Mascot (Gyra)
-
-A course mascot gives students a relatable character to follow throughout the book. Gyra is a self-balancing robot who demonstrates control concepts through her own struggles with stability.
-
-| Feature | Status | Effort | Notes |
-|---------|--------|--------|-------|
-| Mascot specification | :white_check_mark: | Medium | Detailed personality and appearance guide |
-| Mascot logo/images | :white_check_mark: | Medium | Custom robot artwork used in header and callouts |
-| Gyra Moments (narrative asides) | :construction: | Low | Short quotes where Gyra explains concepts from her perspective |
-| Gyra custom admonition CSS | :white_check_mark: | Low | Special pink callout boxes with Gyra icon |
 
 ---
 
 ## Feature Dependencies
 
-Some features require others to be implemented first. This diagram shows the order—you can't create quizzes until you have chapter content, and you can't have chapter content until you've defined the concepts in the learning graph.
+Some features require others to be implemented first.
 
 ```
 Course Description
@@ -192,7 +170,6 @@ Course Description
             └── Chapter Content
                 ├── Per-Chapter Quizzes
                 ├── Per-Chapter References
-                ├── Diagram Reports
                 └── Book/Chapter Metrics
 ```
 
@@ -200,12 +177,12 @@ Course Description
 
 ## Cost Considerations
 
-Most intelligent textbook features use free, open-source software. The main costs are AI services for generating content and images.
+Most intelligent textbook features use free, open-source software.
 
 | Feature Category | License Cost | Notes |
 |------------------|--------------|-------|
 | MkDocs Material | Free (MIT) | Static site generator and theme |
-| Python dependencies | Free | Pillow and CairoSVG for auto-generating social preview images |
+| Python dependencies | Free | Pillow and CairoSVG for social preview images |
 | vis-network.js | Free (MIT) | JavaScript library for interactive graph diagrams |
 | p5.js | Free (LGPL) | JavaScript library for creative coding and simulations |
 | KaTeX | Free (MIT) | Fast math equation rendering in the browser |
@@ -216,54 +193,36 @@ Most intelligent textbook features use free, open-source software. The main cost
 
 ## Quick Start: Adding Missing Features
 
-If you're new to this project, start with the easiest wins and work your way up. The features below are prioritized by effort-to-impact ratio.
+Start with the easiest wins and work your way up.
 
 ### Highest Impact, Lowest Effort
 
 These can be done in under an hour:
 
-1. **License page** - Copy the standard Creative Commons template so readers know how they can reuse content
-2. **Contact page** - Add author email or feedback form for questions
-3. **Edit page button** - One line in `mkdocs.yml` enables "Suggest an edit" links to GitHub
-4. **Social media cards** - Auto-generate preview images when your book is shared on social media
+1. **License page** - Copy the standard Creative Commons template
+2. **Contact page** - Add author email or feedback form
+3. **Edit page button** - One line in `mkdocs.yml` enables "Suggest an edit" links
+4. **Social media cards** - Auto-generate preview images when shared
 
 ### Medium Effort, High Value
 
-These use Claude Code skills to generate content in a few hours:
+These use Claude Code skills to generate content:
 
-1. **Glossary** - Use the glossary-generator skill to create ~300 searchable definitions
-2. **FAQ** - Use the faq-generator skill to answer ~50-100 common student questions
-3. **Book metrics** - Use the book-metrics-generator skill to track word counts and completeness
-4. **Per-chapter quizzes** - Use the quiz-generator skill for auto-graded practice questions
+1. **Glossary** - Use the glossary-generator skill to create searchable definitions
+2. **FAQ** - Use the faq-generator skill to answer common student questions
+3. **Book metrics** - Use the book-metrics-generator skill to track completeness
+4. **Per-chapter quizzes** - Use the quiz-generator skill for auto-graded practice
 
 ### High Effort, Transformative
 
-These take days but significantly enhance the learning experience:
+These take more time but significantly enhance the learning experience:
 
 1. **Additional MicroSims** - Each simulation takes 2-4 hours; aim for 10-20 total
-2. **AI-generated infographics** - Requires paid DALL-E or ImageFX subscription
-3. **Stories/graphic novels** - Illustrated narratives about scientists bring history alive
-4. **Instructor's guide** - Helps teachers adopt your textbook with ready-made lesson plans
+2. **AI-generated infographics** - Requires paid image generation subscription
+3. **Instructor's guide** - Helps teachers adopt your textbook
 
 ---
 
-## Comparison with Other Books
-
-See how this textbook's features compare to other intelligent textbooks. This helps identify gaps and opportunities—for example, the Geometry course has over 100 MicroSims while this course has only 6.
-
-| Feature | Control Systems | Geometry | Signal Processing | Systems Thinking |
-|---------|-----------------|----------|-------------------|------------------|
-| Chapters | 16 | 12 | 15 | 14 |
-| MicroSims | 6 | 100+ | 30+ | 15+ |
-| Glossary | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| FAQ | :x: | :white_check_mark: | :white_check_mark: | :x: |
-| Quizzes | :x: | :x: | :white_check_mark: | :x: |
-| Social cards | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Stories | :construction: | :x: | :white_check_mark: | :white_check_mark: |
-| Learning graph | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
-| KaTeX/MathJax | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
-| GLightBox | :white_check_mark: | :x: | :x: | :x: |
-
----
+*Generated by book-installer feature-checklist-generator*
 
 *Last updated: February 2026*
